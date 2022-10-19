@@ -1,0 +1,2 @@
+./input `python -c "print 'A '*62 + '\x00' + '\x20\x0a\x0d' + 'A '*36 "`
+r `python -c "print 'A '*62 + '\x00' + '\x20\x0a\x0d' + 'A '*36 "`

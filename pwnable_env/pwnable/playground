@@ -1,0 +1,7 @@
+1.toilet -f mono12 -F metal welcome
+2.cmatrix
+3.while true; do echo "$(date '+%D %T' | toilet -f term -F border --gay)"; sleep 1; done
+4.yes I Love Linux
+5.fortune
+6.sl
+7.aafire
