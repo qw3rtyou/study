@@ -1,1 +1,4 @@
-# goormide_reversing_pwnable
+# Repository for Study!!
+
+# I'm interested in..
+# python, c, web, security, algorithm
