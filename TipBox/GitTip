@@ -32,14 +32,17 @@ git merge --abort		merge 취소(이전상태로 돌아감)
 git remote rm origin		리모트 origin 제거
 git fetch 			git pull이랑 비슷하지만 바로 머지하지 않음
 git config --global core.editor vim		기본 커밋 텍스트에디터를 vim으로 전환
-
+git blame 대상파일			대상 파일을 언제 커밋했는지 확인함
+git show 커밋아이디			작성자가 누군지 확인함
+git revert 커밋아이디		remote에 올라간 커밋을 취소
+git revert 커밋아이디..커밋아이디 		여러 커밋을 취소
 
 ***git_init***
 git remote add origin 레포지토리주소		리모트 레포지토리를 origin이라는
 이름으로 등록
 git push -u origin master(main)		로컬 레포지토리에있는 master 브랜치의 내용을 
 origin이라는 리모트 레포지토리로 추적+연결+전송	 tracking connection
-
+git config --global core.editor vim		기본 커밋 텍스트에디터를 vim으로 전환
 
 ***tip***
 1. merge 중 충돌 해결하는 방법
@@ -59,7 +62,3 @@ push가 안되면 일단 pull하고 충돌 해결
 git pull origin main --allow-unrelated-histories
 
 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
-
-python 컨테이너 ping ifconfig 설치
-sudo apt-get install iputils-ping
-sudo apt-get install net-tools
