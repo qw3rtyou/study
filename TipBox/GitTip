@@ -36,6 +36,18 @@ git blame 대상파일			대상 파일을 언제 커밋했는지 확인함
 git show 커밋아이디			작성자가 누군지 확인함
 git revert 커밋아이디		remote에 올라간 커밋을 취소
 git revert 커밋아이디..커밋아이디 		여러 커밋을 취소
+git reset 이전커밋아이디		특점 커밋으로 초기화 이전커밋으로 돌아간다고 사라지는 건 아님
+git reflog			이제까지 head가 가리켰던 것들을 로그로 확인
+git config alias.visual 'log --pretty=oneline --all --graph' 		git visual 설정
+git rebase --continue		merge했다는 정보보다 깔끔한 상태가 중요하다면 사용
+git stash 				working directory에 있는 임시 작업내용을 저장
+git stash list			저장된 임시작업 내용(stack) 확인
+git stash apply			가장 최근 스택 적용(최근 임시 작업 내용 복구+다른 브랜치에 적용 가능)
+git stash apply 특정아이디		특정 스택 적용
+git stash drop			가장 최근 스택 삭제
+git stash drop 특정아이디		특정 스택 삭제
+git stash pop 			스택 적용 후 삭제
+git cherry-pick 특정아이디		원하는 작업이 있는 커밋의 내용만 가져옴
 
 ***git_init***
 git remote add origin 레포지토리주소		리모트 레포지토리를 origin이라는
@@ -60,5 +72,10 @@ push가 안되면 일단 pull하고 충돌 해결
 5. 신규 프로젝트 push, pull 불가(fatal: refusing to merge unrelated histories)
 너무 생뚱맞아서 merge하기 싫다고 하는거임
 git pull origin main --allow-unrelated-histories
+6. 이전 여러 커밋을 하나의 커밋으로 만들고 싶음
+하나로 만들고 싶은 시작과 끝으로 기준 git reset --mixed/soft로 working directory는 
+살리고 커밋 이동 그 후 커밋하면 이전꺼 다 날라감
+7. pull push 할때 브랜치단위로만 날라감
+원래 브랜치 단위로 날라가는게 맞음 근데 git push --all하면 다 날라간다곤함
 
 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
