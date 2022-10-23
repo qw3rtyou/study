@@ -1,6 +1,0 @@
-
-가상환경 사용하고 싶다 virtualenv --python=usr/bin/python경로 가상환경이름
-가상환경 내부의 버전으로 파이썬 사용하고 싶다 source activate경로
-가상환경 글로벌 버전으로 변경하고 싶다 deactivate
-가상환경 버전공유하고 싶다 pip freeze > requirements.txt
-가상환경 공유받고 싶다 pip install -r ./requirements.txt

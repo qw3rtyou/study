@@ -1,0 +1,6 @@
+*리눅스 종류와 비트확인*
+#cat /etc/issue
+Ubuntu 18.04.6 LTS \n \l
+#getconf LONG_BIT
+64
+

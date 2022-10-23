@@ -1,3 +1,7 @@
+***주의!!***
+python3 커맨드를 사용하거나
+python3.6 혹은 2.7을 사용해야지만 pwn모듈 import가능
+
 from pwn import *
 pwntools 모듈을 사용하려면 무조건 포함해줘야 하는 코드이다.
 
