@@ -1,0 +1,65 @@
+service mysql start		mysql 서비스 실행
+
+***CMD***
+CREATE DATABASE 데이터베이스이름;		데이터베이스 생성
+CREATE DATABASE IF NOT EXISTS 데이터베이스이름;		중복하지 않게 데이터베이스 생성
+USE course_rating; 		데이터베이스 지정
+SET time_zone='UTC 기준 +-값';			mysql 시간대 변경
+
+***TIP***
+schema랑 database랑 거의 비슷함
+USE를 사용하여 database를 지정했더라도 SELECT * FROM b.banana이런식으로 다른 데이터베이스
+접근 가능
+
+***속성***
+PK	primary key
+NN	not null
+AL	auto increment
+
+***데이터 타입***
+1. Numeric types
+	1) 정수형
+		TINYINT (SIGNED/UNSIGNED)
+		SMALLINT
+		MEDIUMINT
+		INT
+		BIGINT
+	2) 실수형
+		DECIMAL(M,D)	M은 전체 자리수 D는 소수점 뒤에 있는 자리수
+		DECIMAL 대신에 DEC,NUMERIC,FIXED 사용가능
+		FLOAT
+		DOUBLE
+2. Date and Time types
+	1) DATE		날짜를 저장 		2020-03-26
+	2) DATETIME		날짜와 시간을 저장		2020-03-26-09:30:27
+	3) TIMESTAMP	날짜와 시간을 저장		2020-03-26-09:30:27
+	DATETIME과는 다르게 타임 존 정보도 담고있음
+	4) TIME		시간을 저장 		09:27:31
+3. Stirng types
+	1) CHAR(N)		N은 글자수		고정 길이 타입->고정적으로 용량을 먹음 대신 그외의 추가 비용 X
+	2) VARCHAR(N)	N은 글자수		 가변 길이 타입->입력한 값에 따라 유동적으로 용량을 최적화함
+	3) TEXT			길이가 긴 문자를 저장
+	4) MEDIUMTEXT
+	5) LONGTEXT
+	
+***CREATE TABLE***
+CREATE TABLE `데이터베이스이름`.`테이블이름`(
+	`컬럼이름` `데이터타입` `속성`,
+	`컬럼이름` `데이터타입` `속성`,
+	`컬럼이름` `데이터타입` `속성`
+);
+백틱(`)을 사용해야 객체들을 표현할 수 있음 '"는 문자열 표현할 때만 사용
+
+아래 두 개의 테이블 생성 코드는 같음
+CREATE TABLE `course_rating`.`student`(
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(20) NULL,
+	PRIMARY KEY(`id`));
+
+CREATE TABLE `course_rating`.`student`(
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`name` VARCHAR(20) NULL);
+
+
+	
+	

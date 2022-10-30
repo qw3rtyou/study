@@ -1,24 +1,30 @@
-k=int(input())
+import sys
+input=sys.stdin.readline
 
-direction=[]
-distance=[]
+multi_value=int(input())
+
+movement=[]
+target=[(1,3),(4,1),(2,4),(3,2)]
+prev_move=(0,0)
+target_area=0
 
 for _ in range(6):
-    d,l=map(int,input().split())
-    direction.append(d)
-    distance.append(l)
+	movement.append(tuple(map(int,input().split())))
+    
+prev_move=movement[-1]
+		
+for i in range(6):
+	if target_area!=0:
+		break
+	for target_move in target:
+		if (prev_move[0],movement[i][0])==target_move:
+			target_area=prev_move[1]*movement[i][1]
+			break
+		prev_move=movement[i]
 
-max_index_A=distance.index(max([distance[i] for i in (1,3,5)]))
-max_index_B=distance.index(max([distance[i] for i in (0,2,4)]))
+a=max([movement[i][1] for i in range(0,6,2)])
+b=max([movement[i][1] for i in range(1,6,2)])
 
-a=distance[max_index_A]
-b=distance[max_index_B]
-if (direction[max_index_A]+direction[max_index_B])%2==0:
-    c=distance[max_index_A-4]
-    d=distance[max_index_B-2]
-else:
-    c=distance[max_index_A-2]
-    d=distance[max_index_B-4]
+ans=multi_value*(a*b-target_area)
 
-print(a,b,c,d)
-print(k*(a*b-c*d))
+print(ans)
