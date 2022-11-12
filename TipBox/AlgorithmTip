@@ -2,34 +2,7 @@
 import sys
 sys.stdin.readline()
 
-
-***다차원 리스트 정렬***
-list.sort()
-list=list.sorted()
-
-1. 비교하는 키함수를 만들어서 정렬
-from functools import cmp_to_key
-
-def cmp(a,b):
-    if a[0] == b[0]:
-        return a[1] < b[1]
-    else:
-        return a[0] < b[0]
-	
-list=[[1,2][2,3][3,5][1,4]]
-
-list=sorted(list,key=cmp_to_key(cmp))
-
-2. lambda함수 사용
-list=sorted(list,key=lambda x: (x[0], x[1]))
-list=sorted(list,key=lambda x: (x[0], -x[1]))	이러면 내림차순인데 -연산자가 안된는
-자료형이면 불가능
-
-
-***map(),split()***
-
 ***그래프구현***
-
 
 ***최대공약수, 최소공배수 최적화(유클리드 호제법)***
 1. 최대공약수(GCD)
@@ -41,4 +14,6 @@ while 나머지가 0이 될때까지
 a*b/(최대공약수)
 
 xref:백준2981
+
+
 

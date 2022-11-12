@@ -1,35 +1,28 @@
 import sys
 input=sys.stdin.readline
 
-cache={}
-
 def factorial(n):
-    tmp=1
-    for i in range(1,n+1):
-        tmp*=i
-    
+    tmp=[0,0]
+    for i in range(30):
+        for j in range(13):
+            for k in range(1,n):
+                if 2**i*5**j*k<=n and k%5!=0 and k%2!=0:
+                    #print(i,j,k,2**i*5**j*k)
+                    tmp[0]+=i
+                    tmp[1]+=j
+                
     return tmp
-
-# def factorial(n):
-#     if n in cache:
-#         return cache[n]
-    
-#     elif n<2:
-#         return 1
-    
-#     else:
-#         return n*factorial(n-1)
     
 n,m=map(int,input().split())
 
-data=str(factorial(n)//factorial(m)//factorial(n-m))
-count=0
-print(data)
+a=factorial(n)
+b=factorial(m)
+c=factorial(n-m)
 
-for i in range(len(data)-1,0,-1):
-    if data[i]=='0':
-        count+=1
-    else:
-        break
+#print(a,b,c)
+
+data=(a[0]-b[0]-c[0],a[1]-b[1]-c[1])
+
+ans=min(data)
         
-print(count)
+print(ans)
