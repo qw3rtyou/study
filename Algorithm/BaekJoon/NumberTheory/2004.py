@@ -1,28 +1,41 @@
 import sys
+from collections import defaultdict
+
 input=sys.stdin.readline
 
-def factorial(n):
-    tmp=[0,0]
-    for i in range(30):
-        for j in range(13):
-            for k in range(1,n):
-                if 2**i*5**j*k<=n and k%5!=0 and k%2!=0:
-                    #print(i,j,k,2**i*5**j*k)
-                    tmp[0]+=i
-                    tmp[1]+=j
-                
-    return tmp
-    
+cache=defaultdict(int)
+
+def combination(n,m):
+    if m==1:
+        return n
+    elif (n-m)==1:
+        return n
+    elif m==0:
+        return 1
+    elif n-m==0:
+        return 1
+    elif cache[(n,m)]:
+        return cache[(n,m)]
+    else:
+        return combination(n-1,m)+combination((n-1),m-1)
+	
 n,m=map(int,input().split())
 
-a=factorial(n)
-b=factorial(m)
-c=factorial(n-m)
+print(combination(n,m))
 
-#print(a,b,c)
+# def factorial(n):
+    
+    
+# n,m=map(int,input().split())
 
-data=(a[0]-b[0]-c[0],a[1]-b[1]-c[1])
+# a=factorial(n)
+# b=factorial(m)
+# c=factorial(n-m)
 
-ans=min(data)
+# #print(a,b,c)
+
+# data=(a[0]-b[0]-c[0],a[1]-b[1]-c[1])
+
+# ans=min(data)
         
-print(ans)
+# print(ans)
