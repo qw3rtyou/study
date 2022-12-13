@@ -36,6 +36,7 @@
 ***재귀제한하기***
 	sys.setrecursionlimit(10**8)
 
+
 ***그래프구현***
 
 
@@ -56,3 +57,39 @@
 	라고 하면 한 줄이 "dummy"가 되는 걸 확인할 수 있다.
 	
 	
+***dict.items()***
+	dict에서 사용하는 메소드 items()은 defaultdict에서도 사용가능하다.
+	그냥 dict을 사용하여 접근하는 것과 dict.items()을 사용해 접근하는 것에는
+	분명한 차이가 있다
+	일반 dict로 key,value를 접근하고 싶다면 별도의 함수를 사용해야한다
+	
+	Dictionary1 = { 'A': 'Geeks', 'B': 4, 'C': 'Geeks' }
+	Dictionary1.values()
+	>>>dict_values(['Geeks', 4, 'Geeks'])
+	
+	그러나 dict.items()는 key와 value를 투퓰로 묶인 list를 반환해준다.
+	
+	Dictionary1.items()
+	>>>dict_items([('A', 'Geeks'), ('B', 4), ('C', 'Geeks')])
+
+
+***파이썬 내장함수 시간복잡도***
+Operation			Average Case	Amortized Worst Case
+Copy				O(n)			O(n)
+Append[1]			O(1)			O(1)
+Pop last			O(1)			O(1)
+Pop intermediate[2]	O(n)			O(n)
+Insert				O(n)			O(n)
+Get Item			O(1)			O(1)
+Set Item			O(1)			O(1)
+Delete Item			O(n)			O(n)
+Iteration			O(n)			O(n)
+Get Slice			O(k)			O(k)
+Del Slice			O(n)			O(n)
+Set Slice			O(k+n)			O(k+n)
+Extend[1]			O(k)			O(k)
+Sort				O(n log n)		O(n log n)
+Multiply			O(nk)			O(nk)
+x in s				O(n)	
+min(s), max(s)		O(n)	
+Get Length			O(1)			O(1)
