@@ -1,2 +1,323 @@
-***매직 메소드***
-***메서드 오버라이딩? 오버로딩?***
+***클래스, 인스턴스, 객체***
+	클래스는 틀
+	객체는 틀에서 나온 물건
+	인스텐스는 객체랑 비슷하지만 어감이 다름
+	클래스로 인스턴스를 만듬이라는 문장이
+	클래스로 객체를 만듬이라는 문장보다 자연스러움
+	인스턴스는 클래스와의 관계를 나타낼때 많이 사용하는 반면
+	객체는 그냥 그자체로의 의미로 많이 사용한다고 함
+
+
+***인스턴스 변수***
+	인스턴스 이름.속성이름(인스턴스 변수)=속성에 넣을 값
+	class에서 미리 정의한 내용이 아닌 것도 class 밖에서 정의해서 사용할 수 있음
+	
+	
+***인스턴스 메소드***
+	class User:
+		def hello(some_user):
+			print("hello {}!".format(some_user.name))
+	
+	이렇게 클래스를 정의했을 때,
+	
+		User.hello(user1)
+		user1.hello()
+		
+	이 둘은 같은 의미임
+	왜냐하면 클래스에서 메소드를 호출한 것과 인스턴스에서 메소드를 호출한 것이
+	차이가 있는데, 인스턴스에서 메소드를 호출하면 해당 인스턴스가
+	가장 첫번째 인자로 자동으로 전달되기 때문이다.
+	
+	이때 인스턴스 메소드 첫번째 인자 그러니까 위에 예시에서 some_user는 self로
+	쓰는 것이 파이썬 세계에서 권장된다.
+	
+	class User:
+		def hello(self):
+			print("hello {}!".format(self.name))
+		
+	
+***매직 메소드(특수 메소드)***
+	특정 상황에서 자동으로 호출되는 메소드
+	던더 메소드라고도 함
+	
+	__init__()
+		인스턴스가 생성될 때 호출됨
+		인스턴스 생성과 초기화를 한 번에 할 수 있음
+		
+	__str__()
+		기본적으로 객체를 출력하면 그 객체의 클래스와 그 객체가 저장된
+		메모리 주소가 출력된다.
+		던더str은 객체를 출력했을때 원하는 문자열을 출력하게 해준다.
+		원하는 문자열을 매개변수로 받아서 리턴해주면 된다.
+		
+***클래스 변수***
+	같은 클래스의 인스턴스가 공유하는 변수
+	
+		class User:
+			count=0		#클래스 변수
+			
+			def __init__(self,name,email):
+				self.name=name
+				self.email=email
+				
+				User.count+=1
+				
+			def hello(some_user):
+				print("hello {}!".format(some_user.name))
+				
+	클래스 변수의 값을 접근(변경)할 때
+		인스턴스.변수이름 으로 하든
+		클래스.변수이름 으로 하든
+		접근은 된다.
+		그러나 인스턴스 내의 클래스 변수와 같은 이름으로 하는 인스턴스 변수가 있다면
+		인스턴스.변수이름 으로 접근했을 때 클래스 변수가 아닌 인스턴스 변수로 접근한다.
+		따라서 클래스 변수를 접근 혹은 변경할 때 꼭 클래스.변수 이름으로 접근 해야한다.
+	
+***데코레이터***
+	함수를 꾸며주는 장치? 기존 함수에 새로운 기능을 추가시켜주는 무언가..
+	
+		def print_hello():
+			print("hello")
+
+		def add_print_to(original):		#데코레이터 함수
+			def wrapper():
+				print("start")
+				original()
+				print("end")
+			return wrapper
+
+		add_print_to(print_hello)	#아무것도 출력되지 않음
+
+		add_print_to(print_hello)()	#start\n hello\n end\n
+
+		print_hello=add_print_to(print_hello)
+		print_hello() 		#start\n hello\n end\n
+	
+	@를 이용해서 간단하게 데코레이터 사용하기
+	
+		def add_print_to(original):		#데코레이터 함수
+			def wrapper():
+				print("start")
+				original()
+				print("end")
+				
+		@add_print_to		#데코레이터
+		def print_hello():
+			print("hello")
+			return wrapper
+			
+		print_hello()		#start\n hello\n end\n
+	
+***클래스 메소드***
+	인스턴스 변수를 다루기 위한 메소드
+	
+		class User:
+				count=0		#클래스 변수
+
+				def __init__(self,name,email):
+					self.name=name
+					self.email=email
+
+					User.count+=1
+
+				def hello(some_user):
+					print("hello {}!".format(some_user.name))
+
+				@classmethod	#데코레이터
+				def number_of_users(cls):
+					return cls.count	#User.count랑 같음
+
+***인스턴스 메소드와 클래스 메소드의 사용***
+	매개변수가 자동으로 전달되는 이유는 데코레이터를 이용했기 때문
+		User.say_hello(user1)
+		user1.say_hello()
+		User.number_of_users()
+		user1.number_of_users()
+	
+	두가지 메소드 구분해서 사용하기
+		인스턴스 변수가 사용됐다면 인스턴스 메소드를 사용하고
+		클래스 변수가 사용됐다면 클래스 메소드를 사용하면 됨
+		둘다 있다면 인스턴스 메소드를 사용함 왜냐하면 인스턴스 메소드는
+		인스턴스 변수, 클래스 변수 모두 참조 가능하지만 반대는 인스턴스 변수를 못함
+		만약 둘다 없다면 정적 메소드를 사용하면 된다
+		
+	기본적으로 함수를 선언하면 인스턴스 메소드, 
+	데코레이터를 통해 @classmethod를 사용하면 클래스 메소드
+	
+
+***정적 메소드***
+	인스턴스 변수, 클래스 변수 모두 사용하지 않으면 정적 메소드로 선언하면 된다.
+	좀 더 직관적으로 말하면, 속성 없이 행동만 하는 객체.
+		
+		User.staticmethod()		#둘 다 사용 가능
+		user1.staticmethod()
+	
+	
+***파이썬은 순수 객체 지향 언어***
+	print(type(2))
+	print(type("asdf"))
+	print(type([]))
+	print(type({}))
+	print(type(()))
+	print(type(print_hello))
+	
+	결과를 출력해 보면 파이썬에 흔히 사용하는 문법들은 모두 class로 정의되어 있음을
+	알 수 있다.
+	파이썬은 모든 요소가 객체이기 때문이다.
+	
+	
+***추상화***
+	프로그래머들이 특정 코드를 사용할 때 필수적인 정보를 제외한 세부사항을 가리는 것
+	
+		ex) 리스트를 사용할 때 어떤 동작이 일어나는 지 난 아직도 모른다.
+
+
+***문서화(docstring)***
+	documentation string	문서화 문자열
+	아무리 클래스, 메소드, 변수 등의 이름을 잘지어도 이해하는데 한계가 있다.
+	직관적인 이해를 돕기 위해 코드 내의 코드의 설명을 적어 놓는 것
+	클래스 메소드 아래에다가 큰따음표 3개 사이에 원하는 주석을 달면 됨
+	
+		class User:
+			"""유저 클래스"""
+			def hello(some_user):
+				"""인사말을 출력하는 메소드"""
+				print("hello {}!".format(some_user.name))
+				
+	이렇게 docstring을 해놓으면 장점이 하나 더 있다.
+		
+		help(User)
+		
+	이런 식으로 help의 인자로 넘기면 요약된 형태로 class를 한 눈에 확인 할 수 있다.
+	
+	아래는 google docstring 이다.
+
+		def find_suggestion_videos(self, number_of_suggestions=5)
+
+		"""유저에게 추천할 영상을 찾아준다
+		Parameters:
+		  number_of_suggestions (int): 추천하고 싶은 영상 수
+			(기본값은 5)
+
+		Returns:
+		  list: 추천할 영상 주소가 담긴 리스트
+		"""
+	
+
+***type hinting***
+	파이썬은 동적타입언어임 즉,변수의 타입이 정해져있지 않음
+	파이썬은 python 3.5부터 이러한 문제를 해결하기 위해 type hinting을 만듬
+	각종 변수, 파라미터, 리턴값 등의 타입을 정해줄 수 있음
+
+		class User:
+			count: int=0
+
+			def __init__(self,name: str,email: str)->None:
+				self.name=name
+				self.email=email
+
+
+***캡슐화***
+	객체의 일부 구현 내용에 대한 외부로부터의 직접적인 액세스를 차단하는 것
+	객체의 속성과 그것을 사용하는 행동을 하나로 묶는 것
+	언더바 2개로 숨기고 싶은 변수나 메소드를 설정 할 수 있음
+	변수를 직접 사용하는 부분을 최소화해야 유지보수하기 쉬워짐
+	
+		class User:
+			count=0
+
+			def __init__(self,name,email):
+				self.name=name
+				self.email=email
+				self.__pw=pw
+				
+			def auth(self, input):
+				return self.__pw==input
+				
+			def __show_pw(self):
+				return self.__pw
+				
+		assert(User.__pw)		#attribute 에러
+		assert(User.__show_pw())	#attribute 에러
+		
+	이런식으로 __로 변수를 숨기면 클래스 외부에서 액세스가 불가능 해진다.
+	이 문제를 해결하려면 변수를 액세스하는 메소드를 만들면 된다.
+	
+		class User:
+			count=0
+
+			def __init__(self,name,email):
+				self.name=name
+				self.email=email
+				self.__pw=pw
+				
+			def auth(self, input):
+				return self.__pw==input
+				
+			def get_pw(self):
+				return self.__pw
+				
+			def set_pw(self, new_pw):
+				self.__pw=new_pw
+				
+	특정 변수를 받아오는 메소드를 getter메소드 설정하는 메소드를 setter메소드
+	
+	파이썬에서의 캡슐화 문화
+		파이썬에서는 언더바 하나로 클래스 내부에 있는 변수의 접근을 막는 경우가
+		많음.
+		언더바 2개(네임 맹글러)를 사용하면 실수로 인한 접근을 막을 수 있다는 장점이
+		있고, 네임 맹글러는 접근을 거의 막는다. 
+		완전히 막지는 못하는데, _클래스명__변수 이런 식으로 이름이 바뀌는 것 
+		뿐이지 실제로 막지는 못하기 때문이다.
+		그래서 언더바 하나로 막는데, 언더바 하나도 강제적으로 막지 못하지만
+		경고를 띄워서 다른 개발자가 경고를 지키지 않고 만들었을 때 생기는 문제를
+		책임지게 만들 수 있다.
+		
+	데코레이터를 사용한 캡슐화
+		캡슐화를 get_pw 이런식으로 하는 것도 괜찮지만
+		데코레이터를 사용하면 코드 수정을 최대한 줄일 수 있다.
+		
+			class User:
+				count=0
+
+				def __init__(self,name,email,pw):
+					self.name=name
+					self.email=email
+					self._pw=pw
+
+				def auth(self, input):
+					return self._pw==input
+
+				@property
+				def pw(self):
+					return self._pw
+
+				@pw.setter
+				def pw(self,value):
+					self._pw=value
+
+			Tom=User('tom','hammer@asdf.com','secret')
+
+			print(Tom.pw)
+
+			Tom.pw='I feel lucky'
+
+			print(Tom.pw)
+
+		@property 데코레이터를 사용하면 getter 메소드를 사용하는 것과
+		동일하고, @인스턴스변수.setter 데코레이터를 사용하면 setter메소드를 
+		사용하는 것과 동일하다.
+		주의해야할 점은 위에서 인스턴스 변수라고 표현 했지만 사실 인스턴스 변수가
+		아니라는 점이다. 왜냐하면 실제 인스턴스 변수는 _pw이고 pw()라는 메소드를
+		호출하는 구조기 때문이다.
+		
+
+***메서드 오버라이딩 오버로딩***
+
+
+***TIPS***
+	class 이름은 항상 대문자로 시작
+	객체는 속성(변수)과 행동(메소드)의 조합
+	이름은 
+
+	

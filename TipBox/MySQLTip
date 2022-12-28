@@ -505,6 +505,7 @@ service mysql start		mysql 서비스 실행
 	
 	3. 한 테이블의 컬럼 구조 파악
 		DESCRIBE table_name;
+		DESC table_name;
 
 
 ***데이터베이스 지정***

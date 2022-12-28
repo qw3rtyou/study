@@ -78,4 +78,4 @@ git pull origin main --allow-unrelated-histories
 7. pull push 할때 브랜치단위로만 날라감
 원래 브랜치 단위로 날라가는게 맞음 근데 git push --all하면 다 날라간다곤함
 
-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
+https://github.com/qwerty-tommy/goorm-Box

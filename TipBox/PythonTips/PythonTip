@@ -1,64 +1,74 @@
-***print 함수***
-1. 형식지정자 이용
-	(1) 소수점 표현
-		print('%.nf' %number) number의 소수점 n+1번째 자릿수에서 반올림해서 소수점 n번째 자릿수까지 출력
-		ex) print('%.2f' %0.256)
-		
-	(2) 일반 변수
-		print("현재 위치는 %d 입니다."%(cur))
+***print()***
+	1. 형식지정자 이용
+		(1) 소수점 표현
+			print('%.nf' %number) number의 소수점 n+1번째 자릿수에서 반올림해서 소수점 n번째 자릿수까지 출력
+			ex) print('%.2f' %0.256)
 
+		(2) 일반 변수
+			print("현재 위치는 %d 입니다."%(cur))
+
+		(3)string.format()
+			print("hello {}!".format(some_user.name))
+	
+	2. 매개변수 end
+		기본적으로 print() 줄바꿈이 들어있다.
+		
+			print("줄바꿈은 싫어!", end='')
+			
+		이러면 안할 수 있다	
+			
 
 ***다차원 리스트 정렬***
-0. 기본적인 정렬
-	list.sort()
-	list=list.sorted()
+	0. 기본적인 정렬
+		list.sort()
+		list=list.sorted()
 
-1. 비교하는 키함수를 만들어서 정렬
-	from functools import cmp_to_key
+	1. 비교하는 키함수를 만들어서 정렬
+		from functools import cmp_to_key
 
-	def cmp(a,b):
-		if a[0] == b[0]:
-			return a[1] < b[1]
-		else:
-			return a[0] < b[0]
+		def cmp(a,b):
+			if a[0] == b[0]:
+				return a[1] < b[1]
+			else:
+				return a[0] < b[0]
 
-	list=[[1,2][2,3][3,5][1,4]]
+		list=[[1,2][2,3][3,5][1,4]]
 
-	list=sorted(list,key=cmp_to_key(cmp))
+		list=sorted(list,key=cmp_to_key(cmp))
 
-2. lambda함수 사용
-	list=sorted(list,key=lambda x: (x[0], x[1]))
-	list=sorted(list,key=lambda x: (x[0], -x[1]))	
-	이러면 내림차순인데 -연산자가 안되는 자료형이면 불가능
+	2. lambda함수 사용
+		list=sorted(list,key=lambda x: (x[0], x[1]))
+		list=sorted(list,key=lambda x: (x[0], -x[1]))	
+		이러면 내림차순인데 -연산자가 안되는 자료형이면 불가능
 
 
 ***defualtdict***
-주어지는 키가 없다면 오류를 일으키는 기존 딕셔너리와는 달리 자동으로 생성하고
-지정한 비어있는 자료형을 바로 할당한다.
+	주어지는 키가 없다면 오류를 일으키는 기존 딕셔너리와는 달리 자동으로 생성하고
+	지정한 비어있는 자료형을 바로 할당한다.
 
-from collections import defaultdict
-graph = defaultdict(list)
-for i in range(n):
-    s, e = map(int, input().split())
-    graph[s].append(e)
-    graph[e].append(s)
+	from collections import defaultdict
+	graph = defaultdict(list)
+	for i in range(n):
+		s, e = map(int, input().split())
+		graph[s].append(e)
+		graph[e].append(s)
 	
 
 ***lambda 함수***
-런타임 중 사용하다 버리는 익명함수
-리턴문x
-변수에 할당할 필요x
+	런타임 중 사용하다 버리는 익명함수
+	리턴문x
+	변수에 할당할 필요x
 
-	1. 형태
-		g=lambda x:x**2
-		g=lambda x,y:x**2+y
-		def inc(n):
-			return lambda x:x+n
-	
-	2. 응용
-		map(func,iterable,...)
-		filter(func,iterable)
-		reduce()
+		1. 형태
+			g=lambda x:x**2
+			g=lambda x,y:x**2+y
+			def inc(n):
+				return lambda x:x+n
+
+		2. 응용
+			map(func,iterable,...)
+			filter(func,iterable)
+			reduce()
 	
 
 ***iterator,iterable,generator***
@@ -191,31 +201,31 @@ for i in range(n):
 ***파이썬에서의 언더스코어(_)***
 	1. 인터프리터에서 사용
 		파이썬에서 마지막에 실행된 결과값이 _라는 변수에 저장됨
-		>>> 10
-		10
-		>>> _
-		10
-		>>> _ * 3
-		30
-		>>> _ * 20
-		600
+			>>> 10
+			10
+			>>> _
+			10
+			>>> _ * 3
+			30
+			>>> _ * 20
+			600
 	
 	2. 값을 무시
 		# 언패킹시 특정값을 무시
-		x, _, y = (1, 2, 3) # x = 1, y = 3
+			x, _, y = (1, 2, 3) # x = 1, y = 3
 
 		# 여러개의 값 무시
-		x, *_, y = (1, 2, 3, 4, 5) # x = 1, y = 5
+			x, *_, y = (1, 2, 3, 4, 5) # x = 1, y = 5
 
 		# 인덱스 무시
-		for _ in range(10):
-			do_something()
+			for _ in range(10):
+				do_something()
 	
 	3. private한 클래스,함수,변수,메서드를 선언
 		_single_leading_underscore
 		이런식으로 앞에 언더스코어를 사용하면 외부에서
 		
-		from module import *
+			from module import *
 		
 		로 임포트 시 _로 시작되는 것들은 임포트에서 무시된다.
 		그러나 완전한 private는 아니기에 무시하고 호출하면 되긴된다.
@@ -244,8 +254,65 @@ for i in range(n):
 	7. 국제화(i18n)/지역화(l10n) 함수로 사용되는 경우
 		음.. 잘모르겠다.. 패스..
 		
-	
+		
+***ternary expression***
+	간단한 if문을 한줄로 표현가능
+		condition_string = "nice" if condition else "not nice"
+
+
 ***list comprehension***
+	for문을 한 줄로 표현 가능
+		int_list = [1, 2, 3, 4, 5, 6]
+			squares = [x**2 for x in int_list]
+
+			print(squares)               # [1, 4, 9, 16, 25, 36]
+
+
+***zfill***
+	문자열을 최소 몇 자리 이상을 가진 문자열로 변환시켜줌
+	이때 만약 모자란 부분은 왼쪽에 “0”을 채워줌
+	설정된 자릿수보다 이미 더 긴 문자열이라면 그 문자열을 그대로 출력함
+	
+		print("1".zfill(6))
+		print("333".zfill(2))
+		print("a".zfill(8))
+		print("ab".zfill(8))
+		print("abc".zfill(8))
+
+		000001
+		333
+		0000000a
+		000000ab
+		00000abc
+		
+		
+***모듈***
+	모듈(module)이란 변수, 함수, 클래스 등을 모아놓은 파일
+	모듈은 다른 곳에서 가져다 쓸 수 있음
+	
+		from 모듈의 이름 import 불러올 변수/함수/클래스 이름
+	
+	모듈의 이름에는 파일명에서 확장자명(.py)을 뺀 이름
+	모듈에 정의된 모든 것들을 사용하려면 *
+	
+	
+***randint, uniform***
+	모두 random 모듈에 있다.
+	
+		from random import randint
+			x = randint(1, 20)
+			# 1 <= N <= 20를 만족하는 랜덤한 정수(난수) N을 리턴
+			
+		from random import uniform
+			x = uniform(0, 1)
+			# 0 <= N <= 1을 만족하는 랜덤한 소수(난수) N을 리턴
+	
+	
+***가변타입 불변타입***
+	인스턴스의 속성 변경 가능, 변경 불가 차이
+	가변타입	list dict + 직접 작성하는 클래스
+	불변타입	bool int float str tuple
+	불변타입의 원소를 바꾸려면 원소 하나씩 바꾸는게 아니라 인스턴스 자체를 바꿔야함
 
 
 ***deque***
