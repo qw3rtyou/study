@@ -1,7 +1,17 @@
-1.toilet -f mono12 -F metal welcome
-2.cmatrix
-3.while true; do echo "$(date '+%D %T' | toilet -f term -F border --gay)"; sleep 1; done
-4.yes I Love Linux
-5.fortune
-6.sl
-7.aafire
+***설치 패키지 명령어***
+	apt-get install sl     
+	apt-get install fortune     
+	apt-get install toilet
+	apt-get install cmatrix
+	apt-get install libaa-bin
+	sudo add-apt-repository ppa:ytvwld/asciiquarium
+	sudo apt-get update && sudo apt-get install asciiquarium
+
+***실행 명령어***
+	1.toilet -f mono12 -F metal welcome
+	2.cmatrix
+	3.while true; do echo "$(date '+%D %T' | toilet -f term -F border --gay)"; sleep 1; done
+	4.yes I Love Linux
+	5.fortune
+	6.sl
+	7.aafire

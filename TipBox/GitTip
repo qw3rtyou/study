@@ -50,6 +50,8 @@ git stash pop 			스택 적용 후 삭제
 git cherry-pick 특정아이디		원하는 작업이 있는 커밋의 내용만 가져옴
 
 ***git_init***
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
 git remote add origin 레포지토리주소		리모트 레포지토리를 origin이라는
 이름으로 등록
 git push -u origin master(main)		로컬 레포지토리에있는 master 브랜치의 내용을 
