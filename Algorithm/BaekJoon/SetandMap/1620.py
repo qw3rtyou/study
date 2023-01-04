@@ -1,24 +1,57 @@
 import sys
+
 input=sys.stdin.readline
 
-n,m=map(int,input().split())
-pokemon_dict=dict()
+poke_num,prob_num=map(int,input().split())
+poke_dict1=dict()
+poke_dict2=dict()
+prob_list=list()
 
-for i in range(n):
-    pokemon_dict[str(input())]=i+1
-    
-problem_list=list()
+for i in range(poke_num):
+    data=str(input().rstrip())
+    poke_dict1[i]=data
+    poke_dict2[data]=i
 
-for _ in range(m):
-    problem_list.append(input())
-    
-for prob in problem_list:
-    if 47<ord(str(prob[0]))<58:
-        print(pokemon_dict[int(prob)],end="")
-        
+for _ in range(prob_num):
+    prob_list.append(str(input().rstrip()))
+
+for prob in prob_list:
+    if prob.isdigit():
+        print(poke_dict1[int(prob)-1])
+
     else:
-        print(pokemon_dict[prob])
-        
-        
-        
-        딕셔너리로 풀어야할듯.. autoincreasement루다가..
+        print(poke_dict2[prob]+1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 시간초과...
+# poke_num,prob_num=map(int,input().split())
+# pokemon_list=list()
+# prob_list=list()
+
+# for i in range(poke_num):
+#     pokemon_list.append(str(input()))
+
+# for _ in range(prob_num):
+#     prob_list.append(str(input()))
+
+# for prob in prob_list:
+#     if prob.isdigit():
+#         print(int(prob)-1)
+#         print(pokemon_list[int(prob)-1])
+
+#     else:
+#         print(pokemon_list.index(prob)+1)

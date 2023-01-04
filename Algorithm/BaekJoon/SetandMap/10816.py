@@ -1,19 +1,28 @@
-import sys
+from collections import Counter
 
-input=sys.stdin.readline
+_=int(input())
 
-n=int(input())
-n_dict=dict()
-for i in map(int,input().split()):
-    n_dict[i]=True
+counter=Counter(map(int,input().split()))
 
-m=int(input())
-m_list=list(map(int,input().split()))
+_=int(input())
 
-ans=[0 for _ in range(m)]
+for key in map(int,input().split()):
+    print(counter[key],end=" ")
 
-for i in range(m):
-    if m_list[i] in n_dict:
-        ans[i]=1
-        
-print(*ans)
+
+#나쁘진 않은데 좀 김
+# import sys
+# from collections import defaultdict
+
+# input=sys.stdin.readline
+
+# n=int(input())
+# nums=defaultdict(int)
+
+# for value in map(int,input().split()):
+#     nums[value]+=1
+
+# m=int(input())
+
+# for key in map(int,input().split()):
+#     print(nums[key],end=" ")
