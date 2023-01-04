@@ -12,5 +12,5 @@ for i in range(target):
         print(i)
         break
 
-if flag:
+if not flag:
     print(0)
