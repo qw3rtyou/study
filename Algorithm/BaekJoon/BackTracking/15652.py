@@ -12,8 +12,9 @@ def dfs():
         return
     
     for i in range(1,n+1):
-        if i in stack:
-            continue
+        if stack:
+            if i < stack[-1]:
+                continue
         
         stack.append(i)
         dfs()

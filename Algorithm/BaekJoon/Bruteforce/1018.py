@@ -1,10 +1,10 @@
 import sys
+from math import inf
+
 input=sys.stdin.readline
 
 n,m=map(int,input().split())
 board=[list(str(input()).rstrip()) for i in range(n)]
-
-print(board)
 
 for i in range(n):
     for j in range(m):
@@ -12,8 +12,6 @@ for i in range(n):
             board[i][j]=1
         else:
             board[i][j]=0
-            
-print(board)
 
 checker1=[[0]*8 for i in range(8)]
 for i in range(8):
@@ -43,7 +41,7 @@ def check(a,b):
                 
     return min(err1,err2)
                 
-ans=0
+ans=inf
 for i in range(n-7):
     for j in range(m-7):
         ans=min(ans,check(i,j))
