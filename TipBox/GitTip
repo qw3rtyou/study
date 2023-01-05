@@ -79,5 +79,8 @@ git pull origin main --allow-unrelated-histories
 살리고 커밋 이동 그 후 커밋하면 이전꺼 다 날라감
 7. pull push 할때 브랜치단위로만 날라감
 원래 브랜치 단위로 날라가는게 맞음 근데 git push --all하면 다 날라간다곤함
+8. 정말 다 안되면 그냥 git clone [레포지토리 주소] 이런 식으로 
+해결하고 commit 한다음 추척하면 되긴함
+	
 
 https://github.com/qwerty-tommy/goorm-Box
