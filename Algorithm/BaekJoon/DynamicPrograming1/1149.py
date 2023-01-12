@@ -4,6 +4,9 @@ from math import inf
 n=int(input())
 
 board=[list(map(int,input().split())) for _ in range(n)]
+
+print(board)
+
 stack=deque()
 min_val=-inf
 

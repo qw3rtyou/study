@@ -310,9 +310,258 @@
 		주의해야할 점은 위에서 인스턴스 변수라고 표현 했지만 사실 인스턴스 변수가
 		아니라는 점이다. 왜냐하면 실제 인스턴스 변수는 _pw이고 pw()라는 메소드를
 		호출하는 구조기 때문이다.
+		즉, @pw.setter가 붙으면 인스턴스 변수 pw에 어떤 값을 설정한다는
+		원래의 뜻이 아니라 setter 메소드 pw를 실행한다는 의미로 바뀌는 것
+		
+***상속***
+	A는 B이다의 관계가 성립한다면 A는 자식클래스이고, B는 부모클래스이다.
+	자식클래스에서 부모클래스와의 상속관계를 파이썬 코드로 나타내고 싶다면
+	아래와 같이 나타내면 된다.
+	
+		class 부모클래스:
+			pass
+		
+		class 자식클래스(부모클래스):
+			pass
+			
+	mro(method resolution order) 메소드
+		자식클래스를 help메소드로 호출하면 이 클래스가 어떤 메소드와 변수를
+		사용할 수 있는지뿐만 아니라	어떤 부모 클래스가 있는지 나타내는
+		"Method resolution order:" 라는 부분이 있다.
+		이 때 object 클래스를 상속하지 않았음에도 상속되어 있는 모습을 확인할
+		수 있는데 파이썬은 모든 것이 class로 이루어져있기 때문에 가능하다.
+		
+		mro는 메소드 검색 순서를 뜻한다.
+			>>> list.mro()
+			[<class 'list'>, <class 'object'>]
+		만약 자식클래스에서 부모클래스를 오버라이딩 했다면
+		자식클래스에서 접근할 수 있는 메소드는 3가지가 있을 것이다.
+		즉, 자식클래스, 부모클래스, object클래스 각각 내부에 접근할 수 있는 메소드
+		중에서 아무거나 고르는게 아니라 mro() 메소드에 나와있는 순서대로 찾는다는
+		뜻이다. 그리고 그 순서는 자식클래스에서 부모클래스 순서로 정렬되어 있다. 
+		예를들어 list.mro()를 호출하면 list클래스에는 mro라는
+		메소드가 없기 때문에 object클래스에 가서 찾을 것이다.
+		
+	isinstance 메소드
+		isinstance 함수는 어떤 인스턴스가 주어진 클래스의 인스턴스인지를 알려준다.
+		isinstance([검사할 인스턴스의 이름],[기준 클래스의 이름])->불린
+		
+	issubclass 메소드
+		issubclass 함수는 한 클래스가 다른 클래스의 자식클래스인지를 알려준다.
+		issubclass([검사할 클래스의 이름],[기준이 되는 부모 클래스의 이름])->불린
+		
+	오버라이딩
+		부모클래스를 자식클래스가 상속을 받기만 하면 상속받은 모든 자식클래스는
+		모두 동일한 클래스가 될 것 이다. 따라서 자식클래스들은 각자의 다른 기능을 
+		하기 위해 오버라이딩을 해야한다.
+		
+			class Employee:
+				"""직원 클래스"""
+				raise_percentage=1.03
+
+				def __init__(self,name,wage):
+					self.name=name
+					self.wage=wage
+
+				def raise_pay(self):
+					self.wage+=self.raise_percentage
+
+			class Cashier(Employee):
+				def __init__(self,name,wage,number_sold):
+					super().__init__(name,wage)
+					self.number_sold=number_sold
+					
+			class DeliveryMan(Employee):
+				pass
+				
+		오버라이딩을 할 때, 수정하거나 추가해야하는 부분을 고치면 되는데
+		부모클래스에 있는 메소드를 같은 이름의 메소드로 자식에 생성하면 된다.
+		한편 수정해야할 메소드에서 같은 부분이 있을 수도 있다.
+		위에서처럼 __init__()를 수정해야 한다면,
+		
+			self.name=name
+			self.wage=wage
+			self.number_sold=number_sold
+		
+		처럼 수정할 수 있다. 그러나 이보단 처음 예시처럼 super()를
+		사용하는 것이 바람직하고, 이렇게 super()를 사용했다면 매개변수 self를 
+		사용하지 않아도 된다.
+		
+	그 외에 오버라이딩 할 필요가 없는 각각의 자식클래스만의 기능들은 자식클래스에
+	그대로 적어주면 된다.
+				
+	다중상속
+		하나의 객체가 여러가지 특징을 가질 수도 있다. 이럴 때 사용하는 것이
+		다중상속이다. 다중상속은 괄호 안에 부모클래스를 ,로 구분해서 구현한다.
+		
+			class Cashier(Employee,dad):
+		
+		super()를 사용하면 여러 부모클래스 중에 어떤 부모클래스인지 알 수가 
+		없기 때문에 어떤 클래스를 사용할 것인지 명시를 해줘야한다. 
+		이를 피하려면	부모클래스끼리 같은 이름의 메소드를 갖지 않도록 하고
+		만약 불가피하게 같은 이름의 메소드를 가지게 된다면 자식클래스에서
+		오버라이딩을 해서 확실하게 호출 위치를 정해줄 수도 있다.
+		만약 발생했다면 object.mro()를 통해 호출 순서를 확인할 수 있다.
+		
+		이러한 특성 때문에 다중 상속은 되도록 하지 않거나 하더라도 주의해서
+		해야한다만 이러한 주의는 일반클래스에서만 이고,
+		추상클래스에서는 그렇지 않다. 자세한 내용은 다형성-추상클래스
 		
 
-***메서드 오버라이딩 오버로딩***
+***클래스 다형성***
+	한 변수가 다양한 인스턴스를 가질 수 있을 때 다형성이 있다고 표현한다.
+	
+	추상클래스
+		한 변수가 다양한 인스턴스를 가질 수 있게 만들게되면
+		관련없는 인스턴스가 변수나 클래스의 메소드를 사용하게되면
+		관련없는 인스턴스의 클래스에는 해당 변수, 메소드가 없기 때문에
+		오류가 나올 것이다. 이러한 문제는 상속을 통해 해결할 수 있는데
+		일반 상속 또한 메소드 오버라이딩을 강제하지 않기 때문에 
+		추상 클래스를 통해 오버라이딩을 시켜야 한다.
+		
+			from abc import ABC, abstractmethod
+			
+			class Shape(ABC):
+				@abstractmethod
+				def area(self):
+					pass
+					
+				@abstractmethod
+				def perimeter(self):
+					pass
+		
+		abc 모듈에 ABC클래스와 abstractmethod 데코레이터 함수를 가져와
+		추상 클래스로 만들려고 하는 클래스에 ABC를 상속시키게 만들고
+		강제로 오버라이딩 하게 만들고 싶은 함수에
+		abstractmethod 데코레이터를 사용하면 된다.
+		이렇게 추상메소드를 구현하면 area(), perimeter()를 오버라이딩
+		하지 않은 클래스는 오류를 발생시킬 것이다.
+		또한, s isinstanceof Shape 이런 구문을 통해 해당 추상클래스를
+		상속하는지 여부를 체크하여 오버라이딩 되어 있다는 보증이된 
+		인스턴스만 true로 리턴하게 만들 수도 있다.
+		
+		Shape 클래스로 추상화된 수준까지만 고려하기만 하기 때문에
+		이렇게 다형성을 구현함과 동시에 추상화도 한것이라고 이야기 할 수 있다.
+		
+			def add_shape(self, shape: Shape):
+		
+		다음과 같이 type hinting 기능 또한 사용한다면 더 좋은 코드가 된다.
+		
+		추상클래스에는 내용을 추가할 수도 있는데, 공통되는 내용을
+		작성한 후 super()을 통해 접근할 수 있다.
+		
+			def area(self):
+				"""직사각형의 넓이를 리턴한다"""
+				super().area() # 
+				return self.width * self.height
+		
+		특정 변수를 가지도록 유도할 수도 있는데, @property, @x.setter와
+		같은 데코레이터에 @abstract를 합쳐서 사용하면 특정 변수의 사용을
+		유도할 수 있다.
+		
+			class EquilateralTriangle(Shape):
+				 """정삼각형 클래스"""
+				def __init__(self, x, y, side):
+					self._x = x
+					self._y = y
+					self.side = side
+
+				def area(self):
+					"""정삼각형의 넓이를 리턴한다"""
+					return sqrt(3) * self.side * self.side / 4
+
+				def perimeter(self):
+					"""정삼각형의 둘레를 리턴한다"""
+					return 3 * self.side
+
+				@property
+				@abstractmethod
+				def x(self):
+					"""_x getter 메소드"""
+					return self._x
+
+				@x.setter
+				@abstractmethod
+				def x(self, value):
+					"""_x setter 메소드"""
+					self._x = value
+
+				@property
+				@abstractmethod
+				def y(self):
+					"""_y getter 메소드"""
+					return self._y
+
+				@y.setter
+				@abstractmethod
+				def y(self, value):
+					"""_y setter 메소드"""
+					self._y = value
+
+			equilateral_triangle = EquilateralTriangle(5, 6, 4) # 에러가 나지 않는다
+			equilateral_triangle.x = 10
+			print(equilateral_triangle.x) # 출력: 10
+
+			equilateral_triangle.y = 5
+			print(equilateral_triangle.y) # 출력: 5
+			
+	추상클래스에서의 다중상속
+		위에서도 언급했듯이 추상클래스에서 다중상속은 자주 사용됨
+		
+			class Message(ABC):
+				@abstractmethod
+				def print_message(self) -> None:
+					pass
+
+				@abstractmethod
+				def send(self, destination: str) -> None:  # ----- 중복되는 추상 메소드
+					pass
+
+			class Sendable(ABC):
+				@abstractmethod
+				def send(self, destination: str) -> None: # ----- 중복되는 추상 메소드
+					pass
+		
+		이렇게 두 자식클래스에서 모두 send()를 갖도록 하더라도
+		어차피 둘 다 자식클래스에서 send()를 반드시 갖도록 유도하였으므로
+		두가지 추상클래스에서 사용된 코드가 아닌 자식클래스에서의 send()가
+		사용되기 때문에 문제가 없다. 결국엔 추상클래스는 오버라이딩을 
+		강제하기 때문에 일반클래스의 다중상속보다 좋은 것이다. 그러나
+		추상클래스를 사용하더라도 일반메소드를 사용할 수도 있고, 같은 이름의
+		일반 메소드가 부모클래스가 사용되는 경우가 있을 수도 있긴하다. 
+		이러면 사실상 일반 클래스간에 같은 이름을 갖는 메소드와 같이 문제가
+		생길 것이다.
+		
+
+***함수/메소드 다형성***
+	옵셔널 파라미터
+		기본값을 미리 지정해준 파라미터 
+		옵셔널 파라미터는 항상 가장 뒤에
+		
+			def new_print(value1,value2=none):
+		
+	파라미터 이름 명시
+		함수를 호출할 때 파라미터 이름 표시하는 것을 말함
+		
+			new_print(value1=1,value2="qwerty")
+	
+	개수가 확정되지 않은 파라미터
+		마지막 파라미터 이름 앞에 *를 사용하면 됨
+		
+			def print_msg(name,*msg):
+			
+		msg라는 이름의 튜플에 담김
+	
+
+***LBYL,EAFP 코딩 스타일***
+	LBYL(LOOK BEFORE YOU LEAP)	돌다리도 두드려보고 건너자!
+	어떤 작업을 수행하기 전에 그 작업을 수행해도 괜찮을지 확인
+	isinstanceof 와 같은 사전 필터링을 사용함
+	
+	EAFP(EASIER TO ASK FOR FORGIVENESS THAN PERMISSION) 허락보다 용서가 쉽다
+	일단 실행하고 문제가 생기면 처리
+	try except 와 같은 에러처리 구문을 사용함
+	
 
 
 ***TIPS***
