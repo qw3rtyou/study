@@ -162,7 +162,7 @@ Jupyter Notebook에서 공부한 내용임
         세로로 나열되어 있는 줄을 열    column        데이터의 특징
         
         
-    DataFrame 사용예시
+    DataFrame 기본사용
         보통 aliasing으로 pd라고 한다.
             import pandas as pd
             two_dimensional_list=[['asdf',23,42],['fads',14,89],['poui',53,26]]
@@ -171,7 +171,7 @@ Jupyter Notebook에서 공부한 내용임
             #기본적으로 columns나 index를 설정하지 않으면 0,1,2,3 이런식으로 
             #기본적으로 설정되기 때문에 이름을 짓고 싶다면 데이터프레임 설정할 때 지어줘야함        
 
-                >>>
+                >>
                     name	score1	score2
                 a	asdf	23	    42
                 b	fads	14	    89
@@ -179,19 +179,19 @@ Jupyter Notebook에서 공부한 내용임
 
             type(my_df)
 
-                >>>pandas.core.frame.DataFrame
+                >>pandas.core.frame.DataFrame
 
             my_df.columns    #데이터프레임의 column 출력
 
-                >>>Index(['name', 'score1', 'score2'], dtype='object')
+                >>Index(['name', 'score1', 'score2'], dtype='object')
 
             my_df.index    #데이터프레임의 row 출력
 
-                >>>Index(['a', 'b', 'c'], dtype='object')
+                >>Index(['a', 'b', 'c'], dtype='object')
 
             my_df.dtypes    #데이터프레임의 각각의 컬럼들의 자료형 출력
 
-                >>>
+                >>
                 name      object    #object는 pandas에서 문자열 같은 개념
                 score1     int64
                 score2     int64
@@ -230,7 +230,7 @@ Jupyter Notebook에서 공부한 내용임
 
             print(df1)
 
-                >>>
+                >>
                           0   1   2
                 0  dongwook  50  86
                 1    sineui  89  31
@@ -276,7 +276,7 @@ Jupyter Notebook에서 공부한 내용임
 
             print(df1)
             
-                >>>
+                >>
                        name  english_score  math_score
                 0  dongwook             50          86
                 1    sineui             89          31
@@ -300,7 +300,7 @@ Jupyter Notebook에서 공부한 내용임
             df = pd.DataFrame(my_list)
             print(df)
             
-            >>>
+            >>
                    english_score  math_score      name
                 0             50          86  dongwook
                 1             89          31    sineui
@@ -314,7 +314,7 @@ Jupyter Notebook에서 공부한 내용임
             iphone_df=pd.read_csv('data/iphone.csv')
             iphone_df
 
-                >>>
+                >>
                     Unnamed: 0	출시일	디스플레이	메모리	출시 버전	Face ID
                 0	iPhone 7	2016-09-16	4.7	2GB	iOS 10.0	No
                 1	iPhone 7 Plus	2016-09-16	5.5	3GB	iOS 10.0	No
@@ -335,3 +335,187 @@ Jupyter Notebook에서 공부한 내용임
             
             iphone_df=pd.read_csv('data/iphone.csv',index_col=0)
             
+        
+    DataFrame 인덱싱
+        이전 버전에서는 
+
+            iphone_df.loc[:,[True,False,True,True,False]]
+
+        이런 식으로 문법을 사용하였는데 DataFrame의 row의 값이 10개라면
+        다시말해 조건으로 건 인덱싱의 개수랑 row의 개수가 다르다면
+        모자른 개수는 모두 false로 처리하고 초과한건 무시했는데
+        현재는 정확히 개수가 맞아야한다고 함
+        
+            import pandas as pd
+            iphone_df=pd.read_csv('data/iphone.csv',index_col=0)
+
+            #특정 데이터 인덱싱
+            iphone_df.loc['iPhone 8','메모리']
+
+                >>'2GB'
+
+            #특정 row나 column 인덱싱
+            iphone_df.loc['iPhone 8']    #iphone_df.loc['iPhone 8',:] 랑 동일함
+
+                >>
+                출시일        2017-09-22
+                디스플레이             4.7
+                메모리               2GB
+                출시 버전        iOS 11.0
+                Face ID            No
+                Name: iPhone 8, dtype: object
+
+
+            iphone_df.loc[:,"디스플레이"]        #iphone_df["디스플레이"] 랑 동일함
+
+                >>
+                iPhone 7         4.7
+                iPhone 7 Plus    5.5
+                iPhone 8         4.7
+                iPhone 8 Plus    5.5
+                iPhone X         5.8
+                iPhone XS        5.8
+                iPhone XS Max    6.5
+                Name: 디스플레이, dtype: float64
+
+            type(iphone_df.loc[:,"디스플레이"])
+
+                >>pandas.core.series.Series    #한줄은 Series 라고 생각하면 됨
+
+            type(iphone_df.loc['iPhone 8','메모리'])   
+
+                >>str
+
+            #index 목록 및 데이터타입 확인
+            iphone_df.index    
+                >>
+                Index(['iPhone 7', 'iPhone 7 Plus', 'iPhone 8', 'iPhone 8 Plus', 'iPhone X',
+                   'iPhone XS', 'iPhone XS Max'],
+                  dtype='object')
+
+            #원하는 row를 리스트로 보내주면 여러개 선택가능
+            iphone_df.loc[['iPhone 8','iPhone 8 Plus']]
+
+
+            #슬라이싱도 가능
+            iphone_df.loc[['iPhone 8','iPhone 8 Plus']]
+
+                >>>
+                출시일	디스플레이	메모리	출시 버전	Face ID
+                iPhone 8	2017-09-22	4.7	2GB	iOS 11.0	No
+                iPhone 8 Plus	2017-09-22	5.5	3GB	iOS 11.0	No
+
+            iphone_df.loc[:'iPhone 8']
+
+                >>>
+                출시일	디스플레이	메모리	출시 버전	Face ID
+                iPhone 7	2016-09-16	4.7	2GB	iOS 10.0	No
+                iPhone 7 Plus	2016-09-16	5.5	3GB	iOS 10.0	No
+                iPhone 8	2017-09-22	4.7	2GB	iOS 11.0	No
+
+            #위에서 loc 안쓰고 인덱싱 하는거 슬라이싱에서는 안됨 
+            iphone_df.loc[:,'메모리':'Face ID']
+
+                >>>
+                메모리	출시 버전	Face ID
+                iPhone 7	2GB	iOS 10.0	No
+                iPhone 7 Plus	3GB	iOS 10.0	No
+                iPhone 8	2GB	iOS 11.0	No
+                iPhone 8 Plus	3GB	iOS 11.0	No
+                iPhone X	3GB	iOS 11.1	Yes
+                iPhone XS	4GB	iOS 12.0	Yes
+                iPhone XS Max	4GB	iOS 12.0	Yes
+
+            iphone_df.loc['iPhone 7':'iPhone X','메모리':'Face ID']
+
+                >>>
+                메모리	출시 버전	Face ID
+                iPhone 7	2GB	iOS 10.0	No
+                iPhone 7 Plus	3GB	iOS 10.0	No
+                iPhone 8	2GB	iOS 11.0	No
+                iPhone 8 Plus	3GB	iOS 11.0	No
+                iPhone X	3GB	iOS 11.1	Yes
+
+
+            #불린타입 series도 인덱싱 가능
+            iphone_df['디스플레이']>5
+
+                iPhone 7         False
+                iPhone 7 Plus     True
+                iPhone 8         False
+                iPhone 8 Plus     True
+                iPhone X          True
+                iPhone XS         True
+                iPhone XS Max     True
+                Name: 디스플레이, dtype: bool
+
+            iphone_df.loc[iphone_df['디스플레이']>5]
+            #iphone_df.loc[[False,True,False,True,True,True,True]]랑 같음
+
+                출시일	디스플레이	메모리	출시 버전	Face ID
+                iPhone 7 Plus	2016-09-16	5.5	3GB	iOS 10.0	No
+                iPhone 8 Plus	2017-09-22	5.5	3GB	iOS 11.0	No
+                iPhone X	2017-11-03	5.8	3GB	iOS 11.1	Yes
+                iPhone XS	2018-09-21	5.8	4GB	iOS 12.0	Yes
+                iPhone XS Max	2018-09-21	6.5	4GB	iOS 12.0	Yes
+
+            #컬럼으로도 인덱싱 가능
+            iphone_df.loc[:,[True,False,True,True,False]]
+
+                출시일	메모리	출시 버전
+                iPhone 7	2016-09-16	2GB	iOS 10.0
+                iPhone 7 Plus	2016-09-16	3GB	iOS 10.0
+                iPhone 8	2017-09-22	2GB	iOS 11.0
+                iPhone 8 Plus	2017-09-22	3GB	iOS 11.0
+                iPhone X	2017-11-03	3GB	iOS 11.1
+                iPhone XS	2018-09-21	4GB	iOS 12.0
+                iPhone XS Max	2018-09-21	4GB	iOS 12.0
+
+            iphone_df['Face ID']=='Yes'
+
+                iPhone 7         False
+                iPhone 7 Plus    False
+                iPhone 8         False
+                iPhone 8 Plus    False
+                iPhone X          True
+                iPhone XS         True
+                iPhone XS Max     True
+                Name: Face ID, dtype: bool
+
+            #조건연산자 사용가능 or은 | 사용하면 됨
+            condition=(iphone_df['Face ID']=='Yes')&(iphone_df['디스플레이']>5)
+            condition
+
+                iPhone 7         False
+                iPhone 7 Plus    False
+                iPhone 8         False
+                iPhone 8 Plus    False
+                iPhone X          True
+                iPhone XS         True
+                iPhone XS Max     True
+                dtype: bool
+
+
+            #iloc를 사용하면 숫자로 인덱싱할 수 있음
+            iphone_df.iloc[2,4]
+                >>
+                'No'
+
+            iphone_df.iloc[[1,3],[1,4]]
+                >>
+                디스플레이	Face ID
+                iPhone 7 Plus	5.5	No
+                iPhone 8 Plus	5.5	No
+
+            iphone_df.iloc[3:,1:4]
+                >>
+                디스플레이	메모리	출시 버전
+                iPhone 8 Plus	5.5	3GB	iOS 11.0
+                iPhone X	5.8	3GB	iOS 11.1
+                iPhone XS	5.8	4GB	iOS 12.0
+                iPhone XS Max	6.5	4GB	iOS 12.0
+                
+        
+    DataFrame에 값 쓰기
+    
+    https://www.codeit.kr/learn/1017
