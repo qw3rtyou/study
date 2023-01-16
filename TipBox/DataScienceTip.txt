@@ -197,7 +197,6 @@ Jupyter Notebook에서 공부한 내용임
                 score2     int64
                 dtype: object
                 
-                
                 #int64	정수
                 #float64	소수
                 #object	텍스트
@@ -335,5 +334,4 @@ Jupyter Notebook에서 공부한 내용임
         설정하면 된다.
             
             iphone_df=pd.read_csv('data/iphone.csv',index_col=0)
-            
             
