@@ -294,7 +294,18 @@
 	
 	모듈의 이름에는 파일명에서 확장자명(.py)을 뺀 이름
 	모듈에 정의된 모든 것들을 사용하려면 *
-	
+    
+    모듈 별명 지어주기(aliasing)
+        as 는 조사가 아닌 aliasing의 준말임
+        
+            import numpy as np
+            array=np.full(6,0)
+            
+    모듈안에 모듈..
+        모듈안에 모듈이 있을 수 있다. 온점으로 구분하면 됨
+            from numpy.random import random
+            from matpolotlib.pyplot as plt
+	    
 	
 ***randint, uniform***
 	모두 random 모듈에 있다.
