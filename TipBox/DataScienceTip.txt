@@ -1,0 +1,301 @@
+Jupyter Notebook에서 공부한 내용임
+
+***edit mode와 command mode***
+    ctrl+enter 그냥 실행
+    alt+enter 실행 후 아래에 셀 생성(있으면 이동)
+    dd 셀삭제
+    a 선택 셀 위에 셀 생성
+    b 선택 셀 아래에 셀 생성
+    하나 지정 후 특정 셀 shift 누르면 거기까지 선택 가능
+    
+    
+***출력***
+    print를 사용해서 출력해도 되지만
+    그냥 출력하고 싶은 변수나 값 등을 적기만 해도 출력이 됨
+    단 이러면 마지막 하나만 출력이됨 그리고 이런 식으로 출력을 하면
+    주피터에서 이쁘게 출력해주는 등 일반적인 print()로 출력하는 것과
+    다른 결과가 나올 수 있음
+    
+    
+***numpy***
+    numerical python의 준말
+    숫자와 관련된 파이썬 도구
+    numpy 배열은 일반적인 list와 유사하지만 ds를 다루는데 적합한 자료형임
+    list와의 차이점은 속도가 훨씬 빠르고, 간단한하지만 같은 자료형만 넣어야하는 단점이 있다.
+    
+        import numpy
+        array1=numpy.array([2,3,5,7,11,13,17,19,23,31])
+        array1
+            >>array([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 31])
+            
+        array2=numpy.array([[1,2,3,4,],[5,6,7,8,],[9,10,11,12]])
+        type(array2)
+            >>numpy.ndarray
+        array2
+            >>array([[ 1,  2,  3,  4],
+               [ 5,  6,  7,  8],
+               [ 9, 10, 11, 12]])
+        array2.shape
+            >>(3, 4)
+        array2.size
+            >>12
+            
+            
+    numpy array를 만드는 다양한 방법
+        numpy 모듈의 array 메소드에 파라미터로 리스트를 넘겨주면 됨
+        
+            array1 = numpy.array([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31])
+        
+        numpy 모듈의 fill 메소드를 사용하면 모든 값이 같은 numpy array 생성
+            
+            array2 = numpy.full(6,7)        #[7 7 7 7 7 7]
+            array3 = numpy.zeros(6, dtype=int)        #[0 0 0 0 0 0]
+            array4 = numpy.ones(6, dtype=int)        #[1 1 1 1 1 1]
+            
+        램덤한 값들을 생성하고 싶다면 numpy 모듈안에 random 모듈의 random 함수를
+        사용하면 됨
+        
+            array5 = numpy.random.random(6)
+            #[0.42214929 0.45275673 0.57978413 0.61417065 0.39448558 0.03347601]
+            
+            array6 = numpy.random.random(6)
+            #[0.42521953 0.65091589 0.94045742 0.18138103 0.27150749 0.8450694 ]
+        
+        연속된 값들을 생성하고 싶다면 numpy 모듈의 arange 함수를 이용해 생성
+        arange() 함수는 range()와 매우 유사하게 동작함
+        
+        파라미터가 1개라면 0~m-1까지의 값들이 담긴 numpy array가 리턴됨
+        파라미터가 2개라면 n~m-1까지의 값들이 담긴 numpy array가 리턴됨
+        파라미터가 3개라면 n~m-1까지의 값들 중 간격이 s인 numpy array가 리턴됨
+        
+            array7 = numpy.arange(6)    #[0 1 2 3 4 5]
+            array8 = numpy.arange(2, 7)    #[2 3 4 5 6]
+            array9 = numpy.arange(3, 17, 3)    #[ 3  6  9 12 15]
+            
+            
+    numpy 인덱싱/슬라이싱
+
+        import numpy as np
+
+        arr=np.array([2,3,5,7,5,9,0,4,2,1,2])
+
+        arr[2]        5
+        arr[1]        3
+
+        arr[-1]        2
+        arr[-2]        1
+
+        arr[[1,3,6]]        3,7,0
+
+        idx=np.array([3,1,2])        
+
+        arr[idx]        7,3,5        #numpy array안에 numpy array 넣을 수 있음
+
+        arr[2:5]        5,7,5
+        arr[:5]        2,3,5,7,5
+        arr[1:4:2]        3,7
+            
+            
+    numpy 기본연산
+        
+        import numpy as np
+        
+        array1=np.arange(10)    #[0,1,2,3,4,5,6,7,8,9]
+        array2=np.arange(10,20)
+        
+        array1*2        #[0,2,4,6,8,10,12,14,16,18]
+        
+        array1*array2    #[10, 12, 14, 16, 18, 20, 22, 24, 26, 28]
+        
+        
+    numpy 불린연산
+        numpy array에는 불린 값도 넣어 둘 수 있고 연산도 할 수 있다.
+        
+            import numpy as np
+
+            array1=np.array([2,3,5,7,11,13,17,19,23,29,31])
+            array1>4      
+
+                >>array([False,False,True,True,True,True,True,True,True,True,True])
+
+            booleans=array1<4         #불린값들이 담긴 numpy array 생성
+            filter=np.where(booleans)        #참 값의 인덱스를 담아둔 numpy array 생성
+            filter   
+            
+                >>(array([ 2,  3,  4,  5,  6,  7,  8,  9, 10]),)
+            
+            array1[filter]        #인덱스가 적힌 값 출력
+            
+                >>array([ 5,  7, 11, 13, 17, 19, 23, 29, 31])
+                
+                
+    numpy 라이브러리의 기본적인 통계 기능
+        array1.max()    최대값
+        array1.min()    최소값
+        array1.mean()    평균
+        np.median(array2)    중앙값
+        array1.std()    표준편차
+        array1.var()    분산
+    
+    
+***pandas***
+    numpy를 이용해 만듬
+    
+    Series
+        Series는 1차원 array를 다루는 pandas 라이브러리의 고유 자료형
+        numpy array랑 pandas Series랑 비슷한 기능을 한다고 생각하면 됨
+            
+            pd.Series(['dongwook', 50, 86]
+        
+    
+    numpy array도 표형식의 2차원 배열 사용가능한데 굳이 pandas를 쓰는 이유
+        numpy array에서는 row나 column이 숫자여만 했는데
+        pandas DataFrame에서는 문자열이나 다른 자료형이어도 상관없음
+        표 안에 데이터도 숫자만 넣을 수 있던 numpy array와는 달리
+        pandas DataFrame에서는 다른 자료형이어도 상관없음
+        그 외에도 외부데이터 읽고 쓰기, 데이터분석, 데이터 정리 등등
+        
+        
+    DataFrame
+        표형식의 데이터를 담는 자료형
+        가로로 나열되어 있는 줄을 행    row/index    레코드
+        세로로 나열되어 있는 줄을 열    column        데이터의 특징
+        
+        
+    DataFrame 사용예시
+        보통 aliasing으로 pd라고 한다.
+            import pandas as pd
+            two_dimensional_list=[['asdf',23,42],['fads',14,89],['poui',53,26]]
+            my_df=pd.DataFrame(two_dimensional_list, columns=['name','score1','score2'],index=['a','b','c',])
+            my_df    
+            #기본적으로 columns나 index를 설정하지 않으면 0,1,2,3 이런식으로 
+            #기본적으로 설정되기 때문에 이름을 짓고 싶다면 데이터프레임 설정할 때 지어줘야함        
+
+                >>>
+                    name	score1	score2
+                a	asdf	23	    42
+                b	fads	14	    89
+                c	poui	53	    26
+
+            type(my_df)
+
+                >>>pandas.core.frame.DataFrame
+
+            my_df.columns    #데이터프레임의 column 출력
+
+                >>>Index(['name', 'score1', 'score2'], dtype='object')
+
+            my_df.index    #데이터프레임의 row 출력
+
+                >>>Index(['a', 'b', 'c'], dtype='object')
+
+            my_df.dtypes    #데이터프레임의 각각의 컬럼들의 자료형 출력
+
+                >>>
+                name      object    #object는 pandas에서 문자열 같은 개념
+                score1     int64
+                score2     int64
+                dtype: object
+
+                #각각의 컬럼은 서로 다른 자료형을 가져도 되지만
+                #하나의 컬럼은 무조건 같은 자료형이 담겨야하는 것을 알 수 있음
+
+        From list of lists, array of arrays, list of series
+        2차원 리스트나 2차원 numpy array로 DataFrame을 만들 수 있음 
+        심지어 pandas Series를 담고 있는 리스트로도 DataFrame 생성 가능
+
+            import numpy as np
+            import pandas as pd
+
+            two_dimensional_list = [['dongwook', 50, 86], ['sineui', 89, 31], ['ikjoong', 68, 91], ['yoonsoo', 88, 75]]
+            two_dimensional_array = np.array(two_dimensional_list)
+            list_of_series = [
+                pd.Series(['dongwook', 50, 86]), 
+                pd.Series(['sineui', 89, 31]), 
+                pd.Series(['ikjoong', 68, 91]), 
+                pd.Series(['yoonsoo', 88, 75])
+            ]
+
+            # 아래 셋은 모두 동일함
+            df1 = pd.DataFrame(two_dimensional_list)
+            df2 = pd.DataFrame(two_dimensional_array)
+            df3 = pd.DataFrame(list_of_series)
+
+            print(df1)
+
+                >>>
+                          0   1   2
+                0  dongwook  50  86
+                1    sineui  89  31
+                2   ikjoong  68  91
+                3   yoonsoo  88  75
+
+        
+        From dict of lists, dict of arrays, dict of series
+        파이썬 사전(dictionary)으로도 DataFrame을 만들 수 있음
+        사전의 key로는 column 이름을 쓰고, 그 column에 해당하는 리스트, 
+        numpy array, 혹은 pandas Series를 사전의 value로 넣어주면 됨
+    
+            import numpy as np
+            import pandas as pd
+
+            names = ['dongwook', 'sineui', 'ikjoong', 'yoonsoo']
+            english_scores = [50, 89, 68, 88]
+            math_scores = [86, 31, 91, 75]
+
+            dict1 = {
+                'name': names, 
+                'english_score': english_scores, 
+                'math_score': math_scores
+            }
+
+            dict2 = {
+                'name': np.array(names), 
+                'english_score': np.array(english_scores), 
+                'math_score': np.array(math_scores)
+            }
+
+            dict3 = {
+                'name': pd.Series(names), 
+                'english_score': pd.Series(english_scores), 
+                'math_score': pd.Series(math_scores)
+            }
+
+
+            # 아래 셋은 모두 동일함
+            df1 = pd.DataFrame(dict1)
+            df2 = pd.DataFrame(dict2)
+            df3 = pd.DataFrame(dict3)
+
+            print(df1)
+            
+                >>>
+                       name  english_score  math_score
+                0  dongwook             50          86
+                1    sineui             89          31
+                2   ikjoong             68          91
+                3   yoonsoo             88          75
+                
+        From list of dicts
+        리스트가 담긴 사전이 아니라, 
+        사전이 담긴 리스트로도 DataFrame을 만들 수 있음
+
+            import numpy as np
+            import pandas as pd
+
+            my_list = [
+                {'name': 'dongwook', 'english_score': 50, 'math_score': 86},
+                {'name': 'sineui', 'english_score': 89, 'math_score': 31},
+                {'name': 'ikjoong', 'english_score': 68, 'math_score': 91},
+                {'name': 'yoonsoo', 'english_score': 88, 'math_score': 75}
+            ]
+
+            df = pd.DataFrame(my_list)
+            print(df)
+            
+            >>>
+                   english_score  math_score      name
+                0             50          86  dongwook
+                1             89          31    sineui
+                2             68          91   ikjoong
+                3             88          75   yoonsoo
