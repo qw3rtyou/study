@@ -518,4 +518,375 @@ Jupyter Notebook에서 공부한 내용임
         
     DataFrame에 값 쓰기
     
-    https://www.codeit.kr/learn/1017
+        iphone_df.loc['iPhone 8','출시 버전']
+        
+            >>
+            'iOS 11.0'
+            'iPhone 8'
+            
+        iphone_df.loc['iPhone 8','출시 버전']='iOS 11.5'
+        iphone_df.loc['iPhone 8','출시 버전']
+        
+            >>
+            'iOS 11.5'
+            
+        iphone_df.loc['iPhone 8']=['2016-09-25','4.7','4GB','iOS 13.0','No']
+        iphone_df.loc['iPhone 8']
+        
+            >>
+            출시일        2016-09-25
+            디스플레이             4.7
+            메모리               4GB
+            출시 버전        iOS 13.0
+            Face ID            No
+            Name: iPhone 8, dtype: object
+            
+        iphone_df['face ID']='Yes'
+        iphone_df
+        
+            >>
+            출시일	디스플레이	메모리	출시 버전	Face ID	face ID
+            iPhone 7	2016-09-16	4.7	2GB	iOS 10.0	No	Yes
+            iPhone 7 Plus	2016-09-16	5.5	3GB	iOS 10.0	No	Yes
+            iPhone 8	2016-09-25	4.7	4GB	iOS 13.0	No	Yes
+            iPhone 8 Plus	2017-09-22	5.5	3GB	iOS 11.0	No	Yes
+            iPhone X	2017-11-03	5.8	3GB	iOS 11.1	Yes	Yes
+            iPhone XS	2018-09-21	5.8	4GB	iOS 12.0	Yes	Yes
+            iPhone XS Max	2018-09-21	6.5	4GB	iOS 12.0	Yes	Yes
+            
+    
+    DataFrame에 한 줄 단위,column,row 추가 삭제
+        
+        #row 추가
+        iphone_df.loc['iPhone XR']=['2016-09-25','4.7','4GB','iOS 13.0','No','No']
+        iphone_df
+        
+            >>
+            출시일	디스플레이	메모리	출시 버전	Face ID	face ID
+            iPhone 7	2016-09-16	4.7	2GB	iOS 10.0	No	Yes
+            iPhone 7 Plus	2016-09-16	5.5	3GB	iOS 10.0	No	Yes
+            iPhone 8	2016-09-25	4.7	4GB	iOS 13.0	No	Yes
+            iPhone 8 Plus	2017-09-22	5.5	3GB	iOS 11.0	No	Yes
+            iPhone X	2017-11-03	5.8	3GB	iOS 11.1	Yes	Yes
+            iPhone XS	2018-09-21	5.8	4GB	iOS 12.0	Yes	Yes
+            iPhone XS Max	2018-09-21	6.5	4GB	iOS 12.0	Yes	Yes
+            iPhone XR	2016-09-25	4.7	4GB	iOS 13.0	No	No
+         
+        #column 삭제(원본 변형)
+        iphone_df.drop('face ID',axis='columns',inplace=True)
+        iphone_df
+        
+            >>
+            출시일	디스플레이	메모리	출시 버전	Face ID
+            iPhone 7	2016-09-16	4.7	2GB	iOS 10.0	No
+            iPhone 7 Plus	2016-09-16	5.5	3GB	iOS 10.0	No
+            iPhone 8	2016-09-25	4.7	4GB	iOS 13.0	No
+            iPhone 8 Plus	2017-09-22	5.5	3GB	iOS 11.0	No
+            iPhone X	2017-11-03	5.8	3GB	iOS 11.1	Yes
+            iPhone XS	2018-09-21	5.8	4GB	iOS 12.0	Yes
+            iPhone XS Max	2018-09-21	6.5	4GB	iOS 12.0	Yes
+            iPhone XR	2016-09-25	4.7	4GB	iOS 13.0	No
+            
+        #row 삭제(원본 변형 안함)
+        iphone_df.drop('iPhone XR',axis='index',inplace=False)
+            
+            >>
+            출시일	디스플레이	메모리	출시 버전	Face ID
+            iPhone 7	2016-09-16	4.7	2GB	iOS 10.0	No
+            iPhone 7 Plus	2016-09-16	5.5	3GB	iOS 10.0	No
+            iPhone 8	2016-09-25	4.7	4GB	iOS 13.0	No
+            iPhone 8 Plus	2017-09-22	5.5	3GB	iOS 11.0	No
+            iPhone X	2017-11-03	5.8	3GB	iOS 11.1	Yes
+            iPhone XS	2018-09-21	5.8	4GB	iOS 12.0	Yes
+            iPhone XS Max	2018-09-21	6.5	4GB	iOS 12.0	Yes
+            
+        iphone_df
+            
+            >>
+            출시일	디스플레이	메모리	출시 버전	Face ID
+            iPhone 7	2016-09-16	4.7	2GB	iOS 10.0	No
+            iPhone 7 Plus	2016-09-16	5.5	3GB	iOS 10.0	No
+            iPhone 8	2016-09-25	4.7	4GB	iOS 13.0	No
+            iPhone 8 Plus	2017-09-22	5.5	3GB	iOS 11.0	No
+            iPhone X	2017-11-03	5.8	3GB	iOS 11.1	Yes
+            iPhone XS	2018-09-21	5.8	4GB	iOS 12.0	Yes
+            iPhone XS Max	2018-09-21	6.5	4GB	iOS 12.0	Yes
+            iPhone XR	2016-09-25	4.7	4GB	iOS 13.0	No
+            
+    index/column 설정하기
+        
+        liverpool_df=pd.read_csv('./data/liverpool.csv',index_col=0)
+        liverpool_df
+        
+            >>
+            position	born	number	nationality
+            Roberto Firmino	FW	1991	no. 9	Brazil
+            Sadio Mane	FW	1992	no. 10	Senegal
+            Mohamed Salah	FW	1992	no. 11	Egypt
+            Joe Gomez	DF	1997	no. 12	England
+            Alisson Becker	GK	1992	no. 13	Brazil
+            
+        liverpool_df.rename(columns={'position':'Position'})
+        
+            >>
+            Position	born	number	nationality
+            Roberto Firmino	FW	1991	no. 9	Brazil
+            Sadio Mane	FW	1992	no. 10	Senegal
+            Mohamed Salah	FW	1992	no. 11	Egypt
+            Joe Gomez	DF	1997	no. 12	England
+            Alisson Becker	GK	1992	no. 13	Brazil
+            
+        liverpool_df
+        
+            >>
+            position	born	number	nationality
+            Roberto Firmino	FW	1991	no. 9	Brazil
+            Sadio Mane	FW	1992	no. 10	Senegal
+            Mohamed Salah	FW	1992	no. 11	Egypt
+            Joe Gomez	DF	1997	no. 12	England
+            Alisson Becker	GK	1992	no. 13	Brazil
+            
+        #사전형태로 컬럼이름 변경 가능
+        liverpool_df.rename(columns={'position':'Position','born':'Born'},inplace=True)
+        liverpool_df
+        
+            >>
+            Position	Born	number	nationality
+            Roberto Firmino	FW	1991	no. 9	Brazil
+            Sadio Mane	FW	1992	no. 10	Senegal
+            Mohamed Salah	FW	1992	no. 11	Egypt
+            Joe Gomez	DF	1997	no. 12	England
+            Alisson Becker	GK	1992	no. 13	Brazil
+        
+        #index 이름 변경 및 설정 가능
+        liverpool_df.index.name='Player Name'
+        liverpool_df
+        
+            >>
+            Position	Born	number	nationality
+            Player Name				
+            Roberto Firmino	FW	1991	no. 9	Brazil
+            Sadio Mane	FW	1992	no. 10	Senegal
+            Mohamed Salah	FW	1992	no. 11	Egypt
+            Joe Gomez	DF	1997	no. 12	England
+            Alisson Becker	GK	1992	no. 13	Brazil
+        
+        #다른 column으로 index 설정가능 그러나 기존 index는 덮어써짐
+        liverpool_df.set_index('number')
+        
+            >>
+            Position	Born	nationality
+            number			
+            no. 9	FW	1991	Brazil
+            no. 10	FW	1992	Senegal
+            no. 11	FW	1992	Egypt
+            no. 12	DF	1997	England
+            no. 13	GK	1992	Brazil
+            
+        liverpool_df.index
+        
+            >>
+            Index(['Roberto Firmino', 'Sadio Mane', 'Mohamed Salah', 'Joe Gomez',
+                   'Alisson Becker'],
+                  dtype='object', name='Player Name')
+        
+        #따라서 기존 인덱스를 따로 column을 생성해서 설정해줘야함
+        liverpool_df['Player Name']=liverpool_df.index
+        liverpool_df
+        
+            >>
+            Position	Born	number	nationality	Player Name
+            Player Name					
+            Roberto Firmino	FW	1991	no. 9	Brazil	Roberto Firmino
+            Sadio Mane	FW	1992	no. 10	Senegal	Sadio Mane
+            Mohamed Salah	FW	1992	no. 11	Egypt	Mohamed Salah
+            Joe Gomez	DF	1997	no. 12	England	Joe Gomez
+            Alisson Becker	GK	1992	no. 13	Brazil	Alisson Becker
+            number
+        
+        #number column으로 index 변경
+        liverpool_df.set_index('number')
+        
+            >>
+            Position	Born	nationality	Player Name
+            number				
+            no. 9	FW	1991	Brazil	Roberto Firmino
+            no. 10	FW	1992	Senegal	Sadio Mane
+            no. 11	FW	1992	Egypt	Mohamed Salah
+            no. 12	DF	1997	England	Joe Gomez
+            no. 13	GK	1992	Brazil	Alisson Becker
+            
+            
+    큰 데이터 다루기
+        
+        laptops_df=pd.read_csv('./data/laptops.csv')
+        
+        #위에서 3개 데이터만 출력
+        laptops_df.head(3)
+
+            >>
+            brand	model	ram	hd_type	hd_size	screen_size	price	processor_brand	processor_model	clock_speed	graphic_card_brand	graphic_card_size	os	weight	comments
+            0	Dell	Inspiron 15-3567	4	hdd	1024	15.6	40000	intel	i5	2.5	intel	NaN	linux	2.50	NaN
+            1	Apple	MacBook Air	8	ssd	128	13.3	55499	intel	i5	1.8	intel	2.0	mac	1.35	NaN
+            2	Apple	MacBook Air	8	ssd	256	13.3	71500	intel	i5	1.8	intel	2.0	mac	1.35	NaN
+        
+        #끝에서 3개 데이터만 출력
+        laptops_df.tail(5)
+
+            >>
+            brand	model	ram	hd_type	hd_size	screen_size	price	processor_brand	processor_model	clock_speed	graphic_card_brand	graphic_card_size	os	weight	comments
+            162	Asus	A555LF	8	hdd	1024	15.6	39961	intel	i3 4th gen	1.7	nvidia	2.0	windows	2.3	NaN
+            163	Asus	X555LA-XX172D	4	hdd	500	15.6	28489	intel	i3 4th gen	1.9	intel	NaN	linux	2.3	NaN
+            164	Asus	X554LD	2	hdd	500	15.6	29199	intel	i3 4th gen	1.9	intel	1.0	linux	2.3	NaN
+            165	Asus	X550LAV-XX771D	2	hdd	500	15.6	29990	intel	i3 4th gen	1.7	intel	NaN	linux	2.5	NaN
+            166	Asus	X540LA-XX538T	4	hdd	1024	15.6	30899	intel	i3 5th gen	2.0	intel	NaN	windows	2.3	NaN
+        
+        #대략적인 크기 출력
+        laptops_df.shape
+
+            >>
+            (167, 15)
+
+        #컬럼 이름 확인
+        laptops_df.columns
+
+            >>
+            Index(['brand', 'model', 'ram', 'hd_type', 'hd_size', 'screen_size', 'price',
+                   'processor_brand', 'processor_model', 'clock_speed',
+                   'graphic_card_brand', 'graphic_card_size', 'os', 'weight', 'comments'],
+                  dtype='object')
+        
+        #컬럼의 기본적인 특징 출력
+        laptops_df.info()
+
+            >>
+            <class 'pandas.core.frame.DataFrame'>
+            RangeIndex: 167 entries, 0 to 166
+            Data columns (total 15 columns):
+             #   Column              Non-Null Count  Dtype  
+            ---  ------              --------------  -----  
+             0   brand               167 non-null    object 
+             1   model               167 non-null    object 
+             2   ram                 167 non-null    int64  
+             3   hd_type             167 non-null    object 
+             4   hd_size             167 non-null    int64  
+             5   screen_size         167 non-null    float64
+             6   price               167 non-null    int64  
+             7   processor_brand     167 non-null    object 
+             8   processor_model     167 non-null    object 
+             9   clock_speed         166 non-null    float64
+             10  graphic_card_brand  163 non-null    object 
+             11  graphic_card_size   81 non-null     float64
+             12  os                  167 non-null    object 
+             13  weight              160 non-null    float64
+             14  comments            55 non-null     object 
+            dtypes: float64(4), int64(3), object(8)
+            memory usage: 19.7+ KB
+        
+        #데이터들의 특징 출력
+        laptops_df.describe()
+
+            >>
+            ram	hd_size	screen_size	price	clock_speed	graphic_card_size	weight
+            count	167.000000	167.00000	167.000000	167.000000	166.000000	81.000000	160.000000
+            mean	6.898204	768.91018	14.775210	64132.898204	2.321084	52.160494	2.250813
+            std	3.787479	392.99080	1.376526	42797.674010	0.554187	444.134142	0.648446
+            min	2.000000	32.00000	10.100000	13872.000000	1.100000	1.000000	0.780000
+            25%	4.000000	500.00000	14.000000	35457.500000	1.900000	2.000000	1.900000
+            50%	8.000000	1024.00000	15.600000	47990.000000	2.300000	2.000000	2.200000
+            75%	8.000000	1024.00000	15.600000	77494.500000	2.600000	4.000000	2.600000
+            max	16.000000	2048.00000	17.600000	226000.000000	3.800000	4000.000000	4.200000
+        
+        #가격 기준으로 정렬
+        laptops_df.sort_values(by='price')
+
+            >>
+            brand	model	ram	hd_type	hd_size	screen_size	price	processor_brand	processor_model	clock_speed	graphic_card_brand	graphic_card_size	os	weight	comments
+            148	Acer	Aspire SW3-016	2	ssd	32	10.1	13872	intel	Atom Z8300	1.44	intel	NaN	windows	1.2	NaN
+            83	Acer	A315-31CDC UN.GNTSI.001	2	ssd	500	15.6	17990	intel	Celeron	1.10	intel	NaN	windows	2.1	NaN
+            108	Acer	Aspire ES-15 NX.GKYSI.010	4	hdd	500	15.6	17990	amd	A4-7210	1.80	amd	NaN	windows	2.4	NaN
+            100	Acer	A315-31-P4CRUN.GNTSI.002	4	hdd	500	15.6	18990	intel	pentium	1.10	intel	NaN	windows	NaN	NaN
+            73	Acer	Aspire ES1-523	4	hdd	1024	15.6	19465	amd	A4-7210	1.80	amd	NaN	linux	2.4	NaN
+            ...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...
+            154	Microsoft	Surface Book CR9-00013	8	ssd	128	13.5	178799	intel	i5	1.80	intel	NaN	windows	1.5	NaN
+            31	Acer	Predator 17	16	ssd	256	17.3	178912	intel	i7	2.60	nvidia	NaN	windows	4.2	Integrated Graphics
+            96	Alienware	AW13R3-7000SLV-PUS	8	ssd	256	13.3	190256	intel	i7	3.00	nvidia	6.0	windows	2.6	13.3 inch FHD (1920 x 1080) IPS Anti-Glare 300...
+            90	Alienware	15 Notebook	16	hdd	1024	15.6	199000	intel	i7	2.60	nvidia	8.0	windows	3.5	Maximum Display Resolution : 1920 x 1080 pixel
+            5	Apple	MacBook Pro (TouchBar)	16	ssd	512	15.0	226000	intel	i7	2.70	intel	2.0	mac	2.5	NaN
+            167 rows × 15 columns
+        
+        #역순으로 정렬
+        laptops_df.sort_values(by='price',ascending=False)
+
+            >>
+            brand	model	ram	hd_type	hd_size	screen_size	price	processor_brand	processor_model	clock_speed	graphic_card_brand	graphic_card_size	os	weight	comments
+            5	Apple	MacBook Pro (TouchBar)	16	ssd	512	15.0	226000	intel	i7	2.70	intel	2.0	mac	2.5	NaN
+            90	Alienware	15 Notebook	16	hdd	1024	15.6	199000	intel	i7	2.60	nvidia	8.0	windows	3.5	Maximum Display Resolution : 1920 x 1080 pixel
+            96	Alienware	AW13R3-7000SLV-PUS	8	ssd	256	13.3	190256	intel	i7	3.00	nvidia	6.0	windows	2.6	13.3 inch FHD (1920 x 1080) IPS Anti-Glare 300...
+            31	Acer	Predator 17	16	ssd	256	17.3	178912	intel	i7	2.60	nvidia	NaN	windows	4.2	Integrated Graphics
+            154	Microsoft	Surface Book CR9-00013	8	ssd	128	13.5	178799	intel	i5	1.80	intel	NaN	windows	1.5	NaN
+            ...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...
+            73	Acer	Aspire ES1-523	4	hdd	1024	15.6	19465	amd	A4-7210	1.80	amd	NaN	linux	2.4	NaN
+            100	Acer	A315-31-P4CRUN.GNTSI.002	4	hdd	500	15.6	18990	intel	pentium	1.10	intel	NaN	windows	NaN	NaN
+            108	Acer	Aspire ES-15 NX.GKYSI.010	4	hdd	500	15.6	17990	amd	A4-7210	1.80	amd	NaN	windows	2.4	NaN
+            83	Acer	A315-31CDC UN.GNTSI.001	2	ssd	500	15.6	17990	intel	Celeron	1.10	intel	NaN	windows	2.1	NaN
+            148	Acer	Aspire SW3-016	2	ssd	32	10.1	13872	intel	Atom Z8300	1.44	intel	NaN	windows	1.2	NaN
+            167 rows × 15 columns
+        
+        #정렬한 내용 원본 반영
+        laptops_df.sort_values(by='price',ascending=False,inplace=True)
+        
+        
+    큰 series 다루기
+        
+        laptops_df=pd.read_csv('./data/laptops.csv')
+        laptops_df['brand']
+
+            >>
+            0       Dell
+            1      Apple
+            2      Apple
+            3      Apple
+            4      Apple
+                   ...  
+            162     Asus
+            163     Asus
+            164     Asus
+            165     Asus
+            166     Asus
+            Name: brand, Length: 167, dtype: object
+        
+        #겹치지는거 없애고 중복없이 출력
+        laptops_df['brand'].unique()
+
+            >>
+            array(['Dell', 'Apple', 'Acer', 'HP', 'Lenovo', 'Alienware', 'Microsoft',
+                   'Asus'], dtype=object)
+        
+        #몇번 겹치는지
+        laptops_df['brand'].value_counts()
+
+            >>
+            HP           55
+            Acer         35
+            Dell         31
+            Lenovo       18
+            Asus          9
+            Apple         7
+            Microsoft     6
+            Alienware     6
+            Name: brand, dtype: int64
+        
+        #대략적인 정보 출력
+        laptops_df['brand'].describe()
+
+            >>
+            count     167
+            unique      8
+            top        HP
+            freq       55
+            Name: brand, dtype: object
+            
+        
+        
+        https://www.codeit.kr/learn/1031

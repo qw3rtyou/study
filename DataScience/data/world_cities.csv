@@ -1,0 +1,250 @@
+,City / Urban area,Country,Population,Land area (in sqKm)
+0,Buenos Aires,Argentina,11200000,2266
+1,Melbourne,Australia,3162000,2080
+2,Sydney,Australia,3502000,1687
+3,Brisbane,Australia,1508000,1603
+4,Perth,Australia,1177000,964
+5,Adelaide,Australia,1002000,729
+6,Gold Coast,Australia,422000,383
+7,Vienna,Austria,1550000,453
+8,Baku/Sumqayit,Azerbaijan,2100000,544
+9,Brussels,Belgium,1570000,712
+10,Antwerp,Belgium,915000,596
+11,Sao Paulo,Brazil,17700000,1968
+12,Rio de Janeiro,Brazil,10800000,1580
+13,Belo Horizonte,Brazil,4000000,868
+14,Curitiba,Brazil,2500000,648
+15,Brasilia,Brazil,1625000,583
+16,Fortaleza,Brazil,2650000,583
+17,Porto Alegre,Brazil,2800000,583
+18,Campinas,Brazil,1750000,492
+19,Goiania,Brazil,1475000,479
+20,Recife,Brazil,3025000,376
+21,Phnom Penh,Cambodia,1500000,518
+22,Montreal.,Canada,3216000,1740
+23,Toronto,Canada,4367000,1655
+24,Vancouver,Canada,1830000,1120
+25,Edmonton,Canada,782000,850
+26,Calgary,Canada,879000,702
+27,Quebec,Canada,635000,669
+28,Ottawa/Hull,Canada,828000,490
+29,Winnipeg,Canada,627000,446
+30,St. Catharines,Canada,300000,389
+31,Santiago,Chile,5425000,648
+32,Beijing,China,8614000,748
+33,Shanghai,China,10000000,746
+34,Shenzhen,China,8000000,466
+35,Shenyang,China,4200000,453
+36,Tianjin,China,4750000,453
+37,Dalian,China,2750000,389
+38,Bogota,Colombia,7000000,518
+39,Kinshasa,Congo,5000000,469
+40,Lumumbashi,Congo,1200000,427
+41,Copenhagen,Denmark,1525000,816
+42,Quito,Ecuador,1500000,479
+43,Cairo,Egypt,12200000,1295
+44,Helsinki,Finland,1000000,479
+45,Paris,France,9645000,2723
+46,Marseille,France,1350000,1204
+47,Bordeaux,France,754000,1057
+48,Lyon,France,1349000,954
+49,Toulouse,France,761000,808
+50,Nice,France,889000,721
+51,Toulon,France,520000,713
+52,Avignon,France,254000,508
+53,Valenciennes,France,357000,507
+54,Douai/Lens,France,519000,489
+55,Nantes,France,545000,476
+56,Lille,France,1050000,474
+57,Pau,France,181000,450
+58,Tours,France,298000,421
+59,Bethune,France,259000,390
+60,Essen/Düsseldorf,Germany,7350000,2642
+61,Berlin,Germany,3675000,984
+62,Frankfurt,Germany,2260000,984
+63,Hamburg,Germany,1925000,829
+64,Cologne/Bonn,Germany,1960000,816
+65,Munich,Germany,1600000,518
+66,Stuttgart,Germany,1250000,414
+67,Aachen,Germany,585000,401
+68,Accra,Ghana,1500000,453
+69,Athens,Greece,3685000,684
+70,Budapest,Hungary,1800000,702
+71,Delhi,India,14300000,1295
+72,Hyderabad,India,5300000,583
+73,Bangalore,India,5400000,534
+74,Kolkata,India,12700000,531
+75,Mumbai,India,14350000,484
+76,Chennai,India,5950000,414
+77,Jakarta,Indonesia,14250000,1360
+78,Tehran,Iran,7250000,686
+79,Baghdad,Iraq,5500000,596
+80,Dublin,Ireland,1075000,365
+81,Tel Aviv,Israel,2300000,453
+82,Milan,Italy,4250000,1554
+83,Rome,Italy,2500000,842
+84,Naples,Italy,2400000,583
+85,Turin,Italy,1350000,500
+86,Tokyo/Yokohama,Japan,33200000,6993
+87,Nagoya,Japan,9000000,2875
+88,Osaka/Kobe/Kyoto,Japan,16425000,2564
+89,Fukuoka,Japan,2150000,544
+90,Sapporo,Japan,2075000,414
+91,Kuwait,Kuwait,1600000,544
+92,Beirut,Lebanon,1800000,648
+93,Kuala Lumpur,Malaysia,4400000,1606
+94,Mexico City,Mexico,17400000,2072
+95,Guadalajara,Mexico,3500000,596
+96,Monterey,Mexico,3200000,479
+97,Rotterdam,Netherlands,1325000,531
+98,Auckland,New Zealand,1050000,531
+99,Lagos,Nigeria,13400000,738
+100,Lahore,Pakistan,5100000,622
+101,Karachi,Pakistan,9800000,518
+102,Lima,Peru,7000000,596
+103,Manila,Philippines,14750000,1399
+104,Katowice,Poland,2200000,544
+105,Warsaw,Poland,2000000,466
+106,Lisbon,Portugal,2250000,881
+107,Porto,Portugal,1035000,389
+108,San Juan,Puerto Rico,2217000,2309
+109,Aguadilla,Puerto Rico,299000,620
+110,Moscow,Russia,10500000,2150
+111,St Petersburg,Russia,5300000,622
+112,Nizhni Novgorod,Russia,1500000,505
+113,Arabia,Saudi,1525000,673
+114,Riyadh,Saudi Arabia,4000000,1101
+115,Jeddah,Saudi Arabia,2750000,777
+116,Singapore,Singapore,4000000,479
+117,Johannesburg/East Rand,South Africa,6000000,2396
+118,Durban,South Africa,2900000,829
+119,Cape Town,South Africa,2700000,686
+120,Pretoria,South Africa,1850000,673
+121,Vereeniging,South Africa,600000,479
+122,Port Elizabeth,South Africa,900000,427
+123,Seoul/Incheon,South Korea,17500000,1049
+124,Madrid,Spain,4900000,945
+125,Barcelona,Spain,3900000,803
+126,Khartoum,Sudan,4000000,583
+127,Stockholm,Sweden,1400000,518
+128,Taichung,Taiwan,2000000,510
+129,Taipei,Taiwan,5700000,376
+130,Bangkok,Thailand,6500000,1010
+131,Istanbul,Turkey,9000000,1166
+132,Ankara,Turkey,3100000,583
+133,Abu Dhabi,UAE,550000,777
+134,Dubai,UAE,1900000,712
+135,London,UK,8278000,1623
+136,Birmingham,UK,2284000,600
+137,Manchester,UK,2245000,558
+138,Leeds/Bradford,UK,1499000,370
+139,Glasgow,UK,1200000,368
+140,Donetsk,Ukraine,1400000,451
+141,New York Metro,USA,17800000,8683
+142,Chicago,USA,8308000,5498
+143,Atlanta,USA,3500000,5083
+144,Philadelphia,USA,5149000,4661
+145,Boston,USA,4032000,4497
+146,Los Angeles,USA,11789000,4320
+147,Dallas/Fort Worth,USA,4146000,3644
+148,Houston,USA,3823000,3355
+149,Detroit,USA,3903000,3267
+150,Washington,USA,3934000,2996
+151,Miami,USA,4919000,2891
+152,Seattle,USA,2712000,2470
+153,Minneapolis/St. Paul,USA,2389000,2316
+154,Pittsburgh,USA,1753000,2208
+155,St. Louis,USA,2078000,2147
+156,Tampa//St. Petersburg,USA,2062000,2078
+157,Phoenix/Mesa,USA,2907000,2069
+158,San Diego,USA,2674000,2026
+159,Baltimore,USA,2076000,1768
+160,Cincinnati,USA,1503000,1740
+161,Cleveland,USA,1787000,1676
+162,Kansas City,USA,1362000,1514
+163,Indianapolis,USA,1219000,1432
+164,San Francisco//Oakland,USA,3229000,1365
+165,Virginia Beach,USA,1394000,1364
+166,Providence,USA,1175000,1304
+167,Denver,USA,1985000,1292
+168,Milwaukee,USA,1309000,1261
+169,Portland,USA,1583000,1228
+170,Hartford,USA,852000,1216
+171,Bridgeport//Stamford,USA,889000,1205
+172,Orlando,USA,1157000,1174
+173,Riverside/San Bernardino,USA,1507000,1136
+174,Richmond,USA,819000,1131
+175,Charlotte,USA,759000,1126
+176,Nashville,USA,750000,1116
+177,Jacksonville,USA,882000,1063
+178,San Antonio,USA,1328000,1056
+179,Memphis,USA,972000,1036
+180,Columbus,USA,1133000,1030
+182,Louisville,USA,864000,1013
+183,Sacramento,USA,1393000,956
+184,Buffalo,USA,977000,950
+185,Knoxville,USA,420000,879
+186,Dayton,USA,703000,838
+187,Oklahoma City,USA,747000,835
+188,Raleigh,USA,542000,828
+189,Austin,USA,902000,824
+190,McAllen,USA,523000,813
+191,Springfield,USA,574000,800
+192,Akron,USA,570000,797
+193,Rochester,USA,694000,764
+194,Tucson,USA,720000,755
+195,Chattanooga,USA,344000,751
+196,Allentown/Bethlehem,USA,576000,750
+197,Barnstable Town,USA,244000,741
+198,Las Vegas,USA,1314000,741
+199,New Haven,USA,531000,739
+200,Albany,USA,559000,736
+201,Baton Rouge,USA,479000,727
+202,Sarasota//Bradenton,USA,559000,700
+203,Columbia,USA,421000,697
+204,Poughkeepsie,USA,352000,686
+205,Tulsa,USA,558000,677
+206,San Jose,USA,1538000,674
+207,Grand Rapids,USA,539000,667
+208,Winston/Salem,USA,299000,651
+209,Worcester,USA,430000,648
+210,Augusta,USA,336000,600
+211,Flint,USA,365000,599
+212,Charleston,USA,423000,598
+213,Salt Lake City,USA,888000,598
+214,Youngstown,USA,417000,591
+215,Greenville,USA,302000,587
+216,Omaha,USA,627000,586
+217,Albuquerque,USA,598000,580
+218,Palm Bay,USA,393000,569
+219,El Paso,USA,675000,568
+220,Pensacola,USA,324000,568
+221,Hickory,USA,188000,546
+222,Mobile,USA,318000,546
+223,Harrisburg,USA,363000,540
+224,Asheville,USA,222000,536
+225,Little Rock,USA,360000,532
+226,Toledo,USA,503000,524
+227,Lancaster,USA,324000,517
+228,New Orleans,USA,1009000,512
+229,Colorado Springs,USA,466000,511
+230,Cape Coral,USA,330000,497
+231,Ogden,USA,418000,466
+232,Syracuse,USA,402000,465
+233,Wichita,USA,422000,465
+234,Concord,USA,553000,457
+235,Port St Lucie,USA,271000,438
+236,Fayetteville,USA,276000,433
+237,Jackson,USA,293000,417
+238,Scranton,USA,385000,411
+239,Huntsville,USA,213000,407
+240,Durham,USA,288000,406
+241,South Bend,USA,276000,404
+242,Shreveport,USA,275000,401
+243,Honolulu,USA,718000,399
+244,Bonita Springs / Naples,USA,221000,389
+245,Canton,USA,267000,372
+246,Spokane,USA,335000,371
+247,Tashkent,Uzbekistan,2200000,531
+248,Ho Chi Minh City,Vietnam,4900000,518
+249,Harare,Zimbabwe,1750000,712
