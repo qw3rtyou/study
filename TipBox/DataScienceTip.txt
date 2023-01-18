@@ -146,6 +146,8 @@ Jupyter Notebook에서 공부한 내용임
         numpy array랑 pandas Series랑 비슷한 기능을 한다고 생각하면 됨
             
             pd.Series(['dongwook', 50, 86]
+            
+        Series는 list로 변환 가능
         
     
     numpy array도 표형식의 2차원 배열 사용가능한데 굳이 pandas를 쓰는 이유
@@ -494,7 +496,10 @@ Jupyter Notebook에서 공부한 내용임
                 iPhone XS         True
                 iPhone XS Max     True
                 dtype: bool
-
+            
+            #조건 응용하기
+            iphone_df[condition]
+            iphone_df[condition,'디스플레이']='양호'
 
             #iloc를 사용하면 숫자로 인덱싱할 수 있음
             iphone_df.iloc[2,4]
@@ -889,4 +894,9 @@ Jupyter Notebook에서 공부한 내용임
             
         
         
-        https://www.codeit.kr/learn/1031
+
+
+***tip***
+    자주 발생하는 오류
+        'Series' objects are mutable, thus they cannot be hashed
+        ->인덱싱 할 때 Dataframe에 .loc 붙였는지 확인
