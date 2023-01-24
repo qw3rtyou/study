@@ -980,6 +980,73 @@ Jupyter Notebook에서 공부한 내용임
     클러스터 분석(Cluster Analysis)
         비슷한 성향끼리 그룹화해서 분석 혹은 그룹화하는 것
     
+    새로운 인사이트 발견하기
+        비슷해 보이거나 서로 관련있는 것들을 그룹지어서 결과를 내보면
+        다양한 통찰을 얻을 수 있음
+        
+            df.sum(axis='columns')
+            df[df['Genre'].str.contains('Blues')]
+            df['Genre'].str.startswith('Blues')
+            address=df['소재지도로명주소'].str.split(pat='-',n=1,expand=True)
+            df['brand'].map(brand_nation)    #brand_nation=>dict
+
+    groupby
+        그룹지어서 분석할 때 사용함
+        
+            nation_groups=df.groupby('brand_nation')
+            type(nation_groups)
+            
+                >>pandas.core.groupby.generic.DataFrameGroupBy
+                
+            nation_groups.count()
+            nation_groups.max()
+            nation_groups.mean()
+            nation_groups.first()
+            nation_groups.last()
+            nation_groups.plot(kind='box',y='price')
+            nation_groups.plot(kind='hist',y='price')
+            
+        평균함수(mean())이용해서 비율구하기
+            df.loc[df['gender']=='M','gender']=0
+            df.loc[df['gender']=='F','gender']=1
+
+            groups=df.groupby('occupation')
+            groups.mean()['gender'].sort_values(ascending=False)
+            
+        merge(합치기)
+            관계있는 두 DataFrame을 합침
+            
+                pd.merge(price_df,quantity_df,on='Product',how='inner')
+                #how 생략하면 기본으로 'inner'가 들어가고
+                #left,right,outer등이 있음
+                
+                
+***데이터 퀄리티 높이기***
+    좋은 데이터의 기준
+        완결성
+            데이터는 필수항목 + 선택항목으로 이뤄져있음
+            필수 항목은 비어있으면 분석할 수 없기 때문에
+            비어있는 값(결측값)의 여부를 확인해야 한다.
+            pandas에선 NaN(Not a Number)로 표현함
+            
+            없는게 가장 좋고, 왜 생기는지 원인을 파악해야됨
+            
+        유일성
+            동일한 데이터가 불필요하게 중복되어 있으면 안됨
+            
+        통일성
+            데이터가 동일한 단위로 되어있어야함
+            
+        정확성
+            데이터가 정확해야함
+            다른 데이터와 너무 동떨어진 데이터를 이상점(outlier)라고함
+            너무 비이상적인 데이터라면 제거해야함
+        
+        
+        
+        
+    데이터 클리닝
+    
 
 ***tip***
     자주 발생하는 오류
@@ -997,3 +1064,11 @@ Jupyter Notebook에서 공부한 내용임
         
         Notebook에선
         df.columns.values
+        
+    데이터 타입오류
+        DataFrame을 처음에 생성할 때 설정할 수 있음
+            
+            museum = pd.read_csv("data/museum_3.csv", dtype={'지역번호': str})
+            
+            
+        
