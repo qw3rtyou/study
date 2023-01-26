@@ -331,9 +331,40 @@
 	유니코드는 true 음수는 false를 리턴한다.
 
 
+***문자열 메소드***
+    strip()
+        문자열 양쪽 공백 제거
 
+    split()
+        구분자로 구분된 문자열을 iterator로 반환
+        
+            phone_number.split("-")[2]
+
+    join()
+        여러 문자열 합치기
+            
+            phone_number_segments = ["010", "0000", "1111"]
+
+            print("-".join(phone_number_segments))
+            
+    replace()
+        문자열의 일부분을 다른 문자열로 바꾸기
+
+            message.replace("Codeit", "코드잇")
+
+    lower,upper,capitalize
+        소문자화,대문장화,앞글자만 대문자
+        
+        
 
 ***deque***
 
 
 ***global***
+
+
+***오류***
+
+    코드 내에 한글이 있다면 인코딩 오류남
+        
+        #-*- coding: utf-8 -*-
