@@ -368,3 +368,12 @@
     코드 내에 한글이 있다면 인코딩 오류남
         
         #-*- coding: utf-8 -*-
+        
+        
+    공개키 오류
+        
+        키 다시 받기
+            wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add -
+        
+        키 추가하기
+            sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5
