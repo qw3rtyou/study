@@ -763,9 +763,27 @@ service mysql start		mysql 서비스 실행
                 Primary Key는 NULL을 가질 수 없지만, Unique는 NULL을 허용한다.
            
            
-    테이블에 CONSTAINT 걸기
+        테이블에 CONSTAINT 걸기
+            CONSTRAINT 걸기
+                ALTER TABLE student
+                    ADD CONSTRAINT str_rule CHECK (regi_num<30000000);
+            
+            CONSTRAINT 삭제
+                ALTER TABLE student DROP CONSTRAINT st_rule;
                 
-    
+             CONSTRAINT 걸기2
+                ALTER TABLE student
+                    ADD CONSTRAINT str_rule 
+                    CHECK (email LIKE '%@%' AND gender IN ('m','f'));
+                    
+        
+        컬럼 가장 앞으로 당기기
+            ALTER TABLE playe_info
+                MODIFY id INT NOT NULL AUTO_INCREMENT FIRST;
+                
+        
+        컬럼 간의 순서 바꾸기
+            ALTER
     
     
     
