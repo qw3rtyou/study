@@ -783,9 +783,17 @@ service mysql start		mysql 서비스 실행
                 
         
         컬럼 간의 순서 바꾸기
-            ALTER
-    
-    
+            ALTER TABLE player_info 
+            	MODIFY role CHAR(5) NULL AFTER name;
+
+
+        컬럼 이름,컬럼의 데이터 타입 속성 동시에 수정하기
+        	ALTER TABLE player_info
+        		CHAGE role postion VARCHAR(2) NOT NULL;
+
+
+
+
     
 ***데이터 모델링***
     데이터 모델링

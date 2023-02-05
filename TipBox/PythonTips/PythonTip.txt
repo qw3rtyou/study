@@ -332,30 +332,111 @@
 
 
 ***문자열 메소드***
-    strip()
+    STRING.strip()
         문자열 양쪽 공백 제거
 
-    split()
+    STRING.split(SPLITER)
         구분자로 구분된 문자열을 iterator로 반환
         
             phone_number.split("-")[2]
+            name,extension=file_name.split(".")
 
-    join()
+    SPLITER.join(LIST)
         여러 문자열 합치기
             
             phone_number_segments = ["010", "0000", "1111"]
 
             print("-".join(phone_number_segments))
             
-    replace()
+    STRING.replace(BEFORE_STRING,AFTER_STRING)
         문자열의 일부분을 다른 문자열로 바꾸기
 
             message.replace("Codeit", "코드잇")
 
-    lower,upper,capitalize
-        소문자화,대문장화,앞글자만 대문자
-        
-        
+    STRING.lower,upper,capitalize
+        소문자화,대문화,앞글자만 대문자
+
+    STRING.find(SUBSTRING)
+    	문자열에서 부분문자열 찾기
+    	-1 나오면 없음
+
+    STRING.count(SUBSTRING)
+    	문자열에서 부분문자열 몇 번 나오는지 카운트
+
+    SUBSTRING IN STRING
+    	부분문자열이 분자열에 있는지 불린 형식으로 리턴
+
+    STRING.endswith(SUBSTRING), startswith(SUBSTRING)
+    	문자열이 부분문자열로 끝나는지 불린 형식으로 리턴
+
+    STRING.isalpha(SUBSTRING), isalnum(SUBSTRING), isdigit(SUBSTRING)
+    	isalpha()
+    		특수문자나 숫자 공백이 문자열에 들어가 있으면 FALSE 아님 TRUE
+
+        isalnum()
+        	alpha+num
+
+        isdigit()
+        	모두 숫자로 이뤄져 있는지 불린 형식으로 리턴
+
+
+***datetime 모듈***
+	파이썬에서 날짜와 시간 데이터를 다룰 때는 datetime 모듈을 많이 사용
+	datetime 객체 자체로 날짜와 시간을 더하고 빼는 등의 연산 가능
+	원하는 포맷으로 출력 가능
+
+		import datetime
+
+		birth_day=datetime.datetime(2020,11,22)
+		print(birth_day)
+
+		now=datetime.datetime.now()
+		print(now)
+
+		print(now.year)
+		print(now.month)
+		print(now.day)
+		print(now.hour)
+		print(now.minute)
+		print(now.second)
+		print(now.microsecond)
+
+		print(now.date())
+		print(now.time())
+
+		#대소문자 구분 잘할 것
+		now_date=now.strftime("%Y/%m/%d")
+		print(now_date)
+
+		now_time=now.strftime('%H시 %M분 %S초')
+		print(now_time)
+
+	포멧코드표
+		포맷코드	설명	예
+		%a	요일 줄임말	Sun, Mon, ... Sat
+		%A	요일	Sunday, Monday, ..., Saturday
+		%w	요일을 숫자로 표시, 월요일~일요일, 0~6	0, 1, ..., 6
+		%d	일	01, 02, ..., 31
+		%b	월 줄임말	Jan, Feb, ..., Dec
+		%B	월	January, February, …, December
+		%m	숫자 월	01, 02, ..., 12
+		%y	두 자릿수 연도	01, 02, ..., 99
+		%Y	네 자릿수 연도	0001, 0002, ..., 2017, 2018, 9999
+		%H	시간(24시간)	00, 01, ..., 23
+		%I	시간(12시간)	01, 02, ..., 12
+		%p	AM, PM	AM, PM
+		%M	분	00, 01, ..., 59
+		%S	초	00, 01, ..., 59
+		%Z	시간대	대한민국 표준시
+		%j	1월 1일부터 경과한 일수	001, 002, ..., 366
+		%U	1년중 주차, 월요일이 한 주의 시작으로	00, 01, ..., 53
+		%W	1년중 주차, 월요일이 한 주의 시작으로	00, 01, ..., 53
+		%c	날짜, 요일, 시간을 출력, 현재 시간대 기준	Sat May 19 11:14:27 2018
+		%x	날짜를 출력, 현재 시간대 기준	05/19/18
+		%X	시간을 출력, 현재 시간대 기준	'11:44:22'
+
+
+        	
 
 ***deque***
 
