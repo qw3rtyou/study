@@ -1,0 +1,199 @@
+***기본 개념***
+	css 규칙
+		css속성을 하나나 태그에 넣기보다는 css규칙을 정해 놓고 사용하는게 좋음
+
+			선택자 {
+			  속성: 속성값;
+			  속성: 속성값;
+			}
+
+
+	css 선택자
+		태그 이름
+			모든 태그에 스타일 적용
+
+				h3 {
+				  font-size: 24px;
+				}
+
+		id
+			id는 중복되면 안됨
+
+				<h3>우도</h3>
+				<h3 id="hallasan">한라산 국립공원</h3>
+				<h3>성산 일출봉</h3>
+				<h3>군산 오름</h3>
+
+				#hallasan {
+				  color: #f56513;
+				}
+
+		class
+			여러 요소에 중복해서 사용할 때 사용함
+				<h3 class="place">우도</h3>
+				<h3 class="place" id="hallasan">한라산 국립공원</h3>
+				<h3 class="place">성산 일출봉</h3>
+				<h3 class="place">군산 오름</h3>
+
+				.place {
+				  font-size: 16px;
+				  font-weight: 400;
+				}
+
+
+	색상 단위
+		색상 코드
+			#으로 시작하는 여섯 글자의 코드
+			빨강, 초록, 파랑 값을 0~255 사이의 정수로 표현한 다음 이걸 16진수로 표현
+			대소문자 구분안함
+
+				#FFFF00
+				#ffff00
+
+		RGB
+			빨강, 초록, 파랑 값을 0~255 사이의 정수로 표현
+
+				rgb(255, 255, 0)
+
+		RGBA
+			빨강, 초록, 파랑, 알파 값을 순서대로 써서 색상 표현
+
+				rgba(255, 255, 0, 0.5)
+
+
+	크기 단위
+		절대적인 크기
+			픽셀 px
+				화면을 표시하는 기준이 되는 크기
+
+		상대적인 크기
+			퍼센트 %
+				부모 태그의 크기에 상대적으로 지정할 때 사용
+
+					<div id="parent">
+					  저는 높이가 320px입니다.
+					  <div id="child">
+					    저는 높이가 160px이에요!
+					  </div>
+					</div>
+
+					#parent {
+					  background-color: #A655ED;
+					  height: 320px;
+					}
+
+					#child {
+					  background-color: #6942D6;
+					  height: 50%;
+					}
+
+			em
+				인쇄술에서 대문자 M의 크기를 나타내는 단위
+				CSS에서 em은 부모 태그 font-size의 크기
+
+					<div id="parent">
+					  저는 16px입니다.
+					  <div id="child">
+					    저는 64px이에요!
+					  </div>
+					</div>
+
+					#parent {
+					  font-size: 16px;
+					}
+
+					#child {
+					  font-size: 4em;
+					}
+
+			rem
+				rem은 루트(root) em이라는 의미의 단위
+				CSS에서 rem은 <html> 태그의 font-size 크기
+
+					<html>
+					  <body>
+					        저는 18px 입니다.
+					        <div id="other">
+					      저는 32px이에요!
+					        </div>
+					  </body>
+					</html>
+					html {
+					  font-size: 16px;
+					}
+
+					body {
+					  font-size: 18px;
+					}
+
+					#other {
+					  font-size: 2rem;
+					}
+
+
+	css주석
+		한 줄 주석
+
+			/*주석*/
+
+		여러 줄 주석
+			
+			/*
+				주석
+			*/
+
+
+	텍스트 스타일링
+		글자색 color
+
+		글자크기 font-size
+
+		글꼴 font-family
+			쉼표를 연결하여 여러개 사용 가능
+			왼쪽 폰트부터 써보고 적용안되면 오른쪽으로 넘어가는 방식
+
+		글자 굵기 font-weight
+			100단위로 사용
+
+		줄 높이 line-height
+			단위 없이 글자 크기에 상대적인 값
+			line-height:1 이면 줄높이가 글자 크기랑 같음
+
+		텍스트 꾸미기 text-decoration
+			텍스트에 밑줄 취소선 등을 넣을 수 있음
+			속성 값으로는 none, underline, line-through 등이 있음
+			none은 <a> 태그에 기본으로 들어 간 밑줄을 없애는 데 많이 사용
+
+	CSS 속성
+		margin
+		padding
+		width
+		height
+
+
+		배경 이미지 background-image
+			url('pizza.png') 이미지를 배경으로
+			linear-gradient(rgba(0,0,0,1),rgba(0,0,0,0)) 검은색 그라데이션
+			linear-gradient(90deg,rgba(0,0,0,1),rgba(0,0,0,0)) 각도 설정
+			linear-gradient(90deg,rgba(0,0,0,1),rgba(0,0,0,0)),url('pizza.png')
+			이미지가 배경 그라데이션이 앞으로 와서 이쁨
+
+		배경 반복 background-repeat
+			no-repeat 기본적으로 타일처럼 반복이 설정되어 있는데 반복하지 않음
+
+		배경 위치 background-position
+			center
+
+		배경 크기 background-size
+			cover 꽉채움
+			contain 비율이 깨지지않을정도로 꽉 채움
+
+		그림자 box-shadow
+			box-shadow 오른쪽그림자 아래그림자 
+
+
+
+
+
+
+
