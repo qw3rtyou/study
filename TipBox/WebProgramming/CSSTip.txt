@@ -41,6 +41,8 @@
 				}
 
 
+
+***자주 쓰는 CSS 속성***
 	색상 단위
 		색상 코드
 			#으로 시작하는 여섯 글자의 코드
@@ -164,6 +166,7 @@
 			속성 값으로는 none, underline, line-through 등이 있음
 			none은 <a> 태그에 기본으로 들어 간 밑줄을 없애는 데 많이 사용
 
+
 	CSS 속성
 		margin
 		padding
@@ -177,23 +180,175 @@
 			linear-gradient(90deg,rgba(0,0,0,1),rgba(0,0,0,0)) 각도 설정
 			linear-gradient(90deg,rgba(0,0,0,1),rgba(0,0,0,0)),url('pizza.png')
 			이미지가 배경 그라데이션이 앞으로 와서 이쁨
+            
+            배경이미지는 먼저오는게 가장 화면 앞으로 나옴
 
 		배경 반복 background-repeat
+            기본값 repeat
 			no-repeat 기본적으로 타일처럼 반복이 설정되어 있는데 반복하지 않음
 
 		배경 위치 background-position
+            기본값 left top
 			center
 
 		배경 크기 background-size
 			cover 꽉채움
 			contain 비율이 깨지지않을정도로 꽉 채움
+            40px 30px 처럼 구체적인 값을 정할 수 있음
 
 		그림자 box-shadow
-			box-shadow 오른쪽그림자 아래그림자 
+			box-shadow 가로그림자 세로그림자 흐림효과(blur) 그림자퍼짐 색상
+            box-shadow:10px 15px 20px 5px rgba(0,0,0,0.4)
+
+        불투명도 opacity
+            rgba에서 a처럼 0이면 투명 1이면 불투명을 나타냄
+            요소 전체를 불투명하게 만드는 것
 
 
 
+***박스 모델***
+    모든 웹사이트 요소는 박스 모델을 따름
+    margin border padding content 순임
+    
+    
+    Padding
+        영역 안쪽에 여백을 넣을 때 사용
 
+        상하좌우 한 번에
+        
+            padding: 8px;
+        
+        상하, 좌우 각각
+        
+            padding: 16px 8px;
+        
+        상, 좌우, 하
+        
+            padding: 16px 8px 24px;
+            
+        상, 우, 하, 좌
+        
+            padding: 16px 8px 24px 10px;
+        
+        숫자의 순서는 시계 방향으로 0시 → 3시 → 6시 순서
+        
+        
+    padding- 속성
+        패딩 값을 각각 주고 싶을 때 쓰는 속성
+        앞에서 상, 우, 하, 좌 값을 따로 썼던 걸 속성으로 나눈 것
+        
+        아래 두 코드는 똑같은 코드
 
+            padding: 16px 8px 24px 10px;
 
+            padding-top: 16px;
+            padding-right: 8px;
+            padding-bottom: 24px;
+            padding-left: 10px;
+            
+            
+    margin
+        영역 바깥쪽 여백을 넣을 때 사용
+        auto라는 걸 사용해서 자동으로 여백 채움
+        주의할 점은 요소의 width 속성이 정해져 있어야 자동으로 채울 수 있음
 
+        상하좌우
+        
+            margin: 8px;
+
+        상하, 좌우
+        
+            margin: 16px 8px;
+
+        자동으로 채우기
+        
+            width: 520px; /* 반드시 너비가 정해져 있어야 자동으로 채울 수 있음 */
+            margin: 16px auto;
+
+        상, 좌우, 하
+        
+            margin: 16px 8px 24px;
+
+        상, 우, 하, 좌
+        
+            margin: 16px 8px 24px 10px;
+
+    
+    margin- 속성
+        padding 이랑 마찬가지로 값을 각각 주고 싶을 때 쓰는 속성들
+
+            margin: 16px 8px 24px 10px;
+            margin-top: 16px;
+            margin-right: 8px;
+            margin-bottom: 24px;
+            margin-left: 10px;
+            
+            
+    border
+        요소의 테두리 개념
+        border: 테두리두깨 태두리모양
+        
+            border: 10px solid #FFFFFF;
+        
+        테두리 모양
+            solid 실선
+            dotted 점선
+            dashed dash로 이뤄진 선 
+            
+    
+    border-radius
+        테두리 둥글기
+        
+            border-radius:14px;
+            
+        타원 만들기
+            
+            border-radious: 50%;
+            
+        알약 만들기
+        
+            border-radious: 9999px;
+        
+        
+    box-sizing 
+        width나 height와 같은 속성을 설정하면 그 값대로
+        box요소가 나올 것 같으나 실제로 그러한 속성들이 적용되는
+        대상은 box가 아닌 box안에 content까지이다
+        이렇게 적용 대상을 content에서 box로 바꾸고 싶을 때 사용하는 속성이다.
+        
+            box-sizing: border-box;
+            
+        추가적으로 box-sizing 설정은 편리한 기능이고 대부분의 요소에서 사용된다.
+        모든 요소에 추가하고 싶은 속성은 다음과 같은 방법으로 추가할 수 있다.
+        
+            *{
+                box-sizing: border-box;
+            }
+            
+    overflow
+        크기에 비해 내용이 너무 많으면 overflow가 일어난다.
+            
+            overflow: hidden;
+        
+        hidden 넘치는 내용을 숨김
+        scroll 항상 내용을 스크롤로, 기본값 세로
+        auto 넘치면 스크롤
+        
+        아래에서 설명하는 white-space 속성을 이용하면
+        좌우 스크롤도 구현할 수 있다.
+    
+    white-space
+        원래 설정된 가로 길이보다 긴 텍스트에 대해서 css는 자동으로 
+        다음 줄로 넘겨준다.
+        이러한 설정을 다루는 속성이 white-space다
+        
+            white-space: nowrap;
+        
+        
+    마진 상쇄(margin collapsing)
+        부모자식간, 상하 요소간 마진이 설정한 값대로가 아닌 겹쳐진 값 중 큰값을 택함
+        말 그대로 여백이기 때문.
+        border나 padding이 있어서 어떤 경계가 생긴다면 마지 상쇄가 일어나지 않는다.
+        
+
+    
