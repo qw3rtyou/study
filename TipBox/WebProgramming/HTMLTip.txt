@@ -708,9 +708,42 @@ HTML이란?
     link 태그
         다른 코드를 불러오는 용도이다.
         css나 구글 폰트, 아이콘 같은 걸 불러올 수 있다.
+         어떤 목적인지를 rel 속성에 
+         위치는 href로 
+         주로 <head> 태그 안에서 맨 마지막에 써 줌
         
             <link rel='stylesheet' href='style.css'>
             <link rel="preconnect" href="https://fonts.googleapis.com">
             
         웹브라우저에서 보이는 아이콘을 파비콘(favicon)이라고함
             <link rel='icon' href='favicon.ico'
+    
+        
+    script 태그
+        자바스크립으로 짜진 스크립트 언어를 불러올 수 있다.
+         주로 <body> 태그 안에서 맨 마지막에 써 줌
+        
+            <body>
+               <script src='script.js'></script>
+            </body>
+            
+            
+
+***의미있는 HTML***
+    head 태그
+        페이지에 대한 정보를 담고 있는 태그
+        주로 이 페이지에 대한 데이터를 담고 있는데, 
+        화면에 보여 주기보다는 웹 브라우저가 읽어서 처리하는 용도
+        
+    
+   시맨틱 태그
+       <div>와 기능은 똑같지만, 의미가 담겨있는 태그들을 '시맨틱 태그'라고 함
+       시맨틱 태그를 잘 활용하면 검색 엔진 최적화(SEO)나 
+       접근성(Accessibility)을 높이는데 도움이 됨
+       
+           <header>	영역 위쪽에서 로고나 제목, 메뉴 같은 걸 담고 있는 도입부
+           <main>	사이트의 본격적인 내용으로 페이지에서 딱 한 번만 사용 가능
+           <footer>	영역 아래쪽에서 여러 가지 연락처나 관련 정보를 담고 있음
+           <article>	하나의 완성된, 독립적인 내용을 나타내는 영역
+           <section>	어떤 것의 일부분을 나타내는 영역
+           <figure>	이미지와, 이미지 설명을 담고 있는 영역
