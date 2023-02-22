@@ -682,6 +682,11 @@ service mysql start		mysql 서비스 실행
         마찬가지로 where절을 안 적으면 모든 row가 지워진다.
         
             DELETE FROM student;
+
+       	모든 로우를 지우는 쿼리로 다음과 같은 쿼리도 있다.
+
+       		TRUNCATE final_exam_result;
+
             
     물리삭제&논리삭제
         DELETE문을 사용해서 지우면 물리삭제,
@@ -703,42 +708,53 @@ service mysql start		mysql 서비스 실행
     
     컬럼 다루기
     
-        컬럼 추가
-            ALTER TABLE student ADD gender CHAR(1) NULL;
+        컬럼 추가 (ALTER ADD)
+        	테이블 이름, 컬럼이름, 컬럼타입, 속성
+
+            	ALTER TABLE student ADD gender CHAR(1) NULL;
         
         
-        컬럼 이름변경
-            ALTER TABLE student RENAME COLUMN student_num TO regist_num
+        컬럼 이름변경 (ALTER RENAME)
+        	테이블 이름, 이전컬럼이름, 변경컬럼이름
+
+            	ALTER TABLE student RENAME COLUMN student_num TO regist_num
             
             
-        컬럼 삭제
-            ALTER TABLE student DROP COLUMN admission_date;
+        컬럼 삭제 (ALTER DROP)
+        	테이블 이름, 컬럼이름
+
+            	ALTER TABLE student DROP COLUMN admission_date;
         
         
-        컬럼 데이터 타입 변경
-            기존의 데이터를 바꿔준다음
-            ALTER TABLE student MODIFY major INT;
+        컬럼 데이터 타입 변경 (ALTER MODIFY)
+            테이블 이름, 컬럼이름, 타입
+
+	            ALTER TABLE student MODIFY major INT;
             
             
-        컬럼에 NOT NULL 속성 주기
+        컬럼에 NOT NULL 속성 주기 (ALTER MODIFY)
+        	테이블 이름, 컬럼이름, 타입, 속성
             데이터타입이랑 동시에 바꿔도됨
-            기존의 데이터를 바꿔준다음
-            ALTER TABLE student MODIFY name VARCHAR(35) NOT NULL;
-            ALTER TABLE student MODIFY registration_num INT NOT NULL;
-            ALTER TABLE student MODIFY major INT NOT NULL;
+
+	            ALTER TABLE student MODIFY name VARCHAR(35) NOT NULL;
+	            ALTER TABLE student MODIFY registration_num INT NOT NULL;
+	            ALTER TABLE student MODIFY major INT NOT NULL;
         
         
-        컬럼에 DEFAULT 속성 주기
-            ALTER TABLE student MODIFY major INT NOT NULL DEFAULT 10;
+        컬럼에 DEFAULT 속성 주기 (ALTER MODIFY)
+        	테이블 이름, 컬럼이름, 타입, 속성, DEFAULT
+
+            	ALTER TABLE student MODIFY major INT NOT NULL DEFAULT 10;
     
     
-        컬럼에 시간 관련 타입을 넣기
+        컬럼에 시간 관련 타입을 넣기 (INSERT INTO VALUE)
             여기서 말하는 타입은 DATETIME,TIMESTAMP타입이다.
 
             NOW() 함수
-                데이터를 넣는 위치에 NOW() 함수를 넣으면 된다.
+                데이터를 넣는 위치에 NOW() 함수를 넣으면 된다
+                .
                 INSERT INTO post(title,content,upload_time,recent_time)
-                VALUES ('제목','ㅁㄴㅇㄹ',NOW(),NOW())
+                VALUES ('제목','ㄱㄷㅊㅋ',NOW(),NOW())
 
             DEFAULT CURRENT_TIMESTAMP 속성
                 테이블에 새 row를 추가할 때 따로 그 컬럼에 값을 주지 않아도 
@@ -753,8 +769,10 @@ service mysql start		mysql 서비스 실행
                         MODIFY recent_modified_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             
             
-        컬럼에 UNIQUE 속성 주기
-            ALTER TABLE student MODIFY id INT NOT NULL UNIQUE;
+        컬럼에 UNIQUE 속성 주기 (ALTER MODIFY)
+	        테이블 이름, 컬럼이름, 타입, 속성, UNIQUE
+
+	            ALTER TABLE student MODIFY id INT NOT NULL UNIQUE;
             
             Primary Key와 Unique 속성의 차이
                 Primary Key는 테이블당 오직 하나만 존재
@@ -763,188 +781,113 @@ service mysql start		mysql 서비스 실행
                 Primary Key는 NULL을 가질 수 없지만, Unique는 NULL을 허용한다.
            
            
-        테이블에 CONSTAINT 걸기
+        테이블에 CONSTAINT 걸기 (ALTER ADD CONSTRAINT)
             CONSTRAINT 걸기
-                ALTER TABLE student
-                    ADD CONSTRAINT str_rule CHECK (regi_num<30000000);
+            	테이블 이름, 조건이름, 조건
+
+	                ALTER TABLE student
+	                    ADD CONSTRAINT str_rule CHECK (regi_num<30000000);
             
             CONSTRAINT 삭제
-                ALTER TABLE student DROP CONSTRAINT st_rule;
+            	테이블 이름, 조건이름
+
+                	ALTER TABLE student DROP CONSTRAINT st_rule;
                 
              CONSTRAINT 걸기2
+
                 ALTER TABLE student
                     ADD CONSTRAINT str_rule 
                     CHECK (email LIKE '%@%' AND gender IN ('m','f'));
                     
         
-        컬럼 가장 앞으로 당기기
+        컬럼 가장 앞으로 당기기 (ALTER MODIFY)
+
             ALTER TABLE playe_info
                 MODIFY id INT NOT NULL AUTO_INCREMENT FIRST;
                 
         
-        컬럼 간의 순서 바꾸기
+        컬럼 간의 순서 바꾸기 (ALTER MODIFY)
+
             ALTER TABLE player_info 
             	MODIFY role CHAR(5) NULL AFTER name;
 
 
-        컬럼 이름,컬럼의 데이터 타입 속성 동시에 수정하기
-        	ALTER TABLE player_info
-        		CHAGE role postion VARCHAR(2) NOT NULL;
+        컬럼 이름,컬럼의 데이터 타입 속성 동시에 수정하기 ALTER CHANGE
+        	테이블 이름, 기존컬럼이름, 변경컬럼이름, 타입, 속성
+
+	        	ALTER TABLE player_info
+	        		CHANGE role postion VARCHAR(2) NOT NULL;
 
 
 
+       	컬럼 관련 여러 작업 동시 수행하기
+       		위에서 나온 컬럼 관련 작업은 모두 같이 사용할 수 있다.
 
-    
-***데이터 모델링***
-    데이터 모델링
-        데이터 모델이란, 다양한 데이터 요소들을 이해하고 사용하기 편한 형태로 정리해놓은 모형
-        
-        저장하고자 하는 데이터에서 Entity, Attribute, Relationship, Constraint 파악
-        우리가 데이터를 저장하려고 하는 대상: Entity(개체)
-        Entity에 대해서 저장하려고 하는 특징: Attribute(속성)
-        Entity들 사이 생기는 연결점: Relationship(관계)
-        여러 데이터 요소들에 있는 규칙: Constraint(제약 조건)
-        
-        이 네 가지 요소들을 파악한 후, 이 내용들을 발전시켜 데이터 모델들을 만드는 과정을 데이터 모델링
-	
-    릴레이셔널 모델
-        릴레이션은 데이터를 로우와 컬럼으로 정리한 테이블, 또는 표를 의미
-        Entity는 테이블, attribute은 컬럼, relationship은 foreign key를 사용해서 정리해놓은 모형
-        릴레이셔널 모델을 모델링한다는 건, 정확히 어떤 테이블을 만들고, 
-        이 테이블들을 또 어떤 컬럼들로 나누고,foreign key를 어떻게 만들지를 정해나가는 것
-        
-        
-    ERM(Entity-Relationship 모델)
-        모델링을 할 때는 로우에 대해서 신경을 쓰지 않기 때문에 
-        데이터를 조금 다른 형태로 표현하는 모델을 같이 사용
-        ERM에서는 로우를 매번 표현해주지 않아도 되고
-        선과 선의 끝점들을 통해서 Entity들 사이 관계를 조금 더 자세하게 표현할 수 있음
-        
-        Entity를 하나의 네모
-        attribute을 네모 안에 문자열
-        relationship을 선으로 표현
-        선들의 끝을 어떻게 표현하는지에 따라 관계의 특징을 표현
-        
-        
-    데이터 모델 스펙트럼
-        데이터 모델은 얼마나 자세하게 표현됐는지에 따라 세 가지로 분류
-        
-            개념 모델
-                가장 추상적인 내용을 담고 있는 모델을 개념 모델
-                대략적으로 Entity들과 Entity들 사이에 있는 관계 정도만 표현
-                
-            논리 모델
-                개념 모델보다는 조금 더 자세한 내용을 담고있음
-                
-                    Entity들이 갖는 Attribute들과 primary key, 
-                    Entity들 사이 관계를 표현해줄 foreign key
-                
-                이런 내용까지 표현
-                
-            물리 모델
-                물리 모델은 실제로 데이터베이스를 구축할 때 필요한 내용에 
-                최대한 가까운 내용을 담고 있는 모델
-                
-                    각 컬럼의 데이터 타입, 요소들의 이름, 
-                    나중에 배울 인덱스라는 걸 어디에 만들어줄 건지...
-                
-                이런 내용까지 표현
-                
-                
-                
-***논리적 모델링***    
-    비즈니스 룰
-        비즈니스 룰은 특정 조직이 운영되기 위해 따라야 하는 정책, 절차, 원칙에 대한 간단 명료한 설명
-        
-        모든 명사는 Entity 후보
-        모든 동사는 Relationship 후보
-        하나의 "값"으로 표현할 수 있는 명사는 attribute의 후보
-        하나의 값으로 표현할 수 있더라도, 
-        하나의 entity가 여러 개의 값을 가져야 하는 경우 
-        새로운 테이블(entity)을 만드는게 좋음
-        
-    
-    카디널리티
-        카디널리티는 두 entity type 사이 관계에서 한 종류의 entity가 
-        다른 종류의 entity 몇 개에 대해서 관계를 맺을 수 있는지를 나타내는 개념
-        
-        1:1 관계
-        1:N 관계
-        1:N 관계
-        
-        최대 카디털리
-        최소 카디널리티
-        
-        https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=4416&directory=Screen_Shot_2021-02-19_at_5.12.02_PM.png&name=Screen_Shot_2021-02-19_at_5.12.02_PM.png
-        https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=4416&directory=Screen_Shot_2021-02-19_at_5.13.54_PM.png&name=Screen_Shot_2021-02-19_at_5.13.54_PM.png
-        https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=4416&directory=Screen_Shot_2021-02-19_at_5.14.28_PM.png&name=Screen_Shot_2021-02-19_at_5.14.28_PM.png
-        https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=4416&directory=Screen_Shot_2021-02-19_at_5.14.48_PM.png&name=Screen_Shot_2021-02-19_at_5.14.48_PM.png
-        
-        ERD
-            ERM을 가끔씩 Entity Relationship Diagram, 줄여서 ERD라고 표현하기도 함
-        
-        
-    관계모델링
-        1:1 관계 모델링
-            두 Entity 사이에 1:1 관계가 있을 때는 둘 중 하나, 
-            또는 둘 다에 foreign key를 추가해서 모델링
-            
-        1:N 관계 모델링
-            Entity와 Entity 사이에 1:N 관계가 있을 때는 항상 다, 
-            즉 관계에서 다수 쪽에 해당하는 entity에 foreign key를 만들어줌
-            
-        M:N 관계 모델링
-            M:N 관계는 두 entity 또는 테이블만 사용해서 자연스럽게 표현할 수 없음
-            그렇기 때문에 관계를 저장하기 위한 테이블인 
-            연결 테이블 (junction table)이란 걸 사용
-            연결 테이블에는 각 테이블의 forign key를 만들어줌
-            즉, 새로운 테이블에 forign key 2개가 담겨져있음
-            
-            
-    ERM은 데이터베이스 구조를 만들어낼 때 뿐만 아니라, 
-    이미 사용하고 있는 데이터베이스를 파악하는데 사용할 수 있음
-    
-    
-    
-***정규화***
-    1NF
-        나눌 수 없는 단일 값
-        모든 칸에 하나의 데이터만 있어야함
-        하나의 컬럼을 여러개로 나누거나
-        같은 속성을 나타내는 컬럼을 분리해서 새로운 테이블을 만들면됨
-        당연히 후자가 좋음 왜냐하면       
-        NULL이 많이 생길 수 있게 된다
-        컬럼을 몇 개를 만들어야 되는지 애매해진다
-        조회가 비효율적이게 된다
-        
-        
-        
-***백업파일 생성과 복원***
-    mysqldump -utest_user -p'test123' test_db > test_db_backup.sql
-    mysql -utest_user -p'test123' dev_db < test_db_backup.sql 
+       		ALTER TABLE player_info
+        		MODIFY role CHAR(5) NULL AFTER name,
+        		DROP CONSTRAINT st_rule;
 
 
-        
-***TIP***
-	*(와일드카드)는 모두를 뜻함
-	쿼리 끝에 세미콜론 붙이기
-	예약어는 항상 대문자로 해주는게 좋음(=안해도됨)
-	WHERE NULL = NULL 은 True를 리턴하지 않음
-	schema랑 database랑 비슷함
-	entry랑 row랑 비슷함
+    테이블 자체를 다루기
+    	이름변경
+    		컬럼을 명시하고 컬럼 이름을 적으면 컬럼이름 바꾸기
+    		아니면 테이블 이름 변경
+
+    			RENAME TABLE student TO undergraduate;
+
+
+    	복사본 만들기(테이블 컬럼 구조 + ROW까지)
+
+    		CREATE TABLE copy_undergraduate AS SELECT * FROM undergraduate;
+
+
+    	삭제
+    		DROP TABLE copy_undergraduate;
+
+
+    	복사본 만들기(테이블 컬럼 구조)
+    		위에서 복사본 만드는 거에서 ROW는 추가 안함
+
+    			CREATE TABLE copy_undergraduate LIKE undergraduate;
+
+    		이 상태에서 ROW를 추가하고 싶다면 다음과 같이 하면 된다.
+
+    			INSERT INTO copy_undergraduate SELECT * FROM undergraduate;
+
+    		당연히 두 테이블의 구조가 같을 때만 가능하다.
+
+
+    	복사본 만들때나 새 값을 넣을 때 사용했던 쿼리문을 보면 서브쿼리가
+    	사용된 걸 확인할 수 있다. 당연히 서브쿼리니까 where절 같은 문을
+    	추가할 수 있다.
+
+
+
+***Foreign Key 사용하기***
+	foreign key 란 한 테이블의 컬럼 중에서 다른 테이블의 특정 컬럼으로 식별할
+	수 있는 컬럼을 말함 우리나라 말로 외래키라고 함
+
+	한 테이블의 컬럼에 있는 key가 다른 테이블에서 primary key라면foreign key일 
+	것이다. 이렇게 다른 테이블에서 찾는것 을 참조(reference) 라고 한다.
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	Foreign Key가 존재할 때 Foreign Key가 있는 테이블을 자식 테이블(child table)이나 참조하는 테이블(referencing table)이라고 하고 
+	Foreign Key에 의해 참조당하는 테이블을 부모 테이블(parent table),
+	참조당하는 테이블(referenced table)이라고 한다.
+
+	DBMS 상에서 한 테이블의 컬럼을, '이것이 다른 테이블의 컬럼을 참조하는 Foreign Key다'라고 설정해놓으면 참조 무결성(Referential Integrity)이라는 것을 지킬 수 있다.
+
+	참조 무결성은 참조 관계가 있을 때 각 데이터 간에 유지되어야 하는 정확성과 일관성을 의미
+	예를들면 참조했더니 참조 결과가 없을 수도 있다 이러한 경우 무결성이 깨진 것이다.
+
+	Foreign Key 설정 쿼리
+			ALTER TABLE `capston`.`topic` 
+			ADD CONSTRAINT `foreign_key_text`
+				FOREIGN KEY (`stNUM`)
+				REFERENCES `capston`.`topic` (`id`)
+				ON DELETE RESTRICT
+				ON UPDATE RESTRICT;
+
+
 	
 	
 ***information_schema / mysql / performance_schema / sys***
