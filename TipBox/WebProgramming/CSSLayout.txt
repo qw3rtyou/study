@@ -159,3 +159,76 @@
 	요소가 넘칠 때 flex-wrap
 	요소 간격 gap
 	크기 늘이거나 줄이기 flex-grow, flex-shrink, flex-basis
+
+	배치방향
+		display 속성을 flex로 설정하면
+		flex-direction 속성의 값이 row로 설정되어 있을 것이다.
+		가로 방향으로 요소들이 배치되는 것이다
+
+		반대로 세로 방향으로 배치하려면
+		flex-direction 속성의 값을 column 으로 설정해주면 된다.
+
+		추가적으로 방향을 반대로 하려면 column-reverse, row-reverse
+		등을 사용하면 된다.
+
+
+	정렬하기
+		flex-direction 속성으로 요소의 방향을 설정할 수 있다.
+
+		기본축(Main Axis)
+			요소가 배치되는 방향
+
+		교차축(Cross Axis)
+			기본축에 수직 방향
+
+		만약 flex-direction의 값이 column이라면
+		기본축은 위에서 아래방향이다.
+
+		기본적으로 요소들은 기본축 방향으로 순서대로 배치되고
+		교차축 방향으로 꽉 채워서 배치한다
+
+
+		크롬 개발자 도구에서 display: flex 오른쪽 아이콘을 클릭해보면 
+		빠르게 설정을 변경할 수 있다.
+		
+		flex요소에서 다음과 같은 속성을 주로 이용한다.
+
+
+			flex-direction
+				위에서 언급했듯이 요소들이 배치되는 방향
+				아래에서 설명하는 요소들은 flex-direction이 row라고 가정하고 설명했다.
+
+			justify-content
+				기본축 기준으로 설정
+
+				flex-start: 기본값 가장 왼쪽에 정렬
+
+				flex-right: 가장 오른쪽에 정렬
+
+				center: 가운데 배치
+
+				space-around, space-even: 요소마다 간격을 두고 배치
+
+			align-item
+				교차축 기준으로 설정
+
+				stretch: 기본값 최대 크기를 차지함
+
+				center: 가운데 정렬, 최대 크기를 차치하는 것이 아닌 
+					요소의 크기만큼 공간을 차지함
+
+				flex-end: 맨 아래에 정렬
+
+				flex-start: 맨 위로 정렬
+
+
+
+
+
+
+
+
+
+
+
+
