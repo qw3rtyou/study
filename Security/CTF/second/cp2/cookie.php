@@ -1,0 +1,1 @@
+<p style='text-align:center;'><image width='300px' src='cookie.jpg'></image></p>

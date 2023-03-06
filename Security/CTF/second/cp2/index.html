@@ -1,0 +1,39 @@
+<?php
+error_reporting(0);
+
+$host = '127.0.0.1';
+$user = 'flaguser';
+$pw = 'flaguser1234';
+$db = 'flag';
+
+highlight_file(__FILE__);
+
+function is_ascii($str) {
+    return 0 == preg_match('/[^\x00-\x7F]/', $str);
+}
+
+$SQL_BAN_LIST = array(
+    'al', 'cr', 'cu', 'de', 'dr', 'ex', 'fe', '!', '"',
+    '$', '%', '&', '+', '.', ':', '?', '@', '[', '\\', ']', '^', '_',
+    '`', '|', '~', 'sl', 'ta', 'de', 'wa', 'un', 'ha', 'md',
+    'da', 'set', 'co', 'be', 'up', 'in');
+
+
+if (!isset($_GET['sql'])) die('give me input');
+$sql = $_GET['sql'];
+if (!is_string($sql)) die('not string,,,');
+if (!is_ascii($sql)) die('only ascii plz,,,');
+$sql = strtolower($sql);
+foreach($SQL_BAN_LIST as $ban) {
+    if (str_contains($sql, $ban)) {
+        die($ban . ' is banned,,,');
+    }
+}
+
+$con = mysqli_connect($host, $user, $pw , $db) or die("Can't access DB");
+$query = "select flag from flag where flag='" . $sql . "'";
+mysqli_query($con, $query);
+
+?>
+
+give me input

@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>WASM by D0b6y</title>
+    <script src="/static/js/hehe.js"></script>
+  </head>
+
+  <body>
+        <form name="user_Input">
+                <input type="text" name="flag">
+                <input type="button" class="hehe" value="GOGO!">
+        </form>
+        
+        <script type="text/javascript">
+        document.querySelector('.hehe').addEventListener('click', function() {
+                var flag = document.user_Input.flag.value;
+                var result = Module.ccall(
+                'checker',
+                'number',
+                ['string'],
+                [flag]
+                );
+                if(result === 1)
+                        alert("That's Correct!");
+                else
+                        alert("Nah... Try harder");
+    });
+    </script>
+  </body>
+</html>
