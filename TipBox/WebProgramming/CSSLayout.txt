@@ -227,7 +227,30 @@
 		기본적으로 flex-grow를 설정하지 않으면 0을 가지고
 		양의 정수를 입력하면 그 값에 비례하여 남은 공간을 차지한다.
 
-		
+			.red {
+			  background-color: #e46e80;
+			}
+
+			.green {
+			  background-color: #32b9c1;
+			  flex-grow:1;
+			}
+
+			.blue {
+			  background-color: #5195ee;
+			  flex-grow:2;
+			}
+
+
+		flexbox는 하위 요소가 상위 요소의 크기를 넘는 경우
+		넘어간 크기만큼 비례하여 줄이는 걸 default로 한다.
+		이러한 특징을 만드는 속성이 flex-shrink다.
+		기본적으로 모든 flexbox의 기본 flex-shrink 값은 1이고
+		이 값이 클수록 줄어드는 비율이 늘어 난다.
+		flex-grow와 반대대는 개념이라고 생각하면 편하다.
+
+		대부분의 경우에서 빈공간을 채우고 싶다면 flex-grow:1을 사용하고
+		크기를 고정하고 싶다면 flex-shrink:0을 사용하면 해결된다.
 
 
 
