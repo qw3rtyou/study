@@ -153,6 +153,7 @@
 
 ***flexbox***
 	flexbox는 일차원 방향으로 배치를 할 때 유용하다
+	상위 요소에 display:flex를 넣어주면 된다.
 
 	배치할 방향 flex-direction
 	정렬하기 justify-content, align-items
@@ -207,6 +208,8 @@
 
 				center: 가운데 배치
 
+				space-between: 요소마다 간격을 두고 배치
+
 				space-around, space-even: 요소마다 간격을 두고 배치
 
 			align-item
@@ -220,6 +223,59 @@
 				flex-end: 맨 아래에 정렬
 
 				flex-start: 맨 위로 정렬
+
+
+			.trip {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin: 40px 0 24px;
+				padding: 24px 32px;
+				border-radius: 8px;
+				background: #ebeff8;
+			}
+
+
+	요소가 넘칠 때
+		상위 요소의 크기보다 하위 요소들의 크기가 더 커서 넘칠 때,
+			
+			flex-wrap: wrap;
+
+		를 사용하면 넘치는 요소를 다음 칸으로 넘겨준다.
+
+
+	간격
+		다음과 같은 구조가 있을 때,
+
+		    <div class="container">
+		     	<div class="red box">RED</div>
+		     	<div class="green box">GREEN</div>
+		     	<div class="blue box">BLUE</div>
+		    </div>
+
+		간격을 넣으려면
+
+			.box:not(:last-child){
+				margin-right: 30px;
+			}
+
+		이런 식으로 넣어야한다.
+		gap 속성을 사용하면 다음과 같이 사용할 수 있다.
+
+			.container{
+				gap: 30px;
+			}
+
+		만약 두 줄 이상의 flex 요소를 다뤄야 해서 gap의 가로 새로 크기가
+		달라야 한다면 다음과 같이 사용할 수 있다.
+
+			.container{
+				flex-wrap: wrap
+				gap: 30px 60px;
+			}
+
+		gap 속성의 값은 기본축 교차축 개념없이 무조건 세로 가로 순서로 사용됨
+		이유는 grid 때문이라고 함
 
 
 	요소 꽉 채우기
@@ -253,11 +309,204 @@
 		크기를 고정하고 싶다면 flex-shrink:0을 사용하면 해결된다.
 
 
+	flex 요소의 크기
+		위에서 언급했듯이 flex 요소에선 width와 height로 크기를 설정하였더라도
+		상위 요소의 크기를 초과하면 알아서 줄어든다.
+		이 때 기본축에서 설정한 크기를 시작 크기라고 하고,
+		줄어든 크기를 최종 크기라고 한다.
+		개발자 도구에서 빗금친 부분이 시작크기이다.
+		이 때 시작크기를 정할 수 있는 또다른 방법이 flex-basis 속성이다.
+		그리고 이런 flex-grow, flex-shrink, flex-basis 값을 한 번에 
+		쓸 수 있는 속성이 flex 속성이다. 아래 3코드는 모드 같은 역할을 한다.
+
+		width 속성으로 시작 크기를 지정하기
+
+			flex-grow: 1;
+			flex-shrink: 0;
+			width: 100px;
+
+		flex-basis 속성으로 시작 크기를 지정하기
+
+			flex-grow: 1;
+			flex-shrink: 0;
+			flex-basis: 100px;
+
+		flex 속성으로 짧게 쓰기
+
+			flex: 1 0 100px;
+
+
+	인라인 안에서 flex box만들기
+		인라인 요소에 flex 같은 효과를 넣으려면 다음과 같이 사용하면 된다
+
+			display: inline-block
+
+
+	인라인 안에서 포지셔닝하기
+		플렉스박스 요소의 포지셔닝을 지정할 수 있다.
+		absolute와 fixed는 원래 자리를 차지 않고 글의 흐름에서 빠지고
+		나머지는 포지셔닝을 원래 흐름대로 한다.
+
+			<div class="container">
+			    <div class="red box">RED</div>
+			    <div class="green box">GREEN</div>
+			    <div class="blue box">BLUE</div>
+			</div>
+
+			.container {
+				border: 5px dashed #cacfd9;
+				width: 100%;
+				height: 500px;
+				display: flex;
+				position: relative;
+				align-items: flex-start;
+			}
+
+			.box {
+				border-radius: 15px;
+				color: #f9fafc;
+				padding: 10px;
+			}
+
+			.red {
+				background-color: #e46e80;
+			}
+
+			.green {
+				background-color: #32b9c1;
+				flex-grow: 1;
+			    position: relative;
+				top: 100px;
+				left: 100px;
+			}
+
+			.blue {
+				background-color: #5195ee;
+			}
 
 
 
+***Grid***
+	2차원으로 배치함
+	왼쪽에서 오른쪽으로, 위에서 아래로 배치
+	각 칸을 나누는 라인을 Grid Line, 요소를 배치할수 있는 공간을 Grid Cell
+
+		Grid 나누기
+			grid-template-columns, grid-template-rows 속성을 사용해서
+			grid의 크기를 정할 수 있다.
+
+				.container {
+					border: 5px dashed #cacfd9;
+					width: 500px;
+					height: 500px;
+					display: grid;
+					grid-template-columns: 100px 200px 100px;
+					grid-template-rows: 200px 200px;
+				}
+
+			grid-template속성을 사용하여 같은 효과를 낼 수 있다.
+			아래 코드들은 위의 코드와 동일하다.
+			row 그다음 column 순서이다.
+
+				.container {
+					border: 5px dashed #cacfd9;
+					width: 500px;
+					height: 500px;
+					display: grid;
+					grid-template: 200px 200px 100px / 100px 200px 100px;
+				}
+
+				.container {
+					border: 5px dashed #cacfd9;
+					width: 500px;
+					height: 500px;
+					display: grid;
+					grid-template: 
+						200px 200px 100px /
+						100px 200px 100px;
+				}
 
 
+		유연한 크기와 유용한 함수들
+			flexbox처럼 유연하게 크기를 조절하려면 px 대신 fr(fraction)을 사용하면 된다.
+
+				.container {
+					border: 5px dashed #cacfd9;
+					width: 500px;
+					height: 500px;
+					display: grid;
+					grid-template: 
+						2fr 2fr 1fr /
+						1fr 2fr 1fr;
+				}
+
+			minmax()로 유연함의 최대와 최소을 설정할 수 있다.
+
+				.container {
+					border: 5px dashed #cacfd9;
+					width: 500px;
+					height: 500px;
+					display: grid;
+					grid-template: 
+						2fr 2fr 1fr /
+						minmax(100px,200px) minmax(100px,200px) 1fr;
+				}
+
+			minmax() 안에서도 fr를 사용할 수 있는데, 최대에만 fr을 사용할 수 있다.
+
+			fr을 반복해서 사용해야 한다면 repeat()를 사용하여 간단하게 표현할 수 있다.
+
+				.container {
+					border: 5px dashed #cacfd9;
+					width: 500px;
+					height: 500px;
+					display: grid;
+					grid-template: 
+						2fr 2fr 1fr /
+						repeat(6,1fr);
+				}
 
 
+		간격 넣기
+			flex에서 사용했던 gap이랑 완전 동일하게 사용한다.
 
+				.container {
+					border: 5px dashed #cacfd9;
+					width: 500px;
+					height: 500px;
+					display: grid;
+					grid-template: 
+						2fr 2fr 1fr /
+						repeat(6,1fr);
+					gap: 16px 32px;
+				}
+
+
+		크기 미리 정해두기
+			Grid-Cell 초기값을 설정한다고 생각하면 된다.
+			아래 코드는 모든 가로 크기를 200px로 바꾸는 코드다.
+
+				.container {
+					border: 5px dashed #cacfd9;
+					width: 500px;
+					height: 500px;
+					display: grid;
+					grid-template-columns: repeat(3,1fr);
+					grid-auto-rows: 200px; 
+					gap: 16px 32px;
+				}
+
+			아래처럼 번갈아가면서 크기를 사욯할 수도 있다
+
+				.container {
+					border: 5px dashed #cacfd9;
+					width: 500px;
+					height: 500px;
+					display: grid;
+					grid-template-columns: repeat(3,1fr);
+					grid-auto-rows: 50px 100px 200px; 
+					gap: 16px 32px;
+				}
+
+
+			
