@@ -509,4 +509,86 @@
 				}
 
 
-			
+		원하는 위치에 요소 배치하기
+			grid 요소에서 특정 위치에 요소를 배치할 수 있다.
+			배치하는 방식은 column-line과 row-line을 기준으로 설정할 수 있다.
+			주의해야할 점은 grid-cell이 아닌 grid-line 기준이다.
+			grid-row, grid-column 속성을 통해 설정할 수 있다.
+			음수도 가능하다.
+
+			    <div class="container">
+					<div class="red box"></div>
+					<div class="green box"></div>
+					<div class="blue box"></div>
+					<div class="purple box"></div>
+					<div class="orange box"></div>
+			    </div>
+
+				.container {
+					border: 5px dashed #cacfd9;
+					width: 500px;
+					height: 500px;
+					display: grid;
+					grid-template:
+						repeat(4, 1fr) /
+						repeat(5, 1fr);
+					gap: 16px;
+				}
+
+				.green {
+					grid-row: 3;
+					grid-column: 2;
+				}
+
+			아래는 여러 그리드를 차지하는 방법이다.
+			column은 3번째에서 4번째까지 row는 1번째에서 4번째까지 영역에 배치
+			이런 방식으로 위치를 정한다
+
+				.green {
+					grid-row: 3 / 5;
+					grid-column: 2 / -2;
+				}
+
+			위에 코드랑 아래는 동일하다.
+
+				.green {
+					grid-row: 3 / span 2;
+					grid-column: 2 / span 3;
+				}
+
+
+		이름으로 배치하기
+			grid-area로 이름을 설정하고, 상위 요소에서 grid-template-areas를
+			사용해 배치를 할 수 있다.
+			.을 사용해 빈공간 나타낼 수 있다.
+
+				.container {
+					border: 5px dashed #cacfd9;
+					width: 500px;
+					height: 500px;
+					display: grid;
+					grid-template:
+						repeat(2, 1fr) /
+					    repeat(2, 1fr);
+				 	gap: 16px;
+
+				 	grid-template-areas:
+				 		"r g"
+				 		"r b"
+				 		". b";
+				}
+
+				.red {
+					background-color: #e46e80;
+					grid-area: r;
+				}
+
+				.green {
+					background-color: #32b9c1;
+					grid-area: g;
+				}
+
+				.blue {
+					background-color: #5195ee;
+					grid-area: b;
+				}
