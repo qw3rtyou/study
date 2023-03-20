@@ -7,3 +7,6 @@ print(int(data[0]))
 # data_int=dict(map(int,data))
 
 # print(data_hex)
+
+for i in range(32):
+    print(i,end=' ')

@@ -15,7 +15,7 @@ int main (){
         {
             rand();
         }
-        matrix[0][index]=rand()%127;    //인덱스 교환 오류!
+        matrix[0][index]=rand()&127;    //인덱스 교환 오류!
 
         for (int k = 1; k < 32; k++)
         {
@@ -24,7 +24,7 @@ int main (){
             {
                 rand();
             }
-            matrix[k][index]=rand()%127;
+            matrix[k][index]=rand()&127;
         }
 
         // for (int i = 0;i < 32;i++)
@@ -45,7 +45,7 @@ int main (){
             for (int k = 0; k < matrix[i][index]; k++)
             {
                 var=(matrix[i][index]>>4)|(16*matrix[i][index])^(30583*var*matrix[i][index]);
-                printf("matrix : %d\tvar : %d\n",matrix[i][index],var);
+                //printf("matrix : %d\tvar : %d\n",matrix[i][index],var);
                 if (var==0)
                 {
                     var=matrix[i][index];

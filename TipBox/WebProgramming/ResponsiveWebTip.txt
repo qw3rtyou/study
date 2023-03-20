@@ -1,0 +1,13 @@
+***반응형 웹***
+	@media
+		브라우저 크기에 따라 웹디자인을 바꿀 수 있다.
+
+			@media (min-width: 768px){
+				h1{
+					font-size:36px;
+				}
+
+				p{
+					font-size:24px;
+				}
+			}
