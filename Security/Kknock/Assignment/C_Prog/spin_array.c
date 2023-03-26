@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(void){
-    int arr_basic[4][4]={ {0, 1, 1, 0}, {4, 0, 0, 2}, {4, 0, 0, 2},{0, 3, 3, 0} };
+    int arr_basic[4][4]={ {0, 1, 1, 0}, {4, 0, 0, 2}, {4, 0, 0, 2}, {0, 3, 3, 0} };
     int arr_90[4][4],arr_180[4][4],arr_270[4][4];
 
     printf("=== Basic Arr ===\n");
@@ -9,7 +9,7 @@ int main(void){
     {       
         for (int j = 0; j < 4; j++)
         {
-            printf("%d",arr_90[i][j]);
+            printf("%d",arr_basic[i][j]);
         }
         printf("\n");
     }
@@ -23,7 +23,7 @@ int main(void){
         }
         
     }
-    printf("=== Basic Arr ===\n");
+    printf("=== 90 degrees clockwise lotation ===\n");
     for (int i = 0; i < 4; i++)
     {       
         for (int j = 0; j < 4; j++)
@@ -32,6 +32,7 @@ int main(void){
         }
         printf("\n");
     }
+    printf("\n");
 
 
     for (int i = 0; i < 4; i++)
@@ -42,7 +43,7 @@ int main(void){
         }
         
     }
-    printf("=== Basic Arr ===\n");
+    printf("=== 180 degrees clockwise lotation ===\n");
     for (int i = 0; i < 4; i++)
     {       
         for (int j = 0; j < 4; j++)
@@ -51,6 +52,7 @@ int main(void){
         }
         printf("\n");
     }
+    printf("\n");
 
 
     for (int i = 0; i < 4; i++)
@@ -61,7 +63,7 @@ int main(void){
         }
         
     }
-    printf("=== Basic Arr ===\n");
+    printf("=== 270 degrees clockwise lotation ===\n");
     for (int i = 0; i < 4; i++)
     {       
         for (int j = 0; j < 4; j++)
@@ -70,6 +72,7 @@ int main(void){
         }
         printf("\n");
     }
+    printf("\n");
 
     return 0;
     

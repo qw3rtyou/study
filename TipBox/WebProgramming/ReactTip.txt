@@ -1,0 +1,2 @@
+npm init react-app .    현재 디렉토리에 프로젝트 생성
+npm start       개발모드 시작
