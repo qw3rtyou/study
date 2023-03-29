@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/01-steamed-rice.png",
+    "title": "쌀밥",
+    "content": "1공기(210g)",
+    "createdAt": 1625340973562,
+    "updatedAt": 1625340973562,
+    "calorie": 300
+  },
+  {
+    "id": 2,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/02-boiled-egg.png",
+    "title": "삶은 달걀",
+    "content": "1개(50g)",
+    "createdAt": 1625184428289,
+    "updatedAt": 1625184428289,
+    "calorie": 68
+  },
+  {
+    "id": 3,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/03-cherry-tomato.png",
+    "title": "방울토마토",
+    "content": "1개(13g)",
+    "createdAt": 1625330203116,
+    "updatedAt": 1625330203116,
+    "calorie": 2
+  },
+  {
+    "id": 4,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/04-fried-egg.png",
+    "title": "계란프라이",
+    "content": "1개(46g)",
+    "createdAt": 1625028045602,
+    "updatedAt": 1625028045602,
+    "calorie": 89
+  },
+  {
+    "id": 5,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/05-watermelon.png",
+    "title": "수박",
+    "content": "1회(100g)",
+    "createdAt": 1625308116667,
+    "updatedAt": 1625308116667,
+    "calorie": 36
+  },
+  {
+    "id": 6,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/06-banana.png",
+    "title": "바나나",
+    "content": "1개(100g)",
+    "createdAt": 1624613250969,
+    "updatedAt": 1624613250969,
+    "calorie": 93
+  },
+  {
+    "id": 7,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/07-kimchi.png",
+    "title": "배추김치",
+    "content": "1소접시(100g)",
+    "createdAt": 1624889538305,
+    "updatedAt": 1624889538305,
+    "calorie": 25
+  },
+  {
+    "id": 8,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/08-mixed-rice.png",
+    "title": "잡곡밥",
+    "content": "1공기(200g)",
+    "createdAt": 1625233200164,
+    "updatedAt": 1625233200164,
+    "calorie": 292.6
+  },
+  {
+    "id": 9,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/09-brown-rice.png",
+    "title": "현미밥",
+    "content": "1공기(210g)",
+    "createdAt": 1624998701293,
+    "updatedAt": 1624998701293,
+    "calorie": 321
+  },
+  {
+    "id": 10,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/10-apple.png",
+    "title": "사과",
+    "content": "1회(100g)",
+    "createdAt": 1624685150667,
+    "updatedAt": 1624685150667,
+    "calorie": 57
+  },
+  {
+    "id": 11,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/11-almond.png",
+    "title": "아몬드",
+    "content": "1개(1g)",
+    "createdAt": 1625334567466,
+    "updatedAt": 1625334567466,
+    "calorie": 7
+  },
+  {
+    "id": 12,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/12-tomato.png",
+    "title": "토마토 (중간크기)",
+    "content": "1개(100g)",
+    "createdAt": 1624725579386,
+    "updatedAt": 1624725579386,
+    "calorie": 14
+  },
+  {
+    "id": 13,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/13-americano.png",
+    "title": "아메리카노",
+    "content": "1잔(240ml)",
+    "createdAt": 1625138235656,
+    "updatedAt": 1625138235656,
+    "calorie": 4
+  },
+  {
+    "id": 14,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/14-cucumber.png",
+    "title": "오이",
+    "content": "1개(210g)",
+    "createdAt": 1624881277160,
+    "updatedAt": 1624881277160,
+    "calorie": 19
+  },
+  {
+    "id": 15,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/15-plum.png",
+    "title": "자두",
+    "content": "1회(100g)",
+    "createdAt": 1625433571061,
+    "updatedAt": 1625433571061,
+    "calorie": 25
+  },
+  {
+    "id": 16,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/16-korean-melon.png",
+    "title": "참외",
+    "content": "1개(200g)",
+    "createdAt": 1624602034639,
+    "updatedAt": 1624602034639,
+    "calorie": 62
+  },
+  {
+    "id": 17,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/17-lattuce.png",
+    "title": "상추",
+    "content": "1회분(100g)",
+    "createdAt": 1625171694068,
+    "updatedAt": 1625171694068,
+    "calorie": 18
+  },
+  {
+    "id": 18,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/18-steamed-potato.png",
+    "title": "찐감자",
+    "content": "1개(130g)",
+    "createdAt": 1625254300792,
+    "updatedAt": 1625254300792,
+    "calorie": 110
+  },
+  {
+    "id": 19,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/19-cherry-tomato.png",
+    "title": "대추방울토마토",
+    "content": "1개(15g)",
+    "createdAt": 1625353806439,
+    "updatedAt": 1625353806439,
+    "calorie": 2
+  },
+  {
+    "id": 20,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/20-milk.png",
+    "title": "우유",
+    "content": "1컵(100ml)",
+    "createdAt": 1625339704914,
+    "updatedAt": 1625339704914,
+    "calorie": 65
+  },
+  {
+    "id": 21,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/21-blueberry.png",
+    "title": "블루베리",
+    "content": "1작은컵(28g)",
+    "createdAt": 1625072423713,
+    "updatedAt": 1625072423713,
+    "calorie": 16
+  },
+  {
+    "id": 22,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/22-sweet-potato.png",
+    "title": "찐고구마",
+    "content": "1회(100g)",
+    "createdAt": 1625161267846,
+    "updatedAt": 1625161267846,
+    "calorie": 130
+  },
+  {
+    "id": 23,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/23-korean-bbq.png",
+    "title": "돼지고기 삼겹살(구운것)",
+    "content": "1인분(100g)",
+    "createdAt": 1625202075416,
+    "updatedAt": 1625202075416,
+    "calorie": 460
+  },
+  {
+    "id": 24,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/24-tofu.png",
+    "title": "두부",
+    "content": "1회(100g)",
+    "createdAt": 1625117462332,
+    "updatedAt": 1625117462332,
+    "calorie": 88
+  },
+  {
+    "id": 25,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/25-topoki.png",
+    "title": "떡볶이",
+    "content": "1인분(200g)",
+    "createdAt": 1624838482426,
+    "updatedAt": 1624838482426,
+    "calorie": 303.53
+  },
+  {
+    "id": 26,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/26-salad.png",
+    "title": "야채샐러드 (드레싱 포함)",
+    "content": "1인분(150g)",
+    "createdAt": 1624931493912,
+    "updatedAt": 1624931493912,
+    "calorie": 100
+  },
+  {
+    "id": 27,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/27-cabbage.png",
+    "title": "양배추",
+    "content": "1회(100g)",
+    "createdAt": 1624964777264,
+    "updatedAt": 1624964777264,
+    "calorie": 24
+  },
+  {
+    "id": 28,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/28-lattuce.png",
+    "title": "양상추",
+    "content": "1인분(100g)",
+    "createdAt": 1624961602964,
+    "updatedAt": 1624961602964,
+    "calorie": 11
+  },
+  {
+    "id": 29,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/29-onion.png",
+    "title": "양파",
+    "content": "1인분(100g)",
+    "createdAt": 1624901451829,
+    "updatedAt": 1624901451829,
+    "calorie": 35
+  },
+  {
+    "id": 30,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/30-crunch-tacos.png",
+    "title": "크런치 타코",
+    "content": "1개",
+    "createdAt": 1624775536229,
+    "updatedAt": 1624775536229,
+    "calorie": 170
+  }
+]
