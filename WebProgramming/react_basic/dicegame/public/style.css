@@ -1,0 +1,96 @@
+.Button {
+    min-width: 120px;
+    padding: 14px 27px;
+    border-radius: 9999px;
+    outline: none;
+    font-size: 18px;
+    font-family: 'NanumSquareRoundEB';
+    cursor: pointer;
+  }
+  
+  .Button.blue {
+    border: 1px solid #7090ff;
+    color: #7090ff;
+    background-color: rgba(0, 89, 255, 0.2);
+  }
+  
+  .Button.blue:hover {
+    background-color: rgba(0, 89, 255, 0.3);
+  }
+  
+  .Button.red {
+    border: 1px solid #ff4664;
+    color: #ff4664;
+    background-color: rgba(255, 78, 78, 0.2);
+  }
+  
+  .Button.red:hover {
+    background-color: rgba(255, 78, 78, 0.3);
+  }
+  
+  .Dice {
+    width: 100%;
+    max-width: 100px;
+    max-height: 100px;
+  }
+  
+  .Board {
+    display: inline-block;
+    padding: 35px 30px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-size: 16px;
+    text-align: center;
+    background-color: #272b38;
+  }
+  
+  .Board.Board-winner {
+    border: 1px solid #fff;
+    box-shadow: 0 0 12px 0 hsla(0, 0%, 100%, 0.48);
+  }
+  
+  .Board .Board-heading:first-child {
+    margin-top: 0;
+  }
+  
+  .Board .Board-heading {
+    margin: 45px auto 15px;
+    color: #888d9d;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  
+  .App {
+    width: 100%;
+    max-width: 640px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .App .App-logo {
+    height: 65px;
+  }
+  
+  .App .App-title {
+    margin: 10px auto 28px;
+    font-size: 28px;
+  }
+  
+  .App .App-button {
+    margin: 6px;
+  }
+  
+  .App .App-boards {
+    margin-top: 27px;
+  }
+  
+  .App .App-board {
+    width: 30%;
+    margin: 10px;
+  }
+  
+  body {
+    color: #fff;
+    font-family: 'NanumSquareRound', sans-serif;
+    background-color: #191f2c;
+  }
