@@ -4,3 +4,4 @@ Security/Pwnable/pwnable_env/bin/
 Security/Pwnable/pwnable_env/lib/
 token
 *.out
+.vscode
