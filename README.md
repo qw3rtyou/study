@@ -1,13 +1,9 @@
-# __Repository for Study!!__
-
----
-### __I'm interested in..__
-**Python, C, Web, Security, Algorithm**
-
+# **Repository for Study!!**
 
 ---
 
-### __Topic__
+### **Topic**
+
 **Python C Java**
 **HTML JS CSS React PHP**
 **Scrapping Automation Crawling**
@@ -15,6 +11,5 @@
 **Linux Git MarkDown VSC**
 **Reversing Pwnable Sql-Injection Web-Hacking Crypto CTF**
 **GDB Kali Pwntool Wireshark IDA VMware Fiddler**
-
 
 ---
