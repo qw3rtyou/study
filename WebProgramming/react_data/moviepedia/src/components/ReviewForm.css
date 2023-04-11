@@ -1,0 +1,9 @@
+.ReviewForm {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.ReviewForm > :not(:last-child) {
+  margin-bottom: 20px;
+}

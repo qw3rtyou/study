@@ -2,6 +2,7 @@ import FoodList from "./FoodList";
 //import mockItems from "../mock.json";
 import { useState, useEffect } from "react";
 import { getFoods } from "../api";
+import FoodForm from "./FoodForm";
 
 function App() {
   const [order, setOrder] = useState("createdAt");
@@ -53,6 +54,7 @@ function App() {
 
   return (
     <div>
+      <FoodForm />
       <form onSubmit={handleSearchSubmit}>
         <input name="search" />
         <button type="submit">검색</button>
