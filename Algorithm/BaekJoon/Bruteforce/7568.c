@@ -1,41 +1,23 @@
 #include <stdio.h>
-int main (){
-    int num;
-    int info[51][2];
-    int scoreBoard[51]={0};
 
-    scanf("%d",&num);
+int main() {
+	int n;
 
-    for (int i = 0; i < num; i++)
-        scanf("%d %d",info[i][0],info[i][1]);
+	int weight[51] = { 0 };
+	int height[51] = { 0 };
+
+	scanf("%d", &n);
     
-    int bestBig=info[0][0]+info[0][1];
-    int bestWeight;
-    int bestHeight;
-    int bestIdx=0;
-    int tmpBig;
-    int rank=1;
-    
-    while(1){
-        for (int i = 0; i < num; i++)
-        {
-            tmpBig=info[i][0]+info[i][1];
-            if (tmpBig>bestBig) {
-                bestBig=tmpBig;
-                bestIdx=i;
-            }
-        }
-        
-        bestWeight=info[bestIdx][0];
-        bestHeight=info[bestIdx][1];
+    int tmp=0;
 
-        for (int i = 0; i < num; i++)
-        {
-            
-        }
-        
-    }
-    
+	for (int i = 0; i < n; i++) scanf("%d %d", &weight[i], &height[i]);
 
-    return 0;
+	for (int i = 0; i < n; i++) {
+		tmp = 0;
+		for (int j = 0; j < n; j++) {
+			if (weight[i] < weight[j] && height[i] < height[j]) tmp++;
+		}
+		printf("%d ", tmp + 1);
+	}
+	return 0;
 }
