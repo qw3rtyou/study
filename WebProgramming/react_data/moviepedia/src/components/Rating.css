@@ -1,0 +1,7 @@
+.Rating-star {
+  color: slategray;
+}
+
+.Rating-star.selected {
+  color: yellowgreen;
+}
