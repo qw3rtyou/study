@@ -17,9 +17,7 @@ function App() {
   const sortedItems = items.sort((a, b) => b[order] - a[order]);
 
   const handleNewestClick = () => setOrder("createdAt");
-
   const handleBestClick = () => setOrder("rating");
-
   const handleDelete = (id) => {
     setItems(items.filter((item) => id !== item.id));
   };
@@ -48,6 +46,9 @@ function App() {
   const handleLoadMore = () => {
     handleLoad({ order, offset, limit: LIMIT });
   };
+  const handleSubmitSuccess = (review) => {
+    setItems((prevItems) => [review, ...prevItems]);
+  };
 
   useEffect(() => {
     handleLoad({ order, offset: 0, limit: LIMIT });
@@ -59,7 +60,7 @@ function App() {
         <button onClick={handleNewestClick}>최신순</button>
         <button onClick={handleBestClick}>베스트순</button>
       </div>
-      <ReviewForm />
+      <ReviewForm onSubmitSuccess={handleSubmitSuccess} />
       <ReviewList items={sortedItems} onDelete={handleDelete} />
       {hasNext && (
         <button onClick={handleLoadMore} disabled={isLoading}>
