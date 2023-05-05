@@ -15,6 +15,23 @@
 		xref:백준2981
 
 
+
+***소수 최적화(에라토스테네스의 체 알고리즘)***
+	k 이전까지의 소수 모두 구하기
+	sieve=[True]*(k+1)
+
+    # 에라토스테네스의 체 알고리즘 적용
+    for i in range(2, int(k**.5)+1):
+        if sieve[i]:
+            for j in range(i+i, k+1, i):
+                sieve[j]=False
+
+	# k 이상의 첫 번째 소수 반환
+    for i in range(k, len(sieve)):
+        if sieve[i]:
+            return i
+
+
 ***map(),split()***
 	한 번에 여러 값을 입력받을 때 변수에 바로 할당하는 방법으로
 
