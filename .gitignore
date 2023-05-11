@@ -5,3 +5,5 @@ Security/Pwnable/pwnable_env/lib/
 token
 *.out
 .vscode
+Algorithm/**/*.exe
+Algorithm/**/*.out

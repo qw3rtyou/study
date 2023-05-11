@@ -81,6 +81,10 @@ git pull origin main --allow-unrelated-histories
 원래 브랜치 단위로 날라가는게 맞음 근데 git push --all하면 다 날라간다곤함
 8. 정말 다 안되면 그냥 git clone [레포지토리 주소] 이런 식으로 
 해결하고 commit 한다음 추척하면 되긴함
+9. .gitignore 작동이 이상함
+git rm -r --cached .
+git add .
+git commit -m "fixed untracked files"
 	
 ***git 자동화 스크립트***
 mkdir container
