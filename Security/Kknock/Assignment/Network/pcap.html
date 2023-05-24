@@ -1,0 +1,675 @@
+<html>
+    <head>
+        <style>
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+          }
+          .title {
+            font-size: 3.5rem;
+            font-weight: 400;
+            text-align: center;
+          }
+          p {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+          }
+          p:last-child {
+            margin-bottom: 0;
+          }
+          /*
+           * Core for cards
+           */
+          .cards {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+            font-family: "Roboto", sans-serif;
+          }
+          .card {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+          }
+          .card_main {
+            width: 100%;
+          }
+          @media screen and (min-width: 801px) {
+            .card_main .card__title {
+              font-size: 180%;
+            }
+            .card_main .card__main-action {
+              width: 4.48em;
+              height: 4.48em;
+            }
+          }
+          .card_size-2xl {
+            width: 66%;
+          }
+          @media screen and (min-width: 801px) {
+            .card_size-2xl .card__title {
+              font-size: 170%;
+            }
+          }
+          .card_size-xl {
+            width: 49%;
+          }
+          @media screen and (min-width: 801px) {
+            .card_size-xl .card__title {
+              font-size: 160%;
+            }
+          }
+          .card_size-m {
+            width: 32%;
+          }
+          @media screen and (min-width: 481px) and (max-width: 800px) {
+            .card_size-m,
+            .card_size-2xl {
+              width: 49%;
+            }
+          }
+          @media screen and (max-width: 480px) {
+            .card_size-m,
+            .card_size-xl,
+            .card_size-2xl {
+              width: 100%;
+            }
+          }
+          .card__header {
+            position: relative;
+            line-height: 0;
+          }
+          *::-ms-backdrop,
+          .card__header {
+            display: -ms-flexbox;
+            display: flex;
+          }
+          .card__preview {
+            max-width: 100%;
+            height: auto;
+          }
+          *::-ms-backdrop,
+          .card__preview {
+            -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+          }
+          .card__main-action {
+            font-size: 100%;
+            text-decoration: none;
+            text-indent: -9999px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+            padding: 0;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            right: 5%;
+            bottom: 0;
+            -webkit-transform: translateY(50%);
+                    transform: translateY(50%);
+            width: 4em;
+            height: 4em;
+          }
+          .card__main-action:before {
+            content: "";
+            display: block;
+            width: 60%;
+            height: 60%;
+            box-sizing: border-box;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+          }
+          .card__main-action:focus {
+            outline: none;
+          }
+          .card__body {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -webkit-justify-content: space-around;
+                -ms-flex-pack: distribute;
+                    justify-content: space-around;
+            -webkit-box-flex: 2;
+            -webkit-flex-grow: 2;
+                -ms-flex-positive: 2;
+                    flex-grow: 2;
+          }
+          .card__title {
+            font-size: 150%;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-top: 0;
+            margin-bottom: .8em;
+          }
+          .card__showmore {
+            text-decoration: none;
+          }
+          .card__content {
+            padding: 2.5em 4% 1.5em;
+            -webkit-box-flex: 2;
+            -webkit-flex-grow: 2;
+                -ms-flex-positive: 2;
+                    flex-grow: 2;
+          }
+          .card__footer {
+            padding: 1.5em 4%;
+            border-top-width: 1px;
+            border-top-style: solid;
+            font-size: 80%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
+          }
+          .card__meta-item {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: .8em;
+          }
+          .card__meta-icon {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: right;
+            width: 1.5em;
+            height: 1.5em;
+            margin-right: .2em;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+          /*
+           * Skin for cards
+           */
+          .card {
+            background-color: #fff;
+            color: #212121;
+            font-size: 1.4rem;
+          }
+          @media screen and (min-width: 801px) {
+            .card_main,
+            .card_size-2xl,
+            .card_size-xl {
+              font-size: 1.6rem;
+            }
+          }
+          .card__main-action {
+            background-color: #3f51b5;
+          }
+          .card__main-action:before {
+            background-image: url("https://stas-melnikov.ru/cssgrid/bookmark.svg");
+          }
+          .card__main-action:hover,
+          .card__main-action:focus {
+            background-color: #303f9f;
+          }
+          .card__footer {
+            border-top-color: #bdbdbd;
+          }
+          .card__showmore {
+            color: #303f9f;
+            -webkit-transition: color 0.3s ease-out;
+            transition: color 0.3s ease-out;
+          }
+          .card__showmore:hover,
+          .card__showmore:focus {
+            color: #3f51b5;
+          }
+          .card__meta-comments {
+            background-image: url("https://stas-melnikov.ru/cssgrid/comment.svg");
+          }
+          .card__meta-likes {
+            background-image: url("https://stas-melnikov.ru/cssgrid/favorite.svg")
+          2000
+          ;
+          }
+          
+          
+          .result_list {
+              text-align: center;
+              font-size: 24px;
+          }
+          
+          .animated_link3 {
+            display: block;
+            overflow: hidden;
+            vertical-align: top;
+            -webkit-perspective: 600px;
+            -ms-perspective: 600px;
+            perspective: 600px;
+            -webkit-perspective-origin: 50% 50%;
+            -ms-perspective-origin: 50% 50%;
+            perspective-origin: 50% 50%;
+          }
+          
+          .animated_link3:hover {
+            text-decoration: none;
+          }
+          
+          .animated_link3 span {
+            display: inline-block;
+            position: relative;
+            padding: 0 2px;
+            border-radius: 5px;
+            -webkit-transition: all 400ms ease;
+            transition: all 400ms ease;
+            -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+          }
+          
+          .animated_link3:hover span {
+            background: #00929c;
+            -webkit-transform: translate3d(0px, 0px, -30px) rotateX(90deg);
+            transform: translate3d(0px, 0px, -30px) rotateX(90deg);
+          }
+          
+          .animated_link3 span:after {
+            content: attr(data-title);
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 0 2px;
+            border-radius: 5px;
+            color: #333;
+            background: #00929c;
+            -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+            -webkit-transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
+            transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
+          }
+          
+          
+          /* ...... */
+                  [data-tooltip] {
+                      position: relative;
+                      z-index: 2;
+                      cursor: pointer;
+                  }
+                  
+                  
+                  [data-tooltip]:before,
+                  [data-tooltip]:after {
+                    visibility: hidden;
+                      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+                      opacity: 0;
+                      pointer-events: none;
+                  }
+                  
+                  
+                  [data-tooltip]:before {
+                      position: absolute;
+                      bottom: 150%;
+                      left: 50%;
+                      margin-bottom: 5px;
+                      margin-left: -80px;
+                      padding: 7px;
+                      width: 160px;
+                      -webkit-border-radius: 3px;
+                      -moz-border-radius:    3px;
+                      border-radius:         3px;
+                      background-color: #000;
+                      background-color: hsla(0, 0%, 20%, 1);
+                      color: #fff;
+                      content: attr(data-tooltip);
+                      text-align: center;
+                      font-size: 14px;
+                      line-height: 1.2;
+                  }
+                  
+                  
+                  [data-tooltip]:after {
+                      position: absolute;
+                      bottom: 150%;
+                      left: 50%;
+                      margin-left: -5px;
+                      width: 0;
+                      border-top: 5px solid #000;
+                      border-top: 5px solid hsla(0, 0%, 20%, 1);
+                      border-right: 5px solid transparent;
+                      border-left: 5px solid transparent;
+                      content: " ";
+                      font-size: 0;
+                      line-height: 0;
+                  }
+                  
+                  
+                  [data-tooltip]:hover:before,
+                  [data-tooltip]:hover:after {
+                      visibility: visible;
+                      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+                      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+                      opacity: 1;
+                  }
+            
+            
+            
+            /*......*/
+            #radarChart {
+            margin-top: 100px;
+            margin-bottom: 100px;
+          }
+          </style>
+    </head>
+    <body>
+
+
+        <section id="menu-6">
+        
+            <nav class="navbar navbar-dropdown bg-color transparent navbar-fixed-top">
+                <div class="container">
+        
+                    <div class="mbr-table">
+                        <div class="mbr-table-cell">
+        
+                            <div class="navbar-brand">
+                                <a href="/inner/list" class="navbar-logo"><img src="/assets/images/logo.png" alt="Mobirise"></a>
+                                <a class="navbar-caption" href="/inner/list">............</a>
+                            </div>
+        
+                        </div>
+                        <div class="mbr-table-cell">
+        
+                            <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                                <div class="hamburger-icon"></div>
+                            </button>
+        
+                            <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
+                                
+                                    
+                                    
+                                        <li class="nav-item nav-link link">test(testtest)... .........</li>
+                                        
+                                            
+                                        
+                                           <li class="nav-item nav-btn"><a class="nav-link btn btn-white btn-white-outline" href="/logout">Logout</a></li>
+                                    
+                                
+                                
+                            </ul>
+                            <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                                <div class="close-icon"></div>
+                            </button>
+                        </div>
+                    </div>
+        
+                </div>
+            </nav>
+        
+        </section>
+        
+            <div class="container">
+                <div class="cards" style="margin-top:100px;">
+                    <article class="card card_size-m">
+                        <header class="card__header">
+                            <img class="card__preview" id="farm-image" src="/inner/api/image/6912109d740e5ae9b0d3c31a51aaa3507446e7039c17b4b32526878b7e32b5a5" alt="Preview img">
+                        </header>
+                        <div class="card__body">
+                            <div class="card__content">
+                                <h3 class="card__title"><a href="#0" class="card__showmore">Farm Information</a></h3>
+                                <div class="card__description">
+                                    <p>......... : teste</p>
+                                    <p>...... : ......</p>
+                                        <p>...... : .........</p>
+                                        <p>......... ......... : 2017-01-07</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>		
+                    <article class="card card_size-2xl">
+                        <div class="card__body">
+                            <div class="card__content">
+                                <h3 class="card__title"><a href="#0" class="card__showmore">Check Result(2017-01-07)</a></h3>
+                                <div class="card__description">
+                                    <p id="check_result">
+                                        <table id="result-target" style="width:100%; font-size:15px;">
+                                                    
+                                        </table>
+                                    
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>	
+                    <article class="card card_size-xl">
+                        <header class="card__header">
+                        </header>
+                        <div class="card__body">
+                            <div class="card__content">
+                                <h3 class="card__title"><a href="#0" class="card__showmore">Chart</a></h3>
+                                <div class="card__description">
+                                    <p>
+                                        <div class="section" id="canvas-holder">
+                                          <canvas id="radarChart">
+                                          </canvas>
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>	
+                    <article class="card card_size-xl">
+                        <div class="card__body">
+                            <div class="card__content">
+                                <h3 class="card__title"><a href="#0" class="card__showmore">......</a></h3>
+                                <div class="card__description">
+                                    <p id="opinion" style="word-break:break-all;">download farm image</p>
+                                    <table id="reviewTable" class="table" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:60%;">......</th>
+                                                <th style="width:40%;">............(%)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                                    
+                </div>
+                <div class="result_list">
+                    
+                </div>
+            </div>
+            
+            
+        <footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-r" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
+            
+            <div class="container">
+                <p class="text-xs-center">Copyright (c) 2016 .............</p>
+            </div>
+        </footer>
+        
+          
+        <script src="/assets/web/assets/jquery/jquery.min.js"></script>
+          <script src="/assets/tether/tether.min.js"></script>
+          <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+          <script src="/assets/smooth-scroll/SmoothScroll.js"></script>
+          <script src="/assets/viewportChecker/jquery.viewportchecker.js"></script>
+          <script src="/assets/dataTables/jquery.dataTables.min.js"></script>
+          <script src="/assets/dataTables/dataTables.bootstrap4.min.js"></script>
+          <script src="/assets/dropdown/js/script.min.js"></script>
+          <script src="/assets/touchSwipe/jquery.touchSwipe.min.js"></script>
+          <script src="/assets/theme/js/script.js"></script>
+          <script src="/assets/mobirise3-blocks-plugin/js/script.js"></script>
+          <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+          <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js'></script>
+          
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+        t>
+          
+          <script>
+          $(document).ready(function() {
+                var request_scale = 1;
+                    
+                    $.ajax({
+                        url : "/inner/api/result/1/39/1",
+                        dataType : "json",
+                        type : "post",
+                        success: function(data) {
+                            $('#result-target').empty();
+                            var code = "";
+                            var category = new Array(10);
+                            var all_count = new Array(10);
+                            var y_count = new Array(10);
+                            for(var i = 0; i < 10; i++) {
+                                all_count[i] = 0;
+                                y_count[i] = 0;
+                            }
+                                
+                            var table_header = "<tr><th style='width:40%;'>............</th><th style='width:5%;'></th><th style='width:40%;'>............</th><th style='width:5%;'>YPN</th><th style='width:10%;'>File</th></tr>";
+                            category[0] += "<tr><td style='font-size:21px;padding-top:20px;'>1. ...... ......<td></tr>" + table_header;
+                            category[1] += "<tr><td style='font-size:21px;padding-top:20px;'>2. ............<td></tr>" + table_header;
+                            category[2] += "<tr><td style='font-size:21px;padding-top:20px;'>3. ...... ......<td></tr>" + table_header;
+                            category[3] += "<tr><td style='font-size:21px;padding-top:20px;'>4. .....................<td></tr>" + table_header;
+                            category[4] += "<tr><td style='font-size:21px;padding-top:20px;'>5. ...... ... ............... ......<td></tr>" + table_header;
+                            category[5] += "<tr><td style='font-size:21px;padding-top:20px;'>6. ........<td></tr>";
+                            asets_string = [
+									      "............", 
+									      "............", 
+									      "...... ......",
+									      ".....................",
+									      "...... ... ............... ......",
+									      "............(IP.........)",
+									      "..................(......AP)",
+									      "...... PC ......",
+									      "......... ......",
+									      "...... ......"
+									  ];
+                            var datasets_data = new Array(10);
+                            for(i = 0; i < 10; i++) {
+                                datasets_data[i] = Math.round((y_count[i]/all_count[i]*100));
+                            }
+                    
+                            var radarData = {
+                                    labels : datasets_string,
+                                    datasets: [
+                                        {
+                                            label: "............",
+                                            backgroundColor: "rgba(179,181,198,0.2)",
+                                            borderColor: "rgba(179,181,198,1)",
+                                            pointBackgroundColor: "rgba(179,181,198,1)",
+                                            pointBorderColor: "#fff",
+                                            pointHoverBackgroundColor: "#fff",
+                                            pointHoverBorderColor: "rgba(179,181,198,1)",
+                                            data : datasets_data
+                                        }
+                                    ]
+                                };
+                            
+                            
+                            
+        
+                            //Get the context of the Radar Chart canvas element we want to select
+                            var ctx3 = document.getElementById("radarChart").getContext("2d");
+        
+                            // Create the Radar Chart
+                            var myRadarChart = new Chart(ctx3, {
+                                    type: 'radar',
+                                    data: radarData,
+                                    options: {
+                                        scale: {
+                                            reverse: false,
+                                            ticks: {
+                                                max: 100,
+                                                beginAtZero: true
+                                            }
+                                        }
+                                }
+                            });
+                            
+                            var t = $('#reviewTable').DataTable( {
+                                "paging": false,
+                                "searching": false,
+                                "info": false
+                            });
+                            for(var i = 0; i < 10; i++) {
+                                t.row.add( [
+                                            datasets_string[i],
+                                            datasets_data[i]
+                                            ]).draw(false);
+                            }
+                            
+                        },
+                        error:function(request,status,error){
+                            alert("code:"+request.status+"\n"+"error:"+error);
+                        }
+                    }); 
+          });
+          
+          
+          $(document).ready(function() {
+                    $.ajax({
+                        url : "/inner/api/result/39",
+                        dataType : "json",
+                        type : "post",
+                        success: function(data) {
+                            var code = "";
+                            
+                            for(var i = 0, len = Object.keys(data).length; i < len;i++) {
+                                console.log(data[i][2]);
+                                code += '<div class="animated_link3"><a href="/inner/result/' + data[i][1] + '/' + data[i][2] + 
+                                '"><span data-title="' + data[i][3] + '">' + data[i][3] + '</span></a></div>';
+                            }
+        
+                            $('.result_list').html(code);
+                            console.log(data);
+                            
+                        },
+                        error:function(request,status,error){
+                            alert("code:"+request.status+"\n"+"error:"+error);
+                        }
+                    }); 
+        });
+        
+          
+          
+        
+              
+          </script>
+          
+          
+          <input name="animation" type="hidden">
+    </body>
+</html>
+

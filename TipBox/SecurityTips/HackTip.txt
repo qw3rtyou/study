@@ -3,13 +3,14 @@
 	finger -l	서버에 접속한 사용자의 정보를 자세히 확인
 	tty		자신의 터미널 정보 확인
 	ifconfig	현재 접속한 서버의 ip를 확인
-	whoami		내가 누군지 확인
+	whoami		자신이 접속한 계정 확인
 	id		내 권한 확인
 	cat /etc/passwd/	사용자들 정보 출력
 	uname -a	커널 정보 확인
 	cat /etc/*release	이 서버에 설치된 os 버전 확인
 	rpm -qa			특정 패키지 정보 확인
 	cat /proc/cpuinfo		cpu 정보 확인
+	cat /proc/version		kernel 버전 확인
 	
 	
 ***매세지 보내기***

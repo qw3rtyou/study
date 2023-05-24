@@ -86,16 +86,16 @@ git rm -r --cached .
 git add .
 git commit -m "fixed untracked files"
 	
-***git 자동화 스크립트***
-mkdir container
-cd container
+***git study repo 자동화 스크립트***
+mkdir study
+cd study
 git init
 git config --global user.email "chjw1346@naver.com"
 git config --global user.name "qwertyou"
 git config --global core.editor vim
-git remote add origin https://github.com/qwerty-tommy/goorm-Box
-git clone https://github.com/qwerty-tommy/goorm-Box
-cd goorm-Box
+git config alias.visual 'log --pretty=oneline --all --graph'
+git remote add origin https://github.com/qwerty-tommy/study
+git pull origin main --allow-unrelated-histories
 git push -u origin main
 
-https://github.com/qwerty-tommy/goorm-Box
+https://github.com/qwerty-tommy/study

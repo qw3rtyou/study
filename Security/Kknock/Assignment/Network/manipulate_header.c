@@ -10,7 +10,7 @@ int main() {
         printf("윈속 초기화 실패\n");
         return 1;
     }
-
+    
     // 소켓 생성
     SOCKET sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
