@@ -5,7 +5,7 @@
 
 ***cmd***
 	버전 확인		docker -v	
-	도커 빌드		docker build -t 이미지이름 도커파일 경로
+	도커 빌드		docker build -t 이미지이름 도커파일경로
 	도커 실행		docker run --name 컨테이너이름 -it 이미지이름 bash
 	도커 실행(root)	docker exec -it --privileged 컨테이너이름 bash
 	백그라운드 실행	docker run -d --name 'test1' centos /bin/ping localhost
