@@ -10,6 +10,7 @@
 	ctrl+alt+m 	로직 함수로 분리
 	ctrl+shift+t 	테스트 클래스 자동 생성
 	shift+f10 		이전 실행조건으로 그대로 실행
+	ctrl+shift+t 	선택한 클래스 태스트 패키지에 태스트 코드 생성
 
 	soutv+tab	System.out.println("result = " + result);
 
