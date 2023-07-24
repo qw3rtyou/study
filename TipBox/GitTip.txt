@@ -94,7 +94,7 @@ git config --global user.email "chjw1346@naver.com"
 git config --global user.name "qwertyou"
 git config --global core.editor vim
 git config alias.visual 'log --pretty=oneline --all --graph'
-git remote add origin https://github.com/qwerty-tommy/study
+git remote add origin https://github.com/qwerty-tommy/php_battle
 git pull origin main --allow-unrelated-histories
 git push -u origin main
 
