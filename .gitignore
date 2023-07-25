@@ -7,3 +7,4 @@ token
 .vscode
 Algorithm/**/*.exe
 Algorithm/**/*.out
+.git_legacy/
