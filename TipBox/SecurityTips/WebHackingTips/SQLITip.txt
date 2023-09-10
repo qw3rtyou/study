@@ -1670,7 +1670,7 @@
 			SSRF
 				Redis는 기본적으로 인증 수단이 존재하지 않으며, "127.0.0.1"로 서비스를 바인딩하기 때문에 아래와 같이 직접 접근하여 인증 과정 없이 명령어를 실행할 수 있음. 따라서 공격자는 애플리케이션의 SSRF 취약점을 통해 Redis 서버에 접근하여 데이터베이스의 정보를 획득할 수 있음
 
-					$ echo -e 'info\r\n' | nc 127.0.0.1 6379
+					$ echo -e 'info\r\n' | nc 211.250.216.249 7000
 					$2728
 					# Server
 					redis_version:4.0.9
@@ -2000,6 +2000,12 @@
 				user1@dreamhack.io_count = 0
 				user1@dreamhack.io_count_count = 0
 				user1@dreamhack.io = {random number}
+
+
+		redis 서버 명령어
+			save : 파일 저장 주기 설정
+			dbfilename : 파일 저장 위치 설정
+			dir : 현재 디렉토리
 
 
 	CouchDB

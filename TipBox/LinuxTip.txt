@@ -132,3 +132,5 @@
 		docker-compose --version
 
 		
+***tip***
+	&>/dev/null: 모든 출력을 /dev/null로 리다이렉션하여 출력을 무시
