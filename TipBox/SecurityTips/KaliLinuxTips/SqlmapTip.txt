@@ -31,3 +31,7 @@
 	POST 방식 입력값 점검
 
 		sqlmap -u "http://192.168.23.131/admin/index.php" --data "user=USER&password=PASS"
+
+	실시간 반영
+
+		sqlmap --flush-session -u ....
