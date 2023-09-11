@@ -86,6 +86,8 @@
 		pgrep [프로세스 이름]		특정 이름을 가진 프로세스의 PID 검색
 
 	네트워크 확인
+		lsof -i :7000	해당 포트에 있는 서비스 확인
+		kill -9 5710	서비스 죽이기
 
 
 ***scp***
@@ -117,7 +119,6 @@
 		sudo apt install apt-transport-https ca-certificates curl software-properties-common
 		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 		echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-		sudo apt update
 		sudo apt install docker-ce
 
 		sudo systemctl start docker
@@ -131,6 +132,11 @@
 
 		docker-compose --version
 
+	네트워크툴
+		apt install net-tools
+
+	vim
+		apt install vim
 		
 ***tip***
 	&>/dev/null: 모든 출력을 /dev/null로 리다이렉션하여 출력을 무시

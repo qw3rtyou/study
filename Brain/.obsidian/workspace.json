@@ -1,0 +1,171 @@
+{
+  "main": {
+    "id": "ce2b104a0cb6ab0d",
+    "type": "split",
+    "children": [
+      {
+        "id": "0adeeb15ec994046",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dcb9499bc8728b94",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0a241b09fdbf0e3b",
+    "type": "split",
+    "children": [
+      {
+        "id": "e14a5acc5d4df030",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c4ab47aad6317e4a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ac7794cb210c9918",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#-",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "cdd99e5f2378f270",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 221.5
+  },
+  "right": {
+    "id": "b557d75d1ebb384a",
+    "type": "split",
+    "children": [
+      {
+        "id": "ffa6aff9a84ab730",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "32411acbf1fa0d78",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c7daf5a6304c4948",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "aed8c6d51322d872",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "eaa8ff29a0795f73",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "dcb9499bc8728b94",
+  "lastOpenFiles": [
+    "module - BeautifulSoup.md",
+    "WebAutomation.md",
+    "WebCrawling.md",
+    "WebScraping.md",
+    "module - Request.md",
+    "선택자.md",
+    "module - Selenium.md",
+    "module - zipfile.md",
+    "module - os.md",
+    "module-os.md",
+    "module - shutile.md",
+    "RPA.md",
+    "r,w,a,+모드 차이 정리.png",
+    "r,w,a,+모드 차이 정리.md",
+    "_________open____.png",
+    "Automation.md",
+    "DataScience.md",
+    "DataVisualization.md",
+    "numpy.md",
+    "EnhanceData.md",
+    "Jupyter Notebook.md",
+    "pandas.md",
+    "1,2,3,4,],[5,6,7,8,],[9,10,11,12.md",
+    "Untitled.canvas",
+    "Docker.md",
+    "VSCTips.txt"
+  ]
+}
