@@ -1570,6 +1570,8 @@
 
 				url에서 로그인
 					http://host3.dreamhack.games:15236/login?uid[$regex]=^ad&upw[$regex]=D.{*
+					
+					http://host3.dreamhack.games:17890/login?uid[$regex]=in$&upw[$regex]=^
 
 
 
