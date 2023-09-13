@@ -7,22 +7,24 @@
 인스턴스는 클래스와의 관계를 나타낼때 많이 사용하는 반면
 객체는 그냥 그자체로의 의미로 많이 사용한다고 함
 
-
 # 인스턴스 변수
 인스턴스 이름.속성이름(인스턴스 변수)=속성에 넣을 값
 class에서 미리 정의한 내용이 아닌 것도 class 밖에서 정의해서 사용할 수 있음
 
-
 # 인스턴스 메소드
+
+```python
 class User:
 	def hello(some_user):
 		print("hello {}!".format(some_user.name))
+```
+
 
 이렇게 클래스를 정의했을 때,
 
 	User.hello(user1)
 	user1.hello()
-	
+
 이 둘은 같은 의미임
 왜냐하면 클래스에서 메소드를 호출한 것과 인스턴스에서 메소드를 호출한 것이
 차이가 있는데, 인스턴스에서 메소드를 호출하면 해당 인스턴스가
@@ -31,9 +33,12 @@ class User:
 이때 인스턴스 메소드 첫번째 인자 그러니까 위에 예시에서 some_user는 self로
 쓰는 것이 파이썬 세계에서 권장된다.
 
+```python
 class User:
 def hello(self):
 	print("hello {}!".format(self.name))
+```
+
 
 
 # 매직 메소드(특수 메소드)
@@ -51,10 +56,12 @@ __str__()
 원하는 문자열을 매개변수로 받아서 리턴해주면 된다.
 
 # 클래스 변수
+
 같은 클래스의 인스턴스가 공유하는 변수
 
+```python
 class User:
-	count=0		#클래스 변수
+count=0		#클래스 변수
 	
 	def __init__(self,name,email):
 		self.name=name
@@ -64,18 +71,20 @@ class User:
 		
 	def hello(some_user):
 		print("hello {}!".format(some_user.name))
-		
+```
+
 클래스 변수의 값을 접근(변경)할 때
-인스턴스.변수이름 으로 하든
-클래스.변수이름 으로 하든
+인스턴스.변수이름으로 하든
+클래스.변수이름으로 하든
 접근은 된다.
 그러나 인스턴스 내의 클래스 변수와 같은 이름으로 하는 인스턴스 변수가 있다면
 인스턴스.변수이름 으로 접근했을 때 클래스 변수가 아닌 인스턴스 변수로 접근한다.
 따라서 클래스 변수를 접근 혹은 변경할 때 꼭 클래스.변수 이름으로 접근 해야한다.
 
 # 데코레이터
-함수를 꾸며주는 장치? 기존 함수에 새로운 기능을 추가시켜주는 무언가..
+함수를 꾸며주는 장치? 기존 함수에 새로운 기능을 추가 시켜주는 무언가 - 좀 더 공부해야됨
 
+```python
 def print_hello():
 	print("hello")
 
@@ -93,7 +102,7 @@ add_print_to(print_hello)()	#start\n hello\n end\n
 print_hello=add_print_to(print_hello)
 print_hello() 		#start\n hello\n end\n
 
-@를 이용해서 간단하게 데코레이터 사용하기
+#@를 이용해서 간단하게 데코레이터 사용하기
 
 def add_print_to(original):		#데코레이터 함수
 	def wrapper():
@@ -107,25 +116,30 @@ def print_hello():
 	return wrapper
 	
 print_hello()		#start\n hello\n end\n
+```
+
 
 # 클래스 메소드
 인스턴스 변수를 다루기 위한 메소드
 
+```python
 class User:
-		count=0		#클래스 변수
+	count=0		#클래스 변수
 
-		def __init__(self,name,email):
-			self.name=name
-			self.email=email
+	def __init__(self,name,email):
+		self.name=name
+		self.email=email
 
-			User.count+=1
+		User.count+=1
 
-		def hello(some_user):
-			print("hello {}!".format(some_user.name))
+	def hello(some_user):
+		print("hello {}!".format(some_user.name))
 
-		@classmethod	#데코레이터
-		def number_of_users(cls):
-			return cls.count	#User.count랑 같음
+	@classmethod	#데코레이터
+	def number_of_users(cls):
+		return cls.count	#User.count랑 같음
+```
+
 
 # 인스턴스 메소드와 클래스 메소드의 사용
 매개변수가 자동으로 전달되는 이유는 데코레이터를 이용했기 때문
@@ -149,7 +163,7 @@ user1.number_of_users()
 인스턴스 변수, 클래스 변수 모두 사용하지 않으면 정적 메소드로 선언하면 된다.
 좀 더 직관적으로 말하면, 속성 없이 행동만 하는 객체.
 
-User.staticmethod()		#둘 다 사용 가능
+User.staticmethod()	
 user1.staticmethod()
 
 
@@ -169,14 +183,16 @@ print(type(print_hello))
 # 추상화
 프로그래머들이 특정 코드를 사용할 때 필수적인 정보를 제외한 세부사항을 가리는 것
 
-ex) 리스트를 사용할 때 어떤 동작이 일어나는 지 난 아직도 모른다.
+ex) 난 아직도 리스트를 사용할 때 어떤 동작이 일어나는지 설명하지 못한다..
 
 
 # 문서화(docstring)
 documentation string	문서화 문자열
-아무리 클래스, 메소드, 변수 등의 이름을 잘지어도 이해하는데 한계가 있다.
+아무리 클래스, 메소드, 변수 등의 이름을 잘 지어도 이해하는데 한계가 있다.
 직관적인 이해를 돕기 위해 코드 내의 코드의 설명을 적어 놓는 것
 클래스 메소드 아래에다가 큰따음표 3개 사이에 원하는 주석을 달면 됨
+
+```python
 
 class User:
 	"""유저 클래스"""
@@ -184,13 +200,13 @@ class User:
 		"""인사말을 출력하는 메소드"""
 		print("hello {}!".format(some_user.name))
 		
-이렇게 docstring을 해놓으면 장점이 하나 더 있다.
+#이렇게 docstring을 해놓으면 장점이 하나 더 있다.
 
 help(User)
 
-이런 식으로 help의 인자로 넘기면 요약된 형태로 class를 한 눈에 확인 할 수 있다.
+#이런 식으로 help의 인자로 넘기면 요약된 형태로 class를 한 눈에 확인 할 수 있다.
 
-아래는 google docstring 이다.
+#아래는 google docstring 이다.
 
 def find_suggestion_videos(self, number_of_suggestions=5)
 
@@ -202,6 +218,7 @@ Parameters:
 Returns:
   list: 추천할 영상 주소가 담긴 리스트
 """
+```
 
 
 # type hinting
@@ -209,12 +226,15 @@ Returns:
 파이썬은 python 3.5부터 이러한 문제를 해결하기 위해 type hinting을 만듬
 각종 변수, 파라미터, 리턴값 등의 타입을 정해줄 수 있음
 
+```python
 class User:
 	count: int=0
 
 	def __init__(self,name: str,email: str)->None:
 		self.name=name
 		self.email=email
+
+```
 
 
 # 캡슐화
@@ -223,6 +243,7 @@ class User:
 언더바 2개로 숨기고 싶은 변수나 메소드를 설정 할 수 있음
 변수를 직접 사용하는 부분을 최소화해야 유지보수하기 쉬워짐
 
+```python
 class User:
 	count=0
 
@@ -236,13 +257,16 @@ class User:
 		
 	def __show_pw(self):
 		return self.__pw
-		
+	
 assert(User.__pw)		#attribute 에러
 assert(User.__show_pw())	#attribute 에러
+```
+		
 
-이런식으로 __로 변수를 숨기면 클래스 외부에서 액세스가 불가능 해진다.
+이런 식으로 아래바 2번로 변수를 숨기면 클래스 외부에서 액세스가 불가능 해진다.
 이 문제를 해결하려면 변수를 액세스하는 메소드를 만들면 된다.
 
+```python
 class User:
 	count=0
 
@@ -259,10 +283,12 @@ class User:
 		
 	def set_pw(self, new_pw):
 		self.__pw=new_pw
+```
 		
-특정 변수를 받아오는 메소드를 getter메소드 설정하는 메소드를 setter메소드
+특정 변수를 받아오는 메소드를 getter메소드
+설정하는 메소드를 setter메소드
 
-파이썬에서의 캡슐화 문화
+### 파이썬에서의 캡슐화 문화
 파이썬에서는 언더바 하나로 클래스 내부에 있는 변수의 접근을 막는 경우가
 많음.
 언더바 2개(네임 맹글러)를 사용하면 실수로 인한 접근을 막을 수 있다는 장점이
@@ -273,36 +299,38 @@ class User:
 경고를 띄워서 다른 개발자가 경고를 지키지 않고 만들었을 때 생기는 문제를
 책임지게 만들 수 있다.
 
-데코레이터를 사용한 캡슐화
+### 데코레이터를 사용한 캡슐화
 캡슐화를 get_pw 이런식으로 하는 것도 괜찮지만
 데코레이터를 사용하면 코드 수정을 최대한 줄일 수 있다.
 
-	class User:
-		count=0
+```python
+class User:
+	count=0
 
-		def __init__(self,name,email,pw):
-			self.name=name
-			self.email=email
-			self._pw=pw
+	def __init__(self,name,email,pw):
+		self.name=name
+		self.email=email
+		self._pw=pw
 
-		def auth(self, input):
-			return self._pw==input
+	def auth(self, input):
+		return self._pw==input
 
-		@property
-		def pw(self):
-			return self._pw
+	@property
+	def pw(self):
+		return self._pw
 
-		@pw.setter
-		def pw(self,value):
-			self._pw=value
+	@pw.setter
+	def pw(self,value):
+		self._pw=value
 
-	Tom=User('tom','hammer@asdf.com','secret')
+Tom=User('tom','hammer@asdf.com','secret')
 
-	print(Tom.pw)
+print(Tom.pw)
 
-	Tom.pw='I feel lucky'
+Tom.pw='I feel lucky'
 
-	print(Tom.pw)
+print(Tom.pw)
+```
 
 @property 데코레이터를 사용하면 getter 메소드를 사용하는 것과
 동일하고, @인스턴스변수.setter 데코레이터를 사용하면 setter메소드를 
@@ -324,16 +352,17 @@ class 부모클래스:
 class 자식클래스(부모클래스):
 	pass
 	
-mro(method resolution order) 메소드
+### mro(method resolution order) 메소드
 자식클래스를 help메소드로 호출하면 이 클래스가 어떤 메소드와 변수를
 사용할 수 있는지뿐만 아니라	어떤 부모 클래스가 있는지 나타내는
 "Method resolution order:" 라는 부분이 있다.
 이 때 object 클래스를 상속하지 않았음에도 상속되어 있는 모습을 확인할
-수 있는데 파이썬은 모든 것이 class로 이루어져있기 때문에 가능하다.
+수 있는데 파이썬은 모든 것이 class로 이루어져 있기 때문에 가능하다.
 
 mro는 메소드 검색 순서를 뜻한다.
 	>>> list.mro()
 	[<class 'list'>, <class 'object'>]
+	
 만약 자식클래스에서 부모클래스를 오버라이딩 했다면
 자식클래스에서 접근할 수 있는 메소드는 3가지가 있을 것이다.
 즉, 자식클래스, 부모클래스, object클래스 각각 내부에 접근할 수 있는 메소드
@@ -342,37 +371,39 @@ mro는 메소드 검색 순서를 뜻한다.
 예를들어 list.mro()를 호출하면 list클래스에는 mro라는
 메소드가 없기 때문에 object클래스에 가서 찾을 것이다.
 
-isinstance 메소드
+### isinstance 메소드
 isinstance 함수는 어떤 인스턴스가 주어진 클래스의 인스턴스인지를 알려준다.
 isinstance([검사할 인스턴스의 이름],[기준 클래스의 이름])->불린
 
-issubclass 메소드
+### issubclass 메소드
 issubclass 함수는 한 클래스가 다른 클래스의 자식클래스인지를 알려준다.
 issubclass([검사할 클래스의 이름],[기준이 되는 부모 클래스의 이름])->불린
 
-오버라이딩
+### 오버라이딩
 부모클래스를 자식클래스가 상속을 받기만 하면 상속받은 모든 자식클래스는
 모두 동일한 클래스가 될 것 이다. 따라서 자식클래스들은 각자의 다른 기능을 
 하기 위해 오버라이딩을 해야한다.
 
-	class Employee:
-		"""직원 클래스"""
-		raise_percentage=1.03
+```python
+class Employee:
+	"""직원 클래스"""
+	raise_percentage=1.03
 
-		def __init__(self,name,wage):
-			self.name=name
-			self.wage=wage
+	def __init__(self,name,wage):
+		self.name=name
+		self.wage=wage
 
-		def raise_pay(self):
-			self.wage+=self.raise_percentage
+	def raise_pay(self):
+		self.wage+=self.raise_percentage
 
-	class Cashier(Employee):
-		def __init__(self,name,wage,number_sold):
-			super().__init__(name,wage)
-			self.number_sold=number_sold
-			
-	class DeliveryMan(Employee):
-		pass
+class Cashier(Employee):
+	def __init__(self,name,wage,number_sold):
+		super().__init__(name,wage)
+		self.number_sold=number_sold
+		
+class DeliveryMan(Employee):
+	pass
+```
 		
 오버라이딩을 할 때, 수정하거나 추가해야하는 부분을 고치면 되는데
 부모클래스에 있는 메소드를 같은 이름의 메소드로 자식에 생성하면 된다.
@@ -411,7 +442,7 @@ super()를 사용하면 여러 부모클래스 중에 어떤 부모클래스인�
 # 클래스 다형성
 한 변수가 다양한 인스턴스를 가질 수 있을 때 다형성이 있다고 표현한다.
 
-추상클래스
+### 추상클래스
 한 변수가 다양한 인스턴스를 가질 수 있게 만들게되면
 관련없는 인스턴스가 변수나 클래스의 메소드를 사용하게되면
 관련없는 인스턴스의 클래스에는 해당 변수, 메소드가 없기 때문에
@@ -419,16 +450,18 @@ super()를 사용하면 여러 부모클래스 중에 어떤 부모클래스인�
 일반 상속 또한 메소드 오버라이딩을 강제하지 않기 때문에 
 추상 클래스를 통해 오버라이딩을 시켜야 한다.
 
-	from abc import ABC, abstractmethod
-	
-	class Shape(ABC):
-		@abstractmethod
-		def area(self):
-			pass
-			
-		@abstractmethod
-		def perimeter(self):
-			pass
+```python
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+	@abstractmethod
+	def area(self):
+		pass
+		
+	@abstractmethod
+	def perimeter(self):
+		pass
+```
 
 abc 모듈에 ABC클래스와 abstractmethod 데코레이터 함수를 가져와
 추상 클래스로 만들려고 하는 클래스에 ABC를 상속시키게 만들고
@@ -436,7 +469,7 @@ abc 모듈에 ABC클래스와 abstractmethod 데코레이터 함수를 가져와
 abstractmethod 데코레이터를 사용하면 된다.
 이렇게 추상메소드를 구현하면 area(), perimeter()를 오버라이딩
 하지 않은 클래스는 오류를 발생시킬 것이다.
-또한, s isinstanceof Shape 이런 구문을 통해 해당 추상클래스를
+또한, isinstanceof Shape 이런 구문을 통해 해당 추상클래스를
 상속하는지 여부를 체크하여 오버라이딩 되어 있다는 보증이된 
 인스턴스만 true로 리턴하게 만들 수도 있다.
 
@@ -459,68 +492,72 @@ Shape 클래스로 추상화된 수준까지만 고려하기만 하기 때문에
 같은 데코레이터에 @abstract를 합쳐서 사용하면 특정 변수의 사용을
 유도할 수 있다.
 
-	class EquilateralTriangle(Shape):
-		 """정삼각형 클래스"""
-		def __init__(self, x, y, side):
-			self._x = x
-			self._y = y
-			self.side = side
+```python
+class EquilateralTriangle(Shape):
+	 """정삼각형 클래스"""
+	def __init__(self, x, y, side):
+		self._x = x
+		self._y = y
+		self.side = side
 
-		def area(self):
-			"""정삼각형의 넓이를 리턴한다"""
-			return sqrt(3) * self.side * self.side / 4
+	def area(self):
+		"""정삼각형의 넓이를 리턴한다"""
+		return sqrt(3) * self.side * self.side / 4
 
-		def perimeter(self):
-			"""정삼각형의 둘레를 리턴한다"""
-			return 3 * self.side
+	def perimeter(self):
+		"""정삼각형의 둘레를 리턴한다"""
+		return 3 * self.side
 
-		@property
-		@abstractmethod
-		def x(self):
-			"""_x getter 메소드"""
-			return self._x
+	@property
+	@abstractmethod
+	def x(self):
+		"""_x getter 메소드"""
+		return self._x
 
-		@x.setter
-		@abstractmethod
-		def x(self, value):
-			"""_x setter 메소드"""
-			self._x = value
+	@x.setter
+	@abstractmethod
+	def x(self, value):
+		"""_x setter 메소드"""
+		self._x = value
 
-		@property
-		@abstractmethod
-		def y(self):
-			"""_y getter 메소드"""
-			return self._y
+	@property
+	@abstractmethod
+	def y(self):
+		"""_y getter 메소드"""
+		return self._y
 
-		@y.setter
-		@abstractmethod
-		def y(self, value):
-			"""_y setter 메소드"""
-			self._y = value
+	@y.setter
+	@abstractmethod
+	def y(self, value):
+		"""_y setter 메소드"""
+		self._y = value
 
-	equilateral_triangle = EquilateralTriangle(5, 6, 4) # 에러가 나지 않는다
-	equilateral_triangle.x = 10
-	print(equilateral_triangle.x) # 출력: 10
+equilateral_triangle = EquilateralTriangle(5, 6, 4) # 에러가 나지 않는다
+equilateral_triangle.x = 10
+print(equilateral_triangle.x) # 출력: 10
 
-	equilateral_triangle.y = 5
-	print(equilateral_triangle.y) # 출력: 5
+equilateral_triangle.y = 5
+print(equilateral_triangle.y) # 출력: 5
+```
 	
 추상클래스에서의 다중상속
 위에서도 언급했듯이 추상클래스에서 다중상속은 자주 사용됨
 
-	class Message(ABC):
-		@abstractmethod
-		def print_message(self) -> None:
-			pass
+```python
+class Message(ABC):
+	@abstractmethod
+	def print_message(self) -> None:
+		pass
 
-		@abstractmethod
-		def send(self, destination: str) -> None:  # ----- 중복되는 추상 메소드
-			pass
+	@abstractmethod
+	def send(self, destination: str) -> None:  # ----- 중복되는 추상 메소드
+		pass
 
-	class Sendable(ABC):
-		@abstractmethod
-		def send(self, destination: str) -> None: # ----- 중복되는 추상 메소드
-			pass
+class Sendable(ABC):
+	@abstractmethod
+	def send(self, destination: str) -> None: # ----- 중복되는 추상 메소드
+		pass
+```
 
 이렇게 두 자식클래스에서 모두 send()를 갖도록 하더라도
 어차피 둘 다 자식클래스에서 send()를 반드시 갖도록 유도하였으므로
@@ -534,18 +571,18 @@ Shape 클래스로 추상화된 수준까지만 고려하기만 하기 때문에
 
 
 # 함수/메소드 다형성
-옵셔널 파라미터
+### 옵셔널 파라미터
 기본값을 미리 지정해준 파라미터 
 옵셔널 파라미터는 항상 가장 뒤에
 
 	def new_print(value1,value2=none):
 
-파라미터 이름 명시
+### 파라미터 이름 명시
 함수를 호출할 때 파라미터 이름 표시하는 것을 말함
 
 	new_print(value1=1,value2="qwerty")
 
-개수가 확정되지 않은 파라미터
+### 개수가 확정되지 않은 파라미터
 마지막 파라미터 이름 앞에 *를 사용하면 됨
 
 	def print_msg(name,*msg):
@@ -563,6 +600,13 @@ EAFP(EASIER TO ASK FOR FORGIVENESS THAN PERMISSION) 허락보다 용서가 쉽�
 try except 와 같은 에러처리 구문을 사용함
 
 
+# `__builtin__` 외 사용 불가일 경우
+
+```python
+`().__class__.__bases__[0].__subclasses__()[40]`
+```
+
+이런 식으로 우회할 수 있음!
 
 # TIPS
 class 이름은 항상 대문자로 시작

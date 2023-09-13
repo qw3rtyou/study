@@ -1,5 +1,5 @@
 [[Jupyter Notebook]]
-[[numpy]]
-[[pandas]]
+[[package - numpy]]
+[[package - pandas]]
 [[DataVisualization]]
 [[EnhanceData]]

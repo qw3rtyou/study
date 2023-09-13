@@ -1,9 +1,11 @@
     
-***Markdown***
-    연습할만한 곳
-        https://dillinger.io/
-        https://stackedit.io/app
+# 연습할만한 곳
+    
+    https://dillinger.io/
+    https://stackedit.io/app
         
+
+# 마크다운
     제목(#)
         제목으로 자주 씀
         ##,###,#### 처럼 더 많이 사용할수록 비교적 작은 제목이 생성됨
@@ -60,4 +62,7 @@
             ---
             구분 선 아래
             
+
+# 이스케이핑
+    #, -- 같은 문자를 그대로 사용하고 싶으면 앞에 \를 붙이면 된다
     
