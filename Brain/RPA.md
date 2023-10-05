@@ -1,3 +1,3 @@
-[[module - os]]
-[[module - shutile]]
-[[module - zipfile]]
+[[package - os]]
+[[package - shutile]]
+[[package - zipfile]]

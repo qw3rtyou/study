@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Markdown Generator</title>
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md navbar-light bg-light">
+		<div class="container">
+			<a class="navbar-brand" href="#">Markdown Generator</a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/logout" role="button">
+							Logout
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container my-5 px-5">
+		<h2 class="mt-4"><%= title %></h2>
+		<p>Author: <%= username %></p>
+		<hr>
+		<div class="container my-3">
+			<p><%- markdown %></p>
+		</div>
+	</div>
+	<br>
+	<div class="container my-5 px-5">
+		<a class="btn btn-primary" href="/report/<%= uid %>">Report</a>
+		<a class="btn btn-outline-primary" href="/">Go back</a>
+	</div>
+</body>
+
+</html>
