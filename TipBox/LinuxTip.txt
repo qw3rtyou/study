@@ -142,6 +142,48 @@
 	vim
 		apt install vim
 
+		
+# vmware에서 디스크 재할당
+
+	```sh
+	foo1@foo1-virtual-machine:~/Desktop$ sudo parted
+	[sudo] password for foo1: 
+	GNU Parted 3.4
+	Using /dev/sda
+	Welcome to GNU Parted! Type 'help' to view a list of commands.
+	(parted) print                                                            
+	Model: VMware, VMware Virtual S (scsi)
+	Disk /dev/sda: 161GB
+	Sector size (logical/physical): 512B/512B
+	Partition Table: gpt
+	Disk Flags: 
+
+	Number  Start   End     Size    File system  Name                  Flags
+	 1      1049kB  2097kB  1049kB                                     bios_grub
+	 2      2097kB  540MB   538MB   fat32        EFI System Partition  boot, esp
+	 3      540MB   21.5GB  20.9GB  ext4
+
+	(parted) resizepart 3
+	Warning: Partition /dev/sda3 is being used. Are you sure you want to continue?
+	Yes/No? yes                                                               
+	End?  [21.5GB]? 161GB                                                     
+	(parted) ^C                                                               
+
+	Information: You may need to update /etc/fstab.
+
+	foo1@foo1-virtual-machine:~/Desktop$ sudo resize2fs /dev/sda3             
+	resize2fs 1.46.5 (30-Dec-2021)
+	Filesystem at /dev/sda3 is mounted on /; on-line resizing required
+	old_desc_blocks = 3, new_desc_blocks = 19
+	The filesystem on /dev/sda3 is now 39174800 (4k) blocks long.
+
+	foo1@foo1-virtual-machine:~/Desktop$ 
+	```
+
+
+***tip***
+	&>/dev/null: 모든 출력을 /dev/null로 리다이렉션하여 출력을 무시
+
 	ssh
 		sudo apt-get update
 		sudo apt-get install openssh-server
