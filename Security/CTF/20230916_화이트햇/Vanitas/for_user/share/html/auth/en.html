@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vanitas</title>
+</head>
+<body>
+
+<h2>Auth</h2>
+<form action="javascript:void(0);" onsubmit="auth();">
+    <table>
+        <tr>
+            <td><label for="id">ID:</label></td>
+            <td><input type="text" id="id" name="id"></td>
+        </tr>
+        <tr>
+            <td><label for="pw">Password:</label></td>
+            <td><input type="password" id="pw" name="pw"></td>
+        </tr>
+
+        <button type="submit" hidden></button>
+    </table>
+</form>
+
+<script>
+function auth() {
+    document.cookie = 'auth=' + id.value + '|' + this.pw.value;
+    window.location = '/en/manager';
+}
+</script>
+</body>
+</html>

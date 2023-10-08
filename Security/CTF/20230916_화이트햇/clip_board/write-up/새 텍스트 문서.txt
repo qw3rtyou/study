@@ -1,0 +1,14 @@
+pwn1
+우선 모든 메뉴에 signed op가 사용되어 음수 인덱스를 막지 않는 크리티컬한 취약점이 발생한다.
+이를 통해 bss에 있는 chunk_list, check_chunk_list, chunk_size_list 3가지의 구조를 파악하여 오프셋을 맞춰 heap exploit을 진행해야 한다.
+
+leak
+
+leak 과정을 위해서는 오프셋을 맞춰야한다. 여기서 주의해야할 점은 각 저장하고 있는 값의 크기가 달라 오프셋이 같아도 원하는 곳에 배치하기 위해서는 계산을 해주어야 한다.
+chunk_list[-4] 위치에 stdout file struct가 있다. 이곳을 가져오면 되는데, 주소를 비교했을 때 &chunk_size_list[-4] == &check_chunk_list[0] 이므로 check_chunk_list[1] = 0x01로 만들게 된다면 size 0x100을 배치할 수 있다.
+check_chunk_list[-4] 같은 경우 chunk_list[9]에 물려있으므로 idx 9를 미리 할당한다.
+이후 다른곳에 chunk를 배치하되 0~3 idx만 피한다면 leak 시도시 정상적으로 0x100byte만큼 릭을 할 수 있다.
+
+overlapping chunk
+
+임의의 1byte를 0x01 혹은 0x00으로 바꿀 수 있는 취약점도 가지고 있다고 볼 수 있다. 이를 통해 data 시작점의 마지막 byte가 0x00인 chunk를 임의로 free할 수 있으니 미리 heap layout을 맞춰주고 tcache poisoning attack을 진행하면 된다.

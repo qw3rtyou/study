@@ -1,0 +1,310 @@
+2023whitehat
+Vanitas
+3가지언어가 지원되는 페이지들이 있고 동일한 동작을 함
+
+/ko/auth
+기본적인 로그인 동작을 하고, 
+사용자 정보를 쿠키로 만들어서 /ko/manager로 넘김
+document.cookie = 'auth=' + id.value + '|' + this.pw.value;
+window.location = '/ko/manager';
+
+/ko/manager
+여기서부턴 유효한 쿠키가 있어야 접근할 수 있음
+후술하겠지만 사용자에게 입력을 받고 ping을 테스트하는 페이지인 듯
+
+/ko/diagnosis
+실제있는 페이지는 아니고, curl을 통해 넘겨야함
+당연히 쿠키 체크를 함
+function diagnosis() {
+    fetch('/ko/diagnosis', { headers: {'X-Target' : this.target.value } }).then(r => r.text()).then(r => {
+        document.querySelector('#diagnosis_result').value = r;
+    });
+}
+curl -X GET -H "X-Target: test" http://52.78.31.14/ko/diagnosis --proxy http://127.0.0.1:8000
+->403
+
+60초마다 서버 재부팅
+timeout 60 /home/user/server
+
+그리고 server라는 파일이 있는데 IDA로 분석하면
+기본적인 소켓프로그램이 되어있고
+서버가 돌아가는 동안 어떤 함수 하나를 무한루프돌리는데
+
+__int64 __fastcall sub_334C(unsigned int a1)
+{
+  const char *v1; // rax
+  const char *v3; // rax
+  void *v4; // rbx
+  int v5; // eax
+  const char *v6; // rax
+  void *v7; // rbx
+  int v8; // eax
+  const char *v9; // rax
+  int fd; // [rsp+18h] [rbp-218h]
+  int v11; // [rsp+1Ch] [rbp-214h]
+  const char **v12; // [rsp+20h] [rbp-210h]
+  _QWORD *s; // [rsp+28h] [rbp-208h]
+  char *v14; // [rsp+30h] [rbp-200h]
+  __off_t size; // [rsp+38h] [rbp-1F8h]
+  void *buf; // [rsp+40h] [rbp-1F0h]
+  char *v17; // [rsp+48h] [rbp-1E8h]
+  __off_t nbytes; // [rsp+50h] [rbp-1E0h]
+  void *v19; // [rsp+58h] [rbp-1D8h]
+  const char *v20; // [rsp+60h] [rbp-1D0h]
+  FILE *stream; // [rsp+68h] [rbp-1C8h]
+  const char *v22; // [rsp+70h] [rbp-1C0h]
+  FILE *v23; // [rsp+78h] [rbp-1B8h]
+  struct stat v24; // [rsp+80h] [rbp-1B0h] BYREF
+  char file[264]; // [rsp+110h] [rbp-120h] BYREF
+  unsigned __int64 v26; // [rsp+218h] [rbp-18h]
+
+  v26 = __readfsqword(0x28u);
+  v12 = (const char **)sub_2629(a1);
+  s = malloc(0x30uLL);
+  memset(s, 0, 0x30uLL);
+  if ( !strcmp(*v12, "GET") && *v12[1] == 47 && sub_4049(v12[1], "/auth") )
+  {
+    v14 = strdup(v12[1] + 1);
+    v14[strlen(v12[1]) - 6] = 0;
+    snprintf(file, 0x100uLL, "html/auth/%s.html", v14);
+    if ( stat(file, &v24) < 0 )
+    {
+      sub_2DC1(a1);
+      exit(0);
+    }
+    size = v24.st_size;
+    buf = malloc(v24.st_size);
+    if ( !buf )
+    {
+      sub_2E4D(a1);
+      exit(0);
+    }
+    fd = open(file, 0);
+    if ( fd < 0 )
+    {
+      sub_2E4D(a1);
+      exit(0);
+    }
+    *s = "HTTP/1.1";
+    *((_DWORD *)s + 2) = 200;
+    s[2] = "OK";
+    s[4] = buf;
+    s[5] = size;
+    read(fd, buf, size);
+    sub_29B9(s, "Server", "Vanitas/2.0");
+    sub_29B9(s, "Content-Type", "text/html");
+    v1 = (const char *)sub_4199(size);
+    sub_29B9(s, "Content-Length", v1);
+    return sub_2A76(a1, s);
+  }
+  else if ( !strcmp(*v12, "GET") && *v12[1] == 47 && sub_4049(v12[1], "/manager") )
+  {
+    sub_2ED9(a1, (__int64)v12);
+    v17 = strdup(v12[1] + 1);
+    v17[strlen(v12[1]) - 9] = 0;
+    snprintf(file, 0x100uLL, "html/manager/%s.html", v17);
+    if ( stat(file, &v24) < 0 )
+    {
+      sub_2DC1(a1);
+      exit(0);
+    }
+    nbytes = v24.st_size;
+    v19 = malloc(v24.st_size);
+    if ( !v19 )
+    {
+      sub_2E4D(a1);
+      exit(0);
+    }
+    v11 = open(file, 0);
+    if ( v11 < 0 )
+    {
+      sub_2E4D(a1);
+      exit(0);
+    }
+    *s = "HTTP/1.1";
+    *((_DWORD *)s + 2) = 200;
+    s[2] = "OK";
+    s[4] = v19;
+    s[5] = nbytes;
+    read(v11, v19, nbytes);
+    sub_29B9(s, "Server", "Vanitas/2.0");
+    sub_29B9(s, "Content-Type", "text/html");
+    v3 = (const char *)sub_4199(nbytes);
+    sub_29B9(s, "Content-Length", v3);
+    return sub_2A76(a1, s);
+  }
+  else if ( !strcmp(*v12, "GET") && sub_4049(v12[1], "/diagnosis") )
+  {
+    sub_2ED9(a1, (__int64)v12);
+    v20 = (const char *)sub_2959(v12, "X-Target");
+    sub_312B(a1, v20);
+    snprintf(file, 0x100uLL, "ping %s", v20);
+    stream = popen(file, "r");
+    if ( !stream )
+    {
+      sub_2E4D(a1);
+      exit(0);
+    }
+    *s = "HTTP/1.1";
+    *((_DWORD *)s + 2) = 200;
+    s[2] = "OK";
+    s[4] = malloc(0x1000uLL);
+    v4 = (void *)s[4];
+    v5 = fileno(stream);
+    read(v5, v4, 0x1000uLL);
+    s[5] = strlen((const char *)s[4]);
+    sub_29B9(s, "Server", "Vanitas/2.0");
+    sub_29B9(s, "Content-Type", "text/plain");
+    v6 = (const char *)sub_4199(s[5]);
+    sub_29B9(s, "Content-Length", v6);
+    return sub_2A76(a1, s);
+  }
+  else
+  {
+    if ( strcmp(*v12, "GET") || strncmp(v12[1], "/cgi-bin/", 9uLL) )
+    {
+      sub_2DC1(a1);
+      exit(0);
+    }
+    v22 = strdup(v12[1] + 1);
+    sub_3290(a1, v22);
+    if ( stat(v22, &v24) < 0 )
+    {
+      sub_2DC1(a1);
+      exit(0);
+    }
+    if ( sub_4049(v22, ".py") )
+    {
+      snprintf(file, 0x100uLL, "/usr/bin/python3 %s", v22);
+    }
+    else
+    {
+      if ( !sub_4049(v22, ".pl") )
+      {
+        sub_2DC1(a1);
+        exit(0);
+      }
+      snprintf(file, 0x100uLL, "/usr/bin/perl %s", v22);
+    }
+    v23 = popen(file, "r");
+    if ( !v23 )
+    {
+      sub_2E4D(a1);
+      exit(0);
+    }
+    *s = "HTTP/1.1";
+    *((_DWORD *)s + 2) = 200;
+    s[2] = "OK";
+    s[4] = malloc(0x1000uLL);
+    v7 = (void *)s[4];
+    v8 = fileno(v23);
+    read(v8, v7, 0x1000uLL);
+    s[5] = strlen((const char *)s[4]);
+    sub_29B9(s, "Server", "Vanitas/2.0");
+    sub_29B9(s, "Content-Type", "text/html");
+    v9 = (const char *)sub_4199(s[5]);
+    sub_29B9(s, "Content-Length", v9);
+    return sub_2A76(a1, s);
+  }
+}
+
+대략 3개의 엔드포인트로 라우팅하는 코드와 그 외의 예외처리도 되어있다
+
+GET /auth인경우
+url을 잘 분석해
+html/auth/ko.html 라는 파일이 있는지 체크하고 있으면
+패킷을 제작해 클라한테 넘김
+
+GET /manager도 마찬가지지만
+그 이전에 쿠키를 체크하는 로직이 있다
+
+unsigned __int64 __fastcall sub_2ED9(unsigned int a1, __int64 a2)
+{
+  __int64 v3; // [rsp+18h] [rbp-38h] BYREF
+  __int64 v4; // [rsp+20h] [rbp-30h] BYREF
+  char *v5; // [rsp+28h] [rbp-28h] BYREF
+  char *s1; // [rsp+30h] [rbp-20h]
+  char *s; // [rsp+38h] [rbp-18h]
+  void *v8; // [rsp+40h] [rbp-10h]
+  unsigned __int64 v9; // [rsp+48h] [rbp-8h]
+
+  v9 = __readfsqword(0x28u);
+  s1 = (char *)sub_2959(a2, "Cookie");
+  if ( !s1 )
+  {
+    sub_2D35(a1);
+    exit(0);
+  }
+  if ( strncmp(s1, "auth=", 5uLL) )
+  {
+    sub_2CA9(a1);
+    exit(0);
+  }
+  s1 += 5;
+  if ( !strchr(s1, 124) )
+  {
+    sub_2CA9(a1);
+    exit(0);
+  }
+  s = (char *)sub_3F44(s1, "|", &v5);
+  if ( strlen(s) > 0x40 || strlen(v5) > 0x40 || !*v5 || !*s )
+  {
+    sub_2CA9(a1);
+    exit(0);
+  }
+  if ( (unsigned int)sqlite3_open(".db", &v3) )
+  {
+    sub_2E4D(a1);
+    exit(0);
+  }
+  v8 = malloc(0x100uLL);
+  sqlite3_snprintf(256LL, v8, "SELECT COUNT(*) FROM users WHERE id = '%q' and pw = '%q';", s, v5);
+  if ( (unsigned int)sqlite3_prepare_v2(v3, v8, 0xFFFFFFFFLL, &v4, 0LL) )
+  {
+    sub_2E4D(a1);
+    exit(0);
+  }
+  if ( (unsigned int)sqlite3_step(v4) != 100 )
+  {
+    sub_2E4D(a1);
+    exit(0);
+  }
+  if ( (unsigned int)sqlite3_column_int(v4, 0LL) != 1 )
+  {
+    sub_2D35(a1);
+    exit(0);
+  }
+  sqlite3_finalize(v4);
+  sqlite3_close(v3);
+  return v9 - __readfsqword(0x28u);
+}
+
+입력폼에 넘어온 문자열 파싱이 끝나면
+문자열 길이 체크하고
+prepared statement로 컴파일된 쿼리를 통해 로컬에 있는 sqlite를 돌려
+결과값의 개수가 정확히 1개인지 체크한다.
+
+쿼리 자체는 단순해서 쉬운 sqli인줄 알았는데 prepared statement라 불가능해 보인다..
+
+GET /diagnosis 도 마찬가지지만
+동일한 쿠키체킹이 있고 추가적으로 
+X-Target 필드에 있는 값을 가져와 ping을 돌린 결과를 클라한테 준다.
+
+그 외의 예외 처리에선
+
+GET외의 메소드 접근을 막고
+/cgi-bin/ 하위디렉토리를 제외한 접근을 막는다.
+
+.py 확장자를 가지고 있으면 python3로 돌려주고
+.pl 확장자를 가지고 있으면 perl로 돌려준다.
+
+
+근데 이 확장자 체크 함수가 좀 약해보임
+
+그외의 확장자는 지원안하고
+돌린 결과는 클라한테 넘긴다.
+
+지금까지의 정보를 토대로 exploit시나리오를 짜면
+모종의 방법을 통해 쿠키를 얻어 /ko/manager에 들어가서
+ping의 파일저장 취약점을 이용해 /cgi-bin/ 에 내가 원하는 파이썬 코드를 저장한 다음
+해당 리소스에 접근해서 exploit하는 것

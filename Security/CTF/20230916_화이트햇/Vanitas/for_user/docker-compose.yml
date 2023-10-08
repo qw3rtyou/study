@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  whitehat2023-pre-vanitas:
+    container_name: whitehat2023-pre-vanitas
+    build:
+      context: .
+    ports:
+       - "80:80"
+    restart: always

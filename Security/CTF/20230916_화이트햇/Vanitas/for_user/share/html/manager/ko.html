@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vanitas</title>
+</head>
+<body>
+
+<h2>관리</h2>
+
+<span>상태:  </span><b style="color: red">불명</b>
+
+<br><br><br><br>
+
+<span style="font-size: 1.2em; font-weight: bold;">진단</span>
+<form action="javascript:void(0);" onsubmit="diagnosis();" style="display: inline; margin-left: 4px;">
+    <input type="text" id="target" name="target">
+    <button type="submit" hidden></button>
+</form>
+
+<textarea id="diagnosis_result" rows="10" style="width: 100%; margin-top: 8px;" disabled></textarea>
+
+<script>
+function diagnosis() {
+    fetch('/ko/diagnosis', { headers: {'X-Target' : this.target.value } }).then(r => r.text()).then(r => {
+        document.querySelector('#diagnosis_result').value = r;
+    });
+}
+</script>
+</body>
+</html>

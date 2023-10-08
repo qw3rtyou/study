@@ -1,4 +1,4 @@
-***Position***
+# Position
 	position 속성으로 위치의 기준을 잡고
 	top bottom right left 이런 속성으로 구체적인 위치를 잡는다.
 
@@ -151,7 +151,7 @@
 
 
 
-***flexbox***
+# flexbox
 	flexbox는 일차원 방향으로 배치를 할 때 유용하다
 	상위 요소에 display:flex를 넣어주면 된다.
 
@@ -386,7 +386,7 @@
 
 
 
-***Grid***
+# Grid
 	2차원으로 배치함
 	왼쪽에서 오른쪽으로, 위에서 아래로 배치
 	각 칸을 나누는 라인을 Grid Line, 요소를 배치할수 있는 공간을 Grid Cell
@@ -595,7 +595,7 @@
 
 
 
-***반응형 웹***
+# 반응형 웹
 	@media
 		브라우저 크기에 따라 웹디자인을 바꿀 수 있다.
 

@@ -1,0 +1,109 @@
+n1net4il — 오늘 오후 10:01
+[rev 1 - ilrustrator Writeup]
+
+바이너리를 분석해보면 다음과 같은 바이너리 동작을 파악할 수 있습니다. (해당 풀이에서는 소스코드 인용)
+
+LCG 기반의 Matrix 생성
+
+fn next(&mut self) -> u64 {
+        loop {
+            self.seed = (self.multiplier * self.seed + self.increment) % self.modulus;
+            if is_prime(self.seed) == true {
+                break;
+            }
+        }
+
+        self.seed
+    }
+
+
+
+이미지에서 읽은 색상 정보를 Vector로 변환
+
+let mut vector = Vec::new();
+for y in 0..height {
+    let pixel = img.get_pixel(y, x);
+    let rgb = pixel.to_rgb();
+    vector.push((rgb[0] as u64) << 16 | (rgb[1] as u64) << 8 | rgb[2] as u64);
+}
+
+
+
+Modular 상에서 Matrix-Vector Multiplication 연산을 수행
+
+result.push(
+        matrix.iter().map(|row| {
+        row.iter().zip(vector.iter()).fold(0, |acc, (&a, &b)| (acc + a * b) % 0xfffffdu64)
+    }).collect()
+)
+
+
+
+0xfffffd가 소수이므로 Matrix의 역행렬을 구할 수 있으며, 이를 토대로 원본 이미지를 복구할 수 있으며, 코드는 다음과 같습니다.
+
+from sage.all import *
+from PIL import Image
+
+MOD = 0xfffffd
+
+image = Image.open("output.png")
+data = [[None for i in range(256)] for j in range(256)]
+for i, pixel in enumerate(list(image.getdata())):
+    data[i % 256][i // 256] = (pixel[0] << 16) + (pixel[1] << 8) + pixel[2]
+data = Matrix(IntegerModRing(MOD), data)
+image.close()
+
+matrix = [[None for i in range(256)] for j in range(256)]
+x = 0x124d6b
+for i in range(256):
+    for j in range(256):
+        x = (x * 0x8d94af + 0xc5f4c1) % 0xfffffd
+        while not Integer(x).is_prime():
+            x = (x * 0x8d94af + 0xc5f4c1) % 0xfffffd
+        matrix[j][i] = x
+
+matrix = Matrix(IntegerModRing(MOD), matrix)
+matrix_inv = matrix.inverse()
+
+pixels = data * matrix_inv
+
+result_img = Image.new("RGB", (256, 256), (255, 255, 255))
+
+for i in range(256):
+    for j in range(256):
+        pixel = int(pixels[i][j])
+        result_img.putpixel((j, i), (pixel >> 16, (pixel >> 8) & 0xFF, pixel & 0xFF))
+
+result_img.save("input_recovered.png")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+vector[0] ^= (rng.gen_range(0..=0xfffff) & 0x010101) as u64;
+TMI 지만
+같은 이미지에 대해서 같은 아웃풋 나오지 말라고 LSB 랜덤 걸어놨었습니다
