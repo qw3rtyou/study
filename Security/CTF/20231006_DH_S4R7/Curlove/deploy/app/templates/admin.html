@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <h2> This is admin page </h2>
+  <form class="mt-5" action="/admin" method="POST">
+    <div class="form-group">
+      <p for="url">Submit url to check </label>
+        <input type="text" name="url" id="url" required>
+    </div>
+    <div class="form-group"></div>
+
+    <button type="submit" class="btn btn-primary">Send</button>
+    </div>
+  </form>
+  {% if response %}
+  <p>Response : {{response}}</p>
+  {% else %}
+  <p>{{msg}}</p>
+  {% endif %}
+</body>
+
+</html>

@@ -11,16 +11,24 @@
             "id": "42f3c9d834e52a8e",
             "type": "leaf",
             "state": {
+              "type": "graph",
+              "state": {}
+            }
+          },
+          {
+            "id": "356b4be2fed7c650",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "HTML.md",
+                "file": "Linux.md",
                 "mode": "source",
-                "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -49,7 +57,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#을",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HTML.md",
+                "file": "Linux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HTML.md",
+                "file": "Linux.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HTML.md"
+                "file": "Linux.md"
               }
             }
           },
@@ -157,37 +165,37 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "42f3c9d834e52a8e",
+  "active": "356b4be2fed7c650",
   "lastOpenFiles": [
+    "HTML.md",
+    "Linux.md",
+    "Docker.md",
+    "package - shutile.md",
+    "Vim.md",
+    "Tool.md",
+    "Security-Tool.md",
+    "VSC.md",
+    "dive.md",
+    "nc.md",
+    "Vmware.md",
+    "Regular expression.md",
+    "Untitled",
     "Web-Programming.md",
     "React.md",
     "PHP.md",
     "JS.md",
-    "HTML.md",
     "Pwnable.md",
     "MordernJS.md",
     "CSS-Layout.md",
     "CSS.md",
     "MarkDown.md",
-    "Tool.md",
-    "Security-Tool.md",
     "Intellij.md",
     "Git.md",
-    "Docker.md",
-    "VSC.md",
     "LogPoisoning.md",
     "Web-Hacking.md",
-    "Linux.md",
-    "Untitled",
     "DBModeling.md",
-    "GDB계열.md",
-    "Whitehat2023.md",
     "Untitled 1.canvas",
     "관계설명2.png",
-    "Security.md",
-    "SQL.md",
-    "SQLi.md",
-    "Forensic.md",
     "관계설명4.png",
     "관계설명3.png",
     "관계설명1.png",
