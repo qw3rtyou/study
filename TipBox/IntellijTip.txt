@@ -1,4 +1,4 @@
-***cmd***
+# cmd
 	ctrl+p	파라미터 옵션,타입 확인
 	ctrl+shift+enter	자동완성함
 	ctrl+space	자동완성 추천 목록 보여줌
@@ -15,7 +15,7 @@
 	soutv+tab	System.out.println("result = " + result);
 
 
-***static import***
+# static import
 	자바에서 static import는 특정 클래스의 static 멤버(정적 멤버)를 직접적으로 사용할 수 있게 해주는 기능
 	import 문은 다른 패키지에 속한 클래스를 사용할 때 패키지명을 생략할 수 있게 해주는 역할
 	static import는 클래스의 static 멤버를 사용할 때 클래스 이름을 생략

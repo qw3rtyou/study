@@ -1,0 +1,56 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1690498078;
+	cv=none; b=BMxnHrODp78is5/HdM2oXFEyOR6x9Sim9u/1rBHMYnn1/2UwMPs2ALKqga2x
+	 d8hFs1T6HUUKdEPNF/D1PnJ+RtEmUMVZHr5R+SZQ1kVvn4haiEXVnE4gWaOCqYx7QUdELq
+	 QkxS3JiOdN0NNq42yMSjyQvuV4ITubKo0/APj9tCuS1Nv/lfUj4zngG3OYdafMTKuFqgqh
+	 JdYwOL7cvZjwXHhVERtkQkr9JBFPbv/39cJY6oON6oIVQ1B/i2P6vxEzHwSLwtwHgigrFu
+	 oHj+7wmksJYSN+udZyGUvUo2Iwd12gVQlMnxwgYZnltGDkhQNz7M8ZNGVVG7OxxpXJKZDr
+	 vA==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1690498078; c=relaxed/relaxed;
+	bh=WmOitUK7s9UEADF39o2y5U9FdBxaZFC2vmGlPCDkc/g=;
+	h=from:to:subject:date; b=OoOjvW0H9Qj4xINcXc8WAXFCVisAslMJ6TSgOyPL7/kh8
+	 rCzkz0fLAOStqPytlhJzmVmGF2lozzlVjA+H+lmUgDO3EyKNb3sWu7D74UslnmfiLxmPRe
+	 sIQsb10GxSY5wkRC159E0jcJ5sUI7Hx+H53sMTZzVDgS5RJ9uhZfe54HvPZLJw6dz56wug
+	 h0PDN+x1Lcn54kE6C/kz0kKI54xGvgzTnTJnwTxUHq68pTff6odiV9c1QRdUjJJ39+zjcx
+	 i2fETFGt+BZPanphuHQdYYyhetTvUgpsCs11OVEMmOkeJOOl5HJdOzlqQPwayz6r6ulrr4
+	 qFktq1JDzQOw8KA4A==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of cheom@cheomad.com designates 210.97.243.232 as permitted sender) smtp.mailfrom=cheom@cheomad.com
+Return-Path: <cheom@cheomad.com>
+Received-SPF: pass (mx.naver.com: domain of cheom@cheomad.com designates 210.97.243.232 as permitted sender)
+  client-ip=210.97.243.232; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of cheom@cheomad.com designates 210.97.243.232 as permitted sender) smtp.mailfrom=cheom@cheomad.com
+X-Naver-ESV: wXRn+6J4p63qMBIYFHwdbXmZKotXFxCYkXm=
+X-Session-IP: 210.97.243.232
+Message-ID: <1690498078362.7f9f5.50860822@crcvmail304.nm>
+Received: from cheomad.com (cheomad.com [210.97.243.232])
+  by crcvmail304.nm.naver.com with ESMTP id gH5lQUlOSneSpboWQpY+FQ
+  for <user01@naver.com>;
+  Fri, 18 Aug 2023 22:47:58 -0000
+From: CHEOMAD<cheom@cheomad.com>
+To: user01@naver.com
+Subject: (광고) 내차 팔때 '중고차 수출'로 국내 중고매매보다 더 높게 가격받으세요.
+Reply-To: cheom@cheomad.com
+Date: Sat, 19 Aug 2023 07:47:59 +0900
+Mime-Version: 1.0
+Content-Type:text/html; charset=ks_c_5601-1987
+
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://www.kmoters.com" target="_blank"><img src="http://www.2nt.co.kr/mail/jungcar_event_23072101.png" width="768"height="1700" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="3" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center"> 
+<tr> 
+<td colspan="2"><a href="http://adloanmailserver.com/Back/MailMgmt/Mail_Cancel.html?cancelemail=user01@naver.com&adcode=2023-03-13_2" target="_blank"><img src="http://loanconsulting.kr/mail/cheomadfooter.jpg" width="768" height="207" /></td> 
+</tr>
+</table>
+
+
+

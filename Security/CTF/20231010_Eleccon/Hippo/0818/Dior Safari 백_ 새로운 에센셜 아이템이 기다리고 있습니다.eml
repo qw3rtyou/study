@@ -1,0 +1,1257 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1692326802;
+	cv=none; b=AEHpfJprMAx6GmAOLE06HeqhCos9DEYNg+KItwu2JyUrUMvnlRgfuWi8mE82
+	 MMaWWduXiMySNlvdEDHZVVpaTAzvYgrEDMyq7eSAEth3m93Y6UgMv0I4nsxo95YdqSP4AF
+	 HpPYoEO79Yyd8QDN4VC8UPDKXEJ+v3KZkT25sHEpcYgvg53u5twFDTDqz/0J5eWaVD1nCK
+	 NbYxhiBs3vMRZVkjCLY7xcEjR7321fXljEFS4x3WqL7qbS3SEgVaGTXiw8G5zO77qrhpXH
+	 eZhOQPVYP4fIXrEluxKdXnD9O2/xznlE6ltJJ15df09S7c5qmY+PMUczcbiS+0o/kPXYmO
+	 /A==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1692326802; c=relaxed/relaxed;
+	bh=Di6crT8T23fUEO1X97MIxas8bIQaOoRqDtMt+LetGM8=;
+	h=dkim-signature:from:subject:date:to:message-id; b=gfj3Gt8AXcsPoJcJ/ZH
+	 YVP0yRcT7FfOJzHtBAoIO/lbnWTJfwb9rOP69AfCB7TczOFFvbv7vqqDf1oJRKXfX440C8
+	 mgMmYi25YC2YSa2LVhgrGFkyq7CFLhvHf0n9IzB4hzryGfcFfnKSNO3vOoY1nlYP0TPjbz
+	 7aJtyGRfbLK3Rv9J+fvQBVCG9gUEes958F1aTwRNdw4i9JGuiBYWcElbgks3pYvqKdLDOz
+	 tk1D4g0CJbO15iK+uaY2tneD7GxUwR2OFXBNnaxEZelmeon3R5A9/kcyabWND0W5/zvHNb
+	 5gbQbK4Iw/K2Ti0aRyVCufIu1/B7DZ1wNDlZknW7z5g==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of bounce@news.christiandior.com designates 172.82.233.252 as permitted sender) smtp.mailfrom=bounce@news.christiandior.com;
+  dkim=pass header.i=@news.christiandior.com;
+  dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=news.christiandior.com
+Return-Path: <bounce@news.christiandior.com>
+Received-SPF: pass (mx.naver.com: domain of bounce@news.christiandior.com designates 172.82.233.252 as permitted sender)
+  client-ip=172.82.233.252; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of bounce@news.christiandior.com designates 172.82.233.252 as permitted sender) smtp.mailfrom=bounce@news.christiandior.com;
+  dkim=pass header.i=@news.christiandior.com;
+  dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=news.christiandior.com
+X-Naver-ESV: wwen+6J4p63CbHmrKBwdbXFYKAUdFotZjJ+Y
+X-Session-IP: 172.82.233.252
+Received: from r252.news.christiandior.com (r252.news.christiandior.com [172.82.233.252])
+  by crcvmail303.nm.naver.com with ESMTP id qpSQ0cHSR3WKgF-phh1GSA
+  for <user01@naver.com>
+  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384);
+  Fri, 18 Aug 2023 02:46:42 -0000
+Return-Path: <bounce@news.christiandior.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=news.christiandior.com; s=diorcouture; t=1692324291;
+	bh=Di6crT8T23fUEO1X97MIxas8bIQaOoRqDtMt+LetGM8=;
+	h=From:Subject:Date:To:MIME-Version:Message-ID:List-Unsubscribe:
+	 Content-Type;
+	b=M+0nQNVhutVjieQTHdaJiseVdE6SDmQpjSMKE2gr4tExQFYeOUwlqMI5EMIpHfaE0
+	 I2ag5ZWPXe4T9ZujT9zGho3Naz91DgVbYahusZYgsYt4OyFgt0ghtfgWtEMGChQM1a
+	 0gaHwZHtHCPID03MbknqARFwBeuwYvFEoqhFSnniKcymecX1P+D++YkIMiiFUzQsLw
+	 SqHO/sxquJFmP4Y90tYbud7r8q3xESoBLzALlND0ZfNAfgtXzVgcz7WmcAbvKf4Pl+
+	 dihG6mvirEZ3IBrH6SUMHaFnhy0mC3L3fkKdk/JCPWeErZ/eF+Ytt0wvuKe0fxmTKW
+	 6QTerphEhWGmw==
+X-MSFBL: MkUqU80/SbbOiWk1ww86aJnN5exu6RawxmZPEJEnp90=|eyJyIjoiYWxkYWxkMDI
+	xOEBuYXZlci5jb20iLCJiIjoiYXdzX2Rpb3Jjb3V0dXJlX3Byb2QxX3Byb2QuZGV
+	mYXVsdF9tb21lbnR1bTEwX210YTAwNF8xNzIuODIuMjMzLjI1MiIsInJjcHRfbWV
+	0YSI6eyAibSI6ICI4MTEwNDQ0OTYiLCAiZCI6ICIyMDQ1MTc1NSIsICJpbiI6ICJ
+	kaW9yY291X21pZF9wcm9kMSIsICJyIjogImFsZGFsZDAyMThAbmF2ZXIuY29tIiB
+	9LCJnIjoicHJvZC5kZWZhdWx0XzMyOTI1ZWZmLWNlMWEtNGQyOS04NTZmLTVjZGM
+	wYjQxMzljYyJ9
+Received: from [10.38.143.3] ([10.38.143.3:53387] helo=r253.news.christiandior.com)
+	by momentum10.lon7.cpt.adobe.net (envelope-from <bounce@news.christiandior.com>)
+	(ecelerity 4.2.38.999 r(:)) with ESMTP
+	id 37/81-07556-3C1DED46; Thu, 17 Aug 2023 19:04:51 -0700
+From: "DIOR" <info@news.christiandior.com>
+Subject: =?utf-8?B?RGlvciBTYWZhcmkg67CxOiDsg4jroZzsmrQg7JeQ7IS87IWcIA==?=
+ =?utf-8?B?7JWE7J207YWc7J20IOq4sOuLpOumrOqzoCDsnojsirXri4jri6Q=?=
+Date: Fri, 18 Aug 2023 03:04:48 +0100
+To: <user01@naver.com>
+Reply-To: "DIOR" <newsletterdior@dior.com>
+MIME-Version: 1.0
+X-mailer: nlserver, Build 6.7.0
+Message-ID: <NM630578E90013811ABdiorcou_mid_prod1-Ym91bmNlQG5ld3MuY2hyaXN0aWFuZGlvci5jb20=@news.christiandior.com>
+Precedence: bulk
+List-Unsubscribe: <mailto:bounce@news.christiandior.com?subject=unsubscribe%3CNM630578E90013811ABdiorcou_mid_prod1-Ym91bmNlQG5ld3MuY2hyaXN0aWFuZGlvci5jb20%3D@news.christiandior.com%3E>
+Content-Type: multipart/alternative;
+	charset="windows-1252";
+	boundary="----=_NextPart_466_C138A4F2.C138A4F2"
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_466_C138A4F2.C138A4F2
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+새로운 에센셜 아이템 	
+	
+
+만약 메일의 내용이 보이지 않으실 경우,  https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712167&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4YiZwMT0lNDBQNEtwUnNNYyUyQnBQYmlieG1lTDhtUGJ4V3VjVlNyWmNJWjk0SlZKMFdmelElM0Q&s=eLceM-ZtgQB7xMuHmIpz76nvB7SBDFLNaS-8_bhaJMk 여기를 클릭하여 주세요 . 	
+	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712168&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=06jrPZfSLPrqEIhyZ_AIkbr7e-pvxEJzE7LdkZS2Crw 	
+	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712169&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=L0A-ZIe5o9ljJjww_FV5Q2Rsbr82xFWRf4vPIvTsqHw DIOR SAFARI 	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,871216a&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=WTKb_OcJkHjLQZKTf2LFuEuzRKlifdUCMVPujHPBJhQ 	
+	
+
+디올 하우스의 홀마크 코드를 담은 Dior Safari 백은 에센셜 액세서리를 손쉽게 보관할 수 있는 내부 지퍼 수납공간이 특징입니다. 실용적이면서도 매혹적인 이 아이템에 사파리에서 받은 영감을 불어넣었습니다. 	
+
+  https://t.news.christiandior.com/r/?id=t759d402e,c628526,871216b&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=y_qqN52v4eBfYC7f6qFBFIAgq9SmrKCQcwFlhTqsOYc DIOR SAFARI 자세히 보기 	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,871216c&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=06464_pInwc5DHxWS-vx1Iy6m6FrBqnI0B67i9_LFLc 	
+	
+	
+
+  	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,871216d&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=x71VmYCmxiVnE3HkZYNpQXTimGwzNFk1HPm7_378aN0 	
+	
+	
+
+  	
+	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,871216e&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=hX7jUsarSAvbG8Uqta7p9jCpgaXV7JLN3wmAIzQ0IA8 	
+	
+	
+	
+
+  	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,871216f&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=YUkSQWKfxudH7w5OTpjlsNMUwEOrwQ6zHS4EYFlJRLM 	
+	
+	
+
+  	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712170&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=CsADNfaH9P1HSE-zIe-ETrl39WPAbyxsbVKpWRE0P94 	
+	
+	
+	
+
+  https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712171&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=YuKb2MdFHG9FCDPlAfUi3AVtt0dA7wzUkonMjDGHvkI 지금 주문하기 	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712172&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=NECZVOA6NwqvtzCP6fv360UHXLkSmaj5nGZnuctC5pc 가을 에센셜 아이템 	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712173&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=y3WPX4hat9HS97rfww8obM2cxta-cwbZKChlvKsY7kE 	
+	
+
+  https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712174&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=fSA6RbWeRI51ADsJEHZq8WM9kGg64nFTlrk0n5Ji60k 셀렉션 주문하기 	
+	
+
+  	
+	
+
+온라인 익스클루시브 서비스 	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712175&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=jHWRz4v-mJMrI0UTKpU4d0o5sgw1nNeL15U-tmxrtzI 	
+	
+	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712176&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=CuPlkaxPIFhJIHEfp918cGghdXOs1BRhHTffj1f-Dxs 무료 배송 	
+	
+	
+	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712177&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=hcBcCoKqQPmvPsPByQBtHVI2jjUrthT5CqeaO72UF-I 	
+	
+	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712178&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=4Y8V4-5XEtxMIIDluogcCDujv7tKP_2-jkNJntRYpXE 선물 포장 	
+	
+	
+	
+
+  	
+	
+
+  	
+
+  	
+	
+
+  	
+
+FOLLOW US 	
+	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712179 	
+	
+	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,871217a 	
+	
+	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,871217b 	
+	
+	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,871217c 	
+	
+	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,871217d 	
+	
+	
+	
+	
+
+  	
+	
+
+  	
+
+  	
+	
+
+지금 카카오 디올 채널에서 익스클루시브 컨텐츠를 만나보세요. 	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,871217e 	
+	
+
+  	
+	
+
+ https://t.news.christiandior.com/r/?id=t759d402e,c628526,871217f&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=hzMsTlZveKztp9yppNyBLOSbs1co1PCBOHZjeS0beX0 고객 문의  -  https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712180&e=dXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=9q7c6xoQMieiXGmQ0XDxH6dhNWF6oJfyeHIynzNC304 법적 고지 	
+
+Dior에서 발송하는 뉴스레터 수신을 거부하실 경우에는  https://t.news.christiandior.com/r/?id=t759d402e,c628526,8712181 여기를 클릭하여 주세요. 
+크리스챤 디올 꾸뛰르는 귀하의 선택권과 개인정보를 보호하는 것을 중요시합니다. 
+크리스챤 디올 꾸뛰르의 개인정보 처리에 관해 더 자세히 알고 싶으신 경우, 디올 웹사이트에서 개인정보 취급 방침을 참조하시기 바랍니다. 
+귀하에게는 관련 법률 및 규정에 따라 본인과 관련된 정보를 확인, 수정, 삭제할 권리가 있습니다. 또한, 디올 제품 및 서비스에 관한 맞춤 정보의 수신 거부를 요청하실 수 있습니다. 이메일 주소  mailto:contactdiorkr@christiandior.com contactdiorkr@christiandior.com  또는 고객 서비스 센터 02 3280 0104번으로 연락주시면 해당 권리를 언제든지 행사하실 수 있습니다. 또한  mailto:privacy@christiandior.com privacy@christiandior.com 을 통해 정보보안 책임자에게 문의하실 수 있습니다.
+
+------=_NextPart_466_C138A4F2.C138A4F2
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"https://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-micros=
+oft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head>
+<!--[if gte mso 9]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings></xml>
+<![endif]-->
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"/>
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3D9; IE=3D8; IE=3D7; IE=
+=3DEDGE"/>
+<meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1"/=
+>
+<title>Dior Safari &#xBC31;: &#xC0C8;&#xB85C;&#xC6B4; &#xC5D0;&#xC13C;&#xC1=
+5C; &#xC544;&#xC774;&#xD15C;&#xC774; &#xAE30;&#xB2E4;&#xB9AC;&#xACE0; &#xC7=
+88;&#xC2B5;&#xB2C8;&#xB2E4;</title>
+<style type=3D"text/css">#outlook a{padding:0}span.MsoHyperlink{mso-style-p=
+riority:1;color:inherit}span.MsoHyperlinkFollowed{mso-style-priority:1;
+color:inherit}body{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;=
+padding:0;color:#000000;margin:0 auto}td{line-height:100%}
+=2EExternalClass{width:100%;display:block!important}.ExternalClass,.Externa=
+lClass *,.ExternalClass div,.ExternalClass font,.ExternalClass p,.ExternalC=
+lass span,.ExternalClass td{line-height:100%}
+img{outline:0;text-decoration:none;-ms-interpolation-mode:bicubic}a img{bor=
+der:none}u+* img+div{display:none}table td{border-collapse:collapse;
+mso-line-height-rule:exactly}table{border-collapse:collapse;mso-table-lspac=
+e:0;mso-table-rspace:0}a{color:inherit;text-decoration:none;
+mso-line-height-rule:exactly}.appleLinks,.appleLinksWhite{text-decoration:n=
+one!important}a[x-apple-data-detectors]{color:inherit!important;
+text-decoration:none!important;font-size:inherit!important;font-family:inhe=
+rit!important;font-weight:inherit!important;line-height:inherit!important}
+table[class^=3Dox] sup{font-size:.7em;vertical-align:baseline}sup{font-size=
+:.8em;vertical-align:text-top;line-height:1;height:0;
+mso-text-raise:24%}div>u+* table{zoom:100%}@font-face{font-family:CenturyGo=
+thic_regular;font-weight:400;src:url(https://www.bedior.com/assets/fonts/Ce=
+nturyGothic.woff) format('woff')
+}:not(#outlook).centurygothic_regular{font-family:CenturyGothic_regular,Ari=
+al,Helvetica,sans-serif!important}@font-face{font-family:FUTURA;
+font-weight:400;src:url(https://www.bedior.com/assets/fonts/FuturaBookfont.=
+woff) format('woff')
+}:not(#outlook).futura{font-family:FUTURA,Arial,Helvetica,sans-serif!import=
+ant}@font-face{font-family:MicrosoftYahei;
+font-weight:400;src:url(https://www.bedior.com/assets/fonts/MicrosoftYaHei.=
+woff) format('woff')
+}:not(#outlook).microsoftyahei{font-family:MicrosoftYahei,Arial,Helvetica,s=
+ans-serif!important}@font-face{font-family:Meiryo;
+font-weight:400;src:url(https://www.bedior.com/assets/fonts/Meiryo.woff) fo=
+rmat('woff')
+}:not(#outlook).meiryo{font-family:Meiryo,Arial,Helvetica,sans-serif!import=
+ant}@font-face{font-family:MalgunGothic;
+font-weight:400;src:url(https://www.bedior.com/assets/fonts/MalgunGothicReg=
+ular.woff) format('woff')
+}:not(#outlook).malgungothic{font-family:MalgunGothic,Arial,Helvetica,sans-=
+serif!important}@font-face{font-family:Din_C;
+font-weight:400;src:url(https://www.bedior.com/assets/fonts/DIN-Condensed-B=
+old.woff) format('woff')
+}:not(#outlook).din_c{font-family:Din_C,Arial,Helvetica,sans-serif!importan=
+t}@font-face{font-family:CenturyGothicBold;
+font-weight:700;src:url(https://www.bedior.com/assets/fonts/Century-Gothic-=
+Bold_9789.woff) format('woff')
+}:not(#outlook).centurygothicbold{font-family:CenturyGothicBold,Arial,Helve=
+tica,sans-serif!important}
+@media screen and (min-width:451px) and (max-width:640px),screen and (min-d=
+evice-width:451px) and (max-device-width:640px){.t_flnone{float:none!import=
+ant}
+=2Et_w100p{width:100%!important}.t_flright{float:right!important}.t_pr60px{=
+padding-right:60px!important}.t_pl60px{padding-left:60px!important}
+=2Et_lh14px{line-height:14px!important}.t_bdr0{border-right:0!important}.t_=
+bdl0{border-left:0!important}.t_w160px{width:160px!important}
+=2Et_pr45px{padding-right:45px!important}.t_pl45px{padding-left:45px!import=
+ant}.t_w260px{width:260px!important}.t_bxzborderminbox{box-sizing:border-bo=
+x!important}
+=2Et_hcalc40px2px{height:calc(40px + 2px)!important}.t_w48d5p{width:48.5%!i=
+mportant}.t_flleft{float:left!important}.t_w3p{width:3%!important}
+=2Et_h15px{height:15px!important}.t_fz15px{font-size:15px!important}.t_lh15=
+px{line-height:15px!important}.t_bdrs0px{border-radius:0!important}
+=2Et_w80p{width:80%!important}.t_w95p{width:95%!important}.t_pl0px{padding-=
+left:0!important}.t_w55p{width:55%!important}.t_w11p{width:11%!important}
+=2Et_w20px{width:20px!important}.t_hauto{height:auto!important}.t_w89p{widt=
+h:89%!important}.t_w45p{width:45%!important}.t_w10p{width:10%!important}
+=2Et_w90p{width:90%!important}.t_w0p{width:0%!important}.t_w18p{width:18%!i=
+mportant}.t_fl{float:undefined!important}.t_w80px{width:80px!important}
+=2Et_w20p{width:20%!important}.t_w175px{width:175px!important}.t_pt25px{pad=
+ding-top:25px!important}.t_pr80px{padding-right:80px!important}
+=2Et_pl80px{padding-left:80px!important}.t_w17p{width:17%!important}.t_w15p=
+{width:15%!important}.t_v{display:block!important;
+font-size:inherit!important;max-height:none!important;max-width:none!import=
+ant;overflow:visible!important}.t_dnone{display:none!important}
+=2Et_centurygothic_regular{font-family:CenturyGothic_regular,Arial,Helvetic=
+a,sans-serif!important}.t_futura{font-family:FUTURA,Arial,Helvetica,sans-se=
+rif!important}
+=2Et_microsoftyahei{font-family:MicrosoftYahei,Arial,Helvetica,sans-serif!i=
+mportant}.t_meiryo{font-family:Meiryo,Arial,Helvetica,sans-serif!important}
+=2Et_malgungothic{font-family:MalgunGothic,Arial,Helvetica,sans-serif!impor=
+tant}.t_din_c{font-family:Din_C,Arial,Helvetica,sans-serif!important}
+=2Et_centurygothicbold{font-family:CenturyGothicBold,Arial,Helvetica,sans-s=
+erif!important}
+}
+@media screen and (max-width:450px),screen and (max-device-width:450px){.m_=
+flnone{float:none!important}.m_w100p{width:100%!important}
+=2Em_flright{float:right!important}.m_pr30px{padding-right:30px!important}.=
+m_pl30px{padding-left:30px!important}.m_lh14px{line-height:14px!important}
+=2Em_pr10px{padding-right:10px!important}.m_pl10px{padding-left:10px!import=
+ant}.m_bdr0{border-right:0!important}.m_bdl0{border-left:0!important}
+=2Em_w180px{width:180px!important}.m_w260px{width:260px!important}.m_bxzbor=
+derminbox{box-sizing:border-box!important}.m_hcalc40px2px{height:calc(40px =
++ 2px)!important}
+=2Em_w48p{width:48%!important}.m_flleft{float:left!important}.m_w4p{width:4=
+%!important}.m_h12px{height:12px!important}.m_fz12px{font-size:12px!importa=
+nt}
+=2Em_lh12px{line-height:12px!important}.m_bdrs0px{border-radius:0!important=
+}.m_fz30px{font-size:30px!important}.m_lh32px{line-height:32px!important}
+=2Em_w95p{width:95%!important}.m_pt32px{padding-top:32px!important}.m_pb15p=
+x{padding-bottom:15px!important}.m_pl0px{padding-left:0!important}
+=2Em_w10p{width:10%!important}.m_w20px{width:20px!important}.m_hauto{height=
+:auto!important}.m_w90p{width:90%!important}.m_pb20px{padding-bottom:20px!i=
+mportant}
+=2Em_w0p{width:0%!important}.m_h32px{height:32px!important}.m_fz32px{font-s=
+ize:32px!important}.m_w28p{width:28%!important}.m_w72p{width:72%!important}
+=2Em_w175px{width:175px!important}.m_w20p{width:20%!important}.m_fz9px{font=
+-size:9px!important}.m_pr8p{padding-right:8%!important}
+=2Em_pl8p{padding-left:8%!important}.m_w22p{width:22%!important}.m_pb32px{p=
+adding-bottom:32px!important}.m_v{display:block!important;
+font-size:inherit!important;max-height:none!important;max-width:none!import=
+ant;overflow:visible!important}.m_dnone{display:none!important}
+=2Em_centurygothic_regular{font-family:CenturyGothic_regular,Arial,Helvetic=
+a,sans-serif!important}.m_futura{font-family:FUTURA,Arial,Helvetica,sans-se=
+rif!important}
+=2Em_microsoftyahei{font-family:MicrosoftYahei,Arial,Helvetica,sans-serif!i=
+mportant}.m_meiryo{font-family:Meiryo,Arial,Helvetica,sans-serif!important}
+=2Em_malgungothic{font-family:MalgunGothic,Arial,Helvetica,sans-serif!impor=
+tant}.m_din_c{font-family:Din_C,Arial,Helvetica,sans-serif!important}
+=2Em_centurygothicbold{font-family:CenturyGothicBold,Arial,Helvetica,sans-s=
+erif!important}
+}
+@media (orientation:landscape) and (min-width:640px){.d_center{float:none!i=
+mportant;margin:auto!important}.d_left{float:left!important}
+=2Ed_right{float:right!important}
+}</style></head>
+<body style=3D"background-color:#f7f7f7">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" styl=
+e=3D"width:100%;margin-top:-1px" role=3D"presentation">
+<tr class=3D"t_dnone m_dnone">
+<td height=3D"1" style=3D"height:1px;max-height:1px;font-size:1px;line-heig=
+ht:1px">
+<span style=3D"display:block;width:640px;min-width:640px">&nbsp;</span>
+</td></tr><tr><td style=3D"background-color:#f7f7f7">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td style=3D"font-family:Arial,Helvetica,sans-serif;color:#f7F7F7;text-=
+align:center;font-size:10px;padding-top:0;
+padding-bottom:0;vertical-align:middle"
+class=3D"t_pr60px t_pl60px t_lh14px m_pr30px m_pl30px m_lh14px centurygothi=
+c_regular"> &#xC0C8;&#xB85C;&#xC6B4; &#xC5D0;&#xC13C;&#xC15C; &#xC544;&#xC7=
+74;&#xD15C; </td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td style=3D"font-family:Arial,Helvetica,sans-serif;color:#c6c5C7;text-=
+align:center;font-size:10px;padding-top:10px;
+padding-bottom:10px;vertical-align:middle"
+class=3D"t_pr60px t_pl60px t_lh14px m_pr10px m_pl10px m_lh14px centurygothi=
+c_regular"> &#xB9CC;&#xC57D; &#xBA54;&#xC77C;&#xC758; &#xB0B4;&#xC6A9;&#xC7=
+74; &#xBCF4;&#xC774;&#xC9C0; &#xC54A;&#xC73C;&#xC2E4; 
+&#xACBD;&#xC6B0;, <a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh75=
+9d402e,c628526,871214c&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRt=
+X2NhbXBhaWduPW5sX21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzY=
+yODE4MTBhOWVmYjFmYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZT=
+M4YiZwMT0lNDBQNEtwUnNNYyUyQnBQYmlieG1lTDhtUGJ4V3VjVlNyWmNJWjk0SlZKMFdmelElM=
+0Q&s=3D4QuVOz9CJN2n8VsvAaRZmkdVohYNBieArO8MrSF-7bU" style=3D"color:#c6c5C7;=
+text-decoration:underline">&#xC5EC;&#xAE30;&#xB97C; &#xD074;&#xB9AD;&#xD558=
+;&#xC5EC; &#xC8FC;&#xC138;&#xC694;</a>. </td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td>
+<div style=3D"display:block;overflow:hidden;mso-border-alt:none #ffffff 0;b=
+ackground-color:#ffffff" class=3D"t_bdr0 t_bdl0 m_bdr0 m_bdl0">
+<!--[if gte mso 9]><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+width=3D"640" style=3D"background-color:#ffffff;border-collapse:collapse"><=
+tr><td style=3D"vertical-align:top;border-collapse:collapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"160" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w160=
+px m_flnone m_mauto m_w180px" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"padding-top:35px;padding-bottom:35px;text-align:left">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+214d&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3Dm2_H3wnDc=
+qZHAcTv1J9el2tlJzyrEnU--j0MloJuHoU" width=3D"160" style=3D"color:#000000;ou=
+tline:0;border:none;margin:auto;display:block" class=3D"t_w100p m_w100p" ta=
+rget=3D"_blank"><img src=3D"https://diorama.dam-broadcast.com/pm_11872_380_=
+380748-ms4lfbndd1.png" alt=3D"DIOR" width=3D"160" style=3D"font-family:Aria=
+l,Helvetica,sans-serif;font-size:13px;line-height:13px;display:block;border=
+:none" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td style=3D"font-family:Arial,Helvetica,sans-serif;color:#000000;text-=
+align:center;text-transform:uppercase;
+font-size:40px;padding-bottom:20px;vertical-align:middle;line-height:42px"
+class=3D"m_pr10px m_pl10px din_c">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+214e&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3DLsYThBuQ3=
+RBlzMx7avpZZjbFVWRNeshE4ZHcKa85gYM" style=3D"color:#000000;line-height:42px=
+;display:block;text-decoration:none;outline:0" target=3D"_blank"> DIOR SAFA=
+RI </a>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+214f&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3DqMFzBq84G=
+9lFB-kO52WXoFvHn0R4pUzagNr_BqN5ets" width=3D"640" style=3D"color:#000000;ou=
+tline:0;border:none;margin:auto;display:block" class=3D"t_w100p m_w100p" ta=
+rget=3D"_blank"><img src=3D"https://diorama.dam-broadcast.com/cdn-cgi/image=
+/width=3D800%20/pm_11872_457_457890-1vjxxquyl0-whr.jpg" alt=3D"" width=3D"6=
+40" style=3D"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-hei=
+ght:13px;display:block;border:none" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td style=3D"font-family:Arial,Helvetica,sans-serif;color:#000000;text-=
+align:center;text-transform:none;font-size:14px;
+padding-top:35px;padding-right:50px;padding-left:50px;vertical-align:middle=
+;line-height:18px"
+class=3D"t_pr45px t_pl45px m_pr30px m_pl30px centurygothic_regular"> &#xB51=
+4;&#xC62C; &#xD558;&#xC6B0;&#xC2A4;&#xC758; &#xD640;&#xB9C8;&#xD06C; &#xCF5=
+4;&#xB4DC;&#xB97C; &#xB2F4;&#xC740; 
+Dior Safari &#xBC31;&#xC740; &#xC5D0;&#xC13C;&#xC15C; &#xC561;&#xC138;&#xC1=
+1C;&#xB9AC;&#xB97C; &#xC190;&#xC27D;&#xAC8C; &#xBCF4;&#xAD00;&#xD560; &#xC2=
+18; &#xC788;&#xB294; &#xB0B4;&#xBD80; 
+&#xC9C0;&#xD37C; &#xC218;&#xB0A9;&#xACF5;&#xAC04;&#xC774; &#xD2B9;&#xC9D5;&=
+#xC785;&#xB2C8;&#xB2E4;. &#xC2E4;&#xC6A9;&#xC801;&#xC774;&#xBA74;&#xC11C;&#=
+xB3C4; &#xB9E4;&#xD639;&#xC801;&#xC778; 
+&#xC774; &#xC544;&#xC774;&#xD15C;&#xC5D0; &#xC0AC;&#xD30C;&#xB9AC;&#xC5D0;&=
+#xC11C; &#xBC1B;&#xC740; &#xC601;&#xAC10;&#xC744; &#xBD88;&#xC5B4;&#xB123;&=
+#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;. 
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"280" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w260=
+px m_flnone m_mauto m_w260px" role=3D"presentation">
+<tr><td style=3D"padding-top:35px;padding-bottom:35px">
+<!--[if mso]>
+<v:roundrect
+xmlns:v=3D"urn:schemas-microsoft-com:vml"
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"
+href=3D"https://www.dior.com/ko_kr/fashion/%EB%82%A8%EC%84%B1-%ED%8C%A8%EC%=
+85%98/%EA%B0%80%EB%B0%A9/dior-safari=3Futm_content=3Dbutton1"
+style=3D"v-text-anchor:middle;height:42px;width:278px"
+arcsize=3D"138%" 
+strokecolor=3D"#000000" strokeweight=3D"1px"
+fillcolor=3D"#ffffff" fill=3D"t">
+<w:anchorlock/>
+<center style=3D"color:#000000;font-size:14px;font-family:Arial,Helvetica,s=
+ans-serif;height:42px;text-align:center;width:278px">
+DIOR SAFARI &#xC790;&#xC138;&#xD788; &#xBCF4;&#xAE30;
+</center>
+</v:roundrect>
+<![endif]-->
+<a style=3D"background-color:#ffffff;border-top:1px solid #000000;border-bo=
+ttom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid=
+ #000000;border-radius:55px;color:#000000;font-family:Arial,Helvetica,sans-=
+serif;font-size:14px;height:40px;text-align:center;text-transform:uppercase=
+;line-height:40px;mso-hide:all;display:inline-block;-webkit-text-size-adjus=
+t:none;text-decoration:none;width:278px" class=3D"t_w100p t_bxzborderminbox=
+ t_hcalc40px2px m_w100p m_bxzborderminbox m_hcalc40px2px centurygothic_regu=
+lar" href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,8=
+712150&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5s=
+X21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjF=
+mYTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3DUrVV9il=
+QfLAlOBRAhIGprtxPx4B1pfMt_moRMizhLRI" target=3D"_blank"> DIOR SAFARI &#xC79=
+0;&#xC138;&#xD788; &#xBCF4;&#xAE30; </a>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"313" align=
+=3D"left" class=3D"d_left t_w48d5p t_flleft m_w48p m_flleft" role=3D"presen=
+tation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"309" align=
+=3D"left" class=3D"d_left t_flleft t_w100p m_flleft m_w100p" role=3D"presen=
+tation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2151&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3DGdyur1I4C=
+OXDcRRLCauk11hoSJvvG6fbJq_RfYOJQ4E" width=3D"309" style=3D"color:#000000;ou=
+tline:0;border:none;margin:auto;display:block" class=3D"t_w100p m_w100p" ta=
+rget=3D"_blank"><img src=3D"https://diorama.dam-broadcast.com/pm_11872_462_=
+462522-cq2gp9ebbp.jpg" alt=3D"" width=3D"309" style=3D"font-family:Arial,He=
+lvetica,sans-serif;font-size:13px;line-height:13px;display:block;border:non=
+e" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"13" align=
+=3D"left" class=3D"d_left t_w3p t_flleft m_w4p m_flleft" role=3D"presentati=
+on">
+<tr><td>
+<span>&nbsp;</span>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"314" align=
+=3D"right" class=3D"d_right t_w48d5p t_flright m_w48p m_flright" role=3D"pr=
+esentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"310" align=
+=3D"right" class=3D"d_right t_flright t_w100p m_flright m_w100p" role=3D"pr=
+esentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2152&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3DbJ235bmX4=
+hGJrKzUZBuCVSWmvTgXStGUds2ItqACP-M" width=3D"310" style=3D"color:#000000;ou=
+tline:0;border:none;margin:auto;display:block" class=3D"t_w100p m_w100p" ta=
+rget=3D"_blank"><img src=3D"https://assets.christiandior.com/is/image/diorp=
+rod/013D482B226XC580_E01=3F$DiorCRM$" alt=3D"" width=3D"310" style=3D"font-=
+family:Arial,Helvetica,sans-serif;font-size:13px;line-height:13px;display:b=
+lock;border:none" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr><tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"314" align=
+=3D"center" style=3D"margin:auto;clear:both" class=3D"d_center t_w100p m_w1=
+00p" role=3D"presentation">
+<tr><td height=3D"22" style=3D"height:22px;font-size:22px;line-height:22px"=
+ class=3D"t_h15px t_fz15px t_lh15px m_h12px m_fz12px m_lh12px"> &nbsp; </td=
+></tr></table>
+</td></tr><tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"310" align=
+=3D"right" class=3D"d_right t_flright t_w100p m_flright m_w100p" role=3D"pr=
+esentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2153&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3DKIeT_jUZ9=
+4OZa8_x4QFu7aLnyUlo_-cjKpvZxpvD13k" width=3D"310" style=3D"color:#000000;ou=
+tline:0;border:none;margin:auto;display:block" class=3D"t_w100p m_w100p" ta=
+rget=3D"_blank"><img src=3D"https://assets.christiandior.com/is/image/diorp=
+rod/3SN303ZYSH068_E02=3F$DiorCRM$" alt=3D"" width=3D"310" style=3D"font-fam=
+ily:Arial,Helvetica,sans-serif;font-size:13px;line-height:13px;display:bloc=
+k;border:none" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto;clear:both" class=3D"d_center t_w100p m_w1=
+00p" role=3D"presentation">
+<tr><td height=3D"20" style=3D"height:20px;font-size:20px;line-height:20px"=
+ class=3D"m_h12px m_fz12px m_lh12px"> &nbsp; </td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"313" align=
+=3D"left" class=3D"d_left t_w48d5p t_flleft m_w48p m_flleft" role=3D"presen=
+tation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"309" align=
+=3D"left" class=3D"d_left t_flleft t_w100p m_flleft m_w100p" role=3D"presen=
+tation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2154&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3D4LVMSMP3R=
+ISoPGCH6ACPt-rLNG5ONnlmXRQs0ieBXf0" width=3D"309" style=3D"color:#000000;ou=
+tline:0;border:none;margin:auto;display:block" class=3D"t_w100p m_w100p" ta=
+rget=3D"_blank"><img src=3D"https://assets.christiandior.com/is/image/diorp=
+rod/3SN303ZYSH981_E02=3F$DiorCRM$" alt=3D"" width=3D"309" style=3D"font-fam=
+ily:Arial,Helvetica,sans-serif;font-size:13px;line-height:13px;display:bloc=
+k;border:none" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"13" align=
+=3D"left" class=3D"d_left t_w3p t_flleft m_w4p m_flleft" role=3D"presentati=
+on">
+<tr><td>
+<span>&nbsp;</span>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"314" align=
+=3D"right" class=3D"d_right t_w48d5p t_flright m_w48p m_flright" role=3D"pr=
+esentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"310" align=
+=3D"right" class=3D"d_right t_flright t_w100p m_flright m_w100p" role=3D"pr=
+esentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2155&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3DrRy92qFKz=
+WhPOvaKcbogluB3HSmpXFlSOmrWAQ7TXIw" width=3D"310" style=3D"color:#000000;ou=
+tline:0;border:none;margin:auto;display:block" class=3D"t_w100p m_w100p" ta=
+rget=3D"_blank"><img src=3D"https://assets.christiandior.com/is/image/diorp=
+rod/1ESPO297YKYH27E_E09=3F$DiorCRM$" alt=3D"" width=3D"310" style=3D"font-f=
+amily:Arial,Helvetica,sans-serif;font-size:13px;line-height:13px;display:bl=
+ock;border:none" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"280" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w260=
+px m_flnone m_mauto m_w260px" role=3D"presentation">
+<tr><td style=3D"padding-top:35px;padding-bottom:35px">
+<!--[if mso]>
+<v:roundrect
+xmlns:v=3D"urn:schemas-microsoft-com:vml"
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"
+href=3D"https://www.dior.com/ko_kr/fashion/%EB%82%A8%EC%84%B1-%ED%8C%A8%EC%=
+85%98/%EA%B0%80%EB%B0%A9/dior-safari=3Futm_content=3Dbutton2"
+style=3D"v-text-anchor:middle;height:40px;width:280px"
+arcsize=3D"138%" 
+stroke=3D"f"
+fillcolor=3D"#000000" fill=3D"t">
+<w:anchorlock/>
+<center style=3D"color:#ffffff;font-size:14px;font-family:Arial,Helvetica,s=
+ans-serif;height:40px;text-align:center;width:280px">
+&#xC9C0;&#xAE08; &#xC8FC;&#xBB38;&#xD558;&#xAE30;
+</center>
+</v:roundrect>
+<![endif]-->
+<a style=3D"background-color:#000000;border-radius:55px;color:#ffffff;font-=
+family:Arial,Helvetica,sans-serif;font-size:14px;height:40px;text-align:cen=
+ter;text-transform:uppercase;line-height:40px;mso-hide:all;display:inline-b=
+lock;-webkit-text-size-adjust:none;text-decoration:none;width:280px" class=
+=3D"t_w100p t_bxzborderminbox m_w100p m_bxzborderminbox centurygothic_regul=
+ar" href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,87=
+12156&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX=
+21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFm=
+YTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3D_cbttuDt=
+cQWeVIDm3ZH7r0A3DlJbnFq2ViK6ehN2eXs" target=3D"_blank"> &#xC9C0;&#xAE08; &#=
+xC8FC;&#xBB38;&#xD558;&#xAE30; </a>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"595" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td>
+<div style=3D"border-radius:50px;display:block;overflow:hidden;mso-border-a=
+lt:none #ffffff 0;background-color:#f2f2f2" class=3D"t_bdrs0px m_bdrs0px">
+<!--[if gte mso 9]><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+width=3D"595" style=3D"background-color:#f2f2f2;border-collapse:collapse"><=
+tr><td style=3D"vertical-align:top;border-collapse:collapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"595" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w80p=
+ m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td style=3D"font-family:Arial,Helvetica,sans-serif;color:#000000;text-=
+align:center;text-transform:uppercase;
+font-size:40px;padding-top:35px;padding-bottom:20px;vertical-align:middle;l=
+ine-height:42px;font-weight:700"
+class=3D"m_fz30px m_lh32px din_c">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2157&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3D9Na3AtLUx=
+WDn4HWbpoZV3VctPhUk8dstCTAhSeF3lJg" style=3D"color:#000000;line-height:42px=
+;display:block;text-decoration:none;outline:0" class=3D"m_lh32px" target=3D=
+"_blank"> &#xAC00;&#xC744; &#xC5D0;&#xC13C;&#xC15C; &#xC544;&#xC774;&#xD15C=
+; </a>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"327" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2158&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3DDbK9T6fgn=
+1cD1EW-eXYJVL5BgRDVITPueOw7uPGc0ow" width=3D"327" style=3D"color:#000000;ou=
+tline:0;border:none;margin:auto;display:block" class=3D"t_w100p m_w100p" ta=
+rget=3D"_blank"><img src=3D"https://diorama.dam-broadcast.com/pm_11872_468_=
+468681-hu0bhdxvfq.gif" alt=3D"" width=3D"327" style=3D"font-family:Arial,He=
+lvetica,sans-serif;font-size:13px;line-height:13px;display:block;border:non=
+e" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"280" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w260=
+px m_flnone m_mauto m_w260px" role=3D"presentation">
+<tr><td style=3D"padding-bottom:35px">
+<!--[if mso]>
+<v:roundrect
+xmlns:v=3D"urn:schemas-microsoft-com:vml"
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"
+href=3D"https://www.dior.com/ko_kr/fashion/=EB=82=A8=EC=84=B1-=ED=8C=A8=EC=
+=85=98/9=EC=9B=94=EC=9D=98-=EC=83=88=EB=A1=9C=EC=9A=B4-=EC=97=90=EC=84=BC=
+=EC=85=9C-=EC=95=84=EC=9D=B4=ED=85=9C=3Futm_content=3Dvisual4"
+style=3D"v-text-anchor:middle;height:40px;width:280px"
+arcsize=3D"138%" 
+stroke=3D"f"
+fillcolor=3D"#000000" fill=3D"t">
+<w:anchorlock/>
+<center style=3D"color:#ffffff;font-size:14px;font-family:Arial,Helvetica,s=
+ans-serif;height:40px;text-align:center;width:280px">
+&#xC140;&#xB809;&#xC158; &#xC8FC;&#xBB38;&#xD558;&#xAE30;
+</center>
+</v:roundrect>
+<![endif]-->
+<a style=3D"background-color:#000000;border-radius:55px;color:#ffffff;font-=
+family:Arial,Helvetica,sans-serif;font-size:14px;height:40px;text-align:cen=
+ter;text-transform:uppercase;line-height:40px;mso-hide:all;display:inline-b=
+lock;-webkit-text-size-adjust:none;text-decoration:none;width:280px" class=
+=3D"t_w100p t_bxzborderminbox m_w100p m_bxzborderminbox centurygothic_regul=
+ar" href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,87=
+12159&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX=
+21lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFm=
+YTljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3Dc9Khijks=
+DFPr_QxUcfCk3E0aiHya-QLpLbcrMF6clRs" target=3D"_blank"> 
+&#xC140;&#xB809;&#xC158; &#xC8FC;&#xBB38;&#xD558;&#xAE30; </a>
+</td></tr></table>
+<!--[if gte mso 9]></td></tr></table><![endif]--></div>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto;clear:both" class=3D"d_center t_w100p m_w1=
+00p" role=3D"presentation">
+<tr><td height=3D"35" style=3D"height:35px;font-size:35px;line-height:35px"=
+> &nbsp; </td></tr></table>
+<!--[if gte mso 9]></td></tr></table><![endif]--></div>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto;background-color:#ffffff" class=3D"d_cente=
+r t_flnone t_mauto t_w100p m_flnone m_mauto m_w100p" 
+role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"608" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w95p=
+ m_flnone m_mauto m_w95p" role=3D"presentation">
+<tr><td style=3D"font-family:Arial,Helvetica,sans-serif;color:#000000;text-=
+align:left;font-size:13px;padding-top:40px;
+padding-bottom:20px;vertical-align:middle;line-height:20px;font-weight:700"
+class=3D"t_pl0px m_pt32px m_pb15px m_pl0px centurygothicbold"> &#xC628;&#xB=
+77C;&#xC778; &#xC775;&#xC2A4;&#xD074;&#xB8E8;&#xC2DC;&#xBE0C; &#xC11C;&#xBE=
+44;&#xC2A4; </td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"608" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w95p=
+ m_flnone m_mauto m_w95p" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"243" align=
+=3D"left" class=3D"d_left t_w55p t_flleft m_w100p m_flright" role=3D"presen=
+tation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"243" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w95p" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"24" align=
+=3D"left" class=3D"d_left t_w11p t_flleft m_w10p m_flleft" role=3D"presenta=
+tion">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"20" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w20p=
+x m_flnone m_mauto m_w20px" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+215a&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3DUSCQXB9BP=
+OLbrEZIaPZZgPX9_He5iWz5CdUyC5a8BrU" width=3D"20" style=3D"color:#000000;out=
+line:0;border:none;margin:auto;display:block" class=3D"t_w100p m_w100p"><im=
+g src=3D"https://diorama.dam-broadcast.com/pm_11872_323_323269-lr5fg8h4rk.p=
+ng" alt=3D"" height=3D"20" width=3D"20" style=3D"font-family:Arial,Helvetic=
+a,sans-serif;font-size:13px;height:20px;line-height:13px;display:block;bord=
+er:none" 
+class=3D"t_w100p t_hauto m_w100p m_hauto"/></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"219" align=
+=3D"right" class=3D"d_right t_w89p t_flright m_w90p m_flright" role=3D"pres=
+entation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"219" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td style=3D"font-family:Arial,Helvetica,sans-serif;color:#000000;text-=
+align:left;font-size:13px;padding-left:4px;
+vertical-align:middle;line-height:20px"
+class=3D"m_pb20px m_pl10px centurygothic_regular">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+215b&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3D9usBKgISH=
+iP1utm6lvsu4zhrcogpcJ4AxpdK5HyBaA0" style=3D"color:#000000;line-height:20px=
+;display:block;text-decoration:none;outline:0"> 
+&#xBB34;&#xB8CC; &#xBC30;&#xC1A1; </a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"225" align=
+=3D"left" class=3D"d_left t_w45p t_flright m_w100p m_flright" role=3D"prese=
+ntation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"225" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w95p" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"22" align=
+=3D"left" class=3D"d_left t_w10p t_flleft m_w10p m_flleft" role=3D"presenta=
+tion">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"20" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w20p=
+x m_flnone m_mauto m_w20px" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+215c&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3DSHmD3DyQF=
+gjiTOM3hCkVVaIT1ZZ3itmh_8RfdyAyPO0" width=3D"20" style=3D"color:#000000;out=
+line:0;border:none;margin:auto;display:block" class=3D"t_w100p m_w100p"><im=
+g src=3D"https://diorama.dam-broadcast.com/pm_11872_323_323260-4c80xl499p.p=
+ng" alt=3D"" height=3D"20" width=3D"20" style=3D"font-family:Arial,Helvetic=
+a,sans-serif;font-size:13px;height:20px;line-height:13px;display:block;bord=
+er:none" 
+class=3D"t_w100p t_hauto m_w100p m_hauto"/></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"203" align=
+=3D"right" class=3D"d_right t_w90p t_flright m_w90p m_flright" role=3D"pres=
+entation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"182" align=
+=3D"left" class=3D"d_left t_flleft t_w100p m_flleft m_w100p" role=3D"presen=
+tation">
+<tr><td style=3D"font-family:Arial,Helvetica,sans-serif;color:#000000;text-=
+align:left;font-size:13px;padding-left:4px;
+vertical-align:middle;line-height:20px"
+class=3D"m_pl10px centurygothic_regular">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+215d&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3D3G9IygLD8=
+IUCfRiM54R9PFSed5ohRzln84mi6XKTClE" style=3D"color:#000000;line-height:20px=
+;display:block;text-decoration:none;outline:0"> 
+&#xC120;&#xBB3C; &#xD3EC;&#xC7A5; </a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"140" align=
+=3D"right" class=3D"d_right t_w0p t_dnone t_flright m_w0p m_dnone m_flright=
+" role=3D"presentation">
+<tr><td>
+<span>&nbsp;</span>
+</td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto;clear:both" class=3D"d_center t_w100p m_w1=
+00p" role=3D"presentation">
+<tr><td height=3D"40" style=3D"height:40px;font-size:40px;line-height:40px"=
+ class=3D"m_h32px m_fz32px m_lh32px"> &nbsp; </td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto;clear:both" class=3D"d_center t_w100p m_w1=
+00p" role=3D"presentation">
+<tr><td height=3D"5" style=3D"height:5px;font-size:5px;line-height:5px;vert=
+ical-align:bottom">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center" style=3D"width:100%;clear:both" role=3D"pre=
+sentation">
+<tr><td style=3D"border-top:1px solid #E5E5E5;height:2px;font-size:2px;line=
+-height:2px">&nbsp;</td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto;clear:both" class=3D"d_center t_w100p m_w1=
+00p" role=3D"presentation">
+<tr><td height=3D"40" style=3D"height:40px;font-size:40px;line-height:40px"=
+ class=3D"m_h32px m_fz32px m_lh32px"> &nbsp; </td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"608" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w95p=
+ m_flnone m_mauto m_w95p" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"91" align=
+=3D"left" class=3D"d_left t_w18p m_w28p m_flleft" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"91" align=
+=3D"left" class=3D"d_left t_flleft t_w80px m_flleft m_w100p" role=3D"presen=
+tation">
+<tr><td style=3D"font-family:Arial,Helvetica,sans-serif;color:#000000;text-=
+align:left;font-size:13px;vertical-align:middle;
+line-height:20px;font-weight:700"
+class=3D"centurygothicbold"> FOLLOW US </td></tr></table>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"258" align=
+=3D"left" class=3D"d_left t_w20p m_w72p m_flright" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"175" align=
+=3D"left" class=3D"d_left t_flleft t_w175px m_flleft m_w175px" role=3D"pres=
+entation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"35" align=
+=3D"left" class=3D"d_left t_w20p t_flleft m_w20p m_flleft" role=3D"presenta=
+tion">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"20" align=
+=3D"left" class=3D"d_left t_flleft t_w20px m_flleft m_w20px" role=3D"presen=
+tation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+215e" width=3D"20" style=3D"color:#000000;outline:0;border:none;margin:auto=
+;display:block" class=3D"t_w100p m_w100p" title=3D"Facebook"><img src=3D"ht=
+tps://diorama.dam-broadcast.com/pm_11872_323_323263-ia2mec4dum.png" alt=3D"=
+" height=3D"20" width=3D"20" style=3D"font-family:Arial,Helvetica,sans-seri=
+f;font-size:13px;height:20px;line-height:13px;display:block;border:none" 
+class=3D"t_w100p t_hauto m_w100p m_hauto"/></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"35" align=
+=3D"left" class=3D"d_left t_w20p t_flleft m_w20p m_flleft" role=3D"presenta=
+tion">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"20" align=
+=3D"left" class=3D"d_left t_flleft t_w20px m_flleft m_w20px" role=3D"presen=
+tation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+215f" width=3D"20" style=3D"color:#000000;outline:0;border:none;margin:auto=
+;display:block" class=3D"t_w100p m_w100p" title=3D"Instagram"><img src=3D"h=
+ttps://diorama.dam-broadcast.com/pm_11872_323_323266-343vu5j5qm.png" alt=3D=
+"" width=3D"20" style=3D"font-family:Arial,Helvetica,sans-serif;font-size:1=
+3px;line-height:13px;display:block;border:none" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"35" align=
+=3D"left" class=3D"d_left t_w20p t_flleft m_w20p m_flleft" role=3D"presenta=
+tion">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"20" align=
+=3D"left" class=3D"d_left t_flleft t_w20px m_flleft m_w20px" role=3D"presen=
+tation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2160" width=3D"20" style=3D"color:#000000;outline:0;border:none;margin:auto=
+;display:block" class=3D"t_w100p m_w100p" title=3D"Youtube"><img src=3D"htt=
+ps://diorama.dam-broadcast.com/pm_11872_323_323278-5ys5kuyuhn.png" alt=3D""=
+ width=3D"20" style=3D"font-family:Arial,Helvetica,sans-serif;font-size:13p=
+x;line-height:13px;display:block;border:none" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"35" align=
+=3D"left" class=3D"d_left t_w20p t_flleft m_w20p m_flleft" role=3D"presenta=
+tion">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"20" align=
+=3D"left" class=3D"d_left t_flleft t_w20px m_flleft m_w20px" role=3D"presen=
+tation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2161" width=3D"20" style=3D"color:#000000;outline:0;border:none;margin:auto=
+;display:block" class=3D"t_w100p m_w100p" title=3D"Twitter"><img src=3D"htt=
+ps://diorama.dam-broadcast.com/pm_11872_323_323275-etpm1gv5l6.png" alt=3D""=
+ width=3D"20" style=3D"font-family:Arial,Helvetica,sans-serif;font-size:13p=
+x;line-height:13px;display:block;border:none" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"35" align=
+=3D"right" class=3D"d_right t_w20p t_flright m_w20p m_flright" role=3D"pres=
+entation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"20" align=
+=3D"left" class=3D"d_left t_flleft t_w20px m_flleft m_w20px" role=3D"presen=
+tation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2162" width=3D"20" style=3D"color:#000000;outline:0;border:none;margin:auto=
+;display:block" class=3D"t_w100p m_w100p"><img src=3D"https://diorama.dam-b=
+roadcast.com/pm_11872_323_323311-0u487mo1eg.png" alt=3D"" width=3D"20" styl=
+e=3D"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:13px=
+;display:block;border:none" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<!--[if gte mso 9]> </td><td style=3D"vertical-align:top;border-collapse:co=
+llapse"><![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"259" align=
+=3D"right" class=3D"d_right t_w0p t_dnone m_w0p m_dnone m_flright" role=3D"=
+presentation">
+<tr><td>
+<span>&nbsp;</span>
+</td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto;clear:both" class=3D"d_center t_w100p m_w1=
+00p" role=3D"presentation">
+<tr><td height=3D"40" style=3D"height:40px;font-size:40px;line-height:40px"=
+ class=3D"m_h32px m_fz32px m_lh32px"> &nbsp; </td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto;clear:both" class=3D"d_center t_w100p m_w1=
+00p" role=3D"presentation">
+<tr><td height=3D"5" style=3D"height:5px;font-size:5px;line-height:5px;vert=
+ical-align:bottom">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center" style=3D"width:100%;clear:both" role=3D"pre=
+sentation">
+<tr><td style=3D"border-top:1px solid #E5E5E5;height:2px;font-size:2px;line=
+-height:2px">&nbsp;</td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w100=
+p m_flnone m_mauto m_w100p" role=3D"presentation">
+<tr><td style=3D"font-family:Arial,Helvetica,sans-serif;color:#757575;text-=
+align:center;font-size:10px;padding-top:40px;
+padding-right:70px;padding-left:70px;vertical-align:middle;line-height:13px=
+"
+class=3D"t_pt25px t_pr80px t_pl80px m_fz9px m_pt32px m_pr8p m_pl8p centuryg=
+othic_regular"> &#xC9C0;&#xAE08; &#xCE74;&#xCE74;&#xC624; &#xB514;&#xC62C; =
+&#xCC44;&#xB110;&#xC5D0;&#xC11C; 
+&#xC775;&#xC2A4;&#xD074;&#xB8E8;&#xC2DC;&#xBE0C; &#xCEE8;&#xD150;&#xCE20;&#=
+xB97C; &#xB9CC;&#xB098;&#xBCF4;&#xC138;&#xC694;. </td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"76" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w17p=
+ m_flnone m_mauto m_w22p" role=3D"presentation">
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center t_w100p m_w100p" role=3D"presentation">
+<tr><td style=3D"padding-top:20px;text-align:center">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2163" width=3D"76" style=3D"color:#000000;outline:0;border:none;margin:auto=
+;display:block" class=3D"t_w100p m_w100p" target=3D"_blank"><img src=3D"htt=
+ps://diorama.dam-broadcast.com/pm_11872_323_323308-03r2e499em.png" alt=3D""=
+ width=3D"76" style=3D"font-family:Arial,Helvetica,sans-serif;font-size:13p=
+x;line-height:13px;display:block;border:none" 
+class=3D"t_w100p m_w100p"/></a>
+</td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"50" align=
+=3D"center" style=3D"margin:auto;clear:both" class=3D"d_center t_w15p m_w20=
+p" role=3D"presentation">
+<tr><td height=3D"50" style=3D"height:50px;font-size:50px;line-height:50px;=
+vertical-align:bottom">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" alig=
+n=3D"center" class=3D"d_center" style=3D"width:100%;clear:both" role=3D"pre=
+sentation">
+<tr><td style=3D"border-top:1px solid #cccccc;height:24px;font-size:24px;li=
+ne-height:24px">&nbsp;</td></tr></table>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"608" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w95p=
+ m_flnone m_mauto m_w95p" role=3D"presentation">
+<tr><td style=3D"font-family:Arial,Helvetica,sans-serif;color:#757575;text-=
+align:left;font-size:10px;padding-top:10px;
+padding-bottom:15px;vertical-align:middle;line-height:15px"
+class=3D"m_fz9px centurygothic_regular">
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2164&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3DVKa4kbE6Q=
+PsIWrqL1TMxDvWSF7he0WV-hYfN8C8oNV4" style=3D"color:#757575;text-decoration:=
+underline">&#xACE0;&#xAC1D; &#xBB38;&#xC758;</a> - 
+<a href=3D"https://t.news.christiandior.com/r/=3Fid=3Dh759d402e,c628526,871=
+2165&e=3DdXRtX3NvdXJjZT1kaW9yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5sX2=
+1lbl93aW50ZXJfd2F2ZTBfMTdfMDhfa29fa3ImaGVfcGFyYW09NzE4MzYyODE4MTBhOWVmYjFmY=
+TljNTE0Njc2M2Q1NWFiZmM0ZDZlODE4ZTlmZTA5MGFkZWYzNGUxZjcyZTM4Yg&s=3DTfvwEu3qt=
+QmhJPLR03AD8YYeHs2ql8UGAa3BZbtVLEw" style=3D"color:#757575;text-decoration:=
+underline">&#xBC95;&#xC801; &#xACE0;&#xC9C0;</a>
+</td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"608" align=
+=3D"center" style=3D"margin:auto" class=3D"d_center t_flnone t_mauto t_w95p=
+ m_flnone m_mauto m_w95p" role=3D"presentation">
+<tr><td style=3D"font-family:Arial,Helvetica,sans-serif;color:#757575;text-=
+align:left;font-size:10px;padding-top:0;
+padding-bottom:52px;vertical-align:middle;line-height:15px"
+class=3D"m_fz9px m_pb32px centurygothic_regular"> Dior&#xC5D0;&#xC11C; &#xB=
+C1C;&#xC1A1;&#xD558;&#xB294; &#xB274;&#xC2A4;&#xB808;&#xD130; &#xC218;&#xC2=
+E0;&#xC744; &#xAC70;&#xBD80;&#xD558;&#xC2E4; 
+&#xACBD;&#xC6B0;&#xC5D0;&#xB294; <a href=3D"https://t.news.christiandior.co=
+m/r/=3Fid=3Dh759d402e,c628526,8712166" style=3D"color:#757575;text-decorati=
+on:underline">&#xC5EC;&#xAE30;&#xB97C; &#xD074;&#xB9AD;&#xD558;&#xC5EC; &#x=
+C8FC;&#xC138;&#xC694;.</a><br/>
+&#xD06C;&#xB9AC;&#xC2A4;&#xCC64; &#xB514;&#xC62C; &#xAFB8;&#xB6F0;&#xB974;&=
+#xB294; &#xADC0;&#xD558;&#xC758; &#xC120;&#xD0DD;&#xAD8C;&#xACFC; &#xAC1C;&=
+#xC778;&#xC815;&#xBCF4;&#xB97C; 
+&#xBCF4;&#xD638;&#xD558;&#xB294; &#xAC83;&#xC744; &#xC911;&#xC694;&#xC2DC;&=
+#xD569;&#xB2C8;&#xB2E4;.<br/>
+&#xD06C;&#xB9AC;&#xC2A4;&#xCC64; &#xB514;&#xC62C; &#xAFB8;&#xB6F0;&#xB974;&=
+#xC758; &#xAC1C;&#xC778;&#xC815;&#xBCF4; &#xCC98;&#xB9AC;&#xC5D0; &#xAD00;&=
+#xD574; &#xB354; &#xC790;&#xC138;&#xD788; 
+&#xC54C;&#xACE0; &#xC2F6;&#xC73C;&#xC2E0; &#xACBD;&#xC6B0;, &#xB514;&#xC62C=
+; &#xC6F9;&#xC0AC;&#xC774;&#xD2B8;&#xC5D0;&#xC11C; &#xAC1C;&#xC778;&#xC815;=
+&#xBCF4; &#xCDE8;&#xAE09; &#xBC29;&#xCE68;&#xC744; 
+&#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;.<=
+br/>
+&#xADC0;&#xD558;&#xC5D0;&#xAC8C;&#xB294; &#xAD00;&#xB828; &#xBC95;&#xB960; =
+&#xBC0F; &#xADDC;&#xC815;&#xC5D0; &#xB530;&#xB77C; &#xBCF8;&#xC778;&#xACFC;=
+ &#xAD00;&#xB828;&#xB41C; &#xC815;&#xBCF4;&#xB97C; 
+&#xD655;&#xC778;, &#xC218;&#xC815;, &#xC0AD;&#xC81C;&#xD560; &#xAD8C;&#xB9A=
+C;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB610;&#xD55C;, &#xB514;&#xC=
+62C; &#xC81C;&#xD488; &#xBC0F; 
+&#xC11C;&#xBE44;&#xC2A4;&#xC5D0; &#xAD00;&#xD55C; &#xB9DE;&#xCDA4; &#xC815;=
+&#xBCF4;&#xC758; &#xC218;&#xC2E0; &#xAC70;&#xBD80;&#xB97C; &#xC694;&#xCCAD;=
+&#xD558;&#xC2E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. 
+&#xC774;&#xBA54;&#xC77C; &#xC8FC;&#xC18C; <a href=3D"mailto:contactdiorkr@c=
+hristiandior.com" 
+style=3D"color:#757575;text-decoration:underline">contactdiorkr@christiandi=
+or.com</a> &#xB610;&#xB294; &#xACE0;&#xAC1D; &#xC11C;&#xBE44;&#xC2A4; &#xC1=
+3C;&#xD130; 02 3280 0104&#xBC88;&#xC73C;&#xB85C; 
+&#xC5F0;&#xB77D;&#xC8FC;&#xC2DC;&#xBA74; &#xD574;&#xB2F9; &#xAD8C;&#xB9AC;&=
+#xB97C; &#xC5B8;&#xC81C;&#xB4E0;&#xC9C0; &#xD589;&#xC0AC;&#xD558;&#xC2E4; &=
+#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. 
+&#xB610;&#xD55C; <a href=3D"mailto:privacy@christiandior.com" 
+style=3D"color:#757575;text-decoration:underline">privacy@christiandior.com=
+</a>&#xC744; &#xD1B5;&#xD574; &#xC815;&#xBCF4;&#xBCF4;&#xC548; &#xCC45;&#xC=
+784;&#xC790;&#xC5D0;&#xAC8C; &#xBB38;&#xC758;&#xD558;&#xC2E4; 
+&#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </td></tr></table>
+</td></tr></table>
+</td></tr></table><img height=3D'0' width=3D'0' alt=3D'' src=3D'https://t.n=
+ews.christiandior.com/r/=3Fid=3Dh759d402e,c628526,1'/></body>
+</html>
+
+------=_NextPart_466_C138A4F2.C138A4F2--
+

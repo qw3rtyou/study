@@ -1,0 +1,65 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1691349306;
+	cv=none; b=dSdHZ4dX76WHvrfk5KLyZ8/Z9oE+2nzFm9nbuWd7fnKaohLVEMEOttcHPuVI
+	 DpvOFXaFGmKWd0VE6ehaezkmaMUv8NBsefsf8RowFrwOpat8bHcjpjucdcAjHn9OBqKAp5
+	 Ns6U1PCzu6uWIB+2bG+Tsod92IwSFlYTPxfeV2TePtXh2HJIQoXF5iYl1rLXUe060ZRFCC
+	 UkKlahipYfeeQUZ2VYjhjYJaf5/2z9txH/W17+fZjO/DAOApP+aQbwj9iwHgsUbV6pWSw2
+	 cUXI/v/8C5Gii8g2ULbsamJqmlefBFU3JK1itTmXY1B1ItEWs1chmRD2CxJOlst46QRo8B
+	 gQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1691349306; c=relaxed/relaxed;
+	bh=ck8UZiZoSvUD6qBdq1HQGSDy+O3ufuyCnspcQ1vc2AQ=;
+	h=date:message-id:subject:from:to; b=LBPjRe+rXzAjwi75wV6jH1Mkar449BXfM9
+	 TlLZCwbvizktYVbiOPn7QjkdiAfJcK4zfdoLzyzPPGAJ9UX21y2DkajrAC61AM/Tm56Kwl
+	 1cI73utJwyMs3wkpE61/2aAGuJZd4teJV2AXDEk/DtVr9IZzFsC10BACfKOO+JLEsizhla
+	 lcVkIzCtml4s5Whl5OEqnlNpzW6WAqwbZ5fH1Kwtxu9vlcfq1M3ruP2JbCQM7YrsF9utxE
+	 7LBxC3DPsBIW3nf6+G5AC4+QlxLM3L3S+mPl6tFrlrYCh+Slr4r+sg5VlCMvcu+gZX5cxa
+	 UNglsbhRDhRJa4bWDsUPnen28G0g==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of plankool@plankool.com designates 202.68.232.232 as permitted sender) smtp.mailfrom=plankool@plankool.com
+Return-Path: <plankool@plankool.com>
+Received-SPF: pass (mx.naver.com: domain of plankool@plankool.com designates 202.68.232.232 as permitted sender)
+  client-ip=202.68.232.232; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of plankool@plankool.com designates 202.68.232.232 as permitted sender) smtp.mailfrom=plankool@plankool.com
+X-Naver-ESV: w9en+6J4p63qMBIYKXwdbXmwaxu9KApYkXm=
+X-Session-IP: 202.68.232.232
+Received: from [202.68.232.232] (plankool.com [202.68.232.232])
+  by crcvmail305.nm.naver.com with ESMTP id e0gq4zxeRAmpuGjCkmQNTw
+  for <user01@naver.com>;
+  Fri, 18 Aug 2023 19:15:06 -0000
+Content-Type: multipart/alternative;
+ boundary="----=_NextPart_16175622.506034333500"
+MIME-Version: 1.0
+Date: Sat, 19 Aug 2023 04:15:04 +0900
+Message-ID: <eca16ee1-83c1-4195-b4a6-bc89f066be53@mail.dll>
+Subject: =?utf-8?B?KOq0keqzoCkg8J+MuCDrgpjsnZgg6rKw7Zi87KCV67O07ZqM7IKsIA==?=
+ =?utf-8?B?6rCA7J6F67mE64qUIOyWvOuniOuCmCDrgpjsmKzquYw/ISDthYzsiqTtirgg?=
+ =?utf-8?B?67CU66GcIOuwm+yVhOuztOq4sCDwn4y4?=
+From: =?utf-8?B?8J+SluynneydhCDssL7snLzshLjsmpQ/IfCfkpY=?= <plankool@plankool.com>
+To: "user01@naver.com" <user01@naver.com>
+
+------=_NextPart_16175622.506034333500
+Content-Type: text/plain;
+ charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+[https://naholodesign.net/mail/gourl.php?campaigncode=3DV82BRVYVOCXIX4P||al=
+dald0218/naver.com]
+[https://naholodesign.net/mail/refuse.php?campaigncode=3DV82BRVYVOCXIX4P||a=
+ldald0218/naver.com]
+------=_NextPart_16175622.506034333500
+Content-Type: text/html;
+ charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<a href=3D"https://naholodesign.net/mail/gourl.php?campaigncode=3DV82BRVYVO=
+CXIX4P||user01/naver.com" target=3D"_blank"><img src=3D"https://lnccomp=
+an1.cafe24.com/aaaaaaaaaaad.jpg"></a>
+<br>
+<a href=3D"https://naholodesign.net/mail/refuse.php?campaigncode=3DV82BRVYV=
+OCXIX4P||user01/naver.com" target=3D"_blank"><img src=3D"http://lnccomp=
+an1.cafe24.com/Footer.png"></a><img src=3D'https://naholodesign.net/mail/ma=
+ilopen.php?campaigncode=3DV82BRVYVOCXIX4P||user01/naver.com' width=3D'0=
+' height=3D'0' />
+------=_NextPart_16175622.506034333500--
+

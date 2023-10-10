@@ -1,0 +1,64 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1692057906;
+	cv=none; b=PjNlfUtwQh3xfI7mhDgzTSpJarygsB3XNFXsattoUwLfdz/FGAoVjounfOlc
+	 Yje4m0YHw5e0cgzTvTCRbC+3Ol+MIaNHpi/MAvUL6CPwFg57kxT/EySd9tSRWkNHhCAsnR
+	 VpG3AljIsM22UN2OcvzjYxJLToKCy9rfm+HqVmJTJktayJiEIwwGK3fEyZJWqcPus1L9nv
+	 8VrHkTGlVBH1FNdpeTVNlpurIXzFASli73PX2yT0AobnNDl9xsGZKybPUPyYw6DjKyMIU+
+	 8wYy8jXQW3qrnwONI0Bp8N3PKprZ1sgiX2pJXCIv26bSG05HH1m7ZUdOYEL6yx4ya6WBBI
+	 sg==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1692057906; c=relaxed/relaxed;
+	bh=lhCUC+2jjfJHED+AK5l2OMZsvmhm4HOUJ/tnhjPIMm0=;
+	h=date:message-id:subject:from:to; b=p3dxxM+daSF54W2ccMrWyYYVAVlv9z8Mkv
+	 bfki6WL0uolJ2ex9HyU/G6UgL+mhQ4s3F/UWOBuKfho0ec9NNItBPxyenA7TFpr0ByoQap
+	 ewcaMYoz5JZ/FiDDBV5g7d63QFFkv4L6eE6k85q0G4553a6NY2OLQNzeHXmnrarHF/R3B9
+	 S3QSByBtJ5HXA+A+ZdIH4d4I3PFzHrXPnSDgZDGOOGnF7eQkjZcHy++Ggv7inrPWeca+Gm
+	 BUQbHq2eeQSVz4DsHzNQMG/Oo1Esu9oSBpyaaQp2gcTPcyJ3W99E+UNehsfo+DUgCfldi+
+	 LpsPiFpL5h1RF/g5T1ay5KyHAqWQ==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of plankool@plankool.com designates 61.251.29.84 as permitted sender) smtp.mailfrom=plankool@plankool.com
+Return-Path: <plankool@plankool.com>
+Received-SPF: pass (mx.naver.com: domain of plankool@plankool.com designates 61.251.29.84 as permitted sender)
+  client-ip=61.251.29.84; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of plankool@plankool.com designates 61.251.29.84 as permitted sender) smtp.mailfrom=plankool@plankool.com
+X-Naver-ESV: wqFn+6J4p63qMBIYKXwdbXmmKAg9KApYkXm=
+X-Session-IP: 61.251.29.84
+Received: from [61.251.29.84] (plankool.com [61.251.29.84])
+  by crcvmail103.nm.naver.com with ESMTP id Z4e2po6-T32smvReoOnwbQ
+  for <user01@naver.com>;
+  Sat, 19 Aug 2023 00:05:06 -0000
+Content-Type: multipart/alternative;
+ boundary="----=_NextPart_43685502.411632336823"
+MIME-Version: 1.0
+Date: Sat, 19 Aug 2023 09:05:05 +0900
+Message-ID: <0ac51a83-3620-4743-a15c-55e0860ab005@mail.dll>
+Subject: =?utf-8?B?KOq0keqzoCkg7IS47IOB7JeQIOuPiOyjvOqzoCDrsLDsmrDrjZgg66qo?=
+ =?utf-8?B?65OgIOuniOy8gO2MhSEg7J207KCgIOustOujjOuhnCDrsLDsmrDshLjsmpQ=?=
+From: =?utf-8?B?7ZWc6rWt67mE7KaI64uI7Iqk7ZiR7ZqM?= <plankool@plankool.com>
+To: "user01@naver.com" <user01@naver.com>
+
+------=_NextPart_43685502.411632336823
+Content-Type: text/plain;
+ charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+[https://hiddenmailer.com/mail/gourl.php?campaigncode=3D9R1TX69X4UY6QR1||al=
+dald0218/naver.com]
+[https://hiddenmailer.com/mail/refuse.php?campaigncode=3D9R1TX69X4UY6QR1||a=
+ldald0218/naver.com]
+------=_NextPart_43685502.411632336823
+Content-Type: text/html;
+ charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<a href=3D"https://hiddenmailer.com/mail/gourl.php?campaigncode=3D9R1TX69X4=
+UY6QR1||user01/naver.com" target=3D"_blank"><img src=3D"https://lnccomp=
+an1.cafe24.com/3133.png"></a>
+<br>
+<a href=3D"https://hiddenmailer.com/mail/refuse.php?campaigncode=3D9R1TX69X=
+4UY6QR1||user01/naver.com" target=3D"_blank"><img src=3D"http://lnccomp=
+an1.cafe24.com/Footer.png"></a><img src=3D'https://hiddenmailer.com/mail/ma=
+ilopen.php?campaigncode=3D9R1TX69X4UY6QR1||user01/naver.com' width=3D'0=
+' height=3D'0' />
+------=_NextPart_43685502.411632336823--
+

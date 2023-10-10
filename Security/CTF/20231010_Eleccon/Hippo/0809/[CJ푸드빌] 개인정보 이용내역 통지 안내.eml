@@ -1,0 +1,241 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1668693021;
+	cv=none; b=qTor8cdYOYvc+kRJeMnpoWPLk+t4pTCu21AD/4mLBCaRKc245KqRSe9lcVMd
+	 4lKJEkfl5motWo4iiv8wmsLhj6sUPlc+Ie10ZY6hDtVg0rfTFy0UJKHOZBMgcMETRJwf8L
+	 Nn9GOlJQ+TGwixII10Qd5Vg2tQ1/8e/V5nDhMV20DeiBturtox+gzTmXDLfYOuVLT7vY/w
+	 O9op7hzxDEsrp1FST4MccwZ6EInHwH5Y2/wS1YXOvzKw5sRIv+3UfMhfaXJijg47ysKh+z
+	 2HveY0QrPCRH1eeBoqx32/zUvXlf7rSrPRnJHlGyjQ9ZUbqrhMAzgnUproKDfzGkcugLzx
+	 7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1668693021; c=relaxed/relaxed;
+	bh=ZnKffCqwKja39UNiqGi4v1syndcBbJCt3nkjIbyXl0c=;
+	h=from:to:subject:date:message-id; b=fwLujyUG6xzlFH3YZXDXxp0hlZjXonMA9s
+	 oDva0qMPiTFR1HIMYqwnMJbT9Oop+Uza1bPvFcOVBozm4dz4MF5lW4dxvWU5O79ost1URm
+	 9OfVXERlTO6OFQPZ8RhYPz6klMZBvpRKwffiKQVzvmNv07ZWDwF32z8d3FHGJpDM2Kx/VX
+	 SO4b6VZyHVmTiSnbT4em4GKTAe1LZ6H4AIrzM1XS7FWnqrw7n4zHpagPqFRXFEktE2xycc
+	 S30wgeBGclhz/yloDmHG2CxK3gITDe7Y6GWo+C/KEmz6umochfM36lhigF/tqPbMQD/6RB
+	 CGkqirFLr+gYASALobMpVMIZFQrQ==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of cjfoodville@cj.net designates 210.122.97.89 as permitted sender) smtp.mailfrom=cjfoodville@cj.net
+Return-Path: <cjfoodville@cj.net>
+Received-SPF: pass (mx.naver.com: domain of cjfoodville@cj.net designates 210.122.97.89 as permitted sender)
+  client-ip=210.122.97.89; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of cjfoodville@cj.net designates 210.122.97.89 as permitted sender) smtp.mailfrom=cjfoodville@cj.net
+X-Naver-ESV: wZen+6J4p63qMBIYKBwdbXmwKqEmKoJYkXm=
+X-Session-IP: 210.122.97.89
+Received: from cjfvmail.co.kr (mail.cjfvmail.co.kr [210.122.97.89])
+  by crcvmail306.nm.naver.com with ESMTP id ukLozykcReye1CioK2MfKA
+  for <user01@naver.com>;
+  Wed, 09 Aug 2023 13:50:21 -0000
+From: "=?utf-8?B?Q0rtkbjrk5zruYw=?=" <cjfoodville@cj.net>
+To: "=?utf-8?B?YWxkYWxkMDIxOA==?=" <user01@naver.com>
+Reply-to: <cjfoodville@cj.net>
+Subject: =?utf-8?B?W0NK7ZG465Oc67mMXSDqsJzsnbjsoJXrs7Qg7J207Jqp?=
+ =?utf-8?B?64K07JetIO2GteyngCDslYjrgrQ=?=
+Date: Wed, 09 Aug 2023 22:50:21 +0900
+X-WORKER_ID: <single.naver.com_Worker_3>
+X-MAIL_ID: <UE9TVF9JRD0yMDIyMTExNzAwMDEx>
+X-MEMBER_ID: <TV9JRD05OTkwMDEyNTU1MjI5>
+X-SEND_TYPE: <U1RZUEU9Q0FNUA==>
+X-LIST_TABLE: <TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMTE=>
+X-Mailer: eMsSMTP Ver6.5( PLUTO-build 0322 )
+MIME-Version: 1.0
+Message-ID: <202211172250211186_TMS@cjfvmail.co.kr>
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>CJ 푸드빌</title>
+</head>
+<body style="margin:0;">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse; border-spacing:0;background-color:#f5f5f5;" width="700">
+<tbody>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0 40px;vertical-align:top;border-bottom: 1px solid #c7c7c7;">
+<p style="margin:0; padding:14px 0 17px 11px;"><img alt="CJ 푸드빌" src="https://img.cjfoodville.co.kr:7027/image/CJFOODVILLE/20211115095701_1.png" style="vertical-align:top; margin:0; padding:0" /></p>
+</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0 40px">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse; border-spacing:0" width="620">
+<tbody>
+<tr style="margin:0; padding:0;">
+<td style="margin:0; padding:45px 0 11px;vertical-align: top;font-family:'돋움',dotum;font-size:28px;color:#222;letter-spacing:-3px;font-weight: bold;">개인정보 이용내역 통지 안내</td>
+</tr>
+<tr style="margin:0; padding:0;">
+<td style="margin:0; padding:0;vertical-align:top;font-family:'돋움',dotum;font-size:14px;color:#444;letter-spacing:-1px;line-height: 24px;">안녕하세요 고객님, CJ푸드빌 입니다.<br />
+항상 저희 CJ 푸드빌 브랜드를 이용해주셔서 진심으로 감사합니다.</td>
+</tr>
+<tr style="margin:0; padding:0;">
+<td style="margin:0; padding:0;vertical-align:top;font-family:'돋움',dotum;font-size:14px;color:#444;letter-spacing:-1px;line-height: 24px;">본 메일은 <span style="color:#006ecd;font-weight:bold">개인정보보호법 제39조의8(개인정보 이용내역의 통지)</span>에 따라<br />
+이메일 수신동의 여부와 관계없이 발송됩니다.<br />
+CJ푸드빌은 앞으로도 회원님의 개인정보를 안전하게 보호할 것을 약속드리며,<br />
+신뢰받는 서비스로 보답하겠습니다.</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td height="34"></td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:30px 29px;border:1px solid #dcdcdc;background-color:#fff;">
+<table cellpadding="0" cellspacing="0" style="border-collapse:collapse; border-spacing:0;" width="560">
+<tbody>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0 0 15px 0;vertical-align:top;font-family:'돋움',dotum;font-size:14px;color:#222;letter-spacing:-1px;line-height: 16px;font-weight:bold">1. 개인정보 수집 및 이용 목적, 수집한 개인정보의 항목</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0 0 8px 0;vertical-align:top;font-family:'돋움',dotum;font-size:12px;color:#666;letter-spacing:-1px;line-height: 20px;">당사는 고객 각각의 기호와 필요에 맞는 서비스를 제공하기 위하여 필수정보와 선택정보로 구분하여<br />
+다음과 같이 수집합니다.</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0 0 8px 0;vertical-align:top;font-family:'돋움',dotum;font-size:12px;color:#666;letter-spacing:-1px;line-height: 20px;text-indent: -12px;padding-left:7px"><strong>ㆍ필수정보 : </strong>성명, 아이디, 비밀번호, 생년월일, 이메일주소, 성별, 휴대전화번호,<br />
+본인확인정보(CI), CJ ONE 회원등급, CJ ONE 회원번호</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0 0 25px 0;vertical-align:top;font-family:'돋움',dotum;font-size:12px;color:#666;letter-spacing:-1px;line-height: 20px;text-indent: -12px;padding-left:7px"><strong>ㆍ선택정보 : </strong>사은/판촉행사 등 각종 이벤트, 행사 관련 정보안내 및 제반 마케팅 활동,<br />
+당사의 상품/서비스 안내 및 권유 목적에 따라 수집하는 개인정보 항목</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0 0 15px 0;vertical-align:top;font-family:'돋움',dotum;font-size:14px;color:#222;letter-spacing:-1px;line-height: 16px;font-weight:bold">2. 개인정보 제 3자 제공에 대한 동의</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0 0 8px 0;vertical-align:top;font-family:'돋움',dotum;font-size:12px;color:#666;letter-spacing:-1px;line-height: 20px;text-indent: -12px;padding-left:7px"><strong>ㆍ제공받는 자 : </strong>CJ ONE(CJ올리브네트웍스)</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0 0 8px 0;vertical-align:top;font-family:'돋움',dotum;font-size:12px;color:#666;letter-spacing:-1px;line-height: 20px;text-indent: -12px;padding-left:7px">
+<p style="margin:0; padding:0 0 0 0;"><strong>ㆍ제공 목적</strong></p>
+<p style="margin:0; padding:0 0 0 11px;">- 웹사이트 로그인, CJ ONE 포인트 적립 및 사용, 기타 CJ ONE 멤버십 관련한 서비스 제공</p>
+<p style="margin:0; padding:0 0 0 11px;">- CJ ONE의 &lsquo;개인정보 수집 및 활용&rsquo;에 따른 이용</p>
+</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0 0 25px 0;vertical-align:top;font-family:'돋움',dotum;font-size:12px;color:#666;letter-spacing:-1px;line-height: 20px;text-indent: -12px;padding-left:7px"><strong>ㆍ제공하는 개인정보 항목 : </strong>성명, 아이디, 비밀번호, 생년월일, 이메일 주소, 성별, 휴대전화번호,<br />
+본인확인정보(CI), CJ ONE 회원등급, CJ ONE 회원번호</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0 0 15px 0;vertical-align:top;font-family:'돋움',dotum;font-size:14px;color:#222;letter-spacing:-1px;line-height: 16px;font-weight:bold">3. 개인정보 처리위탁을 받은 자 및 그 처리위탁을 하는 업무의 내용</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0;vertical-align:top;">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse; border-spacing:0;border-top:2px solid #000" width="560">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead>
+<tr style="margin:0; padding:0">
+<th style="margin:0;padding:0;font-family:'돋움',dotum;background-color:#f8f8f8;color:#666;font-size:12px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;height:40px;width:230px;">수탁업체</th>
+<th style="margin:0;padding:0;font-family:'돋움',dotum;background-color:#f8f8f8;color:#666;font-size:12px;border-bottom:1px solid #ddd;height:40px;">위탁범위</th>
+</tr>
+</thead>
+<tbody>
+<tr style="margin:0; padding:0">
+<td style="margin:0;padding:12px 0 12px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;line-height: 22px;font-weight:bold">CJ올리브네트웍스<br />
+(*카카오,디아이웨어)</td>
+<td style="margin:0;padding:12px 0 12px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;line-height: 22px;"><strong>시스템 운영 위탁</strong><br />
+- 개인정보처리시스템 제작 및 운영<br />
+- 마케팅 이벤트 운영<br />
+- 메시징 서비스<br />
+- 온라인쇼핑몰 결제 등<br />
+- 배달/주문 중계 서비스 운영</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;line-height: 22px;font-weight:bold">CJ텔레닉스</td>
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;line-height: 22px;">녹취데이터 보관</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;line-height: 22px;font-weight:bold">㈜쿠프마케팅<br />
+(*주식회사 한국페이즈서비스,<br />
+주식회사 LGU플러스,<br />
+주식회사 효성ITX)</td>
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;line-height: 22px;">모바일 쿠폰 및 경품 발송</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;line-height: 22px;font-weight:bold">유어버스데이 (*로젠택배)</td>
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;line-height: 22px;">뚜레쥬르 쇼핑몰 내 물품 배송</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;line-height: 22px;font-weight:bold">WPER, 엣지랭크(비즈콘),<br />
+함샤우트글로벌(*즐거운),<br />
+커뮤니크</td>
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;line-height: 22px;">SNS 운영 위탁</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;line-height: 22px;font-weight:bold">즐거운</td>
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;line-height: 22px;">뚜레쥬르 모바일 쿠폰 및 경품발송</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;line-height: 22px;font-weight:bold">KCP(한국사이버결제)</td>
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;line-height: 22px;">결제서비스 위탁</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;line-height: 22px;font-weight:bold">대한통운, 베지스타(*상상물류)</td>
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;line-height: 22px;">HMR 상품 배송</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;line-height: 22px;font-weight:bold">주식회사 와드, 테이블매니저</td>
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;line-height: 22px;">예약 및 고객관리 솔루션 사용</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;line-height: 22px;font-weight:bold">뚜레쥬르 가맹점</td>
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;line-height: 22px;">뚜레쥬르 쇼핑몰 내 물품 배송</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;line-height: 22px;font-weight:bold">바로고, 부릉, 생각대로,<br />
+카카오모빌리티</td>
+<td style="margin:0;padding:9px 0 9px 30px;font-family:'돋움',dotum;color:#666;font-size:12px;border-bottom:1px solid #ddd;line-height: 22px;">배달대행 서비스 수행</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:8px 0 0 7px;vertical-align:top;font-family:'돋움',dotum;font-size:12px;color:#666;letter-spacing:-1px;line-height: 20px;text-indent: -7px">* 개인정보처리위탁협약서 상의 개인정보처리 재위탁(제5조 제3항) 규정에 따라,<br />
+사전 서면 승인을 득하여 재위탁 진행</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr style="margin:0; padding:0">
+<td height="56"></td>
+</tr>
+<!-- 버튼영역 -->
+<tr style="margin:0; padding:0">
+<td align="center" style="margin:0; padding:0"><a href="http://cjfvmail.co.kr:8080/TMS/tracking?TV9JRD05OTkwMDEyNTU1MjI5&U1RZUEU9Q0FNUA==&p_id=2022111700011&m_id=9990012555229&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMTE=&UE9TVF9JRD0yMDIyMTExNzAwMDEx&U0VSVkVSX0lEPTAx&VEM9MjAyMjExMjQ=&S0lORD1D&Q0lEPTAwMQ==&c_id=001&URL=https://www.cjfoodville.co.kr/footer/privacy.asp" style="margin:0;padding:0;width:400px;height:70px;text-align:center;text-decoration: none;" target="_blank" title="새창열림"><img alt="개인정보처리방침 보기" border="0" src="https://www.cjfoodville.co.kr/mail/PER_INF/images/mail_btn_privacy.gif" /> </a></td>
+</tr>
+<!-- //버튼영역 -->
+<tr style="margin:0; padding:0">
+<td height="47"></td>
+</tr>
+<tr style="margin:0; padding:0">
+<td align="center" style="margin:0; padding:0;border-top:1px solid #d7d7d7;">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse; border-spacing:0;" width="700">
+<tbody>
+<tr style="margin:0; padding:0">
+<td style="margin:0; padding:0" width="195">
+<p style="margin:0; padding:0 0 0 60px; border-right:1px solid #d6d6d6; font-size:12px; font-family:'돋움',dotum; color:#666; line-height:16px; text-align:left"><a href="http://cjfvmail.co.kr:8080/TMS/tracking?TV9JRD05OTkwMDEyNTU1MjI5&U1RZUEU9Q0FNUA==&p_id=2022111700011&m_id=9990012555229&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMTE=&UE9TVF9JRD0yMDIyMTExNzAwMDEx&U0VSVkVSX0lEPTAx&VEM9MjAyMjExMjQ=&S0lORD1D&Q0lEPTAwMg==&c_id=002&URL=https://www.cjfoodville.co.kr/" target="_blank" title="새창 열림"><img alt="CJ FOODVILLE" border="0" src="https://img.cjfoodville.co.kr:7027/image/CJFOODVILLE/20211115095709_1.png" style="border:0 none" /></a></p>
+</td>
+<td style="margin:0; padding:15px 0">
+<p style="margin:0; padding:0 0 0 16px; font-size:12px; font-family:'돋움',dotum; color:#727272; line-height:20px; letter-spacing:-1px; text-align:left"><strong style="font-weight:bold">대표이사</strong> 김찬호<br />
+<strong style="font-weight:bold">주소</strong> 서울시 중구 마른내로 34 (초동 106-9번지) KT&amp;G 을지로타워 3, 9-11층 CJ푸드빌(주)<br />
+<strong style="font-weight:bold">사업자등록번호</strong> 312-81-42519 | <strong style="font-weight:bold">개인정보보호책임자</strong> 오창호<br />
+<strong style="font-weight:bold">대표전화</strong> 1577-0700 | <strong style="font-weight:bold">팩스</strong> 02-6740-4349 | <a href="http://cjfvmail.co.kr:8080/TMS/tracking?TV9JRD05OTkwMDEyNTU1MjI5&U1RZUEU9Q0FNUA==&p_id=2022111700011&m_id=9990012555229&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMTE=&UE9TVF9JRD0yMDIyMTExNzAwMDEx&U0VSVkVSX0lEPTAx&VEM9MjAyMjExMjQ=&S0lORD1D&Q0lEPTAwMw==&c_id=003&URL=https://www.cjfoodville.co.kr/footer/qna.asp" style="font-weight:bold;color:#727272;text-decoration:none" target="_blank" title="새창 열림">고객센터로 문의하기</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<div style="display:none"><IMG width=0 height=0 src="http://cjfvmail.co.kr:8080/TMS/tracking?TV9JRD05OTkwMDEyNTU1MjI5&U1RZUEU9Q0FNUA==&p_id=2022111700011&m_id=9990012555229&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMTE=&UE9TVF9JRD0yMDIyMTExNzAwMDEx&U0VSVkVSX0lEPTAx&VEM9MjAyMjExMjQ=&S0lORD1P"></div></body>
+</html>
+
+

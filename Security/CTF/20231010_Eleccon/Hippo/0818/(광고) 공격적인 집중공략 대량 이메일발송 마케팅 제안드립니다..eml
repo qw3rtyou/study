@@ -1,0 +1,69 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1688621434;
+	cv=none; b=B3h/DECoh4djLvmaOB6+gIVP0IGL/S+nSzU27Su9ZluuvhZgBRHrBF3ZaIWb
+	 RyO56FcetAUrjWaDNibMIm3VPlrYL4/fdenD/cmRSJO3u8cqKe386ZGVwOj9IXKGKbDkaQ
+	 5Iy6C6Ooqc8scPbW+wo25gsv6M0kRqPYk4mKBxOPvSxcmKtcOABMRfIM6EeL9PITI0HVnE
+	 nRLgb8A6hzjOiG+6ixHrTV+BfKuHP638MTrJfgM8I/zUhPg0k0/BhQHEA+WNnvbfXHMUnB
+	 4G22fvFjtJssupCcpIaokH1ptrlqHtDFdsEm+PFVp4OX77I2o+/rbeoDGUWTQvgZkzpdHY
+	 jQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1688621434; c=relaxed/relaxed;
+	bh=UL2b9OsDynCmrBc0dBeuPq2+ZznqiZykf48By49FzMw=;
+	h=from:to:subject:date; b=chUL91wBNyvQ7pGexkkAL0KXXx7lNHRqc5cHdjnuYoydv
+	 5PlahpSHwuuLlXUiKPJ7x+u+WmJAZvQSht/A2fn7oDnqvQ3wqC/jYKs99Xyo0TI2kTMM/o
+	 tTK6/vcyv4bOqZhLRhclvJYcCwxeNjmToFYERqHpbnzNs/bkD5+kabbg2Z3UFcdebo8/th
+	 N6uChFbJzw7+57EDvKzNVarCzAojLVfUEFv0I27fFnaYYFHNkcikEx+QkESyfsnmBeWhzl
+	 1LPAvpUyZ3YAZMMwJJROMtrcPcuC97DJuWvjnq2HSDi4Ffi7RoUmGlBEfYdm8imRVieRty
+	 V8jahQdY6dpkLa+Mw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of namepr@namepr.co.kr designates 202.68.235.234 as permitted sender) smtp.mailfrom=namepr@namepr.co.kr
+Return-Path: <namepr@namepr.co.kr>
+Received-SPF: pass (mx.naver.com: domain of namepr@namepr.co.kr designates 202.68.235.234 as permitted sender)
+  client-ip=202.68.235.234; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of namepr@namepr.co.kr designates 202.68.235.234 as permitted sender) smtp.mailfrom=namepr@namepr.co.kr
+X-Naver-ESV: wd+n+6J4p63qMBIYFHwdbXmmFxKmKq3YkXm=
+X-Session-IP: 202.68.235.234
+Message-ID: <1688621434229.7faf2.74720710@crcvmail101.nm>
+Received: from namepr.co.kr (mail.namepr.co.kr [202.68.235.234])
+  by crcvmail101.nm.naver.com with ESMTP id dVE7p-ygTbSdOugKdy62jw
+  for <user01@naver.com>;
+  Fri, 18 Aug 2023 05:30:34 -0000
+From: Namepr<namepr@namepr.co.kr>
+To: user01@naver.com
+Subject: (광고) 공격적인 집중공략 "대량 이메일발송" 마케팅 제안드립니다.
+Reply-To: namepr@namepr.co.kr
+Date: Fri, 18 Aug 2023 14:30:18 +0900
+Mime-Version: 1.0
+Content-Type:text/html; charset=ks_c_5601-1987
+
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://www.namepr.net" target="_blank"><img src="http://www.2nt.co.kr/mail/namepr_tad_230420.jpg" width="768"height="1570" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="6" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://www.nsys.kr" target="_blank"><img src="http://www.2nt.co.kr/mail/nsys_banner_230206.png" width="768"height="50" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="5" /></td>
+  </tr>
+</table>
+ <table width="768" border="0" cellspacing="0" cellpadding="0" align="center"> 
+<tr> 
+<td colspan="2"><a href="http://adnamepr.com/Back/MailMgmt/Mail_Cancel.html?cancelemail=user01@naver.com&adcode=npr_23062201" target="_blank"><img src="http://www.2nt.co.kr/mail/npm_cokr_yy_foot.png" width="768" height="175" /></td> 
+</tr>
+</table> 
+<img src="http://adnamepr.com/Interface/backproxy.aspx?MT=InsertReceiptMail&PV=npr_23062201|`|user01@naver.com" width="0" height="0" />
+
+
+
+
+

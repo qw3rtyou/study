@@ -1,0 +1,239 @@
+Delivered-To: user01@gmail.com
+Received: by 2002:a05:6a11:aac8:b0:2d6:c945:e0ba with SMTP id lv8csp2954819pxc;
+        Mon, 14 Aug 2023 18:13:06 -0700 (PDT)
+X-Google-Smtp-Source: AA6agR63PrG5cnHvS0iGlzLHFEKCmTw5TrCTOiNhw3shgmxiHbEZozLGiF7qZThXHQ2fteziNwlD
+X-Received: by 2002:a05:690c:812:b0:345:65d2:b26 with SMTP id bx18-20020a05690c081200b0034565d20b26mr3289132ywb.224.1662426785971;
+        Mon, 14 Aug 2023 18:13:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1662426785; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Uq5c92hkuezrXhJeUt78rNZCZ0fDZAOpSgZAWU35/hmM77i0mycSx7iB9bx6d8ZroK
+         WiKah7UnduIVjV7V7cvs7EyhtalWJpkx4+lbas02+NlchFAj3KFJSAZ5sJB5pRL81oPu
+         7aQsNLApKLcQaLiMLvhjBO7OeZmURhxlkbXCNh4UNNkxJ2zuN0YQugFWoUR1QZe4CIZ9
+         mKZWA4TmVWgJV+5k8T77DWE5IlH2GVVcq1qGU3THxWnx0IVKMsgXLAtsRL1SjxiCVzDa
+         2dnpqXi8Aq0+4hFLrwaDX+oISFadWNL441s+zzU5aIKa/HWVFWg/l7RST9sd6dEufrDn
+         3Hcw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:message-id:to:from:subject:mime-version
+         :date:sender:dkim-signature:dkim-signature;
+        bh=9a/VCGnHeiMrhayRIDTBCKQTHs7TDqWbiEnNFZ70OMU=;
+        b=pY0cd2PxHDBD35sdooy33GXt73oaEGXNLovf7CVRu5JwZmGtXJMFnW7lpRh0d9rJD9
+         Fk/230Mwoc5P42tfFUwjjoodi8IsnmytyVKUZjU+spd2ntiJoXKi5orfL8K/2l2+E5b7
+         tTlduSNeMLO5xpKsdRjGytlmd0XVmhdl9s3z9JEm9zDOFkH7k+DUGJSngn4I+KJ99UyL
+         J1mPw8QWd/WHRWhJF4tcFwB4l9jnzoc3jxKtaUIcRZZOUVS1XBIaEF7ugju8fOiBU9lX
+         m0HEnY71rwShMrRHGVKL0ToEvrKMhfFd6G0zmdbYtHSZz+JOooQTFLbOJJ2zpr2iiSUk
+         3r5Q==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@nike.co.kr header.s=mailo header.b=p99F3tG3;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=fotPn5YG;
+       spf=softfail (google.com: domain of transitioning bounce+fffccd.269e7-user01=gmail.com@nike.co.kr does not designate 198.61.254.49 as permitted sender) smtp.mailfrom="bounce+fffccd.269e7-user01=gmail.com@nike.co.kr"
+Return-Path: <bounce+fffccd.269e7-user01=gmail.com@nike.co.kr>
+Received: from so254-49.mailgun.net (so254-49.mailgun.net. [198.61.254.49])
+        by mx.google.com with UTF8SMTPS id b20-20020a81bd14000000b00335710fbcb3si9003048ywi.120.2023.08.14.18.13.05
+        for <user01@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 14 Aug 2023 18:13:05 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning bounce+fffccd.269e7-user01=gmail.com@nike.co.kr does not designate 198.61.254.49 as permitted sender) client-ip=198.61.254.49;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@nike.co.kr header.s=mailo header.b=p99F3tG3;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=fotPn5YG;
+       spf=softfail (google.com: domain of transitioning bounce+fffccd.269e7-user01=gmail.com@nike.co.kr does not designate 198.61.254.49 as permitted sender) smtp.mailfrom="bounce+fffccd.269e7-user01=gmail.com@nike.co.kr"
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=nike.co.kr; q=dns/txt;
+ s=mailo; t=1662426785; x=1662513185; h=Content-Transfer-Encoding:
+ Content-Type: Message-Id: To: To: From: From: Subject: Subject:
+ Mime-Version: Date: Sender: Sender: X-Feedback-Id;
+ bh=9a/VCGnHeiMrhayRIDTBCKQTHs7TDqWbiEnNFZ70OMU=; b=p99F3tG3c4CwfTWU5aagwQov9iUDG50EAHWoHsWSjIRWScULa1hbf3vs5AXhtjc52CHDEKPn
+ bJ4Zl6piIUmcCNa5x3VOTw9qdXuO+k2P2u4vUcIrCiVjJ6aGxxzhr75HVmPLYcb2msuz+AbJ
+ OR8BMUQnfuNOyqO91xT5LnpTS0M=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg;
+ t=1662426785; x=1662513185; h=Content-Transfer-Encoding: Content-Type:
+ Message-Id: To: To: From: From: Subject: Subject: Mime-Version: Date:
+ Sender: Sender: X-Feedback-Id;
+ bh=9a/VCGnHeiMrhayRIDTBCKQTHs7TDqWbiEnNFZ70OMU=; b=fotPn5YG9pMfjdCSAWiIBRgx+r4JzedMbZa8tLoUpX6juL3vIj5nUUXHb3jcnyFQEtyadTG0
+ /+AKTNoeD4YOf4X6LYrU0HpJXhP2qjleIK2cu87pRYSX8votW6BdSHScCQmQEdqjanP2ASe3
+ PJ597D2USXXz8Dp7a1ESP+dXaWQ=
+X-Feedback-Id: 5a6999ce4f41fe0001bb8d80:mailgun
+X-Mailgun-Sending-Ip: 198.61.254.49
+X-Mailgun-Sid: WyI5Y2JmYyIsImFsZGFsZDAyMThAZ21haWwuY29tIiwiMjY5ZTciXQ==
+Received: from <unknown> (<unknown> []) by e55110a8e5a3 with HTTP id
+ 63169ea16b0eeb8f5022d339; Tue, 15 Aug 2023 01:13:05 GMT
+Sender: postmaster@nike.co.kr
+Date: Tue, 15 Aug 2023 01:13:05 +0000
+Mime-Version: 1.0
+Subject: =?UTF-8?b?W05JS0UuQ09NXSDsnbTsmqnslb3qtIAg67CPIOqwnOyduOygleuztOyymA==?=
+ =?UTF-8?b?66as67Cp7LmoIOqwnO2OuCDslYjrgrQ=?=
+From: =?utf-8?b?64KY7J207YKk64u37Lu0?= <postmaster@nike.co.kr>
+To: user01@gmail.com
+X-Mailgun-Template-Name: pp_tou_change_notice
+Message-Id: <20230815011305.93d7a878b4d874fb@nike.co.kr>
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+<html>
+<head>
+<style type=3D"text/css">
+ h4 { text-align: left; }
+@media screen{
+=2EheaderLineTitle { width:1.5in; displa=
+y:inline-block; margin:0in; margin-bo=
+ttom:.0001pt; font-size:11.0pt; font-family:"Calibri","sans-serif"; font-we=
+ight:bold; }
+=2EheaderLineText { display:inline; marg=
+in:0in; margin-bottom:.0001pt; font-s=
+ize:11.0pt; font-family:"Calibri","sans-serif"; font-weight:normal; }
+=2EpageHeader { font-size:14.0pt; font-f=
+amily:"Calibri","sans-serif"; font-we=
+ight:bold; visibility:hidden; display:none; }
+}
+@media print{
+=2EheaderLineTitle { width:1.5in; displa=
+y:inline-block; margin:0in; margin-bo=
+ttom:.0001pt; font-size:11.0pt; font-family:"Calibri","sans-serif"; font-we=
+ight:bold; }
+=2EheaderLineText { display:inline; marg=
+in:0in; margin-bottom:.0001pt; font-s=
+ize:11.0pt; font-family:"Calibri","sans-serif"; font-weight:normal; }
+=2EpageHeader { font-size:14.0pt; font-f=
+amily:"Calibri","sans-serif"; font-we=
+ight:bold; visibility:visible; display:block; }
+}
+</style>
+</head>
+<body>
+	<div style=3D"display:block;width:630px;margin:0 auto; text-align:center; =
+font-family: '=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95', 'Malgun Gothic', 'dotu=
+m', 'gulim', sans-serif; font-size:13px;">
+		<!-- logo : str -->
+		<div style=3D"display:block;width:100%;text-align:center;padding:15px 0;">
+			<a target=3D"_blank" href=3D"https://www.nike.com/kr/ko_kr" rel=3D"noref=
+errer noopener">
+				<img src=3D"https://www.nike.com/kr/ko_kr/cmsstatic/theme/1/e-logo.png"=
+ alt=3D"=EB=82=98=EC=9D=B4=ED=82=A4" loading=3D"lazy"></a>
+		</div>
+		<!-- logo : end -->
+=09
+		<!-- /* =EC=97=AC=EA=B8=B0=EC=84=9C=EB=B6=80=ED=84=B0 =EB=B3=B8=EB=AC=B8 =
+*/ -->
+		<div style=3D"display:block;width:100%;margin:30px 0px;padding-bottom:30p=
+x;border-bottom: solid 1px #ddd; text-align:center;">
+			<span style=3D"font-size:28px; color:#383838;">=EC=9D=B4=EC=9A=A9=EC=95=
+=BD=EA=B4=80 =EB=B0=8F =EA=B0=9C=EC=9D=B8=EC=A0=95=EB=B3=B4=EC=B2=98=EB=A6=
+=AC=EB=B0=A9=EC=B9=A8 =EA=B0=9C=ED=8E=B8 =EC=95=88=EB=82=B4</span>
+		</div>
+=09
+		<div style=3D"display:block;text-align:center;margin:0px auto 24px auto;">
+			<p style=3D"text-align:left;margin:30px 0px;font-size:13px;word-break: k=
+eep-all;word-wrap: normal;">
+				=EC=95=88=EB=85=95=ED=95=98=EC=84=B8=EC=9A=94 =EB=82=98=EC=9D=B4=ED=82=
+=A4=EC=9E=85=EB=8B=88=EB=8B=A4.
+			</p>
+			<p style=3D"text-align:left;margin:30px 0px;font-size:13px;word-break: k=
+eep-all;word-wrap: normal;">
+				=EB=82=98=EC=9D=B4=ED=82=A4=EB=8B=B7=EC=BB=B4=EC=9D=98 =EC=84=9C=EB=B9=
+=84=EC=8A=A4=EB=A5=BC =EC=9D=B4=EC=9A=A9=ED=95=B4=EC=A3=BC=EC=8B=9C=EB=8A=
+=94 =ED=9A=8C=EC=9B=90=EB=B6=84=EB=93=A4=EA=BB=98 =EA=B0=90=EC=82=AC=EB=93=
+=9C=EB=A6=AC=EB=A9=B0, =EC=9D=B4=EC=9A=A9=EC=95=BD=EA=B4=80 =EB=B0=8F =EA=
+=B0=9C=EC=9D=B8=EC=A0=95=EB=B3=B4 =EC=B2=98=EB=A6=AC=EB=B0=A9=EC=B9=A8=EC=
+=9D=98 =EA=B0=9C=ED=8E=B8=EC=9D=84 =EC=95=88=EB=82=B4=EB=93=9C=EB=A6=AC=EC=
+=98=A4=EB=8B=88 =EC=84=9C=EB=B9=84=EC=8A=A4 =EC=9D=B4=EC=9A=A9=EC=97=90 =EC=
+=B0=B8=EA=B3=A0=ED=95=98=EC=8B=9C=EA=B8=B0 =EB=B0=94=EB=9E=8D=EB=8B=88=EB=
+=8B=A4. =EA=B0=9C=EC=A0=95=EB=90=98=EB=8A=94 =EC=95=BD=EA=B4=80=EC=9D=80 20=
+22=EB=85=84 10=EC=9B=94 5-18=EC=9D=BC =EC=82=AC=EC=9D=B4=EB=B6=80=ED=84=B0 =
+=EC=A0=81=EC=9A=A9=EB=90=A0 =EC=98=88=EC=A0=95=EC=9D=B4=EB=A9=B0 =EC=9E=90=
+=EC=84=B8=ED=95=9C =EC=9D=BC=EC=A0=95=EC=9D=80 =EC=B6=94=ED=9B=84 =EB=82=98=
+=EC=9D=B4=ED=82=A4=EB=8B=B7=EC=BB=B4=EC=97=90=EC=84=9C =EC=95=88=EB=82=B4=
+=EB=93=9C=EB=A6=B4 =EC=98=88=EC=A0=95=EC=9E=85=EB=8B=88=EB=8B=A4.
+			</p>
+
+			<p style=3D"text-align:left; margin-bottom:30px;font-size:13px;word-brea=
+k: keep-all;word-wrap: normal;">
+				=EB=B3=80=EA=B2=BD=EB=90=9C =EC=9D=B4=EC=9A=A9=EC=95=BD=EA=B4=80 =EB=B0=
+=8F =EA=B0=9C=EC=9D=B8=EC=A0=95=EB=B3=B4 =EC=B2=98=EB=A6=AC=EB=B0=A9=EC=B9=
+=A8=EC=9D=98 =EC=A0=84=EB=AC=B8=EC=9D=80 =EC=95=84=EB=9E=98 =EB=A7=81=ED=81=
+=AC=EC=97=90=EC=84=9C =ED=99=95=EC=9D=B8=ED=95=98=EC=8B=A4 =EC=88=98 =EC=9E=
+=88=EC=8A=B5=EB=8B=88=EB=8B=A4.
+			</p>
+			<p style=3D"text-align:left; margin-bottom:0;font-size:13px;word-break: =
+keep-all;word-wrap: normal;">
+				<a target=3D"_blank" href=3D"https://nike-breeze.zendesk.com/hc/ko/arti=
+cles/9498119360537" rel=3D"noreferrer noopener">=EC=9D=B4=EC=9A=A9=EC=95=BD=
+=EA=B4=80 =EB=B3=80=EA=B2=BD=EC=82=AC=ED=95=AD =ED=99=95=EC=9D=B8</a>
+			</p>
+			<p style=3D"text-align:left; margin-bottom:0;font-size:13px;word-break: =
+keep-all;word-wrap: normal;">
+				<a target=3D"_blank" href=3D"https://nike-breeze.zendesk.com/hc/ko/arti=
+cles/9499927233561" rel=3D"noreferrer noopener">=EA=B0=9C=EC=9D=B8=EC=A0=95=
+=EB=B3=B4 =EC=B2=98=EB=A6=AC=EB=B0=A9=EC=B9=A8 =EB=B3=80=EA=B2=BD=EC=82=AC=
+=ED=95=AD =ED=99=95=EC=9D=B8</a>
+			</p>
+		</div>
+
+		<div style=3D"display:block;text-align:center;margin:0px auto 24px auto;">
+			<p style=3D"text-align:left;margin:30px 0px;font-size:13px;word-break: k=
+eep-all;word-wrap: normal;">
+				=EB=A7=8C=EC=9D=BC =EB=B3=80=EA=B2=BD =EC=95=BD=EA=B4=80=EC=97=90 =EB=
+=8F=99=EC=9D=98=ED=95=98=EC=A7=80 =EC=95=8A=EC=9C=BC=EC=8B=A4 =EA=B2=BD=EC=
+=9A=B0=EC=97=90=EB=8A=94 =EB=82=98=EC=9D=B4=ED=82=A4=EB=8B=B7=EC=BB=B4 =ED=
+=9A=8C=EC=9B=90=ED=83=88=ED=87=B4=EB=A5=BC =EC=8B=A0=EC=B2=AD=ED=95=98=EC=
+=8B=9C=EA=B1=B0=EB=82=98 =EA=B3=A0=EA=B0=9D=EC=84=BC=ED=84=B0=EB=A5=BC =ED=
+=86=B5=ED=95=98=EC=97=AC =EC=9D=B4=EC=9D=98=EC=A0=9C=EA=B8=B0=EB=A5=BC =ED=
+=95=98=EC=8B=A4 =EC=88=98 =EC=9E=88=EC=9C=BC=EB=A9=B0, =EB=8B=A8 =ED=9A=8C=
+=EC=9B=90=ED=83=88=ED=87=B4=ED=95=98=EC=8B=9C=EB=8A=94 =EA=B2=BD=EC=9A=B0 =
+=EB=82=98=EC=9D=B4=ED=82=A4=EB=8B=B7=EC=BB=B4=EC=9D=98 =EC=84=9C=EB=B9=84=
+=EC=8A=A4 =EC=9D=B4=EC=9A=A9=EC=9D=B4 =EC=A0=9C=ED=95=9C=EB=90=A0 =EC=88=98=
+ =EC=9E=88=EC=9D=8C=EC=9D=84 =EC=95=88=EB=82=B4=EB=93=9C=EB=A6=BD=EB=8B=88=
+=EB=8B=A4.
+			</p>
+			<p style=3D"text-align:left;margin:30px 0px;font-size:13px;word-break: k=
+eep-all;word-wrap: normal;">
+				*=ED=9A=8C=EC=9B=90 =ED=83=88=ED=87=B4 =EB=B0=A9=EB=B2=95: =EB=A7=88=EC=
+=9D=B4=ED=8E=98=EC=9D=B4=EC=A7=80 > =ED=9A=8C=EC=9B=90=ED=83=88=ED=87=B4
+			</p>
+		</div>
+
+		<div style=3D"padding:20px 0;">
+			<p style=3D"text-align:left; margin-bottom:0;font-size:13px;word-break: =
+keep-all;word-wrap: normal;">
+				<br />
+			</p>=20
+		</div>
+=09
+		<!-- footer : str -->
+		<div>
+			<table style=3D"display:block;width:100%;padding:30px;background:#f1f1f1=
+;border-collapse: collapse; border-spacing: 0;text-align:left;word-break: k=
+eep-all;word-wrap: normal;" cellspacing=3D"0" cellpadding=3D"0">
+				<tr><td style=3D"font-size:12px; color:#a5a5a5;">
+						=EB=B3=B8 =EB=A9=94=EC=9D=BC=EC=9D=80 =EB=B0=9C=EC=8B=A0 =EC=A0=84=EC=
+=9A=A9=EC=9C=BC=EB=A1=9C =ED=9A=8C=EC=8B=A0=EB=90=98=EC=A7=80 =EC=95=8A=EC=
+=8A=B5=EB=8B=88=EB=8B=A4.<br />
+						=EB=AC=B8=EC=9D=98=EC=82=AC=ED=95=AD=EC=9D=80 =ED=99=88=ED=8E=98=EC=
+=9D=B4=EC=A7=80 =EB=82=B4 =E2=80=9C1:1 =EC=B1=84=ED=8C=85 =EB=AC=B8=EC=9D=
+=98=E2=80=9D, =E2=80=9C1:1 Email =EB=AC=B8=EC=9D=98=E2=80=9D =EB=98=90=EB=
+=8A=94 080-022-0182=EB=A5=BC =ED=86=B5=ED=95=B4 =EB=AC=B8=EC=9D=98=ED=95=B4=
+ =EC=A3=BC=EC=84=B8=EC=9A=94.<br /><br />
+						<span>=ED=9A=8C=EC=82=AC=EB=AA=85: (=EC=9C=A0)=EB=82=98=EC=9D=B4=ED=
+=82=A4=EC=BD=94=EB=A6=AC=EC=95=84</span>
+						<span style=3D"padding-left:10px;">=EB=8C=80=ED=91=9C: Kimberlee Lynn=
+ Chang Mendes, =ED=82=B4=EB=B2=8C=EB=A6=AC =EB=A6=B0 =EC=B0=BD =EB=A9=98=EB=
+=8D=B0=EC=8A=A4</span>
+						<span style=3D"padding-left:10px;">=EB=8C=80=ED=91=9C=EC=A0=84=ED=99=
+=94: 080-022-0182</span><br /><br />
+						<span>=EC=82=AC=EC=97=85=EC=9E=90 =EB=93=B1=EB=A1=9D=EB=B2=88=ED=98=
+=B8: 220-88-09068</span>
+						<span style=3D"padding-left:10px;"> =ED=86=B5=EC=8B=A0=ED=8C=90=EB=A7=
+=A4=EC=97=85 =EC=8B=A0=EA=B3=A0: 2011-=EC=84=9C=EC=9A=B8=EA=B0=95=EB=82=A8-=
+03461 </span>
+						<span style=3D"padding-left:5px;"><a style=3D"color:#a5a5a5" target=
+=3D"_blank" href=3D"http://www.ftc.go.kr/bizCommPop.do?wrkr_no=3D2208809068=
+" rel=3D"noreferrer noopener">[=EC=82=AC=EC=97=85=EC=9E=90=EC=A0=95=EB=B3=
+=B4=ED=99=95=EC=9D=B8]</a></span>
+						&nbsp;<br /><br />
+				</td></tr>
+			</table>
+		</div>
+		<!-- footer : end -->
+	</div>
+=09
+</body>
+</html>

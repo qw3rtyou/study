@@ -1,0 +1,1163 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1685193756;
+	cv=none; b=RS+3O3bk5dblllsUkpfQas1gb+MiA6cULcguvnMPrlYcdHCkQdm7jsIkQ0Xd
+	 L9ks8z689hQ5YXSHuCceatd+y3pb4UvtnsNNweyqJh47bSnvOLEUYIxr12qsA5G8h6Mdpm
+	 4g4UsvQoVXMjEz0ZH903CQOJH8A4leOpuT8iOHq9MwfjYV3m+eA8mocl4J7v7RfD0/oHUK
+	 qxd6OF9PBiQTaLEErN08yWItexwlrvF9IFraxZhjldhFgywqdWzabsaS9mPG9epbTBJwk8
+	 v9h3Ggr5K3LQ42JFigxNtgryelTDmu3mL6OzgppPp69N8oriBtnIBrVzz8vH4MiHqfmW9g
+	 9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1685193756; c=relaxed/relaxed;
+	bh=d1YIvpjcFiZBrjKCT+HMJ9fBB9VHkIxxCGy1GL4j8ZQ=;
+	h=dkim-signature:subject:from:to:date:message-id; b=MPOmBZeSDp08MqeAwhC
+	 coS0YiUjJc3GZ5CtlCpDH9dWrcO9bFYJZmPKw0oPVjD7E4EACzDLBlQaDMJIz2KroZywx3
+	 atGbDzp2t96Z224SnF18cTS+aDaYC4zb4Kkdjjsy1lpyZBOsL/j+U62wNzWfOvkNQw2UK5
+	 Y90lVHiAjh62wngsjPHhdoCcQEfKWDwisHE01QVjBsxwZYtEt5PWcXBXMsfGD0Ajla+u1c
+	 ZKtaqdvop4RAczO7H+hBmoyn36CurRAI8BcZTcgHTov8sWuzEHS92NH7sKgRbHOgoJg+5q
+	 vrnfZeWcTBIlMjUkPB+yj7v2HFE65ciqJ1U2CI0UtAw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of bounce-so2-ZH_spremium_DNBAN05272023c923218b1-h-f61c443398=2@email.premiumoutlets.com designates 96.47.27.151 as permitted sender) smtp.mailfrom=bounce-so2-ZH_spremium_DNBAN05272023c923218b1-h-f61c443398=2@email.premiumoutlets.com;
+  dkim=pass header.i=@email.premiumoutlets.com;
+  dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=email.premiumoutlets.com
+Return-Path: <bounce-so2-ZH_spremium_DNBAN05272023c923218b1-h-f61c443398=2@email.premiumoutlets.com>
+Received-SPF: pass (mx.naver.com: domain of bounce-so2-ZH_spremium_DNBAN05272023c923218b1-h-f61c443398=2@email.premiumoutlets.com designates 96.47.27.151 as permitted sender)
+  client-ip=96.47.27.151; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of bounce-so2-ZH_spremium_DNBAN05272023c923218b1-h-f61c443398=2@email.premiumoutlets.com designates 96.47.27.151 as permitted sender) smtp.mailfrom=bounce-so2-ZH_spremium_DNBAN05272023c923218b1-h-f61c443398=2@email.premiumoutlets.com;
+  dkim=pass header.i=@email.premiumoutlets.com;
+  dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=email.premiumoutlets.com
+X-Naver-ESV: wmen+6J4p63CbHmqKBwdbXFYKxKZKoKrjJ+Y
+X-Session-IP: 96.47.27.151
+Received: from simonpremium-144-2.bm16.maas.zetaglobal.net (simonpremium-144-2.bm16.maas.zetaglobal.net [96.47.27.151])
+  by crcvmail306.nm.naver.com with ESMTP id KnYn1WwuQKO6eueLMn06mg
+  for <user01@naver.com>
+  (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256);
+  Sat, 12 Aug 2023 13:22:36 -0000
+DKIM-Signature: a=rsa-sha256; bh=6AyYurtVdPTwh7cgMkNCyUeb9Ahe/QpBzcKuXg2Tg/Q=;
+ c=simple/simple; d=email.premiumoutlets.com;
+ h=X-Mailer-Info:X-Mailer-Info-Extra:Subject:From:To:Date:Message-ID:Reply-to:List-Unsubscribe:Feedback-ID:X-rpcampaign:X-cid:X-messageuid:Precedence:List-Unsubscribe-Post:campaign_token:campaign_id:rcpt_domain:MIME-Version:Content-Type;
+ s=v2; t=1685193754; v=1;
+ b=gZ0QDrGBDR4BFq/GGlyaXHqBdp//jng7Xp1rSjWsQZJvc06Eg+sFqCVOH3Qov4ERamwxImHL
+ 34RFcaxzYjKRvtVE/cVF3wV8aAkkWMFNfdF0rj7dSSYNKjLJfcNgwWAcRmCmhygA0o0Nu/rz6Iz
+ JJLNp9Np5s92smmMYyfXY+HWTEMrYT2UMu2StuNw/Lzw3oY5MmFzjdoEX1N+haLx67+csXzrKnU
+ q1Wc84ZVd7ZfIHCL6TzXMLe8rF4TXHHEVQf7U2YZpokmi5kVEzvIhHR4ir922rkzc2FtSenePvE
+ PzFeB/FP60ZApnQRLcBXU8uKKO/O97JMMUVAZV2c6UHKQ==
+X-Mailer-Info: 10.z9mM.geo91cwJXZtlWdt9FZuJWYuBTNycjMwIzMjljMzITM4IWM.EGbkFGb
+ kBjMxgDQuFmdlJnLj9Wb.7JSbpRmI6ISM2gTNxkzMzgjN2YDO1EDO0YmMlZjMlZDOiwiIjRnI6Iy
+ cwdWLwJXZtlWdt1yb1RHblR3ctUmY2QGNzETM3cDOlFWNzQjMlJmYlBDOmhzNyQ2N5Q2NtEjIsIi
+ ckJiOi4WY2VmcuM2btJSf....
+X-Mailer-Info-Extra: f61c443398:002bj5yc0VGb0V3btVXatVmcw5CbpFWblBEO2U
+ mM2UmMmRDOxUDO2YjN4MzM5ETN4YTMt4mc1RXZyBgcA0nIt92YuIXZ2FmbiojIkJnIsIS
+ MtcDZ5cDZycDOmhDMlJmYlJDNzUTYlhzN3ETMzQDZ2IWZtMHdlxGd19WLtVXatVmcw1yZ
+ wNnI6ICdjJCLigjNlJjNlJjZ0gTM1gjN2YDOzMTOxUDO2EjI6ICZp1mI7BwYA02bj5icl
+ ZXYuBEOxIDMkxWYkxWY++
+Subject: =?UTF-8?Q?Your_Savings_Guide_is_here!_=F0=9F=92=B0=F0=9F=92=B5?=
+From: =?UTF-8?Q?Las_Vegas_North_Premium_Outlets=C2=AE?= <info@email.premiumoutlets.com>
+To: user01@naver.com
+Date: 12 Aug 2023 13:22:34 -0000
+Message-ID: <mid-16851933866685184f2e62e68@email.premiumoutlets.com>
+Reply-to: "Las Vegas North Premium Outlets®"<info@email.premiumoutlets.com>
+List-Unsubscribe: <https://view.email.premiumoutlets.com/messages/16851933866685184f2e62e68/unsubscribe>, <mailto:unsubscribe-16851933866685184f2e62e68@email.premiumoutlets.com?subject=Unsubscribe>
+Feedback-ID: eb6d4311778ea5342ebbe08f872d79d7:spg-premium-outlets:broadcast:bme
+X-rpcampaign: spgpremiumoutlets923218_1
+X-cid: spgpremiumoutlets923218_1
+X-messageuid: 16851933866685184f2e62e68
+Precedence: bulk
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+campaign_token: spg-premium-outlets-eb6d4311778ea5342ebbe08f872d79d7-1
+campaign_id: 923218
+rcpt_domain: naver.com
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="==27386285e52892de94daf23c7233dc3c"
+
+This is a multi-part message in MIME format.
+
+--==27386285e52892de94daf23c7233dc3c
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+It looks like your email client might not support HTML formatted email.
+
+Try opening this email in another email client.
+
+Or, open the following link to view this email in a browser:
+https://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/Ce=
+yJtaWQiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vd=
+XRsZXRzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyL=
+mNvbSJ9/TWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cHM6Ly9=
+2aWV3LmVtYWlsLnByZW1pdW1vdXRsZXRzLmNvbS9tZXNzYWdlcy8xNjg1MTkzMzg2NjY4NTE=
+4NGYyZTYyZTY4L3Jhdw/qP3VpZD1hbGRhbGQwMjE4JTQwbmF2ZXIuY29tJnV0bV9jYW1wYWl=
+nbj0wNTI3MjAyM19OT1NEX1RvdXJpc21FbWFpbDNfQ2FuYWRhX1B1ZXJ0b1JpY28mdXRtX3N=
+vdXJjZT1zaW1vbi1wbyZ1dG1fbWVkaXVtPWVtYWlsJmJ0X2VlPWhmRTY5OVBCdzk4UVFFQW1=
+GZldwTlh3dHFFWEJNUjhFZGpEd1daUmV1a3NrdkZvUjdNJTJGZEFQWDNkU0x4dm5FdSZidF9=
+0cz0xNjg1MTkzMzg2Njcx/scv59820ad7
+
+------------------------------------------------------------------------=
+-------
+
+We respect your privacy, if this e-mail has been sent to you by error or=
+ you no longer wish to receive email, open the following link in a brows=
+er to unsubscribe:
+https://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/Ce=
+yJtaWQiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vd=
+XRsZXRzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyL=
+mNvbSJ9/TWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cHM6Ly9=
+3d3cucHJlbWl1bW91dGxldHMuY29tL3ZpcC91bnN1YnNjcmliZQ/qP2VtYWlsYWRkcmVzcz1=
+hbGRhbGQwMjE4JTQwbmF2ZXIuY29tJm1lc3NhZ2VfdWlkPTE2ODUxOTMzODY2Njg1MTg0ZjJ=
+lNjJlNjgmdWlkPWFsZGFsZDAyMTglNDBuYXZlci5jb20mdXRtX2NhbXBhaWduPTA1MjcyMDI=
+zX05PU0RfVG91cmlzbUVtYWlsM19DYW5hZGFfUHVlcnRvUmljbyZ1dG1fc291cmNlPXNpbW9=
+uLXBvJnV0bV9tZWRpdW09ZW1haWwmYnRfZWU9aGZFNjk5UEJ3OThRUUVBbUZmV3BOWHd0cUV=
+YQk1SOEVkakR3V1pSZXVrc2t2Rm9SN00lMkZkQVBYM2RTTHh2bkV1JmJ0X3RzPTE2ODUxOTM=
+zODY2NzE/s4s7700e424
+
+--==27386285e52892de94daf23c7233dc3c
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.=
+org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+  <body style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 1=
+00%; font-size: 1em !important; line-height: 1em !important; margin: 0; =
+padding: 0;">
+<p style=3D"margin: 0; padding: 0;">
+
+
+
+
+
+
+
+
+	</p>
+	=09
+	<title></title>=09
+	=09
+		<meta name=3D"x-apple-disable-message-reformatting">
+
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+
+<!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:Pixels=
+PerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]--=
+>
+
+<style type=3D"text/css">
+zzz.main_cta img {
+	width: 100%;
+	height: auto !important;
+}
+ReadMsgBody {
+	width: 100%;
+}
+.ExternalClass {
+	width: 100%;
+}
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass fo=
+nt, .ExternalClass td, .ExternalClass div {
+	line-height: 100%;
+}
+body {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	margin: 0 !important;
+	padding: 0 !important;
+	line-height: 1em !important;
+	font-size: 1em !important;
+}
+p {
+	padding: 0 !important;
+	margin: 0 !important;
+	margin: 0 !important;
+}
+table td {
+	border-collapse: collapse;
+}
+img {
+	outline: 0;
+}
+a img {
+	border: none;
+}
+@-ms-viewport {
+width: device-width;
+}
+.appleLinks a {
+	color: #000000;
+	text-decoration: none;
+}
+.appleLinksGrey a {
+	color: #959595;
+	text-decoration: none;
+}
+.appleLinksWhite a {
+	color: #ffffff;
+	text-decoration: none;
+}
+.textColumnSpacerLeft21 {
+	display: block !important;
+	width: 30px !important;
+}
+.textColumnSpacerSides {
+	display: block !important;
+	width: 60px !important;
+}
+.textdisclaimerbody p {
+	font-size: 14px !important;
+	line-height: 17px !important;
+	font-weight: normal;
+	display: block;
+	padding: 0 !important;
+}
+.textdisclaimerbody a p {
+	font-size: 14px !important;
+	line-height: 17px !important;
+	font-weight: normal;
+	display: block;
+	padding: 0 !important;
+}
+.textreg p {
+	font-size: 20px !important;
+	line-height: 24px !important;
+	font-weight: normal;
+	display: block;
+	padding: 0 !important;
+}
+.textreg a p {
+	font-size: 20px !important;
+	line-height: 24px !important;
+	font-weight: normal;
+	display: block;
+	padding: 0 !important;
+}
+.textregSubhead p {
+	font-size: 19px !important;
+	line-height: 22px !important;
+	font-weight: normal;
+	display: block;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.textregSubhead a p {
+	font-size: 19px !important;
+	line-height: 22px !important;
+	font-weight: normal;
+	display: block;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.textbold p {
+	font-size: 26px !important;
+	line-height: 29px !important;
+	font-weight: bold;
+	display: block;
+	padding: 0 !important;
+}
+.textbold a p {
+	font-size: 26px !important;
+	line-height: 29px !important;
+	font-weight: bold;
+	display: block;
+	padding: 0 !important;
+}
+.textboldCentered {
+	font-size: 33px !important;
+	line-height: 34px !important;
+	font-weight: bold;
+}
+.textboldCentered a {
+	font-size: 2em;
+	line-height: 1.2em;
+	font-weight: bold;
+}
+.textboldSubhead p {
+	font-size: 1.3em !important;
+	line-height: 1.1em !important;
+	font-weight: bold;
+	display: block;
+	padding: 0 0 5px 0 !important;
+	margin: 0 !important;
+}
+.textboldSubhead a p {
+	font-size: 1.3em !important;
+	line-height: 1.1em !important;
+	font-weight: bold;
+	display: block;
+	padding: 0 0 5px 0 !important;
+	margin: 0 !important;
+}
+
+@media only screen and (max-width: 480px) {
+body[yahoo] .container {
+	width: 100% !important;
+}
+body[yahoo] .mobile-hidden, body[yahoo] .sideblock-hidden {
+	display: none !important;
+	max-height: 0px;
+	font-size: 0;
+}
+body[yahoo] .logo {
+	display: block !important;
+	padding: 0 !important;
+}
+body[yahoo] .photo img, body[yahoo] .logo img, body[yahoo] .banner img {=
+
+	width: 100% !important;
+	height: auto !important;
+}
+body[yahoo] .drop {
+	display: block !important;
+	width: 100% !important;
+}
+body[yahoo] .nav4, body[yahoo] .nav5, zzzbody[yahoo] .nav6 {
+	display: none !important;
+}
+body[yahoo] .main_nav2 td {
+	display: inline-block;
+}
+body[yahoo] .hide {
+	max-height: none !important;
+	font-size: 12px !important;
+	display: block !important;
+}
+body[yahoo] .disclaimer {
+	font-size: 10px;
+}
+*[class].hideme {
+	display: none !important;
+}
+*[class].show {
+	display: block !important;
+	width: auto !important;
+	overflow: visible !important;
+	float: none !important;
+	max-height: inherit !important;
+	line-height: inherit !important;
+}
+*[class].hauto {
+	height: auto !important;
+}
+*[class].width320 {
+	width: 320px !important;
+}
+td[class=3D"main_nav"] td {
+	display: block;
+	padding: 0 0 0 0 !important;
+	text-align: left;
+	text-indent: 30px;
+	font-size: 14px;
+}
+td[class=3D"main_nav"] a {
+	display: block;
+	padding: 20px 0;
+	border-bottom: 1px solid #999;
+	font-size: 14px;
+}
+td[class=3D"main_navTopBottom"] a {
+	display: block;
+	padding: 20px 0;
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+	font-size: 14px;
+}
+.textdisclaimerbody p {
+	font-size: 12px !important;
+	line-height: 15px !important;
+	font-weight: normal;
+	display: block;
+	padding: 0 !important;
+}
+.textdisclaimerbody a p {
+	font-size: 12px !important;
+	line-height: 15px !important;
+	font-weight: normal;
+	display: block;
+	padding: 0 !important;
+}
+.textreg p {
+	font-size: 16px !important;
+	line-height: 20px !important;
+	font-weight: normal;
+	padding: 0 !important;
+}
+.textreg a p {
+	font-size: 16px !important;
+	line-height: 20px !important;
+	font-weight: normal;
+	padding: 0 !important;
+}
+.textregSubhead p {
+	font-size: 13px !important;
+	line-height: 15px !important;
+	font-weight: normal;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.textregSubhead a p {
+	font-size: 13px !important;
+	line-height: 15px !important;
+	font-weight: normal;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.textbold p {
+	font-size: 16px !important;
+	line-height: 20px !important;
+	font-weight: bold;
+	padding: 0 !important;
+}
+.textbold a p {
+	font-size: 16px !important;
+	line-height: 20px !important;
+	font-weight: bold;
+	padding: 0 !important;
+}
+.textboldCentered {
+	font-size: .6em !important;
+	line-height: .5em !important;
+	font-weight: bold;
+}
+.textboldCentered a {
+	font-size: .6em !important;
+	line-height: .5em !important;
+	font-weight: bold;
+}
+.textboldSubhead p {
+	font-size: 15px !important;
+	line-height: 17px !important;
+	font-weight: bold;
+	padding: 0 !important;
+}
+.textboldSubhead a p {
+	font-size: 15px !important;
+	line-height: 17px !important;
+	font-weight: bold;
+	padding: 0 !important;
+}
+.mobilehidden {
+	display: none !important;
+	font-size: 0 !important;
+	line-height: 0 !important;
+	height: 0 !important;
+}
+}
+u ~ div {
+	min-width: 100vw;
+}
+
+@media only screen and (min-device-width : 500px) and (max-width: 960px)=
+ {
+body[yahoo] .container {
+	width: 100% !important;
+}
+body[yahoo] .mobile-hidden {
+	display: none !important;
+	max-height: 0px;
+	font-size: 0;
+}
+body[yahoo] .logo {
+	display: block !important;
+	padding: 0 !important;
+}
+body[yahoo] .photo img, body[yahoo] .logo img, body[yahoo] .banner img {=
+
+	width: 100% !important;
+	height: auto !important;
+}
+zzzbody[yahoo] .nav5, zzzbody[yahoo] .nav6, zzzbody[yahoo] .nav4 {
+	display: none !important;
+}
+body[yahoo] .main_nav2 td {
+	display: inline-block;
+}
+u ~ div {
+	min-width: 100vw !important;
+}
+}
+</style>
+	=09
+		<!--[if mso]>
+
+<style>
+    h1 {
+      font-family: Primary font, Fallback font;
+    }
+</style>
+
+<![endif]-->
+
+	=09
+   =20
+
+<p style=3D"margin: 0; padding: 0;">
+    </p>
+           <!-- This ghost table is used to constrain the width in Outlo=
+ok. The role attribute is set to presentation to prevent it from being r=
+ead by screenreaders. -->
+    <!--[if (gte mso 9)|(IE)]>
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"960=
+" align=3D"center" role=3D"presentation"><tr><td>
+    <![endif]-->
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" role=3D"presentation">
+            <tbody>
+<tr>
+                <td align=3D"center" style=3D"border-collapse: collapse;=
+ padding: 0;">
+                    <table class=3D"container" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" role=3D"presentation">
+						<!-- START SECOND SUBJECT LINE AND VIEW IN WEB BROWSER TEXT -->
+                        <tbody>
+<tr class=3D"mobilehidden">
+                            <td align=3D"left" valign=3D"middle" bgcolor=
+=3D"#FFFFFF" class=3D"photo" style=3D"border-collapse: collapse;">
+                                <table width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" class=3D"appleLinksWhite" style=3D"color:=
+ white;" role=3D"presentation">
+                                    <tbody>
+                                        <tr>
+                                            <td width=3D"30" align=3D"le=
+ft" valign=3D"top" bgcolor=3D"#FFFFFF" class=3D"textColumnSpacerLeft; te=
+xtColumnSpacerLeft21" style=3D"border-collapse: collapse; display: block=
+ !important; width: 30px !important;">=C2=A0</td>
+                                            <td align=3D"left" valign=3D=
+"top" class=3D"mobile-hidden" style=3D"border-collapse: collapse; color:=
+ #b4b2b0; font-family: Helvetica, Arial, sans-serif; font-size: 11px; fo=
+nt-weight: bold; letter-spacing: 1px; line-height: 1.5; padding: 10px 0;=
+">National Outlet Shopping Day=E2=84=A2 is coming up!<br>=20
+<!-- Insert &zwnj;&nbsp; hack after hidden preview text -->
+<div style=3D"display: none; max-height: 0px; overflow: hidden;">
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+
+</div>=20
+ Can't see images below? <a href=3D"https://e.email.premiumoutlets.com/c=
+lick?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaWQiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZ=
+TYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZXRzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZ=
+TA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbSJ9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI=
+3MjAyM2M5MjMyMThiMSxzbzIsaHR0cHM6Ly92aWV3LmVtYWlsLnByZW1pdW1vdXRsZXRzLmN=
+vbS9tZXNzYWdlcy8xNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4L3Jhdw/qP3VpZD1hbGRhbGQ=
+wMjE4JTQwbmF2ZXIuY29tJnV0bV9jYW1wYWlnbj0wNTI3MjAyM19OT1NEX1RvdXJpc21FbWF=
+pbDNfQ2FuYWRhX1B1ZXJ0b1JpY28mdXRtX3NvdXJjZT1zaW1vbi1wbyZ1dG1fbWVkaXVtPWV=
+tYWlsJmJ0X2VlPWhmRTY5OVBCdzk4UVFFQW1GZldwTlh3dHFFWEJNUjhFZGpEd1daUmV1a3N=
+rdkZvUjdNJTJGZEFQWDNkU0x4dm5FdSZidF90cz0xNjg1MTkzMzg2Njcx/s3h2935772e" t=
+arget=3D"_blank" style=3D"color: #b4b2b0; font-weight: bold; text-decora=
+tion: none;" data-location=3D"t1">View this email in a Web browser.</a>
+</td>
+                                            <td width=3D"80" align=3D"ce=
+nter" valign=3D"middle" bgcolor=3D"#FFFFFF" style=3D"border-collapse: co=
+llapse; color: #000000; font-family: Arial, sans-serif; line-height: 22p=
+x; padding-bottom: 0;">=C2=A0</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- END SECOND SUBJECT LINE AND VIEW IN WEB BRO=
+WSER TEXT -->
+                        <tr>
+                            <td align=3D"center" style=3D"border-collaps=
+e: collapse;">
+                                <table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" width=3D"100%" align=3D"center" bgcolor=3D"#000000" role=
+=3D"presentation">
+                                    <tbody>
+<tr>
+                                        <td align=3D"center" bgcolor=3D"=
+#000000" class=3D"nav4;" style=3D"border-collapse: collapse;">=C2=A0</td=
+>
+                                        <td align=3D"center" style=3D"bo=
+rder-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px=
+; font-weight: bold;">
+                                            <table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"320" align=3D"center" role=3D"prese=
+ntation">
+                                                <tbody>
+<tr>
+                                                    <td align=3D"center"=
+ style=3D"border-collapse: collapse; font-family: Arial, sans-serif; fon=
+t-size: 12px; font-weight: bold;" valign=3D"middle">
+                                                        <a href=3D"https=
+://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaW=
+QiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZX=
+RzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbS=
+J9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cHM6Ly93d3cu=
+cHJlbWl1bW91dGxldHMuY29tL291dGxldC9sYXMtdmVnYXMtbm9ydGg/qP3VpZD1hbGRhbGQ=
+wMjE4JTQwbmF2ZXIuY29tJnV0bV9jYW1wYWlnbj0wNTI3MjAyM19OT1NEX1RvdXJpc21FbWF=
+pbDNfQ2FuYWRhX1B1ZXJ0b1JpY28mdXRtX3NvdXJjZT1zaW1vbi1wbyZ1dG1fbWVkaXVtPWV=
+tYWlsJmJ0X2VlPWhmRTY5OVBCdzk4UVFFQW1GZldwTlh3dHFFWEJNUjhFZGpEd1daUmV1a3N=
+rdkZvUjdNJTJGZEFQWDNkU0x4dm5FdSZidF90cz0xNjg1MTkzMzg2Njcx/sai8a34150c" a=
+lias=3D"" target=3D"_blank" style=3D"color: #ffffff; text-decoration: no=
+ne;" title=3D"Las Vegas North Premium Outlets=C2=AE" data-location=3D"t2=
+"><img src=3D"https://images.email.simon.com/nudges/spg-premium-outlets/=
+content/151e653bf28e562b14d14da2c8241274/42593250/images/887.jpg" width=3D=
+"320" height=3D"96" style=3D"border: none; display: block; font-family: =
+Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;=
+ font-weight: bold; line-height: 18px; outline: 0; text-align: center;" =
+alt=3D"Las Vegas North Premium Outlets=C2=AE" title=3D"Las Vegas North P=
+remium Outlets=C2=AE" border=3D"0"></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+</table>
+                                        </td>
+                                        <td align=3D"center" bgcolor=3D"=
+#000000" class=3D"nav4;" style=3D"border-collapse: collapse;">=C2=A0</td=
+>
+                                    </tr>
+                                </tbody>
+</table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class=3D"photo" style=3D"border-collapse=
+: collapse;">
+                                <table width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation">
+                                    <tbody>
+						               <!-- START SPACER ROW -->
+                                        <tr>
+                                          <td align=3D"center" valign=3D=
+"middle" class=3D"photo" style=3D"border-collapse: collapse;">
+                                            <img src=3D"https://images.e=
+mail.premiumoutlets.com/nudges/spg-premium-outlets/content/0a7663a31c332=
+1cba3403ee8c2183a37/18fedc08/images/960x18px-transparent-spacer-row-imag=
+e.png" border=3D"0" alt=3D"" title=3D"" style=3D"display: block; height:=
+ auto; outline: 0; padding: 0; width: 100%;">
+                                            </td>
+                                        </tr>
+					<!-- START HEADER IMAGE -->
+                                        <tr>
+                                            <td align=3D"center" valign=3D=
+"middle" class=3D"photo" style=3D"border-collapse: collapse;">
+                                               =20
+                                                    <img src=3D"https://=
+images.email.premiumoutlets.com/images/a3ecd2fc23516a19ad0e1119f1be756c/=
+Holidays/National%20Outlet%20Shopping%20Day/NOSD23-EMAIL-NOSDHORZ-HEADER=
+BANNER-SPONSOR.jpg" border=3D"0" alt=3D"CROISSANT PRESENTS=20
+                                                    NATIONAL OUTLET SHOP=
+PING DAY=E2=84=A2=20
+                                                    JUNE 10-11, 2023" ti=
+tle=3D"CROISSANT PRESENTS=20
+                                                                        =
+     NATIONAL OUTLET SHOPPING DAY=E2=84=A2=20
+                                                    JUNE 10-11, 2023" st=
+yle=3D"color: black !important; display: block; font-family: Helvetica, =
+arial, sans-serif; font-size: 47px; height: auto; outline: 0; padding: 0=
+; text-align: left; text-decoration: none; width: 100%;">
+                                               =20
+                                            </td>
+                                        </tr>
+                                        <!-- END HEADER IMAGE -->
+                                      <!-- START HERO IMAGE -->
+                                        <tr>
+                                            <td align=3D"center" valign=3D=
+"middle" class=3D"photo" style=3D"border-collapse: collapse;">
+                                                <a href=3D"https://e.ema=
+il.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaWQiOiIxNj=
+g1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZXRzLWViNm=
+Q0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbSJ9/HWkhf=
+c3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cHM6Ly9jbGljay5zaW1v=
+bi5jb20vbGFzLXZlZ2FzLW5vcnRoLW5vc2QtYm9va2xldC1lbWFpbC01Mjc/sdp80e54de7"=
+ data-location=3D"t3">
+                                                    <img src=3D"https://=
+images.email.premiumoutlets.com/images/a3ecd2fc23516a19ad0e1119f1be756c/=
+Holidays/National%20Outlet%20Shopping%20Day/NOSD23-EMAIL-052723_03.jpg" =
+border=3D"0" alt=3D"EXCLUSIVELY FOR YOU!=20
+                                                    BIG DEALS AHEAD!=20
+                                                    SEE THE SAVINGS GUID=
+E" title=3D"EXCLUSIVELY FOR YOU!=20
+                                                    BIG DEALS AHEAD!=20
+                                                    SEE THE SAVINGS GUID=
+E" style=3D"border: none; color: black !important; display: block; font-=
+family: Helvetica, arial, sans-serif; font-size: 47px; height: auto; out=
+line: 0; padding: 0; text-align: left; text-decoration: none; width: 100=
+%;">
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <!-- END HERO IMAGE -->
+                                        <!-- START HERO IMAGE 2 -->
+                                        <tr>
+                                            <td align=3D"center" valign=3D=
+"middle" class=3D"photo" style=3D"border-collapse: collapse;">
+                                                <a href=3D"https://e.ema=
+il.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaWQiOiIxNj=
+g1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZXRzLWViNm=
+Q0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbSJ9/HWkhf=
+c3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cHM6Ly9jbGljay5zaW1v=
+bi5jb20vbGFzLXZlZ2FzLW5vcnRoLW5vc2QtYm9va2xldC1lbWFpbC01Mjc/sdp80e54de7"=
+ data-location=3D"t4">
+                                                    <img src=3D"https://=
+images.email.premiumoutlets.com/images/a3ecd2fc23516a19ad0e1119f1be756c/=
+Holidays/National%20Outlet%20Shopping%20Day/NOSD23-EMAIL-052723_04.jpg" =
+border=3D"0" alt=3D"We've just released the SAVINGS GUIDE for National O=
+utlet Shopping Day=E2=84=A2, and you're the first to get it! Check out t=
+he fantastic offers you can get all weekend lon, June 10-11." title=3D"W=
+e've just released the SAVINGS GUIDE for National Outlet Shopping Day=E2=
+=84=A2, and you're the first to get it! Check out the fantastic offers y=
+ou can get all weekend lon, June 10-11." style=3D"border: none; color: b=
+lack !important; display: block; font-family: Helvetica, arial, sans-ser=
+if; font-size: 47px; height: auto; outline: 0; padding: 0; text-align: l=
+eft; text-decoration: none; width: 100%;">
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <!-- END HERO IMAGE 2 -->
+                                       =20
+                                     <!-- START SPACER ROW -->
+                                        <tr>
+                                          <td align=3D"center" valign=3D=
+"middle" class=3D"photo" style=3D"border-collapse: collapse;">
+                                            <img src=3D"https://images.e=
+mail.simon.com/nudges/spg-simon-b2c/content/cd82c4abbfac955a5834f3348cee=
+1c59/8234bd85/images/960x18px-transparent-spacer-row-image.png" border=3D=
+"0" alt=3D"" title=3D"" style=3D"display: block; height: auto; outline: =
+0; padding: 0; width: 100%;">
+                                            </td>
+                                        </tr>
+				=09
+
+                                        <!-- START SPACER ROW -->
+                                        <tr>
+                                          <td align=3D"center" valign=3D=
+"middle" class=3D"photo" style=3D"border-collapse: collapse;">
+                                            <img src=3D"https://images.e=
+mail.simon.com/nudges/spg-simon-b2c/content/cd82c4abbfac955a5834f3348cee=
+1c59/8234bd85/images/960x18px-transparent-spacer-row-image.png" border=3D=
+"0" alt=3D"" title=3D"" style=3D"display: block; height: auto; outline: =
+0; padding: 0; width: 100%;">
+                                            </td>
+                                        </tr>     =20
+          =20
+
+<!-- START SPACER ROW -->
+                                        <tr>
+                                          <td align=3D"center" valign=3D=
+"middle" class=3D"photo" style=3D"border-collapse: collapse;">
+                                            <img src=3D"https://images.e=
+mail.simon.com/nudges/spg-simon-b2c/content/cd82c4abbfac955a5834f3348cee=
+1c59/8234bd85/images/960x18px-transparent-spacer-row-image.png" border=3D=
+"0" alt=3D"" title=3D"" style=3D"display: block; height: auto; outline: =
+0; padding: 0; width: 100%;">
+                                            </td>
+                                        </tr>
+                                       =20
+						               <!-- START SPACER ROW -->
+                                        <tr>
+                                          <td align=3D"center" valign=3D=
+"middle" class=3D"photo" style=3D"border-collapse: collapse;">
+                                            <img src=3D"https://images.e=
+mail.simon.com/nudges/spg-simon-b2c/content/cd82c4abbfac955a5834f3348cee=
+1c59/8234bd85/images/960x18px-transparent-spacer-row-image.png" border=3D=
+"0" alt=3D"" title=3D"" style=3D"display: block; height: auto; outline: =
+0; padding: 0; width: 100%;">
+                                            </td>
+                                        </tr>                      =20
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- START GRAY HORIZONTAL RULE ABOVE FOOTER NAV=
+ -->
+                        <tr>
+                            <td align=3D"left" valign=3D"top" class=3D"p=
+hoto" style=3D"border-collapse: collapse;">
+                              =20
+								<img src=3D"https://images.email.premiumoutlets.com/nudges/spg-p=
+remium-outlets/content/0a7663a31c3321cba3403ee8c2183a37/18fedc08/images/=
+single-new-store-hz-gray-divider-960x1-001.jpg" width=3D"960" height=3D"=
+1" border=3D"0" alt=3D"SEE MORE DETAILS" title=3D"SEE MORE DETAILS" styl=
+e=3D"background: #000000; color: #FFFFFF; display: block; font-family: H=
+elvetica, arial, sans-serif; font-size: 47px; height: auto; outline: 0; =
+padding: 0; text-align: left; text-decoration: none; width: 100%;">
+                            </td>
+                        </tr>
+                        <!-- END GRAY HORIZONTAL RULE ABOVE FOOTER NAV -=
+->
+                      <tr>
+                            <td align=3D"center" style=3D"border-collaps=
+e: collapse;">
+                                <!--START MALLS MILLS FOOTER RESPONSIVE =
+NAVIGATION -->
+                                <table width=3D"90%" align=3D"center" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation">
+                                    <tbody>
+<tr>
+                                        <td class=3D"main_nav" style=3D"=
+border-collapse: collapse;">
+=09
+                                            <table cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"100%" role=3D"presentation">
+                                                <tbody>
+<tr>
+                                                    <td align=3D"center"=
+ style=3D"border-collapse: collapse; font-family: arial,sans-serif; font=
+-size: 13px; font-weight: bold; padding: 15px 10px;">=C2=A0
+                                                    </td>
+                                                    <td align=3D"center"=
+ style=3D"border-collapse: collapse; font-family: arial,sans-serif; font=
+-size: 13px; font-weight: bold; padding: 15px 10px;">
+                                                        <a href=3D"https=
+://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaW=
+QiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZX=
+RzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbS=
+J9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cDovL3d3dy5w=
+cmVtaXVtb3V0bGV0cy5jb20vb3V0bGV0L2xhcy12ZWdhcy1ub3J0aC9zdG9yZXM/qP21lbWJ=
+lcj15JnVpZD1hbGRhbGQwMjE4JTQwbmF2ZXIuY29tJnV0bV9jYW1wYWlnbj0wNTI3MjAyM19=
+OT1NEX1RvdXJpc21FbWFpbDNfQ2FuYWRhX1B1ZXJ0b1JpY28mdXRtX3NvdXJjZT1zaW1vbi1=
+wbyZ1dG1fbWVkaXVtPWVtYWlsJmJ0X2VlPWhmRTY5OVBCdzk4UVFFQW1GZldwTlh3dHFFWEJ=
+NUjhFZGpEd1daUmV1a3NrdkZvUjdNJTJGZEFQWDNkU0x4dm5FdSZidF90cz0xNjg1MTkzMzg=
+2Njcx/sdv9d7a2293" title=3D"STORES" target=3D"STORES" style=3D"color: #0=
+00000; text-decoration: none;" data-location=3D"t5">STORES</a>
+                                                    </td>
+                                                    <td align=3D"center"=
+ style=3D"border-collapse: collapse; font-family: arial,sans-serif; font=
+-size: 13px; font-weight: bold; padding: 15px 10px;">
+                                                        <a href=3D"https=
+://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaW=
+QiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZX=
+RzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbS=
+J9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cDovL3d3dy5w=
+cmVtaXVtb3V0bGV0cy5jb20vb3V0bGV0L2xhcy12ZWdhcy1ub3J0aC9kZWFscw/qP21lbWJl=
+cj15JnVpZD1hbGRhbGQwMjE4JTQwbmF2ZXIuY29tJnV0bV9jYW1wYWlnbj0wNTI3MjAyM19O=
+T1NEX1RvdXJpc21FbWFpbDNfQ2FuYWRhX1B1ZXJ0b1JpY28mdXRtX3NvdXJjZT1zaW1vbi1w=
+byZ1dG1fbWVkaXVtPWVtYWlsJmJ0X2VlPWhmRTY5OVBCdzk4UVFFQW1GZldwTlh3dHFFWEJN=
+UjhFZGpEd1daUmV1a3NrdkZvUjdNJTJGZEFQWDNkU0x4dm5FdSZidF90cz0xNjg1MTkzMzg2=
+Njcx/s4ve307b6ed" title=3D"DEALS" target=3D"DEALS" style=3D"color: #0000=
+00; text-decoration: none;" data-location=3D"t6">DEALS</a>
+                                                    </td>
+                                                    <td align=3D"center"=
+ style=3D"border-collapse: collapse; font-family: arial,sans-serif; font=
+-size: 13px; font-weight: bold; padding: 15px 10px;">
+                                                        <a href=3D"https=
+://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaW=
+QiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZX=
+RzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbS=
+J9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cDovL3d3dy5w=
+cmVtaXVtb3V0bGV0cy5jb20vdmlw/qP3VpZD1hbGRhbGQwMjE4JTQwbmF2ZXIuY29tJnV0bV=
+9jYW1wYWlnbj0wNTI3MjAyM19OT1NEX1RvdXJpc21FbWFpbDNfQ2FuYWRhX1B1ZXJ0b1JpY2=
+8mdXRtX3NvdXJjZT1zaW1vbi1wbyZ1dG1fbWVkaXVtPWVtYWlsJmJ0X2VlPWhmRTY5OVBCdz=
+k4UVFFQW1GZldwTlh3dHFFWEJNUjhFZGpEd1daUmV1a3NrdkZvUjdNJTJGZEFQWDNkU0x4dm=
+5FdSZidF90cz0xNjg1MTkzMzg2Njcx/s5td8cdc605" title=3D"VIP CLUB" target=3D=
+"VIP CLUB" style=3D"color: #000000; text-decoration: none;" data-locatio=
+n=3D"t7">VIP=C2=A0CLUB</a>
+                                                    </td>
+                                                    <td align=3D"center"=
+ style=3D"border-collapse: collapse; font-family: arial,sans-serif; font=
+-size: 13px; font-weight: bold; padding: 15px 10px;">
+                                                        <a href=3D"https=
+://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaW=
+QiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZX=
+RzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbS=
+J9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cDovL3d3dy5w=
+cmVtaXVtb3V0bGV0cy5jb20vb3V0bGV0L2xhcy12ZWdhcy1ub3J0aC9ob3Vycw/qP21lbWJl=
+cj15JnVpZD1hbGRhbGQwMjE4JTQwbmF2ZXIuY29tJnV0bV9jYW1wYWlnbj0wNTI3MjAyM19O=
+T1NEX1RvdXJpc21FbWFpbDNfQ2FuYWRhX1B1ZXJ0b1JpY28mdXRtX3NvdXJjZT1zaW1vbi1w=
+byZ1dG1fbWVkaXVtPWVtYWlsJmJ0X2VlPWhmRTY5OVBCdzk4UVFFQW1GZldwTlh3dHFFWEJN=
+UjhFZGpEd1daUmV1a3NrdkZvUjdNJTJGZEFQWDNkU0x4dm5FdSZidF90cz0xNjg1MTkzMzg2=
+Njcx/s9u0246328b" title=3D"HOURS" target=3D"HOURS" style=3D"color: #0000=
+00; text-decoration: none;" data-location=3D"t8">HOURS</a>
+                                                    </td>
+                                                    <td align=3D"center"=
+ style=3D"border-collapse: collapse; font-family: arial,sans-serif; font=
+-size: 13px; font-weight: bold; padding: 15px 10px;">
+                                                        <a href=3D"https=
+://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaW=
+QiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZX=
+RzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbS=
+J9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cDovL3d3dy5w=
+cmVtaXVtb3V0bGV0cy5jb20vb3V0bGV0L2xhcy12ZWdhcy1ub3J0aC9tYXA/qP21lbWJlcj1=
+5JnVpZD1hbGRhbGQwMjE4JTQwbmF2ZXIuY29tJnV0bV9jYW1wYWlnbj0wNTI3MjAyM19OT1N=
+EX1RvdXJpc21FbWFpbDNfQ2FuYWRhX1B1ZXJ0b1JpY28mdXRtX3NvdXJjZT1zaW1vbi1wbyZ=
+1dG1fbWVkaXVtPWVtYWlsJmJ0X2VlPWhmRTY5OVBCdzk4UVFFQW1GZldwTlh3dHFFWEJNUjh=
+FZGpEd1daUmV1a3NrdkZvUjdNJTJGZEFQWDNkU0x4dm5FdSZidF90cz0xNjg1MTkzMzg2Njc=
+x/s8rb2e75a7b" title=3D"MAP" target=3D"MAP" style=3D"color: #000000; tex=
+t-decoration: none;" data-location=3D"t9">MAP</a>
+                                                    </td>
+                                                    <td align=3D"center"=
+ style=3D"border-collapse: collapse; font-family: arial,sans-serif; font=
+-size: 13px; font-weight: bold; padding: 15px 10px;">=C2=A0
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+</table>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+</table>
+                                <!-- END MALLS MILLS FOOTER RESPONSIVE N=
+AVIGATION -->
+                            </td>
+                        </tr>
+                       <!-- START GRAY HORIZONTAL RULE ABOVE FOOTER NAV =
+-->
+                        <tr>
+                            <td align=3D"left" valign=3D"top" class=3D"p=
+hoto" style=3D"border-collapse: collapse;">
+                              =20
+								<img src=3D"https://images.email.premiumoutlets.com/nudges/spg-p=
+remium-outlets/content/0a7663a31c3321cba3403ee8c2183a37/18fedc08/images/=
+single-new-store-hz-gray-divider-960x1-001.jpg" width=3D"960" height=3D"=
+1" border=3D"0" alt=3D"SEE MORE DETAILS" title=3D"SEE MORE DETAILS" styl=
+e=3D"background: #000000; color: #FFFFFF; display: block; font-family: H=
+elvetica, arial, sans-serif; font-size: 47px; height: auto; outline: 0; =
+padding: 0; text-align: left; text-decoration: none; width: 100%;">
+                            </td>
+                        </tr>
+                        <!-- END GRAY HORIZONTAL RULE ABOVE FOOTER NAV -=
+->
+                        <tr>
+                            <td align=3D"center" class=3D"photo" style=3D=
+"border-collapse: collapse;">
+                                <table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" width=3D"100%" align=3D"center" role=3D"presentation">
+                                    <tbody>
+<tr>
+                                        <td align=3D"center" style=3D"bo=
+rder-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px=
+; font-weight: bold;">
+                                            <!-- START MALLS MILLS FOOTE=
+R SOCIAL ICON LOGOS WITH DYNAMIC LINKS -->
+                                            <table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"320" align=3D"center" role=3D"prese=
+ntation">
+                                                <tbody>
+<tr>
+                                                    <td align=3D"center"=
+ style=3D"border-collapse: collapse; font-family: Arial, sans-serif; fon=
+t-size: 12px; font-weight: bold;">
+                                                        <a href=3D"https=
+://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaW=
+QiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZX=
+RzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbS=
+J9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cHM6Ly93d3cu=
+ZmFjZWJvb2suY29tL2xhc3ZlZ2Fzbm9ydGhwcmVtaXVtb3V0bGV0cw/scv557a9f2d" titl=
+e=3D"Like Us On Facebook" alias=3D"" target=3D"_blank" style=3D"color: #=
+000000; text-decoration: none;" data-location=3D"t10"><img src=3D"https:=
+//images.email.premiumoutlets.com/nudges/spg-premium-outlets/content/0a7=
+663a31c3321cba3403ee8c2183a37/18fedc08/images/nav-footer-facebook-mb-001=
+-122x126.jpg" style=3D"border: none; color: #000000; display: block; fon=
+t-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-s=
+ize: 9px; letter-spacing: 1px; outline: 0; text-align: center;" alt=3D"F=
+ACEBOOK" title=3D"FACEBOOK" border=3D"0"></a>
+                                                    </td>
+                                                    <td align=3D"center"=
+ style=3D"border-collapse: collapse; font-family: Arial, sans-serif; fon=
+t-size: 12px; font-weight: bold;">
+                                                        <a href=3D"lasve=
+gasnorthpo" title=3D"Like Us On Facebook" alias=3D"" target=3D"_blank" s=
+tyle=3D"color: #000000; text-decoration: none;" data-location=3D"t11"><i=
+mg src=3D"https://images.email.premiumoutlets.com/nudges/spg-premium-out=
+lets/content/0a7663a31c3321cba3403ee8c2183a37/18fedc08/images/nav-footer=
+-instagram-mb-001-122x126.jpg" style=3D"border: none; color: #000000; di=
+splay: block; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, s=
+ans-serif; font-size: 9px; letter-spacing: 1px; outline: 0; text-align: =
+center;" alt=3D"INSTAGRAM" title=3D"INSTAGRAM" border=3D"0"></a>
+                                                    </td>
+                                                    <td align=3D"center"=
+ style=3D"border-collapse: collapse; font-family: Arial, sans-serif; fon=
+t-size: 12px; font-weight: bold;">
+                                                        <a href=3D"https=
+://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaW=
+QiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZX=
+RzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbS=
+J9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cHM6Ly90d2l0=
+dGVyLmNvbS9MYXNWZWdhc05vcnRoUE8/ser3fbc971a" alias=3D"" title=3D"Follow =
+Us On Twitter" target=3D"_blank" style=3D"color: #000000; text-decoratio=
+n: none;" data-location=3D"t12"><img src=3D"https://images.email.premium=
+outlets.com/nudges/spg-premium-outlets/content/0a7663a31c3321cba3403ee8c=
+2183a37/18fedc08/images/nav-footer-twitter-mb-001-122x126.jpg" style=3D"=
+border: none; color: #000000; display: block; font-family: Gotham, 'Helv=
+etica Neue', Helvetica, Arial, sans-serif; font-size: 9px; letter-spacin=
+g: 1px; outline: 0; text-align: center;" alt=3D"TWITTER" title=3D"TWITTE=
+R" border=3D"0"></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+</table>
+                                            <!-- END MALL MILLS FOOTER S=
+OCIAL ICON LOGOS WITH DYNAMIC LINKS -->
+                                        </td>
+                                    </tr>
+                                </tbody>
+</table>
+                            </td>
+                        </tr>
+                        <!-- START MALLS MILLS FOOTER DISCLAIMER HTML BL=
+OCK -->
+                        <tr>
+                            <td align=3D"left" valign=3D"middle" bgcolor=
+=3D"#FFFFFF" class=3D"photo" style=3D"border-collapse: collapse;">
+                            <table width=3D"100%" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" class=3D"appleLinks" role=3D"presentation">
+                                    <tbody>
+                                        <tr>
+                                            <td width=3D"30" align=3D"le=
+ft" valign=3D"top" bgcolor=3D"#FFFFFF" class=3D"textColumnSpacerLeft; te=
+xtColumnSpacerLeft21" style=3D"border-collapse: collapse; color: #FFFFFF=
+; display: block !important; width: 30px !important;">
+                                                <img src=3D"https://imag=
+es.email.premiumoutlets.com/nudges/spg-premium-outlets/content/0a7663a31=
+c3321cba3403ee8c2183a37/18fedc08/images/single-new-store-transparent-row=
+-spacer-30x30-001.gif" width=3D"30" height=3D"30" border=3D"0" alt=3D"" =
+style=3D"color: #FFFFFF; display: block; font-family: Helvetica, arial, =
+sans-serif; font-size: 16px; height: 30px; outline: 0; padding: 0; text-=
+decoration: none; width: 30px;" class=3D"img-max">
+                                            </td>
+ <td width=3D"850" style=3D"border-collapse: collapse; color: #000000; f=
+ont-family: Helvetica, Arial, sans-serif; font-size: 11px; line-height: =
+12px; padding-top: 10px;">
+                                                              <span clas=
+s=3D"appleLinks"></span><br><br>
+                                                              This email=
+ was sent by: <span class=3D"appleLinks" style=3D"color: #000000 !import=
+ant;"><a href=3D"https://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxO=
+EBuYXZlci5jb20/CeyJtaWQiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJz=
+cGctcHJlbWl1bS1vdXRsZXRzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEi=
+LCJyZCI6Im5hdmVyLmNvbSJ9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMS=
+xzbzIsaHR0cHM6Ly93d3cuc2ltb24uY29tL2Fib3V0X3NpbW9uLw/s4k8507bfe1" style=3D=
+"color: #000000; text-decoration: none;" data-location=3D"t13">Simon Pre=
+mium Outlets </a></span> | <span class=3D"appleLinks">60 Columbia Road, =
+Building. B, 3rd. Floor | Morristown, New Jersey, 07960 USA</span>.<br>
+                                                              This email=
+ was sent to <span class=3D"appleLinks" style=3D"color: #000000 !importa=
+nt;"><a href=3D"mailto:user01@naver.com" style=3D"color: #000000; te=
+xt-decoration: none;" data-location=3D"t14">user01@naver.com</a></sp=
+an>.<br><br>
+                                                              <a href=3D=
+"https://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/C=
+eyJtaWQiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1v=
+dXRsZXRzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVy=
+LmNvbSJ9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cHM6Ly=
+93d3cuc2ltb24uY29tL2xlZ2Fs/qP21lbWJlcj15/sake51daeef" style=3D"color: #0=
+00000; text-decoration: none;" data-location=3D"t15"><span style=3D"font=
+-weight: bold;">Terms of Use</span></a> <span class=3D"appleLinksGrey" s=
+tyle=3D"color: #000000 !important;">=C2=A0=C2=A0|=C2=A0=C2=A0</span> <a =
+href=3D"https://e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci=
+5jb20/CeyJtaWQiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlb=
+Wl1bS1vdXRsZXRzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6I=
+m5hdmVyLmNvbSJ9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR=
+0cHM6Ly93d3cuc2ltb24uY29tL2xlZ2FsL3ByaXZhY3k/qP21lbWJlcj15/s0v23706d3d" =
+style=3D"color: #000000; text-decoration: none;" data-location=3D"t16"><=
+span style=3D"font-weight: bold;">Privacy Policy</span></a> <span class=3D=
+"appleLinks" style=3D"color: #000000 !important;">=C2=A0=C2=A0|=C2=A0=C2=
+=A0</span> <a href=3D"https://e.email.premiumoutlets.com/click?EYWxkYWxk=
+MDIxOEBuYXZlci5jb20/CeyJtaWQiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3Q=
+iOiJzcGctcHJlbWl1bS1vdXRsZXRzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ=
+3LTEiLCJyZCI6Im5hdmVyLmNvbSJ9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyM=
+ThiMSxzbzIsaHR0cHM6Ly93d3cuc2ltb24uY29tL2xlZ2FsL2NhbGlmb3JuaWEtcHJpdmFje=
+Q/qP21lbWJlcj15/s8g35effdf6" style=3D"color: #000000; text-decoration: n=
+one;" data-location=3D"t17"><span style=3D"font-weight: bold;">Californi=
+a Privacy Rights</span></a>
+                                                              <span clas=
+s=3D"appleLinks" style=3D"color: #000000 !important;">=C2=A0=C2=A0|=C2=A0=
+=C2=A0</span>=20
+                                                              <span clas=
+s=3D"appleLinks" style=3D"color: #000000 !important;"><a href=3D"https:/=
+/e.email.premiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaWQi=
+OiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZXRz=
+LWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbSJ9=
+/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cHM6Ly93d3cucH=
+JlbWl1bW91dGxldHMuY29tL3ZpcC9wcm9maWxl/qP21lbWJlcj15JnVpZD1hbGRhbGQwMjE4=
+JTQwbmF2ZXIuY29tJnV0bV9jYW1wYWlnbj0wNTI3MjAyM19OT1NEX1RvdXJpc21FbWFpbDNf=
+Q2FuYWRhX1B1ZXJ0b1JpY28mdXRtX3NvdXJjZT1zaW1vbi1wbyZ1dG1fbWVkaXVtPWVtYWls=
+JmJ0X2VlPWhmRTY5OVBCdzk4UVFFQW1GZldwTlh3dHFFWEJNUjhFZGpEd1daUmV1a3NrdkZv=
+UjdNJTJGZEFQWDNkU0x4dm5FdSZidF90cz0xNjg1MTkzMzg2Njcx/sdm8eea284c" style=3D=
+"color: #000000; text-decoration: none;" data-location=3D"t18"><span sty=
+le=3D"font-weight: bold;">Update Profile</span></a></span> <span class=3D=
+"appleLinks" style=3D"color: #000000 !important;">=C2=A0=C2=A0|=C2=A0=C2=
+=A0</span> <a href=3D"https://e.email.premiumoutlets.com/click?EYWxkYWxk=
+MDIxOEBuYXZlci5jb20/CeyJtaWQiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3Q=
+iOiJzcGctcHJlbWl1bS1vdXRsZXRzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ=
+3LTEiLCJyZCI6Im5hdmVyLmNvbSJ9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyM=
+ThiMSxzbzIsaHR0cHM6Ly93d3cucHJlbWl1bW91dGxldHMuY29tL3ZpcC91bnN1YnNjcmliZ=
+Q/qP2VtYWlsYWRkcmVzcz1hbGRhbGQwMjE4JTQwbmF2ZXIuY29tJm1lc3NhZ2VfdWlkPTE2O=
+DUxOTMzODY2Njg1MTg0ZjJlNjJlNjgmdWlkPWFsZGFsZDAyMTglNDBuYXZlci5jb20mdXRtX=
+2NhbXBhaWduPTA1MjcyMDIzX05PU0RfVG91cmlzbUVtYWlsM19DYW5hZGFfUHVlcnRvUmljb=
+yZ1dG1fc291cmNlPXNpbW9uLXBvJnV0bV9tZWRpdW09ZW1haWwmYnRfZWU9aGZFNjk5UEJ3O=
+ThRUUVBbUZmV3BOWHd0cUVYQk1SOEVkakR3V1pSZXVrc2t2Rm9SN00lMkZkQVBYM2RTTHh2b=
+kV1JmJ0X3RzPTE2ODUxOTMzODY2NzE/s9r5658b2cc" style=3D"color: #000000; tex=
+t-decoration: none;" data-location=3D"t19"><span style=3D"font-weight: b=
+old;">Unsubscribe</span></a><br><br>
+                                                              COPYRIGHT =
+=C2=A9<span class=3D"appleLinks">1999-2023</span>, <span class=3D"appleL=
+inks" style=3D"color: #000000 !important;"><a href=3D"https://e.email.pr=
+emiumoutlets.com/click?EYWxkYWxkMDIxOEBuYXZlci5jb20/CeyJtaWQiOiIxNjg1MTk=
+zMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcHJlbWl1bS1vdXRsZXRzLWViNmQ0MzE=
+xNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZCI6Im5hdmVyLmNvbSJ9/HWkhfc3ByZ=
+W1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIsaHR0cHM6Ly93d3cuc2ltb24uY29tL=
+2Fib3V0X3NpbW9uLw/s4k8507bfe1" style=3D"color: #000000; text-decoration:=
+ none;" data-location=3D"t20">PREMIUM OUTLETS PARTNERS, L.P. and/or its =
+affiliates. </a></span>  ALL RIGHTS RESERVED.
+	 														  <br><br>
+															  <span class=3D"appleLinks">05.27.23</span>
+															  <br><br>
+                                                          </td>
+                                            <td width=3D"80" align=3D"ce=
+nter" valign=3D"middle" bgcolor=3D"#FFFFFF" style=3D"border-collapse: co=
+llapse; color: #000000; font-family: Arial, sans-serif; line-height: 22p=
+x; padding-bottom: 0;">=C2=A0</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- END MALLS MILLS FOOTER DISCLAIMER HTML BLOC=
+K -->
+                    </tbody>
+</table>
+                </td>
+            </tr>
+        </tbody>
+</table>
+            <!--[if (gte mso 9)|(IE)]>
+    </td></tr></table>
+    <![endif]-->
+   =20
+   =20
+
+<img src=3D"https://e.email.premiumoutlets.com/open?EYWxkYWxkMDIxOEBuYXZ=
+lci5jb20/CeyJtaWQiOiIxNjg1MTkzMzg2NjY4NTE4NGYyZTYyZTY4IiwiY3QiOiJzcGctcH=
+JlbWl1bS1vdXRsZXRzLWViNmQ0MzExNzc4ZWE1MzQyZWJiZTA4Zjg3MmQ3OWQ3LTEiLCJyZC=
+I6Im5hdmVyLmNvbSJ9/HWkhfc3ByZW1pdW1fRE5CQU4wNTI3MjAyM2M5MjMyMThiMSxzbzIs=
+/saoc2b33391" height=3D"2" width=3D"3" alt=3D""></body>
+</html>
+
+--==27386285e52892de94daf23c7233dc3c--

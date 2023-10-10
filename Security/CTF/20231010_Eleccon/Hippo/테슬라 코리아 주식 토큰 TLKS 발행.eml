@@ -1,0 +1,651 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1689621633;
+	cv=none; b=YUPBbfr6JKfgPjV/c/nebsUhjnPMqqCBBpdlecLE81kz2iTpx1K4DzEzR23X
+	 bpbj/hA/cl/B33qyqCLl9nHLVdZLZka10sBFBycz7pw1aJhyiLBE9++wZuGWUGSwxpDbt9
+	 XFALUJlrcOkDl4jSna+jr3EK2PipPbqEE9qY2yP9KHzD4QbRwqhndmuTw99rmXcdqjPsJ/
+	 RJswsy8OPmkZDdA1EG4zgEHFbHS9EzO25vAJrKFtPaCoqN48dQofWNaWcmy3Ca5K/3BYLl
+	 T9THP1fXqcKre1hw3bt8jcfhH8fub5WlgfNahYl7GAhGOD68MN4RPg1gyrjwduhr3HCeng
+	 SA==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1689621633; c=relaxed/relaxed;
+	bh=ImLvePmN9u1QUImNZ8IlfgcWDFWOch/rdybU0u4NG1o=;
+	h=date:from:to:message-id:subject; b=QExI7E2uaOTZUQORhme48gsDQlOO65jJyx
+	 hFAP75S/v/DcwLo9PLnTIaky4UpSIxw9X+fEMLbBkpMChY791ymRx4vGLYKZYeteJmgZdP
+	 BLd0VoICsoQvCRmjjltRGE4ig9d9RXrmlQhZ5kihsj6+ptKpGWT+lFc+JVEf43FOUpNqfS
+	 KIKxZvo9+7JEwnDJ9Rh49d0hECbJ1ACz8Wo3ZiFyiC66j4EPaFDRRfWTQY92fhkFKq/qA9
+	 vMbT5ljTp7XtaNMW9MScO92gkIrjMdtjHldRvj3u0V0BXG2PD63jSbk8HAmfab0CRc3MDw
+	 Wt6jHmatypExfnmF41CcOAwfoW8A==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of events@teslakorea.yachts designates 192.236.233.203 as permitted sender) smtp.mailfrom=events@teslakorea.yachts;
+  dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=teslakorea.yachts
+Return-Path: <events@teslakorea.yachts>
+Received-SPF: pass (mx.naver.com: domain of events@teslakorea.yachts designates 192.236.233.203 as permitted sender)
+  client-ip=192.236.233.203; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of events@teslakorea.yachts designates 192.236.233.203 as permitted sender) smtp.mailfrom=events@teslakorea.yachts;
+  dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=teslakorea.yachts
+X-Naver-ESV: wmRn+6J4p63CbHmwKBwdbXFYKxvZKAKqjJ+Y
+X-Session-IP: 192.236.233.203
+Received: from mx.teslakorea.yachts (client-192-236-233-203.hostwindsdns.com [192.236.233.203])
+  by crcvmail105.nm.naver.com with ESMTP id ofepZXsTTgScoYkUKzO7OA
+  for <user01@naver.com>;
+  Thu, 10 Aug 2023 19:20:33 -0000
+Received: from [43.225.63.119]
+ by teslakorea.yachts with SMTP id 98bde73b11ceabeb;
+ Fri, 11 Aug 2023 04:20:32 +0900
+Date: Fri, 11 Aug 2023 04:20:19 +0900 (KST)
+From: =?UTF-8?B?7YWM7Iqs6528?= <events@teslakorea.yachts>
+To: user01@naver.com
+Message-ID: <A6AIRHyJ9JOYi5wr25AOP2@teslakorea.yachts>
+Subject: =?UTF-8?B?7YWM7Iqs6528IOy9lOumrOyVhCDso7zsi50g7Yag7YGwIFRMS1Mg67Cc7ZaJ?=
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<div id=3D"agcpaoqdtgoewsk">
+    <div style=3D"width: 100%; padding-top: 20px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; background-color: rgba(255, 255, 255, 1); margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; display: block;">
+        <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; width: 94%; max-width: 630px; border-width: 0; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; border-style: solid; box-sizing: border-box; ;">
+            <tbody>
+                <tr style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;">
+                    <td style=3D"width: 100%; max-width: 630px; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; position: relative; border-spacing: 0; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; clear: both; border-collapse: separate; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; overflow: hidden; _width: 630px;">
+                        <div style=3D"height: 0px; max-height: 0px; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; border-color: initial; border-image: initial; visibility: hidden; line-height: 0px; font-size: 0px; overflow: hidden; display: none;">
+                        </div>
+                        <div style=3D"display: none;">
+                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"overflow: hidden; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; max-width: 630px; clear: both; line-height: 1.7; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-size: 14px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; box-sizing: border-box;" width=3D"100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=3D"text-align: center; font-size: 0;">
+                                                            <div style=3D"max-width: 630px; width: 100%; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; vertical-align: top; border-collapse: collapse; box-sizing: border-box; font-size: unset; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; display: inline-block;">
+                                                                <div style=3D"text-align: left; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; ; line-height: 1.7; word-break: break-word; font-size: 14px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: rgba(51, 51, 51, 1); clear: both; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; mso-line-height-rule-rule: exactly;">
+                                                                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style=3D"padding-top: 5px; padding-right: 15px; padding-bottom: 5px; padding-left: 15px; font-size: 14px; line-height: 1.7; word-break: break-word; color: rgba(51, 51, 51, 1); border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100%;">
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style=3D"display: none;">
+                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"overflow: hidden; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; max-width: 630px; clear: both; line-height: 1.7; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-size: 14px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; box-sizing: border-box;" width=3D"100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=3D"text-align: center; font-size: 0;">
+                                                            <div style=3D"max-width: 630px; width: 100%; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; vertical-align: top; border-collapse: collapse; box-sizing: border-box; font-size: unset; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; display: inline-block;">
+                                                                <div style=3D"text-align: left; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; ; line-height: 1.7; word-break: break-word; font-size: 14px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: rgba(51, 51, 51, 1); clear: both; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; mso-line-height-rule-rule: exactly;">
+                                                                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style=3D"padding-top: 0px; padding-right: 15px; padding-bottom: 0px; padding-left: 15px; font-size: 14px; line-height: 1.7; word-break: break-word; color: rgba(51, 51, 51, 1); border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100%;">
+                                                                                    <span style=3D"color: rgb(255, 254, 251);">
+                                                                                    </span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"overflow: hidden; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; max-width: 630px; clear: both; line-height: 1.7; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-size: 14px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; box-sizing: border-box;" width=3D"100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=3D"text-align: center; font-size: 0;">
+                                                            <div style=3D"max-width: 630px; width: 100%; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; vertical-align: top; border-collapse: collapse; box-sizing: border-box; font-size: unset; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; display: inline-block;">
+                                                                <div style=3D"text-align: center; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; width: 100%; box-sizing: border-box; clear: both; ;">
+                                                                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td align=3D"center" style=3D"padding-top: 0px; padding-right: 15px; padding-bottom: 20px; padding-left: 15px; ; text-align: center; font-size: 0; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; line-height: 0; width: 100%; box-sizing: border-box;">
+                                                                                    <img class=3D"fpnklgtbxytplcrvj" src=3D"data: image/png; base64, iVBORw0KGgoAAAANSUhEUgAAAVYAAAAjCAMAAAD46dJ3AAABfVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///9/r8P9AAAAfXRSTlMAAQIDBAYICgsNDg8QERMUFRcYGhwgISIjJCorLC4xMzo7PD1DREpNVFZYWVpeYGRmZ2hpbm9yc3R2d3h6fICBgoOFiYqMjY6Rk5SXm52io6WoqqusrbK2uby+w8TFxsnMzc7P0dLU2drb3eLk5ufq6+zt7vDx9fj5+/z9/gPadX4AAAABYktHRH4/uEFzAAACXklEQVRo3u2a6VMTQRDFG0QThEhAcEWj4RS5BJUgggTlvhQNyq1B8YgLSjQSYGH/dy0WS6xiZ94mw2Sr6Pe5673u34fZma4l04b1maQaBa3qCVBbOuMi64TVMGJFEfNIzykvtYLjtdJTHGuvPPfWIeT0pRgZohux2quBgESd6oX8sAZ/QuOlA1SRQaluBoHgBGTVTsqwPiONWOkxNF7fn8oOkOp+E5Jb9Q2wmidlWBdLtGIteQf0tHrU0yBGtRMLvr0ttVoJKMP6GrRShZXCn6Q9fQw7pfd2gBOgCQ023oqdrPGLpAjrr4dFpBkrlb2UNDV3+W/p1Ym05A7QG8SDi+8uW65OP2ZvwkbHWL+bp2u9vxxvShlWovr5rOt42UTdf2eG8U9TTsV9KrSOsbao8FKINUfFFU7DWBkrY2WsjJWx+hSrEcV0xQPWLkOokE6sIQNRSDXWJ+BL+IaynYAd14k1nntL+WCt3oVy14ixetIYEnvQwFi9KfBe3TKPsZ7YDH6Qpk4WMVbvG/RpS5i53eHxgsVYHdWOJtfdtPQA34U1J4RaKxzWLZel2tZZYtWklsJhjYpTGCtjZayMlbEy1vOKtdLAVOplz+Di0XV+sA6BG6woalgxmFL5HMiaIi36FWutBVHdAO0u9O2ofWWJNeDbs3UWwnoHMytbUf14FSpT6Vus5Smg/xnQK2lrxdru27OV6Lr8h9lX2O9ol5K2Vqwjvr5ghd+Iu88+AveCk7ZOrHs9Z3wT6HZ2TY0530Lq5r66fmw3hqpAl5qUCSkGuUUkLi+uQTYxpzoiTonRbz6BIFL8IgrXAAAAAElFTkSuQmCC" style=3D"display: inline; vertical-align: bottom; text-align: center; max-width: 100%; height: 20px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" loading=3D"lazy" />
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style=3D"display: none;">
+                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"overflow: hidden; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; max-width: 630px; clear: both; line-height: 1.7; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-size: 14px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; box-sizing: border-box;" width=3D"100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=3D"text-align: center; font-size: 0;">
+                                                            <div style=3D"max-width: 630px; width: 100%; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; vertical-align: top; border-collapse: collapse; box-sizing: border-box; font-size: unset; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; display: inline-block;">
+                                                                <div style=3D"text-align: left; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; ; line-height: 1.7; word-break: break-word; font-size: 14px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: rgba(51, 51, 51, 1); clear: both; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; mso-line-height-rule-rule: exactly;">
+                                                                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style=3D"padding-top: 25px; padding-right: 15px; padding-bottom: 5px; padding-left: 15px; font-size: 14px; line-height: 1.7; word-break: break-word; color: rgba(51, 51, 51, 1); border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100%;">
+                                                                                    <div>
+                                                                                        <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                            <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                    <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                        <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                            <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                    <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                        <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                            <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                    <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                        <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                            <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                    <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                        <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                            <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                                <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                                    <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                                        <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                                            <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                                                <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                                                    <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                                                        <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                                                            <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                                                                <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                                                                    <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                                                                        <span style=3D"font-size: 26px; font-weight: bold;">
+                                                                                                                                                                                                        </span>
+                                                                                                                                                                                                    </span>
+                                                                                                                                                                                                </span>
+                                                                                                                                                                                            </span>
+                                                                                                                                                                                        </span>
+                                                                                                                                                                                    </span>
+                                                                                                                                                                                </span>
+                                                                                                                                                                            </span>
+                                                                                                                                                                        </span>
+                                                                                                                                                                    </span>
+                                                                                                                                                                </span>
+                                                                                                                                                            </span>
+                                                                                                                                                        </span>
+                                                                                                                                                    </span>
+                                                                                                                                                </span>
+                                                                                                                                            </span>
+                                                                                                                                        </span>
+                                                                                                                                    </span>
+                                                                                                                                </span>
+                                                                                                                            </span>
+                                                                                                                        </span>
+                                                                                                                    </span>
+                                                                                                                </span>
+                                                                                                            </span>
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"overflow: hidden; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; max-width: 630px; clear: both; line-height: 1.7; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-size: 14px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; box-sizing: border-box;" width=3D"100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=3D"text-align: center; font-size: 0;">
+                                                            <table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" width=3D"100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style=3D"padding-top: 5px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; ; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                                                            <table style=3D"width: 100%; height: 0; background: none; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 1px; border-top-style: solid; border-top-color: rgba(151, 39, 23, 1); margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border-collapse: separate;">
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style=3D"display: none;">
+                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"overflow: hidden; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; max-width: 630px; clear: both; line-height: 1.7; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-size: 14px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; box-sizing: border-box;" width=3D"100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=3D"text-align: center; font-size: 0;">
+                                                            <div style=3D"max-width: 315px; width: 100%; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; vertical-align: top; border-collapse: collapse; box-sizing: border-box; font-size: unset; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; display: inline-block;">
+                                                                <div style=3D"text-align: justify; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; width: 100%; box-sizing: border-box; clear: both; ;">
+                                                                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style=3D"padding-top: 5px; padding-right: 15px; padding-bottom: 5px; padding-left: 15px; padding-bottom: 0; ; text-align: justify; font-size: 0; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; line-height: 0; width: 100%; box-sizing: border-box;">
+                                                                                    <a target=3D"_blank" style=3D"text-decoration: none; color: rgb(0, 0, 255); font-weight: normal;" rel=3D"noreferrer noopener">
+                                                                                    </a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div style=3D"text-align: left; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; ; line-height: 1.7; word-break: break-word; font-size: 14px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: rgba(51, 51, 51, 1); clear: both; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; mso-line-height-rule-rule: exactly;">
+                                                                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style=3D"padding-top: 5px; padding-right: 15px; padding-bottom: 5px; padding-left: 15px; padding-top: 20px; font-size: 14px; line-height: 1.7; word-break: break-word; color: rgba(51, 51, 51, 1); border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100%;">
+                                                                                    <div>
+                                                                                        <br />
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <br />
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <span style=3D"text-decoration: underline;">
+                                                                                            <span style=3D"font-weight: normal; font-style: normal; text-decoration: underline; color: rgba(0, 0, 255, 1);">
+                                                                                                <a target=3D"_blank" style=3D"color: rgb(0, 0, 255); font-weight: normal; text-decoration: none;" rel=3D"noreferrer noopener">
+                                                                                                </a>
+                                                                                            </span>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <br />
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div style=3D"max-width: 315px; width: 100%; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; vertical-align: top; border-collapse: collapse; box-sizing: border-box; font-size: unset; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; display: inline-block;">
+                                                                <div style=3D"text-align: justify; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; width: 100%; box-sizing: border-box; clear: both; ;">
+                                                                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style=3D"padding-top: 5px; padding-right: 15px; padding-bottom: 5px; padding-left: 15px; padding-bottom: 0; ; text-align: justify; font-size: 0; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; line-height: 0; width: 100%; box-sizing: border-box;">
+                                                                                    <a target=3D"_blank" style=3D"text-decoration: none; color: rgb(0, 0, 255); font-weight: normal;" rel=3D"noreferrer noopener">
+                                                                                    </a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div style=3D"text-align: left; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; ; line-height: 1.7; word-break: break-word; font-size: 14px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: rgba(51, 51, 51, 1); clear: both; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; mso-line-height-rule-rule: exactly;">
+                                                                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style=3D"padding-top: 5px; padding-right: 15px; padding-bottom: 5px; padding-left: 15px; padding-top: 20px; font-size: 14px; line-height: 1.7; word-break: break-word; color: rgba(51, 51, 51, 1); border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100%;">
+                                                                                    <div>
+                                                                                        <br />
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <br />
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <span style=3D"text-decoration: underline; color: rgba(0, 0, 255, 1);">
+                                                                                            <span>
+                                                                                            </span>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <br />
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style=3D"display: none;">
+                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"overflow: hidden; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; max-width: 630px; clear: both; line-height: 1.7; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-size: 14px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; box-sizing: border-box;" width=3D"100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=3D"text-align: center; font-size: 0;">
+                                                            <table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" width=3D"100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style=3D"padding-top: 5px; padding-right: 15px; padding-bottom: 5px; padding-left: 15px; ; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                                                            <table style=3D"width: 100%; height: 0; background: none; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 1px; border-top-style: solid; border-top-color: rgba(153, 153, 153, 1); margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border-collapse: separate;">
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"overflow: hidden; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; max-width: 630px; clear: both; line-height: 1.7; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-size: 14px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; box-sizing: border-box;" width=3D"100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=3D"text-align: center; font-size: 0;">
+                                                            <div style=3D"max-width: 630px; width: 100%; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; vertical-align: top; border-collapse: collapse; box-sizing: border-box; font-size: unset; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; display: inline-block;">
+                                                                <div style=3D"text-align: justify; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; width: 100%; box-sizing: border-box; clear: both; ;">
+                                                                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style=3D"padding-top: 0px; padding-right: 15px; padding-bottom: 5px; padding-left: 15px; ; text-align: justify; font-size: 0; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; line-height: 0; width: 100%; box-sizing: border-box;">
+                                                                                    <a href=3D"https://agastarst.life" target=3D"_blank" style=3D"text-decoration: none; color: rgb(0, 0, 255); font-weight: normal;" rel=3D"noreferrer noopener">
+                                                                                        <img id=3D"npfvjbeywame" src=3D"https://finbold.com/app/uploads/2021/04/Why-Binances-Tesla-stock-token-launch-could-inspire-a-surge-in-new-traders-1024x642.jpg" style=3D"width: 100%; display: inline; vertical-align: bottom; text-align: justify; max-width: 100%; height: auto; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" loading=3D"lazy" />
+                                                                                    </a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"overflow: hidden; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; max-width: 630px; clear: both; line-height: 1.7; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-size: 14px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; box-sizing: border-box;" width=3D"100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=3D"text-align: center; font-size: 0;">
+                                                            <div style=3D"max-width: 630px; width: 100%; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; vertical-align: top; border-collapse: collapse; box-sizing: border-box; font-size: unset; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; display: inline-block;">
+                                                                <div style=3D"text-align: left; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; ; line-height: 1.7; word-break: break-word; font-size: 14px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: rgba(51, 51, 51, 1); clear: both; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; mso-line-height-rule-rule: exactly;">
+                                                                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style=3D"padding-top: 15px; padding-right: 15px; padding-bottom: 25px; padding-left: 15px; font-size: 14px; line-height: 1.7; word-break: break-word; color: rgba(151, 39, 23, 1); border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100%;">
+                                                                                    <div style=3D"color: rgba(151, 39, 23, 1); font-weight: bold; font-size: 26px; text-align: center; margin-bottom: 20px;">
+                                                                                        <span id=3D"sdyqarbkkxjf">
+                                                                                            =ED=85=8C=EC=8A=AC=EB=9D=BC =EC=BD=94=EB=A6=AC=EC=95=84 =EC=A3=BC=EC=8B=9D =ED=86=A0=ED=81=B0 TLKS =EB=B0=9C=ED=96=89
+                                                                                            <img src=3D"https://agastarst.life/a7c6aaceafc3a797a594ac82/zcv/rfz" />
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div style=3D"text-align: center; color: rgba(61, 61, 61, 1); font-size: 16px;">
+                                                                                        <div style=3D"text-align: left;">
+                                                                                            <div>
+                                                                                                <p id=3D"sonobbnwbrctggwruu">
+                                                                                                    =EC=BD=94=EC=9D=B8=EC=9C=BC=EB=A1=9C =EC=86=8C=EC=9C=A0=ED=95=98=EB=8A=94 =ED=85=8C=EC=8A=AC=EB=9D=BC =EC=BD=94=EB=A6=AC=EC=95=84 =EC=A3=BC=EC=8B=9D!
+                                                                                                    <br style=3D"box-sizing: border-box;" />
+                                                                                                    =ED=85=8C=EC=8A=AC=EB=9D=BC =EC=BD=94=EB=A6=AC=EC=95=84=EC=9D=98 =EC=A3=BC=EC=8B=9D(TLKS)=EC=9D=84 =EC=9D=B4=EC=A0=9C =EC=95=94=ED=98=B8=ED=99=94=ED=8F=90=EB=A1=9C =EC=86=8C=EC=9C=A0=ED=95=A0 =EC=88=98 =EC=9E=88=EA=B2=8C =EB=90=90=EC=8A=B5=EB=8B=88=EB=8B=A4. =ED=85=8C=EC=8A=AC=EB=9D=BC =EC=BD=94=EB=A6=AC=EC=95=84=EC=97=90=EC=84=9C=EB=8A=94 =EB=8C=80=ED=95=9C=EB=AF=BC=EA=B5=AD =EC=B5=9C=EC=B4=88=EB=A1=9C =EA=B8=B0=EC=97=85 =EC=A3=BC=EC=8B=9D =ED=86=A0=ED=81=B0=EC=9D=84 =EB=B0=9C=ED=96=89=ED=95=98=EC=98=80=EC=8A=B5=EB=8B=88=EB=8B=A4.
+                                                                                                    <br style=3D"box-sizing: border-box;" />
+                                                                                                    =ED=85=8C=EC=8A=AC=EB=9D=BC =EC=A3=BC=EC=8B=9D=EA=B3=BC =EC=97=B0=EB=8F=99=EB=90=98=EB=8A=94 =EC=95=94=ED=98=B8=ED=99=94=ED=8F=90 TLKS=EC=9D=98 =EA=B0=80=EC=B9=98=EB=8A=94 =ED=95=9C=EA=B5=AD=ED=88=AC=EC=9E=90=EC=8B=A0=ED=83=81=EC=9A=B4=EC=9A=A9(Korea Investment)=EC=9D=B4 =EB=B3=B4=EC=9C=A0=ED=95=9C =EC=A3=BC=EC=8B=9D=EC=9C=BC=EB=A1=9C =EB=B3=B4=EC=A6=9D=EB=90=A9=EB=8B=88=EB=8B=A4.
+                                                                                                    <br style=3D"box-sizing: border-box;" />
+                                                                                                    =ED=86=A0=ED=81=B0=EC=9D=98 =EA=B1=B0=EB=9E=98 =EC=A6=9D=EC=A7=84=EC=9D=84 =EC=9C=84=ED=95=98=EC=97=AC =EC=A0=84=EC=B2=B4 =EB=B0=9C=ED=96=89=EB=9F=89 100, 000, 000=EA=B0=9C =EC=A4=91 =ED=95=9C=EC=A0=95=EB=9F=89 2, 000, 000=EA=B0=9C=EC=97=90 =EB=8C=80=ED=95=9C =EC=97=90=EC=96=B4=EB=93=9C=EB=9E=8D =EC=9D=B4=EB=B2=A4=ED=8A=B8=EA=B0=80 =EC=A7=84=ED=96=89=EB=90=A9=EB=8B=88=EB=8B=A4.
+                                                                                                </p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div style=3D"text-align: center;">
+                                                                                        <div style=3D"text-align: left;">
+                                                                                            <span style=3D"font-size: 16px;">
+                                                                                                <span style=3D"text-decoration: underline;">
+                                                                                                    <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin-top: 25px; margin-left: auto; margin-bottom: 0px; margin-right: auto;">
+                                                                                                        <tbody>
+                                                                                                            <tr>
+                                                                                                                <td align=3D"center" style=3D"background-color: rgba(151, 39, 23, 1); padding-top: 12px; padding-bottom: 12px; padding-left: 35px; padding-right: 35px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px;">
+                                                                                                                    <a id=3D"ymqixsugmfepbmscep" href=3D"https://agastarst.life" style=3D"color: rgba(255, 255, 255, 1); font-family: Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 600; font-style: normal; letter-spacing: 1px; line-height: 27px; text-transform: uppercase; text-decoration: none; display: block;" target=3D"_blank">
+                                                                                                                        =EC=A7=80=EA=B8=88 =EC=97=90=EC=96=B4=EB=93=9C=EB=9E=8D =EB=B0=9B=EA=B8=B0
+                                                                                                                    </a>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style=3D"display: none;">
+                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"overflow: hidden; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; max-width: 630px; clear: both; line-height: 1.7; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-size: 14px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; box-sizing: border-box;" width=3D"100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=3D"text-align: center; font-size: 0;">
+                                                            <div style=3D"max-width: 630px; width: 100%; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; vertical-align: top; border-collapse: collapse; box-sizing: border-box; font-size: unset; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; display: inline-block;">
+                                                                <div style=3D"text-align: left; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; ; line-height: 1.7; word-break: break-word; font-size: 14px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: rgba(51, 51, 51, 1); clear: both; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; mso-line-height-rule-rule: exactly;">
+                                                                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style=3D"padding-top: 0px; padding-right: 15px; padding-bottom: 25px; padding-left: 15px; font-size: 14px; line-height: 1.7; word-break: break-word; color: rgba(51, 51, 51, 1); border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; ; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100%;">
+                                                                                    <div style=3D"text-align: left; font-size: 14px;">
+                                                                                        <span style=3D"font-weight: bold;">
+                                                                                            <span style=3D"font-size: 20px;">
+                                                                                                EVENT.&nbsp;
+                                                                                            </span>
+                                                                                        </span>
+                                                                                        <span style=3D"font-size: 20px; font-weight: bold;">
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div style=3D"text-align: left; font-size: 14px;">
+                                                                                        <br />
+                                                                                    </div>
+                                                                                    <div style=3D"text-align: left; font-size: 14px;">
+                                                                                        <span style=3D"font-size: 16px;">
+                                                                                            <span style=3D"font-size: 12px;">
+                                                                                            </span>
+                                                                                        </span>
+                                                                                        <a target=3D"_blank" rel=3D"noreferrer noopener" style=3D"color: rgb(0, 0, 255); font-size: 16px; text-decoration: none; font-weight: normal;">
+                                                                                        </a>
+                                                                                        <span style=3D"font-size: 14px;">
+                                                                                            <br />
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style=3D"display: none;">
+                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"overflow: hidden; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; max-width: 630px; clear: both; line-height: 1.7; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-size: 14px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; box-sizing: border-box;" width=3D"100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=3D"text-align: center; font-size: 0;">
+                                                            <table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" width=3D"100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style=3D"padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; ; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                                                            <div style=3D"margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; text-align: center;">
+                                                                                <span style=3D"list-style: none; padding-top: 0px; padding-right: 10px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;">
+                                                                                    <a style=3D"border-: 0px; border-image: initial; text-decoration: none; display: inline-block; color: rgb(0, 0, 255); font-weight: normal;" target=3D"_blank" title=3D"" rel=3D"noreferrer noopener">
+                                                                                        <span style=3D"vertical-align: middle; color: rgb(96, 97, 101); font-size: 12px; display: inline-block; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 6px;">
+                                                                                        </span>
+                                                                                    </a>
+                                                                                </span>
+                                                                                <span style=3D"list-style: none; padding-top: 0px; padding-right: 10px; padding-bottom: 0px; padding-left: 10px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;">
+                                                                                    <a style=3D"border-: 0px; border-image: initial; text-decoration: none; display: inline-block; color: rgb(0, 0, 255); font-weight: normal;" target=3D"_blank" title=3D"" rel=3D"noreferrer noopener">
+                                                                                        <span style=3D"vertical-align: middle; color: rgb(96, 97, 101); font-size: 12px; display: inline-block; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 6px;">
+                                                                                        </span>
+                                                                                    </a>
+                                                                                </span>
+                                                                                <span style=3D"list-style: none; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 10px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;">
+                                                                                    <a style=3D"border-: 0px; border-image: initial; text-decoration: none; display: inline-block; color: rgb(0, 0, 255); font-weight: normal;" target=3D"_blank" title=3D"" rel=3D"noreferrer noopener">
+                                                                                        <span style=3D"vertical-align: middle; color: rgb(96, 97, 101); font-size: 12px; display: inline-block; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 6px;">
+                                                                                        </span>
+                                                                                    </a>
+                                                                                </span>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"overflow: hidden; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 100%; max-width: 630px; clear: both; line-height: 1.7; border-width: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; font-size: 14px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; box-sizing: border-box;" width=3D"100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=3D"text-align: center; font-size: 0;">
+                                                            <table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width: 630px; width: 100%; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; vertical-align: top; border-collapse: collapse; box-sizing: border-box; font-size: unset; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" width=3D"100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style=3D"padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; ; line-height: 1.7; word-break: break-word; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                                                            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style=3D"padding-top: 25px; padding-right: 15px; padding-bottom: 5px; padding-left: 15px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 1.7; word-break: break-word; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; width: 100%; text-align: center;">
+                                                                                            <div style=3D"font-size: 12px; font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; color: rgba(96, 96, 96, 1); text-align: center;">
+                                                                                                <div style=3D"text-align: start;">
+                                                                                                    <div>
+                                                                                                        <div>
+                                                                                                            <span style=3D"text-align: center;">
+                                                                                                                <div style=3D"color: rgb(119, 119, 119); font-size: 14px;">
+                                                                                                                    <span id=3D"sgrqemzbqdb" style=3D"color: rgb(96, 96, 96); font-family: AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif; font-size: 12px;">
+                                                                                                                        (=EC=A3=BC)=ED=85=8C=EC=8A=AC=EB=9D=BC =EC=BD=94=EB=A6=AC=EC=95=84
+                                                                                                                        <br style=3D"box-sizing: border-box;" />
+                                                                                                                        =EB=8C=80=ED=91=9C=EC=9D=B4=EC=82=AC =EC=9D=B4=EB=B3=B8 =EC=B0=AC | =EC=84=9C=EC=9A=B8 =EA=B0=95=EB=82=A8=EA=B5=AC =ED=85=8C=ED=97=A4=EB=9E=80=EB=A1=9C 134, 14=EC=B8=B5
+                                                                                                                        <br style=3D"box-sizing: border-box;" />
+                                                                                                                        Tesla =C2=A9 2023. All Rights Reserved.
+                                                                                                                    </span>
+                                                                                                                    <br />
+                                                                                                                </div>
+                                                                                                            </span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,170 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1691534705;
+	cv=none; b=cdVY+ZKwBEstqScE5QkkUOAX7kRUsTC5UZeFB2JtF1spRpZm6xGG8L3qtkpN
+	 bPur9lRrmkyqkraqaQGcqeryg3/VtpVJcIbIeQoEDWVr6VaM0MLDBcg5Kyf51cqZLDUZew
+	 JUT7kgiN9GNVmXM640ajePD3YtOE8Gk5po++me7pnPWf6iwK8vtlx0DIvO03nddwihegDY
+	 u6ou3Nv9E2sOkbKprUSXyBnhQ6pUy2X4oOJERNrtiMyrqPgUBqnN6ogMTNJhxQ+Z6Sqm4d
+	 HSjX/ouIVIvhMdLCrl4z5QJz6/pvYGTrLTc2R5uzSSYnDFPEGHAqWjYHRytfoX0YmPAopb
+	 +g==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1691534705; c=relaxed/relaxed;
+	bh=t58qAAxKQACU2KXR0BRg6So7fMD4gjKvOvV8Ukg3s9A=;
+	h=dkim-signature:from:to:subject:message-id:date; b=VAUohXHe39beVGHsdRx
+	 x90KleXvuknr8LCy0bSP4qLydibMJ5kdNTHBsdd2gIoWCM7cmM5ZC7v8znPpbZaMcxOqIE
+	 QhMEPHcMtBqvA7IJ+x1PyXP4fh9ZSxcSXQ/T2+qE0AQXpbhiIndS+j86PTjH6WcATcGurh
+	 euHuUHfsgfMLeVzAdlwsK8Me+0OkWCBUqvwICs7URxMdbZ6NcIWJXq4AlDUSIrfv7/BhsG
+	 BwzFR9/RFIDpzEwOygjpjko4FbDJto+Dnjkb+JsvA5urKtmdreS8/Cpso3ky3UowG9Ffbx
+	 GgFA+qO4b4a3j+UKWIIK1k/ay4o9QzlfAeQ5RpUaiuQ==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of 010c0189d75343d1-e9069a2f-76f6-448b-b722-d62b3888c60d-000000@ap-northeast-2.amazonses.com designates 76.223.177.59 as permitted sender) smtp.mailfrom=010c0189d75343d1-e9069a2f-76f6-448b-b722-d62b3888c60d-000000@ap-northeast-2.amazonses.com;
+  dkim=pass header.i=@amazonses.com
+Return-Path: <010c0189d75343d1-e9069a2f-76f6-448b-b722-d62b3888c60d-000000@ap-northeast-2.amazonses.com>
+Received-SPF: pass (mx.naver.com: domain of 010c0189d75343d1-e9069a2f-76f6-448b-b722-d62b3888c60d-000000@ap-northeast-2.amazonses.com designates 76.223.177.59 as permitted sender)
+  client-ip=76.223.177.59; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of 010c0189d75343d1-e9069a2f-76f6-448b-b722-d62b3888c60d-000000@ap-northeast-2.amazonses.com designates 76.223.177.59 as permitted sender) smtp.mailfrom=010c0189d75343d1-e9069a2f-76f6-448b-b722-d62b3888c60d-000000@ap-northeast-2.amazonses.com;
+  dkim=pass header.i=@amazonses.com
+X-Naver-ESV: wdRn+6J4p63qMBIYKNwdbXmZKot9KAkYkXm=
+X-Session-IP: 76.223.177.59
+Received: from c177-59.smtp-out.ap-northeast-2.amazonses.com (c177-59.smtp-out.ap-northeast-2.amazonses.com [76.223.177.59])
+  by crcvmail102.nm.naver.com with ESMTP id 1hna1KA9QYqo2lug64zNbA
+  for <user01@naver.com>
+  (version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256);
+  Fri, 18 Aug 2023 22:45:05 -0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=fjorytowieawoqs5yj2get7wp7ckelq7; d=amazonses.com; t=1691534705;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date:Feedback-ID;
+	bh=t58qAAxKQACU2KXR0BRg6So7fMD4gjKvOvV8Ukg3s9A=;
+	b=ZLMCuh1CzJM0d6MgwmD736JoAo2ArZzWLRgeclEKLz1vydSoMkd7hrf4Zv8Wd0x2
+	15UFSQ7Fj9ei0hCoEaJ9jvU2yCVGZKBEOyxH0AxumoUvqVDHnGTEgqg8DLWVni1aywM
+	vV8fHepY5t2S5OB0jqy4TOttYqNzFbXCAuJHKEjw=
+From: =?UTF-8?B?7KSR6rOg64KY6528?= <no-reply@joonggonara.co.kr>
+To: user01@naver.com
+Subject: =?UTF-8?B?W+ykkeqzoOuCmOudvF0g6rCc7J247KCV67O0?=
+ =?UTF-8?B?IOyymOumrOuwqey5qCDqsJzsoJUg7JWI64K0?=
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <010c0189d75343d1-e9069a2f-76f6-448b-b722-d62b3888c60d-000000@ap-northeast-2.amazonses.com>
+Date: Fri, 18 Aug 2023 22:45:05 +0000
+Feedback-ID: 1.ap-northeast-2.G4j/49Kn3wsJw+U1h4Cs5pgpbSDLhgYzsH/vAWqIY+8=:AmazonSES
+X-SES-Outgoing: 2023.08.18-76.223.177.59
+
+<table style=3D"width: 100%; padding-bottom: 60px; font-size: 0; background=
+-color: #f1f1f1; letter-spacing: -0.3px;" border=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0" align=3D"center">
+<tbody>
+<tr>
+<td align=3D"center">
+<div style=3D"max-width: 600px; margin: 0 auto;">
+<table style=3D"width: 100%; margin: 0px auto; background-color: #ffffff; t=
+ext-size-adjust: 100%; text-align: left; height: 509px;" cellspacing=3D"0" =
+cellpadding=3D"0">
+<tbody>
+<tr style=3D"height: 40px;">
+<td style=3D"height: 40px;" colspan=3D"3" height=3D"40">&nbsp;</td>
+</tr>
+<tr style=3D"height: 84px;">
+<td style=3D"height: 84px;" width=3D"30">&nbsp;</td>
+<td style=3D"height: 84px;"><!-- =EC=9D=B4=EB=AF=B8=EC=A7=80 src =EB=B3=80=
+=EA=B2=BD --> <a href=3D"https://m.joongna.com/" target=3D"_blank" rel=3D"n=
+oreferrer noopener"> <img style=3D"border: 0;" src=3D"https://joonggonara-m=
+edia.s3.ap-northeast-2.amazonaws.com/common/Profile/Default/joongna_square.=
+png" alt=3D"=EC=A4=91=EA=B3=A0=EB=82=98=EB=9D=BC" width=3D"80" height=3D"80=
+" /> </a></td>
+<td style=3D"height: 84px;" width=3D"30">&nbsp;</td>
+</tr>
+<tr style=3D"height: 18px;">
+<td style=3D"height: 18px;" colspan=3D"3" height=3D"12">&nbsp;</td>
+</tr>
+<tr style=3D"height: 40px;">
+<td style=3D"height: 40px;" width=3D"30">&nbsp;</td>
+<td style=3D"font-size: 28px; line-height: 38px; color: #333333; height: 40=
+px;"><span style=3D"font-size: 24px; line-height: 38px; color: #141313; fon=
+t-family: ''Apple SD Gothic Neo'', ''=EB=82=98=EB=88=94=EA=B3=A0=EB=94=95''=
+, NanumGothic, ''=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95'', Malgun Gothic, ''=
+=EB=8F=8B=EC=9B=80'', Dotum, Helvetica, Sans - serif;"><strong>[=EC=A4=91=
+=EA=B3=A0=EB=82=98=EB=9D=BC] =EA=B0=9C=EC=9D=B8=EC=A0=95=EB=B3=B4 =EC=B2=98=
+=EB=A6=AC=EB=B0=A9=EC=B9=A8 =EA=B0=9C=EC=A0=95 =EC=95=88=EB=82=B4</strong><=
+/span></td>
+<td style=3D"height: 40px;" width=3D"30">&nbsp;</td>
+</tr>
+<tr style=3D"height: 18px;">
+<td style=3D"height: 18px;" colspan=3D"3" height=3D"10">&nbsp;</td>
+</tr>
+<tr style=3D"height: 184px;">
+<td style=3D"height: 184px;" width=3D"30">&nbsp;</td>
+<td style=3D"padding: 16px 0px 0px; box-sizing: border-box; font-size: 14px=
+; line-height: 24px; color: #333333; height: 184px;">=EC=95=88=EB=85=95=ED=
+=95=98=EC=84=B8=EC=9A=94, =EC=A4=91=EA=B3=A0=EB=82=98=EB=9D=BC=EC=9E=85=EB=
+=8B=88=EB=8B=A4.<br /><br />=EC=84=9C=EB=B9=84=EC=8A=A4=EB=A5=BC =EC=9D=B4=
+=EC=9A=A9=ED=95=B4 =EC=A3=BC=EC=8B=9C=EB=8A=94 =EC=9D=B4=EC=9A=A9=EC=9E=90 =
+=EC=97=AC=EB=9F=AC=EB=B6=84=EA=BB=98 =EA=B0=90=EC=82=AC=EB=93=9C=EB=A6=AC=
+=EB=A9=B0, =EC=83=88=EB=A1=9C=EC=9A=B4 =EA=B0=9C=EC=9D=B8=EC=A0=95=EB=B3=B4=
+ =EC=B2=98=EB=A6=AC=EB=B0=A9=EC=B9=A8 =EC=A0=81=EC=9A=A9=EC=97=90 =EA=B4=80=
+=ED=95=9C =EC=95=88=EB=82=B4 =EB=A7=90=EC=94=80=EB=93=9C=EB=A6=BD=EB=8B=88=
+=EB=8B=A4.<br /><br />=EC=9E=90=EC=84=B8=ED=95=9C =EB=82=B4=EC=9A=A9=EC=9D=
+=80 =EC=95=84=EB=9E=98=EC=9D=98 [=EA=B3=B5=EC=A7=80=EC=82=AC=ED=95=AD =EB=
+=B0=94=EB=A1=9C=EA=B0=80=EA=B8=B0] =EB=B2=84=ED=8A=BC=EC=9D=84 =ED=86=B5=ED=
+=95=98=EC=97=AC =ED=99=95=EC=9D=B8=ED=95=B4 =EC=A3=BC=EC=8B=9C=EA=B8=B0 =EB=
+=B0=94=EB=9E=8D=EB=8B=88=EB=8B=A4.<br /><br /></td>
+<td style=3D"height: 184px;" width=3D"30">&nbsp;</td>
+</tr>
+<tr style=3D"height: 18px;">
+<td style=3D"height: 18px;" width=3D"30">&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr style=3D"height: 96px;">
+<td style=3D"height: 96px;" width=3D"30">&nbsp;</td>
+<td style=3D"padding: 16px 0px 40px; box-sizing: border-box; text-align: ce=
+nter; height: 96px;"><a style=3D"display: inline-block; width: 220px; paddi=
+ng: 10px; box-sizing: border-box; background: #0DCC5A; border-radius: 4px; =
+text-decoration: none; font-size: 14px; line-height: 20px; text-align: cent=
+er; color: #fff; font-family: ''Apple SD Gothic Neo'', ''=EB=82=98=EB=88=94=
+=EA=B3=A0=EB=94=95'', NanumGothic, ''=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95''=
+, Malgun Gothic, ''=EB=8F=8B=EC=9B=80'', Dotum, Helvetica, Sans-serif;" hre=
+f=3D"https://m.joongna.com/cs/notice/service/488" target=3D"_blank" rel=3D"=
+noopener"> <span style=3D"padding: 0; margin: 8px 0 0 0; box-sizing: border=
+-box; font-size: 14px; line-height: 20px; color: #fff; font-family: ''Apple=
+ SD Gothic Neo'', ''=EB=82=98=EB=88=94=EA=B3=A0=EB=94=95'', NanumGothic, ''=
+=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95'', Malgun Gothic, ''=EB=8F=8B=EC=9B=80=
+'', Dotum, Helvetica, Sans-serif;"> =EA=B3=B5=EC=A7=80=EC=82=AC=ED=95=AD =
+=EB=B0=94=EB=A1=9C=EA=B0=80=EA=B8=B0 </span> </a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style=3D"max-width: 600px; margin: 30px auto; padding: 0 20px; box-siz=
+ing: border-box;">
+<p style=3D"margin: 0; word-break: keep-all; text-align: left; font-size: 1=
+2px; line-height: 20px; font-family: ''Apple SD Gothic Neo'', ''=EB=82=98=
+=EB=88=94=EA=B3=A0=EB=94=95'', NanumGothic, ''=EB=A7=91=EC=9D=80=EA=B3=A0=
+=EB=94=95'', Malgun Gothic, ''=EB=8F=8B=EC=9B=80'', Dotum, Helvetica, Sans-=
+serif; color: #333;">=E2=80=BB =EB=B3=B8 =EB=A9=94=EC=9D=BC=EC=9D=80 =EB=B0=
+=9C=EC=8B=A0 =EC=A0=84=EC=9A=A9=EC=9D=B4=EB=AF=80=EB=A1=9C =ED=9A=8C=EC=8B=
+=A0=EC=9D=B4 =EB=90=98=EC=A7=80 =EC=95=8A=EC=8A=B5=EB=8B=88=EB=8B=A4. =EA=
+=B6=81=EA=B8=88=ED=95=98=EC=8B=A0 =EC=82=AC=ED=95=AD=EC=9D=80 1:1=EB=AC=B8=
+=EC=9D=98=EB=A5=BC =EC=9D=B4=EC=9A=A9=ED=95=B4 =EC=A3=BC=EC=8B=9C=EA=B8=B0 =
+=EB=B0=94=EB=9E=8D=EB=8B=88=EB=8B=A4.</p>
+</div>
+<div style=3D"max-width: 600px; margin: 20px auto; padding: 0 20px; box-siz=
+ing: border-box;">
+<p style=3D"margin: 0; word-break: keep-all; text-align: left; font-size: 1=
+2px; line-height: 18px; font-family: ''Apple SD Gothic Neo'', ''=EB=82=98=
+=EB=88=94=EA=B3=A0=EB=94=95'', NanumGothic, ''=EB=A7=91=EC=9D=80=EA=B3=A0=
+=EB=94=95, Malgun Gothic, ''=EB=8F=8B=EC=9B=80'', Dotum, Helvetica, Sans-se=
+rif; color: #7f7f7f;">=EC=83=81=ED=98=B8=EB=AA=85 : =E3=88=9C=EC=A4=91=EA=
+=B3=A0=EB=82=98=EB=9D=BC | =EB=8C=80=ED=91=9C=EC=9E=90 : =ED=99=8D=EC=A4=80=
+ | =EC=84=9C=EC=9A=B8=ED=8A=B9=EB=B3=84=EC=8B=9C =EC=84=9C=EC=B4=88=EA=B5=
+=AC =EC=84=9C=EC=B4=88=EB=8C=80=EB=A1=9C 301 =EB=8F=99=EC=9D=B5=EC=84=B1=EB=
+=B4=89=EB=B9=8C=EB=94=A9 7=EC=B8=B5 | =EC=82=AC=EC=97=85=EC=9E=90=EB=B2=88=
+=ED=98=B8 : 215-87-87482<br />=ED=86=B5=EC=8B=A0=ED=8C=90=EB=A7=A4=EC=97=85=
+=EC=8B=A0=EA=B3=A0=EB=B2=88=ED=98=B8 : =EC=A0=9C2019-=EC=84=9C=EC=9A=B8=EC=
+=84=9C=EC=B4=88-0097=ED=98=B8 | =EB=8C=80=ED=91=9C=EB=B2=88=ED=98=B8 : 1533=
+-7861 | =ED=8C=A9=EC=8A=A4=EB=B2=88=ED=98=B8 : 070-8668-5331</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>

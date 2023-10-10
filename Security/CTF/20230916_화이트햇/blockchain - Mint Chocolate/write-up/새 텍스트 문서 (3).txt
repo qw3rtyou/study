@@ -1,0 +1,6 @@
+혹시 foundry로 푸신분 있나여
+
+PENGUN — 오늘 오후 10:09
+forge create Exploit --rpc-url [rpc] --private-key [pk] --constructor-args [setup addr]
+
+solve.js

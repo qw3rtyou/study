@@ -1,0 +1,71 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1670574845;
+	cv=none; b=rWoRFsNHBlFtewSzE5M0Awm9OgEwtU5VJ3tggFJSQeI42XUipBTrm9bmi+5g
+	 FNPNn0Ub/UP7VBXBc2Hj/DB30cpNRUY8IAAZL3HQopTQ/aTAIS+jHZXkMcJbpoilO/b+g6
+	 lwGm3cxwEIPhFdp6Nijx9bQHggAybJy9acb5plOGNrzrQyeQZEGOyKwOd3pBIv3HjhvMEY
+	 tyO0Wgh8+mtcppGMieDlHAhC/p/1bjupHrJa7ia1eGpUW28v/wnnjaPCytuLYphcHbVNX6
+	 Gzb2TAZ7Lfe+Szy+4i1cQiNCTPOyJ6dcXXEqQ/RBKMXg3nBzbyJlZGF2t9sfHA8WsPWUtc
+	 cA==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1670574845; c=relaxed/relaxed;
+	bh=tfn4TPh7/Svq1+BKtTYEI5XH/8KoeCuUOolRBZZKzCU=;
+	h=from:to:subject:date:message-id; b=NVRVFjKoy+96erHPSWvzZlzmwYozW7y/9L
+	 SQoKyLxzGbPpMdQKX04dLbIhukbOzZZ03OvVEdk/HOWx9iGzz/0LuG1uCCQuTckCnxZoai
+	 wZoc5coZAQ4G3aeqW+shAUJ1W21XYpNuEWDMlZSLdAP5SsSv5BUL6PoD7PVJh8cJiw6efa
+	 1sWsRfPiSW+x12omOMBjCJd8DTHWcM9x8e9vzwO5y5ESF1ZDd1mDIB7MnL5bUFRMOcSj50
+	 rvjTqY1Jcx0WYR4KkVIgaL4woVtHIGV8n9IE0GqAyRvfxoqfgrHCkFVCxbHoXj+vO1ANCu
+	 OItI7kQbNEqE6xAxgpMm6S9Ia3NQ==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of sunreturn@miraeasset.com designates 211.115.103.104 as permitted sender) smtp.mailfrom=sunreturn@miraeasset.com
+Return-Path: <sunreturn@miraeasset.com>
+Received-SPF: pass (mx.naver.com: domain of sunreturn@miraeasset.com designates 211.115.103.104 as permitted sender)
+  client-ip=211.115.103.104; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of sunreturn@miraeasset.com designates 211.115.103.104 as permitted sender) smtp.mailfrom=sunreturn@miraeasset.com
+X-Naver-ESV: w9Rn+6J4p63qMBIYFHwdbXmmaAKdKAkYkXm=
+X-Session-IP: 211.115.103.104
+Received: from mailing.miraeasset.com (mailing.miraeasset.com [211.115.103.104])
+  by crcvmail103.nm.naver.com with ESMTP id NsF7BI9hTfeij0dHn843gg
+  for <user01@naver.com>;
+  Fri, 11 Aug 2023 08:34:05 -0000
+From: "=?utf-8?B?66+4656Y7JeQ7IWL7Kad6raM?=" <mailmaster@miraeasset.com>
+To: "=?utf-8?B?67CV7KeA7J2A?=" <user01@naver.com>
+Reply-to: <mailmaster@miraeasset.com>
+Subject: =?utf-8?B?W+uvuOuemOyXkOyFi+ymneq2jF0g6riI7Jy16rGw656Y7KCV67O0?=
+ =?utf-8?B?IOygnOqztSDrgrTsl60g7JWI64K0?=
+Date: Fri, 11 Aug 2023 17:34:05 +0900
+X-WORKER_ID: <single.naver.com_Worker_6>
+X-MAIL_ID: <UE9TVF9JRD0yMDIyMTIwOTAwMDAz>
+X-MEMBER_ID: <TV9JRD0wOTMyNDMwOQ==>
+X-SEND_TYPE: <U1RZUEU9TUFTUw==>
+X-LIST_TABLE: <TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTI=>
+X-Mailer: eMsSMTP Ver6.5( PLUTO-build 0322 )
+MIME-Version: 1.0
+Message-ID: <202212091734052811@mailing.miraeasset.com_Ems@mailing.miraeasset.com>
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<html>
+<head>
+<title>미래에셋증권</title>
+</head>
+<body style="font-size: 12px; font-family: &quot;Dotum&quot;, sans-serif; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; padding-right: 0px; background-color: #fff">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="720">
+<tbody>
+<tr>
+<td style="padding-bottom: 0px; padding-top: 0px; padding-left: 0px; padding-right: 0px">
+<img alt="이미지" border="0" src="https://img.securities.miraeasset.com/email/info/2022/edm_fti_20221209.jpg" usemap="#link" /> <map name="link">
+<!-- 로고 -->
+<area shape="rect" coords="540, 12, 683, 70" alt="미래에셋증권" target="_blank" href="https://mailing.miraeasset.com/Check.html?TV9JRD0wOTMyNDMwOQ==&U1RZUEU9TUFTUw==&TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTI=&UE9TVF9JRD0yMDIyMTIwOTAwMDAz&VEM9MjAyMjEyMTY=&S0lORD1D&Q0lEPTAwMQ==&URL=https://securities.miraeasset.com" />
+
+</map></td>
+</tr>
+</tbody>
+</table>
+<div style="display:none"><img src="https://mailing.miraeasset.com/Check.html?TV9JRD0wOTMyNDMwOQ==&U1RZUEU9TUFTUw==&TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTI=&UE9TVF9JRD0yMDIyMTIwOTAwMDAz&VEM9MjAyMjEyMTY=&S0lORD1P" width=1 height=1></div>
+<iframe src="https://mailing.miraeasset.com/Check.html?TV9JRD0wOTMyNDMwOQ==&U1RZUEU9TUFTUw==&TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTI=&UE9TVF9JRD0yMDIyMTIwOTAwMDAz&VEM9MjAyMjEyMTY=&S0lORD1E" frameborder="0" width="1" height="1"></iframe>
+</body>
+</html>
+
+
+

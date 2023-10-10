@@ -1,0 +1,992 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1663920284;
+	cv=none; b=n+5P4kbUCJ3wT0imptRhmYsIm8FqglbzubBYkPXpp4+M9ANWaSDJW+69cHVg
+	 coKGUkOdYvIbTsEb4c+vV0ezUNXZDJ0YFwlzMVA2IFQIgjct7yMY0RSJ0/csoPaRIQ8Gxe
+	 gXnIHvNaIt+dCACBMAmhn9tKlKwkCezdVPM0vxwwkp+4p9gESgxoHkadUwIK6IHIegAUn+
+	 UfAZms8zPZDsuw/DE7pqdzXUNNf1pxq7T0ycVY7OaLkZ5k9wVPeEABO9c+SP0NliYM3zv3
+	 etnURUMInfWJge/nuISu4VPUvZyDbaAOCUhWcVpS9TZIZrTdWydzX6t3txabAnJ1fsp2q8
+	 bw==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1663920284; c=relaxed/relaxed;
+	bh=Va6u32EMnwpvNk/4T5aqm17Gm3XCOi+lvw4ZZrK18fw=;
+	h=dkim-signature:from:to:subject:date:message-id; b=KsaBt36DT0OMr+5kPRq
+	 VAK4U+XdDahZ4zStMbcCLRhPX9aLNydSB6MAQAxBb/8GLZ5Z6awDShc24UHKeH6CLk7VOo
+	 L/IoslX7A+1cI3lJ197LG+DppYXuFMwnWghHgVFXj9N31oYiq25BKFf3dRLA+ex1qgC6pz
+	 Jk2LDZrlui/1UD6WboOgAQ14Ibq34zVYUPKQaqvclxTnACyyJCSlsQ4jT2wwF+CkJIEiO1
+	 ISvsA2/u97UvUpWtWHArZRPjZBKWFm1xF1j1fKHBNmQ8ewWM2nMM/pZyyl+1FPlm7Z5XWL
+	 hxuYns7qU46xFsAnu0Lf40WKLU1GGYC8yXvsrofmnqw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of bounce-112_HTML-161282488-325305-514007239-35@bounce.asia.aesop.com designates 13.111.174.99 as permitted sender) smtp.mailfrom=bounce-112_HTML-161282488-325305-514007239-35@bounce.asia.aesop.com;
+  dkim=pass header.i=@kr.aesop.com;
+  dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=kr.aesop.com
+Return-Path: <bounce-112_HTML-161282488-325305-514007239-35@bounce.asia.aesop.com>
+Received-SPF: pass (mx.naver.com: domain of bounce-112_HTML-161282488-325305-514007239-35@bounce.asia.aesop.com designates 13.111.174.99 as permitted sender)
+  client-ip=13.111.174.99; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of bounce-112_HTML-161282488-325305-514007239-35@bounce.asia.aesop.com designates 13.111.174.99 as permitted sender) smtp.mailfrom=bounce-112_HTML-161282488-325305-514007239-35@bounce.asia.aesop.com;
+  dkim=pass header.i=@kr.aesop.com;
+  dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=kr.aesop.com
+X-Naver-ESV: wZ+n+6J4p63CbHmrKBwdbXFYKA2mFAtdjJ+Y
+X-Session-IP: 13.111.174.99
+Received: from mta.asia.aesop.com (mta.asia.aesop.com [13.111.174.99])
+  by crcvmail302.nm.naver.com with ESMTP id 4pVaf9UWSbKTiigHjUDNcA
+  for <user01@naver.com>;
+  Sun, 20 Aug 2023 08:04:44 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=11dkim1; d=kr.aesop.com;
+ h=From:To:Subject:Date:List-Unsubscribe:List-Unsubscribe-Post:MIME-Version:
+ List-ID:X-CSA-Complaints:Reply-To:Message-ID:Content-Type;
+ i=newsletter@kr.aesop.com;
+ bh=Va6u32EMnwpvNk/4T5aqm17Gm3XCOi+lvw4ZZrK18fw=;
+ b=IVdt72rAIL8NeC9j1f1iHPpUzw3/BR/+/h1wYuIzqGkpL1s4CKKZDLESNRcapvGKJOz5YMRf+l5g
+   bsrkkDoNZevWJUabqP+EpuvI3D6zqmvLzOK1ciVaHCOL8QkOdxw0p4AIyJrRbxwmcx0fQ6ApLnbQ
+   U5M6KMIOa1805x3BotSs1R+wbrNQlERY0cqL9x4mv4nfhXXBRaL0jEWj9i+2whXdWKHu13UxhQV3
+   9NMxI8285U3NrJakIm/Ysx6Wn2cS8GopKK2bYL+PJJS2Lm4W2mDQarvg2SjPpbKwlcWxGVTg/G9c
+   /Nx8r+ybykLPK+ZXJz+IbmXrtiOfWpDVytLnbg==
+Received: by mta.asia.aesop.com id h5lk9o2fmd4m for <user01@naver.com>; Sun, 20 Aug 2023 08:04:40 +0000 (envelope-from <bounce-112_HTML-161282488-325305-514007239-35@bounce.asia.aesop.com>)
+From: "Aesop" <newsletter@kr.aesop.com>
+To: <user01@naver.com>
+Subject: =?UTF-8?B?6rCQ7IKs7J2YIOyduOyCrA==?=
+Date: Sun, 20 Aug 2023 02:04:40 -0600
+List-Unsubscribe: <https://click.asia.aesop.com/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiI1MTQwMDcyMzkiLCJzIjoiMTYxMjgyNDg4IiwibGlkIjoiMTEyIiwiaiI6IjMyNTMwNSIsImpiIjoiMzUiLCJkIjoiMTEwMDEzIn0.l4Pw7VbpsuH_6rX5WEaX2H8ZA_OAqLXueb4GD1IfB9c>, <mailto:leave-fd571571770b5c392848-fe27157674660c7f711c78-fecd177270670478-fe3011717164047a771779-ff971775@leave.asia.aesop.com>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+x-CSA-Compliance-Source: SFMC
+MIME-Version: 1.0
+List-ID: <514006344.xt.local>
+X-CSA-Complaints: csa-complaints@eco.de
+X-SFMC-Stack: 11
+x-job: 514007239_325305
+Reply-To: "Aesop Korea" <reply-fecd177270670478-112_HTML-161282488-514007239-35@asia.aesop.com>
+Message-ID: <f36149ef-132e-4a31-b9b1-3390b8b4148a@atl1s11mta478.xt.local>
+Content-Type: multipart/alternative;
+	boundary="k14v0AbxLdG0=_?:"
+
+This is a multi-part message in MIME format.
+
+--k14v0AbxLdG0=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Aesop
+  
+
+ 
+
+
+
+
+ 
+
+
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; 
+
+ TEST EMAIL PROPERTIES
+
+ SubscriberKey: 0264b0b94a3288e7
+
+ Locale: ko-kr via Data Extension
+ 
+ Email Name: KR_Welcome_01_Thanks_purchaser_(1a&1b)
+
+ Email ID: 38319
+
+ Data Source: All Subscribers
+
+ Preheader: 
+
+ utm_campaign: 
+
+ utm_term:
+
+
+
+ 
+
+https://click.asia.aesop.com/?qs=4481832ed8490bad206720c7e41ad2ef523b5e80d4114471ae845e5b63212c8061eb0261297dca607a74ce5319174436fd33f4d48c2b3aeadb1d7e5c2d050255 
+
+ 
+https://view.asia.aesop.com/?qs=6d0cbd7de8cd45343c3f117f1f74abbc7ac3a346b501b3d1913573ef476ad2b3372a63f3ec8a8d7859d3d1977f2c0ae39ea932af36fcd18dcef4a253278c60e45bc53ad16c27940873ab5e994c0dfbc9 
+웹 버전으로 보기 
+
+
+ 
+
+ 
+
+ 
+     
+https://click.asia.aesop.com/?qs=4481832ed8490bada2adee0cdc3abb14cc9309c7395bccf1bfb5a8654ee9617c6c7e04202838691372be0eea12f29fdb1a9b4301021cdf7859c020d4e8bc1da1 
+스킨      
+https://click.asia.aesop.com/?qs=4481832ed8490bad3ba9ffb8e30f6b202f4a3eb3a18df7aa8979b0c38002db9b39ad11483c6ffaebaf4c44712cf67383289ae104a1a442e2f889287860fd69a1 
+바디 & 핸드      
+https://click.asia.aesop.com/?qs=4481832ed8490bad4dd5732422a3fcb910c7c50061c9d54f47c6ad6c87817ee444852366e9656f443c35f97ffd3aee55da09594b47f2e01c34215045188262ed 
+홈      
+https://click.asia.aesop.com/?qs=4481832ed8490bad5c791bcfdbe6c4865d380ae78d5429327b0dae37537b7194bf410f0785efa77aab126511f8c6687f09cbb840e7f2f19444b3f1006c847fec 
+기프트 가이드       
+https://click.asia.aesop.com/?qs=4481832ed8490badd4f1693b4e59faef00c1831dbcc3e22636b3d2c031d2713ba08e30559984b33724a10939f6fc92a5c2b603beafbc371765234acfcba93379 
+향수      
+
+ 
+
+
+
+이솝을 방문해 주셔서 감사합니다.
+
+
+ 
+
+
+
+https://click.asia.aesop.com/?qs=4481832ed8490bad206720c7e41ad2ef523b5e80d4114471ae845e5b63212c8061eb0261297dca607a74ce5319174436fd33f4d48c2b3aeadb1d7e5c2d050255 
+
+
+ 
+
+
+이솝에서의 경험을 통해 효과적이고 즐거움을 선사하는 제품을 만드려는 의지를 확인하실 수 있으리라 믿습니다. 더욱 우수한 효과를 위해 제품 사용과 더불어 균형 잡힌 라이프스타일과 예술의 일상적 향유를 제안합니다.
+
+
+궁금한 점이 있으실 경우, 매장을 방문하시거나 
+https://click.asia.aesop.com/?qs=4481832ed8490badfbd6eadc7097215350e3d703a067bbc64fe9ae0f378dc7fb2321be7ed4a116d5da4d6f5cf278bfd1f590d2a72c2fb323 
+여기 로 문의해주세요. 이솝의 숙련된 컨설턴트가 기쁜 마음으로 도움을 드릴 것입니다. 스킨 케어, 향수 또는 추천 도서 등 다양한 주제로 고객님과 대화를 나눌 수 있기를 기대합니다.
+
+
+ 
+
+
+
+ 
+https://click.asia.aesop.com/?qs=4481832ed8490bad57f269de7ba8ec2f52afc359f2ed1285b454ee44ce27a72a90991be9155e844c9e3c5559d9ed42c93563ee1eb2044f5675cec2f4c3ac69f7 
+ 레인지 보기    
+ 
+
+
+ 
+
+
+
+  
+
+ &lsquo;Remember tonight... for it is the beginning of always.&rsquo;
+
+  
+
+ Dante Alighieri
+
+  
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+    
+https://click.asia.aesop.com/?qs=4481832ed8490bad566524d652330a77038a19bcfcbe17aca54dd6ee91b7c7e3295569db6a2400da469f0792e2b393b598feb1f347315ed9 
+제품보기     
+https://click.asia.aesop.com/?qs=4481832ed8490bad7c0a155e731282f2e896f7767b7f8a67a99aec023680e2d337326ef21c219e5cdcccc36c6df85c90d4295aae79009b24 
+스토어 검색      
+https://click.asia.aesop.com/?qs=4481832ed8490badc7c96fd6ffabe37d194d5cffaef6b22f177108a698c493829b8f650cfa69634a2cd06ce5e6eea6459a3d4b376cb37ce2 
+자주하는질문     
+https://click.asia.aesop.com/?qs=4481832ed8490bad0a2cca3447c5df93cd8f6aff7088b517db99dbb532d756b3931be955cd74282d54b5dce567ce9359cabc250595459e7b 
+개인정보 처리방침     
+https://click.asia.aesop.com/?qs=4481832ed8490badeea9ece78c54059c25d63fcc70dd9cc12c46d5843a7c93cd505111968b7a8779bcfb36107eafc3fdc1de9787996b84fe 
+이용 약관     
+https://click.asia.aesop.com/?qs=4481832ed8490bad77f87a97902a0952f65bd7c35239e70eb78a7ab0657d42f41c96290a101bae911b32b22d52fd63bda675f9a4c7b7ea89 
+지속가능성       
+https://click.asia.aesop.com/?qs=4481832ed8490bad96487b667024256ece7393bc12d1761c35f581fe3ae7ddd8b3da0a745efb1df55fcdc8b3fbaba33fbac8e629614de4c6 
+Facebook      
+https://click.asia.aesop.com/?qs=4481832ed8490badad46ee30f3a0ea3588a79a74336b1621d53e0846ad9fb8f0c85868e3edde6e9780742243a64dd40891129a0529275725 
+Instagram      
+https://click.asia.aesop.com/?qs=4481832ed8490bad5221baedba75527c4fb4a0b6808d4e3fd0b69d5528b1f5699fd5a33d1bbe8b6f5337dc8ff76150810c871e8d6e4ca90a 
+Kakao Plus Friends     
+
+ 
+
+이솝은 비콥 인증을 획득한 브랜드이며, PETA로부터 비건 인증을 받은 브랜드입니다.
+
+ 
+ Aesop, 10-6, Dosan-daero 45-gil, Gangnam-gu, Seoul, Republic of Korea 06021  
+ Tel.1800-1987
+
+Copyright (c) 2022 Aesop All rights reserved.
+
+ 
+
+https://click.asia.aesop.com/?qs=4481832ed8490baddef1a2a0b6ea5c9ee024351ef62505f21cc294a8425a52a5fdfd206ecae7966ed62274c730d14b7d33f1543d54daf70e5a321b863fd3752b 
+구독 취소 및 환경 설정 업데이트 
+
+Unsubscribe and update preferences
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+--k14v0AbxLdG0=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"> 
+<head>
+<!--[if gte mso 9]>     <xml>       <o:OfficeDocumentSettings>         <o:AllowPNG/>         <o:PixelsPerInch>96</o:PixelsPerInch>       </o:OfficeDocumentSettings>      </xml> <![endif]-->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="referrer" content="no-referrer" />
+<title>Aesop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0 " />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="format-detection" content="date=no"/>
+<meta name="format-detection" content="address=no"/>
+<meta name="format-detection" content="email=no"/>
+<meta name="x-apple-disable-message-reformatting"/>
+<!----> 
+
+<!--[if !mso]><!-->
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><center>  </center>
+<!----></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><center>
+  
+</center></td></tr></table>
+<!--<![endif]--> 
+
+<!----> 
+
+<!--[if !mso]><!-->
+<center>
+  
+<!---->
+</center>
+<!--<![endif]--> 
+  
+<!-- Start Gmail Promo Tab annotations code -->
+  <!-- Custom Logo -->
+  <div itemscope="" itemtype="http://schema.org/Organization">
+   <meta itemprop="name" content="Aesop">
+   <meta itemprop="logo" content="https://image.s11.sfmc-content.com/lib/fe3311717164047a771776/m/1/5fd86632-40a5-42ac-8856-b361e753733c.png">
+  </div>
+  <!-- SubjectLine -->
+  <!---->
+  <!-- PromotionCard -->
+  <!---->
+  <!-- Deal Badge -->
+  <div itemscope="" itemtype="http://schema.org/DiscountOffer">
+    <meta itemprop="description" content="">
+    <meta itemprop="discountCode" content="">
+  <!---->
+  </div>
+<!-- End Gmail Promo Tab annotations code -->
+  
+<style type="text/css">
+@font-face {
+ font-family: 'Optima';
+ font-style: normal;
+ font-weight: 300;
+ src: url(http://hosting-source.bm23.com/35578/public/fonts/new/OPTIM__.TTF);
+}
+@font-face {
+ font-family: 'Suisse';
+ font-style: normal;
+ font-weight: 300;
+ src: url(http://hosting-source.bm23.com/35578/public/fonts/new/SuisseIntl-Regular.ttf);
+}
+@font-face {
+ font-family: 'Humanist';
+ font-style: normal;
+ font-weight: 300;
+ src: url(http://hosting-source.bm23.com/35578/public/fonts/new/Zap601Rm.ttf);
+}
+body {
+ margin: 0 !important;
+ padding: 0 !important;
+ -webkit-text-size-adjust: 100% !important;
+ -ms-text-size-adjust: 100% !important;
+ -webkit-font-smoothing: antialiased !important;
+}
+img {
+ border: 0 !important;
+ outline: none !important;
+}
+p {
+ Margin: 0px !important;
+ Padding: 0px !important;
+}
+table {
+ border-collapse: collapse;
+ mso-table-lspace: 0px;
+ mso-table-rspace: 0px;
+}
+td, a, span {
+ border-collapse: collapse;
+ mso-line-height-rule: exactly;
+}
+.ExternalClass * {
+ line-height: 100%;
+}
+.defaultlink a {
+ color: inherit !important;
+ text-decoration: none !important;
+}
+span.MsoHyperlink {
+ mso-style-priority: 99;
+ color: inherit;
+}
+span.MsoHyperlinkFollowed {
+ mso-style-priority: 99;
+ color: inherit;
+}
+/*.img {
+Remove blue links in Outlook iOS
+}*/  
+a[x-apple-data-detectors] {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
+/*.img {
+Remove blue links in Gmail
+}*/   
+u + #body a {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
+
+#MessageViewBody, #MessageWebViewDiv {
+ width: 100% !important;
+}  
+.grey a {
+ color: #333333;
+ text-decoration: none;
+}
+.grey1 a {
+ color: #666666;
+ text-decoration: none;
+}
+.grey2 a {
+ color: #4C4C4C;
+ text-decoration: none;
+}
+.blue a {
+ color: #122f60;
+ text-decoration: none;
+}
+.blue2 a {
+ color: #0079c8;
+ text-decoration: none;
+}
+.blue1 a {
+ color: #007aec;
+ text-decoration: none;
+}
+.blue1_u a {
+ color: #0079c8;
+ text-decoration: underline;
+}
+.blue3 a {
+ color: #009ee0;
+ text-decoration: none;
+}
+.blue4 a {
+ color: #16366d;
+ text-decoration: none;
+}
+.red a {
+ color: #cf1326;
+ text-decoration: none;
+}
+.black a {
+ color: #4c4c4c;
+ text-decoration: none;
+}
+.black1 a {
+ color: #000000;
+ text-decoration: none;
+}
+.black2 a {
+ color: #383838;
+ text-decoration: none;
+}
+.pink a {
+ color: #ec008c;
+ text-decoration: none;
+}
+.white a {
+ color: #ffffff;
+ text-decoration: none;
+}
+.white1 a {
+ color: #ffffff;
+ text-decoration: underline;
+}
+ @media only screen and (min-width:480px) and (max-width:639px) {
+.main_table {
+ width: 100% !important;
+}
+.wrapper {
+ width: 100% !important;
+}
+.side {
+ padding-left:25px !important;
+ padding-right:25px !important;
+}
+.hide {
+ display: none !important;
+}
+.img {
+ width: 100% !important;
+ height: auto !important;
+ max-width: none !important;
+}
+.center {
+ text-align: center !important;
+}
+.height {
+ height: 20px !important;
+ line-height:1px !important;
+ font-size:1px !important;
+}
+.height100 {
+ height: 100px !important;
+}
+.top {
+ padding-top: 20px !important;
+}
+.padbtm {
+ padding-bottom: 10px !important;
+}
+.padbtm40 {
+    padding-bottom: 40px !important;
+}   
+.top15 {
+ padding-top: 10px !important;
+}
+.pad {
+ padding: 0 10px !important;
+}
+.mobile_show {
+ display: table !important;
+ float: none !important;
+ width: 100% !important;
+ overflow: visible !important;
+ height: auto !important;
+}
+.pad0 {
+ padding: 0px !important;
+}
+.br {
+ display:block !important;
+}
+.hauto {
+ height: auto !important;
+}
+.bg {
+ background:none !important;
+ height:auto !important;
+}
+.w180 {
+ width:180px !important;
+ max-width: 180px !important;
+}
+.wd_25 {
+ width: 25px !important;
+}
+.wd_40 {
+ width:25px !important;
+}
+.wrap_300 {
+width: 340px !important;
+}
+.footer_box2
+ {
+width: 115px !important;
+}
+.footer_box1
+ {
+width: 95px !important;
+}   
+}
+ @media screen and (max-width: 479px) {
+.main_table {
+ width: 100% !important;
+}
+.wrapper {
+ width: 100% !important;
+}
+.hide {
+ display: none !important;
+}
+.height100 {
+ height: 100px !important;
+}
+.img {
+ width: 100% !important;
+ height: auto !important;
+ max-width: none !important;
+}
+.footer_box2
+ {
+width: 115px !important;
+}
+.footer_box1
+ {
+width: 95px !important;
+}   
+.font24 {
+  font-size: 24px !important;
+  line-height: 32px !important;
+}   
+.center {
+ text-align: center !important;
+}
+.height {
+ height: 20px !important;
+ line-height:1px !important;
+ font-size:1px !important;
+}
+.hauto {
+ height: auto !important;
+}
+.top {
+ padding-top: 20px !important;
+}
+.padbtm {
+ padding-bottom: 10px !important;
+}
+.padbtm40 {
+    padding-bottom: 40px !important;
+}   
+.top15 {
+ padding-top: 10px !important;
+}
+.br {
+ display:block !important;
+}
+.pad {
+ padding: 0 10px !important;
+}
+.pad0 {
+ padding: 0px !important;
+}
+.mobile_show {
+ display: table !important;
+ float: none !important;
+ width: 100% !important;
+ overflow: visible !important;
+ height: auto !important;
+}
+.side {
+ padding-left: 20px !important;
+ padding-right: 20px !important;
+}
+.side10 {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}    
+.bg {
+ background:none !important;
+ height:auto !important;
+}
+.w160 {
+ width:160px !important;
+ max-width: 160px !important;
+}
+.w180 {
+ width:180px !important;
+ max-width: 180px !important;
+}   
+.bg-height-530 {
+  width: 100% !important;
+  height: 530px !important;
+  background-size: 100%;
+  background-position: 50% 50%;            
+}
+.bg-height-480 {
+  width: 100% !important;
+  height: 480px !important;
+  background-size: 100%;
+  background-position: 50% 50%;            
+}   
+.bg-height-420 {
+  width: 100% !important;
+  height: 420px !important;
+  background-size: 100%;
+  background-position: 50% 50%;            
+}
+.bg-height-350 {
+  width: 100% !important;
+  height: 350px !important;
+  background-size: 100%;
+  background-position: 50% 50%;            
+}
+.wd_25 {
+ width: 15px !important;
+}
+.wd_40 {
+ width:40px !important;
+}
+.wrap_300 {
+width: 315px !important;
+}  
+}
+.img {
+ width: 100% !important;
+ height: auto !important;
+}
+.img {
+ width: 100% !important;
+ height: auto !important;
+}
+@media screen and (max-width: 400px) {
+.wrap_300 {
+ width: 100% !important;
+}
+.eblock {
+ display: block !important;
+}
+.f_11 {
+ font-size: 11px !important;
+ line-height: 13px !important;
+}
+.footer_box2
+ {
+width: 115px !important;
+}
+.footer_box1
+ {
+width: 95px !important;
+}  
+}
+ 
+</style>
+<!--[if mso]>   <style type="text/css">       body, table, td {         font-family: Arial,  sans-serif !important;       }   </style> <![endif]-->
+
+</head>
+  
+<body id="body" style="margin:0px; padding:0px;" ><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">진심 어린 악수</div>
+<!-- Everest Inbox Placement -->
+  <!-- X-250ok-CID: 514007239-38319 -->
+<!-- //Everest Inbox Placement -->
+<!-- Everest Engagement Pixel -->
+  <style> @media print{ #_two50 { background-image:url('http://250analytics.aesop.com/ea/f9YWAkel7Q/?t=p&e=user01@naver.com&c=325305&global_country=KR'); } } blockquote #_two50, #mailContainerBody #_two50, div.OutlookMessageHeader, table.moz-email-headers-table { background-image:url('http://250analytics.aesop.com/ea/f9YWAkel7Q/?t=f&e=user01@naver.com&c=325305&global_country=KR'); } </style> <div id='_two50'></div> <img id='_two50_img' src='http://250analytics.aesop.com/ea/f9YWAkel7Q/?e=user01@naver.com&c=325305&global_country=KR' width='1' height='1' style='margin:0 !important; padding:0 !important; border:0 !important; height:1px !important; width:1px !important;' />
+<!-- //Everest Engagement Pixel -->
+
+<!-- Full width table start -->
+<table width="100%" border="0" style="table-layout:fixed;" align="center" cellspacing="0" cellpadding="0" >
+<div style="display: none; max-height: 0px; overflow: hidden;">
+ <!-- Additional email preview text here -->
+</div>
+<!-- Insert &zwnj;&nbsp; hack after hidden preview text -->
+<div style="display: none; max-height: 0px; overflow: hidden;">
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+</div> 
+  <!--Header-->
+  <tr>
+    <td align="center" valign="top"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><center>
+ <!---->
+</center></td></tr></table></td>
+  </tr>
+  <!--//Header--> 
+  <!--Header-->
+  <tr>
+    <td align="center" valign="top"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table align="center" bgcolor="#FFFEF3" border="0" cellpadding="0" cellspacing="0" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" class="main_table" style="width:640px;" width="640">
+					
+						<tr>
+							<td align="center" class="side" valign="top">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" class="wrapper" style="width:600px;" width="600">
+									
+										<tr>
+											<td class="height" height="23" style=" height:23px;">
+												&nbsp;</td></tr><tr>
+											<td align="center" valign="top">
+												<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+													
+														<tr>
+															<td align="left" valign="top" width="90">
+																<a  border="0" href="https://click.asia.aesop.com/?qs=4481832ed8490badce310fd4ad9f50c12ca0fca8d01534814ae8d902d8766da36ccd45c701f0f7d45532b34b9539361d1619036d5c7f721c724f6bfff9ce7666" style="text-decoration:none;color:#444444;" target="_blank"><img alt="Aesop" src="https://image.anz.aesop.com/lib/fe3211717164047a771777/m/1/da5157b7-ac2b-41d6-81ee-abf138b559d0.png" style="display:block; border:none; color:#444444; font-family: Helvetica, Arial, sans-serif; font-size:12px; font-weight:bold;" width="91"></a></td><td>
+																&nbsp;</td><!----><td class="grey1" style="font-family: 'Suisse', Helvetica, Arial, sans-serif; font-size:12px; font-weight:normal; line-height:18px;color:#666666;text-align:right;" valign="top">
+																<a  href="https://view.asia.aesop.com/?qs=6d0cbd7de8cd45343c3f117f1f74abbc7ac3a346b501b3d1913573ef476ad2b3372a63f3ec8a8d7859d3d1977f2c0ae39ea932af36fcd18dcef4a253278c60e49b6235b108ed88eb91409cdfe0f4071d" style="text-decoration:none; color:#666666;">웹 버전으로 보기</a></td><!----></tr></table></td></tr><tr>
+											<td height="20" style="height:20px;line-height:1px;font-size:1px;">
+												&nbsp;</td></tr><tr>
+											<td bgcolor="#CFCDC0" height="1" style="height:1px;line-height:1px;font-size:1px;">
+												&nbsp;</td></tr><tr>
+											<td class="height" height="45" style="width:45px;">
+												&nbsp;</td></tr><tr>
+											<td class="grey" style="font-family: 'Suisse', Helvetica, Arial, sans-serif; font-size:14px; font-weight:normal; line-height:25px;color:#333333;text-align:center;" valign="top">
+												<span class="hide">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <a  href="https://click.asia.aesop.com/?qs=4481832ed8490bada97851731c0700d72cfd56d95a97876484daf7682fd7c457d7de76150c0b9e0ea9e54df9ee5117eb6b7864806cedd628de9fbed9c014ea83" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;">스킨</a> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <a  href="https://click.asia.aesop.com/?qs=4481832ed8490badb0488835878d430884f87c01b7cac7899a25d34b1e0a62408e37858009efb2468bbc478622a51c35a6acda7db62c9b9f2761c1890fb2b61e" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;">바디 &amp; 핸드</a> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <a  href="https://click.asia.aesop.com/?qs=4481832ed8490badb65528c262cae5cf4b83f4736753a93646290ebd9e767054a1223126f3460a33caaaabaf526a330aef88fa41ef2c5907b8bef314fc0c0114" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;">홈</a> 
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+<a  href="https://click.asia.aesop.com/?qs=4481832ed8490bad643735176720c340a824ea400527c5939ecb3e1b2d929871141b097a0239822543733797c9052e1f6622f5b08b5afeea0954d591292c52e0" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;">기프트 가이드</a><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a  href="https://click.asia.aesop.com/?qs=4481832ed8490badc74d699f1a1d2d5478eca028ba9da17ce5f51f0161d883f6ce53f5d59494fd5d43ad5080639be97396b70989a23b298614a30abbb0de213a" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;">향수</a><span class="hide">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr><tr>
+											<td class="height" height="35" style="height:35px;">
+												&nbsp;</td></tr></table></td></tr></table></td></tr></table></td></tr></table></td>
+  </tr>
+  <!--//Header--> 
+  <!--Content Block 1-->
+  <tr>
+    <td align="center" valign="top"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!----><table align="center" bgcolor="#FFFEF3" border="0" cellpadding="0" cellspacing="0" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" class="main_table" style="width:640px;" width="640">
+					
+						<tr>
+							<td align="center" class="side" style="padding-left:20px;padding-right:20px">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" class="wrapper" style="width:600px;" width="600">
+									
+										<tr>
+											<td align="center" valign="top">
+												<table border="0" cellpadding="0" cellspacing="0">
+													
+														<tr>
+															<td align="center" class="grey" style="font-size:24px; line-height:30px;font-family: 'Humanist', 'Optima', Helvetica, Arial, sans-serif;text-align: center;color:#333333;word-wrap: break-word;word-break: break-all;">
+																이솝을 방문해 주셔서 감사합니다.</td></tr></table></td></tr><tr>
+											<td class="height" height="40" style=" height:40px;">
+												&nbsp;</td></tr></table></td></tr></table></td></tr></table></td></tr></table></td>
+  </tr>
+  <!--//Content Block 1--> 
+  <!--Content Block 2-->
+  <tr>
+    <td align="center" valign="top"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table align="center" bgcolor="#FFFEF3" border="0" cellpadding="0" cellspacing="0" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" class="main_table" style="width:640px;" width="640">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" class="wrapper" style="width:600px;" width="600">
+									
+										<tr>
+											<td align="center" class="side" valign="top">
+												<a  href="https://click.asia.aesop.com/?qs=4481832ed8490bad8abb8be5999db40cb03b946b9e4f10ec67b34f401fcfb6e057227bf076d1f8cd151bc0d9f8218358d7cb96939439ca4241f5f523de1c67c6" style="text-decoration:none;color:#444444;" target="_blank"><img alt="Aesop" border="0" class="img" src="https://image.anz.aesop.com/lib/fe3211717164047a771777/m/1/512c7bf9-43f4-461c-84eb-a1846ebd5b2c.jpg" style="display:block; border:none; color:#444444; font-family: Helvetica, Arial, sans-serif; font-size:12px; font-weight:bold;max-width:600px;" width="600"></a></td></tr><tr>
+											<td class="height" height="40" style=" height:40px;">
+												&nbsp;</td></tr></table></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!----><table align="center" bgcolor="#FFFEF3" border="0" cellpadding="0" cellspacing="0" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" class="main_table" style="width:640px;" width="640">
+					
+						<tr>
+							<td align="center" class="side" style="padding-left:20px;padding-right:20px">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" class="wrapper" style="width:600px;" width="600">
+									
+										<tr>
+											<td align="center" valign="top">
+												<table align="center" border="0" cellpadding="0" cellspacing="0">
+													
+														<tr>
+															<td align="center" class="grey" style="font-size:16px; line-height:25px; font-family: 'Suisse', Helvetica, Arial, sans-serif; text-align: center;color:#333333;word-wrap: break-word;word-break: break-all;">
+																이솝에서의 경험을 통해 효과적이고 즐거움을 선사하는 제품을 만드려는 의지를 확인하실 수 있으리라 믿습니다. 더욱 우수한 효과를 위해 제품 사용과 더불어 균형 잡힌 라이프스타일과 예술의 일상적 향유를 제안합니다.<br>
+																<br>
+																궁금한 점이 있으실 경우, 매장을 방문하시거나 <a  href="https://click.asia.aesop.com/?qs=4481832ed8490bad456319bdbb71d5bd0590f9679893b88c165e499e6f88546d38fd0c0aa41b71f3af9402b5a000f1c30e95abdf60dcca60" style="text-decoration:underline;color:#333333;font-weight:600;" target="_blank">여기</a>로 문의해주세요. 이솝의 숙련된 컨설턴트가 기쁜 마음으로 도움을 드릴 것입니다. 스킨 케어, 향수 또는 추천 도서 등 다양한 주제로 고객님과 대화를 나눌 수 있기를 기대합니다.</td></tr></table></td></tr><tr>
+											<td class="height" height="40" style=" height:40px;">
+												&nbsp;</td></tr></table></td></tr></table></td></tr></table></td></tr></table></td>
+  </tr>
+  <!--//Content Block 2--> 
+  <!--Content Block 3-->
+  <tr>
+    <td align="center" valign="top"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table align="center" bgcolor="#FFFEF3" border="0" cellpadding="0" cellspacing="0" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" class="main_table" style="width:640px;" width="640">
+					
+						<tr>
+							<td align="center" class="padbtm40" valign="middle">
+								<table align="center" bgcolor="#333333" border="0" cellpadding="0" cellspacing="0" style="border:2px solid #333333; background-colour:#333333; min-width:280px;">
+									
+										<tr>
+											<td align="center" height="45" style="width:15px; height:45px;" valign="middle" width="15">
+												&nbsp;</td><td align="center" height="45" style="font-size: 14px; font-family: 'Suisse', Helvetica, Arial, sans-serif; color:#ffffff;  margin:auto;font-weight:bold;" valign="middle">
+												<a  href="https://click.asia.aesop.com/?qs=4481832ed8490bad302276e2ab0f497b6794a03f7479b2f4dfa2c86250bf4a9dba637467ea056ca6322d79447f4a24afe95ded49a87f4c6ff1bbfd196c917d17" style="color:#FFFEF7; line-height:45px; display:block; text-decoration:none; padding: 3px 0px;" target="_blank">&nbsp;레인지 보기 <span>&nbsp;&nbsp;</span> <img alt="arrow" src="https://image.anz.aesop.com/lib/fe3211717164047a771777/m/1/e57b6b85-7dde-4584-b5ac-c2b4770f4f61.png" style="display:inline-block; border:none; font-size:10px; padding-left: 15px; max-width: 15px;" width="15"></a></td><td align="center" height="45" style="width:15px; height:45px;" valign="middle" width="15">
+												&nbsp;</td></tr></table></td></tr><tr>
+							<td class="height" height="60" style="height:60px;">
+								&nbsp;</td></tr></table></td></tr></table></td></tr></table></td>
+  </tr>
+  <!--//Content Block 3--> 
+  <!--Content Block 4-->
+  <tr>
+    <td align="center" valign="top"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+ 
+  <tr>
+   <td align="center" bgcolor="#E9E9DD" valign="top">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" class="main_table" style="width:640px;" width="640">
+     
+      <tr>
+       <td align="center" class="side" style="padding-left:20px;padding-right:20px">
+        <table align="center" border="0" cellpadding="0" cellspacing="0" class="wrapper" style="width:600px;" width="600">
+         
+          <tr>
+           <td class="height" height="60" style="height:60px;">
+            &nbsp;</td></tr><tr>
+           <td align="center" class="side grey" style="color:#333333; font-size:24px;line-height: 40px; font-family: 'Humanist', 'Optima', Helvetica, Arial, sans-serif; text-align: center;padding-left:30px;padding-right:30px;">
+            &lsquo;Remember tonight... for it is the beginning of always.&rsquo;</td></tr><tr>
+           <td height="20" style="height: 20px; line-height: 1px; font-size:1px;">
+            &nbsp;</td></tr><tr>
+           <td align="center" style="color:#333333; font-size:14px;line-height:25px; font-family: 'Suisse', Helvetica, Arial, sans-serif;padding-left:30px;padding-right:30px; font-weight: bold;" valign="top">
+            Dante Alighieri</td></tr><tr>
+           <td height="40" style="height:40px;">
+            &nbsp;</td></tr></table></td></tr></table></td></tr></table></td></tr></table></td>
+  </tr>
+  <!--//Content Block 4--> 
+  <!--Content Block 5-->
+  <tr>
+    <td align="center" valign="top"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table align="center" bgcolor="#E9E9DD" border="0" cellpadding="0" cellspacing="0" width="100%">
+	
+		<tr>
+			<td align="center" class="side" valign="top">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" class="main_table" style="width:600px;" width="600">
+					
+						<tr>
+							<td class="height" height="10" style="height:10px;">
+								&nbsp;</td></tr><tr>
+							<td height="30" style="height:30px;line-height:1px;font-size:1px;">
+								&nbsp;</td></tr><tr>
+							<td bgcolor="#CFCDC0" height="1" style="height:1px;line-height:1px;font-size:1px;">
+								&nbsp;</td></tr><tr>
+							<td height="50" style="height:50px;">
+								&nbsp;</td></tr><tr>
+							<td class="grey" style="font-family: 'Suisse', Helvetica, Arial, sans-serif; font-size:12px; font-weight:600; line-height:24px;color:#333333;text-align:center;">
+								<span>&nbsp;&nbsp;&nbsp;&nbsp;</span><a  href="https://click.asia.aesop.com/?qs=4481832ed8490baded64a1c8203ac16b88d99ee5d244064e415aa934b7e92216e0db24576380f39b3171635a5ad367db28c0d108ca3ca96a" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;" target="_blank">제품보기</a> <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <a  href="https://click.asia.aesop.com/?qs=4481832ed8490badb64e0551f039e4da75b6ac524b2c26234a968bd2ec40f0ce37030458a04a78b66dae224333dcd1fd4c2e3391cc4086e6" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;" target="_blank">스토어&nbsp;검색 </a> <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <a  href="https://click.asia.aesop.com/?qs=4481832ed8490badc148e0a61950fc835ad1f582727a4718efa2383f926b4323b9aa010956cbd6d51f0db6b6dedc451733801148c695f89e" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;" target="_blank">자주하는질문</a> <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+<a  href="https://click.asia.aesop.com/?qs=4481832ed8490bad87eaec09df1af28c91c9399b6cda37d6f0e3578427582d36fcffbd102c63dfc72911acfade518da4317ae0d189ce73af" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;" target="_blank">개인정보&nbsp;처리방침</a> <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <a  href="https://click.asia.aesop.com/?qs=4481832ed8490bad1270fec1a5cb7c738e1b6037decd5433117ca917350915447f3f7656933f56209d2737b07b0ad57394e384829928cd15" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;" target="_blank">이용&nbsp;약관</a> <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <a  href="https://click.asia.aesop.com/?qs=4481832ed8490baddb3f2c0003e16eceabae99751465c5643715342da61a615267b75ec812cdd3ee9cad3e7861ae73e8a91b419ab83f605f" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;" target="_blank">지속가능성</a> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a  href="https://click.asia.aesop.com/?qs=4481832ed8490bad9aca560aba33ea737d51ee25732d7cf14d375ab34106edfed3272f938f0f7fec2f38c980ba4dcc5b0ec2cc708ed2f805" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;" target="_blank">Facebook</a> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a  href="https://click.asia.aesop.com/?qs=4481832ed8490badb107f8247422788e143c9fb45d0c7ae25297fa00f009fc863b2c9f1f47f0098137f2a2f825ecdda8f80806070614b5ea" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all;" target="_blank">Instagram</a><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a  href="https://click.asia.aesop.com/?qs=4481832ed8490bad89f0da82237f839999826d971f13375a2b42a4bade68bba26c36e06c848bebf9eaccc84a4b3e279da7f6ba66fc5035ce" style="color:#333333; text-decoration:none; white-space: nowrap; word-break:keep-all; " target="_blank">Kakao&nbsp;Plus&nbsp;Friends</a><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr><tr>
+							<td height="20" style="height:20px;line-height:1px;font-size:1px;">
+								&nbsp;</td></tr><tr>
+							<td class="grey1" style="font-family: 'Suisse', Helvetica, Arial, sans-serif; font-size:12px; font-weight:normal; line-height:24px;color:#666666;text-align:center;">
+								이솝은 비콥 인증을 획득한 브랜드이며, PETA로부터 비건 인증을 받은 브랜드입니다.</td></tr><tr>
+							<td height="20" style="height:20px;line-height:1px;font-size:1px;">
+								&nbsp;</td></tr><tr>
+							<td class="grey1" style="font-family: 'Suisse', Helvetica, Arial, sans-serif; font-size:12px; font-weight:normal; line-height:24px;color:#666666;text-align:center;">
+								<a style="color:#666666;text-decoration:none;"> Aesop, 10-6, Dosan-daero 45-gil, Gangnam-gu, Seoul, Republic of Korea 06021 </a><span lang="EN-US" style="font-size:9.0pt"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="color:#666666">&nbsp;Tel.1800-1987</span></span></span><a style="color:#666666;text-decoration:none;"><br>
+								Copyright &copy; 2022 Aesop All rights reserved.</a></td></tr><tr>
+							<td height="20" style="height:20px;line-height:1px;font-size:1px;">
+								&nbsp;</td></tr><tr>
+							<td class="grey1" style="font-family: 'Suisse', Helvetica, Arial, sans-serif; font-size:12px; font-weight:600; line-height:24px;color:#333333;text-align:center;">
+								<a  href="https://click.asia.aesop.com/?qs=4481832ed8490bad74e3fa3f948c96b9d00af25a946cd86c89b5c4746dd27717c6d32529ba94d405925a63dcd7fca30900f4107ce4315a29391ae51dd81e8739" style="text-decoration:none;color:#333333;" target="_blank">구독 취소 및 환경 설정 업데이트<br>
+								Unsubscribe and update preferences</a></td></tr><tr>
+							<td class="height" height="40" style=" height:40px;">
+								&nbsp;</td></tr></table></td></tr></table></td></tr></table></td>
+  </tr>
+  <!--//Content Block 5--> 
+  <!--Content Block 6-->
+  <tr>
+    <td align="center" valign="top"></td>
+  </tr>
+  <!--//Content Block 6--> 
+  <!--Content Block 7-->
+  <tr>
+    <td align="center" valign="top"></td>
+  </tr>
+  <!--//Content Block 7--> 
+  <!--Content Block 8-->
+  <tr>
+    <td align="center" valign="top"></td>
+  </tr>
+  <!--//Content Block 8--> 
+  <!--Content Block 9-->
+  <tr>
+    <td align="center" valign="top"></td>
+  </tr>
+  <!--//Content Block 9--> 
+  <!--Content Block 10-->
+  <tr>
+    <td align="center" valign="top"></td>
+  </tr>
+  <!--//Content Block 10--> 
+  <!--Content Block 11-->
+  <tr>
+    <td align="center" valign="top"></td>
+  </tr>
+  <!--//Content Block 11--> 
+  <!--Content Block 12-->
+  <tr>
+    <td align="center" valign="top"></td>
+  </tr>
+  <!--//Content Block 12--> 
+  <!--Quote block-->
+  <tr>
+    <td align="center" valign="top"></td>
+  </tr>
+  <!--//Quote block--> 
+  <!--Footer-->
+  <tr>
+    <td align="center" valign="top"></td>
+  </tr>
+  <!--//Footer--> 
+  
+
+</table>
+<!--End Full width table--> 
+
+<img src="https://click.asia.aesop.com/open.aspx?ffcb10-fecd177270670478-fe5d1d747665067f711d-fe3011717164047a771779-ff6b157177-fe27157674660c7f711c78-ff971775&d=110013&bmt=0" width="1" height="1" alt="">
+
+
+</body>
+</html>
+
+--k14v0AbxLdG0=_?:--
+

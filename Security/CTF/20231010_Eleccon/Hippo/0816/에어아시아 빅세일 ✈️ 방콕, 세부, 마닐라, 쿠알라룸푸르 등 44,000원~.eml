@@ -1,0 +1,723 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1692341832;
+	cv=none; b=Rnjs0gDLr1YKgDPOAwkix5s3KDtiAilf/9uNHY46FjSg6uEGipLgvMO3ULW2
+	 38EvoOgfUfC0lnpZ2FtHcZ7yTkXzaUk0fb7q6Lsm84U0YEG+K42oDCZgIxz8kMnhvTTbPA
+	 f7peYYI4SjzDYuIJqs1GNO7U1FZKzr2o4HOQN86uCopKA4e+2pyK6Mn9nk1s0QmutgCCyl
+	 OWp5Ne0+Hmi1mZdun25uqK/p9UHw8phgexHTrygIfjvZyIl4mIxtNLH/ZAW9G9D95LCs1F
+	 8vuQaQgWUp2sMEnOnbnWeonEEApSJbTj34UMfjCVU1oI0ZPTx67y8UvrhqYabNnWHHSLVW
+	 vA==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1692341832; c=relaxed/relaxed;
+	bh=TfiVg8NPHEBlgqXKyeuCBynMfiWpc0XbigkqRJGorBY=;
+	h=dkim-signature:dkim-signature:date:from:to:message-id:subject; b=BmGe
+	 wcvmNlxcDW9RMJzK8an05YVSe6vK0dWAWl8esWXInb5ccbfClATs9NqPvWGfNQupdYZfxq
+	 EMDqEzkUi89aHGiMKdWLucEWUz+5OkIFm46zuNPM1Xq7X/ejSC/w8nRiFcHb5WmcETmUKI
+	 DlsGBc2dQ66OkH4HWzqHB21g05+IzXMMl76AlwBXgQBJlEx1xeqdOajC6/vBd6N58LdKD3
+	 k1+lzhYsJzotLX1GT6Cz5TRuCw5Ljs41SX40QCayw07MpdtzzgXhKRVOvZATf1fZdZXhDB
+	 BtUr1qISvyLDZk68LjLWq0dHtNvp/Tlv5BuhRlmWETKFYc++ujaG43nKWA==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of 16922997641804423-127500-1-naver.com@delivery.promo.airasia.com designates 175.158.64.97 as permitted sender) smtp.mailfrom=16922997641804423-127500-1-naver.com@delivery.promo.airasia.com;
+  dkim=pass header.i=@promo.airasia.com;
+  dkim=pass header.i=@env.etransmail.com;
+  dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=airasia.com
+Return-Path: <16922997641804423-127500-1-naver.com@delivery.promo.airasia.com>
+Received-SPF: pass (mx.naver.com: domain of 16922997641804423-127500-1-naver.com@delivery.promo.airasia.com designates 175.158.64.97 as permitted sender)
+  client-ip=175.158.64.97; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of 16922997641804423-127500-1-naver.com@delivery.promo.airasia.com designates 175.158.64.97 as permitted sender) smtp.mailfrom=16922997641804423-127500-1-naver.com@delivery.promo.airasia.com;
+  dkim=pass header.i=@promo.airasia.com;
+  dkim=pass header.i=@env.etransmail.com;
+  dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=airasia.com
+X-Naver-ESV: wwen+6J4p63CbHmqKBwdbXFYKAM9FquZjJ+Y
+X-Session-IP: 175.158.64.97
+Received: from mta3-64.97.etransmail.com (mta3-64.97.etransmail.com [175.158.64.97])
+  by crcvmail201.nm.naver.com with ESMTP id ofidla0KTBKxfiSOLtERnA
+  for <user01@naver.com>
+  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384);
+  Wed, 16 Aug 2023 06:57:12 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=promo.airasia.com; s=pepipost;
+	h=feedback-id:list-unsubscribe:content-type:mime-version:subject:message-id:to:
+	 reply-to:from:from:to:subject;
+	bh=TfiVg8NPHEBlgqXKyeuCBynMfiWpc0XbigkqRJGorBY=;
+	b=Gzv3LoAhfeEj2zMbHf+SCgV25IyeridajfT5QeSp2oMvWCCtvoBtfxxozJDh/iIveQHqJz2b0oNqY
+	 WPffuH+Qf8CX6kOrR2nBp17r+CYl/8fKGgVw1LmukaDOREC9ZC0Q4V8Nz750RQ7gGSSyWXeYihHSAh
+	 OEUPDOmuiHv/PDN4=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=env.etransmail.com; s=fnc;
+	h=feedback-id:list-unsubscribe:content-type:mime-version:subject:message-id:to:
+	 reply-to:from:from:to:subject;
+	bh=TfiVg8NPHEBlgqXKyeuCBynMfiWpc0XbigkqRJGorBY=;
+	b=AxvzD7DwszLAk6FwFKRT6f3UtH65Lq2VhgTzGrVZ2Ld6CF1D0lpkMYBr7TYqey3NyeZhZx/vYhyXI
+	 h4LM1LQZRo3c5U69ebRB8DwAwJH8STpRlGF7xWijJLfj1frAJR4PyQLIAI1Oveif2UNbmHQ/lMTKHr
+	 j+Ev1eXygvqfpYWU=
+Date: Wed, 16 Aug 2023 12:27:11 +0530
+From: airasia <no-reply@promo.airasia.com>
+Reply-To: no-reply@promo.airasia.com
+To: user01@naver.com
+Message-ID: <1559618069.407135.1692341367916@ip-10-15-48-9.ap-southeast-1.compute.internal>
+Subject: =?UTF-8?B?7JeQ7Ja07JWE7Iuc7JWEIOu5heyEuOydvCA=?=
+ =?UTF-8?B?4pyI77iPIOuwqey9lSwg7IS467aALCA=?=
+ =?UTF-8?B?66eI64uQ6528LCDsv6DslYzrnbzro7jtkbjrpbQg65OxIDQ0LDAwMOybkH4=?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_407134_1099993542.1692341367916"
+X-CleverTap_META: user01@naver.com|1586430464|1692158002|20230818|0|wzrk_default|-641514969|
+X-CLEVERTAP_METADATA: { "X-CLEVERTAP_TARGET_ID" : 1692158002, "X-CLEVERTAP_IID" : { "$numberLong" : "641514969" }, "X-CLEVERTAP_IDN" : { "$numberLong" : "641514969" }, "X-CLEVERTAP_PIVOT" : "wzrk_default" }
+X-InjTime: 1692341367
+List-Unsubscribe: <mailto:16922997641804423-127500@usub.ftrans03.com?subject=Unsubscribe>, <https://delivery.promo.airasia.com/OYVTDPJWA?id=127500=ZEgJAQYCAwkFSRkZFEYVGBYWGRFBExMQRkVCGUEWE0QRFBkQFBUWGRUVGRkURhUYFgZFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=>
+Feedback-ID: MTI3NTAwOjIwMjMwODE4XzEyOg==:pepipostE
+X-FNCID: 127500-16922997641804423-0
+X-Traffic-Type: 127500-2
+
+------=_Part_407134_1099993542.1692341367916
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html> <!doctype html=3D""> <html lang=3D"en" xmlns:o=3D"urn:schem=
+as-microsoft-com:office:office" xmlns:v=3D"urn:schemas-microsoft-com:vml"> =
+<head>  <title></title>  <link href=3D"https://fonts.googleapis.com/css?fam=
+ily=3DDM+Sans" rel=3D"stylesheet" type=3D"text/css" />  <style type=3D"text=
+/css">* {         box-sizing: border-box       }        body {         marg=
+in: 0;         padding: 0       }        a[x-apple-data-detectors] {       =
+  color: inherit !important;         text-decoration: inherit !important   =
+    }        #MessageViewBody a {         color: inherit;         text-deco=
+ration: none       }        p {         line-height: inherit       }       =
+ .desktop_hide,       .desktop_hide table {         mso-hide: all;         =
+display: none;         max-height: 0;         overflow: hidden       }     =
+   .image_block img+div {         display: none       }        @media (max-=
+width:620px) {          .fullMobileWidth,         .image_block img.big,    =
+     .row-content {           width: 100% !important         }          .mo=
+bile_hide {           display: none         }          .stack .column {    =
+       width: 100%;           display: block         }          .mobile_hid=
+e {           min-height: 0;           max-height: 0;           max-width: =
+0;           overflow: hidden;           font-size: 0         }          .d=
+esktop_hide,         .desktop_hide table {           display: table !import=
+ant;           max-height: none !important         }       }  </style> </he=
+ad> <body style=3D"background-color: rgb(255, 255, 255); margin: 0px; paddi=
+ng: 0px; text-size-adjust: none; cursor: auto;"><span class=3D"preheader" s=
+tyle=3D"color:blue; display:none !important;height:0; opacity:0; visibility=
+:hidden; width:0">Check out latest promotion</span> <table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" class=3D"nl-container" role=3D"presentatio=
+n" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff" wi=
+dth=3D"100%">  <tbody>   <tr>    <td>    <table align=3D"center" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" class=3D"row row-1" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0" width=3D"100%">     <=
+tbody>      <tr>       <td>       <table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"row-content stack" role=3D"present=
+ation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff=
+;color:#000;border-radius:0;width:600px;margin:0 auto" width=3D"600">      =
+  <tbody>         <tr>          <td class=3D"column column-1" style=3D"mso-=
+table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;padding-b=
+ottom:5px;padding-top:5px;vertical-align:top;border-top:0;border-right:0;bo=
+rder-bottom:0;border-left:0" width=3D"33.333333333333336%">          <table=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"image_block bloc=
+k-1" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0" =
+width=3D"100%">           <tbody>            <tr>             <td class=3D"=
+pad" style=3D"width:100%;">             <div align=3D"center" class=3D"alig=
+nment" style=3D"line-height:10px"><a href=3D"https://delivery.promo.airasia=
+.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSV8BBlIGWVVTAABVUVcIUFQGWgMOAwAJBg=
+8AVgBXXVFUW1sCVgZZAFJFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZC=
+k0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3D=
+WUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZi=
+R3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09=
+RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUm=
+s0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNVUJiYmtRJTJCTEQwJ=
+TJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUyRnd3dy5haXJhc2lh=
+LmNvbSUyRmtvJTJGa3IlMkYmYz03MTMyNDYwMTYmdG9rZW49QmxSZkNRWldCZ1VGQWclM0QlM0Q=
+mdHJ5PTEmJGZvbGxvd19yZWRpcmVjdD10cnVl" style=3D"outline:none" tabindex=3D"-=
+1" target=3D"_blank"><img alt=3D"airasia logo" src=3D"https://www.airasia.c=
+om/aa/images/email/template/main/airasiacom.png" style=3D"display:block;hei=
+ght:auto;border:0;width:133px;max-width:100%" title=3D"airasia logo" width=
+=3D"133" /> </a></div>             </td>            </tr>           </tbody=
+>          </table>          </td>          <td class=3D"column column-2" s=
+tyle=3D"mso-table-lspace:0;mso-table-rspace:0;text-align:left;font-weight:4=
+00;padding-bottom:5px;padding-left:5px;padding-right:5px;vertical-align:top=
+;border-top:0;border-right:0;border-bottom:0;border-left:0" width=3D"66.666=
+66666666667%">          <table border=3D"0" cellpadding=3D"10" cellspacing=
+=3D"0" class=3D"text_block block-1 mobile_hide" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word" width=3D"1=
+00%">           <tbody>            <tr>             <td class=3D"pad">     =
+        <div style=3D"font-family:sans-serif">             <div style=3D"fo=
+nt-size:14px;font-family:DM Sans,sans-serif;mso-line-height-alt:16.8px;colo=
+r:#555;line-height:1.2">             <p style=3D"margin:0;font-size:14px;te=
+xt-align:right;mso-line-height-alt:16.8px">=EC=97=90=EC=96=B4=EC=95=84=EC=
+=8B=9C=EC=95=84 =ED=8F=AC=EC=9D=B8=ED=8A=B8 0</p>             </div>       =
+      </div>             </td>            </tr>           </tbody>         =
+ </table>           <table border=3D"0" cellpadding=3D"10" cellspacing=3D"0=
+" class=3D"text_block desktop_hide block-2" role=3D"presentation" style=3D"=
+mso-table-lspace:0;mso-table-rspace:0;word-break:break-word" width=3D"100%"=
+>           <tbody>            <tr>             <td class=3D"pad">         =
+    <div style=3D"font-family:sans-serif">             <div style=3D"font-s=
+ize:14px;font-family:DM Sans,sans-serif;mso-line-height-alt:16.8px;color:#5=
+55;line-height:1.2">             <p style=3D"margin:0;font-size:14px;text-a=
+lign:center;mso-line-height-alt:16.8px">=EC=97=90=EC=96=B4=EC=95=84=EC=8B=
+=9C=EC=95=84 =ED=8F=AC=EC=9D=B8=ED=8A=B8 0</p>             </div>          =
+   </div>             </td>            </tr>           </tbody>          </=
+table>          </td>         </tr>        </tbody>       </table>       </=
+td>      </tr>     </tbody>    </table>         <table align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"row row-2" role=3D"p=
+resentation" style=3D"mso-table-lspace:0;mso-table-rspace:0" width=3D"100%"=
+>     <tbody>      <tr>       <td>       <table align=3D"center" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" class=3D"row-content stack" role=3D"=
+presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-col=
+or:#fff;color:#000;width:600px;margin:0 auto" width=3D"600">        <tbody>=
+         <tr>          <td class=3D"column column-1" style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0;font-weight:400;text-align:left;vertical-align:top=
+;border-top:0;border-right:0;border-bottom:0;border-left:0" width=3D"100%">=
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"=
+image_block block-1" role=3D"presentation" style=3D"mso-table-lspace:0;mso-=
+table-rspace:0" width=3D"100%">           <tbody>            <tr>          =
+   <td class=3D"pad" style=3D"width:100%;">             <div align=3D"cente=
+r" class=3D"alignment" style=3D"line-height:10px"><a href=3D"https://delive=
+ry.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQsPBVIFAVAACwZZA1=
+AJUFRTWAIBB1UCVwwDVlYGDFNXDlxXU1BbVwVFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfD=
+A8AAggJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJ=
+UFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1L=
+MjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4=
+zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTm=
+pzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNV=
+UJiYmtRJTJCTEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUy=
+RmFwcC5haXJhc2lhLmNvbSUyRkY0dXklMkZqZDNodTh6dCUzRmFmX2ZvcmNlX2RlZXBsaW5rJTN=
+EdHJ1ZSZjPTcxMzI0NjAxNiZ0b2tlbj1HbFZlQXd0VUFRRURBQUUlM0QmdHJ5PTEmJGZvbGxvd1=
+9yZWRpcmVjdD10cnVl" style=3D"outline:none" tabindex=3D"-1" target=3D"_blank=
+"><img alt=3D"=EC=97=90=EC=96=B4=EC=95=84=EC=8B=9C=EC=95=84 =EB=B9=85=EC=84=
+=B8=EC=9D=BC " class=3D"big" src=3D"https://storage.googleapis.com/aalifeim=
+agestore-bucket/life-images/email/KR/flight/2023/1708/[KR[Regional_SE_EDM-1=
+.gif" style=3D"display:block;height:auto;border:0;width:600px;max-width:100=
+%" title=3D"airasia.com promotion" width=3D"600" /> </a></div>             =
+</td>            </tr>           </tbody>          </table>          </td> =
+        </tr>        </tbody>       </table>       </td>      </tr>     </t=
+body>    </table>          <table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"row row-3" role=3D"presentation" style=3D=
+"mso-table-lspace:0;mso-table-rspace:0" width=3D"100%">     <tbody>      <t=
+r>       <td>       <table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" class=3D"row-content stack" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#ffebe6;color:#0=
+00000;width:600px;margin:0 auto" width=3D"600">        <tbody>         <tr>=
+          <td class=3D"column column-1" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;text-align:left;font-weight:400;padding-bottom:30px;padding-top=
+:10px;vertical-align:top;border-top:0;border-right:0;border-bottom:0;border=
+-left:0" width=3D"100%">          <table border=3D"0" cellpadding=3D"5" cel=
+lspacing=3D"15" class=3D"text_block block-2" role=3D"presentation" style=3D=
+"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word" width=3D"100%=
+">           <tbody>            <tr>             <td class=3D"pad">        =
+     <div style=3D"font-family:sans-serif">             <div style=3D"font-=
+size:12px;font-family:'DM Sans',sans-serif;mso-line-height-alt:18px;color:#=
+fff;line-height:1.5">             <h1 style=3D"margin:0;color:#000000;direc=
+tion:ltr;font-family:DM Sans,sans-serif;font-size:23px;font-weight:700;lett=
+er-spacing:normal;line-height:150%;text-align:center;margin-top:0;margin-bo=
+ttom:0"><span class=3D"tinyMce-placeholder"></span></h1>             </div>=
+             </div>             </td>            </tr>            <tr>     =
+        <td class=3D"pad">             <div style=3D"font-family:sans-serif=
+">             <div style=3D"font-size:14px;font-family:DM Sans,sans-serif;=
+mso-line-height-alt:16.8px;color:#fff;line-height:1.2">             <p styl=
+e=3D"margin:0;text-align:center;font-size:15px;mso-line-height-alt:16.8px">=
+ </p>              <p style=3D"font-family:'DM Sans',sans-serif;mso-line-he=
+ight-alt:18px;color:#000000;line-height:1.5;margin:0;font-size:15px;text-al=
+ign:center">=EC=98=88=EC=95=BD=EA=B8=B0=EA=B0=84: 2023=EB=85=84 8=EC=9B=94 =
+27=EC=9D=BC=EA=B9=8C=EC=A7=80</p>              <p style=3D"margin:0;text-al=
+ign:center;font-size:15px;mso-line-height-alt:16.8px"> </p>             </d=
+iv>             </div>             </td>            </tr>            <tr>  =
+           <td class=3D"pad">             <div style=3D"font-family:sans-se=
+rif">             <div style=3D"font-size:14px;font-family:DM Sans,sans-ser=
+if;mso-line-height-alt:16.8px;color:#fff;line-height:1.2">             <p s=
+tyle=3D"margin:0;text-align:center;font-size:15px;mso-line-height-alt:16.8p=
+x"> </p>              <p style=3D"font-family:'DM Sans',sans-serif;mso-line=
+-height-alt:18px;color:#000000;line-height:1.5;margin:0;font-size:15px;text=
+-align:center">=EC=97=AC=ED=96=89=EA=B8=B0=EA=B0=84: 2024=EB=85=84 2=EC=9B=
+=94 19=EC=9D=BC-12=EC=9B=94 15=EC=9D=BC</p>              <p style=3D"margin=
+:0;text-align:center;font-size:15px;mso-line-height-alt:16.8px"> </p>      =
+       </div>             </div>             </td>            </tr>        =
+   </tbody>          </table>           <table border=3D"0" cellpadding=3D"=
+10" cellspacing=3D"0" class=3D"button_block block-6" role=3D"presentation" =
+style=3D"mso-table-lspace:0;mso-table-rspace:0" width=3D"100%">           <=
+tbody>            <tr>             <td class=3D"pad">             <div alig=
+n=3D"center" class=3D"alignment">             <div style=3D"text-decoration=
+:none;display:inline-block;color:#fff;background-color:#fe0000;border-radiu=
+s:50px;width:auto;border-top:2px solid #fff;font-weight:400;border-right:2p=
+x solid #fff;border-bottom:2px solid #fff;border-left:2px solid #fff;paddin=
+g-top:5px;padding-bottom:5px;font-family:DM Sans,sans-serif;font-size:18px;=
+text-align:center;mso-border-alt:none;word-break:keep-all"><a href=3D"https=
+://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQsPBVIFA=
+VAACwZZA1AJUFRTWAIBB1UCVwwDVlYGDFNXDlxXU1BbVwVFUA1XUlwCVVAIWXZdBUdRSx5XWltF=
+BAMACwZfDA8AAggJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJ=
+lcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&e=
+xt=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJT=
+JGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxd=
+GZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJw=
+cGUzZ2xNVUJiYmtRJTJCTEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyU=
+zQSUyRiUyRmFwcC5haXJhc2lhLmNvbSUyRkY0dXklMkZqZDNodTh6dCUzRmFmX2ZvcmNlX2RlZX=
+BsaW5rJTNEdHJ1ZSZjPTcxMzI0NjAxNiZ0b2tlbj1HbFZlQXd0VUFRRURBQUUlM0QmdHJ5PTEmJ=
+GZvbGxvd19yZWRpcmVjdD10cnVl" style=3D"color:#ffffff;text-decoration: none;"=
+><span style=3D"padding-left:35px;padding-right:35px;font-size:16px;display=
+:inline-block;letter-spacing:normal;"><span dir=3D"ltr" style=3D"word-break=
+: break-word; line-height: 32px;font-family:DM Sans,sans-serif;font-size:18=
+px;">=EC=98=88=EC=95=BD=ED=95=98=EA=B8=B0 </span> </span> </a></div>       =
+      </div>             </td>            </tr>           </tbody>         =
+ </table>          </td>         </tr>        </tbody>       </table>      =
+ </td>      </tr>     </tbody>    </table>          <table align=3D"center"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"row row-5" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0" width=3D"=
+100%">     <tbody>      <tr>       <td>       <table align=3D"center" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"row-content stack" rol=
+e=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;backgroun=
+d-color:#fff;color:#000;width:600px;margin:0 auto" width=3D"600">        <t=
+body>         <tr>          <td><tr class=3D"row1">=0A=
+<td class=3D"col1"></td><td class=3D"col2"></td></tr>=0A=
+<tr class=3D"row2"><td class=3D"col1"></td><td class=3D"col2"></td></tr>=0A=
+<tr class=3D"row3"><td class=3D"col1"></td><td class=3D"col2"></td></tr>=0A=
+</td>         </tr>        </tbody>       </table>       </td>      </tr>  =
+   </tbody>    </table>     <table align=3D"center" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" class=3D"row row-6" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0" width=3D"100%">     <tbody>     =
+ <tr>       <td>       <table align=3D"center" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" class=3D"row-content stack" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff;color:#000=
+;width:600px;margin:0 auto" width=3D"600">        <tbody>         <tr>     =
+     <td class=3D"column column-1" style=3D"mso-table-lspace:0;mso-table-rs=
+pace:0;font-weight:400;text-align:left;vertical-align:top;border-top:0;bord=
+er-right:0;border-bottom:0;border-left:0" width=3D"100%"> </td>         </t=
+r>        </tbody>       </table>       </td>      </tr>     </tbody>    </=
+table>         <table align=3D"center" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" class=3D"row row-5" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0" width=3D"100%">     <tbody>      <tr>       <td=
+>       <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"row-content stack" role=3D"presentation" style=3D"mso-table=
+-lspace:0;mso-table-rspace:0;background-color:#fff;color:#000;width:600px;m=
+argin:0 auto" width=3D"600">        <tbody>         <tr>          <td><tr c=
+lass=3D"row1">=0A=
+<td class=3D"col1">  </td><td class=3D"col2">  </td><td class=3D"col3">  </=
+td></tr>=0A=
+<tr class=3D"row2"><td class=3D"col1">  </td><td class=3D"col2">  </td><td =
+class=3D"col3">  </td></tr>=0A=
+</td>         </tr>        </tbody>       </table>       </td>      </tr>  =
+   </tbody>    </table>     <table align=3D"center" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" class=3D"row row-6" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0" width=3D"100%">     <tbody>     =
+ <tr>       <td>       <table align=3D"center" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" class=3D"row-content stack" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff;color:#000=
+;width:600px;margin:0 auto" width=3D"600">        <tbody>         <tr>     =
+     <td class=3D"column column-1" style=3D"mso-table-lspace:0;mso-table-rs=
+pace:0;font-weight:400;text-align:left;vertical-align:top;border-top:0;bord=
+er-right:0;border-bottom:0;border-left:0" width=3D"100%"> </td>         </t=
+r>        </tbody>       </table>       </td>      </tr>     </tbody>    </=
+table>     <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" class=3D"row row-17" role=3D"presentation" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0" width=3D"100%">     <tbody>      <tr>       <td>  =
+     <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" class=3D"row-content stack" role=3D"presentation" style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0;background-color:#fff;color:#000;width:600px;margi=
+n:0 auto" width=3D"600">        <tbody>         <tr>          <td class=3D"=
+column column-1" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight=
+:400;text-align:left;vertical-align:top;border-top:0;border-right:0;border-=
+bottom:0;border-left:0" width=3D"100%">          <div class=3D"spacer_block=
+ block-1" style=3D"height:15px;line-height:15px;font-size:1px"> </div>     =
+     </td>         </tr>        </tbody>       </table>       </td>      </=
+tr>     </tbody>    </table>     <table align=3D"center" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" class=3D"row row-10" role=3D"presentation" s=
+tyle=3D"mso-table-lspace:0;mso-table-rspace:0" width=3D"100%">     <tbody> =
+     <tr>       <td><tr class=3D"row1">=0A=
+<td class=3D"col1"> </td></tr>=0A=
+<tr class=3D"row2"><td class=3D"col1"> </td></tr>=0A=
+<tr class=3D"row3"><td class=3D"col1"> </td></tr>=0A=
+<tr class=3D"row4"><td class=3D"col1"> </td></tr>=0A=
+<tr class=3D"row5"><td class=3D"col1"> </td></tr>=0A=
+<tr class=3D"row6"><td class=3D"col1"> </td></tr>=0A=
+</td>      </tr>     </tbody>    </table>     <table align=3D"center" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"row row-13" role=3D"pr=
+esentation" style=3D"mso-table-lspace:0;mso-table-rspace:0" width=3D"100%">=
+     <tbody>      <tr>       <td>       <table align=3D"center" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" class=3D"row-content stack" role=3D"p=
+resentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-colo=
+r:#fff;color:#000;width:600px;margin:0 auto" width=3D"600">        <tbody> =
+        <tr>          <td class=3D"column column-1" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0;font-weight:400;text-align:left;vertical-align:top;=
+border-top:0;border-right:0;border-bottom:0;border-left:0" width=3D"100%"> =
+         <table border=3D"0" cellpadding=3D"15" cellspacing=3D"0" class=3D"=
+text_block block-1" role=3D"presentation" style=3D"mso-table-lspace:0;mso-t=
+able-rspace:0;word-break:break-word" width=3D"100%">           <tbody>     =
+       <tr>             <td class=3D"pad">             <div style=3D"font-f=
+amily:sans-serif">             <div style=3D"font-size:13px;font-family:DM =
+Sans,sans-serif;mso-line-height-alt:16.8px;color:#555;line-height:1.4">    =
+         <p style=3D"margin:0;font-size:14px;text-align:center;mso-line-hei=
+ght-alt:16.8px;line-height:1.4">*=ED=8E=B8=EB=8F=84, =ED=95=AD=EA=B3=B5=EB=
+=A3=8C =EC=B4=9D=EC=95=A1, =EC=B5=9C=EC=A0=80=EC=9A=B4=EC=9E=84, =ED=9A=8C=
+=EC=9B=90=EA=B0=80 =EA=B8=B0=EC=A4=80=0A=
+*=ED=94=84=EB=A1=9C=EB=AA=A8=EC=85=98 =EA=B0=80=EA=B2=A9=EC=9D=80 [=EC=97=
+=90=EC=96=B4=EC=95=84=EC=8B=9C=EC=95=84 =ED=95=AD=EA=B3=B5=ED=8E=B8] =EA=B8=
+=B0=EC=A4=80 <a href=3D"" style=3D"color:#f20000; text-decoration: underlin=
+e"></a></p>             </div>             </div>             </td>        =
+    </tr>           </tbody>          </table>          </td>         </tr>=
+        </tbody>       </table>       </td>      </tr>     </tbody>    </ta=
+ble>     <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"row row-14" role=3D"presentation" style=3D"mso-table-lspace=
+:0;mso-table-rspace:0" width=3D"100%">     <tbody>      <tr>       <td>    =
+    <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" class=3D"row-content stack" role=3D"presentation" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0;background-color:#fff;color:#000;width:600px;margin=
+:0 auto" width=3D"600">        <tbody>         <tr>          <td class=3D"c=
+olumn column-1" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:=
+400;text-align:left;padding-bottom:5px;padding-top:5px;vertical-align:top;b=
+order-top:0;border-right:0;border-bottom:0;border-left:0" width=3D"100%">  =
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"im=
+age_block block-1" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0" width=3D"100%">           <tbody>            <tr>            =
+ <td class=3D"pad" style=3D"width:100%;">             <div align=3D"center"=
+ class=3D"alignment" style=3D"line-height:10px"><a href=3D"https://delivery=
+.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQxfAlIEXQUEXQRVBQJT=
+X1RRCgVUUlFUAFgJAVMPDQYMCgsNAwBbUFdFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8=
+AAggJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUF=
+FJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMj=
+VrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zS=
+ndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpz=
+b1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNVUJ=
+iYmtRJTJCTEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUyRm=
+FpcmFzaWEub25lbGluay5tZSUyRkY0dXklMkYzM2ViZTQwNiUzRmFmX2ZvcmNlX2RlZXBsaW5rJ=
+TNEdHJ1ZSZjPTcxMzI0NjAxNiZ0b2tlbj1HbFZWQXd0YUJRUUZCdyUzRCUzRCZ0cnk9MSYkZm9s=
+bG93X3JlZGlyZWN0PXRydWU=3D" style=3D"outline:none" tabindex=3D"-1" target=
+=3D"_blank"><img alt=3D"airasia.com promotion" class=3D"big" src=3D"https:/=
+/www.airasia.com/aa/images/email/template/general/tagon/airasiasuperapps-ko=
+-desktop.png" style=3D"display:block;height:auto;border:0;width:600px;max-w=
+idth:100%" title=3D"airasia.com promotion" width=3D"600" /> </a></div>     =
+        </td>            </tr>           </tbody>          </table>        =
+  </td>         </tr>        </tbody>       </table>        </td>      </tr=
+>     </tbody>    </table>     <table align=3D"center" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" class=3D"row row-17" role=3D"presentation" sty=
+le=3D"mso-table-lspace:0;mso-table-rspace:0" width=3D"100%">     <tbody>   =
+   <tr>       <td>       <table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"row-content stack" role=3D"presentation" =
+style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff;color:=
+#000;width:600px;margin:0 auto" width=3D"600">        <tbody>         <tr> =
+         <td class=3D"column column-1" style=3D"mso-table-lspace:0;mso-tabl=
+e-rspace:0;font-weight:400;text-align:left;vertical-align:top;border-top:0;=
+border-right:0;border-bottom:0;border-left:0" width=3D"100%">          <div=
+ class=3D"spacer_block block-1" style=3D"height:15px;line-height:15px;font-=
+size:1px"> </div>          </td>         </tr>        </tbody>       </tabl=
+e>       </td>      </tr>     </tbody>    </table>     <table align=3D"cent=
+er" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"row row-16" r=
+ole=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0" width=
+=3D"100%">     <tbody>      <tr>       <td>       <table align=3D"center" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"row-content stack"=
+ role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;backg=
+round-color:#fff;color:#000;width:600px" width=3D"600">        <tbody>     =
+    <tr>          <td class=3D"column column-1" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0;font-weight:400;text-align:left;padding-bottom:5px;padd=
+ing-top:5px;vertical-align:top;border-top:0;border-right:0;border-bottom:0;=
+border-left:0" width=3D"16.666666666666668%">          <table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" class=3D"image_block block-1" role=3D"p=
+resentation" style=3D"mso-table-lspace:0;mso-table-rspace:0" width=3D"100%"=
+>           <tbody>            <tr>             <td class=3D"pad" style=3D"=
+width:100%;">             <div align=3D"center" class=3D"alignment" style=
+=3D"line-height:10px"><a href=3D"https://delivery.promo.airasia.com/OYVTDPJ=
+WA?id=3D127500=3DckgJAQYCAwkFSV8BBlIGWVVTAABVUVcIUFQGWgMOAwAJBg8AVgBXXVFUW1=
+sCVgZZAFJFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZCk0VRkBeHhtdV=
+VhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZG=
+UggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1pr=
+ZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0Z=
+FWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2=
+hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNVUJiYmtRJTJCTEQwJTJGZFdCd1BFa=
+ENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUyRnd3dy5haXJhc2lhLmNvbSUyRmtv=
+JTJGa3IlMkYmYz03MTMyNDYwMTYmdG9rZW49QmxSZkNRWldCZ1VGQWclM0QlM0QmdHJ5PTEmJGZ=
+vbGxvd19yZWRpcmVjdD10cnVl" style=3D"outline:none" tabindex=3D"-1" target=3D=
+"_blank"><img alt=3D"airasia monogram" src=3D"https://www.airasia.com/aa/im=
+ages/email/template/main/skytrax14.png" style=3D"display:block;height:auto;=
+border:0;width:100px;max-width:100%" title=3D"airasia monogram" width=3D"10=
+0" /> </a></div>             </td>            </tr>           </tbody>     =
+     </table>          </td>          <td class=3D"column column-2" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;p=
+adding-bottom:5px;padding-top:5px;vertical-align:middle;border-top:0;border=
+-right:0;border-bottom:0;border-left:0" width=3D"58.333333333333336%">     =
+     <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"html_=
+block block-1 mobile_hide" role=3D"presentation" style=3D"mso-table-lspace:=
+0;mso-table-rspace:0" width=3D"100%">           <tbody>            <tr>    =
+         <td class=3D"pad">             <div align=3D"center" style=3D"font=
+-family:DM Sans,sans-serif;text-align:center">             <div class=3D"ou=
+r-class">             <table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"100%">              <tbody>               <tr>                <=
+td height=3D"5" style=3D"font-size:0;"> </td>               </tr>          =
+     <tr>                <td>                <p style=3D"text-align: left;f=
+ont-size: 11px;font-weight: normal;line-height: 1.2;color: #4C4C50; text-de=
+coration: none;margin:0;"> <a href=3D"https://delivery.promo.airasia.com/OY=
+VTDPJWA?id=3D127500=3DckgJAQYCAwkFSVgJDAcACw4CWFNQAQIGAgBSW1dTVlVXBAFSVwxVA=
+VEFXQ8FUVMAAwJFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZCk0VRkBe=
+HhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEc=
+PGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJ=
+EU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRj=
+FiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RM=
+GlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNVUJiYmtRJTJCTEQwJTJGZFdC=
+d1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUyRmFpcmFzaWEuY29tJTJGcHJ=
+vbW90aW9ucyUyRiZjPTcxMzI0NjAxNiZ0b2tlbj1CVlZYQndWUURRVU1BdyUzRCUzRCZ0cnk9MS=
+YkZm9sbG93X3JlZGlyZWN0PXRydWU=3D" style=3D"line-height: 10px;color: #4C4C50=
+; text-decoration: none;" target=3D"_blank">Promo</a> |  <a href=3D"https:/=
+/delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQsNUQMGWwM=
+HD1dSA1FWUAdTDFQHBlwEDQ8JDFZQCgEHXAxVX1FaD1NFUA1XUlwCVVAIWXZdBUdRSx5XWltFBA=
+MACwZfDA8AAggJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlc=
+Gl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=
+=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJG=
+Ym14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZ=
+YeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcG=
+UzZ2xNVUJiYmtRJTJCTEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQ=
+SUyRiUyRnd3dy5haXJhc2lhLmNvbSUyRm1lbWJlciUyRnNlYXJjaCUzRmN1bHR1cmUlM0Rrby1r=
+ciZjPTcxMzI0NjAxNiZ0b2tlbj1HbEJmQndWU0F3UUJBdyUzRCUzRCZ0cnk9MSYkZm9sbG93X3J=
+lZGlyZWN0PXRydWU=3D" style=3D"line-height: 10px;color: #4C4C50; text-decora=
+tion: none;" target=3D"_blank">=EB=82=98=EC=9D=98 =EC=98=88=EC=95=BD</a> | =
+ <a href=3D"https://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJ=
+AQYCAwkFSQsOAgUHXlMPDlJQAFBVB1IDWFIFAFBUVw4HAwMGWFQMDV0BBwwABgdFUA1XUlwCVVA=
+IWXZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUE=
+MAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZC=
+ksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRb=
+E5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRY=
+bzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJ=
+nTmVRSUNBZ1J2YTJwcGUzZ2xNVUJiYmtRJTJCTEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVT=
+glM0Qmcj1odHRwcyUzQSUyRiUyRnd3dy5haXJhc2lhLmNvbSUyRmNoZWNrLWluJTJGa28lMkZrc=
+iZjPTcxMzI0NjAxNiZ0b2tlbj1HbFZVQmd0YkF3RUFCUU0lM0QmdHJ5PTEmJGZvbGxvd19yZWRp=
+cmVjdD10cnVl" style=3D"line-height: 10px;color: #4C4C50; text-decoration: n=
+one;" target=3D"_blank">=EC=B2=B4=ED=81=AC=EC=9D=B8</a> |  <a href=3D"https=
+://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQgNBlQBC=
+1IPCwkHUQQFV1xSCFgPC1ABDFwHVgBVDAENWw8FA1ZeAFBFUA1XUlwCVVAIWXZdBUdRSx5XWltF=
+BAMACwZfDA8AAggJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJ=
+lcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&e=
+xt=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJT=
+JGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxd=
+GZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJw=
+cGUzZ2xNVUJiYmtRJTJCTEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyU=
+zQSUyRiUyRnd3dy5haXJhc2lhLmNvbSUyRmZsaWdodHN0YXR1cyUyRmtvJTJGS1ImYz03MTMyND=
+YwMTYmdG9rZW49R2xWU0JBQldBUWdIQ3dZJTNEJnRyeT0xJiRmb2xsb3dfcmVkaXJlY3Q9dHJ1Z=
+Q=3D=3D" style=3D"line-height: 10px;color: #4C4C50; text-decoration: none;"=
+ target=3D"_blank">=ED=95=AD=EA=B3=B5=ED=8E=B8 =EC=A0=95=EB=B3=B4</a> |  <a=
+ href=3D"https://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQY=
+CAwkFSVgAUANUDFdSXANQAAEGXgdVCFNTAFYJBAgFUFEBDANWX1hWUAAABQ5FUA1XUlwCVVAIWX=
+ZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQ=
+FpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksM=
+XBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5V=
+eE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzR=
+ManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTm=
+VRSUNBZ1J2YTJwcGUzZ2xNVUJiYmtRJTJCTEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM=
+0Qmcj1odHRwcyUzQSUyRiUyRnN1cHBvcnQuYWlyYXNpYS5jb20lMkZzJTJGJTNGbGFuZ3VhZ2Ul=
+M0RrbyZjPTcxMzI0NjAxNiZ0b2tlbj1CRmRXQUFwUUFBVUYmdHJ5PTEmJGZvbGxvd19yZWRpcmV=
+jdD10cnVl" style=3D"line-height: 10px;color: #4C4C50; text-decoration: none=
+;" target=3D"_blank">=EA=B3=A0=EA=B0=9D=EC=A7=80=EC=9B=90</a> |  <a href=3D=
+"" style=3D"line-height: 10px;color: #4C4C50; text-decoration: none;" targe=
+t=3D"_blank"></a> | </p>                 <p style=3D"text-align: left;font-=
+size: 11px;font-weight: normal;line-height: 1.2;color: #4C4C50; text-decora=
+tion: none;margin:0;">=C2=A92023 AirAsia Com Travel Sdn Bhd (201301020508)<=
+/p>                </td>               </tr>               <tr>            =
+    <td height=3D"5" style=3D"font-size:0;"> </td>               </tr>     =
+         </tbody>             </table>             </div>             </div=
+>             </td>            </tr>           </tbody>          </table>  =
+         <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"h=
+tml_block block-2 desktop_hide" role=3D"presentation" style=3D"mso-table-ls=
+pace:0;mso-table-rspace:0;mso-hide:all;display:none;max-height:0;overflow:h=
+idden" width=3D"100%">           <tbody>            <tr>             <td cl=
+ass=3D"pad">             <div align=3D"center" style=3D"font-family:DM Sans=
+,sans-serif;text-align:center">             <div class=3D"our-class">      =
+       <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100=
+%">              <tbody>               <tr>                <td height=3D"5"=
+ style=3D"font-size:0;"> </td>               </tr>               <tr>      =
+          <td>                <p style=3D"font-size: 11px;font-weight: norm=
+al;line-height: 1.2;color: #4C4C50; text-decoration: none;margin:0;"> <a hr=
+ef=3D"https://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAw=
+kFSVgJDAcACw4CWFNQAQIGAgBSW1dTVlVXBAFSVwxVAVEFXQ8FUVMAAwJFUA1XUlwCVVAIWXZdB=
+UdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpR=
+SAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBU=
+ZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9=
+Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRMan=
+N0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRS=
+UNBZ1J2YTJwcGUzZ2xNVUJiYmtRJTJCTEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qm=
+cj1odHRwcyUzQSUyRiUyRmFpcmFzaWEuY29tJTJGcHJvbW90aW9ucyUyRiZjPTcxMzI0NjAxNiZ=
+0b2tlbj1CVlZYQndWUURRVU1BdyUzRCUzRCZ0cnk9MSYkZm9sbG93X3JlZGlyZWN0PXRydWU=3D=
+" style=3D"line-height: 10px;color: #4C4C50; text-decoration: none;" target=
+=3D"_blank">Promo</a> |  <a href=3D"https://delivery.promo.airasia.com/OYVT=
+DPJWA?id=3D127500=3DckgJAQYCAwkFSQsNUQMGWwMHD1dSA1FWUAdTDFQHBlwEDQ8JDFZQCgE=
+HXAxVX1FaD1NFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZCk0VRkBeHh=
+tdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPG=
+RZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU=
+1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFi=
+V0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGl=
+NM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNVUJiYmtRJTJCTEQwJTJGZFdCd1=
+BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUyRnd3dy5haXJhc2lhLmNvbSUyR=
+m1lbWJlciUyRnNlYXJjaCUzRmN1bHR1cmUlM0Rrby1rciZjPTcxMzI0NjAxNiZ0b2tlbj1HbEJm=
+QndWU0F3UUJBdyUzRCUzRCZ0cnk9MSYkZm9sbG93X3JlZGlyZWN0PXRydWU=3D" style=3D"li=
+ne-height: 10px;color: #4C4C50; text-decoration: none;" target=3D"_blank">=
+=EB=82=98=EC=9D=98 =EC=98=88=EC=95=BD</a> |  <a href=3D"https://delivery.pr=
+omo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQsOAgUHXlMPDlJQAFBVB1I=
+DWFIFAFBUVw4HAwMGWFQMDV0BBwwABgdFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8AAg=
+gJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJT=
+wo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZ=
+ng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndR=
+bEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1B=
+EODJOMGtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNVUJiYm=
+tRJTJCTEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUyRnd3d=
+y5haXJhc2lhLmNvbSUyRmNoZWNrLWluJTJGa28lMkZrciZjPTcxMzI0NjAxNiZ0b2tlbj1HbFZV=
+Qmd0YkF3RUFCUU0lM0QmdHJ5PTEmJGZvbGxvd19yZWRpcmVjdD10cnVl" style=3D"line-hei=
+ght: 10px;color: #4C4C50; text-decoration: none;" target=3D"_blank">=EC=B2=
+=B4=ED=81=AC=EC=9D=B8</a> |  <a href=3D"https://delivery.promo.airasia.com/=
+OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQgNBlQBC1IPCwkHUQQFV1xSCFgPC1ABDFwHVgB=
+VDAENWw8FA1ZeAFBFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZCk0VRk=
+BeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQ=
+EcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlM=
+kJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhK=
+RjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1=
+RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNVUJiYmtRJTJCTEQwJTJGZF=
+dCd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUyRnd3dy5haXJhc2lhLmNvb=
+SUyRmZsaWdodHN0YXR1cyUyRmtvJTJGS1ImYz03MTMyNDYwMTYmdG9rZW49R2xWU0JBQldBUWdI=
+Q3dZJTNEJnRyeT0xJiRmb2xsb3dfcmVkaXJlY3Q9dHJ1ZQ=3D=3D" style=3D"line-height:=
+ 10px;color: #4C4C50; text-decoration: none;" target=3D"_blank">=ED=95=AD=
+=EA=B3=B5=ED=8E=B8 =EC=A0=95=EB=B3=B4</a> |  <a href=3D"https://delivery.pr=
+omo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSVgAUANUDFdSXANQAAEGXgd=
+VCFNTAFYJBAgFUFEBDANWX1hWUAAABQ5FUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8AAg=
+gJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJT=
+wo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZ=
+ng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndR=
+bEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1B=
+EODJOMGtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNVUJiYm=
+tRJTJCTEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUyRnN1c=
+HBvcnQuYWlyYXNpYS5jb20lMkZzJTJGJTNGbGFuZ3VhZ2UlM0RrbyZjPTcxMzI0NjAxNiZ0b2tl=
+bj1CRmRXQUFwUUFBVUYmdHJ5PTEmJGZvbGxvd19yZWRpcmVjdD10cnVl" style=3D"line-hei=
+ght: 10px;color: #4C4C50; text-decoration: none;" target=3D"_blank">=EA=B3=
+=A0=EA=B0=9D=EC=A7=80=EC=9B=90</a> |  <a href=3D"" style=3D"line-height: 10=
+px;color: #4C4C50; text-decoration: none;" target=3D"_blank"></a> | </p>   =
+              <p style=3D"font-size: 11px;font-weight: normal;line-height: =
+1.2;color: #4C4C50; text-decoration: none;margin:0;">=C2=A92023 AirAsia Com=
+ Travel Sdn Bhd (201301020508)</p>                </td>               </tr>=
+               <tr>                <td height=3D"5" style=3D"font-size:0;">=
+ </td>               </tr>              </tbody>             </table>      =
+       </div>             </div>             </td>            </tr>        =
+   </tbody>          </table>          </td>          <td class=3D"column c=
+olumn-3" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;tex=
+t-align:left;padding-bottom:5px;padding-top:5px;vertical-align:middle;borde=
+r-top:0;border-right:0;border-bottom:0;border-left:0" width=3D"25%">       =
+   <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"html_bl=
+ock block-1" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rs=
+pace:0" width=3D"100%">           <tbody>            <tr>             <td c=
+lass=3D"pad">             <div align=3D"center" style=3D"font-family:DM San=
+s,sans-serif;text-align:center">             <div class=3D"our-class">     =
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"150">              <tbody>               <tr>              =
+  <td><tr class=3D"row1">=0A=
+<td class=3D"col1">                <table align=3D"center" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" width=3D"20%">                 <tbody>    =
+              <tr>                   <td align=3D"center" height=3D"30" val=
+ign=3D"middle" width=3D"30"><a href=3D"https://delivery.promo.airasia.com/O=
+YVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQxdB1MEXAIHCVMDBgFTUVAADFkCVgEEDAsFDAVX=
+AVNUAQAMAAEMB1JFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZCk0VRkB=
+eHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQE=
+cPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMk=
+JEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKR=
+jFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1R=
+MGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNVUJiYmtRJTJCTEQwJTJGZFd=
+Cd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUyRnd3dy5mYWNlYm9vay5jb2=
+0lMkZhaXJhc2lhc3VwZXJhcHAlMkYmYz03MTMyNDYwMTYmdG9rZW49QVZkZkNRTlRCd1VDJnRye=
+T0xJiRmb2xsb3dfcmVkaXJlY3Q9dHJ1ZQ=3D=3D" target=3D"_blank"><img height=3D"3=
+0" src=3D"https://www.airasia.com/aa/img/clever-tap/fb-white.png" style=3D"=
+max-width: 30px;" width=3D"30" /> </a></td>                   <td style=3D"=
+font-size:0;" width=3D"5"> </td>                  </tr>                  <t=
+r>                   <td height=3D"5" style=3D"font-size:0;"> </td>        =
+          </tr>                 </tbody>                </table>           =
+     </td><td class=3D"col2">                <table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"20%">                 <=
+tbody>                  <tr>                   <td align=3D"center" height=
+=3D"30" valign=3D"middle" width=3D"30"><a href=3D"https://delivery.promo.ai=
+rasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSV8KAgIMDQ8GCFBZVgYGUAMACwRXA=
+1YAUVpUA1RQWAYHWgBXBQ1aAlNFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcH=
+AlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&=
+fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmV=
+nQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1=
+Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOM=
+GtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNVUJiYmtRJTJC=
+TEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUyRnd3dy50aWt=
+0b2suY29tJTJGJTQwYWlyYXNpYXN1cGVyYXBwJmM9NzEzMjQ2MDE2JnRva2VuPURsMVhDUVpRQV=
+FFRCZ0cnk9MSYkZm9sbG93X3JlZGlyZWN0PXRydWU=3D" target=3D"_blank"><img height=
+=3D"30" src=3D"https://www.airasia.com/aa/img/clever-tap/tiktok-white.png" =
+style=3D"max-width: 30px;" width=3D"30" /> </a></td>                   <td =
+style=3D"font-size:0;" width=3D"5"> </td>                  </tr>           =
+       <tr>                   <td height=3D"5" style=3D"font-size:0;"> </td=
+>                  </tr>                 </tbody>                </table>  =
+              </td><td class=3D"col3">                <table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"20%">         =
+        <tbody>                  <tr>                   <td align=3D"center=
+" height=3D"30" valign=3D"middle" width=3D"30"><a href=3D"https://delivery.=
+promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSV1fDFEFCA8BDwcHAwIJV=
+wAACFZXAQdQBwsAV1RUXwVRAQsCUgUJAVVFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8A=
+AggJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFF=
+JTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjV=
+rZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSn=
+dRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb=
+1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNVUJi=
+YmtRJTJCTEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUyRnd=
+3dy5pbnN0YWdyYW0uY29tJTJGYWlyYXNpYXN1cGVyYXBwLmtyJTJGJmM9NzEzMjQ2MDE2JnRva2=
+VuPUJsSmZBQVpVQXdJR0N3JTNEJTNEJnRyeT0xJiRmb2xsb3dfcmVkaXJlY3Q9dHJ1ZQ=3D=3D"=
+ target=3D"_blank"><img height=3D"30" src=3D"https://www.airasia.com/aa/img=
+/clever-tap/ig-white.png" style=3D"max-width: 30px;" width=3D"30" /> </a></=
+td>                   <td style=3D"font-size:0;" width=3D"5"> </td>        =
+          </tr>                  <tr>                   <td height=3D"5" st=
+yle=3D"font-size:0;"> </td>                  </tr>                 </tbody>=
+                </table>                </td><td class=3D"col4">           =
+     <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"20%">                 <tbody>                  <tr>            =
+       <td align=3D"center" height=3D"30" valign=3D"middle" width=3D"30"><a=
+ href=3D"https://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQY=
+CAwkFSQ5fBVUECAcPCQNRUQVRUFRWCgJVVVIAUVsEV1QCWgwDD10HUAANVwNFUA1XUlwCVVAIWX=
+ZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQ=
+FpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksM=
+XBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5V=
+eE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzR=
+ManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0NBWm1iMnA3WjJnTm=
+VRSUNBZ1J2YTJwcGUzZ2xNVUJiYmtRJTJCTEQwJTJGZFdCd1BFaENXbXN6UHpRcUlqWW1hVTglM=
+0Qmcj1odHRwcyUzQSUyRiUyRnN0b3J5Lmtha2FvLmNvbSUyRmNoJTJGYWlyYXNpYSZjPTcxMzI0=
+NjAxNiZ0b2tlbj1CVlZYQVFCYkJnQU5CdyUzRCUzRCZ0cnk9MSYkZm9sbG93X3JlZGlyZWN0PXR=
+ydWU=3D" target=3D"_blank"><img height=3D"30" src=3D"https://www.airasia.co=
+m/aa/images/email/template/main/kakao-story.png" style=3D"max-width: 30px;"=
+ width=3D"30" /> </a></td>                   <td style=3D"font-size:0;" wid=
+th=3D"5"> </td>                  </tr>                  <tr>               =
+    <td height=3D"5" style=3D"font-size:0;"> </td>                  </tr>  =
+               </tbody>                </table>                </td></tr>=
+=0A=
+</td>               </tr>              </tbody>             </table>       =
+      </div>             </div>             </td>            </tr>         =
+  </tbody>          </table>          </td>         </tr>        </tbody>  =
+     </table>       </td>      </tr>     </tbody>    </table>     <table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"ro=
+w row-17" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspac=
+e:0" width=3D"100%">     <tbody>      <tr>       <td>       <table align=3D=
+"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"row-cont=
+ent stack" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspa=
+ce:0;background-color:#fff;color:#000;width:600px" width=3D"600">        <t=
+body>         <tr>          <td class=3D"column column-1" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;vertical-alig=
+n:top;border-top:0;border-right:0;border-bottom:0;border-left:0" width=3D"1=
+00%">          <div class=3D"spacer_block block-1" style=3D"height:10px;lin=
+e-height:10px;font-size:1px">          <p style=3D"font-size: 11px;font-wei=
+ght: normal;line-height: 1.2;color: #4C4C50; text-decoration: none;margin:0=
+;text-align:center;">=EC=84=9C =EC=9D=B4=EB=A9=94=EC=9D=BC =EC=84=A4=EC=A0=
+=95 =EA=B4=80=EB=A6=AC <a href=3D"https://delivery.promo.airasia.com/OYVTDP=
+JWA?id=3D127500=3DckgJAQYCAwkFSQwKUFYBXgAPAQBSAwoBAFNaWFgBVVQCUg5VUQEACwcMC=
+AECVQcNVFVFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZCk0VRkBeHhtd=
+VVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZ=
+GUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1p=
+rZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0=
+ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM=
+2hvYVFNR0NBWm1iMnA3WjJnTmVRSUNBZ1J2YTJwcGUzZ2xNVUJiYmtRJTJCTEQwJTJGZFdCd1BF=
+aENXbXN6UHpRcUlqWW1hVTglM0Qmcj1odHRwcyUzQSUyRiUyRnd3dy5haXJhc2lhLmNvbSUyRmF=
+jY291bnQlMkZub3RpZmljYXRpb24tcHJlZmVyZW5jZXMlM0Z1dG1fc291cmNlJTNEYWFfbWFya2=
+V0aW5nJTI2dXRtX21lZGl1bSUzRGVtYWlsJTI2dXRtX2NhbXBhaWduJTNEQUFfR0JfTEMlN0NOb=
+3RpZmljYXRpb25QcmVmZXJlbmNlcyU3QzE3MDYyMDIyJTdDbnVsbCU3Q2tyLWtvJTdDTm9uZSU3=
+Q05ld3NsZXR0ZXJzJmM9NzEzMjQ2MDE2JnRva2VuPUJsQlhDQUJXQVFZRUF3JTNEJTNEJnRyeT0=
+xJiRmb2xsb3dfcmVkaXJlY3Q9dHJ1ZQ=3D=3D">=EC=97=AC=EA=B8=B0=EC=97=90</a> </p>=
+           <p style=3D"font-size: 11px;font-weight: normal;line-height: 1.2=
+;color: #4C4C50; text-decoration: none;margin:0;text-align:center;"></p>   =
+       </div>          </td>         </tr>        </tbody>       </table>  =
+     </td>      </tr>     </tbody>    </table>    </td>   </tr>  </tbody> <=
+/table> <img id=3D'SBBBB' src=3D'https://delivery.promo.airasia.com/OYVTDPJ=
+WA?id=3D127500=3DfkgJAQYCAwkFSRkZFEYVGBYWGRFBExMQRkVCGUEWE0QRFBkQFBUWGRUVGR=
+kURhUYFgZFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMACwZfDA8AAggJUQcHAlUZCk0VRkBeHhtdV=
+VhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D' /></body> </html=
+> </!doctype><img  alt=3D"" border=3D"0" height=3D"1" width=3D"1" src=3D"ht=
+tps://sg1.wizrocketmail.net/r?e=3DK25kfx9negB6bGp%2BDSZkfwMFAABubGs1KSQlNUx=
+OBwBmb2N%2FbmxrN3JwQlEkKTskOQUxJF1bWFEXGi56Kz8kLlxETXo4LjstPjkzP1tfXxQBMzc8=
+Mj4uMBBHS0Y8BTsvdWBwegQJAwViYmJ7ZQVgewADAQxmYnBndS0oOVlvQV0hNSZpbXglMUBbblA=
+yPDM%2BOy5wNg%3D%3D&c=3D665469808"></img>=0A=
+
+
+------=_Part_407134_1099993542.1692341367916--

@@ -1,4 +1,4 @@
-***cmd***
+# cmd
 git init	레포지토리 생성
 git config user.name '이름'
 git config user.email '이메일'
@@ -49,7 +49,7 @@ git stash drop 특정아이디		특정 스택 삭제
 git stash pop 			스택 적용 후 삭제
 git cherry-pick 특정아이디		원하는 작업이 있는 커밋의 내용만 가져옴
 
-***git_init***
+# git_init
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 git remote add origin 레포지토리주소		리모트 레포지토리를 origin이라는
@@ -58,7 +58,7 @@ git push -u origin master(main)		로컬 레포지토리에있는 master 브랜�
 origin이라는 리모트 레포지토리로 추적+연결+전송	 tracking connection
 git config --global core.editor vim		기본 커밋 텍스트에디터를 vim으로 전환
 
-***tip***
+# tip
 1. merge 중 충돌 해결하는 방법
 conflict 발생시 발생부분 수정하고 add .->commit 해주면됨
 2. head란? / checkout과 reset의 차이점
@@ -86,16 +86,38 @@ git rm -r --cached .
 git add .
 git commit -m "fixed untracked files"
 	
-***git study repo 자동화 스크립트***
+# git study repo 자동화 스크립트
 mkdir study
 cd study
 git init
 git config --global user.email "chjw1346@gmail.com"
-git config --global user.name "qwertyou"
+git config --global user.name "foo1"
 git config --global core.editor vim
 git config alias.visual 'log --pretty=oneline --all --graph'
+git add .
 git remote add origin https://github.com/qwerty-tommy/php_battle
 git pull origin main --allow-unrelated-histories
 git push -u origin main
 
 https://github.com/qwerty-tommy/study
+
+
+# troubleshooter
+오류 메시지 "error: src refspec main does not match any"는 Git 리포지토리에서 main 브랜치를 찾을 수 없을 때 발생하는 오류입니다. 이 오류는 브랜치 이름을 main으로 변경한 후에 발생한 것으로 보입니다.
+
+GitHub와 같은 원격 저장소에서는 기본 브랜치 이름이 main 또는 main과 유사한 이름일 수 있으므로, 로컬 리포지토리에서 master 브랜치를 main으로 변경하면 원격 저장소와의 동기화에 문제가 발생할 수 있습니다.
+
+문제를 해결하기 위해 다음 단계를 따르세요:
+
+로컬 리포지토리에서 main 브랜치를 생성하고 현재 작업 중인 브랜치의 내용을 main 브랜치로 병합합니다. 아래 명령을 사용하세요:
+
+bash
+Copy code
+git checkout -b main
+git merge master
+이제 main 브랜치에 커밋이 있으므로 git push를 실행하여 원격 저장소에 main 브랜치를 푸시합니다:
+
+bash
+Copy code
+git push -u origin main
+위 단계를 수행하면 원격 저장소의 main 브랜치가 업데이트되고 더 이상 error: src refspec main does not match any 오류가 발생하지 않아야 합니다.

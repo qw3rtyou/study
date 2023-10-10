@@ -1,0 +1,133 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1684401633;
+	cv=none; b=GP1mvhr41/7DW8IQ6oe6s/6YWi24rtvIfaa2Gk3viwTE1wviPgmSKJp4RcKD
+	 XbUkSeH3dWZ7zlGKUubbePn8g8o6/e6LbfRCblqpb5HiL4iPM3u/shzD5Nm7x3qeb9wz0M
+	 VGyKONgqOzZSLzx5mbdiGY0Eo5fiCUik9iTwiEB+NovrFZT0hQW/AxrSBQAAxEac00a8B5
+	 2Vp3cXnxiEoHUYOJeVjyuQZusI+RX4FlEgAmoS9Ex/g7Ke19CKnzNt05bK+wAYjMQOpI4s
+	 Iwal72+RhztKkAU/lAyX0NXqqa8fy9ID12OhZTAb9xkSq+t27WGGKBIf/+wurY/BMcIVPN
+	 kg==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1684401633; c=relaxed/relaxed;
+	bh=szYGAdpwhS+8V+wEugsjqK73Atvvwsw7b/AogXavXUo=;
+	h=dkim-signature:dkim-signature:from:subject:to:message-id:date; b=UlQx
+	 TURGcaFRYF3c2HZm/YqLnzhnaOjE4hC/QTzIRZCTeeT0vjDlW1lK3dkGU0m5Ct8E0Zs+aZ
+	 4IvxTwg71g1Gd16+Yhw26kyIvNd0ig0kwP/xarbCIh7sTwRHUTxipLpDGW5oNyY3xL0Tqu
+	 zrwawcwOJLDhwu1d3Kdi1HYOPsCjZQQhTtoS0wKQbwF7UzQhJvX/LsU8Fpf09NVheEdsjK
+	 0lc89wIiCyv3Rz/Li7p0Oe/EVL9rDi8lciiS9qgsugtDQKxxGPrctHKdBkFzQot/4Fp3ID
+	 Fs9TJIB+GOQ6lIr00LekpMR+btFdaAn3SmFiIOUBFgszK/EuVIczlFLKsA==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of bounce-md_31165340.6465eddf.v1-6389fdce25ca42df8b6c49056d9a2681@mandrillapp.com designates 205.201.139.3 as permitted sender) smtp.mailfrom=bounce-md_31165340.6465eddf.v1-6389fdce25ca42df8b6c49056d9a2681@mandrillapp.com;
+  dkim=pass header.i=@tm.openai.com;
+  dkim=pass header.i=@mandrillapp.com;
+  dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=openai.com
+Return-Path: <bounce-md_31165340.6465eddf.v1-6389fdce25ca42df8b6c49056d9a2681@mandrillapp.com>
+Received-SPF: pass (mx.naver.com: domain of bounce-md_31165340.6465eddf.v1-6389fdce25ca42df8b6c49056d9a2681@mandrillapp.com designates 205.201.139.3 as permitted sender)
+  client-ip=205.201.139.3; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of bounce-md_31165340.6465eddf.v1-6389fdce25ca42df8b6c49056d9a2681@mandrillapp.com designates 205.201.139.3 as permitted sender) smtp.mailfrom=bounce-md_31165340.6465eddf.v1-6389fdce25ca42df8b6c49056d9a2681@mandrillapp.com;
+  dkim=pass header.i=@tm.openai.com;
+  dkim=pass header.i=@mandrillapp.com;
+  dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=openai.com
+X-Naver-ESV: wmen+6J4p63CbHmqKBwdbXFYKAvZKAKqjJ+Y
+X-Session-IP: 205.201.139.3
+Received: from mail3.wdc04.mandrillapp.com (mail3.wdc04.mandrillapp.com [205.201.139.3])
+  by crcvmail301.nm.naver.com with ESMTP id SsqNwIYXSsuTaU4HHxGMpA
+  for <user01@naver.com>
+  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384);
+  Thu, 10 Aug 2023 09:20:33 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tm.openai.com;
+	s=mandrill; t=1684401631; x=1684662131; i=noreply@tm.openai.com;
+	bh=szYGAdpwhS+8V+wEugsjqK73Atvvwsw7b/AogXavXUo=;
+	h=From:Subject:To:Feedback-ID:Message-Id:Date:MIME-Version:
+	 Content-Type:CC:Date:Subject:From;
+	b=IFZVKW9FlBocnIeBFbHQ+PaGRY1NoEBB+tZMzwTu3tH0uxN6omV4x2Q3h3+1bujfZ
+	 8GoF1AorK2cQz69tq/FBmnIO7Q2eHWsfqVwZ1Elq1SGtqDEQkski4w551VCDAxhmq6
+	 0+b7asQdkoclAuAfroJSXaz63gZigv7On78GZESc=
+Received: from pmta16.mandrill.prod.suw01.rsglab.com (localhost [127.0.0.1])
+	by mail3.wdc04.mandrillapp.com (Mailchimp) with ESMTP id 4QMPb3522RzDRJ92P
+	for <user01@naver.com>; Thu, 10 Aug 2023 09:20:31 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandrillapp.com; 
+ i=@mandrillapp.com; q=dns/txt; s=mandrill; t=1684401631; h=From : 
+ Subject : To : Message-Id : Date : MIME-Version : Content-Type : From : 
+ Subject : Date : X-Mandrill-User : List-Unsubscribe; 
+ bh=szYGAdpwhS+8V+wEugsjqK73Atvvwsw7b/AogXavXUo=; 
+ b=BDeHHBQXThGN8P6iRPC5SSYa8vRt9GcXTtUFofYT1zSdARr8dPsTfPmQLnvFzgkHRLueRG
+ IzNLRIAG46ZD94U9pkShDVJ1OGRtmA9pZaRYb+C5wT4IbHnnA+0sKJHwDyuOaJML/HXUeH5V
+ SEs1TK36IOGn5+JDVmQTRoPL3HNYI=
+From: OpenAI <noreply@tm.openai.com>
+Subject: =?utf-8?Q?OpenAI=20-=20Verify=20your=20email?=
+Received: from [3.12.4.51] by mandrillapp.com id 6389fdce25ca42df8b6c49056d9a2681; Thu, 10 Aug 2023 09:20:31 +0000
+To: user01@naver.com
+X-Native-Encoded: 1
+X-Report-Abuse: =?UTF-8?Q?Please=20forward=20a=20copy=20of=20this=20message,=20including=20all=20headers,=20to=20abuse@mandrill.com.=20You=20can=20also=20report=20abuse=20here:=20https://mandrillapp.com/contact/abuse=3Fid=3D31165340.6389fdce25ca42df8b6c49056d9a2681?=
+X-Mandrill-User: md_31165340
+Feedback-ID: 31165340:31165340.20230518:md
+Message-Id: <31165340.20230518092031.6465eddf8e1b40.54378211@mail3.wdc04.mandrillapp.com>
+Date: Thu, 10 Aug 2023 09:20:31 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="_av-WLYPXV4MFP8ocwFDmTFXQg"
+
+--_av-WLYPXV4MFP8ocwFDmTFXQg
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+Verify your email address
+
+              
+                To continue setting up your OpenAI account, please verify that this is your email address.
+              
+              
+              
+                
+                    Verify email address
+                 ( https://auth0.openai.com/u/email-verification?ticket=7OXW8J6JhgJprjBAmtuH1DKhSeGP1aY0# ) 
+                
+            
+			
+				
+                This link will expire in 5 days. If you did not make this request, please disregard this email. For help, contact us through our Help center ( https://help.openai.com ) .
+--_av-WLYPXV4MFP8ocwFDmTFXQg
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <head>
+    <style type="text/css">
+      .ExternalClass,.ExternalClass div,.ExternalClass font,.ExternalClass p,.ExternalClass span,.ExternalClass td,img {line-height: 100%;}#outlook a {padding: 0;}.ExternalClass,.ReadMsgBody {width: 100%;}a,blockquote,body,li,p,table,td {-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}table,td {mso-table-lspace: 0;mso-table-rspace: 0;}img {-ms-interpolation-mode: bicubic;border: 0;height: auto;outline: 0;text-decoration: none;}table {border-collapse: collapse !important;}#bodyCell,#bodyTable,body {height: 100% !important;margin: 0;padding: 0;font-family: Helvetica, Arial, sans-serif;}#bodyCell {padding: 20px;}#bodyTable {width: 560px;}@media only screen and (max-width: 480px) {#bodyTable,body {width: 100% !important;}a,blockquote,body,li,p,table,td {-webkit-text-size-adjust: none !important;}body {min-width: 100% !important;}#bodyTable {max-width: 560px !important;}#signIn {max-width: 280px !important;}}
+    </style>
+  </head>
+  <body style="background-color: #ffffff;">
+    <center>
+	<table style="width: 560px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0;padding: 0;font-family: Helvetica, Arial, sans-serif;border-collapse: collapse !important;height: 100% !important;background-color: #ffffff;" align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+		<tr>
+		<td align="center" valign="top" id="bodyCell" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0;padding: 0;font-family: Helvetica, Arial, sans-serif;height: 100% !important;">
+            <div class="top" style="background-color: #ffffff;color:#202123; padding: 27px 20px 0 15px;">
+			<p style="text-align: left;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%; margin: 0;">
+				<img src="https://cdn.openai.com/API/logo-assets/openai-logo-email-header-1.png" width="560" height="168" alt="OpenAI" title="" style="width:140px;height:auto;-ms-interpolation-mode: bicubic;border: 0;line-height: 100%;outline: none;text-decoration: none;" />
+			</p>
+			</div>
+            <div class="main" style="background-color: #ffffff;color:#353740; padding: 40px 20px;text-align: left; line-height:1.5;">
+              <h1 style="color:#202123;font-size: 32px; line-height: 40px; margin: 0 0 20px;">Verify your email address</h1>
+
+              <p style="font-size: 16px; line-height: 24px;">
+                To continue setting up your OpenAI account, please verify that this is your email address.
+              </p>
+              
+              <p style="margin: 24px 0 0; text-align: left;">
+                <a href="https://mandrillapp.com/track/click/31165340/auth0.openai.com?p=eyJzIjoiOFlXTzZMUkQ5QXZoNUxYT2paRWh6RGNlWFo0IiwidiI6MSwicCI6IntcInVcIjozMTE2NTM0MCxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL2F1dGgwLm9wZW5haS5jb21cXFwvdVxcXC9lbWFpbC12ZXJpZmljYXRpb24_dGlja2V0PTdPWFc4SjZKaGdKcHJqQkFtdHVIMURLaFNlR1AxYVkwI1wiLFwiaWRcIjpcIjYzODlmZGNlMjVjYTQyZGY4YjZjNDkwNTZkOWEyNjgxXCIsXCJ1cmxfaWRzXCI6W1wiMWM3OTUyMjNiMmQ0YmUwMjBmZDJhNTBmMmM5YzQxZjEwMThlNDU0Y1wiXX0ifQ" style="display:inline-block;text-decoration:none;background:#10A37F;border-radius:3px;color:white;font-family: Helvetica, sans-serif;font-size:16px;line-height: 24px;font-weight:400;padding:12px 20px 11px;margin:0px;" target="_blank">
+                    Verify email address
+                </a>
+                </p>
+            </div>
+			<div class="footer" style="text-align: left;background: #ffffff;color:#6e6e80; padding: 0 20px 20px;font-size: 13px;line-height: 1.4;">
+				<p style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%; margin: 0;">
+                This link will expire in 5 days. If you did not make this request, please disregard this email. For help, contact us through our <a href="https://mandrillapp.com/track/click/31165340/help.openai.com?p=eyJzIjoiSTc0WllJZHZXVXpDWGM0YUhOQ1VTaVNRUDJBIiwidiI6MSwicCI6IntcInVcIjozMTE2NTM0MCxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL2hlbHAub3BlbmFpLmNvbVwiLFwiaWRcIjpcIjYzODlmZGNlMjVjYTQyZGY4YjZjNDkwNTZkOWEyNjgxXCIsXCJ1cmxfaWRzXCI6W1wiZTdhNGY4ZGRlNGRmZWMyZmIwNDA3NmZiNjlhZTFmYTFkOWY4ZmQ3M1wiXX0ifQ">Help center</a>.
+				</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </center>
+  <img src="https://mandrillapp.com/track/open.php?u=31165340&id=6389fdce25ca42df8b6c49056d9a2681" height="1" width="1" alt=""></body>
+</html>
+--_av-WLYPXV4MFP8ocwFDmTFXQg--
+

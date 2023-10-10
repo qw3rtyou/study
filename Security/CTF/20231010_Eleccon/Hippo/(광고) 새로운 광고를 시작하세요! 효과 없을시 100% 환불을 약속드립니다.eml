@@ -1,0 +1,65 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1687795861;
+	cv=none; b=WjIn93BJjEpUNvTfV1NHO5HWfR/PqUBULDHWaoCbsvDwHrIpHwE8b7syLs0r
+	 emby2jOOOKlHKZ+QFs+H4mJ7ocrmut+W3uDtKmQ96B9r++7w0+f+U+JZYoKssH1MmQmoka
+	 VO7PcKIWG1OLEIr4PM2s/07nFuEkE5Zz/TVYn0FOtQlNbRNT8bSE57xCtsBXHqRZSNZng9
+	 mekDfkl6T+cKLOkyW5DvXHzz01rUnplngIXNWO0qgmx705pZBQJgZZSFjxN3o58S9pe/9K
+	 P90q9dDyPO0y1+oNaif0aTpYQFlc53+f28FQMcXA1gNpLNC0McBr/WtWD5W8ANOJl2maCo
+	 rQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1687795861; c=relaxed/relaxed;
+	bh=9/vM36WYwVf310tR+xrzZQ2Jfz0+12sFq6P1/RZk9Ug=;
+	h=date:message-id:subject:from:to; b=ElnP1Ol8MGbRpkqW5HfLD7CI4HeVDH336u
+	 xgs4+tIlWiBWje8+dy01q1oLrWkv4zCzSMqSLulRpnJY/42gR5gX4LxVQXFQZfk3pDjUp8
+	 xsnWJ/x8FOHll2MEVUKgxS2NKxMnJaQHQ0lxc6UAMt4/rH8O2dZfz5bVSREZZ1MWIR8NAe
+	 Ad7etFvE385lr8l6NqE0FB3xjMBQlcSnTF00MGScSMc465o3nFfIrFT4lNojlVKrtMpuW3
+	 13ig584fZxXwBBzxvcbIG0H1Hn+vqkMuHABaK1hQ6BYXDO823He7pu0Qs/SCbB37x/Mj0N
+	 bzKeiwVD+XOZR0p+wWbY+EkGVRjw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of successkool@successkool.com designates 202.68.238.149 as permitted sender) smtp.mailfrom=successkool@successkool.com
+Return-Path: <successkool@successkool.com>
+Received-SPF: pass (mx.naver.com: domain of successkool@successkool.com designates 202.68.238.149 as permitted sender)
+  client-ip=202.68.238.149; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of successkool@successkool.com designates 202.68.238.149 as permitted sender) smtp.mailfrom=successkool@successkool.com
+X-Naver-ESV: wZen+6J4p63qMBIYKXwdbXmwFouwKAJYkXm=
+X-Session-IP: 202.68.238.149
+Received: from [202.68.238.149] (successkool.com [202.68.238.149])
+  by crcvmail204.nm.naver.com with ESMTP id T2o3ntSlS1GI2u02fLn2aA
+  for <user01@naver.com>;
+  Fri, 18 Aug 2023 16:11:01 -0000
+Content-Type: multipart/alternative;
+ boundary="----=_NextPart_29808867.986998664796"
+MIME-Version: 1.0
+Date: Sat, 19 Aug 2023 01:11:00 +0900
+Message-ID: <5bd7bc8b-b9f6-4c16-80fe-8c3d813e66b1@mail.dll>
+Subject: =?utf-8?B?KOq0keqzoCkg7IOI66Gc7Jq0IOq0keqzoOulvCDsi5zsnpHtlZjshLg=?=
+ =?utf-8?B?7JqUISDtmqjqs7wg7JeG7J2E7IucIDEwMCUg7ZmY67aI7J2EIOyVveyGjQ==?=
+ =?utf-8?B?65Oc66a964uI64uk?=
+From: successkool <successkool@successkool.com>
+To: "user01@naver.com" <user01@naver.com>
+
+------=_NextPart_29808867.986998664796
+Content-Type: text/plain;
+ charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+[http://naholodesign.net:8080/mail/gourl.php?campaigncode=3D3QATKCHU04ZUVDD=
+||user01/naver.com]
+[http://naholodesign.net:8080/mail/refuse.php?campaigncode=3D3QATKCHU04ZUVD=
+D||user01/naver.com]
+------=_NextPart_29808867.986998664796
+Content-Type: text/html;
+ charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<a href=3D"http://naholodesign.net:8080/mail/gourl.php?campaigncode=3D3QATK=
+CHU04ZUVDD||user01/naver.com" target=3D"_blank"><img src=3D"https://als=
+dnrzpr.cafe24.com/ad.png"></a>
+<br>
+<a href=3D"http://naholodesign.net:8080/mail/refuse.php?campaigncode=3D3QAT=
+KCHU04ZUVDD||user01/naver.com" target=3D"_blank"><img src=3D"https://al=
+sdnrzpr.cafe24.com/refuse.png"</a><img src=3D'http://naholodesign.net:8080/=
+mail/mailopen.php?campaigncode=3D3QATKCHU04ZUVDD||user01/naver.com' wid=
+th=3D'0' height=3D'0' />
+------=_NextPart_29808867.986998664796--
+

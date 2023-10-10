@@ -1,0 +1,256 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1677258148;
+	cv=none; b=YqtBVoAOY+EZq/7ikIQl1/k7dB6Ra+FE1xjuT7km+V8sJtrh1evY3WSlLWoU
+	 YwZs9KTN6w8qF6GbmsTIy1WcT9fx7K/GJtb9p4bMxM4UknYc3K9rN6s099VY+UaxG9sgS+
+	 qHAG5zAxtFeVA/8+sh5R3v3Vb0DFWjFdr4Xxg4bL5+ciOrvzhPHCuKFRbi9xyJuw8oB3j+
+	 0kN8IlLH5vV2DctbPpafhBK7Vp0W43wm7ekjwZ+IuGT45Mc25NwFbPbEnF4d7WWBULh/LA
+	 je7u8GdyWziMAWE4tgzPIsAqHLXFuoeQjuaMVPeglAUD78jKyRfv2HSsjQrtZy+KiGJ8Qp
+	 CA==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1677258148; c=relaxed/relaxed;
+	bh=QDnlWSfxKs/bvdJKapXVVFAOz8f6w1rZ6+rjRGqaB+Q=;
+	h=date:subject:from:to:message-id; b=ofKhJrqRn3ogTu+UcQMujd8B+4ABfuJ79P
+	 HxS977VJFau2CElJ6IO+ZAlSohKEWrdh3j8E08YYZ8gqy6Dwc9MQmA+lgHWcCgMBLarvgR
+	 l0gy1ID/kx18Q++RAjGRzvTVkHpXb98iw+cnL9DNL5un2ZuSZ3zLDaWcd9QCf7BzUh9Ml6
+	 KZ2XYFIE+fYau+qP3jufgML6SQmVRxGfV/J428Dj6MLc9nCH8lpNHYgOg21k6v+ayBrGYE
+	 Yu36QRRsXhaa8vofti7bt3umdnD9bytUCvsLbAxkOvbUxmh1jNOzlIqDI4AoYzhiS2xhSz
+	 JRzApmm0y/2p8A2Ivy/uOwKUvUKw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of noreply@npn.kr designates 61.100.183.207 as permitted sender) smtp.mailfrom=noreply@npn.kr
+Return-Path: <noreply@npn.kr>
+Received-SPF: pass (mx.naver.com: domain of noreply@npn.kr designates 61.100.183.207 as permitted sender)
+  client-ip=61.100.183.207; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of noreply@npn.kr designates 61.100.183.207 as permitted sender) smtp.mailfrom=noreply@npn.kr
+X-Naver-ESV: wdRn+6J4p63qMBIYKHwdbXmwFqgZKoCYkXm=
+X-Session-IP: 61.100.183.207
+Received: from npn.kr (npn.kr [61.100.183.207])
+  by crcvmail303.nm.naver.com with ESMTP id bo-U70wxQJ+ybZIzMYPolQ
+  for <user01@naver.com>;
+  Fri, 11 Aug 2023 17:02:28 -0000
+Date: Sat, 12 Aug 2023 02:04:41 +0900
+Subject: =?utf-8?B?64m067Cc656A7IqkIOqwnOyduOygleuztCDsnbTsmqnrgrTsl60g7JWI64K0?=
+From: "=?utf-8?B?64m067Cc656A7Iqk?=" <webmaster@nbkorea.com>
+To: "=?utf-8?B?67CV7KeA7J2A64uY?=" <user01@naver.com>
+MIME-Version: 1.0
+Content-type: text/html; charset=utf-8
+Content-transfer-encoding: 8bit
+Message-ID: 1677258281425.6824157.1.432659
+X-Mailer: Maillink Scheduler v3.5
+X-NetpionMsgID: 1677258281425.6824157.1.432659
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>뉴발란스 개인정보 이용내역 통지 안내</title>
+
+
+<!--[if gte MSO 9]> 
+<table cellpadding="0" cellspacing="0" width="700" style="border:1px solid #ccc; border-bottom:4px solid #ccc; border-top:4px solid #da180e; padding:0; margin:0;" mce_style="border:1px solid #ccc; border-bottom:4px solid #ccc; border-top:4px solid #da180e; padding:0; margin:0;">
+<![endif]--> 
+<table style="border: 1px solid #cdcdcd; border-image: none; width: 700px;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="padding:5px;"><img src="https://image.nbkorea.com/Email/top_policy_02.jpg" alt="뉴발란스 개인정보 이용내역 통지 안내"></td>
+</tr>
+<tr>
+<td height="30"></td>
+</tr>
+<tr>
+<td style="padding:0 25px;">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tbody>
+<tr>
+<td style="font-size:12px; color:#000; font-family:Dotum; font-weight:bold; padding-bottom:10px;">1. 개인정보 수집 이용 목적 및 항목</td>
+</tr>
+<tr>
+<td>
+<table style="border-left:1px solid #dbdbdb; border-right:1px solid #dbdbdb;" border="0" cellspacing="0" cellpadding="0" width="100%">
+<tbody>
+<tr>
+<th style="background:#c1c1c1; font-size:12px; color:#fff; font-weight:bold; font-family:Dotum; text-align:center; border-right:1px solid #fff; border-bottom:1px solid #dbdbdb; border-left:1px solid #c1c1c1;" width="200" height="30">처리목적</th> 
+<th style="background:#c1c1c1; font-size:12px; color:#fff; font-weight:bold; font-family:Dotum; text-align:center; border-bottom:1px solid #dbdbdb; border-right:1px solid #c1c1c1;" width="400" height="30">필수항목</th>
+<th style="background:#c1c1c1; font-size:12px; color:#fff; font-weight:bold; font-family:Dotum; text-align:center; border-bottom:1px solid #dbdbdb; border-right:1px solid #c1c1c1;" width="200" height="30">선택항목</th>
+
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">회원 가입 및 관리</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400"><span style="font-weight:bold"></span> 아이디, 비밀번호, 성명, 생년월일, 휴대폰 번호, 이메일주소, 성별, 내외국인, 본인인증정보(CI)</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">기념일, 자택 전화번호, 주소, 선호도, SMS •이메일•PUSH 메세지 수신여부</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">카카오 간편가입</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400">아이디(카카오메일), 비밀번호, 성명, 전화번호</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200"></td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200"> 네이버 간편가입</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400">SNS아이디, 비밀번호, 이름, 휴대전화번호, 이메일주소, 성별</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">출생년도, 생일, 연령대, 연계정보(CI)</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">애플 간편가입</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400">아이디 (애플 이용자 ID), 비밀번호</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">이메일</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">물품 배송</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400">보내는 분 정보(성명, 연락처, 주소) 및 받는 분 정보(성명, 연락처,  주소)</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200"></td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">물품 회수</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400">회수 배송의뢰인, 수령인의 성명, 전화번호, 휴대 전화번호, 주소</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200"></td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">대금 결제</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400">주문자 정보(성명, 휴대폰 번호, 주소, 이메일), 결제 정보(신용카드정보, 은행계좌정보, 상품권 정보)</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200"></td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">환불 처리</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400">환불계좌 정보(예금주, 은행명, 계좌번호)</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200"></td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">구매상품 상담</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400">구매, 교환, 환불, 수선, 상담이력</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">서비스 이용 내역, 성명, 전화번호</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">온라인 서비스</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400">서비스 이용기록, 접속로그, 쿠키, 접속IP정보</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">1:1문의</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">1:1문의</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400">회원가입 정보(아이디, 비밀번호)</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200"></td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">마케팅, 광고, 이벤트 선택시</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400">ID, 성명, 생년월일, 휴대전화번호,</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">광고 수신 방법</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="200">마일리지 및 쿠폰 이용</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="400">ID, 성명, 휴대폰 번호, 마일리지(Point)내역, 쿠폰 내역</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="200"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td height="40">&nbsp;</td>
+</tr>
+<tr>
+<td style="font-size:12px; color:#000; font-family:Dotum; font-weight:bold; padding-bottom:10px;">2. 개인정보 처리 위탁</td>
+</tr>
+<tr>
+<td>
+<table style="border-left:1px solid #dbdbdb; border-right:1px solid #dbdbdb;" border="0" cellspacing="0" cellpadding="0" width="100%">
+<tbody>
+<tr>
+<th style="background:#c1c1c1; font-size:12px; color:#fff; font-weight:bold; font-family:Dotum; text-align:center; border-left:1px solid #c1c1c1; border-right:1px solid #fff; border-bottom:1px solid #dbdbdb;" width="360">위탁받는 자(수탁자)</th> <th style="background:#c1c1c1; font-size:12px; color:#fff; font-weight:bold; font-family:Dotum; text-align:center; border-bottom:1px solid #dbdbdb; border-right:1px solid #c1c1c1;" width="288" height="30">위탁 업무 내용</th>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="360">㈜이랜드이노플</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="288">고객시스템 구축 및 유지보수, 문자, 알림톡, 이메일 발송
+</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="360">㈜라드씨엔에스</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="288">고객시스템 구축 및 유지보수(Web, APP)</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="360">롯데택배, CJ 대한통운</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="288">상품 배송(물류)</td>
+</tr>
+
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="360"> ㈜디엘</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="288">상품 포장, 발송, 취소, 교환, 반품, 고객응대</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="360">LG CNS(LG U＋, ㈜카카오), ㈜이니시스</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="288">문자서비스, 알림톡</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="360">핑거푸시</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="288">문자서비스, 알림톡, 이메일 발송</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="360">㈜이네스트(재위탁: 세인트로그)</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="288">고객상담, 수선, A/S(재위탁 : 상담내역 관리)</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="360">맨토스파워, ㈜메타엠, SL퍼슨스</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="288">고객상담, 수선, A/S</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="360">크레스포마케팅, 에코마케팅, 이엠넷, 채널코퍼레이션, 디스커션</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="288">뉴발란스 마케팅 활동</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="360">㈜크리마</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="288">고객 맞춤서비스 제공(리뷰, 알림톡, DM발송 등)</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="360">KCB</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="288">본인인증, I-PIN 인증</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px;" width="360">㈜토스페이먼츠, ㈜이니시스, ㈜카카오페이, PAYCO, 삼성페이, 네이버페이</td>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:center; border-bottom:1px solid #dbdbdb; padding:10px;" width="288">결제정보 전송, 결제대행 업무</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td height="40">&nbsp;</td>
+</tr>
+<tr>
+<td style="font-size:12px; color:#000; font-family:Dotum; font-weight:bold; padding-bottom:10px;">3. 제 3자 제공</td>
+</tr>
+<tr>
+<td style="background:#fff; font-size:12px; color:#666; font-weight:100; font-family:Dotum; line-height:18px; text-align:left;">뉴발란스는 법령에 근거가 있는 등의 예외적인 경우를 제외하고는 정보주체의 동의 없이<br> 개인정보를 제3자에게 제공하지 않습니다.</td>
+</tr>
+<tr>
+<td height="30">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style="border-top:1px solid #e0e0e2; border-bottom:5px solid #cdcdcd; background:#fafafa; padding:15px 0;">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tbody>
+<tr>
+<td width="30">&nbsp;</td>
+<td style=" border-bottom:1px solid #cdcdcd;" width="640">
+<p style=" font-size:11px; color:#666; font-family:Dotum; line-height:18px; text-align:center; margin-bottom:15px;">개인정보 처리방침은 홈페이지 <a href="http://track.maillink.co.kr/procresponse?a=9I-16824157I-4432659I-4goaSoZE-8zPqrCF-142334502I-4ehhgE-8D-7D-7DDDD-6HvZCuPBD-6oCbI-3" name="ANCHOR43419767" style="font-size:12px; color:#e51937; font-weight:bold; font-family:Dotum; text-decoration:none;" target="_blank">www.nbkorea.com</a>에서 확인 가능합니다.<br><br> 
+2023년 2월 24일 회원님의 정보를 기준으로 작성되어 탈퇴한 경우에도 발송될 수 있습니다.<br>
+ 발신 전용이므로 회신하실 수 없으며 본 메일은 관련 법령에 의거하여 이메일 수신동의 여부와 관계없이 발송되었습니다.<br>기타 문의 사항은 고객센터로 연락 주시기 바랍니다.</p>
+</td>
+<td width="30">&nbsp;</td>
+</tr>
+<tr>
+<td style="padding-top:5px;" width="30">&nbsp;</td>
+<td style="font-size:11px; color:#666; text-align:center; line-height:22px; font-family:Dotum; padding:5px 0;" width="640"><span style="font-size:11px; color:#666; font-weight:bold; font-family:Dotum;">Call Us</span>&nbsp;&nbsp;고객상담실(AS/온라인)&nbsp;080-999-0456,&nbsp;&nbsp;(뉴발란스)&nbsp;1566-0086<span style="font-size:11px; color:#999; padding:0 10px; display:inline-block;"> Ι </span><span style="font-size:11px; color:#666; font-weight:bold; font-family:Dotum; margin-right:10px;"></span></td>
+<td style="padding-top:5px;" width="30">&nbsp;</td>
+</tr>
+<tr>
+<td width="30">&nbsp;</td>
+<td style="padding:0 0 15px; font-size:11px; color:#999; text-align:left; line-height:18px; font-family:Dotum; " width="640">㈜이랜드월드패션사업부 소재지:서울특별시 금천구 가산디지털1로 159 이랜드월드 Ι 대표이사:최운식<br> 사업자등록번호:113-85-19030 Ι 통신판매업신고:금천구청 제2005-01053 Ι 개인정보보호책임자:최운식<br> 대표 이메일:<a href="mailto:webmaster@nbkorea.com" name="ANCHOR43419768">webmaster@nbkorea.com</a><br> <span style="padding:5px 0; display:inline-block;">Copyright 2018. New Balance.</span></td>
+<td width="30">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table><img border="0" src="https://trs.maillink.co.kr/o/6824157.432659.gif" />
+

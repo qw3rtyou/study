@@ -1,0 +1,76 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1672306140;
+	cv=none; b=nGKAh2UXZMfW99AGV38zEjikkVaT3F5UuUtCKME56JTd2NIqzoxzdRehklEW
+	 eUDHK+vovdRi5zNLBSSm/D3RYcuiQ65CeWAzOPcHjv77otio/UuQMcgZcdG/yIjF0af5h/
+	 hKJBUS4R9HyTE92+L83JL85xVntZvMhNEqheOmBREqufcaGOqpSPDRA3auer2MWQF082A9
+	 EXG2td5i2HXnOOi672+hhC+IkVjz9mhX/MDKODXZNWlB4q4ugcCc7R5Z4RwI4i2K6ZBWdM
+	 vcd+IHbTk4GTmQ4RUsXnsqydPVSiy4jsCO+GQy+tLMN0de9HYyaqwFa9RJZNDJqmM85TRd
+	 dQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1672306140; c=relaxed/relaxed;
+	bh=89Sfd9JJz6oHxC71Vv4nlguBaXEVIwS8szQ1UqfDFNA=;
+	h=from:to:subject:date:message-id; b=MSCwMEtqiq4qpp6maEHoFMamfVFMuCffwo
+	 mOriBxKl/J7x5LmMrAuQtNZ0s0Sm6VzXythBKJfIFHCxCylLiR0/0Z2c2oupINhmjtujYT
+	 syago1ejFTHUdnKiNWIHNJzA1HfI/qjxIQmw+GUTQCSNeSz3ftZP+BGy2OIcwR13mIVI8J
+	 NiGlHFTD/8+naimY7EJmMhDLckLb1xbi6E3w+h6eoCv+jMMZ8Pgw2i7wnfPfOTsiTy8V5b
+	 awueJAJKD0scuZ6Unn7fDaUNARZ6R1mS6kPxJV9g+UMmmAggd5/UY/d45Xd8k3FbmEJrIj
+	 8fErl5qb2uqH/IOjwnERpvXhp4sQ==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of sunreturn@miraeasset.com designates 211.115.103.104 as permitted sender) smtp.mailfrom=sunreturn@miraeasset.com
+Return-Path: <sunreturn@miraeasset.com>
+Received-SPF: pass (mx.naver.com: domain of sunreturn@miraeasset.com designates 211.115.103.104 as permitted sender)
+  client-ip=211.115.103.104; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of sunreturn@miraeasset.com designates 211.115.103.104 as permitted sender) smtp.mailfrom=sunreturn@miraeasset.com
+X-Naver-ESV: w9Rn+6J4p63qMBIYFHwdbXmmaxUlKAIYkXm=
+X-Session-IP: 211.115.103.104
+Received: from mailing.miraeasset.com (mailing.miraeasset.com [211.115.103.104])
+  by crcvmail206.nm.naver.com with ESMTP id M7LQgTNJS-G1JnXqJJJFlA
+  for <user01@naver.com>;
+  Thu, 10 Aug 2023 09:29:00 -0000
+From: "=?utf-8?B?66+4656Y7JeQ7IWL7Kad6raM?=" <mailmaster@miraeasset.com>
+To: "=?utf-8?B?67CV7KeA7J2A?=" <user01@naver.com>
+Reply-to: <mailmaster@miraeasset.com>
+Subject: =?utf-8?B?W+uvuOuemOyXkOyFi+ymneq2jF0g6rCc7J247KCV67O0IOydtA==?=
+ =?utf-8?B?7Jqp64K07JetIO2GteyngCDslYjrgrQ=?=
+Date: Thu, 10 Aug 2023 18:29:00 +0900
+X-WORKER_ID: <single.naver.com_Worker_7>
+X-MAIL_ID: <UE9TVF9JRD0yMDIyMTIyOTAwMDAy>
+X-MEMBER_ID: <TV9JRD0wNzYwMDE4NA==>
+X-SEND_TYPE: <U1RZUEU9TUFTUw==>
+X-LIST_TABLE: <TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTI=>
+X-Mailer: eMsSMTP Ver6.5( PLUTO-build 0322 )
+MIME-Version: 1.0
+Message-ID: <202212291829008172@mailing.miraeasset.com_Ems@mailing.miraeasset.com>
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<html>
+<head>
+<title></title>
+</head>
+<body style="font-size: 12px; font-family: &quot;Dotum&quot;, sans-serif; padding-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; padding-right: 0px; background-color: #fff">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="720">
+<tbody>
+<tr>
+<td style="padding-bottom: 0px; padding-top: 0px; padding-left: 0px; padding-right: 0px">
+<img alt="이미지" border="0" src="https://img.securities.miraeasset.com/email/info/2022/edm_per_use_list_final_221220.png" usemap="#link" /> <map name="link">
+<!-- 로고 -->
+<area shape="rect" coords="70, 1344, 289, 1393" alt="자세히보기" target="_blank" href="https://mailing.miraeasset.com/Check.html?TV9JRD0wNzYwMDE4NA==&U1RZUEU9TUFTUw==&TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTI=&UE9TVF9JRD0yMDIyMTIyOTAwMDAy&VEM9MjAyMzAxMDU=&S0lORD1D&Q0lEPTAwMQ==&URL=https://img.securities.miraeasset.com/email/info/2022/edm_detail_20221220.pdf" />
+<area shape="rect" coords="70, 1638, 290, 1689" alt="개인정보처리방침" target="_blank" href="https://mailing.miraeasset.com/Check.html?TV9JRD0wNzYwMDE4NA==&U1RZUEU9TUFTUw==&TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTI=&UE9TVF9JRD0yMDIyMTIyOTAwMDAy&VEM9MjAyMzAxMDU=&S0lORD1D&Q0lEPTAwMg==&URL=https://bit.ly/3YyFsBg" />
+<area shape="rect" coords="222, 2335, 291, 2398" alt='블로그' target='_blank' href='https://mailing.miraeasset.com/Check.html?TV9JRD0wNzYwMDE4NA==&U1RZUEU9TUFTUw==&TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTI=&UE9TVF9JRD0yMDIyMTIyOTAwMDAy&VEM9MjAyMzAxMDU=&S0lORD1D&Q0lEPTAwMw==&URL=https://blog.naver.com/how2invest'/>
+<area shape="rect" coords="323, 2335, 396, 2398" alt='인스타' target='_blank' href='https://mailing.miraeasset.com/Check.html?TV9JRD0wNzYwMDE4NA==&U1RZUEU9TUFTUw==&TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTI=&UE9TVF9JRD0yMDIyMTIyOTAwMDAy&VEM9MjAyMzAxMDU=&S0lORD1D&Q0lEPTAwNA==&URL=https://www.instagram.com/miraeasset.securities_official/'/>
+<area shape="rect" coords="422, 2335, 509, 2398" alt='유튜브' target='_blank' href='https://mailing.miraeasset.com/Check.html?TV9JRD0wNzYwMDE4NA==&U1RZUEU9TUFTUw==&TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTI=&UE9TVF9JRD0yMDIyMTIyOTAwMDAy&VEM9MjAyMzAxMDU=&S0lORD1D&Q0lEPTAwNQ==&URL=https://www.youtube.com/channel/UCZS9wEZ4itPbBZk_sqccXfw'/>
+
+</map></td>
+</tr>
+</tbody>
+</table>
+<br />
+<div style="display:none"><img src="https://mailing.miraeasset.com/Check.html?TV9JRD0wNzYwMDE4NA==&U1RZUEU9TUFTUw==&TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTI=&UE9TVF9JRD0yMDIyMTIyOTAwMDAy&VEM9MjAyMzAxMDU=&S0lORD1P" width=1 height=1></div>
+<iframe src="https://mailing.miraeasset.com/Check.html?TV9JRD0wNzYwMDE4NA==&U1RZUEU9TUFTUw==&TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTI=&UE9TVF9JRD0yMDIyMTIyOTAwMDAy&VEM9MjAyMzAxMDU=&S0lORD1E" frameborder="0" width="1" height="1"></iframe>
+</body>
+</html>
+
+
+

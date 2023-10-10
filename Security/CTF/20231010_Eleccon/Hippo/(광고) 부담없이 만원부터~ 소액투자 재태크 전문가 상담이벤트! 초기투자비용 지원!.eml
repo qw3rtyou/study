@@ -1,0 +1,84 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1690700456;
+	cv=none; b=SehDsqbQqzKktc8mAtTHECmLgC9OWv2I61TFxLz3x5DxsuYvH2KK4iE64zDw
+	 xojL+HvqndeRTAa0lAlF6kThZb4wH8P0qVZPZmiO4LTpB0nKyZMALquF8Ob2Jw9ogL5ZLz
+	 YAocpAF/5fQUPymTvIKZBMKl1PC4Pg6r3BqE6Hb5tmL4GWM5TUd5duP5hKL3B+fL7foC6x
+	 W8EFdHN9HEudaSUlCW0GISR4vVF8GXcCpgFRNUF72E5GAPQGi+l5BlU1UptNO3qPxrOJjX
+	 6BRBPyIoL0NrzEfEm3MRCxr5+qqfuZbkgOAKBwTWI6ph8TOHNSEgOZxXTFm+BpPh1E48Cu
+	 XA==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1690700456; c=relaxed/relaxed;
+	bh=LSvV7tWQBifSPZrxNKZ2y/Td4dTfMn9GfyyI1t8KZIk=;
+	h=date:from:subject:to; b=JqYVqL7xqGGMohmf7bNhtmAWwlriYP/aLncLoYuO8u8Li
+	 Du6RfOiq5WtRktN6dbFzVoF6zwhtVBIIal8YVUbGSaiOMZrg6MZBMXtCWe/uwnVBdQS1Z7
+	 V5IePUwUQFV5diryQP3l0gawXswgp4tt1LpJGrWo2O79+fEyrrkMLrlIZDTEXVRx2io9GD
+	 kAS6uHy/q3W6iL9kYLRrb0vQgxEkWlMVURB32yzAA4LEXFIncW8JuEhHysPv2EQM/kIxQO
+	 r1f7QUl2rfvaMcRCB1h10TADlrBJpA9im793zQPU+nW8csb82ITPn19m2dlTDD2k3dNJ6d
+	 rKDsoNV39En9F4IVA==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of returnmail@nbmedia.cheomservice.co.kr designates 110.10.129.188 as permitted sender) smtp.mailfrom=returnmail@nbmedia.cheomservice.co.kr
+Return-Path: <returnmail@nbmedia.cheomservice.co.kr>
+Received-SPF: pass (mx.naver.com: domain of returnmail@nbmedia.cheomservice.co.kr designates 110.10.129.188 as permitted sender)
+  client-ip=110.10.129.188; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of returnmail@nbmedia.cheomservice.co.kr designates 110.10.129.188 as permitted sender) smtp.mailfrom=returnmail@nbmedia.cheomservice.co.kr
+X-Naver-ESV: wdFn+6J4p63qMBIYKHwdbXmmFqgmFxpYkXm=
+X-Session-IP: 110.10.129.188
+Message-ID: <1690700456861.7efe9.58252214@crcvmail202.nm>
+Received: from nbmedia.cheomservice.co.kr (nbmedia.cheomservice.co.kr [110.10.129.188])
+  by crcvmail202.nm.naver.com with ESMTP id -4Ds8-I-QkOlVvqMy9OyZw
+  for <user01@naver.com>;
+  Sat, 19 Aug 2023 07:00:56 -0000
+Date: Sat, 19 Aug 2023 15:41:51 +0900
+From: "=?UTF-8?B?7J2067Kk7Yq4?="<nbadmin2@imga1.com>
+Subject: =?UTF-8?B?KOq0keqzoCkg67aA64u07JeG7J20IOunjOybkOu2gO2EsH4gIuyGjOyVoe2IrOyekCDsnqztg5ztgawiIOyghOusuOqwgCDsg4Hri7TsnbTrsqTtirghIOy0iOq4sO2IrOyekOu5hOyaqSDsp4Dsm5Ah?=
+To: "=?UTF-8?B?YWxkYWxkMDIxOEBuYXZlci5jb20g64uY?="<user01@naver.com>
+MIME-Version: 1.0
+X-Mailer: CosseMail ver 1.2
+Content-Type: text/html;	charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td align="center" valign="top">
+	<table width="650" border="0" cellspacing="0" cellpadding="0">
+		
+		<tbody><tr>
+			<td>
+<IMG
+ STYLE="display: block;" SRC="http://eventadmin.co.kr/Images/event2023/230621/mail_01.jpg"></td>
+		</tr>
+		<tr>
+			<td>
+<A TARGET="_blank"HREF="http://110.10.129.188:80/filter/clickDetecter.jsp?campaignID=17589&duplicationYN=N&targetIndex=323936&encoding=yes&maillink=false&email=user01%40naver.com&url=http%3A%2F%2Fbsevent.co.kr%2FEvent2023%2FA093%2F%24q%24me%24e%24emaildozen&linkID=57027&type=click"><IMG
+ BORDER="0" ALT="빠르게 견적 알아보기" STYLE="display: block;" SRC="http://eventadmin.co.kr/Images/event2023/230621/mail_02.gif"></A></td>
+		</tr>
+		
+		<tr>
+			<td>
+<IMG
+ STYLE="display: block;" SRC="http://eventadmin.co.kr/Images/event2023/230621/mail_03.gif"></td>
+		</tr>
+<tr>
+			<td style="padding: 20px 0px; color: rgb(102, 102, 102); font-size: 11px;">
+			<div align="center">			본 메일은 (주)엔비즈에서
+시행하는 이벤트 참여자중 메일 받기를 동의하신 분들께 발송되는 메일 입니다. <br>
+			수신을 더이상 원하지 않는 분들께서는 <A TARGET="_new"HREF="http://110.10.129.188:80/filter/clickDetecter.jsp?campaignID=17589&duplicationYN=N&targetIndex=323936&encoding=yes&maillink=false&email=user01%40naver.com&url=http%3A%2F%2Feventadmin.co.kr%2FReject%2FAgree2.aspx%24q%24email%24e%24user01@naver.com&linkID=57028&type=reject"><font
+ color="red"><b>수신거부</b></font></A>를 클릭해 주시기 바랍니다.<br>
+			To unsubscribe this e-mail, <A TARGET="_blank"HREF="http://110.10.129.188:80/filter/clickDetecter.jsp?campaignID=17589&duplicationYN=N&targetIndex=323936&encoding=yes&maillink=false&email=user01%40naver.com&url=http%3A%2F%2Feventadmin.co.kr%2FReject%2FAgree2.aspx%24q%24email%24e%24user01@naver.com&linkID=57029&type=reject">click
+ here</A><span class="style2"><br>
+			<br>
+			소재지 : 인천광역시 연수구 인천타워대로323 C동 906호 (주)엔비즈<br>
+			사업자등록번호 : 621-88-00616
+T.1644-7410 대표메일 : hyh3513@naver.com <br>
+			Copyright ⓒ NBIZ Co., Ltd. All rights reserved.</span><br>
+			</div>			</td>
+		</tr>
+   
+	</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</table>
+
+<img src='http://110.10.129.188:80/filter/checker.jsp?campaignID=17589&email=user01@naver.com&responseEnd=2023-08-06' width=0 height=0>
+<iframe frameborder=0 height=0 width=0 src='http://110.10.129.188:80/filter/Tracker.jsp?campaignID=17589&email=user01@naver.com&responseEnd=2023-08-06'></iframe>

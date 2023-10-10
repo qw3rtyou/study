@@ -1,0 +1,119 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1678252313;
+	cv=none; b=cPx8JyC5CSjZYiu11+Ma/4J0Nork9Z+P7egNk6aqF6qzurFFTebp55RyqT8S
+	 f7T8+QgmQBfKLz8X9B3pz0iPnWuYXdJYzazoK0NVsO+RU0bkjHbhHYHEm0UQ0JfKi33jDp
+	 gKd2675iAJu1g7W8OtjJHy036/FNC9phwTQUl6ILsUWyS4NJqiCoSJlksD3yQvdkNDAwQb
+	 dgjm2LBTk8/n3Xz/1ef5D142cJ3eNh3X39eAm3gUneHxKpxOqXP8qJfmK+u/x9DYlkoJQa
+	 /CJvOlQ/kKFnuF+TPPR8hy4cycYxJo6iR+GMIN3ZE9UgGlr18jjRAA3yAfIISPUTEfUsZo
+	 Iw==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1678252313; c=relaxed/relaxed;
+	bh=/HHFqmWJH7uxb4xugp208ODe8KmmHeQMtKoFkomQ8i4=;
+	h=dkim-signature:dkim-signature:from:to:subject:message-id:date; b=n0/1
+	 m4UCklgdaJdQ+qyHIh/JzOTmoE1v6n9euT0IRoKDbf7wZhYl6dKonkHrMNFvMV93ZBQtmZ
+	 WuwsxzcbXF3T84tiIf7pGKoNLqSQKkf/uNG6aWpOHlzQMconlNqwzOqn/JfEqm0YWTttAI
+	 ODi+RWlYiEK6BeFVBpaf57qubKzg4vkM37pPcib6UjkdBSIzXRMOlfincxSX+81f2ZQF8D
+	 GtqplS4y/Zn0l6rJthoV8ygCnzknMJCWvp15biqXMcKbWycoei5LcgWG0UV8/qj7hvoR/g
+	 eI2vurAHuMPsiu16dPbn/VvkZQt8Fx2cj94gFfZA86GuXJ8NzNGukiMIiA==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of 01020186bfa1ffe8-43fd4bb5-a5d6-4031-ba7a-403ba7d4cc73-000000@mail-hello.portswigger.net designates 54.240.55.173 as permitted sender) smtp.mailfrom=01020186bfa1ffe8-43fd4bb5-a5d6-4031-ba7a-403ba7d4cc73-000000@mail-hello.portswigger.net;
+  dkim=pass header.i=@portswigger.net;
+  dkim=pass header.i=@amazonses.com
+Return-Path: <01020186bfa1ffe8-43fd4bb5-a5d6-4031-ba7a-403ba7d4cc73-000000@mail-hello.portswigger.net>
+Received-SPF: pass (mx.naver.com: domain of 01020186bfa1ffe8-43fd4bb5-a5d6-4031-ba7a-403ba7d4cc73-000000@mail-hello.portswigger.net designates 54.240.55.173 as permitted sender)
+  client-ip=54.240.55.173; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of 01020186bfa1ffe8-43fd4bb5-a5d6-4031-ba7a-403ba7d4cc73-000000@mail-hello.portswigger.net designates 54.240.55.173 as permitted sender) smtp.mailfrom=01020186bfa1ffe8-43fd4bb5-a5d6-4031-ba7a-403ba7d4cc73-000000@mail-hello.portswigger.net;
+  dkim=pass header.i=@portswigger.net;
+  dkim=pass header.i=@amazonses.com
+X-Naver-ESV: wdFn+6J4p63qMBIYKXwdbXmmFxuwFxFYkXm=
+X-Session-IP: 54.240.55.173
+Received: from a55-173.smtp-out.eu-west-1.amazonses.com (a55-173.smtp-out.eu-west-1.amazonses.com [54.240.55.173])
+  by crcvmail306.nm.naver.com with ESMTP id OOVdac5wRyeCkIHtIv4tng
+  for <user01@naver.com>
+  (version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256);
+  Fri, 11 Aug 2023 05:11:53 -0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=xyb4p6meycvwnenltt7yfrudiznakmig; d=portswigger.net;
+	t=1678252310;
+	h=From:To:Reply-To:Subject:Content-Type:Message-ID:Date;
+	bh=HkBw0yE86KuEFNcNPUGrrQNBQr11RTMqE1x++EPpsE4=;
+	b=I5ZZMDKV1gySfPzY7ifNH0XHjj8+yfiFoWmYmduyGYIQOacsTJNP/GdQQPV/lCBf
+	yzBxDIGHHSjbfnngR3NDHQO6nbSBuZYGkpbjhWt/YRWCqW7WPue5c7SBMwGtnpAMQg0
+	hnRYkcJ1kXLcNDt3WEB2qSrrdeoM4MEoCxCEUmxk=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ihchhvubuqgjsxyuhssfvqohv7z3u4hn; d=amazonses.com; t=1678252310;
+	h=From:To:Reply-To:Subject:Content-Type:Message-ID:Date:Feedback-ID;
+	bh=HkBw0yE86KuEFNcNPUGrrQNBQr11RTMqE1x++EPpsE4=;
+	b=KhWwL4n4cfnl20DtXN/4tdzssKGKpwjRAPrcXiwWpT0glJbWWcWZrAYYSzAJX618
+	s3YW7IhyJgqOQTHxakZonxAxgQjbebae8YNRkTDCZ48HDj3X3k0RN8EmgpK9eFWzwTv
+	9T8Ui0OrFywqEz2Hw3Edjru/096EI9aqkr90aXJs=
+From: PortSwigger <hello@portswigger.net>
+To: user01@naver.com
+Reply-To: PortSwigger <hello@portswigger.net>
+Subject: Get the most out of Burp Suite
+Content-Type: multipart/mixed;
+	boundary="CE86D972EC0A"
+Message-ID: <01020186bfa1ffe8-43fd4bb5-a5d6-4031-ba7a-403ba7d4cc73-000000@eu-west-1.amazonses.com>
+Date: Fri, 11 Aug 2023 05:11:50 +0000
+Feedback-ID: 1.eu-west-1.GnMzQBeSCfwLSjzZUCkPnxty7r2IeLHHkNSYKRTXqeE=:AmazonSES
+X-SES-Outgoing: 2023.08.11-54.240.55.173
+
+
+--CE86D972EC0A
+Content-Type: multipart/alternative;
+	boundary="msg_CE86D972EC0A"
+
+--msg_CE86D972EC0A
+Content-Type: text/plain; charset=utf8
+Content-Transfer-Encoding: base64
+
+SGV5LA0KDQpIb3BlZnVsbHkgYnkgbm93LCB5b3XigJl2ZSBnb3QgdG8gZ3JpcHMgd2l0aCB0aGUg
+YmFzaWMgZmVhdHVyZXMgb2YgQnVycCBTdWl0ZSBDb21tdW5pdHkgRWRpdGlvbiAtIHN1Y2ggYXMg
+QnVycCBQcm94eSBhbmQgQnVycCBSZXBlYXRlci4gDQoNClRvIGdldCB0aGUgbW9zdCBvdXQgb2Yg
+eW91ciBzb2Z0d2FyZSwgd2XigJlkIHJlY29tbWVuZCB5b3UgZXhwbG9yZSB0aGUgbnVtZXJvdXMg
+ZXh0ZW5zaW9ucyBhdmFpbGFibGUgaW4gdGhlIEJBcHAgc3RvcmU6IGh0dHBzOi8vcG9ydHN3aWdn
+ZXIubmV0L2JhcHBzdG9yZT91dG1fc291cmNlPW9mZmljZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9j
+YW1wYWlnbj1ic2NlLWJzcC11cGdyYWRlLTItdjEmdXRtX2NvbnRlbnQ9MTQzLjMmdGlkPTdRSEMz
+U1F0SWZTLTRQejlOSF9PQ2pVbXQ0UzVJREdNc0tPdFEzMXJWbENrMC0ydU5vY2ZzVUt3bURCWGEz
+XzkuIFRoZXkncmUgYnVpbHQgYnkgb3VyIGNvbW11bml0eSBvZiBCdXJwIHVzZXJzLCBhbmQgYWxs
+b3cgeW91IHRvIHVuaXF1ZWx5IGV4dGVuZCBCdXJw4oCZcyBmdW5jdGlvbmFsaXR5IHRvIHN1aXQg
+eW91ciBwZXJzb25hbCB3b3JrZmxvd3MgYW5kIHRlc3RpbmcgcHJvY2Vzc2VzLiANCg0KSWYgeW91
+IGZlZWwgdGhhdCB5b3UndmUgcmVhY2hlZCB0aGUgbGltaXQgb2Ygd2hhdCB5b3UncmUgYWJsZSB0
+byBhY2hpZXZlIHdpdGggQnVycCBTdWl0ZSBDb21tdW5pdHkgRWRpdGlvbiwgaXQgY291bGQgYmUg
+dGltZSB0byBkaXNjb3ZlciB0aGUgQnVycCBTdWl0ZSBQcm9mZXNzaW9uYWwgZGlmZmVyZW5jZTog
+aHR0cHM6Ly9wb3J0c3dpZ2dlci5uZXQvYnVycC9wcm8/dXRtX3NvdXJjZT1vZmZpY2UmdXRtX21l
+ZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249YnNjZS1ic3AtdXBncmFkZS0yLXYxJnV0bV9jb250ZW50
+PTE0My40JnRpZD1saU1Rb2JtN05zYjJ5VVFaSmRnb1FRLTFrLTJiZjNfLThmVHBTUlhCMFFCbzFi
+VnlMSjkzTUwtQlkyR0VGUnZlLg0KDQpUaGFua3MgZm9yIGJlaW5nIHBhcnQgb2YgdGhlIEJ1cnAg
+U3VpdGUgZmFtaWx5LA0KDQpUaGUgUG9ydFN3aWdnZXIgVGVhbQ0K
+--msg_CE86D972EC0A
+Content-Type: text/html; charset=utf8
+Content-Transfer-Encoding: base64
+
+PGh0bWw+PGJvZHkgc3R5bGU9J2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlm
+O2NvbG9yOiMzMzMzMzInPkhleSw8YnIvPjxici8+SG9wZWZ1bGx5IGJ5IG5vdywgeW914oCZdmUg
+Z290IHRvIGdyaXBzIHdpdGggdGhlIGJhc2ljIGZlYXR1cmVzIG9mIEJ1cnAgU3VpdGUgQ29tbXVu
+aXR5IEVkaXRpb24gLSBzdWNoIGFzIEJ1cnAgUHJveHkgYW5kIEJ1cnAgUmVwZWF0ZXIuIDxici8+
+PGJyLz5UbyBnZXQgdGhlIG1vc3Qgb3V0IG9mIHlvdXIgc29mdHdhcmUsIHdl4oCZZCByZWNvbW1l
+bmQgeW91IDxhIHRhcmdldD0iX2JsYW5rIiBocmVmPSJodHRwczovL3BvcnRzd2lnZ2VyLm5ldC9i
+YXBwc3RvcmU/dXRtX3NvdXJjZT1vZmZpY2UmdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249
+YnNjZS1ic3AtdXBncmFkZS0yLXYxJnV0bV9jb250ZW50PTE0My4xJnRpZD03TUFWSkNJLWRwcWtY
+R3BNY2hVTjlBVEZZbGt1Qzl6dkRJSmdCYXA0VXNxUWY3c1VfVVoyVGs3cWlaMzgzZEljIj5leHBs
+b3JlIHRoZSBudW1lcm91cyBleHRlbnNpb25zIGF2YWlsYWJsZSBpbiB0aGUgQkFwcCBzdG9yZTwv
+YT4uIFRoZXkmIzM5O3JlIGJ1aWx0IGJ5IG91ciBjb21tdW5pdHkgb2YgQnVycCB1c2VycywgYW5k
+IGFsbG93IHlvdSB0byB1bmlxdWVseSBleHRlbmQgQnVycOKAmXMgZnVuY3Rpb25hbGl0eSB0byBz
+dWl0IHlvdXIgcGVyc29uYWwgd29ya2Zsb3dzIGFuZCB0ZXN0aW5nIHByb2Nlc3Nlcy4gPGJyLz48
+YnIvPklmIHlvdSBmZWVsIHRoYXQgeW91JiMzOTt2ZSByZWFjaGVkIHRoZSBsaW1pdCBvZiB3aGF0
+IHlvdSYjMzk7cmUgYWJsZSB0byBhY2hpZXZlIHdpdGggQnVycCBTdWl0ZSBDb21tdW5pdHkgRWRp
+dGlvbiwgaXQgY291bGQgYmUgdGltZSB0byA8YSB0YXJnZXQ9Il9ibGFuayIgaHJlZj0iaHR0cHM6
+Ly9wb3J0c3dpZ2dlci5uZXQvYnVycC9wcm8/dXRtX3NvdXJjZT1vZmZpY2UmdXRtX21lZGl1bT1l
+bWFpbCZ1dG1fY2FtcGFpZ249YnNjZS1ic3AtdXBncmFkZS0yLXYxJnV0bV9jb250ZW50PTE0My4y
+JnRpZD1rOTgyckxQLWQ2R1BCbUR2NURsSnEwUWFDc2t2dXRubzMyem9lTnVIS3NXeDdPUlVTZ2dZ
+MWVyeDVjUkNrakFQIj5kaXNjb3ZlciB0aGUgQnVycCBTdWl0ZSBQcm9mZXNzaW9uYWwgZGlmZmVy
+ZW5jZTwvYT4uPGJyLz48YnIvPlRoYW5rcyBmb3IgYmVpbmcgcGFydCBvZiB0aGUgQnVycCBTdWl0
+ZSBmYW1pbHksPGJyLz48YnIvPlRoZSBQb3J0U3dpZ2dlciBUZWFtPGJyLz48YnI+DQo8aW1nIHNy
+Yz0iaHR0cHM6Ly9wb3J0c3dpZ2dlci5uZXQvY29udGVudC9pbWFnZXMvbG9nb3MvcG9ydHN3aWdn
+ZXItbG9nby5wbmc/dGlkPUZBTDlDNXNmVnRoRldHT0tQdDNUTEtVM2p5Y1dMbERoMVpWTHdTSVEt
+QW1fam9XX2JNWWNTSXcta0c4ZHJJWXYiPjxicj48L2JvZHk+PC9odG1sPg==
+--msg_CE86D972EC0A--
+--CE86D972EC0A--

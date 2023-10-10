@@ -8,3 +8,4 @@ token
 Algorithm/**/*.exe
 Algorithm/**/*.out
 .git_legacy/
+TipBox
