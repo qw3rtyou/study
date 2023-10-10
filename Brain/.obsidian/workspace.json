@@ -4,41 +4,8 @@
     "type": "split",
     "children": [
       {
-        "id": "da09a1af744a6bd4",
-        "type": "tabs",
-        "dimension": 54.8926014319809,
-        "children": [
-          {
-            "id": "a293cc5eb4c312e9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SQL.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1eceb037418dc3c0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Security.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
         "id": "fc2de189982ebe29",
         "type": "tabs",
-        "dimension": 45.10739856801909,
         "children": [
           {
             "id": "e9c34c4e3d60e6f1",
@@ -115,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Security.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +98,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Security.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -154,9 +119,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Security.md"
-              }
+              "state": {}
             }
           },
           {
@@ -196,7 +159,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1eceb037418dc3c0",
+  "active": "e9c34c4e3d60e6f1",
   "lastOpenFiles": [
     "SQL.md",
     "Security.md",
