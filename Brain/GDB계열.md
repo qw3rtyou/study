@@ -286,3 +286,20 @@ telescope은 pwndbg가 제공하는 강력한 메모리 덤프 기능
 
 # u, nearpc, pdisass(디스어셈블 가독성 향상)
 pwndbg에서 제공하는 디스어셈블 명령어
+
+
+
+# 시나리오
+- [ ] 파일 import
+      file exploitme
+- [ ] 정적분석
+      `disas main`
+      `info shell`
+- [ ] 동적분석
+      `b*main`
+      `r`
+      `ni si`
+      `x/100x 0xfffffff8`
+- [ ] exploit
+      [pwntool]
+- [ ] 

@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "9499b5fb9f91a60b",
+        "id": "180300ec5ef249f4",
         "type": "tabs",
         "children": [
           {
-            "id": "d05aca89625813ca",
+            "id": "1b3861070f4227a8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Blockchain.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -60,12 +64,20 @@
               "type": "bookmarks",
               "state": {}
             }
+          },
+          {
+            "id": "22b06411806cb2a2",
+            "type": "leaf",
+            "state": {
+              "type": "mk-file-view",
+              "state": {}
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 212.5
   },
   "right": {
     "id": "911fe01dc19dfe12",
@@ -81,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Blockchain.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Blockchain.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +142,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Blockchain.md"
+              }
             }
           }
         ]
@@ -148,6 +164,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d05aca89625813ca",
-  "lastOpenFiles": []
+  "active": "1b3861070f4227a8",
+  "lastOpenFiles": [
+    "Pasted image 20231020145238.png",
+    "Pasted image 20231020133720.png",
+    "Pasted image 20231020133540.png",
+    "Pasted image 20231020133112.png",
+    "Pasted image 20231020132703.png",
+    "Pasted image 20231020132232.png",
+    "Pasted image 20231020120258.png",
+    "context.mdb",
+    "Blockchain.md",
+    "img/관계설명1.png",
+    "img/Pasted image 20231013062642.png",
+    "img/관계설명2.png",
+    "img/관계설명3.png",
+    "img",
+    "Encoding.md",
+    "Extended Euclidean algorithm.md",
+    "Distributed Parellel System.md",
+    "Untitled.canvas",
+    "Security.md",
+    "Web-Hacking.md",
+    "Command-Injection.md",
+    "비트코인 아키텍쳐.md",
+    "BIP21.md",
+    "그림추가.md",
+    "GDB계열.md",
+    "img/Context/spacesLastSync.log",
+    "img/Context"
+  ]
 }
