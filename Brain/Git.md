@@ -102,17 +102,18 @@ https://github.com/qwerty-tommy/study
 
 # troubleshooter
 
-merge 중 충돌 해결하는 방법
+- merge 중 충돌 해결하는 방법
 conflict 발생 시 발생부분 수정하고 add .->commit 해주면 됨
 
-push가 안됨
+- push가 안됨
 push가 안되면 일단 pull하고 충돌 해결
 
-신규 프로젝트 push, pull 불가(fatal: refusing to merge unrelated histories)
+- 신규 프로젝트 push, pull 불가(fatal: refusing to merge unrelated histories)
+커밋했는지 확인
 너무 생뚱맞아서 merge하기 싫다고 하는거임
 git pull origin main --allow-unrelated-histories
 
-gitignore 작동을 안함
+- gitignore 작동을 안함
 git rm -r --cached .
 git add .
 git commit -m "fixed untracked files"

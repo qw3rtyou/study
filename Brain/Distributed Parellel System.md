@@ -415,6 +415,7 @@ data item보다 node의 수가 일반적으로 적음
 1번 node가 0,1 data item을 다루고
 4번 node가 2,3,4 data item을 다루는 방식으로 
 자신의 nodeid 보다 작은 data item을 관리함
+
 다음과 같은 operation을 지원 함
 - join operation : node가 P2P 네트워크에 참가함
 예를들어 10번에 새로운 노드가 들어온다면(10번에 있던 데이터는 사라지는지..?)
@@ -438,42 +439,133 @@ data item보다 node의 수가 일반적으로 적음
 
 
 ## Unstructured
+Unstructured P2P Architecture
 비구조적, 정의되지 않은
-boadcast_flooding -> 모든 노드에게 물어보기 때문에 비용 발생
+boadcast(flooding) -> 모든 노드에게 물어보기 때문에 비용 발생
 node management cost가 없기 때문에 유리할 수 있음
 
+### Pure P2P
+특정 노드가 어디있는지 broadcast(flooding)
+잘 안씀
+일종의 query를 던짐
+dns처럼 자신에게 묻는건지 체크하고 맞다면 자신의 위치와 함께 응답
+- searching cost가 비쌈
+- node management cost가 저렴
+
+### Super-peer Architecture
+Pure P2P를 개선함
+Peer들을 계층화함
+Peer의 종류는 2가지로 나뉨
+
+1. Regular Peer
+기존의 일반적인 Peer
+
+2. Super Peer
+Regular Peer이지만 추가 역할을 함
+Hybrid P2P에서 DS와 같은 역할을 함
+해당 Cluster에서 다른 peer를 관장함
+자신의 Peer Group과 관련된 요청이라면 Group에 Unicast
+아니라면 다른 Super peer에게 Broadcast
+
+- Cluster(Peer Group)
+여러 Peer 들의 모임, 아래 그림에선 4개의 클러스터가 있음
+
+
+![[Pasted image 20231023143445.png]]
+
+Broadcast를 Super Peer에게만 하므로 비용 절감
+오버레이 네트워크이기 때문에 IP네트워크에서 사용하는 비트마스킹이랑은 다름(물리적 제약이 없음)
+물론 물리적으로 가깝게 Peer Group을 만들어도 되지만 여러가지를 고려할 수 있음
+
+Super Peer가 되기 위한 조건이 있음
+- P2P네트워크에 오래있어야 Super Peer가 될 확률이 높음
+-  네트워킹이 좋아야하고(bandwidth, speed), 컴퓨팅 파워가 커야 함
+-  그 외의 여러 조건을 고려함
+
+### Hybrid P2P
+Hybrid Architecture와는 결이 다름
+컨텐츠 자체는 기존과 유사하게 Peer들이 나눠서 가지고
+컨텐츠 위치는 브로드케스팅이 아닌 하나의 서버에서 관리함
+Hybrid P2P 는 Centralized Directory Service임
+
+- Directory Service
+컨텐츠 위치(Peer Index)를 알려주는 서비스
+
+- Directory Server
+Dirctory Service를 제공하는 서버
+
+DS(Directory Server)는 다른 peer들과 동등한 위치에서,
+meta data나 index를 register받음
+
+
+### Pseduo Code
+![[Pasted image 20231023145838.png]]
+Overlay Network에서
+근접한 노드를 immediate neightbor 라고하고
+immediate neightbor 끼리 node info를 전달해줌
+하나의 노드가 10개의 neightbor에 대한 정보를 가지고 있다면
+해당 노드가 가지고 있는 view를 partial view라고 함
+
+Current Partial view에서 추가 정보가 들어오면 수정을 함
+Current Partial view는 queue 형태로 구현(age 기준 정렬 상태)
+View의 element는 age 속성을 가짐 늙었으면 dequeue 당함
+
+PUSH_MODE는 자신이 가진 partial view중 하나를 다른 노드로 넘겨줌
+자신의 정보를 넣고
+자신이 가지고 있는 최신정보를 buffer에 넣어서 상대한테 넘겨줌
+PULL_MODE는 다른 노드의 buffer를 받아옴
+else문에서 정보를 세팅해놓고 가져가고 싶으면 가져갈 수 있게 하는 로직을 설정함
+
+![[Pasted image 20231023151315.png]]
+큰차이 없음
 
 
 
 
+## Topology Management of Overlay Networks
+
+Tcp위에 IP layer를 사용하 듯 overlay를 layer가 있음
+추후 추가
+
+
+## Edge-Server Systems
+Netflix 같은 동시에 유저들이 접속하는 스트리밍 서비스, 서버에서 유용하게 사용할 수 있음
+
+- Core Network
+백본망 같은 주요 네트워크
+- Edge Network
+core network가 아닌 하위 단계의 네트워크
+
+Contents Provider에서 Edge Server에 미리 Replication 해놓음
+트래픽을 분산시키는 역할
+
+![[Pasted image 20231023154208.png]]
 
 
 
+## Collaborative Distributed Systems
+Hybrid P2P와 유사함
+Dirctory Service를 하지는 않음
 
+pre-rider 방지
+다운로드 받을 때 비용을 요청함
+모든 Peer가 Contribution을 해야 이용을 할 수 있는 구조(보상 시스템)
 
+![[Pasted image 20231023154310.png]]
 
+- Tracker
+특정 파일의 위치를 알고 있는 물리적인 서버
+타겟 노드들의 정보를 저장하고 있음
 
+.torrent file에서 Tracker의 정보를 담고 있음
+File Server 에서는 .torrent file을 가지고 있음
 
+이때 공헌 여부에 따라 sending rate를 다르게 제공
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Globule
+2개 이상의 서버가 Content를 Replication하는 방식
+데이터가 없거나 과부화 상태라면  Redirection을 이용함
+구현하려면 서로 server status를 monitoring 해야 함
 
 
 

@@ -354,6 +354,7 @@ private 키로 public 키가 만들어짐 (차원곡선 곱셈 이용)
 address 는 public 키를 해시해서 만들어짐
 
 ## DSA를 이용한 비트코인
+ECDSA
 비교적 적은 키로도 강력한 암호화 기능을 구축할 수 있는 현대식 암호화 기법
 타원곡선을 이용함
 아래는 키와 주소 등이 어떤 원리로 생성되는지를 설명함
@@ -609,17 +610,17 @@ polynomial ring의 모든 조건을 만족
 ![[Pasted image 20231016201954.png]]
 
 
-## 차원 곡선(Elliptic Curve)
+## 타원 곡선(Elliptic Curve)
 `y^2 = x^3 + ax + b`형태
-차원곡선에서는 덧셈의 대해서만 알면 됨
+타원곡선에서는 덧셈의 대해서만 알면 됨
 아래 그림에서 P1+P2는 P3임임
 ![[Pasted image 20231016202417.png]]
 
 아래 3와 같이 곡선과의 교점이 없는 경우 Point at Infinity (무한 원점, 0) 라고 표현하고,
-이 점은 차원 곡선에서 항등원의 역할을 함
+이 점은 타원 곡선에서 항등원의 역할을 함
 이러한 항등원은 추후 키교환, 서명 등의 개념에서 사용됨
 
-차원 곡선에서 곱셈은 자기 자신을 여러 번 더하는 형식
+타원 곡선에서 곱셈은 자기 자신을 여러 번 더하는 형식
 따라서 어떤 점과 정수와의 곱셈만 가능
 그래프 상으론 접선의 역할
 - 2P=P+P
@@ -636,9 +637,13 @@ polynomial ring의 모든 조건을 만족
 `y^2 = x^3+7 over Fp` 또는
 `y^2 mod p = (x^3+7) mod p`
 
-타원 곡선 상의 정수 점들은 
+타원 곡선 상의 정수 점들의 개수는 다음과 같으며,
 `Order n = 1.1578*10^77 < 2^256`
-인데, 이 중에서 시작점(Generator point)을 하나 골라서 개인키를 만듬
+이때 백터값 시작점(Generator point)에 개인키 만큼을 곱해서 공개키를 만듬
+
+- G 실제 좌표
+x: 0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798
+y: 0x483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8
 
 ![[Pasted image 20231016210249.png]]
 
@@ -1131,6 +1136,146 @@ block-explorer에 있는 정보는 실제 tx에 있는게 아니라 따로 만�
 ## Tx Output
 비트코인 화폐는 `satoshi`라는 가장 작은 화폐 단위로 이뤄져 있고 더 이상 나눠지지 않음
 1BTC=100만 `satoshi`
+블록체인에 기록되어 있음
+전체 네트워크에서 인식됨
+
+- UTXO(Unspent Transcation Output)
+아직 사용이 안된 모든 Output
+Full Nodes에 의해서 추적됨
+Tx는 UTXO들로 상태를 전이 시킴
+
+Wallet은 자기가 가지고 있는 키 중에 하나로 사용 가능한 UTXO를 찾아냄
+빠른 참조를 위해 로컬 DB를 사용하기도 함
+
+UTXO는 나눠지지 않음
+쓰려면 한 번에 다 써야 함
+Wallet은 필요한 금액을 UXTO에서 적절하게 고르는 각자의 알고리즘이 있음
+만약 필요한 금액보다 크다면 Charge UTXO가 생성됨
+
+![[Pasted image 20231024153119.png]]
+- scriptPubKey
+사용하기 위한 조건을 Output에 걸 수 있음 
+locking script, witness script, or scriptPubKey
+
+- Serialization
+데이터 구조를 단순 byte stream으로 바꾸는 과정
+네트워크를 통해 전송하거나, 파일 형태로 저장할 때 사용
+![[Pasted image 20231024160724.png]]
+![[Pasted image 20231024154234.png]]
+하이라이트 되어있는 부분이 실제 Output을 직렬화한 것에 대한 부분이다. 
+
+
+## Tx Input
+사용될 UTXO가 명시되어 있음
+소유권에 대한 증명이 제공됨
+
+Wallet은 각각의 UTXO마다 input을 Tx안에 만듬
+
+![[Pasted image 20231024155518.png]]
+txid : reference the tx containing the UTXO being spent 
+vout : output index in the referenced tx above (from 0) 
+scriptSig : unlocking script for spending
+
+UTXO 정보와 수수료 계산, 다른 노드들을 검증하기 위해서 다른 Tx를 검색해야 함
+단순한 연산자지만 다양한 과정과 Tx가 필요
+
+input 부분을 직렬화 한 것은 다음의 하이라이팅 된 부분
+Sequence Number는 일정기간 동안 입력을 막는 용도로 사용
+![[Pasted image 20231024160734.png]]
+![[Pasted image 20231024160742.png]]
+
+
+## Tx Fee
+Miner를 보상
+공격자가 공격을 불가능하게 만드는 요소
+Miner들은 Fee를 우선순위로 둠
+
+처음에는 고정된 Fee를 사용했지만
+Tx의 길이에 따라 Fee를 다르게 책정함
+Wallet들이 알아서 책정함
+
+Tx에는 실제로 fee에 대한 field가 없음
+input에서 output을 빼서 암시적으로 나타냄
+실수로 fee를 너무 크게 잡았다면 그리고 이미 전파했다면 돌이킬 수 없음
+*실제로 이런 이유로 20 비트코인을 1비트코인으로 만들어서 19비트코인이 날라감
+
+
+## Coinbase Transaction
+각 블럭에 첫 번째에 위치하면서 채굴에 성공했을 때 블럭 보상과 Tx fee를 주는 Tx
+UTXO를 소모하지 않음
+100번 확인 이후에 사용할 수 있음
+
+
+## Transaction Script
+일종의 언어이지만 보안성, 안정성 이슈를 위해서 튜링 완전하진 않음
+예를 들어 반복문이 가능하다면 스크립트에 의도적으로 무한루프를 돌게 할 수 있고, 
+이는 Tx 승인 지연, DoS공격, 블록 크기 증가 등의 문제가 생길 수 있음
+
+Stack-based 언어
+사용 조건을 걸기 위해 UTXO안에 Locking Script 사용
+TX를 검증할 때 input에서 사용되는 Unlocking Script
+반복문, 복잡한 분기문 불가
+복잡도에 제한, 실행시간 예상할 수 있음
+논리폭탄, 무한 루프 방지
+state를 저장하지 않음(실행결과를 메모리에 저장하지 않음, 의존성이 없음)
+스크립트 안에 모든 정보가 있음
+자신뿐만 아니라 모든 시스템이 script를 검증함
+
+
+## Script 생성
+- Locking script
+output의 조건을 검
+scriptPubKey로 불렸지만, 더 많은 가능성 내포
+
+- Unlocking script
+output의 조건을 해결
+모든 transaction input 안에 있음
+대부분 사용자의 전자서명이 들어있음
+scriptSig(서명 스크립트)라고 불림
+
+- 검증
+각각의 비트코인 노드가 검증함
+Locking script와 Unlocking script를 실행시켜봄
+
+![[Pasted image 20231024173518.png]]
+
+
+## Script Excution Stack
+말 그대로 stack 기반으로 동작함
+왼쪽에서 오른쪽으로 실행
+`[Unlocking script]+[Locking Script]` 한 후 실행
+
+X항 연산자인지에 따라 Push or pop 1 or more items
+OP_ADD : pop 2 items → add items → push result
+OP_EQUAL : pop 2 items → push TRUE(1) if equal
+마지막이 TRUE면 valid
+
+![[Pasted image 20231024173930.png]]
+![[Pasted image 20231024173945.png]]
+
+
+## Pay-to-Public-Key-Hash(P2PKH)
+대부분 P2PKH 스크립트 이용
+public key hash(address)로 UTXO를 잠그고
+공개키를 제공한 다음 private key로 서명을 인증
+서명엔 ECDSA가 사용됨
+
+![[Pasted image 20231024175945.png]]
+
+![[Pasted image 20231024175949.png]]
+
+![[Pasted image 20231024175955.png]]
+
+![[Pasted image 20231024180011.png]]
+
+![[Pasted image 20231024180026.png]]
+
+
+
+## ECDSA
+![[Pasted image 20231024190205.png]]
+![[Pasted image 20231024190228.png]]
+
 
 
 
@@ -1260,7 +1405,6 @@ P2PKH 말고 다른 방식을 사용하는 tx도 있음
     
 2. **모듈러 역원 (Modular Inverse):** 이 개념은 모듈러 산술에서 사용됩니다. 특히, 원소 "a"의 모듈러 "n"에 대한 역원은 다른 원소 "b"가 존재하여 "a * b ≡ 1 (mod n)"를 만족하는 경우를 나타냅니다. 이는 원소 "a"를 모듈러 "n"에 대해 나눌 수 있는 원소를 의미합니다. 모듈러 연산에서 역원은 나머지 연산의 역수와 관련이 있습니다.
 ```
-
 - 유한체의 개수는 왜 무조건 `p^n` 이어야 하지?
 ```
 다양한 중요한 수학적 및 알고리즘적 특성을 만족하기 때문입니다. 이러한 특성은 유한체 이론과 관련이 있습니다.
@@ -1278,32 +1422,37 @@ P2PKH 말고 다른 방식을 사용하는 tx도 있음
 5. **유한체 이론:** 유한체 이론은 암호학, 오류 정정 부호, 유한체 기반의 다양한 알고리즘 및 통신 분야에 널리 적용되며, 이러한 분야에서 "p^n" 크기의 유한체는 효율적인 계산을 가능하게 합니다.
 ```
 
-- 개인키를 생성할 때 CSPRNG를 사용하고, 타원 곡선 안에 있는 Generator가 모두 CSPRNG에서 생성된 값은 아닐 것 같은데, 어떻게 난수를 통해 램덤한 Generator를 결정하는 건지?
-
-
-
-- Prefix “02” : y is even (negative) 
-Prefix “03” : y is odd (positive)
-y가 짝수든 홀수든 양수값과 음수값이 있을 수 있는데, 
-이 중에서 만약 y가 짝수라면 음수에 해당하는 키를 취하고, 
-홀수라면 양수를 취하겠다는 의미?
-
-
-우연히 서로 다른 두 명이 로컬에서 동일한 개인키로 주소를 만들었고, 한명이 tx를 block에 올린다음 다른 한 사람이 tx를 만들고 전파하면 reject? 
+- 우연히 서로 다른 두 명이 로컬에서 동일한 개인키로 주소를 만들었고, 한명이 tx를 block에 올린다음 다른 한 사람이 tx를 만들고 전파하면 reject? 
 ```
 서로 다른 두 명이 동일한 개인 키로 트랜잭션을 만들 경우, 블록체인 네트워크에서 두 번째 트랜잭션은 거부될 것입니다.
 ```
 
+- 튜링 완전하다는게 뭐지?
+```
+1. 계산 가능성(Computability): 튜링 완전한 언어나 시스템은 어떤 종류의 계산이라도 수행할 수 있습니다. 이는 어떤 프로그램을 작성하여 어떤 문제든 해결할 수 있다는 것을 의미합니다.
+    
+2. 반복(Loops) 및 조건문(Conditionals): 튜링 완전한 언어는 반복문과 조건문과 같은 제어 구조를 사용하여 다양한 계산을 수행할 수 있습니다. 이로써 복잡한 알고리즘을 표현할 수 있습니다.
+    
+3. 임의의 메모리 액세스: 튜링 완전한 언어는 메모리에 읽고 쓸 수 있는 능력을 갖추고 있으며, 이를 통해 데이터를 저장하고 조작할 수 있습니다.
+    
+4. 무한 루프: 튜링 완전한 언어나 시스템은 무한 루프를 생성할 수 있으며, 이는 계산이 끝나지 않는 프로그램을 작성할 수 있음을 의미합니다
+```
+
+- 중복되는 정보가 많아보이는데 실제로는 스크립트가 하나만 저장되는지?
+![[Pasted image 20231024174339.png]]
+```
+네, 실제로 블록체인에서 스크립트는 "hex" 형태로 저장되며, "asm" 형태의 스크립트는 블록체인에 저장되지 않습니다
+```
 
 
+- G에 개인키만큼을 곱했을 때 나온 공개키의 좌표가 정수인 이유?
+```
+타원 곡선 암호학에서 공개 키의 좌표는 정수 값이어야 합니다. 이것은 암호학적 연산의 특성으로 정해진 것입니다. 타원 곡선 암호학은 유한 체(Field) 상에서 작동하며, 연산 결과는 해당 유한 체 내의 정수입니다.
 
+타원 곡선 암호학에서 사용되는 타원 곡선은 유한 체에서 정의되며, 모든 연산은 해당 유한 체 내에서 수행됩니다. 곡선 상의 점은 정수 좌표로 표현됩니다. 따라서 개인 키와 생성자 "G"를 곱한 결과인 공개 키의 좌표도 해당 타원 곡선의 유한 체 내의 정수 값입니다.
 
-
-
-
-
-
-
+결과적으로, 공개 키의 좌표는 항상 정수 값이며, 이러한 특성을 타원 곡선 암호학의 안전성과 보안성을 유지하는 데 사용됩니다.
+```
 
 
 
