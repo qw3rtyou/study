@@ -1,0 +1,198 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1688374050;
+	cv=none; b=ZZdymbt4lBEI/P2CrBA57y63RJZpilTwSryEWM8xRDEdzBvvm7qINhNJfXLG
+	 zugU5MLhbgsMEwVha7z65i0lMsHPjTPrGU61zo8FMrvCxo+iTf2bVf9d31m8dA1X2cEeB4
+	 ojyJCO21q5xJgXVRN50VAlNY8vqq7zYSO0cVPX363431g8hRzGXqyK8gTcOrXGACHfrYxD
+	 VPZVrvRIqryXCevY04bO+z1aHrg+O8reY6vQS3An4Kpikvwjl8uZQ3aRvHGAN9felmg1vB
+	 086zCQMALUtHFl933he6Aqqt2m6nODhKc68x61Y8kM1viZQeb/eSeZcOsoa2f4ZR2ufKlt
+	 LQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1688374050; c=relaxed/relaxed;
+	bh=x2I1yAMdtLlmzN8LewOoKX2nww48oD72MwWDCR2j7rU=;
+	h=from:to:subject:date; b=UvCdQlQ9WTs7fOsxYT5gjM5ZgWWDD1EZDZTLHmSRxxUBJ
+	 rstsFakaAbAH9t/zOeBgnnlOLvtb8rMy6oYpOVskLb5CM1AQ54agcKdFhBL1dVPJHpdRaH
+	 1IcBEZHi7n7DK29B7iLiqdIcSPhcBrfl5XL6926c68tPAW9guwLWyjcc1pwyAbvFBRxorl
+	 FUVtbmy91YdA9pcHDi/usmu4nWXFhpZ6uwyo6QhklT4rFBkPKddkHjo8wV5i82x5+aRcUG
+	 hawh7f9jh2C1398v3OiYquiY8FH9D9IAL4IJTHv+h0hO6bHQztEWLp06x99KvTwUKtE9kI
+	 24ciLE836orHAN5Lw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of cheom@cheomad.com designates 202.68.230.89 as permitted sender) smtp.mailfrom=cheom@cheomad.com
+Return-Path: <cheom@cheomad.com>
+Received-SPF: pass (mx.naver.com: domain of cheom@cheomad.com designates 202.68.230.89 as permitted sender)
+  client-ip=202.68.230.89; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of cheom@cheomad.com designates 202.68.230.89 as permitted sender) smtp.mailfrom=cheom@cheomad.com
+X-Naver-ESV: wrFn+6J4p63qMBIYFHwdbXmmaAtXKqIYkXm=
+X-Session-IP: 202.68.230.89
+Message-ID: <1688374050117.7fce5.58668841@crcvmail102.nm>
+Received: from cheomad.com (cheomad.com [202.68.230.89])
+  by crcvmail102.nm.naver.com with ESMTP id yHdAFOfAS92TJv-L2FDRVA
+  for <user01@naver.com>;
+  Sat, 19 Aug 2023 08:47:30 -0000
+From: CHEOMAD<cheom@cheomad.com>
+To: user01@naver.com
+Subject: (광고) 맛있게 매콤한 맛과 튼실한 알의 식감에 빠져드는 "레알양념쭈꾸미" 정말 맛있게 준비했습니다.
+Reply-To: cheom@cheomad.com
+Date: Sat, 19 Aug 2023 17:47:31 +0900
+Mime-Version: 1.0
+Content-Type:text/html; charset=ks_c_5601-1987
+
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://soorisoori.com/surl/P/19" target="_blank"><img src="http://www.2nt.co.kr/mail/zzu_12900_danpum.png" width="768"height="2200" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="15" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middel_title_bobdoduk.png" width="768" height="55" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://soorisoori.com/surl/P/10" target="_blank"><img src="http://www.2nt.co.kr/mail/soorisoori_banner_sangho_sobul.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="5" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://soorisoori.com/surl/P/44" target="_blank"><img src="http://www.2nt.co.kr/mail/soorisoori_banner_gochujangpork.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="5" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://soorisoori.com/surl/P/30" target="_blank"><img src="http://www.2nt.co.kr/mail/soorisoori_banner_nakgobsae.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="5" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://soorisoori.com/surl/P/54" target="_blank"><img src="http://www.2nt.co.kr/mail/soorisoori_banner_bokeum.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="5" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://soorisoori.com/surl/P/38" target="_blank"><img src="http://www.2nt.co.kr/mail/soorisoori_banner_zzigae.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="5" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://soorisoori.com/surl/P/43" target="_blank"><img src="http://www.2nt.co.kr/mail/soorisoori_banner_appleddukbbokgi.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="5" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://soorisoori.com/surl/P/46" target="_blank"><img src="http://www.2nt.co.kr/mail/soorisoori_banner_jecheonodeng.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="5" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://soorisoori.com/surl/P/47" target="_blank"><img src="http://www.2nt.co.kr/mail/soorisoori_banner_odengdori.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="5" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://soorisoori.com/surl/P/17" target="_blank"><img src="http://www.2nt.co.kr/mail/soorisoori_banner_ynpork.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="15" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middel_title_soorisoori.png" width="768" height="55" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://www.soorisoori.com/surl/P/12" target="_blank"><img src="http://www.2nt.co.kr/mail/sool_ulddul_banner.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="5" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://www.soorisoori.com/surl/P/28" target="_blank"><img src="http://www.2nt.co.kr/mail/soo_milyang_banner.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="5" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://www.soorisoori.com/surl/P/35" target="_blank"><img src="http://www.2nt.co.kr/mail/sool_wintersoju_banner.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="5" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://www.soorisoori.com/surl/P/22" target="_blank"><img src="http://www.2nt.co.kr/mail/sool_bluemoon_banner.png" width="768"height="300" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="3" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center"> 
+<tr> 
+<td colspan="2"><a href="http://adloanmailserver.com/Back/MailMgmt/Mail_Cancel.html?cancelemail=user01@naver.com&adcode=2023-03-13_2" target="_blank"><img src="http://loanconsulting.kr/mail/cheomadfooter.jpg" width="768" height="207" /></td> 
+</tr>
+</table>
+
+
+
+
+

@@ -1,0 +1,264 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1690975682;
+	cv=none; b=lkjyJuWnB6UxLXY163wVa3ogK1JQtF2Mk8JP23yD4iZi+wBoY9PZWHLb6X4R
+	 YaMpN5X1hCYJIMWdMCNrGYegXhFeVeO3kj9s+9+cTaXVXPcBGR6jphkOxig5lux/xyPOmI
+	 CgK5NRWHUFuic9zYmGkDdRWIBkdV/vquAivK9QZFOBIMclZty45ZsfeAKn33byPLzyPi1u
+	 p89MzQw582q1a+RZaTjOCRhz+mngyMZGllVyrLdKqKzGdlQDc+Ubw64zXbQpZhU0mqY9cq
+	 Xend02aqCAsGAPF3O21nEvFvW8EM9kJW42SiGNMHxusooeOk1yXQiAKXr75gN+jDPrc9eN
+	 0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1690975682; c=relaxed/relaxed;
+	bh=tMNI4ZTzYvamMTivyuYcSo9AZITzuJC2Wj3FZhqiNcI=;
+	h=from:to:subject:date:message-id; b=B/iyB4uRG3Z9YLQC0B5r1/UmtlW7cq5EfR
+	 DMEqy2vuYWkM/1X0PiQ6oCBol4CgHpTft0aDR+ycIqKnXhqM8TfEpLPJfhFnb+aMpk511N
+	 nrcnv4K5rRLUv/gdEFpCGlvc9l7i6ZHsmTY4363bPW6oNTj3fH6MAq/7y1t6Yp/qRLKxyQ
+	 jwLacq/vb1Jjh4w3s4VtEDdC2ZuFwluUPO2TlOPPjkpQkDF56P9JbXXQW+t6WDFqqTgyCS
+	 DbTOvF5hzhEMtgXKD9upJnI+Vx8SNdVEpILitb8sBQsdBKSRCWWidmnkYMmDu6LBEUS/WO
+	 pZ+hI0oe3zVu8hzBHg1s0aLCgTfw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=none (mx.naver.com: domain of jejuairevent@jejuair.net does not designate permitted sender hosts) smtp.mailfrom=jejuairevent@jejuair.net
+Return-Path: <jejuairevent@jejuair.net>
+Received-SPF: none (mx.naver.com: domain of jejuairevent@jejuair.net does not designate permitted sender hosts)
+  client-ip=220.76.194.188; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=none (mx.naver.com: domain of jejuairevent@jejuair.net does not designate permitted sender hosts) smtp.mailfrom=jejuairevent@jejuair.net
+X-Naver-ESV: ww+n+6J4p635WrlYKHwdpBmwKxU/KAiYkXm=
+X-Session-IP: 220.76.194.188
+Received: from ems.jejuair.net (ems.jejuair.net [220.76.194.188])
+  by crcvmail303.nm.naver.com with ESMTP id peOQlwyUTzKCt-WLNrYtTg
+  for <user01@naver.com>;
+  Wed, 16 Aug 2023 11:28:02 -0000
+From: "=?utf-8?B?7KCc7KO87ZWt6rO1?=" <jejuairevent@jejuair.net>
+To: "=?utf-8?B?67CV7KeA7J2A?=" <user01@naver.com>
+Reply-to: <jejuairevent@jejuair.net>
+Subject: =?utf-8?B?KOq0keqzoCkg7KCc7KO87ZWt6rO1IO2ajOybkE9OTA==?=
+ =?utf-8?B?WSDtmJztg53rtoDthLAg7KaJ7IucIOyCrOyaqSDtlaDsnbg=?=
+ =?utf-8?B?7L2U65Oc6rmM7KeAIA==?=
+Date: Wed, 16 Aug 2023 20:28:01 +0900
+X-WORKER_ID: <single.naver.com_Worker_5>
+X-MAIL_ID: <UE9TVF9JRD0yMDIzMDgwMTAwMDAx>
+X-MEMBER_ID: <TV9JRD0wMzM3MzgyMzM=>
+X-SEND_TYPE: <U1RZUEU9Q0FNUA==>
+X-LIST_TABLE: <TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=>
+X-Mailer: eMsSMTP Ver6.5( PLUTO-build 0322 )
+MIME-Version: 1.0
+Message-ID: <202308022028012138_TMS@ems.jejuair.net>
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0 " /><meta name="format-detection" content="telephone=no" />
+<title>제주항공-이벤트프로모션 DM</title>
+</head>
+<body style="margin: 0px; padding: 0px;">
+<table border="0" cellpadding="0" cellspacing="0" style="margin: 0px; padding: 0px; color: transparent;" width="100%">
+<tbody>
+<tr>
+<td align="center">
+<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" style="margin: 0px; padding: 0px; color: transparent; max-width: 600px;" width="100%">
+<tbody>
+<tr>
+<td style="height: 3px; background: #fe5000; font-size: 0;"></td>
+</tr>
+<tr>
+<td style="width: 100%; height: 100px; padding-left: 20px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAwMQ==&c_id=001&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/" style="text-decoration: none; display: inline-block;" target="_blank" title="새창열림"><img alt="제주항공 로고" height="23" src="http://static.jejuair.net/cms/images/file_upload/20230110103024403.png" width="130" /> </a></td>
+</tr>
+<tr>
+<td><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAwMg==&c_id=002&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/event/eventDetail.do?eventNo=0000001079&amp;utm_source=main_01&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="display: block; position: relative; text-decoration: none;" target="_blank" title="새창열림"><img alt="제주항공" src="http://static.jejuair.net/cms/images/file_upload/20230802090134096.jpg" style="width: 100%; vertical-align: top;" /> </a>
+<div style="margin: 16px 20px 40px;">
+<p style="display: block; margin: 0 0 10px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAwMw==&c_id=003&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/event/eventDetail.do?eventNo=0000001079&amp;utm_source=main_01&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; display: block; position: relative; text-decoration: none; color: #666; line-height: 24px; font-size: 16px; font-weight: 400;" target="_blank" title="새창열림">2023.07.31 ~ 2023.08.06</a></p>
+<p style="display: block; margin: 0;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAwNA==&c_id=004&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/event/eventDetail.do?eventNo=0000001079&amp;utm_source=main_01&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; display: block; position: relative; text-decoration: none; color: #333; line-height: 24px; font-size: 18px; font-weight: 700;" target="_blank" title="새창열림">[필리핀 초특가 프로젝트] 최대 6만원 할인코드까지!</a></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div style="margin: 0 20px 60px;">
+<table cellpadding="0" cellspacing="0" style="width: 100%; color: transparent; table-layout: fixed;">
+<tbody>
+<tr>
+<td>
+<table cellpadding="0" cellspacing="0" style="width: 100%; color: transparent; table-layout: fixed;">
+<colgroup>
+<col style="width: calc(50%- 10px);" />
+<col style="width: 20px;" />
+<col style="width: calc(50%- 10px);" />
+</colgroup>
+<tbody>
+<tr>
+<td style=" font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; vertical-align: top;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAwNQ==&c_id=005&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/event/eventDetailProxy.do?eventNo=0000001170&amp;utm_source=sub_01&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="text-decoration: none; display: block; position: relative;" target="_blank" title="blank"><img alt="" src="http://static.jejuair.net/cms/images/event_scrn/20230728142300427_thumb.jpg" style="width: 100%; overflow: hidden; vertical-align: top;" /> </a>
+<div style="margin: 16px 0 0;">
+<p style="display: block; margin: 0 0 10px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAwNg==&c_id=006&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/event/eventDetailProxy.do?eventNo=0000001170&amp;utm_source=sub_01&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; text-decoration: none; display: block; position: relative; color: #666; line-height: 24px; font-size: 16px; font-weight: 400;" target="_blank" title="blank">2023.08.02 ~ 2023.08.08</a></p>
+<p style="display: block; margin: 0;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAwNw==&c_id=007&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/event/eventDetailProxy.do?eventNo=0000001170&amp;utm_source=sub_01&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; text-decoration: none; display: block; position: relative; color: #333; line-height: 24px; font-size: 18px; font-weight: 700;" target="_blank" title="blank">부산 &amp; 인천출발 몽골여행! <span style="color: rgb(51, 51, 51); line-height: 24px; overflow: hidden; font-size: 16px; color: #666; text-decoration: none; display: block; margin-top: 5px;">최대 4만원 즉시할인부터, 현지투어 할인혜택까지! </span></a></p>
+</div>
+</td>
+<td></td>
+<td style=" font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; vertical-align: top;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAwOA==&c_id=008&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/event/eventDetailProxy.do?eventNo=0000001143&amp;utm_source=sub_02&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="text-decoration: none; display: block; position: relative;" target="_blank" title="blank"><img alt="" src="http://static.jejuair.net/cms/images/event_scrn/20230801103856386_thumb.jpg" style="width: 100%; overflow: hidden; vertical-align: top;" /> </a>
+<div style="margin: 16px 0 0;">
+<p style="display: block; margin: 0 0 10px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAwOQ==&c_id=009&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/event/eventDetailProxy.do?eventNo=0000001143&amp;utm_source=sub_02&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; text-decoration: none; display: block; position: relative; color: #666; line-height: 24px; font-size: 16px; font-weight: 400;" target="_blank" title="blank">2023.08.01 ~ 2023.09.30</a></p>
+<p style="display: block; margin: 0;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAxMA==&c_id=010&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/event/eventDetailProxy.do?eventNo=0000001143&amp;utm_source=sub_02&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; text-decoration: none; display: block; position: relative; color: #333; line-height: 24px; font-size: 18px; font-weight: 700;" target="_blank" title="blank">ONLY JJ멤버스파트너스 <span style="color: rgb(51, 51, 51); line-height: 24px; overflow: hidden; font-size: 16px; color: #666; text-decoration: none; display: block; margin-top: 5px;">제주항공 회원을 위한 혜택! </span></a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div style="margin: 0 20px 60px;">
+<table cellpadding="0" cellspacing="0" style="width: 100%; color: transparent; table-layout: fixed;">
+<tbody>
+<tr>
+<td style="padding: 0 0 20px; color: #000; letter-spacing: -2px; font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; font-size: 20px; font-weight: 700;">진행 예정 이벤트</td>
+</tr>
+<tr>
+<td><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAxMQ==&c_id=011&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/event/eventDetail.do?eventNo=0000001152&amp;utm_source=sub_03&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="display: block; position: relative; text-decoration: none;" target="_blank" title="새창열림"><img alt="제주항공" src="http://static.jejuair.net/cms/images/event_scrn/20230724150746975.jpg" style="width: 100%; vertical-align: top;" /> </a>
+<div style="margin-top: 16px;">
+<p style="display: block; margin: 0 0 10px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAxMg==&c_id=012&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/event/eventDetail.do?eventNo=0000001152&amp;utm_source=sub_03&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; display: block; position: relative; text-decoration: none; color: #666; line-height: 24px; font-size: 16px; font-weight: 400;" target="_blank" title="새창열림">2023.08.02 ~ 2023.08.06</a></p>
+<p style="display: block; margin: 0;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAxMw==&c_id=013&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/event/eventDetail.do?eventNo=0000001152&amp;utm_source=sub_03&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; display: block; position: relative; text-decoration: none; color: #333; line-height: 24px; font-size: 18px; font-weight: 700;" target="_blank" title="새창열림">단 5일, 일본 반짝특가! 8~9월 최대 2만원 할인 8/2(수) 18시 오픈!</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div style="margin: 0 20px 60px;">
+<table cellpadding="0" cellspacing="0" style="width: 100%; color: transparent; table-layout: fixed;">
+<colgroup>
+<col style="width: calc(50%- 10px);" />
+<col style="width: 20px;" />
+<col style="width: calc(50%- 10px);" />
+</colgroup>
+<tbody>
+<tr>
+<td colspan="3" style="padding: 0 0 20px; color: #000; letter-spacing: -2px; font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; font-size: 20px; font-weight: 700;">추천 항공권</td>
+</tr>
+<tr>
+<td style="padding: 0px; font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; vertical-align: top;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAxNA==&c_id=014&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/ibe/booking/Availability.do?tripType=R&amp;depStn=ICN&amp;arrStn=HKG&amp;depDate=2023-09-04&amp;arrDate=2023-09-07&amp;utm_source=recommend_01&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="text-decoration: none; display: block;" target="_blank" title="blank"><img alt="" src="http://static.jejuair.net/cms/images/file_upload/20230731112944435.png" style="width: 100%; vertical-align: top;" /> </a>
+<p style="display: block; margin: 16px 0 0;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAxNQ==&c_id=015&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/ibe/booking/Availability.do?tripType=R&amp;depStn=ICN&amp;arrStn=HKG&amp;depDate=2023-09-04&amp;arrDate=2023-09-07&amp;utm_source=recommend_01&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; text-decoration: none; display: block; color: #333; line-height: 24px; font-size: 18px; font-weight: 700;" target="_blank" title="blank">인천 - 홍콩<br />
+편도총액 123,900원~</a></p>
+</td>
+<td></td>
+<td style="padding: 0px;  font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; vertical-align: top;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAxNg==&c_id=016&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/ibe/booking/Availability.do?tripType=R&amp;depStn=GMP&amp;arrStn=CJU&amp;depDate=2023-09-12&amp;arrDate=2023-09-14&amp;utm_source=recommend_02&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="text-decoration: none; display: block;" target="_blank" title="blank"><img alt="" src="http://static.jejuair.net/cms/images/immigration_card/20230620152527353.png" style="width: 100%; vertical-align: top;" /> </a>
+<p style="display: block; margin: 16px 0 0;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAxNw==&c_id=017&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/ibe/booking/Availability.do?tripType=R&amp;depStn=GMP&amp;arrStn=CJU&amp;depDate=2023-09-12&amp;arrDate=2023-09-14&amp;utm_source=recommend_02&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; text-decoration: none; display: block; color: #333; line-height: 24px; font-size: 18px; font-weight: 700;" target="_blank" title="blank">김포 - 제주<br />
+편도총액 20,500원~</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div style="margin: 0 20px 60px;">
+<table cellpadding="0" cellspacing="0" style="width: 100%; color: transparent; table-layout: fixed;">
+<tbody>
+<tr>
+<td style="padding: 0 0 20px; color: #000; letter-spacing: -2px; font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; font-size: 20px; font-weight: 700;">제주항공 이야기</td>
+</tr>
+<tr>
+<td style="padding: 0 0 20px; font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; vertical-align: top;">
+<div style="width: calc(59% - 10px); float: left;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAxOA==&c_id=018&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://youtu.be/D0L2k5tcW7Y" style="overflow: hidden; text-decoration: none; display: block;" target="_blank" title="blank"><img alt="" src="https://img.youtube.com/vi/D0L2k5tcW7Y/maxresdefault.jpg" style="width: 100%; vertical-align: top;" /> </a></div>
+<div style="width: calc(41% - 10px); padding-left: 20px; float: left;">
+<p style="margin: 0px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAxOQ==&c_id=019&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://youtu.be/D0L2k5tcW7Y" style="color: rgb(0, 0, 0); line-height: 24px; overflow: hidden; font-size: 18px; color: #333; font-weight: 700; text-decoration: none; display: block;" target="_blank" title="blank">2023 BTS FESTA 래핑<br />
+항공기 현장 공개!</a></p>
+<p style="margin: 0px; padding-top: 10px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAyMA==&c_id=020&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://youtu.be/D0L2k5tcW7Y" style="color: rgb(51, 51, 51); line-height: 24px; overflow: hidden; font-size: 16px; color: #666; text-decoration: none; display: block;" target="_blank" title="blank">BTS 데뷔 10주년을 기념해서 항공기 래핑하고 싶은<br />
+그런 날💜</a></p>
+</div>
+</td>
+</tr>
+<tr>
+<td style="padding: 0; font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; vertical-align: top;">
+<div style="width: calc(59% - 10px); float: left;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAyMQ==&c_id=021&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://youtu.be/9iaTe0UTl_E" style="overflow: hidden; text-decoration: none; display: block;" target="_blank" title="blank"><img alt="" src="https://img.youtube.com/vi/9iaTe0UTl_E/maxresdefault.jpg" style="width: 100%; vertical-align: top;" /> </a></div>
+<div style="width: calc(41% - 10px); padding-left: 20px; float: left;">
+<p style="margin: 0px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAyMg==&c_id=022&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://youtu.be/9iaTe0UTl_E" style="color: rgb(0, 0, 0); line-height: 24px; overflow: hidden; font-size: 18px; color: #333; font-weight: 700; text-decoration: none; display: block;" target="_blank" title="mmblank">🍊감귤랭 가이드ㅣSUMMER IN SEOUL</a></p>
+<p style="margin: 0px; padding-top: 10px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAyMw==&c_id=023&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://youtu.be/9iaTe0UTl_E" style="color: rgb(51, 51, 51); line-height: 24px; overflow: hidden; font-size: 16px; color: #666; text-decoration: none; display: block;" target="_blank" title="blank">제주항공 승무원이 알려주는 도심 속 여름을 즐기는 가장 완벽한 방법🌊</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div style="margin: 0 20px 60px;">
+<table cellpadding="0" cellspacing="0" style="width: 100%; color: transparent; table-layout: fixed;">
+<colgroup>
+<col style="width: calc(50%- 10px);" />
+<col style="width: 20px;" />
+<col style="width: calc(50%- 10px);" />
+</colgroup>
+<tbody>
+<tr>
+<td colspan="3" style="padding: 0 0 20px; color: #000; letter-spacing: -2px; font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; font-size: 20px; font-weight: 700;">제주항공 혜택 서비스</td>
+</tr>
+<tr>
+<td style="padding: 10px 0px; font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; vertical-align: top;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAyNA==&c_id=024&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuairshop.com/product/list.html?cate_no=101#none&amp;utm_source=benefit_01&amp;utm_medium=email&amp;utm_campaign=dm_2300802&amp;utm_term=&amp;utm_content=KR" style="text-decoration: none; display: block;" target="_blank" title="blank"><img alt="" src="http://static.jejuair.net/cms/images/file_upload/20230801084156889.jpg" style="width: 100%; overflow: hidden; vertical-align: top;" /> </a>
+<p style="margin: 0px; padding-top: 10px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAyNQ==&c_id=025&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuairshop.com/product/list.html?cate_no=101#none&amp;utm_source=benefit_01&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="color: rgb(0, 0, 0); line-height: 16px; font-size: 16px; font-weight: bold; text-decoration: none; display: block;" target="_blank" title="blank">제주항공 X 엘라고 콜라보 굿즈</a></p>
+<p style="margin: 0px; padding-top: 6px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAyNg==&c_id=026&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuairshop.com/product/list.html?cate_no=101#none&amp;utm_source=benefit_01&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="color: rgb(51, 51, 51); line-height: 1.4; font-size: 14px; text-decoration: none; display: block;" target="_blank" title="blank">신규 제품 출시!<br />
+갤럭시 S23, 아이폰 14 케이스 등</a></p>
+</td>
+<td></td>
+<td style="padding: 10px 0px; font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; vertical-align: top;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAyNw==&c_id=027&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/premium/golfMembership/main.do?utm_source=benefit_02&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="text-decoration: none; display: block;" target="_blank" title="blank"><img alt="" src="http://static.jejuair.net/cms/images/file_upload/20230703095822625.png" style="width: 100%; overflow: hidden; vertical-align: top;" /> </a>
+<p style="margin: 0px; padding-top: 10px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAyOA==&c_id=028&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/premium/golfMembership/main.do?utm_source=benefit_02&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="color: rgb(0, 0, 0); line-height: 16px; font-size: 16px; font-weight: bold; text-decoration: none; display: block;" target="_blank" title="blank">골프여행을 위한 골프멤버십</a></p>
+<p style="margin: 0px; padding-top: 6px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAyOQ==&c_id=029&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/premium/golfMembership/main.do?utm_source=benefit_02&amp;utm_medium=email&amp;utm_campaign=dm_230802&amp;utm_term=&amp;utm_content=KR" style="color: rgb(51, 51, 51); line-height: 1.4; font-size: 14px; text-decoration: none; display: block;" target="_blank" title="blank">1년간 무제한 사용이 가능한<br />
+합리적인 골프멤버십 72% 할인중!</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div style="padding: 24px 20px 40px; overflow: hidden; border-top: 1px solid #ddd;"><span style="color: rgb(51, 51, 51); letter-spacing: -0.4px; padding-right: 10px; font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; font-size: 16px; color: #333; font-weight: 700; display: inline-block; margin-top: 16px; line-height: 30px;">특가 항공권을 앱에서 검색해 보세요!</span>
+<div style="overflow: hidden; float: right; display: block; margin-top: 16px;"><a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAzMA==&c_id=030&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://play.google.com/store/apps/details?id=com.parksmt.jejuair.android16" style="width: 100px; height: 30px; float: left; display: block;" target="_blank" title="구글 플레이스토어 새창"><img alt="구글 플레이스토어 새창" src="http://static.jejuair.net/cms/images/file_upload/20230317134444437.png" style="width: 100px; height: 30px; vertical-align: top;" /> </a> <a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAzMQ==&c_id=031&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://apps.apple.com/kr/app/%EC%A0%9C%EC%A3%BC%ED%95%AD%EA%B3%B5/id373053637" style="width: 100px; height: 30px; margin-left: 5px; float: left; display: block;" target="_blank" title="IOS 앱 다운로드 새창"> <img alt="IOS 앱 다운로드 새창" src="http://static.jejuair.net/cms/images/file_upload/20230317134432310.png" style="width: 100px; height: 30px; vertical-align: top;" /> </a></div>
+</div>
+</td>
+</tr>
+<tr>
+<td style="background: rgb(247, 247, 247); padding: 20px;">
+<table border="0" cellpadding="0" cellspacing="0" style="color: rgb(51, 51, 51); line-height: 20px; letter-spacing: -0.25px; font-family: &quot;맑은고딕&quot;,Malgun Gothic,&quot;굴림&quot;,Gulim,Apple SD Gothic Neo,sans-serif; font-size: 13px; mso-line-height-rule: exactly;" width="100%">
+<tbody>
+<tr>
+<td colspan="2">본 메일은 2023년 08월 02일 기준으로 이메일 수신 동의에 의한 발신 전용 메일입니다.<br />
+수신을 더 이상 원하지 않으시면, <a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAzMg==&c_id=032&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/member/memberJoin/memEmailReject/EBeyPOJfQdb3yro38AJX8ILCG2KRWVenLMaLUZ9tqokJ3D.do" style="color: rgb(57, 137, 255);">여기</a>로 접속하시기 바랍니다.<br />
+To unsubscribe Jeju Air emails, please click <a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAzMw==&c_id=033&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/member/memberJoin/memEmailReject/EBeyPOJfQdb3yro38AJX8ILCG2KRWVenLMaLUZ9tqokJ3D.do" style="color: rgb(57, 137, 255);">[here]</a><br />
+자세한 문의사항은 <a href="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1D&Q0lEPTAzNA==&c_id=034&enc_email=e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396&URL=https://www.jejuair.net/ko/customerService/csCenter/faqList.do" style="color: rgb(57, 137, 255);">고객센터</a>(1599-1500)를 이용해 주시기 바랍니다.</td>
+</tr>
+<tr>
+<td colspan="2" style="padding: 15px 0px; color: rgb(102, 102, 102); line-height: 20px;">㈜제주항공 | 제주특별자치도 제주시 신대로 64(연동, 건설공제회관 3층)</td>
+</tr>
+<tr>
+<td align="left" style="color: rgb(102, 102, 102); font-size: 12px;">CopyrightⓒJEJUAIR Corp. All Rights Reserved.</td>
+<td align="right"><img alt="제주항공로고" src="https://static.jejuair.net/hpgg/resources/images/event/logo_g.png" style="width: 60px;" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<div style="display:none"><IMG width=0 height=0 src="https://ums.jejuair.net/tms-msg-api/tracking?TV9JRD0wMzM3MzgyMzM=&U1RZUEU9Q0FNUA==&p_id=2023080100001&m_id=033738233&s_tp=MASS&TElTVF9UQUJMRT1UTVNfQ0FNUF9TRU5EX0xJU1RfMDg=&UE9TVF9JRD0yMDIzMDgwMTAwMDAx&U0VSVkVSX0lEPTAx&VEM9MjAyMzA4MDk=&S0lORD1P"></div></body>
+</html>
+
+

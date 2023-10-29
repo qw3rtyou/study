@@ -1,0 +1,59 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1688077915;
+	cv=none; b=ORI2yrcD6VhuL6dff2BuASM78tQRan8boQAzRAMlJcyk6ND9oO60ZHmfO1D5
+	 wiZTXzb0R3Nzkhr/8MoU6zFl8+S6VfmIgn6QkmixnNd3kFxcLrG72lCS/dNlfG9PhIo9eW
+	 wvO7kbwkbPs2v4fjbEyn0ZZhuNoROoYOgjevIXP7HMqBKVkHSRn8AR33iPS1URMWz5av6r
+	 RXvBnQDQKgvjkSESGf93xW3e7ClYEqemmBjyMJG5y7T5tGlvz7SxeiC8O9XPn6JwTiCUZf
+	 rl8E42oAX/urnE5zJKUwqFhUl3YYeJuW84n1rQec2WbpJ4lnoL6MOkm9K+04/5UZgzIcTM
+	 Wg==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1688077915; c=relaxed/relaxed;
+	bh=YyDBWySc9RVk2fPUdgbXiQJ2ecQ/RnrGekAgP/GmiEc=;
+	h=from:to:subject:date; b=eSi9Dlocq11yJ0K5wiBWgv+msRBWSsb1YHtHgG6S5JGj3
+	 8P+eGPHfAyljfZAN8GiZFVMCrHOXeVXL5qOkhLrXKQ5RCUVQSqf9vA/cLLw6JG9pqkxDtG
+	 k+h+Oiwb3Zgixu38o22bwOQEuztUhHUqgxKtrC8TR4pktOb8zljUCKTf8glOlu0DL6Fn2c
+	 yzE3jnv7tMqtaqN+hlmvX/7rs6nAFqPmF0xN6lWH4/xIdcD+Jo84w/8I1MV+S9PZBWrARW
+	 UDt1SzI+zo5eDZAHsyGfcTVGSDRL+n+QJctvc1ZkbNH75VDxiUL/IHGUrVq36ELWtIi+u0
+	 mz9IGJSyJOitxtMdw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of cheom@cheomad.com designates 202.68.230.89 as permitted sender) smtp.mailfrom=cheom@cheomad.com
+Return-Path: <cheom@cheomad.com>
+Received-SPF: pass (mx.naver.com: domain of cheom@cheomad.com designates 202.68.230.89 as permitted sender)
+  client-ip=202.68.230.89; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of cheom@cheomad.com designates 202.68.230.89 as permitted sender) smtp.mailfrom=cheom@cheomad.com
+X-Naver-ESV: w9Fn+6J4p63qMBIYFHwdbXmZKoKwFxkYkXm=
+X-Session-IP: 202.68.230.89
+Message-ID: <1688077915112.7fd8a.45985542@crcvmail201.nm>
+Received: from cheomad.com (cheomad.com [202.68.230.89])
+  by crcvmail201.nm.naver.com with ESMTP id Tbcy+xJGRYKfC4ea9z7LUQ
+  for <user01@naver.com>;
+  Fri, 18 Aug 2023 22:31:55 -0000
+From: CHEOMAD<cheom@cheomad.com>
+To: user01@naver.com
+Subject: (광고) ★1주년 고객감사 이벤트★ 77,000원 소중한 추억을 남겨드리겠습니다.
+Reply-To: cheom@cheomad.com
+Date: Sat, 19 Aug 2023 07:31:56 +0900
+Mime-Version: 1.0
+Content-Type:text/html; charset=ks_c_5601-1987
+
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><a href="http://futurenews.co.kr/funm" target="_blank"><img src="http://www.2nt.co.kr/mail/gon_photo_23051501.jpg" width="768"height="1430" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td colspan="2"><img src="http://www.2nt.co.kr/mail/middle_down.png" width="768" height="3" /></td>
+  </tr>
+</table>
+<table width="768" border="0" cellspacing="0" cellpadding="0" align="center"> 
+<tr> 
+<td colspan="2"><a href="http://adloanmailserver.com/Back/MailMgmt/Mail_Cancel.html?cancelemail=user01@naver.com&adcode=2023-03-13_2" target="_blank"><img src="http://loanconsulting.kr/mail/cheomadfooter.jpg" width="768" height="207" /></td> 
+</tr>
+</table> 
+
+
+
+
+
+

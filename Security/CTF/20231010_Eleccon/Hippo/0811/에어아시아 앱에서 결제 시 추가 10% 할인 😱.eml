@@ -1,0 +1,582 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1664489932;
+	cv=none; b=Yet5aTMvO9/wA67SW5aIcG1alBlp5Vqmq0TsF/Cxzijp9AiFHe8aBb0CFj6O
+	 NFUP5RdBw6eJwt1Voy6jDuGV4shfbEADagq+FvF0t1vdZKNGF3NFClTLKFr74Ua3L0I+sI
+	 Kps0b6wU+GLNQJh0x2iYZlulOy18H0SgoC4uYdXvuAljXf822dp345WBmfNDwreP3TED6v
+	 L+XdEGzjKiZ8IcVI1Omab+jQmbuOMGHeLnyG/EMe6hQ9TXMmPTU9hZCgn76MScw9WC8OX7
+	 FL+DnA3acSliu1yGO5b1v4O/4HDPyj10g4c9JjATwma6HL+5AAwhvoecR+zLEFX13pIr0p
+	 pg==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1664489932; c=relaxed/relaxed;
+	bh=fKfTq4RJWWC5wN6HwDwhtXqGvOQmrCyMEDMGjURmCvM=;
+	h=dkim-signature:from:to:subject:date; b=fX3QEoT17V3Gs+sVWSamGtCb2DGl70
+	 sZV6qxle1acHHBKLvGDhQwvyG5qHM9m88PX/DtWJrYTyuvrCSRARk6JuQLm8M+YdInjg9v
+	 va1ZbD80a+z3lxOyIXi0fHMSdP6csvPJxaYIy+sPCAnEMT/hOcJAmI+Nw8VkJVK//V2+eU
+	 pc2IGuzMwRqf2xJ9ZwwXvXPUCjREziXAr5/xdsEWWPMc/+q8JAGvPet1l++fiWvcTyiBde
+	 Ltn2JTZmOFRQRHA3tZGv9KhzV6glu6wNYKbYJrTnB2kmr/rkmOBAcqRdTL9r70yrU2LKK4
+	 0bfEkuU8oYVnt15QxSCTKumY/ForvGUw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of 16643925611171587-127500-1-naver.com@delivery.promo.airasia.com designates 150.129.232.39 as permitted sender) smtp.mailfrom=16643925611171587-127500-1-naver.com@delivery.promo.airasia.com;
+  dkim=pass header.i=@promo.airasia.com;
+  dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=airasia.com
+Return-Path: <16643925611171587-127500-1-naver.com@delivery.promo.airasia.com>
+Received-SPF: pass (mx.naver.com: domain of 16643925611171587-127500-1-naver.com@delivery.promo.airasia.com designates 150.129.232.39 as permitted sender)
+  client-ip=150.129.232.39; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of 16643925611171587-127500-1-naver.com@delivery.promo.airasia.com designates 150.129.232.39 as permitted sender) smtp.mailfrom=16643925611171587-127500-1-naver.com@delivery.promo.airasia.com;
+  dkim=pass header.i=@promo.airasia.com;
+  dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=airasia.com
+X-Naver-ESV: wwRn+6J4p63CbHmqKBwdbXFYKoUwaAEZjJ+Y
+X-Session-IP: 150.129.232.39
+Message-ID: <1664489932861.7f2dc.1233093@crcvmail103.nm>
+Received: from pmta15-232.39.ncdelivery01.com (pmta15-232.39.ncdelivery01.com [150.129.232.39])
+  by crcvmail103.nm.naver.com with ESMTP id pFFrZR7MS9e+ScBKYALtWg
+  for <user01@naver.com>;
+  Thu, 10 Aug 2023 22:18:52 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=pepipost; d=promo.airasia.com;
+ h=From:Reply-To:To:Subject:MIME-Version:Content-Type:List-Unsubscribe:Feedback-ID:Date:from:to:subject;
+ bh=fKfTq4RJWWC5wN6HwDwhtXqGvOQmrCyMEDMGjURmCvM=;
+ b=r8AxP/qyuAmOtMIRV8/RZ4utSObgZYyMTR2pGrmVsIIXqr4MwJ3sFgibDsWsMwgvtzIH/H0JupDG
+   3YJ72U6DpQ5Y6K9FbiUIYyD4d1jzliw8v53xRSVQHCCZVIDcLLCboedUO9Sg8IAEoiMqOoxEajpj
+   8e7AVlQmwKOwbMAg4MY=
+From: airasia <no-reply@promo.airasia.com>
+Reply-To: no-reply@promo.airasia.com
+To: user01@naver.com
+Subject: =?UTF-8?B?7JeQ7Ja07JWE7Iuc7JWEIOyVseyXkOyEnCDqsrDsoJwg?=
+ =?UTF-8?B?7IucIOy2lOqwgCAxMCUg7ZWg7J24IPCfmLE=?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_530820_1919196042.1664424293819"
+X-CleverTap_META: user01@naver.com|1586430464|1664420403|20220929|0|wzrk_default|-641514969|
+X-CLEVERTAP_METADATA: { "X-CLEVERTAP_TARGET_ID" : 1664420403, "X-CLEVERTAP_IID" : { "$numberLong" : "641514969" }, "X-CLEVERTAP_IDN" : { "$numberLong" : "641514969" }, "X-CLEVERTAP_PIVOT" : "wzrk_default" }
+X-InjTime: 1664424293
+List-Unsubscribe: <mailto:16643925611171587-127500@usub.ftrans03.com?subject=Unsubscribe>, <https://delivery.promo.airasia.com/OYVTDPJWA?id=127500=ZEgJAQYCAwkFSRkZFEYVGBYWGRFBExMQRkVCGUEWE0QRFBkQFBUWGRUVGRkURhUYFgZFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=>
+Feedback-ID: MTI3NTAwOjIwMjIwOTI5XzA5Og==:pepipostE
+X-FNCID: 127500-16643925611171587-0
+X-Traffic-Type: 127500-2
+Date: Fri, 11 Aug 2023 03:48:50 +0530
+
+------=_Part_530820_1919196042.1664424293819
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"u=
+rn:schemas-microsoft-com:office:office" lang=3D"en"><head><title></title><m=
+eta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><met=
+a name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1"><!--=
+[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInc=
+h><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]--><!--[if !mso]><=
+!--><link href=3D"https://fonts.googleapis.com/css?family=3DRoboto"=20=0A=
+rel=3D"stylesheet" type=3D"text/css"><link href=3D"https://fonts.googleapis=
+.com/css?family=3DDM+Sans" rel=3D"stylesheet" type=3D"text/css"><!--<![endi=
+f]--><style>=0A=
+*{box-sizing:border-box}body{margin:0;padding:0}a[x-apple-data-detectors]{c=
+olor:inherit!important;text-decoration:inherit!important}#MessageViewBody a=
+{color:inherit;text-decoration:none}p{line-height:inherit}.desktop_hide,.de=
+sktop_hide table{mso-hide:all;display:none;max-height:0;overflow:hidden}@me=
+dia (max-width:620px){.image_block img.big,.row-content{width:100%!importan=
+t}.mobile_hide{display:none}.stack .column{width:100%;display:block}.mobile=
+_hide{min-height:0;max-height:0;max-width:0;overflow:hidden;font-size:0}.de=
+sktop_hide,.desktop_hide table{display:table!important;max-height:none!impo=
+rtant}}=0A=
+</style></head><body style=3D"background-color:#fff;margin:0;padding:0;-web=
+kit-text-size-adjust:none;text-size-adjust:none"><span class=3D"preheader" =
+style=3D"color:blue; display:none !important;height:0; opacity:0; visibilit=
+y:hidden; width:0">=ED=94=84=EB=A1=9C=EB=AA=A8=EC=85=98 =EC=BD=94=EB=93=9C =
+EXTRA10</span><table class=3D"nl-container" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0;background-color:#fff"><tbody><tr><td><table cla=
+ss=3D"row row-1" align=3D"center" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0"><tbody><tr><td><table=20=0A=
+class=3D"row-content stack" align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;background-color:#fff;color:#000;width:600px" width=3D"600"><t=
+body><tr><td class=3D"column column-1" width=3D"100%" style=3D"mso-table-ls=
+pace:0;mso-table-rspace:0;font-weight:400;text-align:left;padding-left:10px=
+;padding-right:10px;vertical-align:top;padding-top:10px;padding-bottom:10px=
+;border-top:0;border-right:0;border-bottom:0;border-left:0"><table=20=0A=
+class=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"5"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0"><tr><td class=3D"pad"><div class=3D"alignment" align=3D"cente=
+r" style=3D"line-height:10px"><a href=3D"https://delivery.promo.airasia.com=
+/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSV8PVVJTXABUDwNZBFECXlZRAVhVBlRTBwwHA1=
+dSDVcGDF0MAwZZAQNFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0VR=
+kBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBN=
+QEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3Al=
+MkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXh=
+KRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE=
+1RMGlNM2hvYVFNR0J3QmphR0olMkZaMmtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJia1ElMkJMRDAlM=
+kZkV0J3UEVoQ1dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dHBzJTNBJTJGJTJGd3d3LmFpcmFzaWEu=
+Y29tJTJGJmM9NzEzMTMyOTI4JnRva2VuPUJsTlZDUUZXQWdFRUJ3JTNEJTNEJnRyeT0xJiRmb2x=
+sb3dfcmVkaXJlY3Q9dHJ1ZQ=3D=3D" target=3D"_blank" style=3D"outline:none" tab=
+index=3D"-1"><img src=3D"https://www.airasia.com/aa/images/email/template/m=
+ain/airasiacom.png" style=3D"display:block;height:auto;border:0;width:116px=
+;max-width:100%" width=3D"116"=20=0A=
+alt=3D"airasia logo" title=3D"airasia logo"></a></div></td></tr></table></t=
+d></tr></tbody></table></td></tr></tbody></table><table class=3D"row row-2"=
+ align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+"><tbody><tr><td><table class=3D"row-content stack" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;background-color:#fff;color:#000;width=
+:600px"=20=0A=
+width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"100%" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;b=
+order-bottom:0 dotted transparent;border-left:0 dotted transparent;border-r=
+ight:0 dotted transparent;border-top:0 dotted transparent;vertical-align:to=
+p;padding-top:0;padding-bottom:0"><table class=3D"image_block block-1" widt=
+h=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"present=
+ation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td=20=0A=
+class=3D"pad" style=3D"width:100%;padding-right:0;padding-left:0"><div clas=
+s=3D"alignment" align=3D"center" style=3D"line-height:10px"><a href=3D"http=
+s://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQ0MDFEB=
+DQIFDlVZA1UJVgBbCAJSUVAAVw9SDFMHCVMMDwwCVlReBQJFUA1XUlwCVVAIWXZdBUdRSx5XWlt=
+FBAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55aj=
+JlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&=
+ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJ=
+TJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAx=
+dGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZaMmtOZVFJQ0F3UnV=
+hR3RwZTNnbE1VQmJia1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dH=
+BzJTNBJTJGJTJGYXBwLmFpcmFzaWEuY29tJTJGRjR1eSUyRjdjdmhpcDgxJTNGYWZfZm9yY2VfZ=
+GVlcGxpbmslM0R0cnVlJmM9NzEzMTMyOTI4JnRva2VuPUdsVlNCUXRiQXdFTkNnYyUzRCZ0cnk9=
+MSYkZm9sbG93X3JlZGlyZWN0PXRydWU=3D" target=3D"_blank" style=3D"outline:none=
+" tabindex=3D"-1"><img class=3D"big" src=3D"https://sg1-sharedresources-das=
+hboardbeepluginuploads3buc-1qsv7f850xocz.s3.amazonaws.com/images/464-WK4-68=
+5Z/EDM-AAX-KR-1.gif" style=3D"display:block;height:auto;border:0;width:600p=
+x;max-width:100%" width=3D"600" alt=3D"=EC=97=90=EC=96=B4=EC=95=84=EC=8B=9C=
+=EC=95=84 =EC=8A=88=ED=8D=BC=EC=95=B1=EC=97=90=EC=84=9C =EA=B2=B0=EC=A0=9C =
+=EC=8B=9C =EC=B6=94=EA=B0=80 10% =ED=95=A0=EC=9D=B8 =F0=9F=98=B1"=20=0A=
+title=3D"=EC=97=90=EC=96=B4=EC=95=84=EC=8B=9C=EC=95=84 =EC=8A=88=ED=8D=BC=
+=EC=95=B1=EC=97=90=EC=84=9C =EA=B2=B0=EC=A0=9C =EC=8B=9C =EC=B6=94=EA=B0=80=
+ 10% =ED=95=A0=EC=9D=B8 =F0=9F=98=B1"></a></div></td></tr></table></td></tr=
+></tbody></table></td></tr></tbody></table><table class=3D"row row-3" align=
+=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbo=
+dy><tr><td><table class=3D"row-content stack" align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tab=
+le-lspace:0;mso-table-rspace:0;background-color:#fff;color:#000;width:600px=
+"=20=0A=
+width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"100%" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;b=
+ackground-color:#ffebe6;border-bottom:0 solid #ffebe6;border-left:0 solid #=
+ffebe6;border-right:0 solid #ffebe6;border-top:0 solid #ffebe6;padding-left=
+:00px;padding-right:00px;vertical-align:top;padding-top:0;padding-bottom:0"=
+><table class=3D"button_block block-2" width=3D"100%" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation"=20=0A=
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=
+=3D"padding-bottom:10px;padding-left:10px;padding-right:10px;padding-top:20=
+px;text-align:center"><div class=3D"alignment" align=3D"center">=0A=
+<!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=
+=3D"urn:schemas-microsoft-com:office:word" href=3D"https://app.airasia.com/=
+F4uy/7cvhip81?af_force_deeplink=3Dtrue" style=3D"height:48px;width:158px;v-=
+text-anchor:middle;" arcsize=3D"50%" stroke=3D"false" fillcolor=3D"#fe0000"=
+><w:anchorlock/><v:textbox inset=3D"0px,0px,0px,0px"><center style=3D"color=
+:#ffffff; font-family:sans-serif; font-size:16px"><![endif]-->=0A=
+<a href=3D"https://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJA=
+QYCAwkFSQ0MDFEBDQIFDlVZA1UJVgBbCAJSUVAAVw9SDFMHCVMMDwwCVlReBQJFUA1XUlwCVVAI=
+WXZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEM=
+AQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCk=
+sMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE=
+5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYb=
+zRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZa=
+MmtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJia1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWF=
+VOCUzRCZyPWh0dHBzJTNBJTJGJTJGYXBwLmFpcmFzaWEuY29tJTJGRjR1eSUyRjdjdmhpcDgxJT=
+NGYWZfZm9yY2VfZGVlcGxpbmslM0R0cnVlJmM9NzEzMTMyOTI4JnRva2VuPUdsVlNCUXRiQXdFT=
+kNnYyUzRCZ0cnk9MSYkZm9sbG93X3JlZGlyZWN0PXRydWU=3D" target=3D"_blank" style=
+=3D"text-decoration:none;display:inline-block;color:#ffffff;background-colo=
+r:#fe0000;border-radius:24px;width:auto;border-top:0px solid transparent;fo=
+nt-weight:400;border-right:0px solid transparent;border-bottom:0px solid tr=
+ansparent;border-left:0px solid transparent;padding-top:08px;padding-bottom=
+:08px;font-family:'DM Sans', sans-serif;text-align:center;mso-border-alt:no=
+ne;word-break:keep-all;"><span style=3D"padding-left:45px;padding-right:45p=
+x;font-size:16px;display:inline-block;letter-spacing:normal;"><span dir=3D"=
+ltr" style=3D"word-break: break-word; line-height: 32px;"><strong>=EC=98=88=
+=EC=95=BD=ED=95=98=EA=B8=B0&nbsp;</strong></span></span></a>=0A=
+<!--[if mso]></center></v:textbox></v:roundrect><![endif]--></div></td></tr=
+></table></td></tr></tbody></table></td></tr></tbody></table><table class=
+=3D"row row-4" align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-=
+table-rspace:0"><tbody><tr><td><table class=3D"row-content stack" align=3D"=
+center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on"=20=0A=
+style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#ffebe6;col=
+or:#000;width:600px" width=3D"600"><tbody><tr><td class=3D"column column-1"=
+ width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:=
+400;text-align:left;vertical-align:top;padding-top:5px;padding-bottom:0;bor=
+der-top:0;border-right:0;border-bottom:0;border-left:0"><div class=3D"space=
+r_block" style=3D"height:10px;line-height:10px;font-size:1px">&#8202;</div>=
+</td></tr></tbody></table></td></tr></tbody></table><table=20=0A=
+class=3D"row row-5" align=3D"center" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content stack" alig=
+n=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#f=
+febe6;color:#000;width:600px" width=3D"600"><tbody><tr><td class=3D"column =
+column-1" width=3D"100%"=20=0A=
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;padding-top:0;padding-bottom:0;border-top:0;border-r=
+ight:0;border-bottom:0;border-left:0"><table class=3D"html_block block-1 mo=
+bile_hide" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><=
+td class=3D"pad"><div style=3D"font-family:DM Sans,sans-serif;text-align:ce=
+nter" align=3D"center"><div class=3D"our-class"><a href=3D"https://delivery=
+.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQgIVgIFCA8CCAlUUFFS=
+BwFTClAPA11SBFxVUlYHCwYHXAlQV1NbVw9FUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMPDQdfBw0=
+ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUF=
+FJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMj=
+VrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zS=
+ndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpz=
+b1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZaMmtOZVFJQ0F3UnVhR3RwZTNnbE1=
+VQmJia1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dHBzJTNBJTJGJT=
+JGYWlyYXNpYS5vbmVsaW5rLm1lJTJGRjR1eSUyRjMzZWJlNDA2JTNGYWZfZm9yY2VfZGVlcGxpb=
+mslM0R0cnVlJmM9NzEzMTMyOTI4JnRva2VuPUdsVlZBd3RhQlFRRkJ3JTNEJTNEJnRyeT0xJiRm=
+b2xsb3dfcmVkaXJlY3Q9dHJ1ZQ=3D=3D" target=3D"_blank"><img class=3D"imagemodu=
+le__img" width=3D"600" height=3D"auto" src=3D"https://www.airasia.com/aa/im=
+ages/email/template/general/tagon/airasiasuperapps-ko-desktop.png" alt=3D"=
+=EC=97=90=EC=96=B4=EC=95=84=EC=8B=9C=EC=95=84 =EC=8A=88=ED=8D=BC=EC=95=B1 =
+=EB=91=98=EB=9F=AC=EB=B3=B4=EA=B8=B0" style=3D"display: block;" /></a></div=
+></div></td></tr></table><table=20=0A=
+class=3D"html_block block-2 desktop_hide" width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0;mso-hide:all;display:none;max-height:0;overflow:hi=
+dden"><tr><td class=3D"pad"><div style=3D"font-family:DM Sans,sans-serif;te=
+xt-align:center" align=3D"center"><!--[if !vml]><!--><div class=3D"our-clas=
+s"><a href=3D"https://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3Dck=
+gJAQYCAwkFSQgIVgIFCA8CCAlUUFFSBwFTClAPA11SBFxVUlYHCwYHXAlQV1NbVw9FUA1XUlwCV=
+VAIWXZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhX=
+UEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJ=
+ZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1N=
+RbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RV=
+RYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olM=
+kZaMmtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJia1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZ=
+bWFVOCUzRCZyPWh0dHBzJTNBJTJGJTJGYWlyYXNpYS5vbmVsaW5rLm1lJTJGRjR1eSUyRjMzZWJ=
+lNDA2JTNGYWZfZm9yY2VfZGVlcGxpbmslM0R0cnVlJmM9NzEzMTMyOTI4JnRva2VuPUdsVlZBd3=
+RhQlFRRkJ3JTNEJTNEJnRyeT0xJiRmb2xsb3dfcmVkaXJlY3Q9dHJ1ZQ=3D=3D" target=3D"_=
+blank"><img class=3D"imagemodule__img" width=3D"600" height=3D"auto" src=3D=
+"https://www.airasia.com/aa/images/email/template/general/tagon/airasiasupe=
+rapps-ko-mobile.png" alt=3D"=EC=97=90=EC=96=B4=EC=95=84=EC=8B=9C=EC=95=84 =
+=EC=8A=88=ED=8D=BC=EC=95=B1 =EB=91=98=EB=9F=AC=EB=B3=B4=EA=B8=B0" style=3D"=
+display: block;max-width: 100%;" /></a></div><!--<![endif]--></div></td></t=
+r></table></td></tr></tbody></table></td></tr></tbody></table><table class=
+=3D"row row-6" align=3D"center" width=3D"100%"=20=0A=
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td><table class=3D"=
+row-content stack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspac=
+e:0;background-color:#fff;color:#000;width:600px" width=3D"600"><tbody><tr>=
+<td class=3D"column column-1" width=3D"100%"=20=0A=
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;padding-top:0;padding-bottom:0;border-top:0;border-r=
+ight:0;border-bottom:0;border-left:0"><div class=3D"spacer_block" style=3D"=
+height:10px;line-height:10px;font-size:1px">&#8202;</div></td></tr></tbody>=
+</table></td></tr></tbody></table><table class=3D"row row-7" align=3D"cente=
+r" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody>=0A=
+<tr><td><table class=3D"row-content stack" align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-=
+lspace:0;mso-table-rspace:0;background-color:#fff;color:#000;width:600px" w=
+idth=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"16.666666666=
+666668%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;tex=
+t-align:left;vertical-align:top;border-top:0;border-right:0;border-bottom:0=
+;border-left:0"><table class=3D"image_block block-2" width=3D"100%"=20=0A=
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"=
+width:100%;padding-right:0;padding-left:0;padding-top:5px;padding-bottom:5p=
+x"><div class=3D"alignment" align=3D"center" style=3D"line-height:10px"><a =
+href=3D"https://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYC=
+AwkFSV9fBVUHXg8CD1JSBQAFU1FQXVUFBgIJAg0FAVBTXVMNXwtXUQYAAQFFUA1XUlwCVVAIWXZ=
+dBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQF=
+pRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMX=
+BUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5Ve=
+E9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRM=
+anN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZaMmt=
+OZVFJQ0F3UnVhR3RwZTNnbE1VQmJia1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFVOC=
+UzRCZyPWh0dHBzJTNBJTJGJTJGd3d3LmFpcmFzaWEuY29tJTJGa28lMkZrciZjPTcxMzEzMjkyO=
+CZ0b2tlbj1HbFpUQmdWVkFRVUNCUSUzRCUzRCZ0cnk9MSYkZm9sbG93X3JlZGlyZWN0PXRydWU=
+=3D" target=3D"_blank" style=3D"outline:none" tabindex=3D"-1"><img src=3D"h=
+ttps://www.airasia.com/aa/images/email/template/main/airasiacom-monogram2.p=
+ng"=20=0A=
+style=3D"display:block;height:auto;border:0;width:50px;max-width:100%" widt=
+h=3D"50" alt=3D"airasia monogram" title=3D"airasia monogram"></a></div></td=
+></tr></table></td><td class=3D"column column-2" width=3D"58.33333333333333=
+6%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-ali=
+gn:left;vertical-align:top;border-top:0;border-right:0;border-bottom:0;bord=
+er-left:0"><div class=3D"spacer_block" style=3D"height:5px;line-height:5px;=
+font-size:1px">&#8202;</div><table=20=0A=
+class=3D"html_block block-2 mobile_hide" width=3D"100%" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0"><tr><td class=3D"pad"><div style=3D"font-family:DM=
+ Sans,sans-serif;text-align:center" align=3D"center"><div class=3D"our-clas=
+s">=0A=
+  <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=
+=0A=
+    <tbody>=0A=
+      <tr>=0A=
+        <td height=3D"8" style=3D"font-size:0;"></td>=0A=
+      </tr>=0A=
+      <tr>=0A=
+        <td>=0A=
+          <p style=3D"text-align: left;font-size: 11px;font-weight: normal;=
+line-height: 1.5;color: #4C4C50; text-decoration: none;margin:0;"><span sty=
+le=3D"font-size: 11px;font-weight: normal;line-height: 1.2;color: #4C4C50; =
+text-decoration: none;margin: 0;"><a href=3D"https://delivery.promo.airasia=
+.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQFbAFZXXlVXWAhRUQVVAFcAWFEOUVYAVg=
+xWBQQEW1QCCF8EVQEPVVJFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZC=
+k0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3D=
+WUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZi=
+R3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09=
+RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUm=
+s0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZaMmtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJia1ElMkJMR=
+DAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dHBzJTNBJTJGJTJGd3d3LmFpcmFz=
+aWEuY29tJTJGbWVtYmVyJTJGc2VhcmNoJTNGY3VsdHVyZSUzRGtvLWtyJmM9NzEzMTMyOTI4JnR=
+va2VuPUdsQmZCd1ZTQXdRQkF3JTNEJTNEJnRyeT0xJiRmb2xsb3dfcmVkaXJlY3Q9dHJ1ZQ=3D=
+=3D" style=3D"line-height: 10px;color: #4C4C50; text-decoration: none;" tar=
+get=3D"_blank">=EB=82=98=EC=9D=98 =EC=98=88=EC=95=BD</a> | <a href=3D"https=
+://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQpYVgVXA=
+QZVAQBYAlYCVVEBDlVVVgEJV18GAwUHX1AMAVgDBVdZAQVFUA1XUlwCVVAIWXZdBUdRSx5XWltF=
+BAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJ=
+lcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&e=
+xt=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJT=
+JGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxd=
+GZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZaMmtOZVFJQ0F3UnVh=
+R3RwZTNnbE1VQmJia1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dHB=
+zJTNBJTJGJTJGd3d3LmFpcmFzaWEuY29tJTJGY2hlY2staW4lMkZrbyUyRmtyJmM9NzEzMTMyOT=
+I4JnRva2VuPUdsVlVCZ3RiQXdFQUJRTSUzRCZ0cnk9MSYkZm9sbG93X3JlZGlyZWN0PXRydWU=
+=3D" style=3D"line-height: 10px;color: #4C4C50; text-decoration: none;" tar=
+get=3D"_blank">=EC=B2=B4=ED=81=AC=EC=9D=B8</a> | <a href=3D"https://deliver=
+y.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSVoNBFRQDwcOAFJTAgY=
+BUQQADVYBUVUGBAkGBFdUCAcMCA8AAARdDwRFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMPDQdfBw=
+0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJU=
+FFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LM=
+jVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4z=
+SndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmp=
+zb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZaMmtOZVFJQ0F3UnVhR3RwZTNnbE=
+1VQmJia1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dHBzJTNBJTJGJ=
+TJGd3d3LmFpcmFzaWEuY29tJTJGZmxpZ2h0c3RhdHVzJTJGa28lMkZLUiZjPTcxMzEzMjkyOCZ0=
+b2tlbj1HbFZTQkFCV0FRZ0hDd1klM0QmdHJ5PTEmJGZvbGxvd19yZWRpcmVjdD10cnVl" style=
+=3D"line-height: 10px;color: #4C4C50; text-decoration: none;" target=3D"_bl=
+ank">=ED=95=AD=EA=B3=B5=ED=8E=B8 =EC=A0=95=EB=B3=B4</a> | <a href=3D"https:=
+//delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSV8BBQAAAA=
+BXDwUCClFVUlxXD1ZSUAUBBg0ADVBVCQ1RWA9SA1YPVQ5FUA1XUlwCVVAIWXZdBUdRSx5XWltFB=
+AMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJl=
+cGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ex=
+t=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJ=
+GYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdG=
+ZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZaMmtOZVFJQ0F3UnVhR=
+3RwZTNnbE1VQmJia1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dHBz=
+JTNBJTJGJTJGc3VwcG9ydC5haXJhc2lhLmNvbSUyRnMlMkYlM0ZsYW5ndWFnZSUzRGtvJmM9NzE=
+zMTMyOTI4JnRva2VuPUJGZFdBQXBRQUFVRiZ0cnk9MSYkZm9sbG93X3JlZGlyZWN0PXRydWU=3D=
+" style=3D"line-height: 10px;color: #4C4C50; text-decoration: none;" target=
+=3D"_blank">=EA=B3=A0=EA=B0=9D=EC=A7=80=EC=9B=90</a></span><br />2022 Capit=
+al A Berhad=0A=
+          </p>=0A=
+        </td>=0A=
+      </tr>=0A=
+      <tr>=0A=
+        <td height=3D"8" style=3D"font-size:0;"></td>=0A=
+      </tr>=0A=
+    </tbody>=0A=
+  </table>=0A=
+</div></div></td></tr></table><div class=3D"spacer_block mobile_hide" style=
+=3D"height:20px;line-height:20px;font-size:1px">&#8202;</div><table class=
+=3D"html_block block-4 mobile_hide" width=3D"100%" border=3D"0" cellpadding=
+=3D"0"=20=0A=
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0"><tr><td class=3D"pad"><div style=3D"font-family:DM Sans,sans-s=
+erif;text-align:center" align=3D"center"><div class=3D"our-class">=0A=
+  <p style=3D"font-size: 10px;color: #4c4c50;"><a style=3D"color: #4c4c50;t=
+ext-decoration: underline;" href=3D"https://delivery.promo.airasia.com/OYVT=
+DPJWA?id=3D127500=3DckgJAQYCAwkFSVxbBFBRAARXDwJVAQoFAgZbX1kEVQcDUQ1RUVAGWwd=
+RDV8AVgdbU1NFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHh=
+tdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPG=
+RZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU=
+1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFi=
+V0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGl=
+NM2hvYVFNR0J3QmphR0olMkZaMmtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJia1ElMkJMRDAlMkZkV0=
+J3UEVoQ1dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dHBzJTNBJTJGJTJGd3d3LmFpcmFzaWEuY29tJ=
+TJGYWNjb3VudCUyRm5vdGlmaWNhdGlvbi1wcmVmZXJlbmNlcyUzRnV0bV9zb3VyY2UlM0RhYV9t=
+YXJrZXRpbmclMjZ1dG1fbWVkaXVtJTNEZW1haWwlMjZ1dG1fY2FtcGFpZ24lM0RBQV9HQl9MQyU=
+3Q05vdGlmaWNhdGlvblByZWZlcmVuY2VzJTdDMTcwNjIwMjIlN0NudWxsJTdDa3Ita28lN0NOb2=
+5lJTdDTmV3c2xldHRlcnMmYz03MTMxMzI5MjgmdG9rZW49QmxCWENBQldBUVlFQXclM0QlM0Qmd=
+HJ5PTEmJGZvbGxvd19yZWRpcmVjdD10cnVl">=EC=97=AC=EA=B8=B0=EC=97=90</a>=EC=84=
+=9C =EC=9D=B4=EB=A9=94=EC=9D=BC =EC=84=A4=EC=A0=95 =EA=B4=80=EB=A6=AC</p>=
+=0A=
+</div></div></td></tr></table><table class=3D"html_block block-5 desktop_hi=
+de" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;=
+display:none;max-height:0;overflow:hidden"><tr><td class=3D"pad"><div=20=0A=
+style=3D"font-family:DM Sans,sans-serif;text-align:center" align=3D"center"=
+><!--[if !vml]><!--><div class=3D"our-class">=0A=
+  <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=
+=0A=
+    <tbody>=0A=
+      <tr>=0A=
+        <td height=3D"8" style=3D"font-size:0;"></td>=0A=
+      </tr>=0A=
+      <tr>=0A=
+        <td>=0A=
+          <p style=3D"font-size: 11px;font-weight: normal;line-height: 1.5;=
+color: #4C4C50; text-decoration: none;margin:0;"><span style=3D"font-size: =
+11px;font-weight: normal;line-height: 1.2;color: #4C4C50; text-decoration: =
+none;margin: 0;"><a href=3D"https://delivery.promo.airasia.com/OYVTDPJWA?id=
+=3D127500=3DckgJAQYCAwkFSQFbAFZXXlVXWAhRUQVVAFcAWFEOUVYAVgxWBQQEW1QCCF8EVQE=
+PVVJFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQF=
+xHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQ=
+w9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNR=
+kFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdp=
+NTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVF=
+NR0J3QmphR0olMkZaMmtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJia1ElMkJMRDAlMkZkV0J3UEVoQ1=
+dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dHBzJTNBJTJGJTJGd3d3LmFpcmFzaWEuY29tJTJGbWVtY=
+mVyJTJGc2VhcmNoJTNGY3VsdHVyZSUzRGtvLWtyJmM9NzEzMTMyOTI4JnRva2VuPUdsQmZCd1ZT=
+QXdRQkF3JTNEJTNEJnRyeT0xJiRmb2xsb3dfcmVkaXJlY3Q9dHJ1ZQ=3D=3D" style=3D"line=
+-height: 10px;color: #4C4C50; text-decoration: none;" target=3D"_blank">=EB=
+=82=98=EC=9D=98 =EC=98=88=EC=95=BD</a> | <a href=3D"https://delivery.promo.=
+airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSQpYVgVXAQZVAQBYAlYCVVEBDlV=
+VVgEJV18GAwUHX1AMAVgDBVdZAQVFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVg=
+IGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=
+=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng=
+5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbE=
+VrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEO=
+DJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZaMmtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJi=
+a1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dHBzJTNBJTJGJTJGd3d=
+3LmFpcmFzaWEuY29tJTJGY2hlY2staW4lMkZrbyUyRmtyJmM9NzEzMTMyOTI4JnRva2VuPUdsVl=
+VCZ3RiQXdFQUJRTSUzRCZ0cnk9MSYkZm9sbG93X3JlZGlyZWN0PXRydWU=3D" style=3D"line=
+-height: 10px;color: #4C4C50; text-decoration: none;" target=3D"_blank">=EC=
+=B2=B4=ED=81=AC=EC=9D=B8</a> | <a href=3D"https://delivery.promo.airasia.co=
+m/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSVoNBFRQDwcOAFJTAgYBUQQADVYBUVUGBAkGB=
+FdUCAcMCA8AAARdDwRFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0V=
+RkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUB=
+NQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3A=
+lMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVX=
+hKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0b=
+E1RMGlNM2hvYVFNR0J3QmphR0olMkZaMmtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJia1ElMkJMRDAl=
+MkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dHBzJTNBJTJGJTJGd3d3LmFpcmFzaWE=
+uY29tJTJGZmxpZ2h0c3RhdHVzJTJGa28lMkZLUiZjPTcxMzEzMjkyOCZ0b2tlbj1HbFZTQkFCV0=
+FRZ0hDd1klM0QmdHJ5PTEmJGZvbGxvd19yZWRpcmVjdD10cnVl" style=3D"line-height: 1=
+0px;color: #4C4C50; text-decoration: none;" target=3D"_blank">=ED=95=AD=EA=
+=B3=B5=ED=8E=B8 =EC=A0=95=EB=B3=B4</a> | <a href=3D"https://delivery.promo.=
+airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQYCAwkFSV8BBQAAAABXDwUCClFVUlxXD1Z=
+SUAUBBg0ADVBVCQ1RWA9SA1YPVQ5FUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVg=
+IGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=
+=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng=
+5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbE=
+VrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEO=
+DJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZaMmtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJi=
+a1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dHBzJTNBJTJGJTJGc3V=
+wcG9ydC5haXJhc2lhLmNvbSUyRnMlMkYlM0ZsYW5ndWFnZSUzRGtvJmM9NzEzMTMyOTI4JnRva2=
+VuPUJGZFdBQXBRQUFVRiZ0cnk9MSYkZm9sbG93X3JlZGlyZWN0PXRydWU=3D" style=3D"line=
+-height: 10px;color: #4C4C50; text-decoration: none;" target=3D"_blank">=EA=
+=B3=A0=EA=B0=9D=EC=A7=80=EC=9B=90</a></span><br />2022 Capital A Berhad=0A=
+          </p>=0A=
+        </td>=0A=
+      </tr>=0A=
+      <tr>=0A=
+        <td height=3D"8" style=3D"font-size:0;"></td>=0A=
+      </tr>=0A=
+    </tbody>=0A=
+  </table>=0A=
+</div><!--<![endif]--></div></td></tr></table><div class=3D"spacer_block" s=
+tyle=3D"height:5px;line-height:5px;font-size:1px">&#8202;</div></td><td cla=
+ss=3D"column column-3" width=3D"25%" style=3D"mso-table-lspace:0;mso-table-=
+rspace:0;font-weight:400;text-align:left;vertical-align:top;border-top:0;bo=
+rder-right:0;border-bottom:0;border-left:0"><table class=3D"html_block bloc=
+k-2" width=3D"100%" border=3D"0"=20=0A=
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:5=
+px"><div style=3D"font-family:DM Sans,sans-serif;text-align:center" align=
+=3D"center"><div class=3D"our-class">=0A=
+  <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"110" ali=
+gn=3D"center">=0A=
+    <tbody>=0A=
+      <tr>=0A=
+        <td height=3D"5" style=3D"font-size:0;"></td>=0A=
+      </tr>=0A=
+      <tr>=0A=
+        <td width=3D"30" height=3D"30" align=3D"center" valign=3D"middle"><=
+a href=3D"https://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQ=
+YCAwkFSVgLVgIEAAQDDlBQCgQIVl1SAAJQCgEFBFwCBVdSCFRTD11XUQUKBgFFUA1XUlwCVVAIW=
+XZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMA=
+QFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCks=
+MXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5=
+VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbz=
+RManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZaM=
+mtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJia1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFV=
+OCUzRCZyPWh0dHBzJTNBJTJGJTJGd3d3LmZhY2Vib29rLmNvbSUyRmFpcmFzaWFzdXBlcmFwcCU=
+yRiZjPTcxMzEzMjkyOCZ0b2tlbj1BVmRmQ1FOVEJ3VUMmdHJ5PTEmJGZvbGxvd19yZWRpcmVjdD=
+10cnVl" target=3D"_blank"><img alt=3D"facebook icon" style=3D"max-width: 30=
+px;" height=3D"30" width=3D"30" src=3D"https://www.airasia.com/aa/img/cleve=
+r-tap/fb-white.png" /></a></td>=0A=
+        <td width=3D"5" style=3D"font-size:0;"></td>=0A=
+        <td width=3D"30" height=3D"30" align=3D"center" valign=3D"middle"><=
+a href=3D"https://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQ=
+YCAwkFSQpbB1QCAFMADFJVUFABVFVUXQMOAQVQBV0DUQYBWFZRXFxWUlZcBwRFUA1XUlwCVVAIW=
+XZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMA=
+QFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCks=
+MXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5=
+VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbz=
+RManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZaM=
+mtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJia1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFV=
+OCUzRCZyPWh0dHBzJTNBJTJGJTJGd3d3Lmluc3RhZ3JhbS5jb20lMkZhaXJhc2lhc3VwZXJhcHA=
+ua3IlMkYmYz03MTMxMzI5MjgmdG9rZW49QmxKZkFBWlVBd0lHQ3clM0QlM0QmdHJ5PTEmJGZvbG=
+xvd19yZWRpcmVjdD10cnVl" target=3D"_blank"><img alt=3D"instagram icon" src=
+=3D"https://www.airasia.com/aa/img/clever-tap/ig-white.png" width=3D"30" he=
+ight=3D"30" style=3D"max-width: 30px;" /></a></td>=0A=
+        <td width=3D"5" style=3D"font-size:0;"></td>=0A=
+        <td width=3D"30" height=3D"30" align=3D"center" valign=3D"middle"><=
+a href=3D"https://delivery.promo.airasia.com/OYVTDPJWA?id=3D127500=3DckgJAQ=
+YCAwkFSQ1YUVVUAQABXQECAgICVQRVD1UEA1ZUUgBWUgxSWAUEWwpWXwdcD1NFUA1XUlwCVVAIW=
+XZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQFxHTBdJRglYVxhXUEMA=
+QFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPGRZGUggXQw9PSllVUlQVXlJZCks=
+MXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU1prZndNRkFBQnViR3MxS1NRbE5=
+VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFiV0ZFWEdpNTZLejhrTGx4RVRYbz=
+RManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGlNM2hvYVFNR0J3QmphR0olMkZaM=
+mtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJia1ElMkJMRDAlMkZkV0J3UEVoQ1dtc3pQelFxSWpZbWFV=
+OCUzRCZyPWh0dHBzJTNBJTJGJTJGc3Rvcnkua2FrYW8uY29tJTJGY2glMkZhaXJhc2lhJmM9NzE=
+zMTMyOTI4JnRva2VuPUJWVlhBUUJiQmdBTkJ3JTNEJTNEJnRyeT0xJiRmb2xsb3dfcmVkaXJlY3=
+Q9dHJ1ZQ=3D=3D" target=3D"_blank"><img alt=3D"instagram icon" src=3D"https:=
+//www.airasia.com/aa/images/email/template/main/kakao-story.png" width=3D"3=
+0" height=3D"30" style=3D"max-width: 30px;" /></a></td>=0A=
+      </tr>=0A=
+      <tr>=0A=
+        <td height=3D"5" style=3D"font-size:0;"></td>=0A=
+      </tr>=0A=
+    </tbody>=0A=
+  </table>=0A=
+</div></div></td></tr></table><table class=3D"html_block block-3 desktop_hi=
+de" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;=
+display:none;max-height:0;overflow:hidden"><tr><td=20=0A=
+class=3D"pad"><div style=3D"font-family:DM Sans,sans-serif;text-align:cente=
+r" align=3D"center"><!--[if !vml]><!--><div class=3D"our-class">=0A=
+  <p style=3D"font-size: 10px;color: #4c4c50;"><a style=3D"color: #4c4c50;t=
+ext-decoration: underline;" href=3D"https://delivery.promo.airasia.com/OYVT=
+DPJWA?id=3D127500=3DckgJAQYCAwkFSVxbBFBRAARXDwJVAQoFAgZbX1kEVQcDUQ1RUVAGWwd=
+RDV8AVgdbU1NFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHh=
+tdVVhcQFxHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D&fl=3DWUBNQEcPG=
+RZGUggXQw9PSllVUlQVXlJZCksMXBUZQQ=3D=3D&ext=3DZT1LMjVrZng5bmVnQjZiR3AlMkJEU=
+1prZndNRkFBQnViR3MxS1NRbE5VeE9Cd0JtYjJOJTJGYm14ck4zSndRbEVrS1Rza09RVXhKRjFi=
+V0ZFWEdpNTZLejhrTGx4RVRYbzRManN0UGprelAxdGZYeFFVTmpzb1BEODJOMGtTUms0bE1RMGl=
+NM2hvYVFNR0J3QmphR0olMkZaMmtOZVFJQ0F3UnVhR3RwZTNnbE1VQmJia1ElMkJMRDAlMkZkV0=
+J3UEVoQ1dtc3pQelFxSWpZbWFVOCUzRCZyPWh0dHBzJTNBJTJGJTJGd3d3LmFpcmFzaWEuY29tJ=
+TJGYWNjb3VudCUyRm5vdGlmaWNhdGlvbi1wcmVmZXJlbmNlcyUzRnV0bV9zb3VyY2UlM0RhYV9t=
+YXJrZXRpbmclMjZ1dG1fbWVkaXVtJTNEZW1haWwlMjZ1dG1fY2FtcGFpZ24lM0RBQV9HQl9MQyU=
+3Q05vdGlmaWNhdGlvblByZWZlcmVuY2VzJTdDMTcwNjIwMjIlN0NudWxsJTdDa3Ita28lN0NOb2=
+5lJTdDTmV3c2xldHRlcnMmYz03MTMxMzI5MjgmdG9rZW49QmxCWENBQldBUVlFQXclM0QlM0Qmd=
+HJ5PTEmJGZvbGxvd19yZWRpcmVjdD10cnVl">=EC=97=AC=EA=B8=B0=EC=97=90</a>=EC=84=
+=9C =EC=9D=B4=EB=A9=94=EC=9D=BC =EC=84=A4=EC=A0=95 =EA=B4=80=EB=A6=AC</p>=
+=0A=
+</div><!--<![endif]--></div></td></tr></table><div class=3D"spacer_block" s=
+tyle=3D"height:5px;line-height:5px;font-size:1px">&#8202;</div></td></tr></=
+tbody></table></td></tr></tbody></table></td></tr></tbody></table><!-- End =
+--><img id=3D'SBBBB' src=3D'https://delivery.promo.airasia.com/OYVTDPJWA?id=
+=3D127500=3DfkgJAQYCAwkFSRkZFEYVGBYWGRFBExMQRkVCGUEWE0QRFBkQFBUWGRUVGRkURhU=
+YFgZFUA1XUlwCVVAIWXZdBUdRSx5XWltFBAMPDQdfBw0ABwgAVgIGCFEZCk0VRkBeHhtdVVhcQF=
+xHTBdJRglYVxhXUEMAQFpRSAYNVE55ajJlcGl6Y3QJUFFJTwo=3D' /></body></html><img =
+ alt=3D"" border=3D"0" height=3D"1" width=3D"1" src=3D"https://sg1.wizrocke=
+tmail.net/r?e=3DK25kfx9negB6bGp%2BDSZkfwMFAABubGs1KSQlNUxOBwBmb2N%2FbmxrN3J=
+wQlEkKTskOQUxJF1bWFEXGi56Kz8kLlxETXo4LjstPjkzP1tfXxQBMzc8Mj4uMBBHS0Y8BTsvdW=
+BwegQGBQBlamZ7ZAVgewACAQ1lY3BndS0oOVlvQV0hNSZpbXglMUBbblAyPDM%2BOy5wNg%3D%3=
+D&c=3D665363664"></img>=0A=
+
+
+------=_Part_530820_1919196042.1664424293819--

@@ -1,0 +1,138 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1666991707;
+	cv=none; b=d/xXdLZ7EPhETEdMU4pOnzdaFM2djR0jgWvBc0y/k6oerKRcA5Y7w6S/FPZh
+	 m48vWkA14smoXgBmMFAXbI6ERxQsDpjYTUo0GXM0Y+iW1XTOSS1S1evhxu8eNbKf0Jmg8o
+	 hKFdpbUdJZPFkK4LfBwyfWqWdl/j6JkagsuDkU25K+ER2rYbaURQULt+vZS08/klPZtmq3
+	 hNVv+nxHPpOR1IPlubEBhopzf0B8tNzmdBVsZiX0wye/WcJQNu/l+C+kHBFp6Eg7psNlPC
+	 rLab6GUddKJHCtpqAtB/brR32Dy2jUiSdLJOWsU8xnwfwbvBIFL2vPhqHPnGkfbVbVgfmh
+	 Iw==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1666991707; c=relaxed/relaxed;
+	bh=gV5K4YXFyK3goarM9YV8YlFlz6iLkncvjPs3p7Z4274=;
+	h=date:subject:from:to; b=S+gWOYJKNCdRnfP+NaQ6XLfxXfv+iCE+AzRhE+oct1Cnz
+	 D4z7OnHZtf7PAcE8gkkxMjHO4LgFLKZ9wk4eEtBWVF5O7oANKxJ2IeZueS7l0sZxD5c+KV
+	 jcitC3DvSAJDvtbYPAQBkLuILLG5pnRau+G1zZtV47Ke7qrIJyCrkHICHKsSeD6vP3Td2C
+	 3IGIkDIIbYv+um3UaNfRuXcUnBcJi/CK68g8+ZkEWH8LDmM3DlcYSv9+i0RMe8Ej/Ojavg
+	 p7b4ZkFq5Qy7yZMdjBVRlSrB3r87zISJxG/60KK2JNeyFJ9snD4kh2xsEEpuBZDy9OErH4
+	 SPA2d1AMppKIQ99pw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of noreply@ems.11st.co.kr designates 113.217.250.74 as permitted sender) smtp.mailfrom=noreply@ems.11st.co.kr
+Return-Path: <noreply@ems.11st.co.kr>
+Received-SPF: pass (mx.naver.com: domain of noreply@ems.11st.co.kr designates 113.217.250.74 as permitted sender)
+  client-ip=113.217.250.74; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of noreply@ems.11st.co.kr designates 113.217.250.74 as permitted sender) smtp.mailfrom=noreply@ems.11st.co.kr
+X-Naver-ESV: wd+n+6J4p63qMBIYKXwdbXmZKxu9KA+YkXm=
+X-Session-IP: 113.217.250.74
+Message-ID: <1666991707935.7fdbe.6079596@crcvmail203.nm>
+Received: from mail4.ems.11st.co.kr (ems.11st.co.kr [113.217.250.74])
+  by crcvmail203.nm.naver.com with ESMTP id q2EzA1gpT+CPNNjcvk0YpQ
+  for <user01@naver.com>;
+  Thu, 10 Aug 2023 21:15:07 -0000
+Date: Fri, 11 Aug 2023 06:15:07 +0900
+Subject: =?euc-kr?B?MTG5+LChIMDludmxuLTPILTjseIgvK268b26ILqvsOYgvsizuw==?=
+From: "=?euc-kr?B?MTG5+LCh?=" <11st@ems.11st.co.kr>
+Reply-To: <11st@ems.11st.co.kr>
+To: "=?euc-kr?B?udrB9sC6tNQ=?=" <user01@naver.com>
+MIME-Version: 1.0
+Content-type: text/html; charset=euc-kr
+Content-transfer-encoding: 8bit
+X-Mailer: Netpion Enterprise v3.5/Scheduler v3.7.7
+X-NetpionMsgID: 1666991707919F24.false.57012.5.39144026
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<title>11번가 개인정보 이용내역 통지 안내</title>
+</head>
+<body>
+<!-- 메일 본문영역 -->
+<div style="padding:29px 10px 20px 9px;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;text-align:left;">
+        <tbody>
+            <!-- 11번가 로고 -->
+            <tr>
+                <td style="height:21px;"><a href="http://track.ems.11st.co.kr/5I-157012I-439144026I-4goaSoZE-8zPqrCF-13358605I-4ehhgzE-8D-7D-7DDDD-611zhD-6oCD-6ZuI-3" name="ANCHOR1888537" target="_blank"><img src="https://cdn.011st.com/ui_img/ui_develop/mail_set/templet/logo_11st.png" alt="11번가" style="width:49px;height:21px;border:0 none;"></a></td>
+            </tr>
+            <tr>
+                <td style="height:13px;"></td>
+            </tr>
+            <!-- // 11번가 로고 -->
+            <!-- 타이틀 -->
+            <tr>
+                <td style="font-family:'Helvetica Neue','Apple SD Gothic Neo',Arial,'맑은 고딕','Malgun Gothic','돋움',dotum,sans-serif;font-size:26px;line-height:36px;color:#111">11번가 <strong style="color:#f43142;">장바구니 담기 서비스 변경 안내</strong></td>
+            </tr>
+            <!-- // 타이틀 -->
+            <!-- 본문 -->
+            <tr>
+                <td style="height:32px;"></td>
+            </tr>
+            <tr>
+                <td style="padding:20px 20px 10px;font-family:'Helvetica Neue','Apple SD Gothic Neo',Arial,'맑은 고딕','Malgun Gothic','돋움',dotum,sans-serif;font-size:12px;line-height:21px;color:#000;background:#f5f6fa;">안녕하세요, 11번가입니다.<br>항상 11번가를 사랑해 주시는 회원님께 진심으로 감사 드립니다.</td>
+            </tr>
+            <tr>
+                <td style="padding:20px 20px 0px; font-family:'Helvetica Neue','Apple SD Gothic Neo',Arial,'맑은 고딕','Malgun Gothic','돋움',dotum,sans-serif; font-size: 16px; line-height: 24px; font-weight: bold; color: #000; background:#f5f6fa;">장바구니 담기 서비스 변경 안내 </td>
+            </tr>
+            <tr>
+                <td style="padding:20px 20px 10px; background:#f5f6fa;">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td width="300" style="padding: 14px 0 11px; font-size: 13px; line-height: 19px; color: #000; text-align: center; vertical-align: top; border-top: 1px solid #333; border-bottom: 1px solid #333;">변경 전</td>
+                                <td width="300" style="padding: 14px 0 11px; font-size: 14px; line-height: 20px; color: #111; text-align: center; vertical-align: top; border-top: 1px solid #333; border-bottom: 1px solid #333;">변경 후</td>
+                            </tr>
+                            <tr>
+                                <td width="300" style="padding: 12px 0 13px 8px; font-size: 13px; line-height: 19px; color: #000; text-align: left; vertical-align: top; border-bottom: 1px solid #333;">- 장바구니에 담긴 상품 종류(옵션단위)는 200개(일반 상품 100개, 지점 마트 상품 100개)까지만 보여지고, 최대 90일까지 보관됩니다.<br>- 장바구니에 담긴 상품 종류가 200개 초과되면 가장 예전에 담았던 상품 순서대로 비노출 됩니다.<br>- 장바구니에 비노출된 상품은 담긴 상품 종류가 200개 이하가 되었을 때 다시 보여집니다.</td>
+                                <td width="300" style="padding: 12px 0 13px 16px; font-size: 14px; line-height: 20px; color: #111; vertical-align: top; border-bottom: 1px solid #333;">- 장바구니에는 최대  200개(옵션 단위, 일반 상품 100개, 지점 마트 상품 100개)까지만 담을 수 있으며, 최대 90일까지 보관됩니다.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            <tr>
+                <tr>
+                    <td style="padding:0 20px 10px;font-family:'Helvetica Neue','Apple SD Gothic Neo',Arial,'맑은 고딕','Malgun Gothic','돋움',dotum,sans-serif;font-size:12px;line-height:21px;color:#000;background:#f5f6fa;"><strong>※ 서비스 시행일 전에 담은 상품은 최대 200개(옵션 단위, 일반 상품 100개, 지점 마트 상품 100개)까지만 보관되며, 비노출되고 있는 상품들은 일괄 삭제됩니다.</strong></td>
+                </tr>
+            </tr>
+            <tr>
+                <td style="padding:20px 20px 0px; font-family:'Helvetica Neue','Apple SD Gothic Neo',Arial,'맑은 고딕','Malgun Gothic','돋움',dotum,sans-serif; font-size: 16px; line-height: 24px; font-weight: bold; color: #000; background:#f5f6fa;">시행일 </td>
+            </tr>
+            <tr>
+                <tr>
+                    <td style="padding:10px 20px 10px;font-family:'Helvetica Neue','Apple SD Gothic Neo',Arial,'맑은 고딕','Malgun Gothic','돋움',dotum,sans-serif;font-size:12px;line-height:21px;color:#000;background:#f5f6fa;">장바구니 담기 서비스 변경은 2022년 11월 29일자로 적용됩니다.<br>변경 사항을 확인하시어, 서비스 이용에 참고하시기 바랍니다.</td>
+                </tr>
+            </tr>
+            <tr>
+                <tr>
+                    <td style="padding:10px 20px 10px;font-family:'Helvetica Neue','Apple SD Gothic Neo',Arial,'맑은 고딕','Malgun Gothic','돋움',dotum,sans-serif;font-size:12px;line-height:21px;color:#000;background:#f5f6fa;">이 안내는 관련법에 따라 정보 수신 동의 여부와 상관없이 발송됩니다.</td>
+                </tr>
+            </tr>
+            <!-- footer -->
+            <tr>
+                <td style="padding:20px 10px;background-color:#f9f9f9;letter-spacing:-1px">
+                    <table border="0" cellpadding="0" cellspacing="0"  style="width:100%;">
+                        <tbody>
+                            <tr>
+                                <td style="font-family:'Helvetica Neue','Apple SD Gothic Neo',Arial,'맑은 고딕','Malgun Gothic','돋움',dotum,sans-serif;font-size:12px;line-height:17px;color:#999">본 메일은 발신 전용으로 회신되지 않습니다. <br>궁금하신 사항은 <a href="http://track.ems.11st.co.kr/8I-157012I-439144026I-4goaSoZE-8zPqrCF-13358606I-4ehhgzE-8D-7D-7ePagD-611zhD-6oCD-6ZuD-711zhD-7mBqD-7IBqLHJPKD-6pzgI-3" name="ANCHOR1888538" style="font-weight:bold;text-decoration:underline;color:#1c4de3" target="_blank">여기</a>를 클릭해서 문의하여 주시기 바랍니다.</td>
+                            </tr>
+                            <tr>
+                                <td style="height:15px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="height:1px;background-color:#e0e0e0"></td>
+                            </tr>
+                            <tr>
+                                <td style="height:15px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="font-family:'Helvetica Neue','Apple SD Gothic Neo',Arial,'맑은 고딕','Malgun Gothic','돋움',dotum,sans-serif;font-size:11px;line-height:16px;color:#999">고객센터:서울시 구로구 구로동 182-13 대륭포스트타워2차 15층 (우)152-051<span style="padding:0 3px;">|</span>전화:1599-0110<span style="padding:0 3px;">|</span>상호:11번가(주)<span style="padding:0 3px;">|</span>대표이사:하형일 <br>사업자등록번호:815-81-01244<span style="padding:0 3px;">|</span>통신판매업신고:2018-서울중구-1445 <br><span style="color:#906443">11번가(주)에 등록된 판매상품과 상품의 내용은 판매자가 등록한 것으로 11번가(주)에서는 그 등록 내용에 대하여 일체의 책임을 지지 않습니다.</span><br><span style="letter-spacing:0">Copyright &copy; 2021 11Street Co.,Ltd. All Rights Reserved.</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <!-- //footer -->
+        </tbody>
+    </table>
+</div>
+<!-- // 메일 본문영역 -->
+<img style='display:none;' height="1" width="1" border="0" src="http://track.ems.11st.co.kr/8I-157012I-439144026I-4uPmuPzeI-4I-3" /></body></html>

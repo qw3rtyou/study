@@ -1113,8 +1113,10 @@ RLIKE, REGEXP, IS, IN, NOT, MATCH, AND, OR, BETWEEN, ISNULL ...
 특히 %, _는 와일카드라고 불림
 substring, substr, mid, pad, left, right 이런 함수들이 필터링되어 있을 때,
 다음과 같이 우회할 수 있음
+와일드 카드를 이용할 땐, = 이용 불가, like만 됨
 
 	uid=admin" and upw like "p%"-- 
+
 
 
 ### 공백 탐지 미흡
@@ -1224,6 +1226,16 @@ no=(1)or(id='admin')
 
 더하기 : +
 no=1+or+id='admin'
+MySQL에서 문자열 연결로 해석되지 않기 때문에 일반적으로 사용불가 
+
+백틱 : `
+만약 데이터베이스가 백틱을 열 이름 인용 외의 용도로 사용하도록 허용한다면 (즉, 공백처럼 해석되는 경우) 사용가능
+일반적으로 불가
+
+온점 : .
+일반적으로 불가, 해당정보 출처가 어딘지 확인바람 삭제예
+
+non-breaking space (NBSP) : %a0
 ```
 
 주석구문 실행(/*! */)

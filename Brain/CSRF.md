@@ -25,6 +25,8 @@ Javascript 공격 코드 예시
 	location.href = 'http://bank.dreamhack.io/sendmoney?to=dreamhack&amount=1337';
 	location.replace('http://bank.dreamhack.io/sendmoney?to=dreamhack&amount=1337');
 
+`<img src=`/changepw?userid=admin&userpw=a` width=0px height=0px>`
+
 # XSS와 CSRF의 차이
 두 개의 취약점은 공격에 있어 서로 다른 목적을 가짐
 

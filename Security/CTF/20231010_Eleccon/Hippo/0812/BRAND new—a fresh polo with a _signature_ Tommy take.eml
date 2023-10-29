@@ -1,0 +1,704 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1691842149;
+	cv=none; b=i/ajDzf9UZCT4+5VSx0TrFlM34827KtO1gwbrTF8QaXghrhKPcTknNurDION
+	 dS6LUmp5ilC0bF8O+sr04GhxZoqUSon9IPM8K7PUwWbJhdBtP8YlmzIbtLtthuMSRPx3+M
+	 rj7d5PpZE1d5l3zb/Y9w+VHlpgTzznEI2izqqVP6owr1Sv8V1oUD+ZeBqd/hU/7wsOoxw0
+	 R+clpOk3QqzUW9gq21PH9JXcZSzbkPvhjJWf/I3Ih4Sow95mAaA1GL0zdIu1/SJ2/Y6UO1
+	 tdt9rdv78BLY1x+gKwcsAHoiIxFiBlOg9wInRZ+OZJag/MdTzbl75Iz/r/Q1+waL8ARnlL
+	 dw==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1691842149; c=relaxed/relaxed;
+	bh=wsEinivwiSd5DRKsm1Rd8YqUii/qAwW8/Lyc2G3XszQ=;
+	h=dkim-signature:from:to:subject:date:message-id; b=CqA7DBYqVdJEEKtLxQi
+	 zikvevKy0RZ+q6hmHki6qNmCBIxaZLzBv2v5PSUiUDoSGjc7X5c3B7keiYPv1wxgK2kbhb
+	 aF2fGVpY/pyGadoH8LFSRNXsNBLWq698XCNoFKhZvRNe80cCKEl2rtYUIvIOv5PqwK0OeI
+	 wBjvk1Inig6BD3Ii0IqSoT634EEmhD3uJNWLv6rG+20fHJifkEKP4AbUnfhPlDzEQ+uAe5
+	 5Sv3q6FYVLDjt2u8DNEcJMcnOecxK4FI6q0Oog+DJW1Z6zGRWh8ZIo6N1eFgAKArI95s2Z
+	 ujB369rIE3DY6x8YclWuW3tPzk5hpAaeIKRO4vEujgQ==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of bounce-17_HTML-120257972-191626-100028781-16121@bounce.e.tommy.com designates 13.111.114.199 as permitted sender) smtp.mailfrom=bounce-17_HTML-120257972-191626-100028781-16121@bounce.e.tommy.com;
+  dkim=pass header.i=@e.tommy.com;
+  dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=e.tommy.com
+Return-Path: <bounce-17_HTML-120257972-191626-100028781-16121@bounce.e.tommy.com>
+Received-SPF: pass (mx.naver.com: domain of bounce-17_HTML-120257972-191626-100028781-16121@bounce.e.tommy.com designates 13.111.114.199 as permitted sender)
+  client-ip=13.111.114.199; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of bounce-17_HTML-120257972-191626-100028781-16121@bounce.e.tommy.com designates 13.111.114.199 as permitted sender) smtp.mailfrom=bounce-17_HTML-120257972-191626-100028781-16121@bounce.e.tommy.com;
+  dkim=pass header.i=@e.tommy.com;
+  dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=e.tommy.com
+X-Naver-ESV: wZRn+6J4p63CbHmrKBwdbXFYKxUmaxgljJ+Y
+X-Session-IP: 13.111.114.199
+Received: from mta.e.tommy.com (mta.e.tommy.com [13.111.114.199])
+  by crcvmail306.nm.naver.com with ESMTP id OqlXa6liQoi3tSrh9AAOOQ
+  for <user01@naver.com>
+  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384);
+  Sat, 12 Aug 2023 12:09:09 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=10dkim1; d=e.tommy.com;
+ h=From:To:Subject:Date:List-Unsubscribe:List-Unsubscribe-Post:MIME-Version:
+ Reply-To:List-ID:X-CSA-Complaints:Message-ID:Content-Type;
+ i=tommyhilfiger@e.tommy.com;
+ bh=wsEinivwiSd5DRKsm1Rd8YqUii/qAwW8/Lyc2G3XszQ=;
+ b=eNvO7egS53kx0SRU795YeGBH5klo+vBpjfTTTkEJ4bLrR36h5vwIfohEgki9RbKXiDWtORha3zOh
+   bbR1oeZlmdAP8PIhcOsyB98O657wR8w2hk4SQyup6vyQJJCeywfEwaCB8/KDUa/yf0L5y+bpKMHf
+   qTQy9rt6lpris+Uaq4H2L6Z/5qm3Fo5W4ZKBMxQUC/hSEJUPcYZ0iL38aPiAALoRV6LJcactLYS3
+   1QBTVCQoNyT1lHrGHlpdXWgthqYBRfcfv0IZxEqL0mgasKYaww/h+BehfhNTHV3qTfm/4uhc0gx7
+   I8DbBddn6PC2Z/gkSufXPbSXFX1Hn0vx+rVoSg==
+Received: by mta.e.tommy.com id hqtr682fmd4h for <user01@naver.com>; Sat, 12 Aug 2023 12:04:28 +0000 (envelope-from <bounce-17_HTML-120257972-191626-100028781-16121@bounce.e.tommy.com>)
+From: "Tommy Hilfiger Company Stores" <tommyhilfiger@e.tommy.com>
+To: <user01@naver.com>
+Subject: =?UTF-8?B?QlJBTkQgbmV34oCUYSBmcmVzaCBwb2xvIHdpdGggYSAqc2lnbmF0?=
+ =?UTF-8?B?dXJlKiBUb21teSB0YWtl?=
+Date: Sat, 12 Aug 2023 06:04:28 -0600
+List-Unsubscribe: <https://click.e.tommy.com/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiIxMDAwMjg3ODEiLCJzIjoiMTIwMjU3OTcyIiwibGlkIjoiMTciLCJqIjoiMTkxNjI2IiwiamIiOiIxNjEyMSIsImQiOiIxMDAxOTEifQ.0eB0juY7566fO8tl7-4J-zKsdpDX9D2Bwyari4JbuHY>, <mailto:leave-fd8315771a3c402029-fe2c15727566017a7c1372-fec615797462067b-fe34157075640675721c71-ff041576746605@leave.e.tommy.com>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+x-CSA-Compliance-Source: SFMC
+MIME-Version: 1.0
+Reply-To: "Tommy Hilfiger" <reply-fec615797462067b-17_HTML-120257972-100028781-16121@e.tommy.com>
+List-ID: <100024991.xt.local>
+X-CSA-Complaints: csa-complaints@eco.de
+X-SFMC-Stack: 10
+x-job: 100028781_191626
+Message-ID: <878d6fa4-2178-4fd9-bb7d-988028e732bf@dfw1s10mta1286.xt.local>
+Content-Type: multipart/alternative;
+	boundary="gX2sLWgPyJv5=_?:"
+
+This is a multi-part message in MIME format.
+
+--gX2sLWgPyJv5=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Tommy Hilfiger
+ 
+ 
+
+
+ 
+ 
+
+
+ 
+ 
+ 
+ Time to build your fall wardrobe
+Having problems viewing this email?
+https://view.e.tommy.com/?qs=fc1f60f03344976befb1ca322d43ab2d76ce9dc2d85955ff61cb4cc6e9d179dde843daecd9d1dc596fe3b5b295c307b78a0a8c0ed15ae3ffb6ffc56cfcaf41482c7b1524bbc982339f2c6682226786e0 
+ View in browser .
+
+ TH4016386674 631712013691 
+ 
+
+
+ 
+
+ 
+
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+https://click.e.tommy.com/?qs=7e002b5905a1d5d51e851393dbe60ccc471859bd10ef2929648756bb9311dd1f3f3548de382f9f4d7542c81f610b1e1f41a05fa0515e071de6bbad6c5e7fedaf 
+
+https://click.e.tommy.com/?qs=7e002b5905a1d5d51e851393dbe60ccc471859bd10ef2929648756bb9311dd1f3f3548de382f9f4d7542c81f610b1e1f41a05fa0515e071de6bbad6c5e7fedaf 
+
+https://click.e.tommy.com/?qs=7e002b5905a1d5d51e851393dbe60ccc471859bd10ef2929648756bb9311dd1f3f3548de382f9f4d7542c81f610b1e1f41a05fa0515e071de6bbad6c5e7fedaf 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+
+ 
+
+https://click.e.tommy.com/?qs=7e002b5905a1d5d500403926eada76c6021317401eb1aa864ba43ea0b98a1ecfce94b27b9db65fa742405f3c6c6ed33fac95cdfb142e00ff55f4c3c38f2cd5ae 
+
+
+ 
+
+
+ 
+ 
+
+
+ 
+ 
+
+
+ https://click.e.tommy.com/?qs=7e002b5905a1d5d56fe598611b3f9cea4f65e7915696e98e04bea07561bc6a05a6afa5f8d3d1705a59a6bf1cc70aeec31ec6cdb3b228e2904a3601fe03da0520 
+
+https://click.e.tommy.com/?qs=7e002b5905a1d5d56fe598611b3f9cea4f65e7915696e98e04bea07561bc6a05a6afa5f8d3d1705a59a6bf1cc70aeec31ec6cdb3b228e2904a3601fe03da0520 
+
+
+
+
+
+ 
+ 
+
+
+ 
+
+
+ 
+ Visit tommy.com for store locations. All styles not available at all locations. May not be available at tommy.com. *Ticketed price. Exclusions may apply. Promotion not valid at the
+ following Tommy Hilfiger stores: San Clemente, Livermore Kids, Vacaville and Tejon Ranch. Not valid on tommy.com. OFFER IS VALID 8/10/23 - 8/16/23. **OFFER IS VALID 8/10/23 - 8/16/23 for Hilfiger Club members only. All offers are redeemable for an amount up to the discount stated on this Email and must be presented in-person at Tommy Hilfiger stores in the United States, Puerto Rico, and Guam. It may be used only once whether or not fully redeemed and must be surrendered at purchase with any remaining value of the Offer forfeited. Not redeemable for store credit or cash. The offers may not be combined with any other promotion and have no cash value. Offers are not valid for previously purchased merchandise, gift cards, or Internet transactions. Any discount (as shown on the receipt)
+ applied to merchandise that is returned will be deducted from any refund amount. Customer must present email at time of purchase to receive the offers. Reproductions of the offers will not be accepted. PVH associates not eligible. Not valid in department stores, Clearance stores, Tommy Hilfiger stores in Canada, or on tommy.com.  </br>
+</br> †THIS OFFER IS VALID 7/27/23-8/16/23. HILFIGER CLUB MEMBERS MUST SPEND $100 OR MORE AFTER DISCOUNTS IN A SINGLE TRANSACTION (EXCLUDING GIFT CARDS) IN PARTICIPATING TOMMY HILFIGER STORES OR ON TOMMY.COM TO QUALIFY FOR THE REWARD. Limit 1 Reward per person. 18+ years old. Valid in US. Must complete application at tlc.hilfigerclubrewards.com and upload receipt within 14 days of purchase for in-store purchases or upload shipping confirmation within 14 days of receiving the email for purchases on Tommy.com to receive $100 Live Event Credit. No cash value. Offer not valid for previously purchased merchandise or gift cards. $100 Live Event Credit is only redeemable on Hilfigerclubrewards.thetixfix.com. 2 ticket minimum. Valid credit card is required when using the Reward. Live Event Credit
+ terms and conditions apply at Hilfigerclubrewards.thetixfix.com/policies. Full promo terms and conditions apply at tlc.hilfigerclubrewards.com/terms. Void where prohibited. REWARD CODE MUST BE REDEEMED BY 12/7/23 TO RECEIVE CREDIT. $100 LIVE EVENT CREDIT WILL BE VALID FOR ONE YEAR FROM REDEMPTION DATE TO PURCHASE TICKETS. 
+ 
+ 
+ 
+
+
+ 
+
+
+ 
+
+ The sender of this email is Tommy Hilfiger U.S.A., Inc. Tommy Hilfiger Company Stores, and can be reached by mailing 285 Madison Ave, 9th Floor, New York, NY 10017 or calling 1-800-866-6922.
+
+
+
+© 2023 Tommy Hilfiger Licensing LLC. All Rights Reserved. 
+
+
+https://click.e.tommy.com/?qs=7e002b5905a1d5d54f2f75b496014507a9e826770765f2c158a16417bd02273edf735df3987a978bba7e9e799869e06fd92ee1cd65a732687b5bacb47fd85be1 
+Privacy Policy. 
+
+
+To stop receiving emails from Tommy Hilfiger Company Stores, 
+https://click.e.tommy.com/?qs=7e002b5905a1d5d55169470e304ac02a7b99be18e90032a63798556c81d166bfae85b5520639600f257355264f3ee1dcecba8e93e09e5c52f3809082ce35212e 
+unsubscribe here .
+
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+
+
+--gX2sLWgPyJv5=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"     xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="format-detection" content="telephone=no">
+<meta name=”x-apple-disable-message-reformatting”>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
+    <title>Tommy Hilfiger</title>
+
+    <style>
+        
+        div,
+        p,
+        a,
+        li,
+        td,
+        body {
+            -webkit-text-size-adjust: 100% !important;
+            -ms-text-size-adjust: 100% !important;
+            -webkit-font-smoothing: antialiased !important;
+        }
+
+        body {
+            margin: 0px !important;
+            padding: 0px !important;
+            width: 100% !important;
+            min-width: 100% !important;
+        }
+
+        img {
+            border: 0 !important;
+            outline: none !important;
+            display: block !important;
+        }
+
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        td {
+            border-collapse: collapse;
+            mso-line-height-rule: exactly;
+        }
+
+        a {
+            mso-line-height-rule: exactly;
+            text-decoration: none;
+            color: #666666 !important;
+        }
+
+        .appleLinksGray a {
+            color: #8b8b8b !important;
+            text-decoration: none;
+        }
+
+    </style>
+  
+      <style>
+         table {border-spacing:0;}
+         table, tr, td {border-collapse: collapse;}
+         u ~ div tr > td {font-size: 0;}
+         
+         td[class="headerwrapper"],
+         table[class="headerwrapper"] {
+         width: 640px !important;
+         padding: 0 !important;
+         }
+         td[class="code1"] {
+         padding-left: 0px !important;
+         font-size: 18px !important;
+         font: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+         letter-spacing: 0px !important;
+         padding: 0px 0px 0px 0px !important;
+         }
+         
+         td[class="footerwrapper"],
+         table[class="footerwrapper"] {
+         width: 640px !important;
+         padding: 0 !important;
+         }
+         td[class="code1"] {
+         padding-left: 0px !important;
+         font-size: 22px !important;
+         font: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+         letter-spacing: 0px !important;
+         padding: 0px 0px 0px 0px !important;        }
+         
+         td[class="promowrapper"],
+         table[class="promowrapper"] {
+         width: 640px !important;
+         padding: 0 !important;
+         }
+         td[class="code2"] {
+         padding-left: 0px !important;
+         font-size: 18px !important;
+         font: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+         letter-spacing: 0px !important;
+         padding: 0px 0px 0px 0px !important;        }
+  
+    td[class="code3"] {
+         padding-left: 0px !important;
+         font-size: 12px !important;
+         font: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+         letter-spacing: 0px !important;
+         padding: 0px 0px 0px 0px !important;        }
+         
+         td[class="textCode"] {
+         width: 280px !important;
+         padding:20px !important;
+         font-size: 16px !important;
+         }
+      </style>
+  
+  
+</head>
+
+
+<body style="padding:0;">
+    <table width="640" border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse:collapse; table-layout:fixed;">
+    
+  
+  <!--Header--> 
+    <tr>     
+          <td width="640" valign="middle" align="center">
+     
+     <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:640px; min-width:640px" width="640">
+                <tr>
+                    <td>
+                        <table width="640" align="center" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <!-- === Full Width Container === -->
+                                    <table cellpadding="0" cellspacing="0" border="0">
+                                        <tr>
+                                            <td align="center" width="640">
+                                                <!---->
+<!--
+
+
+-->
+
+<!---->
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- === /End Full Width Container === -->
+                                </td>
+                            </tr>
+                         
+                        </table>
+                    </td>
+                </tr>
+   
+     <tr>
+                    <td>
+                        <table width="640" align="center" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <!-- === Full Width Container === -->
+                                    <table cellpadding="0" cellspacing="0" border="0">
+                                        <tr>
+                                            <td align="center" width="640">
+                                                <!----><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<!--  -->
+
+</td></tr></table><!---->
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- === /End Full Width Container === -->
+                                </td>
+                            </tr>
+                         
+                        </table>
+                    </td>
+                </tr>
+   
+   
+     </table>
+     
+          </td>
+        </tr>
+      <!-- End Header--> 
+      
+
+     <!-- BODY --> 
+      
+      
+       <tr>
+            <td>
+                <!-- === Full Width Container === -->
+                <table cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+                    <tr>
+                        <td width="640">
+                            <!----><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"> <!--Preheader-->
+                               
+                                
+                                   <table width="640" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                        <td align="center"><span style="padding-left: 0px; font-family: Arial, sans-serif; color: #011e41; font-size: 12px; margin: 3px 0px;" align="center">Time to build your fall wardrobe<br>
+                                    <span style="font-family: Arial, Helvetica, sans-serif; color: #666; font-size: 12px;">Having problems viewing this email?<a href="https://view.e.tommy.com/?qs=fc1f60f03344976befb1ca322d43ab2d76ce9dc2d85955ff61cb4cc6e9d179dde843daecd9d1dc596fe3b5b295c307b78a0a8c0ed15ae3ffb6ffc56cfcaf4148c8e407949c1ba61b28ead3fa2f814ee8"  style="color: #666; text-decoration:underline;"> View in browser</a>.</span><br>
+                                    <span style="font-family: Arial, Helvetica, sans-serif; color: #666; font-size: 12px;">
+                                    TH4016386674 631712013691 
+                                      </span>
+                                    </span></td>
+                    </tr>
+                </table>
+
+     </td></tr></table><!---->
+                        </td>
+                    </tr>
+                </table>
+                <!-- === /End Full Width Container === -->
+             </td>
+        </tr>
+   
+  
+  
+ 
+        <tr>
+            <td>
+                <!-- === Full Width Container === -->
+                <table cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+                    <tr>
+                        <td width="640">
+                            <!----><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+
+<table width="640 " cellpadding="0" cellspacing="0" border="0">
+   
+   
+    
+    
+      
+         <tr>
+                                       <td><img style="display: block;" src="https://image.e.tommy.com/lib/fe34157075640675721c71/m/1/20230713_TH_US_DUAL_aGENDER_JULY_EDIT_US_02.jpg" alt="Tommy Hilfiger           " width="640" height="61" border="0"></td>
+                                    </tr>                  
+    
+      </table> 
+
+  
+    
+    
+    <br>
+         
+                                       <a href="https://click.e.tommy.com/?qs=7e002b5905a1d5d596ba31772a442c6b190a0c142599e5ae2b3442fb0fe2aeb81405605e1461286f2a0b3310427d0bbbbb06760006036e4f6bc665b42abfee7856c5c261feece450" ><img style="display: block;" src="https://image.e.tommy.com/lib/fe34157075640675721c71/m/1/TH_US_M_AUGUST_NEWNESS_STORE_OMNI_03.jpg" alt="Stick to the script                                            A lixe, embroidered logo adds sophistication to this season-to-season staple.                                            Shop men's polos           " width="640" height="627" border="0"></a>
+                                                      
+  
+    
+    
+    
+  
+    
+         
+                                       <a href="https://click.e.tommy.com/?qs=7e002b5905a1d5d596ba31772a442c6b190a0c142599e5ae2b3442fb0fe2aeb81405605e1461286f2a0b3310427d0bbbbb06760006036e4f6bc665b42abfee7856c5c261feece450" ><img style="display: block;" src="https://image.e.tommy.com/lib/fe34157075640675721c71/m/1/TH_US_M_AUGUST_NEWNESS_STORE_OMNI_04.jpg" alt="Shop all men's polos           " width="640" height="172" border="0"></a>
+                                                      
+  
+      
+  
+    
+    
+    
+         
+                                       <a href="https://click.e.tommy.com/?qs=7e002b5905a1d5d596ba31772a442c6b190a0c142599e5ae2b3442fb0fe2aeb81405605e1461286f2a0b3310427d0bbbbb06760006036e4f6bc665b42abfee7856c5c261feece450" ><img style="display: block;" src="https://image.e.tommy.com/lib/fe34157075640675721c71/m/1/TH_US_M_AUGUST_NEWNESS_STORE_OMNI_05.jpg" alt="           " width="640" height="775" border="0"></a>
+                                                      
+  
+      
+    
+                    
+  
+        <img style="display: block;" src="https://image.e.tommy.com/lib/fe34157075640675721c71/m/1/TH_US_M_AUGUST_NEWNESS_STORE_OMNI_06.jpg" alt="40% off all backpacks &amp; duffles*           " width="640" height="130" border="0">
+         
+         
+                                       <img style="display: block;" src="https://image.e.tommy.com/lib/fe34157075640675721c71/m/1/TH_US_M_AUGUST_NEWNESS_STORE_OMNI_07.jpg" alt="Plus Hilfiger Club Membes reveive an additional                                            20% off your purchase of $100+ or 15% off your entire purchase**                                            Valid in stores now - August 16           " width="640" height="271" border="0">
+                  
+  
+      
+   
+  
+  
+  </td></tr></table><!---->
+                            
+                        </td>
+                    </tr>
+                </table>
+                <!-- === /End Full Width Container === -->
+             </td>
+        </tr>
+   
+  
+
+        <tr>
+            <td>
+                <!-- === Full Width Container === -->
+                <table cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+                    <tr>
+                        <td width="640">
+                            <!----><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<br>
+<table width="640 " cellpadding="0" cellspacing="0" border="0">
+   
+   
+    
+    
+      
+         <tr>
+                                       <td><a href="https://click.e.tommy.com/?qs=7e002b5905a1d5d5ec824fd9601871d2cdced354891f2fd7cfe0fdb9c626a94b43b5f3742c0f4a0ded81680319d88bc5ee271160bb71fd95eff91122211afbac479f4985cb524a9c" ><img style="display: block;" src="https://image.e.tommy.com/lib/fe34157075640675721c71/m/1/SU23_HC+Live+Event_EM+Banner-CS.jpg           " width="640" height="400" border="0"></a></td>
+                                    </tr>                  
+    </table> </td></tr></table><!---->
+                        </td>
+                    </tr>
+                </table>
+                <!-- === /End Full Width Container === -->
+   </td>
+        </tr>
+
+   
+        <tr>
+            <td>
+                <!-- === Full Width Container === -->
+                <table cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+                    <tr>
+                        <td width="640">
+                            
+                        </td>
+                    </tr>
+                </table>
+                <!-- === /End Full Width Container === -->
+   </td>
+        </tr>
+   
+        <tr>
+            <td>
+                <!-- === Full Width Container === -->
+                <table cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+                    <tr>
+                        <td width="640">
+                            
+                        </td>
+                    </tr>
+                </table>
+                <!-- === /End Full Width Container === -->
+   </td>
+        </tr>
+  
+   <tr>
+            <td>
+                <!-- === Full Width Container === -->
+                <table cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+                    <tr>
+                        <td width="640">
+                            <!----><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table width="100%" height="5" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center"><tr><td>&nbsp;</td></tr></table>
+
+<table width="100%" height="68" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center"><tr>
+      <td width="8" height="68" align="center"><img style="display: block;" alt="" src="http://image.e.tommy.com/lib/fe34157075640675721c71/m/1/11dc6141-9a33-4b17-8740-374ceac773f8.gif" width="8" height="68" border="0"></td>
+      <td width="118" height="68" align="center">
+       <table width="118" height="38" cellspacing="0" cellpadding="0" border="0" align="center">
+        <tr>
+                                
+                          <td width="118" valign="left" height="46" align="left"><a href="https://click.e.tommy.com/?qs=7e002b5905a1d5d5d5db17ca2a178db39493b91cf2e6160adbc905bb3366c9e04e081c94e79df439e8eb002ba02bf87ccf13bf99c55f36445e0647db80b50b49e070968abf60e0e4" ><img title="barcode" style="width: 184px; height: 68px; line-height: 22px; display: block;" alt="barcode" src="http://cl.S10.exct.net/LiveContent.aspx?qs=cddc30c390f0f15b6809f64ffa918a51d52fb5ac12e846be8bb951a1879f962991eaa4bf38fd6aaf8a7112e21ed3538bf9f66c616a29e27365d08f4947e21a92515a4f351e35654269594956ef1ea1aa2251a4ceed9de9fea7616c3b5b25e24b" valign="top" width="184" hspace="0" height="68" border="0"></a></td>
+                              </tr>
+                          
+      </table>
+      </td>
+                         <td width="80" height="68" align="center"><img style="display: block;" alt="" src="http://image.e.tommy.com/lib/fe34157075640675721c71/m/1/11dc6141-9a33-4b17-8740-374ceac773f8.gif" width="260" height="68" border="0"></td>
+      <td width="23" height="68" align="center">
+                        
+      </td><td width="184" height="68" align="center"><a href="https://click.e.tommy.com/?qs=7e002b5905a1d5d5d5db17ca2a178db39493b91cf2e6160adbc905bb3366c9e04e081c94e79df439e8eb002ba02bf87ccf13bf99c55f36445e0647db80b50b49e070968abf60e0e4" ><img title="barcode" style="width: 184px; height: 68px; line-height: 22px; display: block;" alt="barcode" src="http://cl.S10.exct.net/LiveContent.aspx?qs=cddc30c390f0f15b6809f64ffa918a51d52fb5ac12e846be8bb951a1879f962991eaa4bf38fd6aaf8a7112e21ed3538ba34b6113397ff8fc991e161c6bca17e04d28f85200ef85b9635b68720e527dfd8fdb78e4ed69e5e55ac9374252c711d1" valign="top" width="184" hspace="0" height="68" border="0"></a></td>
+     </tr>
+
+
+    </table>
+
+</td></tr></table><!---->
+                            
+                        </td>
+                    </tr>
+                </table>
+                <!-- === /End Full Width Container === -->
+   </td>
+        </tr>
+  
+  
+    <!-- END BODY --> 
+       
+
+    <!--Disclaimer--> 
+  <tr>
+   <td>
+     <table width="640" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>
+      <!-- === Full Width Container === -->
+                        <table cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+                            <tr>
+                                <td width="640">
+                                    <!----><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><p style="margin: 10px; text-align: justify; color: rgb(102, 102, 102); font-family: Arial, Helvetica, sans-serif; font-size: 12px; display: block;" align="justify">
+
+  
+    Visit tommy.com for store locations. All styles not available at all locations. May not be available at tommy.com. *Ticketed price. Exclusions may apply. Promotion not valid at the
+ following Tommy Hilfiger stores: San Clemente, Livermore Kids, Vacaville and Tejon Ranch. Not valid on tommy.com. OFFER IS VALID 8/10/23 - 8/16/23. **OFFER IS VALID 8/10/23 - 8/16/23 for Hilfiger Club members only. All offers are redeemable for an amount up to the discount stated on this Email and must be presented in-person at Tommy Hilfiger stores in the United States, Puerto Rico, and Guam. It may be used only once whether or not fully redeemed and must be surrendered at purchase with any remaining value of the Offer forfeited. Not redeemable for store credit or cash. The offers may not be combined with any other promotion and have no cash value. Offers are not valid for previously purchased merchandise, gift cards, or Internet transactions. Any discount (as shown on the receipt)
+ applied to merchandise that is returned will be deducted from any refund amount. Customer must present email at time of purchase to receive the offers. Reproductions of the offers will not be accepted. PVH associates not eligible. Not valid in department stores, Clearance stores, Tommy Hilfiger stores in Canada, or on tommy.com.  </br>
+</br> †THIS OFFER IS VALID 7/27/23-8/16/23. HILFIGER CLUB MEMBERS MUST SPEND $100 OR MORE AFTER DISCOUNTS IN A SINGLE TRANSACTION (EXCLUDING GIFT CARDS) IN PARTICIPATING TOMMY HILFIGER STORES OR ON TOMMY.COM TO QUALIFY FOR THE REWARD. Limit 1 Reward per person. 18+ years old. Valid in US. Must complete application at tlc.hilfigerclubrewards.com and upload receipt within 14 days of purchase for in-store purchases or upload shipping confirmation within 14 days of receiving the email for purchases on Tommy.com to receive $100 Live Event Credit. No cash value. Offer not valid for previously purchased merchandise or gift cards. $100 Live Event Credit is only redeemable on Hilfigerclubrewards.thetixfix.com. 2 ticket minimum. Valid credit card is required when using the Reward. Live Event Credit
+ terms and conditions apply at Hilfigerclubrewards.thetixfix.com/policies. Full promo terms and conditions apply at tlc.hilfigerclubrewards.com/terms. Void where prohibited. REWARD CODE MUST BE REDEEMED BY 12/7/23 TO RECEIVE CREDIT. $100 LIVE EVENT CREDIT WILL BE VALID FOR ONE YEAR FROM REDEMPTION DATE TO PURCHASE TICKETS. 
+  
+         
+  <br><br>
+</p></td></tr></table><!---->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- === /End Full Width Container === -->
+      </td>
+                    </tr>
+                </table>
+   </td>
+  </tr>
+    <!--//Disclaimer-->
+  
+    <!--Footer-->
+       
+ <tr>
+   <td>
+     <table width="640" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>
+      <!-- === Full Width Container === -->
+                        <table cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+                            <tr>
+                                <td width="640">
+                                    <!----><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+
+ <!--CAN-SPAM--> 
+  
+   
+     <table width="640" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td><p align="justify" style="text-align:justify; display: block; font-family: Arial, Helvetica, sans-serif; color: #666; font-size: 12px; margin: 10px 10px 10px 10px;">The sender of this email is Tommy Hilfiger U.S.A., Inc. Tommy Hilfiger Company Stores, and can be reached by mailing 285 Madison Ave, 9th Floor, New York, NY 10017 or calling 1-800-866-6922.
+<br><br>
+© 2023 Tommy Hilfiger Licensing LLC. All Rights Reserved. 
+<br><br><a href="https://click.e.tommy.com/?qs=7e002b5905a1d5d5df200e0f7744d4d2eaf628cc2096e12f4922bb6253477cd57da375953ebed9c8704eb8ffa7e95124b7465db2a6439e8b565a3c7a9c803b73"   target="_new" style="color: #666; text-decoration:underline">Privacy Policy.</a>
+                          <br><br>
+To stop receiving emails from Tommy Hilfiger Company Stores, <a href="https://click.e.tommy.com/?qs=7e002b5905a1d5d54eca57b4f12419df1e4768647bdc482f9b10b0f3eaeeffccfdf3d7b160397fd2eeb5d24d0d86f90ca7b5f44a8c1823e1da57a0c396ff13d0eacb0029914a7652"   target="_new" style="color: #666; text-decoration:underline">unsubscribe here</a>.<br></p></td>
+                    </tr>
+                </table>
+   
+  
+
+   
+  <!--//CAN-SPAM--> 
+
+
+  <!--LIVECLICKER--> 
+
+<!-- Start RealTime Email Embed - Patents Pending -->
+<img src="https://em.realtime.email/service/rte?kind=duration&account_id=7246&campaign_id=1979701005&dim0=0033t000049tA31AAE" style="width:0px; height:0px;">
+<!-- End RealTime Email Embed - Patents Pending -->
+
+  <!--//LIVECLICKER--> 
+</td></tr></table><!---->
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- === /End Full Width Container === -->
+      </td>
+                    </tr>
+                </table>
+   </td>
+  </tr>
+       <!--//Footer--> 
+  
+      
+      
+
+ </table>
+
+<!-- +++ User Matching Tracking +++ -->
+<img src="https://beacon.krxd.net/1x1_usermatch.gif?partner=pvh_zeta_sha256&partner_uid=71836281810a9efb1fa9c5146763d55abfc4d6e818e9fe090adef34e1f72e38b" width="1" height="1" />
+<!-- +++ /User Matching Tracking +++ -->
+
+<!-- +++ Impression Tracking +++ -->
+<img src="https://beacon.krxd.net/1x1_ad_impression.gif?confid=ttol4vxxp&campaignid=companystore&siteid=email&placementid=companystore&advertiserid=th" width="1" height="1" />
+<!-- +++ /Impression Tracking +++ -->
+
+<!-- Start RealTime Email Embed - Patents Pending -->
+<img src="https://em.realtime.email/service/rte?kind=duration&account_id=7246&campaign_id=1553212632&dim0=0033t000049tA31AAE" style="width:0px; height:0px;"/>
+<!-- End RealTime Email Embed - Patents Pending -->
+   
+<!-- +++ Exact Target Tracking Code +++ -->
+<img src="https://click.e.tommy.com/open.aspx?ffcb10-fec615797462067b-fe2b15717c62047f7d1776-fe34157075640675721c71-ff971577-fe2c15727566017a7c1372-ff041576746605&d=100191&bmt=0" width="1" height="1" alt="">
+
+</body>
+</html>
+
+--gX2sLWgPyJv5=_?:--
+

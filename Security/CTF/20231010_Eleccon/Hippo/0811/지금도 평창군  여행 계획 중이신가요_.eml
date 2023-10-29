@@ -1,0 +1,1159 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1690513470;
+	cv=none; b=DArJGHh0txS5O/oZrbfGvbzWPjnX7wvctFB2GGNGxq2Ubxwy7QDY5CShwerT
+	 dHXhpgGlv8YVI+1y3cimkY0r7LtK/CZ1ZSkp6Tnl4MIyfXrhF4HH2GIPe+gKlvEe6MHXH4
+	 J4U3cAQj/rEHKxmRqAFYsiBX5mJNqxBfAdTpH49oGqyEzwvrtZ140pjoJoQRK55ydDIcbO
+	 KdsdJBX5j3ReSk8w5Tm3t25Fo8Y1Xa2a6WiPgShv0cpRuCKGqEyC2Jf4ZkSHzHLI6sh2Jc
+	 jPNLM8uk/eHKNzL+sQMCqHjNyyUG9nbEXAghlyQTQ77luT0U2gxJdT3Qm63I+sieX4xqKN
+	 xw==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1690513470; c=relaxed/relaxed;
+	bh=HZc5i3/D6lqMEFN4duO7z8+uCBET/ldLG1UbKDyJb5g=;
+	h=dkim-signature:dkim-signature:from:to:subject:message-id:date; b=cdqa
+	 oPeWZPr6lbe6kuOlq8laFx8Une+HOoGmCm1wDV83jMJGVk/qfiv9UNbwMRT67cWWwryUIv
+	 6jzf3nwNNp/jyJFqhoWiWslMXUhCFNK00esmk+aDqb871tADMzzyBbHPd7xu4TBcoAw8X0
+	 Axhd8tyfe2oi3mMqECXSOk/ZgRnCpTXDMxVKlJ2FpxqbtYwmOkVB87+3eQADfRnPP4wdpo
+	 ovGK81jvXOqwOocgYqDBDOk/1A6F7ltV7SvRgLH1k4BDk+1c50WQkC0RBXeJ/2495ikdB4
+	 Kx06p9bR6waYRaxPlUwueLb33TPttVGWNW+PoQB91qWNYLlzp8ENymkS7A==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of 010701899a74641a-e4b65e5e-e28d-49d6-a6b9-5ad58085b7e7-000000@newsletter.trip.com designates 69.169.224.53 as permitted sender) smtp.mailfrom=010701899a74641a-e4b65e5e-e28d-49d6-a6b9-5ad58085b7e7-000000@newsletter.trip.com;
+  dkim=pass header.i=@trip.com;
+  dkim=pass header.i=@amazonses.com;
+  dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=newsletter.trip.com
+Return-Path: <010701899a74641a-e4b65e5e-e28d-49d6-a6b9-5ad58085b7e7-000000@newsletter.trip.com>
+Received-SPF: pass (mx.naver.com: domain of 010701899a74641a-e4b65e5e-e28d-49d6-a6b9-5ad58085b7e7-000000@newsletter.trip.com designates 69.169.224.53 as permitted sender)
+  client-ip=69.169.224.53; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of 010701899a74641a-e4b65e5e-e28d-49d6-a6b9-5ad58085b7e7-000000@newsletter.trip.com designates 69.169.224.53 as permitted sender) smtp.mailfrom=010701899a74641a-e4b65e5e-e28d-49d6-a6b9-5ad58085b7e7-000000@newsletter.trip.com;
+  dkim=pass header.i=@trip.com;
+  dkim=pass header.i=@amazonses.com;
+  dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=newsletter.trip.com
+X-Naver-ESV: wwFn+6J4p63CbHmqKBwdbXFYKAKmFAUljJ+Y
+X-Session-IP: 69.169.224.53
+Received: from b224-53.smtp-out.eu-central-1.amazonses.com (b224-53.smtp-out.eu-central-1.amazonses.com [69.169.224.53])
+  by crcvmail304.nm.naver.com with ESMTP id 7H4pBP68RCalhb8rfQl+DQ
+  for <user01@naver.com>
+  (version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256);
+  Fri, 11 Aug 2023 03:04:29 -0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=shqtmsqawp3udyle6kpyobif642lmqb3; d=trip.com; t=1690513466;
+	i=@newsletter.trip.com;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date;
+	bh=0hSRkAB+Epck263xk82fQPqlswhnSizF+mFygEMJmHg=;
+	b=YCTN1APLq8hgxfcicH9Dzi/1gbHke85W6/rVf8gDCWD0hjr8xtXwZ+V7FZliWIgM
+	y0vADFfknjdhCaWLENoZEO/8Pq4XHA2h3cl0xlvruzC+KjyJ0WrU9sdFhrcyUJc79ku
+	0tP8K6RuiAB0LGju/DPg3kVqu7NQFoVoJMLNh381WAl2VJlszlXm06pJOh7w+I6vsj0
+	Qmh+StHE8y7YF4ZK+3uoM9lCyC85zJTzRYkaVlFTC24O1ebassmfDJZL3tM0c3yPdOR
+	Om79TrXJWXIU8z/OKDtIu3DCBIdTlXEdIwQE4lZu8qfe8WX4xVc1Y8VjEgB1cU66u1I
+	/rY2IN1cCw==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=sokbgaaqhfgd6qjht2wmdajpuuanpimv; d=amazonses.com; t=1690513466;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date:Feedback-ID;
+	bh=0hSRkAB+Epck263xk82fQPqlswhnSizF+mFygEMJmHg=;
+	b=F3UocSYERueTQQzUiQfuIeyNE9d+oBuhMP9SzKngjxxOLx/dUxtq6MGVHFOVGqHk
+	bHVasfexF4/hB+iAj8MjNV5pufWkpjwXk27Q5v1E8cXJ6GPsGoDgKpJlZK2AYAQa6H8
+	5aTKO0aIa0qXXAF0piedZNY3y6QFYUDnc/WWZIzA=
+From: "Trip.com" <Trip.com@newsletter.trip.com>
+To: user01@naver.com
+Subject: =?UTF-8?B?7KeA6riI64+EIO2Pieywveq1sCAg7Jes?=
+ =?UTF-8?B?7ZaJIOqzhO2ajSDspJHsnbTsi6DqsIDsmpQ/?=
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <010701899a74641a-e4b65e5e-e28d-49d6-a6b9-5ad58085b7e7-000000@eu-central-1.amazonses.com>
+Date: Fri, 11 Aug 2023 03:04:26 +0000
+Feedback-ID: 1.eu-central-1.UP2m+N8t0j2E5w1wB93nE28cnowv5TY1ZCUQ4kMpuSA=:AmazonSES
+X-SES-Outgoing: 2023.08.11-69.169.224.53
+
+<!DOCTYPE html><html><head></head><body><span class=3D"preheader" style=3D"=
+color: transparent; display: none; height: 0; max-height: 0; max-width: 0; =
+opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;"=
+>(=EA=B4=91=EA=B3=A0) =EB=9D=BC=EB=A7=88=EB=8B=A4=ED=98=B8=ED=85=94=EC=95=
+=A4=EC=8A=A4=EC=9C=84=ED=8A=B8 =ED=8F=89=EC=B0=BD, =EC=98=88=EC=95=BD =EA=
+=B0=80=EB=8A=A5=ED=95=9C =EC=88=98=EB=9F=89=EC=9D=B4 =EC=96=BC=EB=A7=88 =EB=
+=82=A8=EC=A7=80 =EC=95=8A=EC=95=98=EC=96=B4=EC=9A=94! (=EC=88=98=EC=8B=A0 =
+=EC=97=AC=EB=B6=80: =EC=84=A4=EC=A0=95=EC=97=90=EC=84=9C =EB=B3=80=EA=B2=BD=
+ =EA=B0=80=EB=8A=A5)</span></body></html><!doctype html><html lang=3D"en-US=
+"><head><meta charset=3D"utf-8"/><meta name=3D"viewport" content=3D"width=
+=3Ddevice-width, initial-scale=3D1.0"/><style>.hotel-card-list-responsive-e=
+dm{width:100% !important;}  .hotel-card-primary{display: block !important;w=
+idth: 100% !important;}  .hotel-card-primary-gap{display: block !important;=
+width: 100% !important;height: 8px !important;}  @media only screen and (mi=
+n-width: 640px) {  .hotel-card-list-responsive-edm{width:640px !important;}=
+  .hotel-card-primary{display: table-cell !important;width:300px !important=
+;}  .hotel-card-primary-gap{display: table-cell !important;width: 8px !impo=
+rtant;}  }  @media only screen and (max-width: 500px) {  .trip-mail-block {=
+display: table} .trip-mail-fluid {width: 100% !important;height: auto !impo=
+rtant;box-sizing: border-box; min-width: auto !important;} .trip-mail-fluid=
+-half {width: 50% !important;max-width: 50% !important;height:auto !importa=
+nt;box-sizing: border-box;min-width: auto !important;}  }</style></head><bo=
+dy><table class=3D"trip-mail-fluid" width=3D"100%" align=3D"center" border=
+=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td style=3D"backgrou=
+nd:#ececec"><table class=3D"trip-mail-fluid" align=3D"center" border=3D"0" =
+width=3D"600" cellPadding=3D"0" cellSpacing=3D"0" style=3D"min-width:auto;m=
+ax-width:600px"><tbody><tr><td style=3D"background:#ffffff"><img style=3D"d=
+isplay:none" width=3D"1" height=3D"1" src=3D"http://www.trip.com/forward/mi=
+ddlepages/channel/openEdm/?bizData=3DeyJldmVudCI6Im9wZW4iLCJ0aXRsZSI6Im9wZW=
+5fdXJsIiwia2V5IjoiU0lOLUFXUy0yMDYyMS0xMDEyOTk4MTM5LTE2OTA1MTM0NjQyMTMuMTY1I=
+n0%3D"/><img style=3D"display:none" width=3D"1" height=3D"1" src=3D"http://=
+www.trip.com/forward/middlepages/channel/openEdm/?bizData=3DeyJldmVudCI6ImV=
+4cG9zdXJlIiwidGl0bGUiOiJvcGVuX3VybCIsImtleSI6IlNJTi1BV1MtMjA2MjEtMTAxMjk5OD=
+EzOS0xNjkwNTEzNDY0MjEzLjE2NSIsIml0ZW1zIjpbeyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWNvb=
+XBvbmVudC1tYWlsLXByZWhlYWRlciIsImlkIjoic3RydV9PY2lxT2Q2aWdYTWNBN1ciLCJkYXRh=
+Ijp7fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWhlYWRlciIsImlkIjo=
+ic3RydV85cThxTFhwdkE1RlQ5U0UiLCJkYXRhIjp7fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLW=
+NvbXBvbmVudC1tYWlsLW1lbWJlcnNoaXAtcGFja2FnZS1uZXciLCJpZCI6InN0cnVfR3AybXAzb=
+2FxUjR6ZjlLIiwiZGF0YSI6e319LHsidHlwZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFp=
+bC1wYW5lbCIsImlkIjoic3RydV9Kck0zUHlZTE5LYXh0VTMiLCJkYXRhIjp7fX0seyJ0eXBlIjo=
+iQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLXBhbmVsIiwiaWQiOiJzdHJ1X2hBMVBNVWJCWW=
+Y2eG02TiIsImRhdGEiOnt9fSx7InR5cGUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtd=
+GV4dCIsImlkIjoic3RydV9oSUFRTmY4dXlsNzZVWEYiLCJkYXRhIjp7fX0seyJ0eXBlIjoiQGN0=
+cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLXBhbmVsIiwiaWQiOiJzdHJ1X3hLOFZ5MkNYVzdvTmZ=
+UaSIsImRhdGEiOnt9fSx7InR5cGUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtdGV4dC=
+13aXRoLXZhcmlhYmxlIiwiaWQiOiJzdHJ1X3c1YmNqRmFDYkVwTWo3QiIsImRhdGEiOnt9fV19"=
+/><img style=3D"display:none" width=3D"1" height=3D"1" src=3D"http://www.tr=
+ip.com/forward/middlepages/channel/openEdm/?bizData=3DeyJldmVudCI6ImV4cG9zd=
+XJlIiwidGl0bGUiOiJvcGVuX3VybCIsImtleSI6IlNJTi1BV1MtMjA2MjEtMTAxMjk5ODEzOS0x=
+NjkwNTEzNDY0MjEzLjE2NSIsIml0ZW1zIjpbeyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmV=
+udC1tYWlsLWhvdGVsLXBhY2thZ2UiLCJpZCI6InN0cnVfSXlIQloxOXRsek4zZDQ1IiwiZGF0YS=
+I6eyJob3RlbExpc3QiOiJbe1wic2VxdWVuY2VOb1wiOjEsXCJob3RlbElkXCI6XCIxOTg2ODgxM=
+1wiLFwiY3VycmVuY3lcIjpcIktSV1wiLFwicHJpY2VcIjpcIjIyMjIzMlwiLFwicHJpY2VUeXBl=
+XCI6Mn0se1wic2VxdWVuY2VOb1wiOjIsXCJob3RlbElkXCI6XCIyMzc3OTg0OVwiLFwiY3VycmV=
+uY3lcIjpcIktSV1wiLFwicHJpY2VcIjpcIjE5MDc3OVwiLFwicHJpY2VUeXBlXCI6Mn0se1wic2=
+VxdWVuY2VOb1wiOjMsXCJob3RlbElkXCI6XCI2NzM3NjA2OFwiLFwiY3VycmVuY3lcIjpcIktSV=
+1wiLFwicHJpY2VcIjpcIjE1NDkyMlwiLFwicHJpY2VUeXBlXCI6Mn0se1wic2VxdWVuY2VOb1wi=
+OjQsXCJob3RlbElkXCI6XCIxMjg0ODE5XCIsXCJjdXJyZW5jeVwiOlwiS1JXXCIsXCJwcmljZVw=
+iOlwiMTIxMjAwXCIsXCJwcmljZVR5cGVcIjoyfSx7XCJzZXF1ZW5jZU5vXCI6NSxcImhvdGVsSW=
+RcIjpcIjE1Njc3NjcyXCIsXCJjdXJyZW5jeVwiOlwiS1JXXCIsXCJwcmljZVwiOlwiMzA0ODIxX=
+CIsXCJwcmljZVR5cGVcIjoyfSx7XCJzZXF1ZW5jZU5vXCI6NixcImhvdGVsSWRcIjpcIjEwOTA1=
+ODYyXCIsXCJjdXJyZW5jeVwiOlwiS1JXXCIsXCJwcmljZVwiOlwiMzAxOTkwXCIsXCJwcmljZVR=
+5cGVcIjoyfSx7XCJzZXF1ZW5jZU5vXCI6NyxcImhvdGVsSWRcIjpcIjEzNzUxMTI2XCIsXCJjdX=
+JyZW5jeVwiOlwiS1JXXCIsXCJwcmljZVwiOlwiMzIxNDUzXCIsXCJwcmljZVR5cGVcIjoyfSx7X=
+CJzZXF1ZW5jZU5vXCI6OCxcImhvdGVsSWRcIjpcIjI2MzU2OTVcIixcImN1cnJlbmN5XCI6XCJL=
+UldcIixcInByaWNlXCI6XCIxOTExMzlcIixcInByaWNlVHlwZVwiOjJ9XSJ9fSx7InR5cGUiOiJ=
+AY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtcGFuZWwiLCJpZCI6InN0cnVfTkh1djdFTUtIT1=
+NLejdCIiwiZGF0YSI6e319LHsidHlwZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC10Z=
+Xh0IiwiaWQiOiJzdHJ1X0NPcEE4OHhJT3J0ZWdoeSIsImRhdGEiOnt9fSx7InR5cGUiOiJAY3Ry=
+aXAvY2xvdWQtY29tcG9uZW50LW1haWwtcGFuZWwiLCJpZCI6InN0cnVfVzc1cktGb0dKbmVvVWN=
+WIiwiZGF0YSI6e319LHsidHlwZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1idXR0b2=
+4iLCJpZCI6InN0cnVfcnJ2Rk5kT0hNcmJmcEVvIiwiZGF0YSI6e319LHsidHlwZSI6IkBjdHJpc=
+C9jbG91ZC1jb21wb25lbnQtbWFpbC1wYW5lbCIsImlkIjoic3RydV9GQ0lqdWV5VEhGMWRzTnQi=
+LCJkYXRhIjp7fX1dfQ=3D=3D"/><img style=3D"display:none" width=3D"1" height=
+=3D"1" src=3D"http://www.trip.com/forward/middlepages/channel/openEdm/?bizD=
+ata=3DeyJldmVudCI6ImV4cG9zdXJlIiwidGl0bGUiOiJvcGVuX3VybCIsImtleSI6IlNJTi1BV=
+1MtMjA2MjEtMTAxMjk5ODEzOS0xNjkwNTEzNDY0MjEzLjE2NSIsIml0ZW1zIjpbeyJ0eXBlIjoi=
+QGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWFkLWRlYWxzIiwiaWQiOiJzdHJ1X3N0WDVXOFh=
+BWG1JM0RwUSIsImRhdGEiOnt9fSx7InR5cGUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haW=
+wtcGFuZWwiLCJpZCI6InN0cnVfWTBvaGJoUmhUN0lVMmtwIiwiZGF0YSI6e319LHsidHlwZSI6I=
+kBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC10ZXh0IiwiaWQiOiJzdHJ1X3h2N1R1aVJtTlZ2=
+cm5NSSIsImRhdGEiOnt9fSx7InR5cGUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtYXB=
+wLWluc3RhbGwiLCJpZCI6InN0cnVfNWFLT20xdlZ2djE4Q2xQIiwiZGF0YSI6e319LHsidHlwZS=
+I6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1mb290ZXIiLCJpZCI6InN0cnVfMjc2eHFrU=
+lNCWWFqbnhaIiwiZGF0YSI6e319XX0=3D"/><div><div style=3D"display:none;font-si=
+ze:1px;line-height:1;max-height:0;max-width:0;opacity:0;overflow:hidden">=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+ =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C</div></div><table class=3D"tr=
+ip-mail-fluid" align=3D"center" width=3D"100%" border=3D"0" cellPadding=3D"=
+0" cellSpacing=3D"0"><tbody><tr><td><table class=3D"trip-mail-fluid" align=
+=3D"left" valign=3D"middle" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0=
+"><tbody><tr><td colSpan=3D"2" height=3D"10"></td></tr><tr><td width=3D"10"=
+></td><td bgcolor=3D"#ffffff" align=3D"left" valign=3D"middle"><a rel=3D"no=
+opener noreferrer" target=3D"_blank" title=3D"header-logo" href=3D"https://=
+www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.t=
+rip.com%2Findex%3Flocale%3Dko_kr%26allianceid%3D324048%26edm_id%3DSIN-AWS-2=
+0621-1012998139-1690513464213.165%26ouid%3D24648.hotel_churn_browse_to_orde=
+rpage_edm_T0.1690513200000.20230728.ko_KR.%26sid%3D1520824&amp;bizData=3Dey=
+JldmVudCI6ImNsaWNrIiwidGl0bGUiOiJoZWFkZXItbG9nbyIsInR5cGUiOiJyZWFjdC5jb21wb=
+25lbnQiLCJuYW1lIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWhlYWRlciIsImxhYmVs=
+IjoiaGVhZGVyIiwiaWQiOiJzdHJ1XzlxOHFMWHB2QTVGVDlTRSIsImZpbGVJZCI6ImZpbGVfb0Q=
+0TTNsSElER2kxN25JIiwidGVtcGxhdGVJZCI6ImNvbnRfekVrNDd1TERzZEJUYUduIiwidGVtcG=
+xhdGVWZXJzaW9uIjozLCJmb3hwYWdlVmVyc2lvbiI6MiwiZGF0YSI6eyJuYW1lIjoiaGVhZGVyL=
+WxvZ28ifX0%3D" style=3D"display:block"><img border=3D"0" width=3D"118" src=
+=3D"https://ak-d.tripcdn.com/images/0a136120009ctk8uv48BC.png" alt=3D"Trip.=
+com" style=3D"display:block"/></a></td></tr><tr><td colSpan=3D"2" height=3D=
+"10"></td></tr></tbody></table><table class=3D"trip-mail-fluid" align=3D"ri=
+ght" valign=3D"middle" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tb=
+ody><tr><td colSpan=3D"2" height=3D"16"></td></tr><tr><td bgcolor=3D"#fffff=
+f" align=3D"right" valign=3D"middle"><table cellPadding=3D"0" cellSpacing=
+=3D"0"><tbody><tr><td valign=3D"middle"><a rel=3D"noopener noreferrer" targ=
+et=3D"_blank" title=3D"header-flights-site" href=3D"https://www.trip.com/fo=
+rward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Ffligh=
+ts%2Fwelcome%2F%3Fto%3Dhome%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-=
+1012998139-1690513464213.165%26ouid%3D24648.hotel_churn_browse_to_orderpage=
+_edm_T0.1690513200000.20230728.ko_KR.%26sid%3D1520824&amp;bizData=3DeyJldmV=
+udCI6ImNsaWNrIiwidGl0bGUiOiJoZWFkZXItZmxpZ2h0LWxpbmsiLCJ0eXBlIjoicmVhY3QuY2=
+9tcG9uZW50IiwibmFtZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1oZWFkZXIiLCJsY=
+WJlbCI6ImhlYWRlciIsImlkIjoic3RydV85cThxTFhwdkE1RlQ5U0UiLCJmaWxlSWQiOiJmaWxl=
+X29ENE0zbEhJREdpMTduSSIsInRlbXBsYXRlSWQiOiJjb250X3pFazQ3dUxEc2RCVGFHbiIsInR=
+lbXBsYXRlVmVyc2lvbiI6MywiZm94cGFnZVZlcnNpb24iOjIsImRhdGEiOnsibmFtZSI6ImhlYW=
+Rlci1mbGlnaHQtbGluayJ9fQ%3D%3D" style=3D"font-family:BlinkMacSystemFont,-ap=
+ple-system,Roboto,Helvetica,Arial,sans-serif;color:#3264FF;text-decoration:=
+none;font-size:14px">=ED=95=AD=EA=B3=B5=EA=B6=8C</a></td><td width=3D"16"><=
+/td><td valign=3D"middle"><a rel=3D"noopener noreferrer" target=3D"_blank" =
+title=3D"header-hotels-site" href=3D"https://www.trip.com/forward/middlepag=
+es/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Fhotels%2Fw%2Fhome%2F=
+%3Fallianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012998139-1690513464213.16=
+5%26ouid%3D24648.hotel_churn_browse_to_orderpage_edm_T0.1690513200000.20230=
+728.ko_KR.%26sid%3D1520824&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOi=
+JoZWFkZXItaG90ZWwtbGluayIsInR5cGUiOiJyZWFjdC5jb21wb25lbnQiLCJuYW1lIjoiQGN0c=
+mlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWhlYWRlciIsImxhYmVsIjoiaGVhZGVyIiwiaWQiOiJz=
+dHJ1XzlxOHFMWHB2QTVGVDlTRSIsImZpbGVJZCI6ImZpbGVfb0Q0TTNsSElER2kxN25JIiwidGV=
+tcGxhdGVJZCI6ImNvbnRfekVrNDd1TERzZEJUYUduIiwidGVtcGxhdGVWZXJzaW9uIjozLCJmb3=
+hwYWdlVmVyc2lvbiI6MiwiZGF0YSI6eyJuYW1lIjoiaGVhZGVyLWhvdGVsLWxpbmsifX0%3D" s=
+tyle=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial=
+,sans-serif;color:#3264FF;text-decoration:none;font-size:14px">=ED=98=B8=ED=
+=85=94</a></td><td width=3D"16"></td><td valign=3D"middle"><a rel=3D"noopen=
+er noreferrer" target=3D"_blank" title=3D"header-trains-site" href=3D"https=
+://www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fk=
+r.trip.com%2Ftrains%2F%3Flocale%3Dko_kr%26allianceid%3D324048%26edm_id%3DSI=
+N-AWS-20621-1012998139-1690513464213.165%26ouid%3D24648.hotel_churn_browse_=
+to_orderpage_edm_T0.1690513200000.20230728.ko_KR.%26sid%3D1520824&amp;bizDa=
+ta=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJoZWFkZXItdHJhaW4tbGluayIsInR5cGUiOi=
+JyZWFjdC5jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWhlY=
+WRlciIsImxhYmVsIjoiaGVhZGVyIiwiaWQiOiJzdHJ1XzlxOHFMWHB2QTVGVDlTRSIsImZpbGVJ=
+ZCI6ImZpbGVfb0Q0TTNsSElER2kxN25JIiwidGVtcGxhdGVJZCI6ImNvbnRfekVrNDd1TERzZEJ=
+UYUduIiwidGVtcGxhdGVWZXJzaW9uIjozLCJmb3hwYWdlVmVyc2lvbiI6MiwiZGF0YSI6eyJuYW=
+1lIjoiaGVhZGVyLXRyYWluLWxpbmsifX0%3D" style=3D"font-family:BlinkMacSystemFo=
+nt,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:#3264FF;text-decor=
+ation:none;font-size:14px">=EA=B8=B0=EC=B0=A8=ED=91=9C</a></td><td width=3D=
+"16"></td><td valign=3D"middle"><a rel=3D"noopener noreferrer" target=3D"_b=
+lank" title=3D"header-tnt-site" href=3D"https://www.trip.com/forward/middle=
+pages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Fthings-to-do%2Ftt=
+d-home%2F%3Flocale%3Dko_kr%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-1=
+012998139-1690513464213.165%26ouid%3D24648.hotel_churn_browse_to_orderpage_=
+edm_T0.1690513200000.20230728.ko_KR.%26sid%3D1520824&amp;bizData=3DeyJldmVu=
+dCI6ImNsaWNrIiwidGl0bGUiOiJoZWFkZXItdG50LWxpbmsiLCJ0eXBlIjoicmVhY3QuY29tcG9=
+uZW50IiwibmFtZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1oZWFkZXIiLCJsYWJlbC=
+I6ImhlYWRlciIsImlkIjoic3RydV85cThxTFhwdkE1RlQ5U0UiLCJmaWxlSWQiOiJmaWxlX29EN=
+E0zbEhJREdpMTduSSIsInRlbXBsYXRlSWQiOiJjb250X3pFazQ3dUxEc2RCVGFHbiIsInRlbXBs=
+YXRlVmVyc2lvbiI6MywiZm94cGFnZVZlcnNpb24iOjIsImRhdGEiOnsibmFtZSI6ImhlYWRlci1=
+0bnQtbGluayJ9fQ%3D%3D" style=3D"font-family:BlinkMacSystemFont,-apple-syste=
+m,Roboto,Helvetica,Arial,sans-serif;color:#3264FF;text-decoration:none;font=
+-size:14px">=ED=88=AC=EC=96=B4&amp;=ED=8B=B0=EC=BC=93</a></td></tr></tbody>=
+</table></td><td width=3D"10"></td></tr><tr><td colSpan=3D"2" height=3D"10"=
+></td></tr></tbody></table></td></tr></tbody></table><table class=3D"trip-m=
+ail-fluid" width=3D"100%" align=3D"center" border=3D"0" cellPadding=3D"0" c=
+ellSpacing=3D"0"><tbody><tr><td bgcolor=3D"#ffffff" style=3D"background-col=
+or:#ffffff;border-radius:8px"><table class=3D"trip-mail-fluid" width=3D"100=
+%" align=3D"center" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tbody=
+><tr><td colSpan=3D"3" height=3D"12"></td></tr><tr><td width=3D"12"></td><t=
+d><table class=3D"trip-mail-fluid" width=3D"100%" align=3D"center" border=
+=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td width=3D"16" vali=
+gn=3D"middle" style=3D"font-size:0"><img width=3D"16" height=3D"16" src=3D"=
+https://ak-d.tripcdn.com/images/Z80l0v000000jlasy1121.jpg" alt=3D"Trip.com"=
+ style=3D"border:none;outline:none;border-radius:50%;padding-top:1px"/></td=
+><td valign=3D"middle"><span style=3D"display:inline-block;font-family:Blin=
+kMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:14=
+px;color:#0f294d;line-height:18px;font-weight:bold;padding:0 5px 0 4px;vert=
+ical-align:middle">=EC=95=88=EB=85=95=ED=95=98=EC=84=B8=EC=9A=94 =ED=8A=B8=
+=EB=A6=BD=EB=8B=B7=EC=BB=B4 =ED=9A=8C=EC=9B=90=EB=8B=98!</span><span style=
+=3D"display:inline-block;background:#D4DAE3;vertical-align:middle"><img wid=
+th=3D"22" height=3D"18" src=3D"https://ak-d.tripcdn.com/images/0a13912000a8=
+ekr5r0476.png" alt=3D"Trip.com" style=3D"display:block;border:none;outline:=
+none;vertical-align:middle"/></span><span style=3D"display:inline-block;hei=
+ght:18px;vertical-align:middle;background:#D4DAE3 linear-gradient(90deg, #D=
+4DAE3 0%, #C3CAD5 100%);font-family:BlinkMacSystemFont,-apple-system,Roboto=
+,Helvetica,Arial,sans-serif;font-size:12px;color:#3e454f;line-height:18px;b=
+order-radius:0 2px 2px 0;padding:0 4px 0 0">=EC=8B=A4=EB=B2=84</span></td><=
+/tr><tr><td colSpan=3D"2" height=3D"8"></td></tr><tr><td colSpan=3D"2"><spa=
+n style=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Ar=
+ial,sans-serif;font-size:14px;color:#0f294d;height:18px;line-height:18px">=
+=ED=98=84=EC=9E=AC =EC=A0=81=EB=A6=BD=ED=95=9C =ED=8A=B8=EB=A6=BD=EC=BD=94=
+=EC=9D=B8: <b>0</b> =ED=8A=B8=EB=A6=BD=EC=BD=94=EC=9D=B8 (=EC=95=BD <b>0=EC=
+=9B=90</b>)</span></td></tr></tbody></table></td><td width=3D"12"></td></tr=
+><tr><td colSpan=3D"3" height=3D"12"></td></tr></tbody></table></td></tr></=
+tbody></table><table class=3D"trip-mail-fluid" width=3D"100%" align=3D"cent=
+er" cellSpacing=3D"0" cellPadding=3D"0" border=3D"0"><tbody><tr><td bgcolor=
+=3D"transparent" style=3D"border-radius:0;border:none;background:transparen=
+t;direction:ltr"><table class=3D"trip-mail-fluid" width=3D"100%" align=3D"c=
+enter" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td clas=
+s=3D"fp-slot" style=3D"border-radius:0;padding:0px 16px 0px 16px"><table cl=
+ass=3D"trip-mail-fluid" width=3D"100%" align=3D"center" cellSpacing=3D"0" c=
+ellPadding=3D"0" border=3D"0"><tbody><tr><td bgcolor=3D"#fff0e5" style=3D"b=
+order-radius:0;border:none;background:#fff0e5;direction:ltr"><table class=
+=3D"trip-mail-fluid" width=3D"100%" align=3D"center" border=3D"0" cellPaddi=
+ng=3D"0" cellSpacing=3D"0"><tbody><tr><td height=3D"8"></td></tr><tr><td cl=
+ass=3D"fp-slot" style=3D"border-radius:0;padding:0px 16px 0px 16px"><table =
+class=3D"trip-mail-fluid" width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0=
+"><tbody><tr><td align=3D"center"><span style=3D"font-family:BlinkMacSystem=
+Font,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:14px;color:#=
+ff6f00;font-weight:normal;line-height:1.2;vertical-align:middle;text-decora=
+tion:none;margin:0">=ED=98=B8=ED=85=94 =ED=8A=B9=EA=B0=80 =EB=A7=88=EC=A7=
+=80=EB=A7=89 =EC=B0=AC=EC=8A=A4, =EC=96=BC=EB=A7=88 =EB=82=A8=EC=A7=80 =EC=
+=95=8A=EC=95=98=EC=96=B4=EC=9A=94!</span></td></tr></tbody></table></td></t=
+r><tr><td height=3D"8"></td></tr></tbody></table></td></tr></tbody></table>=
+</td></tr></tbody></table></td></tr></tbody></table><table class=3D"trip-ma=
+il-fluid" width=3D"100%" align=3D"center" cellSpacing=3D"0" cellPadding=3D"=
+0" border=3D"0"><tbody><tr><td bgcolor=3D"transparent" style=3D"border-radi=
+us:0;border:none;background:transparent;direction:ltr"><table class=3D"trip=
+-mail-fluid" width=3D"100%" align=3D"center" border=3D"0" cellPadding=3D"0"=
+ cellSpacing=3D"0"><tbody><tr><td height=3D"8"></td></tr><tr><td class=3D"f=
+p-slot" style=3D"border-radius:0;padding:0px 16px 0px 16px"><table class=3D=
+"trip-mail-fluid" width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody=
+><tr><td align=3D"center"><p style=3D"display:inline-block;font-family:Blin=
+kMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:20=
+px;color:#0f294d;font-weight:normal;line-height:1.2;vertical-align:middle;t=
+ext-decoration:none;margin:0">=EC=95=84=EC=A7=81 =EA=B3=A0=EB=AF=BC =EC=A4=
+=91=EC=9D=B4=EC=8B=A0=EA=B0=80=EC=9A=94? <span style=3D"color: inherit; fon=
+t-size: 20px; font-weight: normal;">=ED=8F=89=EC=B0=BD=EA=B5=B0</span> =ED=
+=98=B8=ED=85=94 =ED=8A=B9=EA=B0=80=EB=A5=BC =EB=86=93=EC=B9=98=EC=A7=80 =EB=
+=A7=88=EC=84=B8=EC=9A=94!</p></td></tr></tbody></table></td></tr><tr><td he=
+ight=3D"8"></td></tr></tbody></table></td></tr></tbody></table><table class=
+=3D"trip-mail-fluid" align=3D"center" border=3D"0" width=3D"100%" cellPaddi=
+ng=3D"0" cellSpacing=3D"0"><tbody><tr><td><style>
+.hotel-card-top-edm{
+    width:100%;
+}
+
+.hotel-card-top-edm .hotel-card-top-edm-image{
+    height:146px;
+}
+
+@media only screen and (min-width: 640px) {
+    .hotel-card-top-edm{
+        width:608px;
+    }
+    .hotel-card-top-edm .hotel-card-top-edm-image{
+        height:285px;
+    }
+}
+</style><table align=3D"center" border=3D"0" cellPadding=3D"0" cellSpacing=
+=3D"0"><tbody><tr><td width=3D"16" valign=3D"top"></td><td><table class=3D"=
+hotel-card-top-edm" align=3D"center" border=3D"0" cellPadding=3D"0" cellSpa=
+cing=3D"0" style=3D"font-family:Helvetica Neue, Helvetica, Arial,sans-serif=
+;font-size:13px;color:#0F294D;text-align:left;background:#fff"><tbody><tr><=
+td><a href=3D"https://www.trip.com/forward/edm/iYWDqEGWb1?edm_id=3DSIN-AWS-=
+20621-1012998139-1690513464213.165" target=3D"_blank" style=3D"text-decorat=
+ion:none"><img class=3D"hotel-card-top-edm-image" src=3D"https://ak-d.tripc=
+dn.com/images/200l0x000000lfrjdB140_R_680_270_R5_D.jpg?proc=3Dsource/trip" =
+width=3D"100%" border=3D"0" style=3D"object-fit:cover"/></a></td></tr><tr><=
+td height=3D"12"></td></tr><tr><td><table width=3D"100%" cellPadding=3D"0" =
+cellSpacing=3D"0"><tbody><tr><td valign=3D"top"><table width=3D"100%" cellP=
+adding=3D"0" cellSpacing=3D"0"><tbody><tr><td><a href=3D"https://www.trip.c=
+om/forward/edm/iYWDqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.1=
+65" target=3D"_blank" style=3D"font-family:Helvetica Neue, Helvetica, Arial=
+,sans-serif;font-size:18px;color:#0f294d;line-height:24px;font-weight:bold;=
+text-decoration:none"><span>=EB=9D=BC=EB=A7=88=EB=8B=A4=ED=98=B8=ED=85=94=
+=EC=95=A4=EC=8A=A4=EC=9C=84=ED=8A=B8 =ED=8F=89=EC=B0=BD (Ramada Hotel & Sui=
+tes by Wyndham Gangwon Pyeongchang)</span><span style=3D"margin-left:4px;di=
+splay:inline-block"><img style=3D"width:12px;height:auto" width=3D"12" src=
+=3D"https://images3.tripcdn.com/hotel_h5_images/e-star.png"/><img style=3D"=
+width:12px;height:auto" width=3D"12" src=3D"https://images3.tripcdn.com/hot=
+el_h5_images/e-star.png"/><img style=3D"width:12px;height:auto" width=3D"12=
+" src=3D"https://images3.tripcdn.com/hotel_h5_images/e-star.png"/></span></=
+a></td></tr><tr><td height=3D"4"></td></tr><tr><td><a href=3D"https://www.t=
+rip.com/forward/edm/iYWDqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464=
+213.165" target=3D"_blank" style=3D"text-decoration:none"><span style=3D"fo=
+nt-family:Helvetica Neue, Helvetica, Arial,sans-serif;background:#496ACE;bo=
+rder-radius:1px;padding:1px 4px 0;margin-right:4px"><strong style=3D"font-s=
+ize:14px;color:#fff;line-height:19px">4.2</strong><i style=3D"font-style:no=
+rmal;font-size:11px;color:#fff">/5</i></span><span style=3D"font-family:Hel=
+vetica Neue, Helvetica, Arial,sans-serif;font-size:13px;color:#8592a6;displ=
+ay:inline-block">=EC=9D=B4=EC=9A=A9=EC=9E=90 =EB=A6=AC=EB=B7=B0 176=EA=B0=
+=9C</span></a></td></tr><tr><td height=3D"4"></td></tr><tr><td><a href=3D"h=
+ttps://www.trip.com/forward/edm/iYWDqEGWb1?edm_id=3DSIN-AWS-20621-101299813=
+9-1690513464213.165" target=3D"_blank" style=3D"text-decoration:none"><span=
+ style=3D"font-family:Helvetica Neue, Helvetica, Arial,sans-serif;font-size=
+:13px;color:#8592a6">=ED=8F=89=EC=B0=BD=EA=B5=B0 | =EB=8C=80=EA=B4=80=EB=A0=
+=B9=EB=A9=B4</span></a></td></tr><tr><td height=3D"4"></td></tr><tr><td><ta=
+ble width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td width=
+=3D"18px" valign=3D"top"><a href=3D"https://www.trip.com/forward/edm/iYWDqE=
+GWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_blank"=
+ style=3D"text-decoration:none"><img style=3D"width:18px;height:auto" width=
+=3D"18" src=3D"https://images3.tripcdn.com/hotel_h5_images/e-sale.png"/></a=
+></td><td width=3D"4px"></td><td><a href=3D"https://www.trip.com/forward/ed=
+m/iYWDqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D=
+"_blank" style=3D"text-decoration:none"><span style=3D"font-family:Helvetic=
+a Neue,Helvetica,Arial,sans-serif;font-size:13px;color:#FF6F00">=ED=83=80=
+=EC=9E=84 =EC=84=B8=EC=9D=BC</span></a></td></tr></tbody></table></td></tr>=
+</tbody></table></td><td width=3D"40%" valign=3D"bottom"><table width=3D"10=
+0%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td align=3D"right"><a h=
+ref=3D"https://www.trip.com/forward/edm/iYWDqEGWb1?edm_id=3DSIN-AWS-20621-1=
+012998139-1690513464213.165" target=3D"_blank" style=3D"text-decoration:non=
+e"><span style=3D"font-family:Helvetica Neue, Helvetica, Arial,sans-serif;b=
+ackground:#f5594a;font-size:11px;color:#fff;line-height:16px;padding:2px 4p=
+x;font-weight:bold">28% =ED=95=A0=EC=9D=B8</span></a></td></tr><tr><td heig=
+ht=3D"2"></td></tr><tr><td align=3D"right"><a href=3D"https://www.trip.com/=
+forward/edm/iYWDqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165"=
+ target=3D"_blank" style=3D"text-decoration:none"><del style=3D"font-family=
+:Helvetica Neue, Helvetica, Arial,sans-serif;color:#455873;font-size:13px;l=
+ine-height:18px">311,250=EC=9B=90</del></a></td></tr><tr><td align=3D"right=
+"><a href=3D"https://www.trip.com/forward/edm/iYWDqEGWb1?edm_id=3DSIN-AWS-2=
+0621-1012998139-1690513464213.165" target=3D"_blank" style=3D"text-decorati=
+on:none"><span style=3D"font-family:Helvetica Neue, Helvetica, Arial,sans-s=
+erif;color:#455873;font-size:13px;line-height:18px;margin-right:4px">=EC=B5=
+=9C=EC=A0=80=EA=B0=80</span><strong style=3D"font-family:Helvetica Neue, He=
+lvetica, Arial,sans-serif;color:#3264FF;font-size:18px;line-height:24px">22=
+2,232=EC=9B=90</strong></a></td></tr><tr><td height=3D"4"></td></tr><tr><td=
+ align=3D"right"><a href=3D"https://www.trip.com/forward/edm/iYWDqEGWb1?edm=
+_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_blank" style=
+=3D"text-decoration:none"><span style=3D"font-family:Helvetica Neue, Helvet=
+ica, Arial,sans-serif;color:#06AEBD;font-size:12px;line-height:16px">=EB=AC=
+=B4=EB=A3=8C =EC=B7=A8=EC=86=8C</span></a></td></tr></tbody></table></td></=
+tr></tbody></table></td></tr><tr><td height=3D"8"></td></tr><tr><td align=
+=3D"center"><a href=3D"https://www.trip.com/forward/edm/iYWDqEGWb1?edm_id=
+=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_blank" style=3D"d=
+isplay:block;background:#3264FF;border-radius:2px;width:100%;font-size:16px=
+;padding:12px 0;color:#fff;line-height:21px;font-weight:bold;text-decoratio=
+n:none">=EC=98=88=EC=95=BD=ED=95=98=EA=B8=B0</a></td></tr></tbody></table><=
+/td><td width=3D"16" valign=3D"top"></td></tr></tbody></table></td></tr><tr=
+><td><table class=3D"trip-mail-fluid" width=3D"100%" align=3D"center" cellS=
+pacing=3D"0" cellPadding=3D"0" border=3D"0"><tbody><tr><td bgcolor=3D"trans=
+parent" style=3D"border-radius:0;border:none;background:transparent;directi=
+on:ltr"><table class=3D"trip-mail-fluid" width=3D"100%" align=3D"center" bo=
+rder=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td height=3D"24"=
+></td></tr><tr><td class=3D"fp-slot" style=3D"border-radius:0;padding:0px 1=
+6px 0px 16px"><table class=3D"trip-mail-fluid" width=3D"100%" cellPadding=
+=3D"0" cellSpacing=3D"0"><tbody><tr><td align=3D"left"><span style=3D"font-=
+family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;f=
+ont-size:18px;color:#0f294d;font-weight:bold;line-height:1.2;vertical-align=
+:middle;text-decoration:none;margin:0">=EB=86=93=EC=B9=98=EC=85=A8=EC=9D=84=
+=EC=A7=80=EB=8F=84 =EB=AA=A8=EB=A5=BC =EB=86=80=EB=9D=BC=EC=9A=B4 =ED=98=B8=
+=ED=85=94 =EB=8D=94 =EB=B3=B4=EA=B8=B0</span></td></tr></tbody></table></td=
+></tr><tr><td height=3D"16"></td></tr></tbody></table></td></tr></tbody></t=
+able></td></tr><tr><td><style>
+.hotel-card-list-responsive-edm{
+    width:100% !important;
+}
+.hotel-card-primary{
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+.hotel-card-primary-gap{
+    display: block !important;
+    width: 100% !important;
+    height: 8px !important;
+}
+
+@media only screen and (min-width: 640px) {
+    .hotel-card-list-responsive-edm{
+        width:640px !important;
+    }
+    .hotel-card-primary{
+        display: table-cell !important;
+        width:300px !important;
+    }
+    .hotel-card-primary-gap{
+        display: table-cell !important;
+        width: 8px !important;
+    }
+}
+</style><table class=3D"hotel-card-list-responsive-edm" align=3D"center" bo=
+rder=3D"0" cellPadding=3D"0" cellSpacing=3D"0" style=3D"font-family:Helveti=
+ca Neue,Helvetica,Arial,sans-serif;font-size:13px;color:#0F294D;text-align:=
+left;background:#fff"><tbody><tr><td height=3D"16"></td></tr><tr><td width=
+=3D"16" valign=3D"top"></td><td valign=3D"top" class=3D"hotel-card-primary"=
+ width=3D"300" style=3D"border:1px solid #DADFE6"><table width=3D"100%" cel=
+lPadding=3D"0" cellSpacing=3D"0" border=3D"0"><tbody><tr><td width=3D"109" =
+valign=3D"top"><a href=3D"https://www.trip.com/forward/edm/mg7VqEGWb1?edm_i=
+d=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_blank" style=3D"=
+text-decoration:none"><img alt=3D"" class=3D"hotel-img" src=3D"https://ak-d=
+.tripcdn.com/images/200a0y000000lwkihA547_R_400_400_R5_D.jpg?proc=3Dsource/=
+trip" border=3D"0" width=3D"109" height=3D"200" style=3D"width:109px;height=
+:200px;object-fit:cover"/></a></td><td width=3D"8" valign=3D"top"></td><td =
+valign=3D"top"><table width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><t=
+body><tr><td height=3D"8"></td></tr><tr><td><a href=3D"https://www.trip.com=
+/forward/edm/mg7VqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165=
+" target=3D"_blank" style=3D"font-family:Helvetica Neue,Helvetica,Arial,san=
+s-serif;font-size:16px;color:#0F294D;line-height:21px;text-decoration:none;=
+font-weight:bold"><span>=EA=B0=95=EB=A6=89=EC=94=A8=ED=8B=B0=ED=98=B8=ED=85=
+=94 (Gangneung City Hotel)</span><span style=3D"margin-left:4px;display:inl=
+ine-block"><img width=3D"12" style=3D"width:12px;height:auto" src=3D"https:=
+//images3.tripcdn.com/hotel_h5_images/e-star.png"/><img width=3D"12" style=
+=3D"width:12px;height:auto" src=3D"https://images3.tripcdn.com/hotel_h5_ima=
+ges/e-star.png"/><img width=3D"12" style=3D"width:12px;height:auto" src=3D"=
+https://images3.tripcdn.com/hotel_h5_images/e-star.png"/></span></a></td></=
+tr><tr><td height=3D"4"></td></tr><tr><td><a href=3D"https://www.trip.com/f=
+orward/edm/mg7VqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" =
+target=3D"_blank" style=3D"text-decoration:none"><span style=3D"background:=
+#496ACE;border-radius:1px;padding:1px 4px 0;margin-right:4px"><strong style=
+=3D"font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-size:14px;co=
+lor:#fff;line-height:19px">4.4</strong><i style=3D"font-family:Helvetica Ne=
+ue,Helvetica,Arial,sans-serif;font-style:normal;font-size:11px;color:#fffff=
+f80">/5</i></span><span style=3D"font-family:Helvetica Neue,Helvetica,Arial=
+,sans-serif;font-size:13px;color:#8592A6">=EC=9D=B4=EC=9A=A9=EC=9E=90 =EB=
+=A6=AC=EB=B7=B0 225=EA=B0=9C</span></a></td></tr><tr><td height=3D"4"></td>=
+</tr><tr><td><a href=3D"https://www.trip.com/forward/edm/mg7VqEGWb1?edm_id=
+=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_blank" style=3D"t=
+ext-decoration:none"><span style=3D"font-family:Helvetica Neue,Helvetica,Ar=
+ial,sans-serif;font-size:13px;color:#8592A6;line-height:15px">=EA=B0=95=EB=
+=A6=89=EC=8B=9C</span></a></td></tr><tr><td height=3D"4"></td></tr><tr><td>=
+<table width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td wi=
+dth=3D"18px" valign=3D"top"><a href=3D"https://www.trip.com/forward/edm/mg7=
+VqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_bla=
+nk" style=3D"text-decoration:none"><img style=3D"width:18px;height:auto" wi=
+dth=3D"18" src=3D"https://images3.tripcdn.com/hotel_h5_images/e-sale.png"/>=
+</a></td><td width=3D"4px"></td><td><a href=3D"https://www.trip.com/forward=
+/edm/mg7VqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=
+=3D"_blank" style=3D"text-decoration:none"><span style=3D"font-family:Helve=
+tica Neue,Helvetica,Arial,sans-serif;font-size:13px;color:#FF6F00">=ED=83=
+=80=EC=9E=84 =EC=84=B8=EC=9D=BC</span></a></td></tr></tbody></table></td></=
+tr><tr><td height=3D"8"></td></tr><tr><td align=3D"right"><a href=3D"https:=
+//www.trip.com/forward/edm/mg7VqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-169=
+0513464213.165" target=3D"_blank" style=3D"text-decoration:none"><span styl=
+e=3D"font-family:Helvetica Neue,Helvetica,Arial,sans-serif;background:#F559=
+4A;font-size:11px;color:#FFFFFF;line-height:16px;padding:2px 4px;font-weigh=
+t:bold">22% =ED=95=A0=EC=9D=B8</span></a></td></tr><tr><td height=3D"2"></t=
+d></tr><tr><td align=3D"right"><a href=3D"https://www.trip.com/forward/edm/=
+mg7VqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_=
+blank" style=3D"text-decoration:none"><span><del style=3D"font-family:Helve=
+tica Neue,Helvetica,Arial,sans-serif;color:#455873;font-size:13px;line-heig=
+ht:18px;margin-right:8px">245,700=EC=9B=90</del></span></a><a href=3D"https=
+://www.trip.com/forward/edm/mg7VqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-16=
+90513464213.165" target=3D"_blank" style=3D"text-decoration:none;display:in=
+line-block"><span style=3D"font-family:Helvetica Neue,Helvetica,Arial,sans-=
+serif;color:#455873;font-size:13px;line-height:18px;margin-right:4px">=EC=
+=B5=9C=EC=A0=80=EA=B0=80</span><strong style=3D"font-family:Helvetica Neue,=
+Helvetica,Arial,sans-serif;color:#3264FF;font-size:18px;line-height:24px">1=
+90,779=EC=9B=90</strong></a></td></tr><tr><td height=3D"8"></td></tr></tbod=
+y></table></td><td width=3D"8" valign=3D"top"></td></tr></tbody></table></t=
+d><td class=3D"hotel-card-primary-gap"></td><td valign=3D"top" class=3D"hot=
+el-card-primary" width=3D"300" style=3D"border:1px solid #DADFE6"><table wi=
+dth=3D"100%" cellPadding=3D"0" cellSpacing=3D"0" border=3D"0"><tbody><tr><t=
+d width=3D"109" valign=3D"top"><a href=3D"https://www.trip.com/forward/edm/=
+vwJ4rEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_=
+blank" style=3D"text-decoration:none"><img alt=3D"" class=3D"hotel-img" src=
+=3D"https://ak-d.tripcdn.com/images/0205f120008az7i8wF8E4_R_400_400_R5_D.jp=
+g?proc=3Dsource/trip" border=3D"0" width=3D"109" height=3D"200" style=3D"wi=
+dth:109px;height:200px;object-fit:cover"/></a></td><td width=3D"8" valign=
+=3D"top"></td><td valign=3D"top"><table width=3D"100%" cellPadding=3D"0" ce=
+llSpacing=3D"0"><tbody><tr><td height=3D"8"></td></tr><tr><td><a href=3D"ht=
+tps://www.trip.com/forward/edm/vwJ4rEGWb1?edm_id=3DSIN-AWS-20621-1012998139=
+-1690513464213.165" target=3D"_blank" style=3D"font-family:Helvetica Neue,H=
+elvetica,Arial,sans-serif;font-size:16px;color:#0F294D;line-height:21px;tex=
+t-decoration:none;font-weight:bold"><span>=EC=A0=95=EC=84=A0=EC=9D=B8=ED=88=
+=AC=EB=9D=BC=EC=98=A8 =ED=98=B8=ED=85=94 (Jeongseon Intoraon Hotel)</span><=
+span style=3D"margin-left:4px;display:inline-block"><img width=3D"12" style=
+=3D"width:12px;height:auto" src=3D"https://images3.tripcdn.com/hotel_h5_ima=
+ges/e-star.png"/><img width=3D"12" style=3D"width:12px;height:auto" src=3D"=
+https://images3.tripcdn.com/hotel_h5_images/e-star.png"/><img width=3D"12" =
+style=3D"width:12px;height:auto" src=3D"https://images3.tripcdn.com/hotel_h=
+5_images/e-star.png"/></span></a></td></tr><tr><td height=3D"4"></td></tr><=
+tr><td><a href=3D"https://www.trip.com/forward/edm/vwJ4rEGWb1?edm_id=3DSIN-=
+AWS-20621-1012998139-1690513464213.165" target=3D"_blank" style=3D"text-dec=
+oration:none"><span style=3D"background:#496ACE;border-radius:1px;padding:1=
+px 4px 0;margin-right:4px"><strong style=3D"font-family:Helvetica Neue,Helv=
+etica,Arial,sans-serif;font-size:14px;color:#fff;line-height:19px">4.1</str=
+ong><i style=3D"font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-=
+style:normal;font-size:11px;color:#ffffff80">/5</i></span><span style=3D"fo=
+nt-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-size:13px;color:#8=
+592A6">=EC=9D=B4=EC=9A=A9=EC=9E=90 =EB=A6=AC=EB=B7=B0 251=EA=B0=9C</span></=
+a></td></tr><tr><td height=3D"4"></td></tr><tr><td><a href=3D"https://www.t=
+rip.com/forward/edm/vwJ4rEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464=
+213.165" target=3D"_blank" style=3D"text-decoration:none"><span style=3D"fo=
+nt-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-size:13px;color:#8=
+592A6;line-height:15px">=EC=A0=95=EC=84=A0=EA=B5=B0</span></a></td></tr><tr=
+><td height=3D"8"></td></tr><tr><td align=3D"right"><a href=3D"https://www.=
+trip.com/forward/edm/vwJ4rEGWb1?edm_id=3DSIN-AWS-20621-1012998139-169051346=
+4213.165" target=3D"_blank" style=3D"text-decoration:none"><span style=3D"f=
+ont-family:Helvetica Neue,Helvetica,Arial,sans-serif;background:#F5594A;fon=
+t-size:11px;color:#FFFFFF;line-height:16px;padding:2px 4px;font-weight:bold=
+">9% =ED=95=A0=EC=9D=B8</span></a></td></tr><tr><td height=3D"4"></td></tr>=
+<tr><td><table style=3D"background-color:#dee6f3;border-radius:2px"><tbody>=
+<tr><td align=3D"center" valign=3D"middle"><img width=3D"30" style=3D"width=
+:28px;height:auto;vertical-align:middle" src=3D"https://ak-d.tripcdn.com/im=
+ages/0a14j120008e6hmugB3B0.png"/></td><td width=3D"2px"></td><td align=3D"c=
+enter" valign=3D"middle"><a href=3D"https://www.trip.com/forward/edm/vwJ4rE=
+GWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_blank"=
+ style=3D"text-decoration:none;vertical-align:middle"><span style=3D"font-f=
+amily:Helvetica Neue,Helvetica,Arial,sans-serif;font-size:13px;color:#0f294=
+d">=EC=8B=A4=EB=B2=84 =EB=93=B1=EA=B8=89 =ED=8A=B9=EA=B0=80</span></a></td>=
+<td width=3D"4px"></td></tr></tbody></table></td></tr><tr><td height=3D"2">=
+</td></tr><tr><td align=3D"right"><a href=3D"https://www.trip.com/forward/e=
+dm/vwJ4rEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=
+=3D"_blank" style=3D"text-decoration:none"><span><del style=3D"font-family:=
+Helvetica Neue,Helvetica,Arial,sans-serif;color:#455873;font-size:13px;line=
+-height:18px;margin-right:8px">172,118=EC=9B=90</del></span></a><a href=3D"=
+https://www.trip.com/forward/edm/vwJ4rEGWb1?edm_id=3DSIN-AWS-20621-10129981=
+39-1690513464213.165" target=3D"_blank" style=3D"text-decoration:none;displ=
+ay:inline-block"><span style=3D"font-family:Helvetica Neue,Helvetica,Arial,=
+sans-serif;color:#455873;font-size:13px;line-height:18px;margin-right:4px">=
+=EC=B5=9C=EC=A0=80=EA=B0=80</span><strong style=3D"font-family:Helvetica Ne=
+ue,Helvetica,Arial,sans-serif;color:#3264FF;font-size:18px;line-height:24px=
+">154,922=EC=9B=90</strong></a></td></tr><tr><td height=3D"8"></td></tr></t=
+body></table></td><td width=3D"8" valign=3D"top"></td></tr></tbody></table>=
+</td><td width=3D"16" valign=3D"top"></td></tr><tr><td height=3D"8"></td></=
+tr><tr><td width=3D"16" valign=3D"top"></td><td valign=3D"top" class=3D"hot=
+el-card-primary" width=3D"300" style=3D"border:1px solid #DADFE6"><table wi=
+dth=3D"100%" cellPadding=3D"0" cellSpacing=3D"0" border=3D"0"><tbody><tr><t=
+d width=3D"109" valign=3D"top"><a href=3D"https://www.trip.com/forward/edm/=
+roimqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_=
+blank" style=3D"text-decoration:none"><img alt=3D"" class=3D"hotel-img" src=
+=3D"https://ak-d.tripcdn.com/images/220w0g0000007z3czE250_R_400_400_R5_D.jp=
+g?proc=3Dsource/trip" border=3D"0" width=3D"109" height=3D"200" style=3D"wi=
+dth:109px;height:200px;object-fit:cover"/></a></td><td width=3D"8" valign=
+=3D"top"></td><td valign=3D"top"><table width=3D"100%" cellPadding=3D"0" ce=
+llSpacing=3D"0"><tbody><tr><td height=3D"8"></td></tr><tr><td><a href=3D"ht=
+tps://www.trip.com/forward/edm/roimqEGWb1?edm_id=3DSIN-AWS-20621-1012998139=
+-1690513464213.165" target=3D"_blank" style=3D"font-family:Helvetica Neue,H=
+elvetica,Arial,sans-serif;font-size:16px;color:#0F294D;line-height:21px;tex=
+t-decoration:none;font-weight:bold"><span>=EB=8F=99=ED=95=B4 =EA=B8=80=EB=
+=A1=9C=EB=A6=AC=EC=95=84 =EA=B4=80=EA=B4=91=ED=98=B8=ED=85=94 (Donghae Glor=
+ia Hotel)</span><span style=3D"margin-left:4px;display:inline-block"><img w=
+idth=3D"12" style=3D"width:12px;height:auto" src=3D"https://images3.tripcdn=
+.com/hotel_h5_images/e-star.png"/><img width=3D"12" style=3D"width:12px;hei=
+ght:auto" src=3D"https://images3.tripcdn.com/hotel_h5_images/e-star.png"/><=
+img width=3D"12" style=3D"width:12px;height:auto" src=3D"https://images3.tr=
+ipcdn.com/hotel_h5_images/e-star.png"/></span></a></td></tr><tr><td height=
+=3D"4"></td></tr><tr><td><a href=3D"https://www.trip.com/forward/edm/roimqE=
+GWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_blank"=
+ style=3D"text-decoration:none"><span style=3D"background:#496ACE;border-ra=
+dius:1px;padding:1px 4px 0;margin-right:4px"><strong style=3D"font-family:H=
+elvetica Neue,Helvetica,Arial,sans-serif;font-size:14px;color:#fff;line-hei=
+ght:19px">4.0</strong><i style=3D"font-family:Helvetica Neue,Helvetica,Aria=
+l,sans-serif;font-style:normal;font-size:11px;color:#ffffff80">/5</i></span=
+><span style=3D"font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-=
+size:13px;color:#8592A6">=EC=9D=B4=EC=9A=A9=EC=9E=90 =EB=A6=AC=EB=B7=B0 17=
+=EA=B0=9C</span></a></td></tr><tr><td height=3D"4"></td></tr><tr><td><a hre=
+f=3D"https://www.trip.com/forward/edm/roimqEGWb1?edm_id=3DSIN-AWS-20621-101=
+2998139-1690513464213.165" target=3D"_blank" style=3D"text-decoration:none"=
+><span style=3D"font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-=
+size:13px;color:#8592A6;line-height:15px">=EB=8F=99=ED=95=B4=EC=8B=9C</span=
+></a></td></tr><tr><td height=3D"2"></td></tr><tr><td align=3D"right"><a hr=
+ef=3D"https://www.trip.com/forward/edm/roimqEGWb1?edm_id=3DSIN-AWS-20621-10=
+12998139-1690513464213.165" target=3D"_blank" style=3D"text-decoration:none=
+;display:inline-block"><span style=3D"font-family:Helvetica Neue,Helvetica,=
+Arial,sans-serif;color:#455873;font-size:13px;line-height:18px;margin-right=
+:4px">=EC=B5=9C=EC=A0=80=EA=B0=80</span><strong style=3D"font-family:Helvet=
+ica Neue,Helvetica,Arial,sans-serif;color:#3264FF;font-size:18px;line-heigh=
+t:24px">121,200=EC=9B=90</strong></a></td></tr><tr><td height=3D"8"></td></=
+tr></tbody></table></td><td width=3D"8" valign=3D"top"></td></tr></tbody></=
+table></td><td class=3D"hotel-card-primary-gap"></td><td valign=3D"top" cla=
+ss=3D"hotel-card-primary" width=3D"300" style=3D"border:1px solid #DADFE6">=
+<table width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0" border=3D"0"><tbo=
+dy><tr><td width=3D"109" valign=3D"top"><a href=3D"https://www.trip.com/for=
+ward/edm/wwJ4rEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" ta=
+rget=3D"_blank" style=3D"text-decoration:none"><img alt=3D"" class=3D"hotel=
+-img" src=3D"https://ak-d.tripcdn.com/images/200c0p000000fznph3B4B_R_400_40=
+0_R5_D.jpg?proc=3Dsource/trip" border=3D"0" width=3D"109" height=3D"200" st=
+yle=3D"width:109px;height:200px;object-fit:cover"/></a></td><td width=3D"8"=
+ valign=3D"top"></td><td valign=3D"top"><table width=3D"100%" cellPadding=
+=3D"0" cellSpacing=3D"0"><tbody><tr><td height=3D"8"></td></tr><tr><td><a h=
+ref=3D"https://www.trip.com/forward/edm/wwJ4rEGWb1?edm_id=3DSIN-AWS-20621-1=
+012998139-1690513464213.165" target=3D"_blank" style=3D"font-family:Helveti=
+ca Neue,Helvetica,Arial,sans-serif;font-size:16px;color:#0F294D;line-height=
+:21px;text-decoration:none;font-weight:bold"><span>=EC=8A=A4=EC=B9=B4=EC=9D=
+=B4=EB=B2=A0=EC=9D=B4 =ED=98=B8=ED=85=94 =EA=B2=BD=ED=8F=AC (Skybay Hotel G=
+yeongpo)</span><span style=3D"margin-left:4px;display:inline-block"><img wi=
+dth=3D"12" style=3D"width:12px;height:auto" src=3D"https://images3.tripcdn.=
+com/hotel_h5_images/e-star.png"/><img width=3D"12" style=3D"width:12px;heig=
+ht:auto" src=3D"https://images3.tripcdn.com/hotel_h5_images/e-star.png"/><i=
+mg width=3D"12" style=3D"width:12px;height:auto" src=3D"https://images3.tri=
+pcdn.com/hotel_h5_images/e-star.png"/><img width=3D"12" style=3D"width:12px=
+;height:auto" src=3D"https://images3.tripcdn.com/hotel_h5_images/e-star.png=
+"/></span></a></td></tr><tr><td height=3D"4"></td></tr><tr><td><a href=3D"h=
+ttps://www.trip.com/forward/edm/wwJ4rEGWb1?edm_id=3DSIN-AWS-20621-101299813=
+9-1690513464213.165" target=3D"_blank" style=3D"text-decoration:none"><span=
+ style=3D"background:#496ACE;border-radius:1px;padding:1px 4px 0;margin-rig=
+ht:4px"><strong style=3D"font-family:Helvetica Neue,Helvetica,Arial,sans-se=
+rif;font-size:14px;color:#fff;line-height:19px">4.4</strong><i style=3D"fon=
+t-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-style:normal;font-s=
+ize:11px;color:#ffffff80">/5</i></span><span style=3D"font-family:Helvetica=
+ Neue,Helvetica,Arial,sans-serif;font-size:13px;color:#8592A6">=EC=9D=B4=EC=
+=9A=A9=EC=9E=90 =EB=A6=AC=EB=B7=B0 451=EA=B0=9C</span></a></td></tr><tr><td=
+ height=3D"4"></td></tr><tr><td><a href=3D"https://www.trip.com/forward/edm=
+/wwJ4rEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"=
+_blank" style=3D"text-decoration:none"><span style=3D"font-family:Helvetica=
+ Neue,Helvetica,Arial,sans-serif;font-size:13px;color:#8592A6;line-height:1=
+5px">=EA=B0=95=EB=A6=89=EC=8B=9C</span></a></td></tr><tr><td height=3D"4"><=
+/td></tr><tr><td><table width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0">=
+<tbody><tr><td width=3D"18px" valign=3D"top"><a href=3D"https://www.trip.co=
+m/forward/edm/wwJ4rEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.16=
+5" target=3D"_blank" style=3D"text-decoration:none"><img style=3D"width:18p=
+x;height:auto" width=3D"18" src=3D"https://images3.tripcdn.com/hotel_h5_ima=
+ges/e-sale.png"/></a></td><td width=3D"4px"></td><td><a href=3D"https://www=
+.trip.com/forward/edm/wwJ4rEGWb1?edm_id=3DSIN-AWS-20621-1012998139-16905134=
+64213.165" target=3D"_blank" style=3D"text-decoration:none"><span style=3D"=
+font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-size:13px;color:=
+#FF6F00">=ED=8A=B9=EB=B3=84 =ED=95=A0=EC=9D=B8</span></a></td></tr></tbody>=
+</table></td></tr><tr><td height=3D"8"></td></tr><tr><td align=3D"right"><a=
+ href=3D"https://www.trip.com/forward/edm/wwJ4rEGWb1?edm_id=3DSIN-AWS-20621=
+-1012998139-1690513464213.165" target=3D"_blank" style=3D"text-decoration:n=
+one"><span style=3D"font-family:Helvetica Neue,Helvetica,Arial,sans-serif;b=
+ackground:#F5594A;font-size:11px;color:#FFFFFF;line-height:16px;padding:2px=
+ 4px;font-weight:bold">16% =ED=95=A0=EC=9D=B8</span></a></td></tr><tr><td h=
+eight=3D"2"></td></tr><tr><td align=3D"right"><a href=3D"https://www.trip.c=
+om/forward/edm/wwJ4rEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.1=
+65" target=3D"_blank" style=3D"text-decoration:none"><span><del style=3D"fo=
+nt-family:Helvetica Neue,Helvetica,Arial,sans-serif;color:#455873;font-size=
+:13px;line-height:18px;margin-right:8px">364,650=EC=9B=90</del></span></a><=
+a href=3D"https://www.trip.com/forward/edm/wwJ4rEGWb1?edm_id=3DSIN-AWS-2062=
+1-1012998139-1690513464213.165" target=3D"_blank" style=3D"text-decoration:=
+none;display:inline-block"><span style=3D"font-family:Helvetica Neue,Helvet=
+ica,Arial,sans-serif;color:#455873;font-size:13px;line-height:18px;margin-r=
+ight:4px">=EC=B5=9C=EC=A0=80=EA=B0=80</span><strong style=3D"font-family:He=
+lvetica Neue,Helvetica,Arial,sans-serif;color:#3264FF;font-size:18px;line-h=
+eight:24px">304,821=EC=9B=90</strong></a></td></tr><tr><td height=3D"8"></t=
+d></tr></tbody></table></td><td width=3D"8" valign=3D"top"></td></tr></tbod=
+y></table></td><td width=3D"16" valign=3D"top"></td></tr><tr><td height=3D"=
+8"></td></tr><tr><td width=3D"16" valign=3D"top"></td><td valign=3D"top" cl=
+ass=3D"hotel-card-primary" width=3D"300" style=3D"border:1px solid #DADFE6"=
+><table width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0" border=3D"0"><tb=
+ody><tr><td width=3D"109" valign=3D"top"><a href=3D"https://www.trip.com/fo=
+rward/edm/y4vLrEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" t=
+arget=3D"_blank" style=3D"text-decoration:none"><img alt=3D"" class=3D"hote=
+l-img" src=3D"https://ak-d.tripcdn.com/images/200v0n000000eegwc4B4E_R_400_4=
+00_R5_D.jpg?proc=3Dsource/trip" border=3D"0" width=3D"109" height=3D"200" s=
+tyle=3D"width:109px;height:200px;object-fit:cover"/></a></td><td width=3D"8=
+" valign=3D"top"></td><td valign=3D"top"><table width=3D"100%" cellPadding=
+=3D"0" cellSpacing=3D"0"><tbody><tr><td height=3D"8"></td></tr><tr><td><a h=
+ref=3D"https://www.trip.com/forward/edm/y4vLrEGWb1?edm_id=3DSIN-AWS-20621-1=
+012998139-1690513464213.165" target=3D"_blank" style=3D"font-family:Helveti=
+ca Neue,Helvetica,Arial,sans-serif;font-size:16px;color:#0F294D;line-height=
+:21px;text-decoration:none;font-weight:bold"><span>=ED=92=8D=EB=A6=BC=EC=95=
+=84=EC=9D=B4=EC=9B=90=ED=98=B8=ED=85=94&=EB=A6=AC=EC=A1=B0=ED=8A=B8 (Iwantr=
+esort)</span><span style=3D"margin-left:4px;display:inline-block"></span></=
+a></td></tr><tr><td height=3D"4"></td></tr><tr><td><a href=3D"https://www.t=
+rip.com/forward/edm/y4vLrEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464=
+213.165" target=3D"_blank" style=3D"text-decoration:none"><span style=3D"ba=
+ckground:#496ACE;border-radius:1px;padding:1px 4px 0;margin-right:4px"><str=
+ong style=3D"font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-siz=
+e:14px;color:#fff;line-height:19px">4.1</strong><i style=3D"font-family:Hel=
+vetica Neue,Helvetica,Arial,sans-serif;font-style:normal;font-size:11px;col=
+or:#ffffff80">/5</i></span><span style=3D"font-family:Helvetica Neue,Helvet=
+ica,Arial,sans-serif;font-size:13px;color:#8592A6">=EC=9D=B4=EC=9A=A9=EC=9E=
+=90 =EB=A6=AC=EB=B7=B0 10=EA=B0=9C</span></a></td></tr><tr><td height=3D"4"=
+></td></tr><tr><td><a href=3D"https://www.trip.com/forward/edm/y4vLrEGWb1?e=
+dm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_blank" style=
+=3D"text-decoration:none"><span style=3D"font-family:Helvetica Neue,Helveti=
+ca,Arial,sans-serif;font-size:13px;color:#8592A6;line-height:15px">=ED=8F=
+=89=EC=B0=BD=EA=B5=B0 | =EB=8C=80=EA=B4=80=EB=A0=B9=EB=A9=B4</span></a></td=
+></tr><tr><td height=3D"2"></td></tr><tr><td align=3D"right"><a href=3D"htt=
+ps://www.trip.com/forward/edm/y4vLrEGWb1?edm_id=3DSIN-AWS-20621-1012998139-=
+1690513464213.165" target=3D"_blank" style=3D"text-decoration:none;display:=
+inline-block"><span style=3D"font-family:Helvetica Neue,Helvetica,Arial,san=
+s-serif;color:#455873;font-size:13px;line-height:18px;margin-right:4px">=EC=
+=B5=9C=EC=A0=80=EA=B0=80</span><strong style=3D"font-family:Helvetica Neue,=
+Helvetica,Arial,sans-serif;color:#3264FF;font-size:18px;line-height:24px">3=
+01,990=EC=9B=90</strong></a></td></tr><tr><td height=3D"8"></td></tr></tbod=
+y></table></td><td width=3D"8" valign=3D"top"></td></tr></tbody></table></t=
+d><td class=3D"hotel-card-primary-gap"></td><td valign=3D"top" class=3D"hot=
+el-card-primary" width=3D"300" style=3D"border:1px solid #DADFE6"><table wi=
+dth=3D"100%" cellPadding=3D"0" cellSpacing=3D"0" border=3D"0"><tbody><tr><t=
+d width=3D"109" valign=3D"top"><a href=3D"https://www.trip.com/forward/edm/=
+qoimqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" target=3D"_=
+blank" style=3D"text-decoration:none"><img alt=3D"" class=3D"hotel-img" src=
+=3D"https://ak-d.tripcdn.com/images/220d0u000000jaz1sF048_R_400_400_R5_D.jp=
+g?proc=3Dsource/trip" border=3D"0" width=3D"109" height=3D"200" style=3D"wi=
+dth:109px;height:200px;object-fit:cover"/></a></td><td width=3D"8" valign=
+=3D"top"></td><td valign=3D"top"><table width=3D"100%" cellPadding=3D"0" ce=
+llSpacing=3D"0"><tbody><tr><td height=3D"8"></td></tr><tr><td><a href=3D"ht=
+tps://www.trip.com/forward/edm/qoimqEGWb1?edm_id=3DSIN-AWS-20621-1012998139=
+-1690513464213.165" target=3D"_blank" style=3D"font-family:Helvetica Neue,H=
+elvetica,Arial,sans-serif;font-size:16px;color:#0F294D;line-height:21px;tex=
+t-decoration:none;font-weight:bold"><span>=EC=84=B8=EC=9D=B8=ED=8A=B8=EC=A1=
+=B4=EC=8A=A4 =ED=98=B8=ED=85=94 (St. John's Hotel)</span><span style=3D"mar=
+gin-left:4px;display:inline-block"><img width=3D"12" style=3D"width:12px;he=
+ight:auto" src=3D"https://images3.tripcdn.com/hotel_h5_images/e-star.png"/>=
+<img width=3D"12" style=3D"width:12px;height:auto" src=3D"https://images3.t=
+ripcdn.com/hotel_h5_images/e-star.png"/><img width=3D"12" style=3D"width:12=
+px;height:auto" src=3D"https://images3.tripcdn.com/hotel_h5_images/e-star.p=
+ng"/><img width=3D"12" style=3D"width:12px;height:auto" src=3D"https://imag=
+es3.tripcdn.com/hotel_h5_images/e-star.png"/><img width=3D"12" style=3D"wid=
+th:12px;height:auto" src=3D"https://images3.tripcdn.com/hotel_h5_images/e-s=
+tar.png"/></span></a></td></tr><tr><td height=3D"4"></td></tr><tr><td><a hr=
+ef=3D"https://www.trip.com/forward/edm/qoimqEGWb1?edm_id=3DSIN-AWS-20621-10=
+12998139-1690513464213.165" target=3D"_blank" style=3D"text-decoration:none=
+"><span style=3D"background:#496ACE;border-radius:1px;padding:1px 4px 0;mar=
+gin-right:4px"><strong style=3D"font-family:Helvetica Neue,Helvetica,Arial,=
+sans-serif;font-size:14px;color:#fff;line-height:19px">4.3</strong><i style=
+=3D"font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-style:normal=
+;font-size:11px;color:#ffffff80">/5</i></span><span style=3D"font-family:He=
+lvetica Neue,Helvetica,Arial,sans-serif;font-size:13px;color:#8592A6">=EC=
+=9D=B4=EC=9A=A9=EC=9E=90 =EB=A6=AC=EB=B7=B0 498=EA=B0=9C</span></a></td></t=
+r><tr><td height=3D"4"></td></tr><tr><td><a href=3D"https://www.trip.com/fo=
+rward/edm/qoimqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513464213.165" t=
+arget=3D"_blank" style=3D"text-decoration:none"><span style=3D"font-family:=
+Helvetica Neue,Helvetica,Arial,sans-serif;font-size:13px;color:#8592A6;line=
+-height:15px">=EA=B0=95=EB=A6=89=EC=8B=9C</span></a></td></tr><tr><td heigh=
+t=3D"4"></td></tr><tr><td><table width=3D"100%" cellPadding=3D"0" cellSpaci=
+ng=3D"0"><tbody><tr><td width=3D"18px" valign=3D"top"><a href=3D"https://ww=
+w.trip.com/forward/edm/qoimqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513=
+464213.165" target=3D"_blank" style=3D"text-decoration:none"><img style=3D"=
+width:18px;height:auto" width=3D"18" src=3D"https://images3.tripcdn.com/hot=
+el_h5_images/e-sale.png"/></a></td><td width=3D"4px"></td><td><a href=3D"ht=
+tps://www.trip.com/forward/edm/qoimqEGWb1?edm_id=3DSIN-AWS-20621-1012998139=
+-1690513464213.165" target=3D"_blank" style=3D"text-decoration:none"><span =
+style=3D"font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-size:13=
+px;color:#FF6F00">=ED=8A=B9=EB=B3=84 =ED=95=A0=EC=9D=B8</span></a></td></tr=
+></tbody></table></td></tr><tr><td height=3D"8"></td></tr><tr><td align=3D"=
+right"><a href=3D"https://www.trip.com/forward/edm/qoimqEGWb1?edm_id=3DSIN-=
+AWS-20621-1012998139-1690513464213.165" target=3D"_blank" style=3D"text-dec=
+oration:none"><span style=3D"font-family:Helvetica Neue,Helvetica,Arial,san=
+s-serif;background:#F5594A;font-size:11px;color:#FFFFFF;line-height:16px;pa=
+dding:2px 4px;font-weight:bold">5% =ED=95=A0=EC=9D=B8</span></a></td></tr><=
+tr><td height=3D"2"></td></tr><tr><td align=3D"right"><a href=3D"https://ww=
+w.trip.com/forward/edm/qoimqEGWb1?edm_id=3DSIN-AWS-20621-1012998139-1690513=
+464213.165" target=3D"_blank" style=3D"text-decoration:none"><span><del sty=
+le=3D"font-family:Helvetica Neue,Helvetica,Arial,sans-serif;color:#455873;f=
+ont-size:13px;line-height:18px;margin-right:8px">341,464=EC=9B=90</del></sp=
+an></a><a href=3D"https://www.trip.com/forward/edm/qoimqEGWb1?edm_id=3DSIN-=
+AWS-20621-1012998139-1690513464213.165" target=3D"_blank" style=3D"text-dec=
+oration:none;display:inline-block"><span style=3D"font-family:Helvetica Neu=
+e,Helvetica,Arial,sans-serif;color:#455873;font-size:13px;line-height:18px;=
+margin-right:4px">=EC=B5=9C=EC=A0=80=EA=B0=80</span><strong style=3D"font-f=
+amily:Helvetica Neue,Helvetica,Arial,sans-serif;color:#3264FF;font-size:18p=
+x;line-height:24px">321,453=EC=9B=90</strong></a></td></tr><tr><td height=
+=3D"8"></td></tr></tbody></table></td><td width=3D"8" valign=3D"top"></td><=
+/tr></tbody></table></td><td width=3D"16" valign=3D"top"></td></tr><tr><td =
+height=3D"8"></td></tr></tbody></table></td></tr></tbody></table><table cla=
+ss=3D"trip-mail-fluid" width=3D"100%" align=3D"center" cellSpacing=3D"0" ce=
+llPadding=3D"0" border=3D"0"><tbody><tr><td bgcolor=3D"transparent" style=
+=3D"border-radius:0;border:none;background:transparent;direction:ltr"><tabl=
+e class=3D"trip-mail-fluid" width=3D"100%" align=3D"center" border=3D"0" ce=
+llPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td height=3D"16"></td></tr><t=
+r><td class=3D"fp-slot" style=3D"border-radius:0;padding:0px 16px 0px 16px"=
+><table class=3D"trip-mail-fluid" align=3D"center" width=3D"100%" border=3D=
+"0" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td align=3D"center"><ta=
+ble width=3D"100%" style=3D"max-width:200px" class=3D"trip-mail-fluid" alig=
+n=3D"center" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><t=
+d align=3D"center" bgcolor=3D"#287dfa" style=3D"background-color:#287dfa;bo=
+rder-color:#287dfa;border-width:1px;border-style:solid;color:#ffffff;border=
+-radius:2px;text-align:center;padding-top:4px;padding-right:4px;padding-bot=
+tom:4px;padding-left:4px"><a class=3D"trip-mail-fluid" target=3D"_blank" re=
+l=3D"noopener noreferrer" href=3D"https://www.trip.com/forward/middlepages/=
+channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Fhotels%2Fw%2Flist%3Fcit=
+y%3D35792%26checkin%3D2023-08-05%26checkout%3D2023-08-06%26curr%3DKRW%26loc=
+ale%3Dko-kr%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012998139-16905=
+13464213.165%26ouid%3D24648.hotel_churn_browse_to_orderpage_edm_T0.16905132=
+00000.20230728.ko_KR.%26sid%3D1520824&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiw=
+ia2V5IjoiU0lOLUFXUy0yMDYyMS0xMDEyOTk4MTM5LTE2OTA1MTM0NjQyMTMuMTY1IiwidGl0bG=
+UiOiJtYWlsLWJ1dHRvbiIsInR5cGUiOiJyZWFjdC5jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlwL=
+2Nsb3VkLWNvbXBvbmVudC1tYWlsLWJ1dHRvbiIsImxhYmVsIjoiYnV0dG9uIiwiaWQiOiJzdHJ1=
+X3JydkZOZE9ITXJiZnBFbyIsImZpbGVJZCI6ImZpbGVfb0Q0TTNsSElER2kxN25JIiwidGVtcGx=
+hdGVJZCI6ImNvbnRfekVrNDd1TERzZEJUYUduIiwidGVtcGxhdGVWZXJzaW9uIjozLCJmb3hwYW=
+dlVmVyc2lvbiI6MiwiZGF0YSI6eyJuYW1lIjoibWFpbC1idXR0b24iLCJsaW5rIjoiaHR0cHM6L=
+y9rci50cmlwLmNvbS9ob3RlbHMvdy9saXN0P2NpdHk9MzU3OTImY2hlY2tpbj0yMDIzLTA4LTA1=
+JmNoZWNrb3V0PTIwMjMtMDgtMDYmY3Vycj1LUlcmbG9jYWxlPWtvLWtyIiwiYnV0dG9uVGV4dCI=
+6IuuNlCDrp47snYAg7Zi47YWUIOyDge2SiCDrs7TquLAifX0%3D" style=3D"font-family:B=
+linkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;display:b=
+lock;text-decoration:none"><span style=3D"padding-top:2px;padding-right:6px=
+;padding-bottom:2px;padding-left:6px;display:block;line-height:1.5;font-fam=
+ily:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;font=
+-size:14px;font-weight:normal;color:#ffffff;text-decoration:none">=EB=8D=94=
+ =EB=A7=8E=EC=9D=80 =ED=98=B8=ED=85=94 =EC=83=81=ED=92=88 =EB=B3=B4=EA=B8=
+=B0</span></a></td></tr></tbody></table></td></tr></tbody></table></td></tr=
+><tr><td height=3D"16"></td></tr></tbody></table></td></tr></tbody></table>=
+<table class=3D"trip-mail-fluid" width=3D"100%" align=3D"center" cellSpacin=
+g=3D"0" cellPadding=3D"0" border=3D"0"><tbody><tr><td bgcolor=3D"transparen=
+t" style=3D"border-radius:0;border:none;background:transparent;direction:lt=
+r"><table class=3D"trip-mail-fluid" width=3D"100%" align=3D"center" border=
+=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td class=3D"fp-slot"=
+ style=3D"border-radius:0;padding:0px 8px 0px 8px"><table class=3D"trip-mai=
+l-fluid" width=3D"100%" align=3D"center" border=3D"0" cellPadding=3D"0" cel=
+lSpacing=3D"0"><tbody><tr><td><table class=3D"trip-mail-fluid" width=3D"100=
+%" align=3D"center" cellSpacing=3D"0" cellPadding=3D"0" border=3D"0"><tbody=
+><tr><td bgcolor=3D"transparent" style=3D"border-radius:0;border:none;backg=
+round:transparent;direction:ltr"><table class=3D"trip-mail-fluid" width=3D"=
+100%" align=3D"center" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tb=
+ody><tr><td class=3D"fp-slot" style=3D"border-radius:0;padding:0px 8px 0px =
+8px"><table class=3D"trip-mail-fluid" width=3D"100%" cellPadding=3D"0" cell=
+Spacing=3D"0"><tbody><tr><td align=3D"left"><span style=3D"font-family:Blin=
+kMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:16=
+px;color:#0f294d;font-weight:bold;line-height:1.2;vertical-align:middle;tex=
+t-decoration:none;margin:0">=ED=94=84=EB=A1=9C=EB=AA=A8=EC=85=98 & =EC=9D=
+=B4=EB=B2=A4=ED=8A=B8</span></td></tr></tbody></table></td></tr></tbody></t=
+able></td></tr></tbody></table></td></tr><tr><td><table class=3D"trip-mail-=
+fluid" width=3D"100%" align=3D"center" border=3D"0" cellPadding=3D"0" cellS=
+pacing=3D"8"><tbody><tr><td align=3D"center" style=3D"font-size:0"><a rel=
+=3D"noopener noreferrer" target=3D"_blank" style=3D"font-size:0;text-decora=
+tion:none;display:block" href=3D"https://www.trip.com/forward/middlepages/c=
+hannel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Fsale%2Fw%2F4705%2Fkrwss.=
+html%3Flocale%3Dko_kr%26curr%3Dkrw%26pid%3D10650092025%26promo_referer%3D81=
+_4705_1%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012998139-169051346=
+4213.165%26ouid%3D24648.hotel_churn_browse_to_orderpage_edm_T0.169051320000=
+0.20230728.ko_KR.%26sid%3D1520824&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl=
+0bGUiOiJhZC1kZWFscy1pdGVtLTEiLCJ0eXBlIjoicmVhY3QuY29tcG9uZW50IiwibmFtZSI6Ik=
+BjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1hZC1kZWFscyIsImxhYmVsIjoiYWQtZGVhbHMiL=
+CJpZCI6InN0cnVfc3RYNVc4WEFYbUkzRHBRIiwiZmlsZUlkIjoiZmlsZV9vRDRNM2xISURHaTE3=
+bkkiLCJ0ZW1wbGF0ZUlkIjoiY29udF96RWs0N3VMRHNkQlRhR24iLCJ0ZW1wbGF0ZVZlcnNpb24=
+iOjMsImZveHBhZ2VWZXJzaW9uIjoyLCJkYXRhIjp7Im5hbWUiOiJhZC1kZWFscy1pdGVtLTEiLC=
+JpbWdVcmwiOiJodHRwczovL2FrLWQudHJpcGNkbi5jb20vaW1hZ2VzLzBhMTRwMTIwMDBicXFhd=
+HUwQzQ5Qy5qcGciLCJsaW5rIjoiaHR0cHM6Ly9rci50cmlwLmNvbS9zYWxlL3cvNDcwNS9rcndz=
+cy5odG1sP2xvY2FsZT1rb19rciZjdXJyPWtydyZwaWQ9MTA2NTAwOTIwMjUmcHJvbW9fcmVmZXJ=
+lcj04MV80NzA1XzEiLCJzZXF1ZW5jZU5vIjoxfX0%3D"><img class=3D"trip-mail-fluid"=
+ width=3D"100%" src=3D"https://ak-d.tripcdn.com/images/0a14p12000bqqatu0C49=
+C.jpg" alt=3D"Trip.com - Deals" style=3D"display:block;outline:none;border:=
+none;border-radius:0"/></a></td></tr></tbody></table></td></tr></tbody></ta=
+ble></td></tr></tbody></table></td></tr></tbody></table><table class=3D"tri=
+p-mail-fluid" width=3D"100%" border=3D"0" cellPadding=3D"0" cellSpacing=3D"=
+0" align=3D"center"><tbody><tr><td bgcolor=3D"#FFFBF0" align=3D"center" sty=
+le=3D"background:#FFFBF0"><table class=3D"trip-mail-fluid" align=3D"center"=
+ width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td><table w=
+idth=3D"100%" cellPadding=3D"8" cellSpacing=3D"0"><tbody><tr><td width=3D"1=
+00%" align=3D"center"><table class=3D"trip-mail-fluid" width=3D"70%" align=
+=3D"left" valign=3D"middle" cellSpacing=3D"0" cellPadding=3D"0"><tbody><tr>=
+<td><table width=3D"100%" cellPadding=3D"8" cellSpacing=3D"0"><tbody><tr><t=
+d width=3D"108" valign=3D"top"><a rel=3D"noopener noreferrer" target=3D"_bl=
+ank" style=3D"text-decoration:none;border:none;outline:none;display:block;f=
+ont-size:0" href=3D"https://www.trip.com/forward/middlepages/channel/edm?ta=
+rgetUrl=3Dhttps%3A%2F%2Ftripcom.onelink.me%2F3361031008%3Fpid%3Dedm%26c%3Dm=
+arketing%26af_sub1%3Dplatform%25253Demail%252526locale%25253Dko_kr%252526al=
+lianceid%25253D324048%252526sid%25253D1520824%252526ouid%25253D24648.hotel_=
+churn_browse_to_orderpage_edm_T0.1690513200000.20230728.ko_KR.%26af_web_dp%=
+3Dhttps%253A%252F%252Fkr.trip.com%252Fm%252Fdownapp%253Flocale%253Dko_kr%25=
+26utm_medium%253Dinternal%2526utm_source%253Dmarketing%2526utm_campaign%253=
+D0%2526utm_content%253Dplatform%25253Donline%252526locale%25253Dko_kr%26all=
+ianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012998139-1690513464213.165%26ou=
+id%3D24648.hotel_churn_browse_to_orderpage_edm_T0.1690513200000.20230728.ko=
+_KR.%26sid%3D1520824&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJhcHAt=
+aW5zdGFsbC1naWYiLCJ0eXBlIjoicmVhY3QuY29tcG9uZW50IiwibmFtZSI6IkBjdHJpcC9jbG9=
+1ZC1jb21wb25lbnQtbWFpbC1hcHAtaW5zdGFsbCIsImxhYmVsIjoiYXBwLWluc3RhbGwiLCJpZC=
+I6InN0cnVfNWFLT20xdlZ2djE4Q2xQIiwiZmlsZUlkIjoiZmlsZV9vRDRNM2xISURHaTE3bkkiL=
+CJ0ZW1wbGF0ZUlkIjoiY29udF96RWs0N3VMRHNkQlRhR24iLCJ0ZW1wbGF0ZVZlcnNpb24iOjMs=
+ImZveHBhZ2VWZXJzaW9uIjoyLCJkYXRhIjp7Im5hbWUiOiJhcHAtaW5zdGFsbC1naWYifX0%3D"=
+><img width=3D"108" height=3D"112" src=3D"https://ak-d.tripcdn.com/images/0=
+a13h120009a71zau65C0.gif" alt=3D"Trip.com - App install" style=3D"display:b=
+lock;border:none;outline:none"/></a></td><td valign=3D"top"><table width=3D=
+"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td colSpan=3D"3" sty=
+le=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,s=
+ans-serif;font-size:16px;font-weight:bold;line-height:1.4;color:#0f294d"><s=
+pan style=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,=
+Arial,sans-serif;font-size:16px;font-weight:bold;line-height:1.4;display:bl=
+ock;color:#0f294d;text-align:left">=ED=8A=B8=EB=A6=BD=EB=8B=B7=EC=BB=B4 =EC=
+=95=B1 =EB=8B=A4=EC=9A=B4=EB=A1=9C=EB=93=9C=ED=95=98=EA=B3=A0 =EB=8B=A4=EC=
+=96=91=ED=95=9C =ED=98=9C=ED=83=9D =EB=A7=8C=EB=82=98=EB=B3=B4=EC=84=B8=EC=
+=9A=94!</span></td></tr><tr><td height=3D"8" colSpan=3D"3"></td></tr><tr><t=
+d width=3D"12" valign=3D"top"><img width=3D"12" height=3D"12" src=3D"https:=
+//ak-d.tripcdn.com/images/0a133120008agjuhjAB38.png" alt=3D"Trip.com" style=
+=3D"display:block;vertical-align:middle;border:none;outline:none"/></td><td=
+ width=3D"6"></td><td valign=3D"top" align=3D"left"><span style=3D"display:=
+block;font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,s=
+ans-serif;font-size:12px;font-weight:bold;line-height:1.4;color:#455873;tex=
+t-align:left">=EC=95=B1 =EC=A0=84=EC=9A=A9 =EC=B5=9C=EB=8C=80 50% =ED=8A=B9=
+=EA=B0=80</span></td></tr><tr><td height=3D"8" colSpan=3D"3"></td></tr><tr>=
+<td width=3D"12" valign=3D"top"><img width=3D"12" height=3D"12" src=3D"http=
+s://ak-d.tripcdn.com/images/0a133120008agjuhjAB38.png" alt=3D"Trip.com" sty=
+le=3D"display:block;vertical-align:middle;border:none;outline:none"/></td><=
+td width=3D"6"></td><td valign=3D"top" align=3D"left"><span style=3D"displa=
+y:block;font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial=
+,sans-serif;font-size:12px;font-weight:bold;line-height:1.4;color:#455873;t=
+ext-align:left">=EC=98=88=EC=95=BD =EC=8B=9C =ED=8A=B8=EB=A6=BD=EC=BD=94=EC=
+=9D=B8 =EC=B6=94=EA=B0=80 =EC=A0=81=EB=A6=BD</span></td></tr><tr><td height=
+=3D"8" colSpan=3D"3"></td></tr><tr><td width=3D"12" valign=3D"top"><img wid=
+th=3D"12" height=3D"12" src=3D"https://ak-d.tripcdn.com/images/0a133120008a=
+gjuhjAB38.png" alt=3D"Trip.com" style=3D"display:block;vertical-align:middl=
+e;border:none;outline:none"/></td><td width=3D"6"></td><td valign=3D"top" a=
+lign=3D"left"><span style=3D"display:block;font-family:BlinkMacSystemFont,-=
+apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:b=
+old;line-height:1.4;color:#455873;text-align:left">=EC=98=88=EC=95=BD=EC=9D=
+=84 =EB=8D=94 =EC=89=BD=EA=B2=8C, =EB=8B=A8 =EB=AA=87 =EC=B4=88 =EB=A7=8C=
+=EC=97=90!</span></td></tr></tbody></table></td></tr></tbody></table></td><=
+/tr></tbody></table><table class=3D"trip-mail-fluid" align=3D"right" valign=
+=3D"middle" cellSpacing=3D"0" cellPadding=3D"0" width=3D"29%" height=3D"129=
+"><tbody><tr><td align=3D"center"><table class=3D"trip-mail-fluid" cellSpac=
+ing=3D"0" cellPadding=3D"8" align=3D"right"><tbody><tr><td align=3D"center"=
+><a rel=3D"noopener noreferrer" target=3D"_blank" style=3D"text-decoration:=
+none;border:none;outline:none;display:inline-block;font-size:0" href=3D"htt=
+ps://www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2=
+Ftripcom.onelink.me%2F3361031008%3Fpid%3Dedm%26c%3Dmarketing%26af_sub1%3Dpl=
+atform%25253Demail%252526locale%25253Dko_kr%252526allianceid%25253D324048%2=
+52526sid%25253D1520824%252526ouid%25253D24648.hotel_churn_browse_to_orderpa=
+ge_edm_T0.1690513200000.20230728.ko_KR.%26af_web_dp%3Dhttps%253A%252F%252Fk=
+r.trip.com%252Fm%252Fdownapp%253Flocale%253Dko_kr%2526utm_medium%253Dintern=
+al%2526utm_source%253Dmarketing%2526utm_campaign%253D0%2526utm_content%253D=
+platform%25253Donline%252526locale%25253Dko_kr%26allianceid%3D324048%26edm_=
+id%3DSIN-AWS-20621-1012998139-1690513464213.165%26ouid%3D24648.hotel_churn_=
+browse_to_orderpage_edm_T0.1690513200000.20230728.ko_KR.%26sid%3D1520824&am=
+p;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJhcHAtaW5zdGFsbC1idXR0b24iLCJ=
+0eXBlIjoicmVhY3QuY29tcG9uZW50IiwibmFtZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbW=
+FpbC1hcHAtaW5zdGFsbCIsImxhYmVsIjoiYXBwLWluc3RhbGwiLCJpZCI6InN0cnVfNWFLT20xd=
+lZ2djE4Q2xQIiwiZmlsZUlkIjoiZmlsZV9vRDRNM2xISURHaTE3bkkiLCJ0ZW1wbGF0ZUlkIjoi=
+Y29udF96RWs0N3VMRHNkQlRhR24iLCJ0ZW1wbGF0ZVZlcnNpb24iOjMsImZveHBhZ2VWZXJzaW9=
+uIjoyLCJkYXRhIjp7Im5hbWUiOiJhcHAtaW5zdGFsbC1idXR0b24ifX0%3D"><span style=3D=
+"display:inline-block;font-family:BlinkMacSystemFont,-apple-system,Roboto,H=
+elvetica,Arial,sans-serif;font-size:14px;color:#ffffff;text-decoration:none=
+;padding-top:8px;padding-right:10px;padding-bottom:8px;padding-left:10px;ba=
+ckground:#3264FF;border-radius:2px">=EB=8B=A4=EC=9A=B4=EB=A1=9C=EB=93=9C</s=
+pan></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbo=
+dy></table></td></tr></tbody></table></td></tr></tbody></table><table class=
+=3D"trip-mail-fluid" width=3D"100%" border=3D"0" cellPadding=3D"0" cellSpac=
+ing=3D"0" align=3D"center"><tbody><tr><td bgcolor=3D"#ffffff" align=3D"cent=
+er" style=3D"padding:20px 10px"><table width=3D"100%" cellPadding=3D"0" cel=
+lSpacing=3D"0"><tbody><tr><td bgcolor=3D"#ffffff" align=3D"center" style=3D=
+"padding:0 10px 10px"><a rel=3D"noopener noreferrer" target=3D"_blank" titl=
+e=3D"foot-share-facebook" href=3D"https://www.trip.com/forward/middlepages/=
+channel/edm?targetUrl=3Dhttps%3A%2F%2Fwww.facebook.com%2Ftripcom.kr%3Fallia=
+nceid%3D324048%26edm_id%3DSIN-AWS-20621-1012998139-1690513464213.165%26ouid=
+%3D24648.hotel_churn_browse_to_orderpage_edm_T0.1690513200000.20230728.ko_K=
+R.%26sid%3D1520824&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwia2V5IjoiU0lOLUFXUy=
+0yMDYyMS0xMDEyOTk4MTM5LTE2OTA1MTM0NjQyMTMuMTY1IiwidGl0bGUiOiJmb290ZXItc2hhc=
+mUtZmFjZWJvb2staWNvbiIsInR5cGUiOiJyZWFjdC5jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlw=
+L2Nsb3VkLWNvbXBvbmVudC1tYWlsLWZvb3RlciIsImxhYmVsIjoiZm9vdGVyIiwiaWQiOiJzdHJ=
+1XzI3Nnhxa1JTQllham54WiIsImZpbGVJZCI6ImZpbGVfb0Q0TTNsSElER2kxN25JIiwidGVtcG=
+xhdGVJZCI6ImNvbnRfekVrNDd1TERzZEJUYUduIiwidGVtcGxhdGVWZXJzaW9uIjozLCJmb3hwY=
+WdlVmVyc2lvbiI6MiwiZGF0YSI6eyJuYW1lIjoiZm9vdGVyLXNoYXJlLWZhY2Vib29rLWljb24i=
+fX0%3D" style=3D"margin:0 3px"><img src=3D"http://webresource.english.c-ctr=
+ip.com/ares2/ibu/fe-mail/1.1.3/default/market/images/share-facebook.png" st=
+yle=3D"vertical-align:top" width=3D"40" height=3D"40" border=3D"0" alt=3D""=
+/></a><a rel=3D"noopener noreferrer" target=3D"_blank" title=3D"foot-share-=
+instagram" href=3D"https://www.trip.com/forward/middlepages/channel/edm?tar=
+getUrl=3Dhttps%3A%2F%2Fwww.instagram.com%2Ftripcom.kr%3Fallianceid%3D324048=
+%26edm_id%3DSIN-AWS-20621-1012998139-1690513464213.165%26ouid%3D24648.hotel=
+_churn_browse_to_orderpage_edm_T0.1690513200000.20230728.ko_KR.%26sid%3D152=
+0824&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwia2V5IjoiU0lOLUFXUy0yMDYyMS0xMDEy=
+OTk4MTM5LTE2OTA1MTM0NjQyMTMuMTY1IiwidGl0bGUiOiJmb290ZXItc2hhcmUtaW5zdGFncmF=
+tLWljb24iLCJ0eXBlIjoicmVhY3QuY29tcG9uZW50IiwibmFtZSI6IkBjdHJpcC9jbG91ZC1jb2=
+1wb25lbnQtbWFpbC1mb290ZXIiLCJsYWJlbCI6ImZvb3RlciIsImlkIjoic3RydV8yNzZ4cWtSU=
+0JZYWpueFoiLCJmaWxlSWQiOiJmaWxlX29ENE0zbEhJREdpMTduSSIsInRlbXBsYXRlSWQiOiJj=
+b250X3pFazQ3dUxEc2RCVGFHbiIsInRlbXBsYXRlVmVyc2lvbiI6MywiZm94cGFnZVZlcnNpb24=
+iOjIsImRhdGEiOnsibmFtZSI6ImZvb3Rlci1zaGFyZS1pbnN0YWdyYW0taWNvbiJ9fQ%3D%3D" =
+style=3D"margin:0 3px"><img src=3D"http://webresource.english.c-ctrip.com/a=
+res2/ibu/fe-mail/1.1.3/default/market/images/share-instagram.png" style=3D"=
+vertical-align:top" width=3D"40" height=3D"40" border=3D"0" alt=3D""/></a><=
+a rel=3D"noopener noreferrer" target=3D"_blank" title=3D"foot-share-naver-b=
+log" href=3D"https://www.trip.com/forward/middlepages/channel/edm?targetUrl=
+=3Dhttps%3A%2F%2Fblog.naver.com%2Fprologue%2FPrologueList.nhn%3FblogId%3Dtr=
+ip_com%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012998139-1690513464=
+213.165%26ouid%3D24648.hotel_churn_browse_to_orderpage_edm_T0.1690513200000=
+.20230728.ko_KR.%26sid%3D1520824&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwia2V5=
+IjoiU0lOLUFXUy0yMDYyMS0xMDEyOTk4MTM5LTE2OTA1MTM0NjQyMTMuMTY1IiwidGl0bGUiOiJ=
+mb290ZXItc2hhcmUtbmF2ZXItYmxvZy1pY29uIiwidHlwZSI6InJlYWN0LmNvbXBvbmVudCIsIm=
+5hbWUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtZm9vdGVyIiwibGFiZWwiOiJmb290Z=
+XIiLCJpZCI6InN0cnVfMjc2eHFrUlNCWWFqbnhaIiwiZmlsZUlkIjoiZmlsZV9vRDRNM2xISURH=
+aTE3bkkiLCJ0ZW1wbGF0ZUlkIjoiY29udF96RWs0N3VMRHNkQlRhR24iLCJ0ZW1wbGF0ZVZlcnN=
+pb24iOjMsImZveHBhZ2VWZXJzaW9uIjoyLCJkYXRhIjp7Im5hbWUiOiJmb290ZXItc2hhcmUtbm=
+F2ZXItYmxvZy1pY29uIn19" style=3D"margin:0 3px"><img src=3D"http://webresour=
+ce.english.c-ctrip.com/ares2/ibu/fe-mail/1.1.3/default/market/images/share-=
+naver-blog.png" style=3D"vertical-align:top" width=3D"40" height=3D"40" bor=
+der=3D"0" alt=3D""/></a></td></tr><tr><td align=3D"center" style=3D"font-fa=
+mily:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;fon=
+t-weight:bold;color:#999;font-size:12px;padding-bottom:10px"><a rel=3D"noop=
+ener noreferrer" target=3D"_blank" title=3D"foot-about-us" style=3D"font-fa=
+mily:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;mar=
+gin:0 5px;color:#999999;text-decoration:none" href=3D"https://www.trip.com/=
+forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Fpag=
+es%2Fabout-us%2F%3Flocale%3Dko-kr%26allianceid%3D324048%26edm_id%3DSIN-AWS-=
+20621-1012998139-1690513464213.165%26ouid%3D24648.hotel_churn_browse_to_ord=
+erpage_edm_T0.1690513200000.20230728.ko_KR.%26sid%3D1520824&amp;bizData=3De=
+yJldmVudCI6ImNsaWNrIiwia2V5IjoiU0lOLUFXUy0yMDYyMS0xMDEyOTk4MTM5LTE2OTA1MTM0=
+NjQyMTMuMTY1IiwidGl0bGUiOiJmb290ZXItYWJvdXQtdXMtbGluayIsInR5cGUiOiJyZWFjdC5=
+jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWZvb3RlciIsIm=
+xhYmVsIjoiZm9vdGVyIiwiaWQiOiJzdHJ1XzI3Nnhxa1JTQllham54WiIsImZpbGVJZCI6ImZpb=
+GVfb0Q0TTNsSElER2kxN25JIiwidGVtcGxhdGVJZCI6ImNvbnRfekVrNDd1TERzZEJUYUduIiwi=
+dGVtcGxhdGVWZXJzaW9uIjozLCJmb3hwYWdlVmVyc2lvbiI6MiwiZGF0YSI6eyJuYW1lIjoiZm9=
+vdGVyLWFib3V0LXVzLWxpbmsifX0%3D">=ED=9A=8C=EC=82=AC=EC=86=8C=EA=B0=9C</a>|<=
+a rel=3D"noopener noreferrer" target=3D"_blank" title=3D"foot-privacy-polic=
+y" style=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,A=
+rial,sans-serif;margin:0 5px;color:#999999;text-decoration:none" href=3D"ht=
+tps://www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%=
+2Fpages.trip.com%2Fservice-guideline%2Fprivacy-policy-ko-kr.html%3Falliance=
+id%3D324048%26edm_id%3DSIN-AWS-20621-1012998139-1690513464213.165%26ouid%3D=
+24648.hotel_churn_browse_to_orderpage_edm_T0.1690513200000.20230728.ko_KR.%=
+26sid%3D1520824&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwia2V5IjoiU0lOLUFXUy0yM=
+DYyMS0xMDEyOTk4MTM5LTE2OTA1MTM0NjQyMTMuMTY1IiwidGl0bGUiOiJmb290ZXItcHJpdmFj=
+eS1wb2xpY3ktbGluayIsInR5cGUiOiJyZWFjdC5jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlwL2N=
+sb3VkLWNvbXBvbmVudC1tYWlsLWZvb3RlciIsImxhYmVsIjoiZm9vdGVyIiwiaWQiOiJzdHJ1Xz=
+I3Nnhxa1JTQllham54WiIsImZpbGVJZCI6ImZpbGVfb0Q0TTNsSElER2kxN25JIiwidGVtcGxhd=
+GVJZCI6ImNvbnRfekVrNDd1TERzZEJUYUduIiwidGVtcGxhdGVWZXJzaW9uIjozLCJmb3hwYWdl=
+VmVyc2lvbiI6MiwiZGF0YSI6eyJuYW1lIjoiZm9vdGVyLXByaXZhY3ktcG9saWN5LWxpbmsifX0=
+%3D">=EA=B0=9C=EC=9D=B8=EC=A0=95=EB=B3=B4 =EC=B2=98=EB=A6=AC=EB=B0=A9=EC=B9=
+=A8</a>|<a rel=3D"noopener noreferrer" target=3D"_blank" title=3D"foot-serv=
+ice" style=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica=
+,Arial,sans-serif;margin:0 5px;color:#999999;text-decoration:none" href=3D"=
+https://www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2=
+F%2Fpages.trip.com%2Fservice-guideline%2Fterms-ko-kr.html%3Fallianceid%3D32=
+4048%26edm_id%3DSIN-AWS-20621-1012998139-1690513464213.165%26ouid%3D24648.h=
+otel_churn_browse_to_orderpage_edm_T0.1690513200000.20230728.ko_KR.%26sid%3=
+D1520824&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwia2V5IjoiU0lOLUFXUy0yMDYyMS0x=
+MDEyOTk4MTM5LTE2OTA1MTM0NjQyMTMuMTY1IiwidGl0bGUiOiJmb290ZXItc2VydmljZS1saW5=
+rIiwidHlwZSI6InJlYWN0LmNvbXBvbmVudCIsIm5hbWUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW=
+50LW1haWwtZm9vdGVyIiwibGFiZWwiOiJmb290ZXIiLCJpZCI6InN0cnVfMjc2eHFrUlNCWWFqb=
+nhaIiwiZmlsZUlkIjoiZmlsZV9vRDRNM2xISURHaTE3bkkiLCJ0ZW1wbGF0ZUlkIjoiY29udF96=
+RWs0N3VMRHNkQlRhR24iLCJ0ZW1wbGF0ZVZlcnNpb24iOjMsImZveHBhZ2VWZXJzaW9uIjoyLCJ=
+kYXRhIjp7Im5hbWUiOiJmb290ZXItc2VydmljZS1saW5rIn19">=EC=9D=B4=EC=9A=A9=EC=95=
+=BD=EA=B4=80</a></td></tr><tr><td align=3D"center" style=3D"font-family:Bli=
+nkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:#999;=
+font-size:12px;padding-bottom:6px;padding-left:10px;padding-right:10px;line=
+-height:1.4">=ED=91=9C=EC=8B=9C=EB=90=9C =EA=B0=80=EA=B2=A9, =ED=9A=8C=EC=
+=9B=90=EB=93=B1=EA=B8=89, =ED=8A=B8=EB=A6=BD=EC=BD=94=EC=9D=B8 =EA=B8=88=EC=
+=95=A1 =EB=B0=8F =ED=8A=B8=EB=A6=BD=EC=BD=94=EC=9D=B8 =EA=B5=90=ED=99=98=EC=
+=9C=A8=EC=9D=80 =EA=B3=B5=EA=B3=A0 =EC=8B=9C=EC=A0=90 =EA=B8=B0=EC=A4=80=EC=
+=9D=B4=EB=A9=B0 =EC=98=88=EA=B3=A0 =EC=97=86=EC=9D=B4 =EB=B3=80=EA=B2=BD=EB=
+=90=A0 =EC=88=98 =EC=9E=88=EC=8A=B5=EB=8B=88=EB=8B=A4. =EB=B3=B8 =EC=9D=B4=
+=EB=A9=94=EC=9D=BC=EC=9D=98 =EB=AA=A8=EB=93=A0 =EC=8B=9C=EA=B0=84=EC=9D=80 =
+GMT+8 =EA=B8=B0=EC=A4=80=EC=9C=BC=EB=A1=9C =ED=91=9C=EC=8B=9C=EB=90=A9=EB=
+=8B=88=EB=8B=A4. =EB=A1=9C=EA=B7=B8=EC=9D=B8 =ED=9B=84 "=EC=9D=B4=EB=A9=94=
+=EC=9D=BC =EC=A0=84=EC=9A=A9 =EC=8B=9C=ED=81=AC=EB=A6=BF=ED=8A=B9=EA=B0=80"=
+ =EC=9A=94=EA=B8=88=EC=9C=BC=EB=A1=9C =EC=98=88=EC=95=BD=ED=95=98=EC=84=B8=
+=EC=9A=94. =ED=8A=B8=EB=A6=BD=EB=8B=B7=EC=BB=B4 =ED=94=84=EB=A1=9C=EB=AA=A8=
+=EC=85=98 =EC=9D=B4=EB=A9=94=EC=9D=BC=EC=9D=98 =EC=88=98=EC=8B=A0=EC=9D=84 =
+=EC=9B=90=ED=95=98=EC=A7=80 =EC=95=8A=EB=8A=94 =EA=B2=BD=EC=9A=B0, <a targe=
+t=3D"_blank" style=3D"text-decoration:underline;color:#666;" href=3D"https:=
+//www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr=
+.trip.com%2Fsubscribe%3Flocale%3Dko_kr%26allianceid%3D324048%26edm_id%3DSIN=
+-AWS-20621-1012998139-1690513464213.165%26ouid%3D24648.hotel_churn_browse_t=
+o_orderpage_edm_T0.1690513200000.20230728.ko_KR.%26sid%3D1520824&bizData=3D=
+eyJldmVudCI6ImNsaWNrIiwia2V5IjoiU0lOLUFXUy0yMDYyMS0xMDEyOTk4MTM5LTE2OTA1MTM=
+0NjQyMTMuMTY1IiwidGl0bGUiOiJ1bnN1YnNjcmliZS1zZXR0aW5ncyIsInR5cGUiOiJyZWFjdC=
+5jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWZvb3RlciIsI=
+mxhYmVsIjoiZm9vdGVyIiwiaWQiOiJzdHJ1XzI3Nnhxa1JTQllham54WiIsImZpbGVJZCI6ImZp=
+bGVfb0Q0TTNsSElER2kxN25JIiwidGVtcGxhdGVJZCI6ImNvbnRfekVrNDd1TERzZEJUYUduIiw=
+idGVtcGxhdGVWZXJzaW9uIjozLCJmb3hwYWdlVmVyc2lvbiI6MiwiZGF0YSI6eyJuYW1lIjoidW=
+5zdWJzY3JpYmUtc2V0dGluZ3MifX0%3D">=EC=95=8C=EB=A6=BC =EC=84=A4=EC=A0=95=EC=
+=9D=84 =EB=B3=80=EA=B2=BD</a>=ED=95=98=EA=B1=B0=EB=82=98 <a target=3D"_blan=
+k" style=3D"text-decoration:underline;color:#666;" href=3D"https://www.trip=
+.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%=
+2Fsubscribe%2Funsubscribe-category%3FaccessId%3D24648%26category%3Dpromotio=
+ns%26locale%3Dko_KR%26ouid%3D24648.hotel_churn_browse_to_orderpage_edm_T0.1=
+690513200000.20230728.ko_KR.%26requestId%3DSIN-AWS-20621-1012998139-1690513=
+464213.165%26schemeId%3D32%26token%3DeyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6ImFsZ=
+Fk0Y2YyMThAbmF2ZXIuY29tIyJ9.UxuBvx5uu4ZtLeeINpu7QhzNGfpxkQfWmqj0ga2xwPAFyot=
+0jwPIz0TOrECCLxH1q3MgaV5MkKQqz340Ad7gNQ%26%26allianceid%3D324048%26edm_id%3=
+DSIN-AWS-20621-1012998139-1690513464213.165%26ouid%3D24648.hotel_churn_brow=
+se_to_orderpage_edm_T0.1690513200000.20230728.ko_KR.%26sid%3D1520824&bizDat=
+a=3DeyJldmVudCI6ImNsaWNrIiwia2V5IjoiU0lOLUFXUy0yMDYyMS0xMDEyOTk4MTM5LTE2OTA=
+1MTM0NjQyMTMuMTY1IiwidGl0bGUiOiJ1bnN1YnNjcmliZS1saW5rIiwidHlwZSI6InJlYWN0Lm=
+NvbXBvbmVudCIsIm5hbWUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtZm9vdGVyIiwib=
+GFiZWwiOiJmb290ZXIiLCJpZCI6InN0cnVfMjc2eHFrUlNCWWFqbnhaIiwiZmlsZUlkIjoiZmls=
+ZV9vRDRNM2xISURHaTE3bkkiLCJ0ZW1wbGF0ZUlkIjoiY29udF96RWs0N3VMRHNkQlRhR24iLCJ=
+0ZW1wbGF0ZVZlcnNpb24iOjMsImZveHBhZ2VWZXJzaW9uIjoyLCJkYXRhIjp7Im5hbWUiOiJ1bn=
+N1YnNjcmliZS1saW5rIn19">=EC=9D=B4=EB=A9=94=EC=9D=BC =EC=88=98=EC=8B=A0=EC=
+=9D=84 =EA=B1=B0=EB=B6=80</a>=ED=95=98=EC=8B=9C=EA=B8=B0 =EB=B0=94=EB=9E=8D=
+=EB=8B=88=EB=8B=A4. =ED=95=B4=EB=8B=B9 =EC=9D=B4=EB=A9=94=EC=9D=BC=EC=9D=80=
+ =EC=9E=90=EB=8F=99 =EB=B0=9C=EC=86=A1=EC=9A=A9=EC=9D=B4=EB=AF=80=EB=A1=9C =
+=EB=B3=B8 =EC=9D=B4=EB=A9=94=EC=9D=BC =EC=A3=BC=EC=86=8C=EB=A1=9C=EB=8A=94 =
+=EB=8B=B5=EC=9E=A5=ED=95=98=EC=8B=A4 =EC=88=98 =EC=97=86=EC=8A=B5=EB=8B=88=
+=EB=8B=A4.</td></tr><tr><td align=3D"center" style=3D"font-family:BlinkMacS=
+ystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:#999;font-s=
+ize:12px;padding-bottom:10px;padding-left:10px;padding-right:10px;line-heig=
+ht:1.4">Copyright =C2=A9 1999-2023 Trip.com. All rights reserved</td></tr><=
+/tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></t=
+r></tbody></table></body></html>

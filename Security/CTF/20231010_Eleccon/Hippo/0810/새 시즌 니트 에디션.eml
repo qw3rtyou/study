@@ -1,0 +1,784 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1677828032;
+	cv=none; b=dzGrR0tGBBInYVayia5wss+B0cFxCOMjFm6PM51yftFNSnNIvOjuZ/CVbvCx
+	 t6TSDFfADpQMYO1TV2OUiuj9qhzEONM32EjxjnAeGbJD0tRY6MwJStw+/QoOC0paNHvJGS
+	 BiKS3cTSw2bJU0nQ9qDClqdfDcxvkfjWPwxGoraKvucWhA0XdNzzd0TyEjrqTeg9+QBHkw
+	 WG6q2N9P25w5WA6DzWmOyoesIe6MQ+Hn41MNvZjTZJtjbrYS6qN4ilzyly1/tgFAfpjxSB
+	 +jAVY11KwemoQQvemboz1JjnccCr034pxD9sEC3EpJvZhjEbeosRUDME/jj5CuNgif+XaI
+	 Sw==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1677828032; c=relaxed/relaxed;
+	bh=31db3uWh5RyPRvdd6ro2Bvjyo2jjig4OWOKiVLgkj64=;
+	h=dkim-signature:from:to:subject:date:message-id; b=cq4qCFZTnUh9mhCEFXh
+	 2jeDSOmSLXrkFWr/qavNuY1QUYYcDsxc4arMywh/Qz3mnMpFqqxjQwrzuXI2zqp/MyoO5+
+	 +s0mNq6q7wvAXV2RrHs4KSIidJBlaLY4DB4w2oy41b3cAo0bsHqDmuc3RkM/CWpPhsEo+J
+	 Atv0ljcgmRD4jahJEQgK0zQ8ToqTwpUeRINa3NWLA2AAtPG5mNnDlCAcVRtAsAnUzyOju6
+	 2w4ccuASiWo0yCxWAWBa+4XrBZ/i/YPK33uy8p6ufpj9axOmLmPMpVNBTZ5U4ucV4yQ4a7
+	 EA5cJEZAW1mgm1UD+sXRRgKPASP05LWVYIEaGIc+1Qw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of bounce-171_HTML-426326515-22968110-100008224-1313@bounce.news.fendi.com designates 13.111.88.127 as permitted sender) smtp.mailfrom=bounce-171_HTML-426326515-22968110-100008224-1313@bounce.news.fendi.com;
+  dkim=pass header.i=@news.fendi.com;
+  dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fendi.com
+Return-Path: <bounce-171_HTML-426326515-22968110-100008224-1313@bounce.news.fendi.com>
+Received-SPF: pass (mx.naver.com: domain of bounce-171_HTML-426326515-22968110-100008224-1313@bounce.news.fendi.com designates 13.111.88.127 as permitted sender)
+  client-ip=13.111.88.127; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of bounce-171_HTML-426326515-22968110-100008224-1313@bounce.news.fendi.com designates 13.111.88.127 as permitted sender) smtp.mailfrom=bounce-171_HTML-426326515-22968110-100008224-1313@bounce.news.fendi.com;
+  dkim=pass header.i=@news.fendi.com;
+  dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fendi.com
+X-Naver-ESV: wmen+6J4p63CbHmrKBwdbXFYKAbZKAKZjJ+Y
+X-Session-IP: 13.111.88.127
+Received: from mta.news.fendi.com (mta.news.fendi.com [13.111.88.127])
+  by crcvmail301.nm.naver.com with ESMTP id YAzMmNd3T26Kz8uAMrMVzQ
+  for <user01@naver.com>
+  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384);
+  Thu, 10 Aug 2023 07:20:32 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=10dkim1; d=news.fendi.com;
+ h=From:To:Subject:Date:List-Unsubscribe:List-Unsubscribe-Post:MIME-Version:
+ List-ID:X-CSA-Complaints:Reply-To:Message-ID:Content-Type;
+ i=fendi@news.fendi.com;
+ bh=31db3uWh5RyPRvdd6ro2Bvjyo2jjig4OWOKiVLgkj64=;
+ b=CLuWX9XChxQ98Em6oPVKkoiCx90xTQNAWjB9xO+T8Swteg4eUcwa4e22/DR65M2GxJ4N+PJDDz+W
+   SYe8vj5CpdrnuooG7Eo5scdgEEgpYT27m/B2GTPL5m0iudultHjsAeEuO5Yf/tfz/mj7UvWso8sX
+   /IMcAUlFzjh2G4HSEBFTgEgAw78TZHNy0DZ3HlU4Rx2oJ3rr3zo7McKKsGfmaWb0SILGk8lTt3Zv
+   M/5DBJMZpKYbUEBEBp8Ec3F3QGWUfmJONxlc+WlERkx/XN3TyL1dVXWKP0ir2DKPxf0CgGR6+qtb
+   XY3nGfNuFN/vfbm+UEyS2lptGnRFoHqahSOFSg==
+Received: by mta.news.fendi.com id h06fru2fmd4f for <user01@naver.com>; Thu, 10 Aug 2023 07:20:29 +0000 (envelope-from <bounce-171_HTML-426326515-22968110-100008224-1313@bounce.news.fendi.com>)
+From: "Fendi" <fendi@news.fendi.com>
+To: <user01@naver.com>
+Subject: =?UTF-8?B?7IOIIOyLnOymjCDri4jtirgg7JeQ65SU7IWY?=
+Date: Thu, 10 Aug 2023 01:20:29 -0600
+List-Unsubscribe: <https://click.news.fendi.com/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiIxMDAwMDgyMjQiLCJzIjoiNDI2MzI2NTE1IiwibGlkIjoiMTcxIiwiaiI6IjIyOTY4MTEwIiwiamIiOiIxMzEzIiwiZCI6IjEwMDE4MyJ9.18bYSvdh5fsGNmFyvWkXFxbQwQPnyr-hXAn27kcqGPA>, <mailto:leave-fd521577740b5c392848-fe2d10727367067b701575-fe6216727c620c7c7414-fe3e157075640475771674-ff3715737467@leave.news.fendi.com>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+x-CSA-Compliance-Source: SFMC
+MIME-Version: 1.0
+List-ID: <100008224.xt.local>
+X-CSA-Complaints: csa-complaints@eco.de
+X-SFMC-Stack: 10
+x-job: 100008224_22968110
+Reply-To: "Fendi -  Seoul Shinsegae Kangnam" <reply-fe6216727c620c7c7414-171_HTML-426326515-100008224-1313@news.fendi.com>
+Message-ID: <beab98e8-ebb5-49f4-a855-2af6cb9e7fb5@dfw1s10mta262.xt.local>
+Content-Type: multipart/alternative;
+	boundary="9hglWut7tRmi=_?:"
+
+This is a multi-part message in MIME format.
+
+--9hglWut7tRmi=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Fendi
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+ 
+ 
+  
+ 
+
+ 
+ 
+https://view.news.fendi.com/?qs=3c8b27640fa54bceeadcf12728b63ee0a8c9054deb0ee11f54f2ef95c326d81009934dfad6bbac1aef9f9a07b4c178e07eb875b52e925e5ece7c4d6ca5f010f395fab339b5fcbe7fcbf2f2c2de014e3c27f094ed241a409f 
+웹 버전 보기 
+https://view.news.fendi.com/?qs=3c8b27640fa54bceeadcf12728b63ee0a8c9054deb0ee11f54f2ef95c326d81009934dfad6bbac1aef9f9a07b4c178e07eb875b52e925e5ece7c4d6ca5f010f395fab339b5fcbe7fcbf2f2c2de014e3c27f094ed241a409f 
+웹 버전 보기  
+  
+ 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d7814c1d66187797b934caa07c595749267e2e01540761909efbe9f23ff534c157916c30b9efe690fffec97b5a9ced51463109896d1e876e94e 
+
+ 
+ 
+
+ 
+  
+ 
+
+ 
+ 
+ 
+ 
+https://click.news.fendi.com/?qs=63e293d0e3015d7828abfaa7fc0f6b6cdcbdf31a9ec4fe719e754f74469b5860a763876e13c88d6d433db0ba55ac95697a026b8532c6d89fb1f819366aa05f15 
+
+
+ 새로워진 니트웨어 
+ 
+
+ 이번 시즌의 미니멀리즘을 담은 실루엣과 FF 모티프가 돋보이는 최신 니트웨어 에디션을 만나보세요.
+ 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d7828abfaa7fc0f6b6cdcbdf31a9ec4fe719e754f74469b5860a763876e13c88d6d433db0ba55ac95697a026b8532c6d89fb1f819366aa05f15 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d7828abfaa7fc0f6b6cdcbdf31a9ec4fe719e754f74469b5860a763876e13c88d6d433db0ba55ac95697a026b8532c6d89fb1f819366aa05f15 
+지금 쇼핑하기
+
+
+ 
+ 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d78fd70de0afd62481582383eeab7102aff77b211fb32d7825f44afd33ab22b4e51d9a094d71f5da5e15a6e196cefd003b598687dc0edc094cf 
+
+  
+ 
+ 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d78fd70de0afd62481582383eeab7102aff77b211fb32d7825f44afd33ab22b4e51d9a094d71f5da5e15a6e196cefd003b598687dc0edc094cf 
+무엇을 도와드릴까요? 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d78fd70de0afd62481582383eeab7102aff77b211fb32d7825f44afd33ab22b4e51d9a094d71f5da5e15a6e196cefd003b598687dc0edc094cf 
+추가 도움이 필요하신 경우 이메일 또는 전화로 문의주시기 바랍니다. 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d78c4bfaf185b73983b3acfd2204b64830847f908cd15d7d20e6d472f6374be6ec00d3d9997f99ee1e80e424acc256a9d8e397165dcbf3824d4 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d78c4bfaf185b73983b3acfd2204b64830847f908cd15d7d20e6d472f6374be6ec00d3d9997f99ee1e80e424acc256a9d8e397165dcbf3824d4 
+예약하기  
+
+https://click.news.fendi.com/?qs=63e293d0e3015d78c4bfaf185b73983b3acfd2204b64830847f908cd15d7d20e6d472f6374be6ec00d3d9997f99ee1e80e424acc256a9d8e397165dcbf3824d4 
+클라이언트 어드바이저가 기프트, 신상품 및 기타 문의에 도움을 드립니다. 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d78618d842a7a78fd4571bb4a7ca1e66f378470cc385ddcfc314c66e09859145f53196bf19c9fbaf5c624ce870909be40c7a416baef858648a7 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d78618d842a7a78fd4571bb4a7ca1e66f378470cc385ddcfc314c66e09859145f53196bf19c9fbaf5c624ce870909be40c7a416baef858648a7 
+무료 일반 배송 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d78618d842a7a78fd4571bb4a7ca1e66f378470cc385ddcfc314c66e09859145f53196bf19c9fbaf5c624ce870909be40c7a416baef858648a7 
+ 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d78d396af28ccaf1d5b7134414fa26ad7c09f93d01cc7ac6c5d144cd7b625777da9d33b54bd1b98ae32dfe19744fbcb54208eaac4aa358b303b 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d78d396af28ccaf1d5b7134414fa26ad7c09f93d01cc7ac6c5d144cd7b625777da9d33b54bd1b98ae32dfe19744fbcb54208eaac4aa358b303b 
+무료 반품 
+
+https://click.news.fendi.com/?qs=63e293d0e3015d78d396af28ccaf1d5b7134414fa26ad7c09f93d01cc7ac6c5d144cd7b625777da9d33b54bd1b98ae32dfe19744fbcb54208eaac4aa358b303b 
+ 
+
+
+
+
+
+https://click.news.fendi.com/?qs=63e293d0e3015d780f160d7d372f5699c37eeee4759dd8d06337d15e7ecaea20f347a1f31a4c600413a80e09e17b5d4171f014f224a03494af763d808b44b739 
+가입 취소 |
+https://click.news.fendi.com/?qs=63e293d0e3015d780abd09618689ff349ebce1e486ec04b8c460910e8b7a8dc578e90241971ee2608ef300bee800e3f899d094204693dd1902f5d8d0b0e8c889 
+개인정보 보호정책 
+
+FENDI SRL 
+Quadrato della Concordia, 3 
+- 00144 Roma, IT
+ 
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+https://click.news.fendi.com/profile_center.aspx?qs=80aad93900a62af43d8c83714d98198e418b5bad5d3f2dc2dda790c55f7eac38830449de46f0296e97e6ed3e354e7a142810d8ea541a8f2aca67784ec10293242e72c12414d48557This email was sent by: FENDI SRL
+Quadrato della Concordia, 3 Roma, Rm, 00144, IT
+
+
+
+--9hglWut7tRmi=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+   <head>
+      <title>Fendi</title>
+      <meta name="responsive" content="clab0317">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1.0, user-scalable=no" />
+      <meta name="format-detection" content="telephone=no">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <meta name="x-apple-disable-message-reformatting">
+      <!--[if gte mso 15]>       <xml>          <o:OfficeDocumentSettings>             <o:AllowPNG/>             <o:PixelsPerInch>96</o:PixelsPerInch>          </o:OfficeDocumentSettings>       </xml>       <![endif]-->
+      <style type="text/css">
+         @import url('https://fonts.googleapis.com/css?family=Proxima%20Nova');
+         @-ms-viewport{width:device-width}
+      </style>
+      <style type="text/css">
+         html { -webkit-text-size-adjust:none; -webkit-transition:all 1s ease; -webkit-transition: all 1.0s ease-in-out 0s; -o-transition: all 1s ease; -o-transition: all 1.0s ease-in-out 0s; transition:all 1s ease; transition: all 1.0s ease-in-out 0s; -ms-transition:all 1s ease; -moz-transition:all 1s ease; }
+         body, .ReadMsgBody, .ExternalClass, .multi-col .column {width: 100%; width:100% !important; margin: 0px !important; padding: 0px; display: block; -ms-overflow-style: none !important;}
+         .ExternalClass {line-height: 100%;}
+         table, tr, td {margin:0; padding: 0; border-collapse: collapse !important; mso-line-height-alt:0px; mso-margin-top-alt:0px; mso-table-lspace:0px; mso-table-rspace:0px; vertical-align: top; border-spacing: 0; }
+         td { font-size:0px; line-height: 0px; }
+         a img, img{margin: 0px; padding: 0px; display: block;}
+         a[href^="tel"], a[href^="sms"], a[x-apple-data-detectors] {color:inherit !important; cursor:default !important; text-decoration:none !important;}
+         a:focus{ outline: none!important; }
+         .preheader{display:none !important; visibility:hidden; opacity:0; color:transparent; height:0; width:0; color:#ffffff; font-size:1px; line-height:0; overflow:hidden; mso-hide:all;}
+         .two-col .column { width: 300px; }
+         .two-col .column-mini {width: 300px;}
+         .two-col .padded { width: 280px; }
+         .two-col .padded-small { width: 266px; }
+         .two-col .padded-internal { width: 254px; }
+         .two-col .padded-menu { width: 80px; }
+         .two-col .padded-mini { width: 280px; }
+         .three-col .column { width: 190px; }
+         .three-col .padded-small {width: 166px;}
+         .three-col .padded { width: 180px; }
+         .four-col .column {width: 145px;}
+         .four-col .padded { width: 130px; }
+         .five-col .column {width: 116px;}
+         .five-col .padded { width: 110px; }
+         .button { height: 50px !important;}
+         .multi-col .padded {min-width: 75px;}
+         .mobileversion {display: none !important;}
+         @media screen and (min-width: 568px) {
+         .mj-column-per-50 { width: 50% !important; max-width: 50%;}
+         .mj-column-per-33-333333333333336 {width: 33.333333333333336% !important;max-width: 33.333333333333336%;}
+         }
+         @media screen and (max-device-width: 568px), screen and (max-width: 568px) {
+         .mobileversion {display:block !important; float:none !important; width:100% !important; height:auto !important; overflow:visible !important; line-height: normal !important; max-height:none !important; margin: 0; padding: 0px;}
+         .onlydesktop {display:none !important; width:0 !important;}
+         .wrp {min-width: 320px !important;}
+         .wrp .padded320 {width: 320px !important; height:auto !important;}
+         .wrp img {max-width: 100%; height: auto;}
+         .wrp .image_responsive320 {-ms-interpolation-mode: bicubic; width:100%; width:320px; height:auto!important;}
+         .wrp .image_responsive {-ms-interpolation-mode: bicubic; width:100%; width:280px; height:auto!important;}
+         .wrp .columns, .wrp .column, .wrp .column-left, .wrp .column-right, .wrp .padded, .wrp .padded-left, .wrp .padded-right, .wrp .padded-menu {width: 360px !important;}
+         .wrp .button {width: 100% !important;}
+         .wrp .button_preorder {width: 280px !important; height:auto !important; color: #000000 !important;}
+         .wrp .padded-internal {width: 254px !important; height:auto !important;}
+         .wrp .padding {width: 10px !important;}
+         .wrp .center {text-align:center !important; margin: 0 auto;}
+         .wrp .separator {border-bottom:1px solid #e3e2e1;}
+         .wrp .separator_dark {border-bottom:1px solid #818181;}
+         .main-wrp {width: 380px !important; margin: auto;}
+         span {letter-spacing: 0px !important; line-height: 26px !important;}
+         a {letter-spacing: 0px !important;}
+         table.mj-full-width-mobile {width: 100% !important;}
+         td.mj-full-width-mobile {width: auto !important;}
+        .td-footer{
+                display: block !important;
+            }
+        .flb{
+            width: 100% !important;
+        }
+         }
+      </style>
+   </head>
+   
+   
+  
+  
+   <!-- VARIABILI SPECIFICHE -->
+
+  <!-- VARIABILI SPECIFICHE -->
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+
+
+</td></tr></table>
+  
+  
+   <body link="#000000" vlink="#000000" style="margin: 0; padding: 0px; background: #f7f7f7;"><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">시그니처 FF 모티프를 쇼핑하세요.</div>
+      <table class="wrp main-wrp" style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none; min-width:800px;" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" bgcolor="#f7f7f7">
+         <tr>
+            <td class="wrp" style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none; min-width:800px;" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" bgcolor="#f7f7f7">
+               <table border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" class="wrp" style="max-width:800px;">
+                  <tr>
+                     <td align="center">
+                       
+                       
+                        <!-- INIZIO HEADER --> 
+                        
+<table group_name="Header" style="background-color: #f7f7f7; border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center"  width="100%" >
+
+            <tr block_name="Online Version">
+                
+              <td colspan="3" class="onlydesktop" style="text-align: right; padding: 0px; vertical-align:middle; width:600px; min-height: 30px; height: 30px; font-family: Arial, Regular; font-size: 10px; line-height: 16px; color: #474744;" class="padded">
+                
+                <a href="https://view.news.fendi.com/?qs=3c8b27640fa54bceeadcf12728b63ee0a8c9054deb0ee11f54f2ef95c326d81009934dfad6bbac1aef9f9a07b4c178e07eb875b52e925e5ece7c4d6ca5f010f395fab339b5fcbe7f2b9c4181ddb5b2abf272612fa123238e"  style="letter-spacing: 0px; font-family: Arial, Regular; font-size: 10px; line-height: 16px; color: #818181;">웹 버전 보기</a>
+                
+              </td>
+              <!--[if !mso]><!-->
+              <td colspan="3" class="mobileversion" style="display: none; text-align: center; margin-top: 5px; padding: 0px; vertical-align:middle; width:600px; min-height: 20px; height: 30px; font-family: Arial, Regular; font-size: 10px; line-height: 16px; color: #474744;" class="padded">
+                
+                <a href="https://view.news.fendi.com/?qs=3c8b27640fa54bceeadcf12728b63ee0a8c9054deb0ee11f54f2ef95c326d81009934dfad6bbac1aef9f9a07b4c178e07eb875b52e925e5ece7c4d6ca5f010f395fab339b5fcbe7f2b9c4181ddb5b2abf272612fa123238e"  style="letter-spacing: 0px; font-family: Arial, Regular; font-size: 10px; line-height: 16px; color: #818181;">웹 버전 보기</a>
+                
+              </td>
+              <!--<![endif]--> 
+               
+          </tr>
+          </table>
+<table group_name="Header" style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center"  bgcolor="#ffffff">
+    <tr>
+        <td style="padding: 0px; vertical-align:top; width:10px;" class="padding"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1" border="0"></td>
+        <td style="padding: 0px; vertical-align:top; width:780px;" class="padded" align="center">
+            <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+                <tr>        
+                    <td style="padding: 0px; vertical-align:top; width:10px;" class="padding"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="15" height="35" border="0"></td>
+                </tr>
+                <tr block_name="Image Responsive">
+                    <td style="padding: 0px; width:780px; font-size:0; line-height:1px; height: 1px; vertical-align: top" class="padded" align="center">
+                        <a href="https://click.news.fendi.com/?qs=63e293d0e3015d78f1370844ec1210540236b777a12c9b2be062b1fb677ba50f1923b6e126db189e94e8febbbd464f2dc9a053c425462fa269a89d2847c4a806" target="_blank">
+                            <img style="font-size:0; margin: 0px; padding: 0px; display: inline;" src="http://image.news.fendi.com/lib/fe3e157075640475771674/m/1/1a1e82d7-ef38-4784-81ff-313ce70461b7.png" width="120" height="37" border="0" alt="Fendi">
+                        </a>
+                    </td>
+                </tr>
+                <tr>        
+                    <td style="padding: 0px; vertical-align:top;" class="padding"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="25" height="30" border="0"></td>
+                </tr>
+            </table>
+        </td>
+        <td style="padding: 0px; vertical-align:top; width:10px;" class="padding"><img style="margin: 0px; padding: 0px; display: block; height:" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1" border="0"></td>
+    </tr>
+</table>    
+                        <!-- FINE HEADER -->
+                       
+                        <!-- INCOLLARE IL CONTENUTO DA QUI IN POI -->
+
+             
+         
+    
+
+                      
+                       
+                       
+                        <!-- INIZIO BANNER COMPONENT -->
+                        <table group_name="Banner 1" style="text-align: center; border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center"  bgcolor="#ffffff">
+                           <tr>
+                              <td class="padded" align="center" style="padding: 0px; vertical-align:top;">    <a href="https://click.news.fendi.com/?qs=63e293d0e3015d78abf6a42de2520167aaab9482edf8d447b0c8b570661eeac5b609c3fcc0b87b6d88b94bc96b22c99a3022c6deeaaccb165a0b5b60562f9df8">
+                                                                             
+                                 
+                                 <img width="760" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/4/a766aad8-d38d-42cd-9877-65dce593cb34.png" /> </a>
+                                
+                              </td>
+                           </tr>
+                           <tr>
+                              <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="30" height="30" /></td>
+                           </tr>
+                        </table>
+                        <!-- FINE BANNER COMPONENT -->
+                       
+                        <!-- INIZIO TITLE COMPONENT -->
+                        <table group_name="Box Only Text 1" style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+                           <tr block_name="Content">
+                              <td class="padding" style="padding: 0px; vertical-align:top; width:20px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="20" height="1"></td>
+                              <td class="padded" align="center" style="padding: 0px; vertical-align:top; width:760px;">
+                                 <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+                                    <tr>
+                                       <td align="center" style="padding: 0px; vertical-align:top; width:760px;font-family: Arial, Regular; font-size: 14px; line-height: 18px; color:#000000; text-align: center;">
+                                          <span style="margin: 0; font-family: 'Georgia', 'Noto Serif', serif; font-size: 22px; letter-spacing: 0px; line-height: 26px; color:#000000; text-align: center; font-weight: normal;" item_name="Text Desktop">
+                                          새로워진 니트웨어 
+                                          <br/>
+                                          </span>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td class="padded" align="center" style="padding: 0px; vertical-align:top; width:760px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="30" height="20" border="0"></td>
+                                    </tr>
+                                 </table>
+                              </td>
+                              <td class="padding" style="padding: 0px; vertical-align:top; width:20px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="20" height="1"></td>
+                           </tr>
+                        </table>
+                        <!-- FINE TITLE COMPONENT -->      
+                        <!-- INIZIO TEXT BOX COMPONENT -->
+                        <table group_name="Box Only Text 1" style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+                           <tr block_name="Content">
+                              <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+                              <td class="padded" align="center" style="padding: 0px; vertical-align:top; width:760px;">
+                                 <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+                                    <tr>
+                                       <td align="center" style="padding: 0px; vertical-align:top; width:760px;font-family: Arial, Regular; font-size: 14px; line-height: 18px; color:#000000; text-align: center;">
+                                          <span style="margin: 0; font-family: Arial, Regular; font-size: 14px; letter-spacing: 0px; line-height: 20px; color:#000000; text-align: center;" item_name="Text Desktop">  이번 시즌의 미니멀리즘을 담은 실루엣과 FF 모티프가 돋보이는 최신 니트웨어 에디션을 만나보세요.
+                                          <br/>
+                                          </span>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td class="padded" align="center" style="padding: 0px; vertical-align:top; width:760px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="30" height="30" border="0"></td>
+                                    </tr>
+                                 </table>
+                              </td>
+                              <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+                           </tr>
+                        </table>
+                        <!-- FINE TEXT BOX COMPONENT -->
+                       
+                       
+                  
+                        <!-- INIZIO DOUBLE BUTTON COMPONENT -->
+                        <table border="0" cellpadding="0" cellspacing="0" align="center" style="border-collapse:collapse; border-spacing:0;" bgcolor="#ffffff" group_name="CTA 1">
+                           <tr>
+                              <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+                              <td class="padded" align="center" style="padding: 0px; vertical-align:top; width:760px;">
+                                 <table width="100%" style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;">
+                                    <!--[if !mso]><!-->
+                                    <div style="line-height:0; display:none !important;visibility:hidden !important;overflow:hidden !important;max-height:0px !important;width:0px !important;">
+                                    <!--<![endif]-->  
+        
+                                        <tr block_name="CTA OUTLOOK">
+                                            <td>
+                                                <center>
+                                                    <a <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://click.news.fendi.com/?qs=63e293d0e3015d78abf6a42de2520167aaab9482edf8d447b0c8b570661eeac5b609c3fcc0b87b6d88b94bc96b22c99a3022c6deeaaccb165a0b5b60562f9df8" style="height:40px;v-text-anchor:middle;width:300px;" arcsize="10%" strokecolor="black" strokeweight="1pt" stroke="#000000" fillcolor="#ffffff">
+                                                        <w:anchorlock/>
+                                                        <center style="font-family: Arial, Regular; font-weight: normal; font-size: 14px; color:#000000;">
+                                                            <!--[if mso]>                                                              지금 쇼핑하기                                                             <![endif]-->
+                                                        </center>
+                                                    
+                                                </v:roundrect></center>     
+                                            </td>
+                                        </tr>
+        
+                                    <!--[if !mso]><!-->
+                                    </a></div>  
+                                    <!--<![endif]-->
+
+                                    <tr block_name="CTA">
+                                       
+                                        <!--[if !mso]> <!-->
+                                            <td class="padded" align="center" style="padding: 0px; vertical-align:top;">
+                                                    <table class="flb" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="border-collapse:collapse; border-spacing:0;border: 1px solid black; border-radius: 3px !important; border-collapse: separate !important;">
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="https://click.news.fendi.com/?qs=63e293d0e3015d78abf6a42de2520167aaab9482edf8d447b0c8b570661eeac5b609c3fcc0b87b6d88b94bc96b22c99a3022c6deeaaccb165a0b5b60562f9df8" target="_blank" style="font-family: Arial, Regular; font-size: 14px; line-height: 12px; color:#000000; font-weight: normal; text-decoration: none;color:#000000;">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td style="padding: 0px; vertical-align:top;width:10px; height: 30px;"><img src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="30"></td>
+                                                                            <td class="button" style="text-transform: initial; height:55px; letter-spacing: 0; width: 260px;font-family: Arial, Regular; font-size: 14px; line-height: 14px; color:#000000; font-weight: normal; vertical-align: middle" align="center" valign="middle">지금 쇼핑하기</td>
+                                                                            <td style="padding: 0px; vertical-align:top;width:10px; height: 30px;"><img src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="30"></td>                                                              
+                                                                        </tr>
+                                                                    </table>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>   
+                                                    </table>
+                                            </td>
+                                        <!-- <![endif]-->
+                                      
+                                    </tr>
+                                    <tr>
+                                       <td style="padding: 0px; vertical-align:top;" class="padded"><img style="margin: 0px; padding: 0px; display: block; height: 10px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="10" border="0"></td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding: 0px; vertical-align:top;" class="padded"><img style="margin: 0px; padding: 0px; display: block; height: 10px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="10" border="0"></td>
+                                    </tr>
+                                 </table>
+                              </td>
+                              <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+                           </tr>
+                        </table>
+                        <!-- FINE DOUBLE BUTTON COMPONENT -->
+     
+    
+     
+    
+     
+    
+     
+    
+                        <!-- INIZIO FOOTER -->
+                        
+                        
+<style>
+   .large4-small2 {
+   width: 200px; 
+   }
+   .large2-small2 {
+   width: 50%; 
+   }
+   .icons-group {
+   width: 800px;
+   }
+   .new-columns {
+   width: 800px;
+   }
+   @media screen and (max-device-width: 568px), screen and (max-width: 568px) {
+   .large4-small2 {
+   width: 50%; 
+   }
+   .icons-group {
+   width: 100%;
+   }
+   .new-columns {
+   width: 100%;
+   }
+   .td-footer{
+   display: block !important;
+   }
+   }
+</style>
+<!-- VERSIONE DESKTOP -->
+<table class="icons-group" group_name="4 Columns" style="background-color: #ffffff; border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center"   bgcolor="#ffffff">
+   <tr>
+      <td style="padding: 0px; vertical-align:top;" class="padded" align="center">
+         <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+            <tr>
+               <td style="padding: 0px; vertical-align:top;" class="padded"><img style="margin: 0px; padding: 0px; display: block; height: 10px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="10" border="0"></td>
+            </tr>
+            <tr>
+               <td style="padding: 0px; vertical-align:top;" class="padded" align="center">
+                  <table class="two-col" style="background-color:#ffffff; border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" bgcolor="#ffffff">
+                     <tr>
+                        <td style="padding: 0px; vertical-align:top;">
+                           <!-- INIZIO GREY DIVIDER COMPONENT -->
+                           <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+                              <tr>
+                                 <td class="" align="center" style="padding: 0px; vertical-align:top; width:800px;">
+                                    <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+                                       <tr block_name="Separatore Lineare Singolo">
+                                          <td style="padding: 0px; vertical-align:top;" bgcolor="#e3e2e1"><img style="margin: 0px; padding: 0px; display: block; height: 1.5px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="1" border="0"></td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                           <!-- FINE GREY DIVIDER COMPONENT -->  
+                           <table class="new-columns" align="center" style="margin:auto; text-align: center; width:100%; border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none; " border="0" cellpadding="0" cellspacing="0" align="center" >
+                              <tr>
+                                 <td style="width: 390px; text-align:center; padding: 0px; vertical-align:top;" class="td-footer">
+                                    <table block_name="Left Column"  style="margin: auto; border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0">
+                                       <tr>
+                                          <td align="center" style="padding: 0px; vertical-align:top; width: 100%;" class="">
+                                             <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center">
+                                                <tr>
+                                                   <td style="padding: 0px; vertical-align:top; width: 100%;" class="padded"><img style="margin: 0px; padding: 0px; display: block; height: 30px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="30" border="0"></td>
+                                                </tr>
+                                                <tr item_name="Image">
+                                                   <td style="padding: 0px; vertical-align:top; width: 100%;" class="padded" align="center">
+                                                      <a href="https://click.news.fendi.com/?qs=63e293d0e3015d7878681a865151cc493f35bb38b911fb8def4814af5d12159b98c35c4ca3d09cf1cde1e5866306895409379c21d518c8d8df67f9813a17c4a8" target="_blank">
+                                                              
+                                                      <img style="margin:0px; padding:0px; display:inline;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/25177d60-6524-45c1-a6b9-986b05ae0d32.png" width="30" height="24" alt="Shipping" border="0"  />   
+                                                      </a>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td style="padding: 0px; vertical-align:top; width: 100%;" class="padded"><img style="margin: 0px; padding: 0px; display: block; height: 6px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="6" border="0"></td>
+                                                </tr>
+                                                <tr item_name="Title">
+                                                   <td item_name="Tab text" style="padding: 0px; vertical-align:top; height: 20px; font-family: Arial, Regular; font-size:12px; line-height:16px; color:#000000;" height="30" align="center"  >
+                                                      <a href="https://click.news.fendi.com/?qs=63e293d0e3015d7878681a865151cc493f35bb38b911fb8def4814af5d12159b98c35c4ca3d09cf1cde1e5866306895409379c21d518c8d8df67f9813a17c4a8" style="color:#000000; font-family: Arial, Regular; font-size:12px; line-height:16px; text-decoration: none; font-weight: normal; letter-spacing: 0;">무엇을 도와드릴까요?</a>
+                                                   </td>
+                                                </tr>
+                                                <tr item_name="SubTitle">
+                                                   <td item_name="Tab text" style="padding: 0px; vertical-align:top; height: 30px; font-family: Arial, Regular; font-size:10px; line-height:16px; color:#000000;" class="padded" height="30" align="center"  >
+                                                      <a href="https://click.news.fendi.com/?qs=63e293d0e3015d7878681a865151cc493f35bb38b911fb8def4814af5d12159b98c35c4ca3d09cf1cde1e5866306895409379c21d518c8d8df67f9813a17c4a8" style="color:#000000; font-family: Arial, Regular; font-size:10px; line-height:16px; text-decoration: none; font-weight: normal; letter-spacing: 0;">추가 도움이 필요하신 경우 이메일 또는 전화로 문의주시기 바랍니다.</a>
+                                                   </td>
+                                                </tr>
+                                             </table>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                                 <td class="padding td-footer" style="padding: 0px; vertical-align:top; width:10px;" ><img style="margin: 0px; padding: 0px; display: block; width:10px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+                                 <td class="padding td-footer" style="padding: 0px; vertical-align:top; width:10px;" ><img style="margin: 0px; padding: 0px; display: block; width:10px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+                                 <td style="width: 390px; text-align:center; padding: 0px 0px; vertical-align:top;" class="td-footer">
+                                    <table block_name="Center Column %d"  style="margin: auto; border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0">
+                                       <tr>
+                                          <td align="center" style="padding: 0px; vertical-align:top; width: 100%;" class="">
+                                             <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center">
+                                                <tr>
+                                                   <td style="padding: 0px; vertical-align:top; width: 100%;" class="padded"><img style="margin: 0px; padding: 0px; display: block; height: 30px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="30" border="0" class="onlydesktop"></td>
+                                                </tr>
+                                                <tr item_name="Image">
+                                                   <td style="padding: 0px; vertical-align:top; width: 100%;" class="padded" align="center">
+                                                      <a href="https://click.news.fendi.com/?qs=63e293d0e3015d78cadfa453d20e739d05d858b0ecd846532249c9facdd6fe3cd8847bf8b70694e998563da928906011740b55c201a6edd9c91fcc3de7410afa" target="_blank">
+                                                      <img style="margin:0px; padding:0px; display:inline;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/4/f1ce91e7-8389-4e40-94d2-f133622b92ab.png" width="40" height="30" alt="Returns" border="0"  />
+                                                      </a>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td style="padding: 0px ; vertical-align:top; width: 100%;" class="padded"><img style="margin: 0px; padding: 0px; display: block; height: 6px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="6" border="0"></td>
+                                                </tr>
+                                                <tr item_name="Title">
+                                                   <td item_name="Tab text" style="padding: 0px 40px; vertical-align:top; height: 20px; font-family: Arial, Regular; font-size:12px; line-height:16px; color:#000000;" height="30" align="center"  >
+                                                      <a href="https://click.news.fendi.com/?qs=63e293d0e3015d78cadfa453d20e739d05d858b0ecd846532249c9facdd6fe3cd8847bf8b70694e998563da928906011740b55c201a6edd9c91fcc3de7410afa" style="color:#000000; font-family: Arial, Regular; font-size:12px; line-height:16px; text-decoration: none; font-weight: normal; letter-spacing: 0;">예약하기 </a>
+                                                   </td>
+                                                </tr>
+                                                <tr item_name="SubTitle">
+                                                   <td item_name="Tab text" style="padding: 0px; vertical-align:top; height: 30px; font-family: Arial, Regular; font-size:10px; line-height:16px; color:#000000;" class="padded" height="30" align="center"  >
+                                                      <a href="https://click.news.fendi.com/?qs=63e293d0e3015d78cadfa453d20e739d05d858b0ecd846532249c9facdd6fe3cd8847bf8b70694e998563da928906011740b55c201a6edd9c91fcc3de7410afa" style="color:#000000; font-family: Arial, Regular; font-size:10px; line-height:16px; text-decoration: none; font-weight: normal; letter-spacing: 0;">클라이언트 어드바이저가 기프트, 신상품 및 기타 문의에 도움을 드립니다.</a>
+                                                   </td>
+                                                </tr>
+                                             </table>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td style="width: 390px; text-align:center; padding: 0px; vertical-align:top;" class="td-footer">
+                                    <table block_name="Center Column %d"  style="margin: auto; border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0">
+                                       <tr>
+                                          <td align="center" style="padding: 0px; vertical-align:top; width: 100%;" class="">
+                                             <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center">
+                                                <tr>
+                                                   <td style="padding: 0px; vertical-align:top; width: 100%;" class="padded"><img style="margin: 0px; padding: 0px; display: block; height: 30px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="30" border="0"></td>
+                                                </tr>
+                                                <tr item_name="Image">
+                                                   <td style="padding: 0px; vertical-align:top; width: 100%;" class="padded" align="center">
+                                                      <a href="https://click.news.fendi.com/?qs=63e293d0e3015d78ef23721841eff312768821d7ec3971e000dd44d9895accbf4505099afb15b823d4a71d7dd3d6881d36cf3e54f30f971a24ceef6d225d69ef" target="_blank">
+                                                      <img style="margin:0px; padding:0px; display:inline;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/a682b546-9268-4b5a-bf89-ce7fd1bb63f7.png" width="30" height="24" alt="Contact us" border="0"  />
+                                                      </a>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td style="padding: 0px; vertical-align:top; width: 100%;" class="padded"><img style="margin: 0px; padding: 0px; display: block; height: 6px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="6" border="0"></td>
+                                                </tr>
+                                                <tr item_name="Title">
+                                                   <td item_name="Tab text" style="padding: 0px; vertical-align:top; height: 20px; font-family: Arial, Regular; font-size:12px; line-height:16px; color:#000000;" height="30" align="center"  >
+                                                      <a href="https://click.news.fendi.com/?qs=63e293d0e3015d78ef23721841eff312768821d7ec3971e000dd44d9895accbf4505099afb15b823d4a71d7dd3d6881d36cf3e54f30f971a24ceef6d225d69ef" style="color:#000000; font-family: Arial, Regular; font-size:12px; line-height:16px; text-decoration: none; font-weight: normal; letter-spacing: 0;">무료 일반 배송</a>
+                                                   </td>
+                                                </tr>
+                                                <tr item_name="SubTitle">
+                                                   <td item_name="Tab text" style="padding: 0px; vertical-align:top; height: 30px; font-family: Arial, Regular; font-size:10px; line-height:16px; color:#000000;" class="padded" height="30" align="center"  >
+                                                      <a href="https://click.news.fendi.com/?qs=63e293d0e3015d78ef23721841eff312768821d7ec3971e000dd44d9895accbf4505099afb15b823d4a71d7dd3d6881d36cf3e54f30f971a24ceef6d225d69ef" style="color:#000000; font-family: Arial, Regular; font-size:10px; line-height:16px; text-decoration: none; font-weight: normal; letter-spacing: 0;"></a>
+                                                   </td>
+                                                </tr>
+                                             </table>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                                 <td class="padding td-footer" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block; width:10px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+                                 <td class="padding td-footer" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block; width:10px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+                                 <td style="width: 390px; text-align:center; padding: 0px; vertical-align:top;" class="td-footer">
+                                    <table block_name="Right Column" style="margin: auto; border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0">
+                                       <tr>
+                                          <td align="center" style="padding: 0px; vertical-align:top; width: 100%;" class="">
+                                             <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center">
+                                                <tr>
+                                                   <td style="padding: 0px; vertical-align:top; width: 100%;" class="padded"><img style="margin: 0px; padding: 0px; display: block; height: 30px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="30" border="0" class="onlydesktop"></td>
+                                                </tr>
+                                                <tr item_name="Image">
+                                                   <td style="padding: 0px; vertical-align:top; width: 100%;" class="padded" align="center">
+                                                      <a href="https://click.news.fendi.com/?qs=63e293d0e3015d7803a79fe37d1f588f9582da63a91f64053bfc0a94af09f8ad07e9b08ab855b4c849c4545a9284f71ec3baee9a95dc24a80a214e4d55f6975a" target="_blank">
+                                                      <img style="margin:0px; padding:0px; display:inline;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/7bf06090-2d7f-4af9-b1f8-cdbff5147654.png" width="30" height="24" alt="Special Packaging" border="0"  />
+                                                      </a>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td style="padding: 0px; vertical-align:top; width: 100%;" class="padded"><img style="margin: 0px; padding: 0px; display: block; height: 6px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="6" border="0"></td>
+                                                </tr>
+                                                <tr item_name="Title">
+                                                   <td item_name="Tab text" style="padding: 0px; vertical-align:top; height: 20px; font-family: Arial, Regular; font-size:12px; line-height:16px; color:#000000;" height="30" align="center"  >
+                                                      <a href="https://click.news.fendi.com/?qs=63e293d0e3015d7803a79fe37d1f588f9582da63a91f64053bfc0a94af09f8ad07e9b08ab855b4c849c4545a9284f71ec3baee9a95dc24a80a214e4d55f6975a" style="color:#000000; font-family: Arial, Regular; font-size:12px; line-height:16px; text-decoration: none; font-weight: normal; letter-spacing: 0;">무료 반품</a>
+                                                   </td>
+                                                </tr>
+                                                <tr item_name="SubTitle">
+                                                   <td item_name="Tab text" style="padding: 0px; vertical-align:top; height: 30px; font-family: Arial, Regular; font-size:10px; line-height:16px; color:#000000;" class="padded" height="30" align="center"  >
+                                                      <a href="https://click.news.fendi.com/?qs=63e293d0e3015d7803a79fe37d1f588f9582da63a91f64053bfc0a94af09f8ad07e9b08ab855b4c849c4545a9284f71ec3baee9a95dc24a80a214e4d55f6975a" style="color:#000000; font-family: Arial, Regular; font-size:10px; line-height:16px; text-decoration: none; font-weight: normal; letter-spacing: 0;"></a>
+                                                   </td>
+                                                </tr>
+                                             </table>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                        </td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+            <!-- INIZIO GREY DIVIDER COMPONENT -->
+            <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+               <tr>
+                  <td class="" align="center" style="padding: 0px; vertical-align:top; width:800px;">
+                     <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+                        <tr block_name="Separatore Lineare Singolo">
+                           <td style="padding: 0px; vertical-align:top;" bgcolor="#e3e2e1"><img style="margin: 0px; padding: 0px; display: block; height: 1.5px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="1" border="0"></td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+            </table>
+            <!-- FINE GREY DIVIDER COMPONENT -->  
+         </table>
+      </td>
+   </tr>
+</table>
+<!-- FINE VERSIONE DESKTOP -->
+
+<table group_name="Footer Text" style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+   <tr block_name="Content">
+      <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+      <td class="padded" align="center" style="padding: 0px; vertical-align:top; width:780px;">
+         <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+            <tr>
+               <td class="padded" align="center" style="padding: 0px; vertical-align:top; width:780px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="15" height="30" border="0"></td>
+            </tr>
+            <tr>
+               <td align="center" style="padding: 0px; vertical-align:top; width:780px; font-family: Arial, Regular; font-size:12px; line-height:16px; color:#000000; text-align: center;">
+                  <a href="https://click.news.fendi.com/?qs=63e293d0e3015d78105959942cb4fcacc218a396c4c03e23522e7bae454848743bbd03691ff7fa38594e853e595a82fbeb35620f582e7f34f961b951bdb2f82e"  style="letter-spacing: 0; text-decoration: underline; color:#000000; font-weight: normal; font-family: Arial, Regular; font-size:12px; line-height:12px;">가입 취소</a> 
+                  <span style="letter-spacing: 0; margin: 0 12px; color:#000000; font-weight: normal; font-family: Arial, Regular; font-size:12px; line-height:16px;">|</span> 
+                  <a href="https://click.news.fendi.com/?qs=63e293d0e3015d78932925507a703d2aeff0e10c95aa2130ae739106bdb1995e71417cc788ac0f965911c35a6acd1849896143fba66485f2ef3fc47b68312aba" style="color:#000000; letter-spacing: 0; text-decoration: underline; font-weight: normal; font-family: Arial, Regular; font-size:12px; line-height:14px;">개인정보 보호정책</a>
+               </td>
+            </tr>
+            <tr>
+               <td class="padded" align="center" style="padding: 0px; vertical-align:top; width:780px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="25" height="30" border="0"></td>
+            </tr>
+         </table>
+      </td>
+      <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+   </tr>
+</table>
+<table group_name="Footer Text" style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f7f7f7">
+   <tr block_name="Content">
+      <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+      <td class="padded" align="center" style="padding: 0px; vertical-align:top; width:780px;">
+         <table style="border-collapse:collapse; border-spacing:0; -webkit-text-size-adjust:none;" border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+            <tr class="onlydesktop">
+               <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+               <td class="padded" style="padding: 0px; vertical-align:top; width:780px;"><img style="margin: 0px; padding: 0px; display: block; height: 40px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="20" border="0"></td>
+               <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+            </tr>
+            <!--[if !mso]><!-->
+            <tr class="mobileversion">
+               <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+               <td class="padded" style="padding: 0px; vertical-align:top; width:780px;"><img style="margin: 0px; padding: 0px; display: block; height: 20px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="20" border="0"></td>
+               <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+            </tr>
+            <!--<![endif]--> 
+            <tr>
+               <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+               <td class="padded" style="letter-spacing: 0; text-align: center; color:#000000; font-family: Arial, Regular; font-size:10px; line-height:14px;">FENDI SRL <br class="mobileversion"/>Quadrato della Concordia, 3 <br class="mobileversion"/><span class="onlydesktop">-</span> 00144 Roma, IT</b></td>
+               <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+            </tr>
+            <tr>
+               <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+               <td class="padded" style="padding: 0px; vertical-align:top; width:780px;"><img style="margin: 0px; padding: 0px; display: block; height: 40px;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="1" height="20" border="0"></td>
+               <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+            </tr>
+         </table>
+      </td>
+      <td class="padding" style="padding: 0px; vertical-align:top; width:10px;"><img style="margin: 0px; padding: 0px; display: block;" src="https://image.news.fendi.com/lib/fe3e157075640475771674/m/3/d7d966e4-96b4-4f52-9a7e-6defdd5b28db.gif" width="10" height="1"></td>
+   </tr>
+</table>
+</td>
+</tr>
+</table>
+                        
+                        <!-- FINE FOOTER -->
+                       
+                       
+                        <div width="100%" style="max-width: 800px; max-height:1px !important; visibility:hidden !important; opacity:0; white-space:nowrap; mso-hide:all; margin: 0px; padding: 0px; font:15px courier; line-height: 1px; color: transparent !important;" align="center" class="onlydesktop" block_name="Fix Iphone Gmail App">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <!--[if !mso]><!-->
+         <span style="text-align: center; display:none;">https://click.news.fendi.com/profile_center.aspx?qs=80aad93900a62af43d8c83714d98198e418b5bad5d3f2dc2dda790c55f7eac38830449de46f0296e97e6ed3e354e7a14a5f8453d87a0d44a</span>
+         <table style="text-align: center; display:none;" cellpadding="2" cellspacing="0" width="600" ID="Table5" Border=0>
+            <tr>
+               <td><font face="verdana" size="1" color="#444444">This email was sent by: <b>FENDI SRL</b><br>Quadrato della Concordia, 3 Roma, Rm, 00144, IT<br><br></font></td>
+            </tr>
+         </table>
+         <!--<![endif]-->
+         <img src="https://click.news.fendi.com/open.aspx?ffcb10-fe6216727c620c7c7414-fe301574746c0078721570-fe3e157075640475771674-ff66157774-fe2d10727367067b701575-ff3715737467&d=100183&bmt=0" width="1" height="1" alt=""></custom>
+      </table>
+   </body>
+</html>
+
+--9hglWut7tRmi=_?:--
+

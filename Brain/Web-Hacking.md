@@ -9,3 +9,5 @@
 [[SQLi]]
 [[SSTI]]
 [[XSS]]
+[[Session Manipulation]]
+[[DOM Clobbering]]

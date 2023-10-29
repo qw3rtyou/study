@@ -1,0 +1,299 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1692202098;
+	cv=none; b=CGeWGJkg90tgtiuTasrJPeRip/gaADFLxxQ1YLPm3RXAhhfmY90t+7Uwl7K3
+	 u9tCTk0nOHk4FcMTtWp1Lr3BhUn+TIddFpGSw+RASR8VxjSXPG5KDIzh2H4FyYuuMAvSKW
+	 kDLzZKL4UMhBfY+E76WF8XAEPwMXZwLXpQhv/9wsNFhMV5ZA+AjCmQWUO9eqknlgnUUvxm
+	 ma1zhXfoqAV8JmSU0OhybJEpuV6J+SI9Vf+nHxn77zPybmgqoUZhuOUgddFpGiFuAfKNg8
+	 wFw2gGgqP6Oh3pJdDkZtQUx4FaCUeaxDyFj0IfH7tcKEbEHyxpwjv90pVIJI2nnvTgq2+6
+	 9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1692202098; c=relaxed/relaxed;
+	bh=ZlF1zTYiafkHrELu/Vzkj3P0kMhrZkwH7LJRg/96Eig=;
+	h=dkim-signature:dkim-signature:from:to:subject:message-id:date; b=A1p6
+	 tJ1a1RiXdwhC8vHggK8LZWJNh67+6zm9PKqJCjDf60j+QfQB5XihXeaAtMFfv3b6lrD087
+	 cxbQd3YOGNLcGgjLwHqusLpDVi8g/EC0hzCOC1b6lvGiNdm+1QWBLYXeNULwUiPEI7HTY4
+	 JxOpoB+h06KICUbKYlVDCWZAgPco9My6rDn6GMr3tRDaIsmdV07HS2v0kVawc6NVlo67Q6
+	 ZyrqiK9Xx4fCROo2xYghw3zMnV+WNo8E/57sDZp8GOUlHwCAI9Iv2gGM4IB25A1wJ2O2Zj
+	 04beCuIgYi5b62INVMGkgKZFEEtRHlrTibF5FzNVsqmv0+vQBk8tbHRlkg==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of 010c0189ff1ade9a-0249c126-dcd4-43ea-ad62-26736c8c4b80-000000@email.daangn.com designates 76.223.177.62 as permitted sender) smtp.mailfrom=010c0189ff1ade9a-0249c126-dcd4-43ea-ad62-26736c8c4b80-000000@email.daangn.com;
+  dkim=pass header.i=@daangn.com;
+  dkim=pass header.i=@amazonses.com
+Return-Path: <010c0189ff1ade9a-0249c126-dcd4-43ea-ad62-26736c8c4b80-000000@email.daangn.com>
+Received-SPF: pass (mx.naver.com: domain of 010c0189ff1ade9a-0249c126-dcd4-43ea-ad62-26736c8c4b80-000000@email.daangn.com designates 76.223.177.62 as permitted sender)
+  client-ip=76.223.177.62; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of 010c0189ff1ade9a-0249c126-dcd4-43ea-ad62-26736c8c4b80-000000@email.daangn.com designates 76.223.177.62 as permitted sender) smtp.mailfrom=010c0189ff1ade9a-0249c126-dcd4-43ea-ad62-26736c8c4b80-000000@email.daangn.com;
+  dkim=pass header.i=@daangn.com;
+  dkim=pass header.i=@amazonses.com
+X-Naver-ESV: wr+n+6J4p63qMBIYKXwdbXmwFog/KxCYkXm=
+X-Session-IP: 76.223.177.62
+Received: from c177-62.smtp-out.ap-northeast-2.amazonses.com (c177-62.smtp-out.ap-northeast-2.amazonses.com [76.223.177.62])
+  by crcvmail101.nm.naver.com with ESMTP id TFfTLn-7SGeE37MoCryRdA
+  for <user01@naver.com>
+  (version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256);
+  Sun, 13 Aug 2023 16:08:18 -0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=pl2gunfba2i4uvan3j6z4jwn43tbt4pc; d=daangn.com; t=1692202098;
+	h=From:To:Subject:MIME-Version:Content-Type:Message-ID:Date;
+	bh=reM1CKm3FgtbgT5LsqTMh2+dvdw2PskNOKnxfBPfQrw=;
+	b=F6szq0XoH4uVGBTsVO4S85OCwQj9lkO9Cqnvibf1+KP5fQgO6U4Eaf4iADGte7nh
+	MfXBt0RtQgKjjHiHJ/1TXJ+ur03uiOPBQqJFFpy4yn1BrTfh7SbBgWRzrx33mL+i7Tk
+	bWg6MIlhzA6lgRvdu0LN07uL+Za8d+Dvit/qhRSA=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=fjorytowieawoqs5yj2get7wp7ckelq7; d=amazonses.com; t=1692202098;
+	h=From:To:Subject:MIME-Version:Content-Type:Message-ID:Date:Feedback-ID;
+	bh=reM1CKm3FgtbgT5LsqTMh2+dvdw2PskNOKnxfBPfQrw=;
+	b=S0y35qjMu9biTRFuDu2zSUz8UkxXY7VGsH5zlflSAecZcp8mXyrZwkspdsOr2lAy
+	cdzKnyxnNJo9JEdtG7lUZ375YGlNmX/PmRGvWbPk81uy95f3TRzz8dCcDpoK6Hhz9Sc
+	5H9XF3maHo+9rxxEbpzsC7LXutUkJijNj0RedlYs=
+From: =?UTF-8?B?64u56re866eI7LyT?= <account@daangn.com>
+To: user01@naver.com
+Subject: =?UTF-8?B?W+uLueq3vOuniOy8k10g7J2066mU7J28IOuTseuhneydhCDsnIQ=?=
+ =?UTF-8?B?7ZWcIOyduOymnSDsvZTrk5zrpbwg67Cc7IahIOuTnOugpOyalC4=?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1199933_1227799205.1692202098335"
+Message-ID: <010c0189ff1ade9a-0249c126-dcd4-43ea-ad62-26736c8c4b80-000000@ap-northeast-2.amazonses.com>
+Date: Sun, 13 Aug 2023 16:08:18 +0000
+Feedback-ID: 1.ap-northeast-2.M51kwKYabdKJpWELS6wehaxjNVgScyodFNVm2iV16WA=:AmazonSES
+X-SES-Outgoing: 2023.08.13-76.223.177.62
+
+------=_Part_1199933_1227799205.1692202098335
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+
+CuuLueq3vOuniOy8kyDsnbTrqZTsnbwg65Ox66Gd7J2EIOychO2VtCDsnbjspp3rsojtmLjrpbwg
+67O064K065Oc66Ck7JqULgrsnbTrqZTsnbwg7J247KadIO2ZlOuptOyXkOyEnCDslYTrnpjsnZgg
+7J247Kad67KI7Zi466W8IOyeheugpe2VmOqzoCDsnbjspp3snYQg7JmE66OM7ZW07KO87IS47JqU
+LgoK7J247Kad67KI7Zi4IC0gMTU5NjM2CgrtmLnsi5wg7JqU7LKt7ZWY7KeAIOyViuydgCDsnbjs
+pp0g66mU7J287J2EIOuwm+ycvOyFqOuCmOyalD8K64iE6rWw6rCAIOyLpOyImOuhnCDrqZTsnbwg
+7KO87IaM66W8IOyemOuquyDsnoXroKUg7ZaI7J2EIOyImCDsnojslrTsmpQuIOqzhOygleydtCDr
+j4TsmqnrkJwg6rKD7J2AIOyVhOuLiOuLiCDslYjsi6ztlZjshLjsmpQuCuyngeygkSDsmpTssq3t
+lZwg7J247KadIOuplOydvOydtCDslYTri4wg6rK97JqwIOustOyLnO2VtOyjvOyEuOyalC4KCuyd
+tCDrqZTsnbzsnYAg67Cc7IugIOyghOyaqSDrqZTsnbzsnbTsmIjsmpQuCuuLueq3vOuniOy8k+yX
+kCDqtoHquIjtlZwg7KCQ7J20IOyeiOycvOyLnOuptCDsnpDso7wg66y764qUIOyniOusuDogaHR0
+cHM6Ly93d3cuZGFhbmduLmNvbS93di9mYXFz7J2EIO2ZleyduO2VtCDrs7TshLjsmpQuCgpjb3B5
+cmlnaHQgRGFuZ2dldW4gTWFya2V0IEluYy4gQWxsIHJpZ2h0cyByZXNlcnZlZA==
+------=_Part_1199933_1227799205.1692202098335
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"/=
+>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0"/>
+  <title>[=EB=8B=B9=EA=B7=BC=EB=A7=88=EC=BC=93] =EC=9D=B4=EB=A9=94=EC=9D=BC=
+ =EB=93=B1=EB=A1=9D=EC=9D=84 =EC=9C=84=ED=95=B4 =EC=9D=B8=EC=A6=9D=EB=B2=88=
+=ED=98=B8=EB=A5=BC =EB=B3=B4=EB=82=B4=EB=93=9C=EB=A0=A4=EC=9A=94.</title>
+  <link href=3D"https://fonts.googleapis.com/css2?family=3DNoto+Sans+KR:wgh=
+t@300;500&display=3Dswap" rel=3D"stylesheet">
+</head>
+<body style=3D"margin: 0; padding: 0;">
+<table
+        width=3D"100%"
+        cellspacing=3D"0"
+        cellpadding=3D"0"
+        border=3D"0"
+        align=3D"center"
+        bgcolor=3D"#ffffff"
+        style=3D"
+        border-collapse: collapse;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 300;
+        color: #212529;
+      "
+>
+  <tbody>
+  <tr>
+    <td>
+      <table
+              width=3D"100%"
+              cellspacing=3D"0"
+              cellpadding=3D"0"
+              border=3D"0"
+              align=3D"center"
+              bgcolor=3D"#ffffff"
+              style=3D"max-width: 640px; margin: 0 auto; padding: 10px"
+      >
+        <tbody>
+        <tr>
+          <td height=3D"60px"></td>
+        </tr>
+
+        <tr>
+          <td>
+            <a
+                    href=3D"https://daangn.com"
+                    style=3D"display: inline-block; padding: 0;"
+                    target=3D"_blank"
+            ><img
+                      src=3D"https://dapwqew7lexlp.cloudfront.net/images/lo=
+go.png"
+                      width=3D"160px"
+                      height=3D"45px"
+                      alt=3D"daangn market"
+              /></a>
+          </td>
+        </tr>
+
+        <tr>
+          <td height=3D"40px"></td>
+        </tr>
+
+        <tr>
+          <td
+                  style=3D"
+                      font-size: 20px;
+                      font-weight: bold;
+                      line-height: 27px;
+                      letter-spacing: -0.6px;
+                    "
+          >
+            =EB=8B=B9=EA=B7=BC=EB=A7=88=EC=BC=93 =EC=9D=B4=EB=A9=94=EC=9D=
+=BC =EB=93=B1=EB=A1=9D=EC=9D=84 =EC=9C=84=ED=95=B4 =EC=9D=B8=EC=A6=9D=EB=B2=
+=88=ED=98=B8=EB=A5=BC =EB=B3=B4=EB=82=B4=EB=93=9C=EB=A0=A4=EC=9A=94.
+          </td>
+        </tr>
+
+        <tr>
+          <td height=3D"8px"></td>
+        </tr>
+
+        <tr>
+          <td
+                  style=3D"
+                      font-size: 16px;
+                      line-height: 24px;
+                      letter-spacing: -0.32px;
+                    "
+          >
+            =EC=9D=B4=EB=A9=94=EC=9D=BC =EC=9D=B8=EC=A6=9D =ED=99=94=EB=A9=
+=B4=EC=97=90=EC=84=9C =EC=95=84=EB=9E=98=EC=9D=98 =EC=9D=B8=EC=A6=9D=EB=B2=
+=88=ED=98=B8=EB=A5=BC =EC=9E=85=EB=A0=A5=ED=95=98=EA=B3=A0 =EC=9D=B8=EC=A6=
+=9D=EC=9D=84
+            =EC=99=84=EB=A3=8C=ED=95=B4=EC=A3=BC=EC=84=B8=EC=9A=94.
+          </td>
+        </tr>
+
+        <tr>
+          <td height=3D"32px"></td>
+        </tr>
+
+        <tr>
+          <td
+                  style=3D"
+                      font-size: 34px;
+                      font-weight: bold;
+                      line-height: 41px;
+                      letter-spacing: -1.02px;
+                    "
+          >
+              159636
+          </td>
+        </tr>
+
+        <tr>
+          <td height=3D"48px"></td>
+        </tr>
+
+        <tr>
+          <td height=3D"1px" bgcolor=3D"#DDE2E6"></td>
+        </tr>
+
+        <tr>
+          <td height=3D"48px"></td>
+        </tr>
+
+        <tr>
+          <td
+                  style=3D"
+                      font-size: 16px;
+                      line-height: 24px;
+                      letter-spacing: -0.32px;
+                      word-break: keep-all;
+                    "
+          >
+            =ED=98=B9=EC=8B=9C =EC=9A=94=EC=B2=AD=ED=95=98=EC=A7=80 =EC=95=
+=8A=EC=9D=80 =EC=9D=B8=EC=A6=9D =EB=A9=94=EC=9D=BC=EC=9D=84 =EB=B0=9B=EC=9C=
+=BC=EC=85=A8=EB=82=98=EC=9A=94?<br/>
+            =EB=88=84=EA=B5=B0=EA=B0=80 =EC=8B=A4=EC=88=98=EB=A1=9C =EB=A9=
+=94=EC=9D=BC =EC=A3=BC=EC=86=8C=EB=A5=BC =EC=9E=98=EB=AA=BB =EC=9E=85=EB=A0=
+=A5=ED=96=88=EC=9D=84 =EC=88=98 =EC=9E=88=EC=96=B4=EC=9A=94. =EA=B3=84=EC=
+=A0=95=EC=9D=B4
+            =EB=8F=84=EC=9A=A9=EB=90=9C =EA=B2=83=EC=9D=80 =EC=95=84=EB=8B=
+=88=EB=8B=88 =EC=95=88=EC=8B=AC=ED=95=98=EC=84=B8=EC=9A=94.<br/>
+            =EC=A7=81=EC=A0=91 =EC=9A=94=EC=B2=AD=ED=95=9C =EC=9D=B8=EC=A6=
+=9D =EB=A9=94=EC=9D=BC=EC=9D=B4 =EC=95=84=EB=8B=8C =EA=B2=BD=EC=9A=B0 =EB=
+=AC=B4=EC=8B=9C=ED=95=B4=EC=A3=BC=EC=84=B8=EC=9A=94.
+          </td>
+        </tr>
+
+        <tr>
+          <td height=3D"48px"></td>
+        </tr>
+
+        <tr>
+          <td height=3D"2px" bgcolor=3D"#212529"></td>
+        </tr>
+
+        <tr>
+          <td height=3D"32px"></td>
+        </tr>
+
+        <tr>
+          <td
+                  style=3D"
+                      font-size: 13px;
+                      line-height: 20px;
+                      letter-spacing: -0.26px;
+                      color: #868e96;
+                    "
+          >
+            =EC=9D=B4 =EB=A9=94=EC=9D=BC=EC=9D=80 =EB=B0=9C=EC=8B=A0 =EC=A0=
+=84=EC=9A=A9 =EB=A9=94=EC=9D=BC=EC=9D=B4=EC=97=90=EC=9A=94.<br/>
+            =EB=8B=B9=EA=B7=BC=EB=A7=88=EC=BC=93=EC=97=90 =EA=B6=81=EA=B8=
+=88=ED=95=9C =EC=A0=90=EC=9D=B4 =EC=9E=88=EC=9C=BC=EC=8B=9C=EB=A9=B4
+
+            <a
+                    href=3D"https://www.daangn.com/wv/faqs"
+                    style=3D"color: #ff8a3d; text-decoration: underline;"
+                    target=3D"_blank"
+            >=EC=9E=90=EC=A3=BC =EB=AC=BB=EB=8A=94 =EC=A7=88=EB=AC=B8</a
+            >=EC=9D=84 =ED=99=95=EC=9D=B8=ED=95=B4 =EB=B3=B4=EC=84=B8=EC=9A=
+=94.
+          </td>
+        </tr>
+
+        <tr>
+          <td height=3D"8px"></td>
+        </tr>
+
+        <tr>
+          <td
+                  style=3D"
+                      font-size: 13px;
+                      line-height: 20px;
+                      letter-spacing: -0.26px;
+                      color: #adb5bd;
+                    "
+          >
+            =C2=A9 Danggeun Market Inc.
+          </td>
+        </tr>
+
+        <tr>
+          <td height=3D"80px"></td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
+------=_Part_1199933_1227799205.1692202098335--

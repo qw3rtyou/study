@@ -1,0 +1,68 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1668677798;
+	cv=none; b=JWdRjMzOteB8Kqu4Whz5i8GIf0+mq8dbXGNwjDIPI/jkcITKbCd7CnuOIrMy
+	 GDC7fs7rfzdQvc4K8Z7165PuZ7Oj2J7x0f7R55hJw6wF3m+aAVPRsgTmpfuuPlwydSlHrh
+	 tKV1kvvMhRabHjf9Gc5J9YoQSdgYvbWGAFIdlOcmj5/ciPp9wafd8AT3XczyrmU9kBF3bj
+	 NA742nTv8sVyU0q2EOD4yGyvGmh05Nau6H5ahWPBnnOexpHRjyXopUo1Glj6t43nDBGzxP
+	 vfR8Pwpfa3mvJIi4ZbjgH2SA+Cj1vX50eGdDmoIjGdvUzhr7EnEML1wOHM9u9yH4nK+Y+N
+	 6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1668677798; c=relaxed/relaxed;
+	bh=5bE5ZH6oBN/plA34+NmWPcHuSBja0F6/+QY4KGWKhV8=;
+	h=from:to:subject:date:message-id; b=Hzj5rUTMYUH8aewTcb96+1odJP+b8jZnJP
+	 41lWdc1QZ+K0UVg3ui7suFQhdbT6/GV8RJN4okEb2Wkd8dt5peoFsI+sGVwM0A6GUzTemE
+	 Wga+YAa9j3CuAaZr1vTnxg/WqfPfRz34/6szfMe3ftBCMaN+pmTEa0j6Z/QB0IfEc5u/+o
+	 zPMRB5HAI2K+4pZaJOkLdYaugTDpJo9j4PzmNtFOcgAvw7EDrnGtE+3xfHyR5QoU2mRGsd
+	 kq916sMIGJxPqoNT6b7Z34nc4SZWs56PsRWa/DtGnQF6XSctGzH2Le0UPWoHRF57/kUpqR
+	 D5NL+//NI+0CLljX6o8/I+WZab7Q==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of sunreturn@miraeasset.com designates 211.115.103.104 as permitted sender) smtp.mailfrom=sunreturn@miraeasset.com
+Return-Path: <sunreturn@miraeasset.com>
+Received-SPF: pass (mx.naver.com: domain of sunreturn@miraeasset.com designates 211.115.103.104 as permitted sender)
+  client-ip=211.115.103.104; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of sunreturn@miraeasset.com designates 211.115.103.104 as permitted sender) smtp.mailfrom=sunreturn@miraeasset.com
+X-Naver-ESV: wXen+6J4p63qMBIYFHwdbXmmaxKrKqCYkXm=
+X-Session-IP: 211.115.103.104
+Received: from mailing.miraeasset.com (mailing.miraeasset.com [211.115.103.104])
+  by crcvmail106.nm.naver.com with ESMTP id QtS+anjjTg6p5bMxqF+9yA
+  for <user01@naver.com>;
+  Mon, 14 Aug 2023 09:36:38 -0000
+From: "=?utf-8?B?66+4656Y7JeQ7IWL7Kad6raM?=" <mailmaster@miraeasset.com>
+To: "=?utf-8?B?67CV7KeA7J2A?=" <user01@naver.com>
+Reply-to: <mailmaster@miraeasset.com>
+Subject: =?utf-8?B?W+uvuOuemOyXkOyFi+ymneq2jF0g6riI7Jy17IKs6riwIO2UvA==?=
+ =?utf-8?B?7ZW07JiI67CpIOyViOuCtA==?=
+Date: Mon, 14 Aug 2023 18:36:38 +0900
+X-WORKER_ID: <single.naver.com_Worker_9>
+X-MAIL_ID: <UE9TVF9JRD0yMDIyMTExNzAwMDAz>
+X-MEMBER_ID: <TV9JRD0wNzYwMDE4NA==>
+X-SEND_TYPE: <U1RZUEU9TUFTUw==>
+X-LIST_TABLE: <TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTE=>
+X-Mailer: eMsSMTP Ver6.5( PLUTO-build 0322 )
+MIME-Version: 1.0
+Message-ID: <202211171836387061@mailing.miraeasset.com_Ems@mailing.miraeasset.com>
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<html>
+<head>
+<title>미래에셋증권</title>
+</head>
+<body>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="720px">
+<tbody>
+<tr>
+<td>
+<img border="0" src="https://img.securities.miraeasset.com/email/info/2022/edm_fraud_info_20221114.jpg" /></td>
+</tr>
+</tbody>
+</table>
+<br />
+<div style="display:none"><img src="https://mailing.miraeasset.com/Check.html?TV9JRD0wNzYwMDE4NA==&U1RZUEU9TUFTUw==&TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTE=&UE9TVF9JRD0yMDIyMTExNzAwMDAz&VEM9MjAyMjExMjQ=&S0lORD1P" width=1 height=1></div>
+<iframe src="https://mailing.miraeasset.com/Check.html?TV9JRD0wNzYwMDE4NA==&U1RZUEU9TUFTUw==&TElTVF9UQUJMRT1FTVNfTUFTU19TRU5EX0xJU1RfMTE=&UE9TVF9JRD0yMDIyMTExNzAwMDAz&VEM9MjAyMjExMjQ=&S0lORD1E" frameborder="0" width="1" height="1"></iframe>
+</body>
+</html>
+
+
+

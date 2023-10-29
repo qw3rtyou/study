@@ -1,0 +1,1166 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1692321653;
+	cv=none; b=Do8XUeGDYjo/Kvsar72He1olhQUG5QiJD460MvZRUeDvU/RGBVwPjGuyR0WJ
+	 IIr9mAvCvFtr94AuYPVkdC0CKTFwNXqW3HxS7XBhswsWekbyLzq9vC6gdyoRMSD4p2MOsl
+	 ih5IH0MbGvrAnrNt56vRmlYd7Uhtd+XQhFdKLpg8drJzNocaYzl3s+2Dzmhj9Bs++FuV0q
+	 qd45HyNKeOaNLmdJErMXRTI2xzMSh1PrxwFI92QY/YGzDFirWL7FE10N/QieqmteRwjB8F
+	 wObmhK2Z5Er0xT2ByyFfi5Kp99IsQZuzI70kYOu99+LqcdfVzRSYQ4aKDolDYG0gDrGvCm
+	 Wg==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1692321653; c=relaxed/relaxed;
+	bh=XYOLqK7U/NAcr19GvSRVLZ7czYJlBKEdx+RZI475F+U=;
+	h=dkim-signature:dkim-signature:from:to:subject:message-id:date; b=E4wI
+	 qRty9ImGjW39JIa81e6epPF8lGcKtF5+fAVhcNrXEUR7mpU1pM1DESclAPcRk+hPxL1uin
+	 pJJhSAJ654VZu3nUzSR0EwZEGf2uN7a5+y4c6T9ca7L56i1I9HS1ltxLa68UDw64pztt64
+	 9XpGfXGZ1oHtAqW4L9YgyuwHaR2n76zgrbEtNZDY4upu1QuIZD3S9V1ni7FngDG0YOI0cS
+	 I97t5VOYL6K+wji0d+vyCe6MTNolqXmQLa7M5erYGxAkYqjUE9HElohiEHpQ72Rcq2II1v
+	 KjcFo9EevZg8Uqh6XX3xgzkKL/41Hk/NaBhnS/mFnqJzDN+P1sDgoN0FUw==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of 0107018a063b1d81-59ac9c32-4984-478a-9214-e578424c53b6-000000@newsletter.trip.com designates 69.169.224.50 as permitted sender) smtp.mailfrom=0107018a063b1d81-59ac9c32-4984-478a-9214-e578424c53b6-000000@newsletter.trip.com;
+  dkim=pass header.i=@trip.com;
+  dkim=pass header.i=@amazonses.com;
+  dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=newsletter.trip.com
+Return-Path: <0107018a063b1d81-59ac9c32-4984-478a-9214-e578424c53b6-000000@newsletter.trip.com>
+Received-SPF: pass (mx.naver.com: domain of 0107018a063b1d81-59ac9c32-4984-478a-9214-e578424c53b6-000000@newsletter.trip.com designates 69.169.224.50 as permitted sender)
+  client-ip=69.169.224.50; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of 0107018a063b1d81-59ac9c32-4984-478a-9214-e578424c53b6-000000@newsletter.trip.com designates 69.169.224.50 as permitted sender) smtp.mailfrom=0107018a063b1d81-59ac9c32-4984-478a-9214-e578424c53b6-000000@newsletter.trip.com;
+  dkim=pass header.i=@trip.com;
+  dkim=pass header.i=@amazonses.com;
+  dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=newsletter.trip.com
+X-Naver-ESV: wf+n+6J4p63CbHmqKBwdbXFYKAuZKAEqjJ+Y
+X-Session-IP: 69.169.224.50
+Received: from b224-50.smtp-out.eu-central-1.amazonses.com (b224-50.smtp-out.eu-central-1.amazonses.com [69.169.224.50])
+  by crcvmail102.nm.naver.com with ESMTP id bmcmptk9TTWmCNLvzSsm+Q
+  for <user01@naver.com>
+  (version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256);
+  Fri, 11 Aug 2023 01:20:53 -0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=shqtmsqawp3udyle6kpyobif642lmqb3; d=trip.com; t=1692321652;
+	i=@newsletter.trip.com;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date;
+	bh=nwFbUaEaXVhZVjsJSN1kCBmz2m8CKEyhqCHFPKNXQ/U=;
+	b=f9bScBMcRrQkVHtul0S9jTrHlXCW5NiT1KmyVrhCxXvGE0qW2v4RI29tD8eRE9Wv
+	XRHShhPfh4QGE6pWepbt2/RdCwij0CBwzBriaW8Re9i5sjD7oft45q3CwzpUDxF3WyV
+	q+am917JzxjkOvE0T8ywY/RB9mEhjr5ZC7SDzS1keH/xueuz+kEB9yo3mHM+ALxjQpf
+	QIzsFJxSWQlryAfpyWCFMFIg+cxN9T1A/JawSKfRhSAwBZNk4XXd2BZN63S5DmU1MzL
+	wO6t869kU13yB2bpfprJ4uVb5NUhwK9zGzL4/JbU1v7UGRAfvAGbyD14T+2/vDp7MWZ
+	u0vPZR9idA==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=sokbgaaqhfgd6qjht2wmdajpuuanpimv; d=amazonses.com; t=1692321652;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date:Feedback-ID;
+	bh=nwFbUaEaXVhZVjsJSN1kCBmz2m8CKEyhqCHFPKNXQ/U=;
+	b=D8S/pkXKfD4/epyMTFdxdxVpbzCjTSDodYme/b81CRQnLQL0gLlDlgR8J59o7NuW
+	sYkBQ+5kgwUkEWltpf91Zm0Lc8PZzHp3QD+hg3XgvO8UjEJBWXZEwr0tP19kbZ7pBWc
+	5JRHW8lop36Dn3MOL1lIpL0KP5J2JCxWYyDWlDHM=
+From: =?utf-8?B?VHJpcC5jb20=?= <Trip.com@newsletter.trip.com>
+To: user01@naver.com
+Subject: =?UTF-8?B?4oCLKOq0keqzoCkg64yA7ZWc7ZWt6rO18J+SmSA=?=
+ =?UTF-8?B?64+Z64Ko7JWEIOyZleuztSAzT+unjCDsm5DrjIA=?=
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <0107018a063b1d81-59ac9c32-4984-478a-9214-e578424c53b6-000000@eu-central-1.amazonses.com>
+Date: Fri, 11 Aug 2023 01:20:52 +0000
+Feedback-ID: 1.eu-central-1.UP2m+N8t0j2E5w1wB93nE28cnowv5TY1ZCUQ4kMpuSA=:AmazonSES
+X-SES-Outgoing: 2023.08.11-69.169.224.50
+
+<!DOCTYPE html><html><head></head><body><span class=3D"preheader" style=3D"=
+color: transparent; display: none; height: 0; max-height: 0; max-width: 0; =
+opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;"=
+>=EB=89=B4=EC=A7=88=EB=9E=9C=EB=93=9C =ED=8A=B9=EA=B0=80=EB=8F=84 =ED=99=95=
+=EC=9D=B8=E2=9C=88=EF=B8=8F</span></body></html><!doctype html><html lang=
+=3D"en-US"><head><meta charset=3D"utf-8"/><meta name=3D"viewport" content=
+=3D"width=3Ddevice-width, initial-scale=3D1.0"/><style>.hotel-card-list-res=
+ponsive-edm{width:100% !important;}  .hotel-card-primary{display: block !im=
+portant;width: 100% !important;}  .hotel-card-primary-gap{display: block !i=
+mportant;width: 100% !important;height: 8px !important;} .trip-mail-fluid p=
+ {margin: 0;word-break: break-word;}  @media only screen and (min-width: 64=
+0px) {  .hotel-card-list-responsive-edm{width:640px !important;}  .hotel-ca=
+rd-primary{display: table-cell !important;width:300px !important;}  .hotel-=
+card-primary-gap{display: table-cell !important;width: 8px !important;}  } =
+ @media only screen and (max-width: 500px) {  .trip-mail-block {display: ta=
+ble} .trip-mail-fluid {width: 100% !important;height: auto !important;box-s=
+izing: border-box; min-width: auto !important;} .trip-mail-fluid-half {widt=
+h: 50% !important;max-width: 50% !important;height:auto !important;box-sizi=
+ng: border-box;min-width: auto !important;}  }</style></head><body><table c=
+lass=3D"trip-mail-fluid" width=3D"100%" align=3D"center" border=3D"0" cellP=
+adding=3D"0" cellSpacing=3D"0"><tbody><tr><td style=3D"background:#ececec">=
+<table class=3D"trip-mail-fluid" align=3D"center" border=3D"0" width=3D"600=
+" cellPadding=3D"0" cellSpacing=3D"0" style=3D"min-width:auto;max-width:600=
+px;margin:0 auto"><tbody><tr><td style=3D"background:#ffffff"><img style=3D=
+"display:none" width=3D"1" height=3D"1" src=3D"http://www.trip.com/forward/=
+middlepages/channel/openEdm/?bizData=3DeyJldmVudCI6Im9wZW4iLCJ0aXRsZSI6Im9w=
+ZW5fdXJsIiwia2V5IjoiU0lOLUFXUy0yMDYyMS0xMDEyOTEwODExLTE2OTIzMjE0ODc1NzAuNjE=
+zIn0%3D"/><img style=3D"display:none" width=3D"1" height=3D"1" src=3D"http:=
+//www.trip.com/forward/middlepages/channel/openEdm/?bizData=3DeyJldmVudCI6I=
+mV4cG9zdXJlIiwidGl0bGUiOiJvcGVuX3VybCIsImtleSI6IlNJTi1BV1MtMjA2MjEtMTAxMjkx=
+MDgxMS0xNjkyMzIxNDg3NTcwLjYxMyIsIml0ZW1zIjpbeyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWN=
+vbXBvbmVudC1tYWlsLXByZWhlYWRlciIsImlkIjoic3RydV9ReDkwdGVTUXlIc2F2WEciLCJkYX=
+RhIjp7fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWhlYWRlciIsImlkI=
+joic3RydV94RzNjZ2ZoNjVJRXhxZmgiLCJkYXRhIjp7fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3Vk=
+LWNvbXBvbmVudC1tYWlsLXBhbmVsIiwiaWQiOiJzdHJ1XzlxMFg2dVJlanVEbDluViIsImRhdGE=
+iOnt9fSx7InR5cGUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtaW1hZ2UiLCJpZCI6In=
+N0cnVfSFl5bWNHN0tJdkNLYlBWIiwiZGF0YSI6e319LHsidHlwZSI6IkBjdHJpcC9jbG91ZC1jb=
+21wb25lbnQtbWFpbC1wYW5lbCIsImlkIjoic3RydV9xMkNMckZFQWtreTBSUlUiLCJkYXRhIjp7=
+fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLXNwYWNpbmciLCJpZCI6InN=
+0cnVfVHdKNkJNNEFleGRTaUdoIiwiZGF0YSI6e319LHsidHlwZSI6IkBjdHJpcC9jbG91ZC1jb2=
+1wb25lbnQtbWFpbC1zcGFjaW5nIiwiaWQiOiJzdHJ1XzdjMTFQVmxFQXYwbWtUdyIsImRhdGEiO=
+nt9fSx7InR5cGUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtdGV4dCIsImlkIjoic3Ry=
+dV9QbjVQNUhvTFFYbkhYMTgiLCJkYXRhIjp7fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWNvbXB=
+vbmVudC1tYWlsLXBhbmVsIiwiaWQiOiJzdHJ1X0Y3N2lPcEJsa0JsdmJrdCIsImRhdGEiOnt9fS=
+x7InR5cGUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtc3BhY2luZyIsImlkIjoic3Ryd=
+V9Ta2JXNWVNc0FMMGJqcEQiLCJkYXRhIjp7fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWNvbXBv=
+bmVudC1tYWlsLXNwYWNpbmciLCJpZCI6InN0cnVfZFhUSGtQR1Rxdk5zS3lYIiwiZGF0YSI6e31=
+9LHsidHlwZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1idXR0b24iLCJpZCI6InN0cn=
+VfQ2MzbHVERlF3NTQ5aTJsIiwiZGF0YSI6e319LHsidHlwZSI6IkBjdHJpcC9jbG91ZC1jb21wb=
+25lbnQtbWFpbC1zcGFjaW5nIiwiaWQiOiJzdHJ1X0phZ3BJcU5SQUlLTTE0NSIsImRhdGEiOnt9=
+fSx7InR5cGUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtc3BhY2luZyIsImlkIjoic3R=
+ydV84TExONTZkMno1NDhOZUciLCJkYXRhIjp7fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWNvbX=
+BvbmVudC1tYWlsLXRleHQiLCJpZCI6InN0cnVfa3ltNnVZV3dDVFd3M0d4IiwiZGF0YSI6e319L=
+HsidHlwZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1zcGFjaW5nIiwiaWQiOiJzdHJ1=
+X1BIZDJ6QVdRb3pTZTRwSCIsImRhdGEiOnt9fV19"/><img style=3D"display:none" widt=
+h=3D"1" height=3D"1" src=3D"http://www.trip.com/forward/middlepages/channel=
+/openEdm/?bizData=3DeyJldmVudCI6ImV4cG9zdXJlIiwidGl0bGUiOiJvcGVuX3VybCIsImt=
+leSI6IlNJTi1BV1MtMjA2MjEtMTAxMjkxMDgxMS0xNjkyMzIxNDg3NTcwLjYxMyIsIml0ZW1zIj=
+pbeyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWZsaWdodC1saXN0IiwiaWQiO=
+iJzdHJ1X3pNZnVnT2cyTEhheHBFeCIsImRhdGEiOnt9fSx7InR5cGUiOiJAY3RyaXAvY2xvdWQt=
+Y29tcG9uZW50LW1haWwtcGFuZWwiLCJpZCI6InN0cnVfSXo5QXloclN3VmlMWVVSIiwiZGF0YSI=
+6e319LHsidHlwZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1zcGFjaW5nIiwiaWQiOi=
+JzdHJ1XzJsNVNHZDZKZW1hc2pSdiIsImRhdGEiOnt9fSx7InR5cGUiOiJAY3RyaXAvY2xvdWQtY=
+29tcG9uZW50LW1haWwtc3BhY2luZyIsImlkIjoic3RydV9QSUMyTUN0NUlxYXA5UUciLCJkYXRh=
+Ijp7fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWJ1dHRvbiIsImlkIjo=
+ic3RydV9saGVMb280Rkd4a0lHM3YiLCJkYXRhIjp7fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLW=
+NvbXBvbmVudC1tYWlsLXNwYWNpbmciLCJpZCI6InN0cnVfTXZha3ZDdnNlMldDRmtpIiwiZGF0Y=
+SI6e319LHsidHlwZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1zcGFjaW5nIiwiaWQi=
+OiJzdHJ1X3F1bWh3N2NseGY1M0s2WSIsImRhdGEiOnt9fSx7InR5cGUiOiJAY3RyaXAvY2xvdWQ=
+tY29tcG9uZW50LW1haWwtdGV4dCIsImlkIjoic3RydV84UVRQRm9kcjljek1vTGsiLCJkYXRhIj=
+p7fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLXNwYWNpbmciLCJpZCI6I=
+nN0cnVfWHZLZVE5SmRNM0FMV25HIiwiZGF0YSI6e319LHsidHlwZSI6IkBjdHJpcC9jbG91ZC1j=
+b21wb25lbnQtbWFpbC1hZC1kZWFscyIsImlkIjoic3RydV9VVElyQnNPV0VEOWNpNGEiLCJkYXR=
+hIjp7fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWltYWdlIiwiaWQiOi=
+JzdHJ1X2NUaGxuckQ3SHZnSndIRiIsImRhdGEiOnt9fSx7InR5cGUiOiJAY3RyaXAvY2xvdWQtY=
+29tcG9uZW50LW1haWwtaW1hZ2UiLCJpZCI6InN0cnVfQms3S001dWtsbUY1ZHFuIiwiZGF0YSI6=
+e319LHsidHlwZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1hcHAtaW5zdGFsbCIsIml=
+kIjoic3RydV9yTVpRSklpY3pOU0ZXY2QiLCJkYXRhIjp7fX0seyJ0eXBlIjoiQGN0cmlwL2Nsb3=
+VkLWNvbXBvbmVudC1tYWlsLWZvb3RlciIsImlkIjoic3RydV85Sm5NUXY1UHBNajVoNnUiLCJkY=
+XRhIjp7fX1dfQ=3D=3D"/><div><div style=3D"display:none;font-size:1px;line-he=
+ight:1;max-height:0;max-width:0;opacity:0;overflow:hidden">=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+ =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C</div></div><table class=3D"trip-mail-fluid" =
+align=3D"center" width=3D"100%" border=3D"0" cellPadding=3D"0" cellSpacing=
+=3D"0"><tbody><tr><td><table class=3D"trip-mail-fluid" align=3D"left" valig=
+n=3D"middle" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><t=
+d colSpan=3D"2" height=3D"12"></td></tr><tr><td width=3D"16"></td><td bgcol=
+or=3D"#ffffff" align=3D"left" valign=3D"middle"><a rel=3D"noopener noreferr=
+er" target=3D"_blank" title=3D"header-logo" href=3D"https://www.trip.com/fo=
+rward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Findex=
+%3Flocale%3Dko_kr%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012910811=
+-1692321487570.613%26ouid%3D60676.kr-edm-20230818-koreanair.2023-08-18_9_0.=
+20230818.ko_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0b=
+GUiOiJoZWFkZXItbG9nbyIsInR5cGUiOiJyZWFjdC5jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlw=
+L2Nsb3VkLWNvbXBvbmVudC1tYWlsLWhlYWRlciIsImxhYmVsIjoiaGVhZGVyIiwiaWQiOiJzdHJ=
+1X3hHM2NnZmg2NUlFeHFmaCIsImZpbGVJZCI6ImZpbGVfWjFUSERKZThCaXladUNvIiwiZm94cG=
+FnZVZlcnNpb24iOjIsImZwVHJhY2VJZCI6ImRjZjUwNWUyLTE1OWYtNGU4OS05YTBiLTYzNWUwN=
+GVhOWExYiIsInRlbXBsYXRlSWQiOiJjb250X3g5bHpmbU93ZmZOTjE0bCIsInRlbXBsYXRlVmVy=
+c2lvbiI6OSwiZGF0YSI6eyJuYW1lIjoiaGVhZGVyLWxvZ28ifX0%3D" style=3D"display:bl=
+ock"><img border=3D"0" width=3D"118" height=3D"30" src=3D"http://ak-d.tripc=
+dn.com/images/0a136120009ctk8uv48BC.png" alt=3D"" style=3D"display:block"/>=
+</a></td></tr></tbody></table><table class=3D"trip-mail-fluid" align=3D"rig=
+ht" valign=3D"middle" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tbo=
+dy><tr><td colSpan=3D"2" height=3D"16"></td></tr><tr><td bgcolor=3D"#ffffff=
+" align=3D"right" valign=3D"middle"><table cellPadding=3D"0" cellSpacing=3D=
+"0"><tbody><tr><td valign=3D"middle"><a rel=3D"noopener noreferrer" target=
+=3D"_blank" title=3D"header-flights-site" href=3D"https://www.trip.com/forw=
+ard/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Fflights=
+%2Fwelcome%2F%3Fto%3Dhome%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-10=
+12910811-1692321487570.613%26ouid%3D60676.kr-edm-20230818-koreanair.2023-08=
+-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWNrI=
+iwidGl0bGUiOiJoZWFkZXItZmxpZ2h0LWxpbmsiLCJ0eXBlIjoicmVhY3QuY29tcG9uZW50Iiwi=
+bmFtZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1oZWFkZXIiLCJsYWJlbCI6ImhlYWR=
+lciIsImlkIjoic3RydV94RzNjZ2ZoNjVJRXhxZmgiLCJmaWxlSWQiOiJmaWxlX1oxVEhESmU4Qm=
+l5WnVDbyIsImZveHBhZ2VWZXJzaW9uIjoyLCJmcFRyYWNlSWQiOiIzNDllZDhhYi01MmI1LTQ2Y=
+2MtYmJiMS0wYWM3YjFmOTBmMTUiLCJ0ZW1wbGF0ZUlkIjoiY29udF94OWx6Zm1Pd2ZmTk4xNGwi=
+LCJ0ZW1wbGF0ZVZlcnNpb24iOjksImRhdGEiOnsibmFtZSI6ImhlYWRlci1mbGlnaHQtbGluayJ=
+9fQ%3D%3D" style=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Hel=
+vetica,Arial,sans-serif;color:#3264FF;text-decoration:none;font-size:14px">=
+=ED=95=AD=EA=B3=B5=EA=B6=8C</a></td><td width=3D"16"></td><td valign=3D"mid=
+dle"><a rel=3D"noopener noreferrer" target=3D"_blank" title=3D"header-hotel=
+s-site" href=3D"https://www.trip.com/forward/middlepages/channel/edm?target=
+Url=3Dhttps%3A%2F%2Fkr.trip.com%2Fhotels%2Fw%2Fhome%2F%3Fallianceid%3D32404=
+8%26edm_id%3DSIN-AWS-20621-1012910811-1692321487570.613%26ouid%3D60676.kr-e=
+dm-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bi=
+zData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJoZWFkZXItaG90ZWwtbGluayIsInR5cGU=
+iOiJyZWFjdC5jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLW=
+hlYWRlciIsImxhYmVsIjoiaGVhZGVyIiwiaWQiOiJzdHJ1X3hHM2NnZmg2NUlFeHFmaCIsImZpb=
+GVJZCI6ImZpbGVfWjFUSERKZThCaXladUNvIiwiZm94cGFnZVZlcnNpb24iOjIsImZwVHJhY2VJ=
+ZCI6ImFkZGM5ODU5LTlkZjYtNDA4NC04MzUxLTJjYjdjZDdhZWY2YiIsInRlbXBsYXRlSWQiOiJ=
+jb250X3g5bHpmbU93ZmZOTjE0bCIsInRlbXBsYXRlVmVyc2lvbiI6OSwiZGF0YSI6eyJuYW1lIj=
+oiaGVhZGVyLWhvdGVsLWxpbmsifX0%3D" style=3D"font-family:BlinkMacSystemFont,-=
+apple-system,Roboto,Helvetica,Arial,sans-serif;color:#3264FF;text-decoratio=
+n:none;font-size:14px">=ED=98=B8=ED=85=94</a></td><td width=3D"16"></td><td=
+ valign=3D"middle"><a rel=3D"noopener noreferrer" target=3D"_blank" title=
+=3D"header-trains-site" href=3D"https://www.trip.com/forward/middlepages/ch=
+annel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Ftrains%2F%3Flocale%3Dko_k=
+r%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012910811-1692321487570.6=
+13%26ouid%3D60676.kr-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%=
+26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJoZWFkZXItd=
+HJhaW4tbGluayIsInR5cGUiOiJyZWFjdC5jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlwL2Nsb3Vk=
+LWNvbXBvbmVudC1tYWlsLWhlYWRlciIsImxhYmVsIjoiaGVhZGVyIiwiaWQiOiJzdHJ1X3hHM2N=
+nZmg2NUlFeHFmaCIsImZpbGVJZCI6ImZpbGVfWjFUSERKZThCaXladUNvIiwiZm94cGFnZVZlcn=
+Npb24iOjIsImZwVHJhY2VJZCI6IjY2ODE3ZWQyLTlkNmQtNDNmMS05NWYzLWY4ZWMzNzQ4OWZkN=
+CIsInRlbXBsYXRlSWQiOiJjb250X3g5bHpmbU93ZmZOTjE0bCIsInRlbXBsYXRlVmVyc2lvbiI6=
+OSwiZGF0YSI6eyJuYW1lIjoiaGVhZGVyLXRyYWluLWxpbmsifX0%3D" style=3D"font-famil=
+y:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:=
+#3264FF;text-decoration:none;font-size:14px">=EA=B8=B0=EC=B0=A8=ED=91=9C</a=
+></td><td width=3D"16"></td><td valign=3D"middle"><a rel=3D"noopener norefe=
+rrer" target=3D"_blank" title=3D"header-tnt-site" href=3D"https://www.trip.=
+com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2=
+Fthings-to-do%2Fttd-home%2F%3Flocale%3Dko_kr%26allianceid%3D324048%26edm_id=
+%3DSIN-AWS-20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm-2023081=
+8-koreanair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3Dey=
+JldmVudCI6ImNsaWNrIiwidGl0bGUiOiJoZWFkZXItdG50LWxpbmsiLCJ0eXBlIjoicmVhY3QuY=
+29tcG9uZW50IiwibmFtZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1oZWFkZXIiLCJs=
+YWJlbCI6ImhlYWRlciIsImlkIjoic3RydV94RzNjZ2ZoNjVJRXhxZmgiLCJmaWxlSWQiOiJmaWx=
+lX1oxVEhESmU4Qml5WnVDbyIsImZveHBhZ2VWZXJzaW9uIjoyLCJmcFRyYWNlSWQiOiI4NTdmOT=
+ljMS0xZjlhLTQ3MjEtODJlZi1mMjVkMmY4M2ZhZmQiLCJ0ZW1wbGF0ZUlkIjoiY29udF94OWx6Z=
+m1Pd2ZmTk4xNGwiLCJ0ZW1wbGF0ZVZlcnNpb24iOjksImRhdGEiOnsibmFtZSI6ImhlYWRlci10=
+bnQtbGluayJ9fQ%3D%3D" style=3D"font-family:BlinkMacSystemFont,-apple-system=
+,Roboto,Helvetica,Arial,sans-serif;color:#3264FF;text-decoration:none;font-=
+size:14px">=ED=88=AC=EC=96=B4&amp;=ED=8B=B0=EC=BC=93</a></td></tr></tbody><=
+/table></td><td width=3D"16"></td></tr><tr><td colSpan=3D"2" height=3D"16">=
+</td></tr></tbody></table></td></tr></tbody></table><table class=3D"trip-ma=
+il-fluid" width=3D"100%" align=3D"center" cellSpacing=3D"0" cellPadding=3D"=
+0" border=3D"0"><tbody><tr><td bgcolor=3D"#000000" style=3D"border-radius:0=
+;border:none;background:#000000;direction:ltr"><table class=3D"trip-mail-fl=
+uid" width=3D"100%" align=3D"center" border=3D"0" cellPadding=3D"0" cellSpa=
+cing=3D"0"><tbody><tr><td class=3D"fp-slot" style=3D"border-radius:0;paddin=
+g:0px 0px 0px 0px"><table align=3D"center" class=3D"trip-mail-fluid" width=
+=3D"100%" cellPadding=3D"0" cellSpacing=3D"0" style=3D"text-align:center;ma=
+x-width:100%;table-layout:auto"><tbody><tr><td align=3D"center" style=3D"ov=
+erflow:inherit"><img width=3D"100%" border=3D"0" class=3D"trip-mail-fluid" =
+style=3D"display:block;border:none;outline:none;border-radius:0px;max-width=
+:undefinedpx;max-height:undefinedpx" src=3D"https://ak-d.tripcdn.com/images=
+/0a11212000as74wn1EB2F.png" alt=3D""/></td></tr></tbody></table></td></tr><=
+/tbody></table></td></tr></tbody></table><table class=3D"trip-mail-fluid" w=
+idth=3D"100%" align=3D"center" cellSpacing=3D"0" cellPadding=3D"0" border=
+=3D"0"><tbody><tr><td bgcolor=3D"rgba(0,0,0,0)" style=3D"border-radius:0;bo=
+rder:none;background:rgba(0,0,0,0);direction:ltr"><table class=3D"trip-mail=
+-fluid" width=3D"100%" align=3D"center" border=3D"0" cellPadding=3D"0" cell=
+Spacing=3D"0"><tbody><tr><td class=3D"fp-slot" style=3D"border-radius:0;pad=
+ding:0px 0px 0px 0px"><table width=3D"100%" cellSpacing=3D"0" cellPadding=
+=3D"0" border=3D"0"><tbody><tr><td height=3D"16"></td></tr></tbody></table>=
+<table width=3D"100%" cellSpacing=3D"0" cellPadding=3D"0" border=3D"0"><tbo=
+dy><tr><td height=3D"16"></td></tr></tbody></table><table class=3D"trip-mai=
+l-fluid" width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td =
+align=3D"center"><span style=3D"font-family:BlinkMacSystemFont,-apple-syste=
+m,Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.2;vertical=
+-align:middle;text-decoration:none;margin:0">=EB=8F=99=EB=82=A8=EC=95=84=C2=
+=B7=EB=89=B4=EC=A7=88=EB=9E=9C=EB=93=9C =ED=95=AD=EA=B3=B5=EA=B6=8C =ED=8A=
+=B9=EA=B0=80<br>
+=EB=8C=80=ED=95=9C=ED=95=AD=EA=B3=B5=EA=B3=BC =ED=95=A8=EA=BB=98 =EB=96=A0=
+=EB=82=98=EC=9A=94=F0=9F=92=99=E2=80=8B<br>
+</span></td></tr></tbody></table></td></tr><tr><td height=3D"1"></td></tr><=
+/tbody></table></td></tr></tbody></table><table class=3D"trip-mail-fluid" w=
+idth=3D"100%" align=3D"center" cellSpacing=3D"0" cellPadding=3D"0" border=
+=3D"0"><tbody><tr><td bgcolor=3D"rgba(0,0,0,0)" style=3D"border-radius:0;bo=
+rder:none;background:rgba(0,0,0,0);direction:ltr"><table class=3D"trip-mail=
+-fluid" width=3D"100%" align=3D"center" border=3D"0" cellPadding=3D"0" cell=
+Spacing=3D"0"><tbody><tr><td class=3D"fp-slot" style=3D"border-radius:0;pad=
+ding:0px 0px 0px 0px"><table width=3D"100%" cellSpacing=3D"0" cellPadding=
+=3D"0" border=3D"0"><tbody><tr><td height=3D"16"></td></tr></tbody></table>=
+<table width=3D"100%" cellSpacing=3D"0" cellPadding=3D"0" border=3D"0"><tbo=
+dy><tr><td height=3D"16"></td></tr></tbody></table><table class=3D"trip-mai=
+l-fluid" width=3D"180px" align=3D"center" style=3D"max-width:180px;margin:0=
+ auto" cellPadding=3D"0" cellSpacing=3D"0" border=3D"0"><tbody><tr><td alig=
+n=3D"center" bgcolor=3D"#59353d" style=3D"background-color: #59353d;border-=
+color: #59353d;border-width: 1px;border-style: solid;color: #ffffff;border-=
+radius: 2px;text-align: center;mso-padding-alt: 8px;padding: 0px 8px;"><a c=
+lass=3D"trip-mail-fluid" target=3D"_blank" rel=3D"noopener noreferrer" href=
+=3D"https://www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%=
+3A%2F%2Fkr.trip.com%2Fsale%2Fw%2F4607%2F2023koreanairevergreen.html%3Flocal=
+e%3Dko-KR%26curr%3Dkrw%26pid%3D10650090925%26allianceid%3D324048%26edm_id%3=
+DSIN-AWS-20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm-20230818-=
+koreanair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&bizData=3DeyJldmVu=
+dCI6ImNsaWNrIiwidGl0bGUiOiJtYWlsLWJ1dHRvbiIsInR5cGUiOiJyZWFjdC5jb21wb25lbnQ=
+iLCJuYW1lIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWJ1dHRvbiIsImxhYmVsIjoiYn=
+V0dG9uIiwiaWQiOiJzdHJ1X0NjM2x1REZRdzU0OWkybCIsImZpbGVJZCI6ImZpbGVfWjFUSERKZ=
+ThCaXladUNvIiwiZm94cGFnZVZlcnNpb24iOjIsImZwVHJhY2VJZCI6ImM4ZGQyMTdmLTQzMTkt=
+NDQ3YS1iNDEyLWMyMzg3YTMwYzRkNCIsInRlbXBsYXRlSWQiOiJjb250X3g5bHpmbU93ZmZOTjE=
+0bCIsInRlbXBsYXRlVmVyc2lvbiI6OSwiZGF0YSI6eyJuYW1lIjoibWFpbC1idXR0b24iLCJfbG=
+luayI6Imh0dHBzOi8va3IudHJpcC5jb20vc2FsZS93LzQ2MDcvMjAyM2tvcmVhbmFpcmV2ZXJnc=
+mVlbi5odG1sP2xvY2FsZT1rby1LUiZjdXJyPWtydyZwaWQ9MTA2NTAwOTA5MjUiLCJidXR0b25U=
+ZXh0Ijoi7ZSE66Gc66qo7IWYIO2ZleyduO2VmOq4sCJ9fQ%3D%3D" style=3D"font-family:=
+ BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-si=
+ze: 14px;font-weight: normal;color: #ffffff;display: block;text-decoration:=
+ none;mso-padding-alt: 8px 0;padding: 8px 0px;">=ED=94=84=EB=A1=9C=EB=AA=A8=
+=EC=85=98 =ED=99=95=EC=9D=B8=ED=95=98=EA=B8=B0</a></td></tr></tbody></table=
+><table width=3D"100%" cellSpacing=3D"0" cellPadding=3D"0" border=3D"0"><tb=
+ody><tr><td height=3D"16"></td></tr></tbody></table><table width=3D"100%" c=
+ellSpacing=3D"0" cellPadding=3D"0" border=3D"0"><tbody><tr><td height=3D"16=
+"></td></tr></tbody></table><table class=3D"trip-mail-fluid" width=3D"100%"=
+ cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td align=3D"center"><span =
+style=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Aria=
+l,sans-serif;font-size:18px;color:#000000;font-weight:bold;line-height:1.2;=
+vertical-align:middle;text-decoration:none;margin:0">=E2=96=BC=EB=8F=99=EB=
+=82=A8=EC=95=84=C2=B7=EB=89=B4=EC=A7=88=EB=9E=9C=EB=93=9C =EB=85=B8=EC=84=
+=A0 =ED=8A=B9=EA=B0=80=E2=96=BC</span></td></tr></tbody></table><table widt=
+h=3D"100%" cellSpacing=3D"0" cellPadding=3D"0" border=3D"0"><tbody><tr><td =
+height=3D"16"></td></tr></tbody></table><table class=3D"trip-mail-fluid" wi=
+dth=3D"100%" align=3D"center" border=3D"0" cellPadding=3D"0" cellSpacing=3D=
+"0"><tbody><tr><td><table class=3D"trip-mail-fluid" align=3D"center" border=
+=3D"0" width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td><t=
+able width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td><tab=
+le width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td><table=
+ width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td><table w=
+idth=3D"49%" align=3D"left" class=3D"trip-mail-fluid" border=3D"0" cellPadd=
+ing=3D"0" cellSpacing=3D"0"><tbody><tr><td><table width=3D"100%" cellPaddin=
+g=3D"0" cellSpacing=3D"0"><tbody><tr><td bgcolor=3D"#ffffff" style=3D"borde=
+r:1px solid #dadfe6;border-radius:4px"><table width=3D"100%" cellPadding=3D=
+"0" cellSpacing=3D"0"><tbody><tr><td colSpan=3D"3" height=3D"12"></td></tr>=
+<tr><td width=3D"12"></td><td><table width=3D"100%" cellPadding=3D"0" cellS=
+pacing=3D"0"><tbody><tr><td valign=3D"top" height=3D"120"><table width=3D"1=
+00%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td valign=3D"top" widt=
+h=3D"74"><img src=3D"https://ak-d.tripcdn.com/images/fd/tg/g1/M04/5F/2C/Cgh=
+zfFW4TKGAaaOlAAX9H1cljyU402_R_74_74.jpg?proc=3Dsource/trip" width=3D"74" al=
+t=3D"" style=3D"width:74px;border-radius:4px"/></td><td valign=3D"top" widt=
+h=3D"8"></td><td valign=3D"top"><table width=3D"100%" cellPadding=3D"0" cel=
+lSpacing=3D"0"><tbody><tr><td><table width=3D"100%" cellPadding=3D"0" cellS=
+pacing=3D"0"><tbody><tr><td valign=3D"middle" style=3D"font-family:BlinkMac=
+SystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:#0f294d;fo=
+nt-size:16px;font-weight:700;line-height:22px"><span style=3D"vertical-alig=
+n:middle">=EC=84=9C=EC=9A=B8</span><img width=3D"18" src=3D"http://ak-d.tri=
+pcdn.com/images/0a109120009hccp3v09E2.png" alt=3D"" style=3D"vertical-align=
+:middle;margin:0 8px"/><span style=3D"display:inline-block;vertical-align:m=
+iddle">=EB=B0=A9=EC=BD=95</span></td></tr></tbody></table></td></tr><tr><td=
+ height=3D"8"></td></tr><tr><td><table cellPadding=3D"0" cellSpacing=3D"0">=
+<tbody><tr><td><span style=3D"font-family:BlinkMacSystemFont,-apple-system,=
+Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;color:#0f2=
+94d;line-height:16px">=EC=99=95=EB=B3=B5</span><span style=3D"font-size:12p=
+x;color:#DADFE6;margin:0 2px"> | </span><span style=3D"display:inline-block=
+;font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-s=
+erif;font-size:12px;font-weight:500;color:#0f294d;line-height:16px">9=EC=9B=
+=94 2=EC=9D=BC (=ED=86=A0) - 9=EC=9B=94 4=EC=9D=BC (=EC=9B=94)</span></td><=
+/tr></tbody></table></td></tr><tr><td height=3D"8"></td></tr><tr><td><table=
+ cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td><span style=3D"font-siz=
+e:0;display:inline-block;padding:2px;border-radius:20px;background-color:#f=
+fffff;border:1px solid #d6d6d6;box-shadow:0px 2px 4px 0px #d6d6d6;vertical-=
+align:top;text-align:center"><img valign=3D"middle" width=3D"16" height=3D"=
+16" src=3D"http://pic.english.c-ctrip.com/airline_logo/32/ke.png" alt=3D"=
+=EB=8C=80=ED=95=9C=ED=95=AD=EA=B3=B5" style=3D"line-height:20px"/></span><s=
+pan style=3D"display:inline-block;margin-left:-4px;width:20px;height:20px;b=
+order-radius:20px;background-color:#f0f2f5;box-shadow:0px 2px 4px 0px rgba(=
+0, 0, 0, 0.16);color:#455873;font-size:14px;text-align:center;vertical-alig=
+n:top">...</span><span style=3D"display:inline-block;width:8px"></span><spa=
+n style=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Ar=
+ial,sans-serif;font-size:12px;color:#455873;line-height:18px">=EB=8C=80=ED=
+=95=9C=ED=95=AD=EA=B3=B5 =EB=B0=8F =EA=B8=B0=ED=83=80 =ED=95=AD=EA=B3=B5=EC=
+=82=AC</span></td></tr></tbody></table></td></tr></tbody></table></td></tr>=
+</tbody></table></td></tr><tr><td height=3D"12"></td></tr><tr><td><table wi=
+dth=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td align=3D"le=
+ft"><table cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td style=3D"font=
+-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;=
+color:#8592a6;font-size:12px;line-height:18px">=EC=B5=9C=EC=A0=80=EA=B0=80 =
+<span style=3D"font-size:20px;color:#0f294d;font-weight:700;line-height:24p=
+x;vertical-align:middle">435,700=EC=9B=90</span></td></tr></tbody></table><=
+/td><td align=3D"right"><table cellPadding=3D"0" cellSpacing=3D"0" bgcolor=
+=3D"#3264ff" style=3D"border-radius:4px"><tbody><tr><td colSpan=3D"3" heigh=
+t=3D"8"></td></tr><tr><td width=3D"16"></td><td><a rel=3D"noopener noreferr=
+er" target=3D"_blank" href=3D"https://www.trip.com/forward/middlepages/chan=
+nel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Fflights%2Fseoul-to-bangkok%=
+2Ftickets-sel-bkk%2F%3Fflighttype%3Dd%26curr%3Dkrw%26dcity%3Dsel%26acity%3D=
+bkk%26ddate%3D2023-09-02%26rdate%3D2023-09-04%26airline%3DKE%26class%3Dy%26=
+nonstoponly%3Don%26locale%3Dko-KR%26allianceid%3D324048%26edm_id%3DSIN-AWS-=
+20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm-20230818-koreanair=
+.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6I=
+mNsaWNrIiwidGl0bGUiOiJmbGlnaHQtbGlzdC1pdGVtLTEiLCJ0eXBlIjoicmVhY3QuY29tcG9u=
+ZW50IiwibmFtZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1mbGlnaHQtbGlzdCIsImx=
+hYmVsIjoiZmxpZ2h0LWxpc3QiLCJpZCI6InN0cnVfek1mdWdPZzJMSGF4cEV4IiwiZmlsZUlkIj=
+oiZmlsZV9aMVRIREplOEJpeVp1Q28iLCJmb3hwYWdlVmVyc2lvbiI6MiwiZnBUcmFjZUlkIjoiM=
+mMyMjFiOGUtMjg3YS00NTU4LWFlNTctZTZhY2E2MjVkMjVlIiwidGVtcGxhdGVJZCI6ImNvbnRf=
+eDlsemZtT3dmZk5OMTRsIiwidGVtcGxhdGVWZXJzaW9uIjo5LCJkYXRhIjp7Im5hbWUiOiJmbGl=
+naHQtbGlzdC1pdGVtLTEiLCJsaW5rIjoiaHR0cHM6Ly9rci50cmlwLmNvbS9mbGlnaHRzL3Nlb3=
+VsLXRvLWJhbmdrb2svdGlja2V0cy1zZWwtYmtrLz9mbGlnaHR0eXBlPWQmY3Vycj1rcncmZGNpd=
+Hk9c2VsJmFjaXR5PWJrayZkZGF0ZT0yMDIzLTA5LTAyJnJkYXRlPTIwMjMtMDktMDQmYWlybGlu=
+ZT1LRSZjbGFzcz15Jm5vbnN0b3Bvbmx5PW9uJmxvY2FsZT1rby1LUiIsInByaWNlIjoiNDM1LDc=
+wMOybkCIsInNlcXVlbmNlTm8iOjF9fQ%3D%3D" style=3D"display:block;font-size:0;t=
+ext-decoration:none"><span style=3D"font-family:BlinkMacSystemFont,-apple-s=
+ystem,Roboto,Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;line=
+-height:18px;color:#ffffff;text-decoration:none">=EC=98=88=EC=95=BD</span><=
+/a></td><td width=3D"16"></td></tr><tr><td colSpan=3D"3" height=3D"8"></td>=
+</tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></=
+td><td width=3D"12"></td></tr><tr><td colSpan=3D"3" height=3D"12"></td></tr=
+></tbody></table></td></tr></tbody></table></td></tr><tr><td height=3D"12">=
+</td></tr></tbody></table><table width=3D"49%" align=3D"right" class=3D"tri=
+p-mail-fluid" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><=
+td><table width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td=
+ bgcolor=3D"#ffffff" style=3D"border:1px solid #dadfe6;border-radius:4px"><=
+table width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td col=
+Span=3D"3" height=3D"12"></td></tr><tr><td width=3D"12"></td><td><table wid=
+th=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td valign=3D"to=
+p" height=3D"120"><table width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"=
+><tbody><tr><td valign=3D"top" width=3D"74"><img src=3D"https://youimg1.tri=
+pcdn.com/target/0100l12000adm7it2A2A7_R_74_74.jpg?proc=3Dsource/trip" width=
+=3D"74" alt=3D"" style=3D"width:74px;border-radius:4px"/></td><td valign=3D=
+"top" width=3D"8"></td><td valign=3D"top"><table width=3D"100%" cellPadding=
+=3D"0" cellSpacing=3D"0"><tbody><tr><td><table width=3D"100%" cellPadding=
+=3D"0" cellSpacing=3D"0"><tbody><tr><td valign=3D"middle" style=3D"font-fam=
+ily:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;colo=
+r:#0f294d;font-size:16px;font-weight:700;line-height:22px"><span style=3D"v=
+ertical-align:middle">=EC=84=9C=EC=9A=B8</span><img width=3D"18" src=3D"htt=
+p://ak-d.tripcdn.com/images/0a109120009hccp3v09E2.png" alt=3D"" style=3D"ve=
+rtical-align:middle;margin:0 8px"/><span style=3D"display:inline-block;vert=
+ical-align:middle">=ED=95=98=EB=85=B8=EC=9D=B4</span></td></tr></tbody></ta=
+ble></td></tr><tr><td height=3D"8"></td></tr><tr><td><table cellPadding=3D"=
+0" cellSpacing=3D"0"><tbody><tr><td><span style=3D"font-family:BlinkMacSyst=
+emFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-=
+weight:500;color:#0f294d;line-height:16px">=EC=99=95=EB=B3=B5</span><span s=
+tyle=3D"font-size:12px;color:#DADFE6;margin:0 2px"> | </span><span style=3D=
+"display:inline-block;font-family:BlinkMacSystemFont,-apple-system,Roboto,H=
+elvetica,Arial,sans-serif;font-size:12px;font-weight:500;color:#0f294d;line=
+-height:16px">10=EC=9B=94 18=EC=9D=BC (=EC=88=98) - 10=EC=9B=94 24=EC=9D=BC=
+ (=ED=99=94)</span></td></tr></tbody></table></td></tr><tr><td height=3D"8"=
+></td></tr><tr><td><table cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><t=
+d><span style=3D"font-size:0;display:inline-block;padding:2px;border-radius=
+:20px;background-color:#ffffff;border:1px solid #d6d6d6;box-shadow:0px 2px =
+4px 0px #d6d6d6;vertical-align:top;text-align:center"><img valign=3D"middle=
+" width=3D"16" height=3D"16" src=3D"http://pic.english.c-ctrip.com/airline_=
+logo/32/ke.png" alt=3D"=EB=8C=80=ED=95=9C=ED=95=AD=EA=B3=B5" style=3D"line-=
+height:20px"/></span><span style=3D"display:inline-block;margin-left:-4px;w=
+idth:20px;height:20px;border-radius:20px;background-color:#f0f2f5;box-shado=
+w:0px 2px 4px 0px rgba(0, 0, 0, 0.16);color:#455873;font-size:14px;text-ali=
+gn:center;vertical-align:top">...</span><span style=3D"display:inline-block=
+;width:8px"></span><span style=3D"font-family:BlinkMacSystemFont,-apple-sys=
+tem,Roboto,Helvetica,Arial,sans-serif;font-size:12px;color:#455873;line-hei=
+ght:18px">=EB=8C=80=ED=95=9C=ED=95=AD=EA=B3=B5 =EB=B0=8F =EA=B8=B0=ED=83=80=
+ =ED=95=AD=EA=B3=B5=EC=82=AC</span></td></tr></tbody></table></td></tr></tb=
+ody></table></td></tr></tbody></table></td></tr><tr><td height=3D"12"></td>=
+</tr><tr><td><table width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbo=
+dy><tr><td align=3D"left"><table cellPadding=3D"0" cellSpacing=3D"0"><tbody=
+><tr><td style=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Helve=
+tica,Arial,sans-serif;color:#8592a6;font-size:12px;line-height:18px">=EC=B5=
+=9C=EC=A0=80=EA=B0=80 <span style=3D"font-size:20px;color:#0f294d;font-weig=
+ht:700;line-height:24px;vertical-align:middle">358,700=EC=9B=90</span></td>=
+</tr></tbody></table></td><td align=3D"right"><table cellPadding=3D"0" cell=
+Spacing=3D"0" bgcolor=3D"#3264ff" style=3D"border-radius:4px"><tbody><tr><t=
+d colSpan=3D"3" height=3D"8"></td></tr><tr><td width=3D"16"></td><td><a rel=
+=3D"noopener noreferrer" target=3D"_blank" href=3D"https://www.trip.com/for=
+ward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Fflight=
+s%2Fseoul-to-hanoi%2Ftickets-sel-han%2F%3Fflighttype%3Dd%26curr%3Dkrw%26dci=
+ty%3Dsel%26acity%3Dhan%26ddate%3D2023-10-18%26rdate%3D2023-10-24%26airline%=
+3DKE%26class%3Dy%26nonstoponly%3Don%26locale%3Dko-KR%26allianceid%3D324048%=
+26edm_id%3DSIN-AWS-20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm=
+-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizD=
+ata=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJmbGlnaHQtbGlzdC1pdGVtLTIiLCJ0eXBlI=
+joicmVhY3QuY29tcG9uZW50IiwibmFtZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1m=
+bGlnaHQtbGlzdCIsImxhYmVsIjoiZmxpZ2h0LWxpc3QiLCJpZCI6InN0cnVfek1mdWdPZzJMSGF=
+4cEV4IiwiZmlsZUlkIjoiZmlsZV9aMVRIREplOEJpeVp1Q28iLCJmb3hwYWdlVmVyc2lvbiI6Mi=
+wiZnBUcmFjZUlkIjoiOWYyMzFiMGMtZWExYS00YjIyLThiZjItOTZiYWUwYTllN2YzIiwidGVtc=
+GxhdGVJZCI6ImNvbnRfeDlsemZtT3dmZk5OMTRsIiwidGVtcGxhdGVWZXJzaW9uIjo5LCJkYXRh=
+Ijp7Im5hbWUiOiJmbGlnaHQtbGlzdC1pdGVtLTIiLCJsaW5rIjoiaHR0cHM6Ly9rci50cmlwLmN=
+vbS9mbGlnaHRzL3Nlb3VsLXRvLWhhbm9pL3RpY2tldHMtc2VsLWhhbi8%2FZmxpZ2h0dHlwZT1k=
+JmN1cnI9a3J3JmRjaXR5PXNlbCZhY2l0eT1oYW4mZGRhdGU9MjAyMy0xMC0xOCZyZGF0ZT0yMDI=
+zLTEwLTI0JmFpcmxpbmU9S0UmY2xhc3M9eSZub25zdG9wb25seT1vbiZsb2NhbGU9a28tS1IiLC=
+JwcmljZSI6IjM1OCw3MDDsm5AiLCJzZXF1ZW5jZU5vIjoyfX0%3D" style=3D"display:bloc=
+k;font-size:0;text-decoration:none"><span style=3D"font-family:BlinkMacSyst=
+emFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:14px;font-=
+weight:700;line-height:18px;color:#ffffff;text-decoration:none">=EC=98=88=
+=EC=95=BD</span></a></td><td width=3D"16"></td></tr><tr><td colSpan=3D"3" h=
+eight=3D"8"></td></tr></tbody></table></td></tr></tbody></table></td></tr><=
+/tbody></table></td><td width=3D"12"></td></tr><tr><td colSpan=3D"3" height=
+=3D"12"></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><=
+td height=3D"12"></td></tr></tbody></table></td></tr><tr><td><table width=
+=3D"49%" align=3D"left" class=3D"trip-mail-fluid" border=3D"0" cellPadding=
+=3D"0" cellSpacing=3D"0"><tbody><tr><td><table width=3D"100%" cellPadding=
+=3D"0" cellSpacing=3D"0"><tbody><tr><td bgcolor=3D"#ffffff" style=3D"border=
+:1px solid #dadfe6;border-radius:4px"><table width=3D"100%" cellPadding=3D"=
+0" cellSpacing=3D"0"><tbody><tr><td colSpan=3D"3" height=3D"12"></td></tr><=
+tr><td width=3D"12"></td><td><table width=3D"100%" cellPadding=3D"0" cellSp=
+acing=3D"0"><tbody><tr><td valign=3D"top" height=3D"120"><table width=3D"10=
+0%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td valign=3D"top" width=
+=3D"74"><img src=3D"https://youimg1.tripcdn.com/target/10051f000001gstqxA65=
+2_R_74_74.jpg?proc=3Dsource/trip" width=3D"74" alt=3D"" style=3D"width:74px=
+;border-radius:4px"/></td><td valign=3D"top" width=3D"8"></td><td valign=3D=
+"top"><table width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr>=
+<td><table width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><t=
+d valign=3D"middle" style=3D"font-family:BlinkMacSystemFont,-apple-system,R=
+oboto,Helvetica,Arial,sans-serif;color:#0f294d;font-size:16px;font-weight:7=
+00;line-height:22px"><span style=3D"vertical-align:middle">=EC=84=9C=EC=9A=
+=B8</span><img width=3D"18" src=3D"http://ak-d.tripcdn.com/images/0a1091200=
+09hccp3v09E2.png" alt=3D"" style=3D"vertical-align:middle;margin:0 8px"/><s=
+pan style=3D"display:inline-block;vertical-align:middle">=EC=84=B8=EB=B6=80=
+</span></td></tr></tbody></table></td></tr><tr><td height=3D"8"></td></tr><=
+tr><td><table cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td><span styl=
+e=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sa=
+ns-serif;font-size:12px;font-weight:500;color:#0f294d;line-height:16px">=EC=
+=99=95=EB=B3=B5</span><span style=3D"font-size:12px;color:#DADFE6;margin:0 =
+2px"> | </span><span style=3D"display:inline-block;font-family:BlinkMacSyst=
+emFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-=
+weight:500;color:#0f294d;line-height:16px">9=EC=9B=94 4=EC=9D=BC (=EC=9B=94=
+) - 9=EC=9B=94 7=EC=9D=BC (=EB=AA=A9)</span></td></tr></tbody></table></td>=
+</tr><tr><td height=3D"8"></td></tr><tr><td><table cellPadding=3D"0" cellSp=
+acing=3D"0"><tbody><tr><td><span style=3D"font-size:0;display:inline-block;=
+padding:2px;border-radius:20px;background-color:#ffffff;border:1px solid #d=
+6d6d6;box-shadow:0px 2px 4px 0px #d6d6d6;vertical-align:top;text-align:cent=
+er"><img valign=3D"middle" width=3D"16" height=3D"16" src=3D"http://pic.eng=
+lish.c-ctrip.com/airline_logo/32/ke.png" alt=3D"=EB=8C=80=ED=95=9C=ED=95=AD=
+=EA=B3=B5" style=3D"line-height:20px"/></span><span style=3D"display:inline=
+-block;margin-left:-4px;width:20px;height:20px;border-radius:20px;backgroun=
+d-color:#f0f2f5;box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.16);color:#45587=
+3;font-size:14px;text-align:center;vertical-align:top">...</span><span styl=
+e=3D"display:inline-block;width:8px"></span><span style=3D"font-family:Blin=
+kMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:12=
+px;color:#455873;line-height:18px">=EB=8C=80=ED=95=9C=ED=95=AD=EA=B3=B5 =EB=
+=B0=8F =EA=B8=B0=ED=83=80 =ED=95=AD=EA=B3=B5=EC=82=AC</span></td></tr></tbo=
+dy></table></td></tr></tbody></table></td></tr></tbody></table></td></tr><t=
+r><td height=3D"12"></td></tr><tr><td><table width=3D"100%" cellPadding=3D"=
+0" cellSpacing=3D"0"><tbody><tr><td align=3D"left"><table cellPadding=3D"0"=
+ cellSpacing=3D"0"><tbody><tr><td style=3D"font-family:BlinkMacSystemFont,-=
+apple-system,Roboto,Helvetica,Arial,sans-serif;color:#8592a6;font-size:12px=
+;line-height:18px">=EC=B5=9C=EC=A0=80=EA=B0=80 <span style=3D"font-size:20p=
+x;color:#0f294d;font-weight:700;line-height:24px;vertical-align:middle">327=
+,200=EC=9B=90</span></td></tr></tbody></table></td><td align=3D"right"><tab=
+le cellPadding=3D"0" cellSpacing=3D"0" bgcolor=3D"#3264ff" style=3D"border-=
+radius:4px"><tbody><tr><td colSpan=3D"3" height=3D"8"></td></tr><tr><td wid=
+th=3D"16"></td><td><a rel=3D"noopener noreferrer" target=3D"_blank" href=3D=
+"https://www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%=
+2F%2Fkr.trip.com%2Fflights%2Fseoul-to-cebu%2Ftickets-sel-ceb%2F%3Fflighttyp=
+e%3Dd%26curr%3Dkrw%26dcity%3Dsel%26acity%3Dceb%26ddate%3D2023-09-04%26rdate=
+%3D2023-09-07%26airline%3DKE%26class%3Dy%26nonstoponly%3Don%26locale%3Dko-K=
+R%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012910811-1692321487570.6=
+13%26ouid%3D60676.kr-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%=
+26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJmbGlnaHQtb=
+GlzdC1pdGVtLTMiLCJ0eXBlIjoicmVhY3QuY29tcG9uZW50IiwibmFtZSI6IkBjdHJpcC9jbG91=
+ZC1jb21wb25lbnQtbWFpbC1mbGlnaHQtbGlzdCIsImxhYmVsIjoiZmxpZ2h0LWxpc3QiLCJpZCI=
+6InN0cnVfek1mdWdPZzJMSGF4cEV4IiwiZmlsZUlkIjoiZmlsZV9aMVRIREplOEJpeVp1Q28iLC=
+Jmb3hwYWdlVmVyc2lvbiI6MiwiZnBUcmFjZUlkIjoiYzZiYmU3YzktYjk5MC00MTBkLWJiZDktY=
+zU2ZmQ0Mzk4YjQzIiwidGVtcGxhdGVJZCI6ImNvbnRfeDlsemZtT3dmZk5OMTRsIiwidGVtcGxh=
+dGVWZXJzaW9uIjo5LCJkYXRhIjp7Im5hbWUiOiJmbGlnaHQtbGlzdC1pdGVtLTMiLCJsaW5rIjo=
+iaHR0cHM6Ly9rci50cmlwLmNvbS9mbGlnaHRzL3Nlb3VsLXRvLWNlYnUvdGlja2V0cy1zZWwtY2=
+ViLz9mbGlnaHR0eXBlPWQmY3Vycj1rcncmZGNpdHk9c2VsJmFjaXR5PWNlYiZkZGF0ZT0yMDIzL=
+TA5LTA0JnJkYXRlPTIwMjMtMDktMDcmYWlybGluZT1LRSZjbGFzcz15Jm5vbnN0b3Bvbmx5PW9u=
+JmxvY2FsZT1rby1LUiIsInByaWNlIjoiMzI3LDIwMOybkCIsInNlcXVlbmNlTm8iOjN9fQ%3D%3=
+D" style=3D"display:block;font-size:0;text-decoration:none"><span style=3D"=
+font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-se=
+rif;font-size:14px;font-weight:700;line-height:18px;color:#ffffff;text-deco=
+ration:none">=EC=98=88=EC=95=BD</span></a></td><td width=3D"16"></td></tr><=
+tr><td colSpan=3D"3" height=3D"8"></td></tr></tbody></table></td></tr></tbo=
+dy></table></td></tr></tbody></table></td><td width=3D"12"></td></tr><tr><t=
+d colSpan=3D"3" height=3D"12"></td></tr></tbody></table></td></tr></tbody><=
+/table></td></tr><tr><td height=3D"12"></td></tr></tbody></table><table wid=
+th=3D"49%" align=3D"right" class=3D"trip-mail-fluid" border=3D"0" cellPaddi=
+ng=3D"0" cellSpacing=3D"0"><tbody><tr><td><table width=3D"100%" cellPadding=
+=3D"0" cellSpacing=3D"0"><tbody><tr><td bgcolor=3D"#ffffff" style=3D"border=
+:1px solid #dadfe6;border-radius:4px"><table width=3D"100%" cellPadding=3D"=
+0" cellSpacing=3D"0"><tbody><tr><td colSpan=3D"3" height=3D"12"></td></tr><=
+tr><td width=3D"12"></td><td><table width=3D"100%" cellPadding=3D"0" cellSp=
+acing=3D"0"><tbody><tr><td valign=3D"top" height=3D"120"><table width=3D"10=
+0%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td valign=3D"top" width=
+=3D"74"><img src=3D"https://ak-d.tripcdn.com/images/fd/tg/g1/M04/5F/2C/Cghz=
+fFW4TKGAaaOlAAX9H1cljyU402_R_74_74.jpg?proc=3Dsource/trip" width=3D"74" alt=
+=3D"" style=3D"width:74px;border-radius:4px"/></td><td valign=3D"top" width=
+=3D"8"></td><td valign=3D"top"><table width=3D"100%" cellPadding=3D"0" cell=
+Spacing=3D"0"><tbody><tr><td><table width=3D"100%" cellPadding=3D"0" cellSp=
+acing=3D"0"><tbody><tr><td valign=3D"middle" style=3D"font-family:BlinkMacS=
+ystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:#0f294d;fon=
+t-size:16px;font-weight:700;line-height:22px"><span style=3D"vertical-align=
+:middle">=EB=B6=80=EC=82=B0</span><img width=3D"18" src=3D"http://ak-d.trip=
+cdn.com/images/0a109120009hccp3v09E2.png" alt=3D"" style=3D"vertical-align:=
+middle;margin:0 8px"/><span style=3D"display:inline-block;vertical-align:mi=
+ddle">=EB=B0=A9=EC=BD=95</span></td></tr></tbody></table></td></tr><tr><td =
+height=3D"8"></td></tr><tr><td><table cellPadding=3D"0" cellSpacing=3D"0"><=
+tbody><tr><td><span style=3D"font-family:BlinkMacSystemFont,-apple-system,R=
+oboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;color:#0f29=
+4d;line-height:16px">=EC=99=95=EB=B3=B5</span><span style=3D"font-size:12px=
+;color:#DADFE6;margin:0 2px"> | </span><span style=3D"display:inline-block;=
+font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-se=
+rif;font-size:12px;font-weight:500;color:#0f294d;line-height:16px">9=EC=9B=
+=94 14=EC=9D=BC (=EB=AA=A9) - 9=EC=9B=94 18=EC=9D=BC (=EC=9B=94)</span></td=
+></tr></tbody></table></td></tr><tr><td height=3D"8"></td></tr><tr><td><tab=
+le cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td><span style=3D"font-s=
+ize:0;display:inline-block;padding:2px;border-radius:20px;background-color:=
+#ffffff;border:1px solid #d6d6d6;box-shadow:0px 2px 4px 0px #d6d6d6;vertica=
+l-align:top;text-align:center"><img valign=3D"middle" width=3D"16" height=
+=3D"16" src=3D"http://pic.english.c-ctrip.com/airline_logo/32/ke.png" alt=
+=3D"=EB=8C=80=ED=95=9C=ED=95=AD=EA=B3=B5" style=3D"line-height:20px"/></spa=
+n><span style=3D"display:inline-block;margin-left:-4px;width:20px;height:20=
+px;border-radius:20px;background-color:#f0f2f5;box-shadow:0px 2px 4px 0px r=
+gba(0, 0, 0, 0.16);color:#455873;font-size:14px;text-align:center;vertical-=
+align:top">...</span><span style=3D"display:inline-block;width:8px"></span>=
+<span style=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetic=
+a,Arial,sans-serif;font-size:12px;color:#455873;line-height:18px">=EB=8C=80=
+=ED=95=9C=ED=95=AD=EA=B3=B5 =EB=B0=8F =EA=B8=B0=ED=83=80 =ED=95=AD=EA=B3=B5=
+=EC=82=AC</span></td></tr></tbody></table></td></tr></tbody></table></td></=
+tr></tbody></table></td></tr><tr><td height=3D"12"></td></tr><tr><td><table=
+ width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td align=3D=
+"left"><table cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td style=3D"f=
+ont-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-ser=
+if;color:#8592a6;font-size:12px;line-height:18px">=EC=B5=9C=EC=A0=80=EA=B0=
+=80 <span style=3D"font-size:20px;color:#0f294d;font-weight:700;line-height=
+:24px;vertical-align:middle">577,700=EC=9B=90</span></td></tr></tbody></tab=
+le></td><td align=3D"right"><table cellPadding=3D"0" cellSpacing=3D"0" bgco=
+lor=3D"#3264ff" style=3D"border-radius:4px"><tbody><tr><td colSpan=3D"3" he=
+ight=3D"8"></td></tr><tr><td width=3D"16"></td><td><a rel=3D"noopener noref=
+errer" target=3D"_blank" href=3D"https://www.trip.com/forward/middlepages/c=
+hannel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Fflights%2Fbusan-to-bangk=
+ok%2Ftickets-pus-bkk%2F%3Fflighttype%3Dd%26curr%3Dkrw%26dcity%3Dpus%26acity=
+%3Dbkk%26ddate%3D2023-09-14%26rdate%3D2023-09-18%26airline%3DKE%26class%3Dy=
+%26nonstoponly%3Doff%26locale%3Dko-KR%26allianceid%3D324048%26edm_id%3DSIN-=
+AWS-20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm-20230818-korea=
+nair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVud=
+CI6ImNsaWNrIiwidGl0bGUiOiJmbGlnaHQtbGlzdC1pdGVtLTQiLCJ0eXBlIjoicmVhY3QuY29t=
+cG9uZW50IiwibmFtZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1mbGlnaHQtbGlzdCI=
+sImxhYmVsIjoiZmxpZ2h0LWxpc3QiLCJpZCI6InN0cnVfek1mdWdPZzJMSGF4cEV4IiwiZmlsZU=
+lkIjoiZmlsZV9aMVRIREplOEJpeVp1Q28iLCJmb3hwYWdlVmVyc2lvbiI6MiwiZnBUcmFjZUlkI=
+joiN2VkMzc4NjMtMDQ4Ny00YzdlLTgxYjgtODljYTE4ODcxODk3IiwidGVtcGxhdGVJZCI6ImNv=
+bnRfeDlsemZtT3dmZk5OMTRsIiwidGVtcGxhdGVWZXJzaW9uIjo5LCJkYXRhIjp7Im5hbWUiOiJ=
+mbGlnaHQtbGlzdC1pdGVtLTQiLCJsaW5rIjoiaHR0cHM6Ly9rci50cmlwLmNvbS9mbGlnaHRzL2=
+J1c2FuLXRvLWJhbmdrb2svdGlja2V0cy1wdXMtYmtrLz9mbGlnaHR0eXBlPWQmY3Vycj1rcncmZ=
+GNpdHk9cHVzJmFjaXR5PWJrayZkZGF0ZT0yMDIzLTA5LTE0JnJkYXRlPTIwMjMtMDktMTgmYWly=
+bGluZT1LRSZjbGFzcz15Jm5vbnN0b3Bvbmx5PW9mZiZsb2NhbGU9a28tS1IiLCJwcmljZSI6IjU=
+3Nyw3MDDsm5AiLCJzZXF1ZW5jZU5vIjo0fX0%3D" style=3D"display:block;font-size:0=
+;text-decoration:none"><span style=3D"font-family:BlinkMacSystemFont,-apple=
+-system,Roboto,Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;li=
+ne-height:18px;color:#ffffff;text-decoration:none">=EC=98=88=EC=95=BD</span=
+></a></td><td width=3D"16"></td></tr><tr><td colSpan=3D"3" height=3D"8"></t=
+d></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>=
+</td><td width=3D"12"></td></tr><tr><td colSpan=3D"3" height=3D"12"></td></=
+tr></tbody></table></td></tr></tbody></table></td></tr><tr><td height=3D"12=
+"></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></t=
+able></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody>=
+</table></td></tr></tbody></table></td></tr></tbody></table><table class=3D=
+"trip-mail-fluid" width=3D"100%" align=3D"center" cellSpacing=3D"0" cellPad=
+ding=3D"0" border=3D"0"><tbody><tr><td bgcolor=3D"rgba(0,0,0,0)" style=3D"b=
+order-radius:0;border:none;background:rgba(0,0,0,0);direction:ltr"><table c=
+lass=3D"trip-mail-fluid" width=3D"100%" align=3D"center" border=3D"0" cellP=
+adding=3D"0" cellSpacing=3D"0"><tbody><tr><td class=3D"fp-slot" style=3D"bo=
+rder-radius:0;padding:0px 0px 0px 0px"><table width=3D"100%" cellSpacing=3D=
+"0" cellPadding=3D"0" border=3D"0"><tbody><tr><td height=3D"16"></td></tr><=
+/tbody></table><table width=3D"100%" cellSpacing=3D"0" cellPadding=3D"0" bo=
+rder=3D"0"><tbody><tr><td height=3D"16"></td></tr></tbody></table><table cl=
+ass=3D"trip-mail-fluid" width=3D"180px" align=3D"center" style=3D"max-width=
+:180px;margin:0 auto" cellPadding=3D"0" cellSpacing=3D"0" border=3D"0"><tbo=
+dy><tr><td align=3D"center" bgcolor=3D"#59353d" style=3D"background-color: =
+#59353d;border-color: #59353d;border-width: 1px;border-style: solid;color: =
+#ffffff;border-radius: 2px;text-align: center;mso-padding-alt: 8px;padding:=
+ 0px 8px;"><a class=3D"trip-mail-fluid" target=3D"_blank" rel=3D"noopener n=
+oreferrer" href=3D"https://www.trip.com/forward/middlepages/channel/edm?tar=
+getUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Fsale%2Fw%2F4607%2F2023koreanairevergre=
+en.html%3Flocale%3Dko-KR%26curr%3Dkrw%26pid%3D10650090925%26allianceid%3D32=
+4048%26edm_id%3DSIN-AWS-20621-1012910811-1692321487570.613%26ouid%3D60676.k=
+r-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&biz=
+Data=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJtYWlsLWJ1dHRvbiIsInR5cGUiOiJyZWFj=
+dC5jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWJ1dHRvbiI=
+sImxhYmVsIjoiYnV0dG9uIiwiaWQiOiJzdHJ1X2xoZUxvbzRGR3hrSUczdiIsImZpbGVJZCI6Im=
+ZpbGVfWjFUSERKZThCaXladUNvIiwiZm94cGFnZVZlcnNpb24iOjIsImZwVHJhY2VJZCI6ImY1Y=
+jkwNWM5LTJhNzQtNDIzMC1iMTJjLTA1NzVkZGE1NDFhYiIsInRlbXBsYXRlSWQiOiJjb250X3g5=
+bHpmbU93ZmZOTjE0bCIsInRlbXBsYXRlVmVyc2lvbiI6OSwiZGF0YSI6eyJuYW1lIjoibWFpbC1=
+idXR0b24iLCJfbGluayI6Imh0dHBzOi8va3IudHJpcC5jb20vc2FsZS93LzQ2MDcvMjAyM2tvcm=
+VhbmFpcmV2ZXJncmVlbi5odG1sP2xvY2FsZT1rby1LUiZjdXJyPWtydyZwaWQ9MTA2NTAwOTA5M=
+jUiLCJidXR0b25UZXh0Ijoi7Yq56rCAIOuNlCDrs7TquLAifX0%3D" style=3D"font-family=
+: BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-s=
+ize: 14px;font-weight: normal;color: #ffffff;display: block;text-decoration=
+: none;mso-padding-alt: 8px 0;padding: 8px 0px;">=ED=8A=B9=EA=B0=80 =EB=8D=
+=94 =EB=B3=B4=EA=B8=B0</a></td></tr></tbody></table><table width=3D"100%" c=
+ellSpacing=3D"0" cellPadding=3D"0" border=3D"0"><tbody><tr><td height=3D"16=
+"></td></tr></tbody></table><table width=3D"100%" cellSpacing=3D"0" cellPad=
+ding=3D"0" border=3D"0"><tbody><tr><td height=3D"16"></td></tr></tbody></ta=
+ble><table class=3D"trip-mail-fluid" width=3D"100%" cellPadding=3D"0" cellS=
+pacing=3D"0"><tbody><tr><td align=3D"center"><span style=3D"font-family:Bli=
+nkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:1=
+8px;font-weight:bold;line-height:1.2;vertical-align:middle;text-decoration:=
+none;margin:0">  =F0=9F=93=A2 =EC=A7=84=ED=96=89 =EC=A4=91=EC=9D=B8 =EC=9D=
+=B4=EB=B2=A4=ED=8A=B8=EA=B0=80 =EA=B6=81=EA=B8=88=ED=95=98=EB=8B=A4=EB=A9=
+=B4?</span></td></tr></tbody></table><table width=3D"100%" cellSpacing=3D"0=
+" cellPadding=3D"0" border=3D"0"><tbody><tr><td height=3D"16"></td></tr></t=
+body></table><table class=3D"trip-mail-fluid" width=3D"100%" align=3D"cente=
+r" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td></td></t=
+r><tr><td><table class=3D"trip-mail-fluid" width=3D"100%" align=3D"center" =
+border=3D"0" cellPadding=3D"0" cellSpacing=3D"8"><tbody><tr><td align=3D"ce=
+nter" style=3D"font-size:0"><a rel=3D"noopener noreferrer" target=3D"_blank=
+" style=3D"font-size:0;text-decoration:none;display:block" href=3D"https://=
+www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.t=
+rip.com%2Fsale%2Fw%2F5405%2Fmonstoptrip-ep4.html%3Flocale%3Dko-KR%26curr%3D=
+krw%26pid%3D10650100029%26promo_referer%3D81_5405_1%26allianceid%3D324048%2=
+6edm_id%3DSIN-AWS-20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm-=
+20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizDa=
+ta=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJhZC1kZWFscy1pdGVtLTEiLCJ0eXBlIjoicm=
+VhY3QuY29tcG9uZW50IiwibmFtZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1hZC1kZ=
+WFscyIsImxhYmVsIjoiYWQtZGVhbHMiLCJpZCI6InN0cnVfVVRJckJzT1dFRDljaTRhIiwiZmls=
+ZUlkIjoiZmlsZV9aMVRIREplOEJpeVp1Q28iLCJ0ZW1wbGF0ZUlkIjoiY29udF94OWx6Zm1Pd2Z=
+mTk4xNGwiLCJ0ZW1wbGF0ZVZlcnNpb24iOjksImZveHBhZ2VWZXJzaW9uIjoyLCJkYXRhIjp7Im=
+5hbWUiOiJhZC1kZWFscy1pdGVtLTEiLCJpbWdVcmwiOiJodHRwczovL2FrLWQudHJpcGNkbi5jb=
+20vaW1hZ2VzLzBhMTR6MTIwMDBieGEzYTBpMzgzNy5wbmciLCJsaW5rIjoiaHR0cHM6Ly9rci50=
+cmlwLmNvbS9zYWxlL3cvNTQwNS9tb25zdG9wdHJpcC1lcDQuaHRtbD9sb2NhbGU9a28tS1ImY3V=
+ycj1rcncmcGlkPTEwNjUwMTAwMDI5JnByb21vX3JlZmVyZXI9ODFfNTQwNV8xIiwic2VxdWVuY2=
+VObyI6MX19"><img class=3D"trip-mail-fluid" width=3D"640" src=3D"https://ak-=
+d.tripcdn.com/images/0a14z12000bxa3a0i3837.png" alt=3D"Trip.com - Deals" st=
+yle=3D"display:block;outline:none;border:none;border-radius:0"/></a></td></=
+tr><tr><td align=3D"center" style=3D"font-size:0"><a rel=3D"noopener norefe=
+rrer" target=3D"_blank" style=3D"font-size:0;text-decoration:none;display:b=
+lock" href=3D"https://www.trip.com/forward/middlepages/channel/edm?targetUr=
+l=3Dhttps%3A%2F%2Fkr.trip.com%2Fsale%2Fw%2F5439%2F2023krchinaairlines.html%=
+3Flocale%3Dko-KR%26curr%3Dkrw%26pid%3D10650103154%26promo_referer%3D81_5439=
+_2%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012910811-1692321487570.=
+613%26ouid%3D60676.kr-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.=
+%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJhZC1kZWFs=
+cy1pdGVtLTIiLCJ0eXBlIjoicmVhY3QuY29tcG9uZW50IiwibmFtZSI6IkBjdHJpcC9jbG91ZC1=
+jb21wb25lbnQtbWFpbC1hZC1kZWFscyIsImxhYmVsIjoiYWQtZGVhbHMiLCJpZCI6InN0cnVfVV=
+RJckJzT1dFRDljaTRhIiwiZmlsZUlkIjoiZmlsZV9aMVRIREplOEJpeVp1Q28iLCJ0ZW1wbGF0Z=
+UlkIjoiY29udF94OWx6Zm1Pd2ZmTk4xNGwiLCJ0ZW1wbGF0ZVZlcnNpb24iOjksImZveHBhZ2VW=
+ZXJzaW9uIjoyLCJkYXRhIjp7Im5hbWUiOiJhZC1kZWFscy1pdGVtLTIiLCJpbWdVcmwiOiJodHR=
+wczovL2FrLWQudHJpcGNkbi5jb20vaW1hZ2VzLzBhMTNqMTIwMDBieGtqY2FzQjAxMy5wbmciLC=
+JsaW5rIjoiaHR0cHM6Ly9rci50cmlwLmNvbS9zYWxlL3cvNTQzOS8yMDIza3JjaGluYWFpcmxpb=
+mVzLmh0bWw%2FbG9jYWxlPWtvLUtSJmN1cnI9a3J3JnBpZD0xMDY1MDEwMzE1NCZwcm9tb19yZW=
+ZlcmVyPTgxXzU0MzlfMiIsInNlcXVlbmNlTm8iOjJ9fQ%3D%3D"><img class=3D"trip-mail=
+-fluid" width=3D"640" src=3D"https://ak-d.tripcdn.com/images/0a13j12000bxkj=
+casB013.png" alt=3D"Trip.com - Deals" style=3D"display:block;outline:none;b=
+order:none;border-radius:0"/></a></td></tr></tbody></table></td></tr></tbod=
+y></table><table align=3D"center" class=3D"trip-mail-fluid" width=3D"100%" =
+cellPadding=3D"0" cellSpacing=3D"0" style=3D"text-align:center;max-width:10=
+0%;table-layout:auto"><tbody><tr><td align=3D"center" style=3D"overflow:inh=
+erit"><a rel=3D"noreferrer" target=3D"_blank" href=3D"https://www.trip.com/=
+forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fpf.kakao.com%2F_m=
+Mxbcxl%3Fallianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012910811-1692321487=
+570.613%26ouid%3D60676.kr-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko=
+_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwia2V5IjoiU0lOLUFX=
+Uy0yMDYyMS0xMDEyOTEwODExLTE2OTIzMjE0ODc1NzAuNjEzIiwidGl0bGUiOiJtYWlsLWltYWd=
+lIiwidHlwZSI6InJlYWN0LmNvbXBvbmVudCIsIm5hbWUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW=
+50LW1haWwtaW1hZ2UiLCJsYWJlbCI6ImltYWdlIiwiaWQiOiJzdHJ1X2NUaGxuckQ3SHZnSndIR=
+iIsImZpbGVJZCI6ImZpbGVfWjFUSERKZThCaXladUNvIiwidGVtcGxhdGVJZCI6ImNvbnRfeDls=
+emZtT3dmZk5OMTRsIiwidGVtcGxhdGVWZXJzaW9uIjo5LCJmb3hwYWdlVmVyc2lvbiI6MiwiZGF=
+0YSI6eyJuYW1lIjoibWFpbC1pbWFnZSIsImxpbmsiOiJodHRwczovL3BmLmtha2FvLmNvbS9fbU=
+14YmN4bCIsImRlc2MiOiIiLCJpbWFnZVVybCI6Imh0dHBzOi8vYWstZC50cmlwY2RuLmNvbS9pb=
+WFnZXMvMGExMTYxMjAwMDhoNGw2c2JENEY2LnBuZyJ9fQ%3D%3D"><img width=3D"100%" bo=
+rder=3D"0" class=3D"trip-mail-fluid" style=3D"display:block;border:none;out=
+line:none;border-radius:0px;max-width:undefinedpx;max-height:undefinedpx" s=
+rc=3D"https://ak-d.tripcdn.com/images/0a116120008h4l6sbD4F6.png" alt=3D""/>=
+</a></td></tr></tbody></table><table align=3D"center" class=3D"trip-mail-fl=
+uid" width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0" style=3D"text-align=
+:center;max-width:100%;table-layout:auto"><tbody><tr><td align=3D"center" s=
+tyle=3D"overflow:inherit"><a rel=3D"noreferrer" target=3D"_blank" href=3D"h=
+ttps://www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F=
+%2Fwww.trip.com%2F%3Fallianceid%3D324048%26edm_id%3DSIN-AWS-20621-101291081=
+1-1692321487570.613%26ouid%3D60676.kr-edm-20230818-koreanair.2023-08-18_9_0=
+.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwia2V5=
+IjoiU0lOLUFXUy0yMDYyMS0xMDEyOTEwODExLTE2OTIzMjE0ODc1NzAuNjEzIiwidGl0bGUiOiJ=
+tYWlsLWltYWdlIiwidHlwZSI6InJlYWN0LmNvbXBvbmVudCIsIm5hbWUiOiJAY3RyaXAvY2xvdW=
+QtY29tcG9uZW50LW1haWwtaW1hZ2UiLCJsYWJlbCI6ImltYWdlIiwiaWQiOiJzdHJ1X0JrN0tNN=
+XVrbG1GNWRxbiIsImZpbGVJZCI6ImZpbGVfWjFUSERKZThCaXladUNvIiwidGVtcGxhdGVJZCI6=
+ImNvbnRfeDlsemZtT3dmZk5OMTRsIiwidGVtcGxhdGVWZXJzaW9uIjo5LCJmb3hwYWdlVmVyc2l=
+vbiI6MiwiZGF0YSI6eyJuYW1lIjoibWFpbC1pbWFnZSIsImxpbmsiOiJodHRwczovL3d3dy50cm=
+lwLmNvbS8iLCJkZXNjIjoiIiwiaW1hZ2VVcmwiOiJodHRwczovL2FrLWQudHJpcGNkbi5jb20va=
+W1hZ2VzLzBhMTRoMTIwMDA4dHFnaThoNzU5MS5wbmcifX0%3D"><img width=3D"100%" bord=
+er=3D"0" class=3D"trip-mail-fluid" style=3D"display:block;border:none;outli=
+ne:none;border-radius:0px;max-width:undefinedpx;max-height:undefinedpx" src=
+=3D"https://ak-d.tripcdn.com/images/0a14h120008tqgi8h7591.png" alt=3D""/></=
+a></td></tr></tbody></table><table class=3D"trip-mail-fluid" width=3D"100%"=
+ align=3D"center" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tbody><=
+tr><td bgcolor=3D"#FFFBF0" align=3D"center" style=3D"background:#FFFBF0"><t=
+able class=3D"trip-mail-fluid" align=3D"center" width=3D"100%" cellPadding=
+=3D"0" cellSpacing=3D"0"><tbody><tr><td><table width=3D"100%" cellPadding=
+=3D"8" cellSpacing=3D"0"><tbody><tr><td width=3D"100%" align=3D"center"><ta=
+ble class=3D"trip-mail-fluid" width=3D"70%" align=3D"left" valign=3D"middle=
+" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td><table width=3D"100%" =
+cellPadding=3D"8" cellSpacing=3D"0" border=3D"0"><tbody><tr><td width=3D"10=
+8" valign=3D"top"><a rel=3D"noopener noreferrer" target=3D"_blank" style=3D=
+"text-decoration:none;border:none;outline:none;display:block;font-size:0" h=
+ref=3D"https://www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhtt=
+ps%3A%2F%2Ftripcom.onelink.me%2F3361031008%3Fpid%3Dedm%26c%3Dmarketing%26af=
+_sub1%3Dplatform%25253Demail%252526locale%25253Dko_kr%252526allianceid%2525=
+3D324048%252526sid%25253D1520828%252526ouid%25253D60676.kr-edm-20230818-kor=
+eanair.2023-08-18_9_0.20230818.ko_KR.%26af_web_dp%3Dhttps%253A%252F%252Fkr.=
+trip.com%252Fm%252Fdownapp%253Flocale%253Dko_kr%2526utm_medium%253Dinternal=
+%2526utm_source%253Dmarketing%2526utm_campaign%253D0%2526utm_content%253Dpl=
+atform%25253Donline%252526locale%25253Dko_kr%26allianceid%3D324048%26edm_id=
+%3DSIN-AWS-20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm-2023081=
+8-koreanair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3Dey=
+JldmVudCI6ImNsaWNrIiwidGl0bGUiOiJhcHAtaW5zdGFsbC1naWYiLCJ0eXBlIjoicmVhY3QuY=
+29tcG9uZW50IiwibmFtZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1hcHAtaW5zdGFs=
+bCIsImxhYmVsIjoiYXBwLWluc3RhbGwiLCJpZCI6InN0cnVfck1aUUpJaWN6TlNGV2NkIiwiZml=
+sZUlkIjoiZmlsZV9aMVRIREplOEJpeVp1Q28iLCJmb3hwYWdlVmVyc2lvbiI6MiwiZnBUcmFjZU=
+lkIjoiNDA1YzViZWEtZjVkOS00ODRlLWFjZjAtY2I2YjY0NzM1Y2UxIiwidGVtcGxhdGVJZCI6I=
+mNvbnRfeDlsemZtT3dmZk5OMTRsIiwidGVtcGxhdGVWZXJzaW9uIjo5LCJkYXRhIjp7Im5hbWUi=
+OiJhcHAtaW5zdGFsbC1naWYifX0%3D"><img width=3D"108" height=3D"112" src=3D"ht=
+tp://ak-d.tripcdn.com/images/0a13h120009a71zau65C0.gif" alt=3D"" style=3D"d=
+isplay:block;border:none;outline:none"/></a></td><td valign=3D"top"><table =
+width=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td colSpan=
+=3D"3" style=3D"font-family:BlinkMacSystemFont,-apple-system,Roboto,Helveti=
+ca,Arial,sans-serif;font-size:16px;font-weight:bold;line-height:1.4;color:#=
+0f294d"><a rel=3D"noopener noreferrer" target=3D"_blank" style=3D"text-deco=
+ration:none;border:none;outline:none;display:block;font-size:0;text-align:l=
+eft" href=3D"https://www.trip.com/forward/middlepages/channel/edm?targetUrl=
+=3Dhttps%3A%2F%2Ftripcom.onelink.me%2F3361031008%3Fpid%3Dedm%26c%3Dmarketin=
+g%26af_sub1%3Dplatform%25253Demail%252526locale%25253Dko_kr%252526alliancei=
+d%25253D324048%252526sid%25253D1520828%252526ouid%25253D60676.kr-edm-202308=
+18-koreanair.2023-08-18_9_0.20230818.ko_KR.%26af_web_dp%3Dhttps%253A%252F%2=
+52Fkr.trip.com%252Fm%252Fdownapp%253Flocale%253Dko_kr%2526utm_medium%253Din=
+ternal%2526utm_source%253Dmarketing%2526utm_campaign%253D0%2526utm_content%=
+253Dplatform%25253Donline%252526locale%25253Dko_kr%26allianceid%3D324048%26=
+edm_id%3DSIN-AWS-20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm-2=
+0230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizDat=
+a=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJhcHAtaW5zdGFsbC10aXRsZSIsInR5cGUiOiJ=
+yZWFjdC5jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWFwcC=
+1pbnN0YWxsIiwibGFiZWwiOiJhcHAtaW5zdGFsbCIsImlkIjoic3RydV9yTVpRSklpY3pOU0ZXY=
+2QiLCJmaWxlSWQiOiJmaWxlX1oxVEhESmU4Qml5WnVDbyIsImZveHBhZ2VWZXJzaW9uIjoyLCJm=
+cFRyYWNlSWQiOiJjMTQ1ZWIzZS1hZTFiLTQ1OWQtOGE2Yi00NTgzMDU1NmZmMzUiLCJ0ZW1wbGF=
+0ZUlkIjoiY29udF94OWx6Zm1Pd2ZmTk4xNGwiLCJ0ZW1wbGF0ZVZlcnNpb24iOjksImRhdGEiOn=
+sibmFtZSI6ImFwcC1pbnN0YWxsLXRpdGxlIn19"><span style=3D"font-family:BlinkMac=
+SystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:16px;f=
+ont-weight:bold;line-height:1.4;display:block;color:#0f294d;text-align:left=
+">=ED=8A=B8=EB=A6=BD=EB=8B=B7=EC=BB=B4 =EC=95=B1 =EB=8B=A4=EC=9A=B4=EB=A1=
+=9C=EB=93=9C=ED=95=98=EA=B3=A0 =EB=8B=A4=EC=96=91=ED=95=9C =ED=98=9C=ED=83=
+=9D =EB=A7=8C=EB=82=98=EB=B3=B4=EC=84=B8=EC=9A=94!</span></a></td></tr><tr>=
+<td height=3D"8" colSpan=3D"3"></td></tr><tr><td width=3D"12" valign=3D"top=
+"><a rel=3D"noopener noreferrer" target=3D"_blank" style=3D"text-decoration=
+:none;border:none;outline:none;display:block;font-size:0" href=3D"https://w=
+ww.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Ftripc=
+om.onelink.me%2F3361031008%3Fpid%3Dedm%26c%3Dmarketing%26af_sub1%3Dplatform=
+%25253Demail%252526locale%25253Dko_kr%252526allianceid%25253D324048%252526s=
+id%25253D1520828%252526ouid%25253D60676.kr-edm-20230818-koreanair.2023-08-1=
+8_9_0.20230818.ko_KR.%26af_web_dp%3Dhttps%253A%252F%252Fkr.trip.com%252Fm%2=
+52Fdownapp%253Flocale%253Dko_kr%2526utm_medium%253Dinternal%2526utm_source%=
+253Dmarketing%2526utm_campaign%253D0%2526utm_content%253Dplatform%25253Donl=
+ine%252526locale%25253Dko_kr%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621=
+-1012910811-1692321487570.613%26ouid%3D60676.kr-edm-20230818-koreanair.2023=
+-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaW=
+NrIiwidGl0bGUiOiJhcHAtaW5zdGFsbC1pY29uIiwidHlwZSI6InJlYWN0LmNvbXBvbmVudCIsI=
+m5hbWUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtYXBwLWluc3RhbGwiLCJsYWJlbCI6=
+ImFwcC1pbnN0YWxsIiwiaWQiOiJzdHJ1X3JNWlFKSWljek5TRldjZCIsImZpbGVJZCI6ImZpbGV=
+fWjFUSERKZThCaXladUNvIiwiZm94cGFnZVZlcnNpb24iOjIsImZwVHJhY2VJZCI6IjE4ZmM0Yj=
+ViLTkxZWMtNGIzMS1iZGVmLWZlYjk5ODJjNjRjZSIsInRlbXBsYXRlSWQiOiJjb250X3g5bHpmb=
+U93ZmZOTjE0bCIsInRlbXBsYXRlVmVyc2lvbiI6OSwiZGF0YSI6eyJuYW1lIjoiYXBwLWluc3Rh=
+bGwtaWNvbiJ9fQ%3D%3D"><img width=3D"12" height=3D"12" src=3D"http://ak-d.tr=
+ipcdn.com/images/0a133120008agjuhjAB38.png" alt=3D"" style=3D"display:block=
+;vertical-align:middle;border:none;outline:none"/></a></td><td width=3D"6">=
+</td><td valign=3D"top" align=3D"left"><a rel=3D"noopener noreferrer" targe=
+t=3D"_blank" style=3D"text-decoration:none;border:none;outline:none;display=
+:block;font-size:0;text-align:left" href=3D"https://www.trip.com/forward/mi=
+ddlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Ftripcom.onelink.me%2F336103=
+1008%3Fpid%3Dedm%26c%3Dmarketing%26af_sub1%3Dplatform%25253Demail%252526loc=
+ale%25253Dko_kr%252526allianceid%25253D324048%252526sid%25253D1520828%25252=
+6ouid%25253D60676.kr-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%=
+26af_web_dp%3Dhttps%253A%252F%252Fkr.trip.com%252Fm%252Fdownapp%253Flocale%=
+253Dko_kr%2526utm_medium%253Dinternal%2526utm_source%253Dmarketing%2526utm_=
+campaign%253D0%2526utm_content%253Dplatform%25253Donline%252526locale%25253=
+Dko_kr%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012910811-1692321487=
+570.613%26ouid%3D60676.kr-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko=
+_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJhcHAt=
+aW5zdGFsbC1zdWJ0aXRsZS0xIiwidHlwZSI6InJlYWN0LmNvbXBvbmVudCIsIm5hbWUiOiJAY3R=
+yaXAvY2xvdWQtY29tcG9uZW50LW1haWwtYXBwLWluc3RhbGwiLCJsYWJlbCI6ImFwcC1pbnN0YW=
+xsIiwiaWQiOiJzdHJ1X3JNWlFKSWljek5TRldjZCIsImZpbGVJZCI6ImZpbGVfWjFUSERKZThCa=
+XladUNvIiwiZm94cGFnZVZlcnNpb24iOjIsImZwVHJhY2VJZCI6Ijg3NTFjMWEzLTkxOWEtNDA0=
+My1iMjBiLTcwN2U1ZTNhNmI2NCIsInRlbXBsYXRlSWQiOiJjb250X3g5bHpmbU93ZmZOTjE0bCI=
+sInRlbXBsYXRlVmVyc2lvbiI6OSwiZGF0YSI6eyJuYW1lIjoiYXBwLWluc3RhbGwtc3VidGl0bG=
+UtMSJ9fQ%3D%3D"><span style=3D"display:block;font-family:BlinkMacSystemFont=
+,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight=
+:bold;line-height:1.4;color:#455873;text-align:left">=EC=95=B1 =EC=A0=84=EC=
+=9A=A9 =EC=B5=9C=EB=8C=80 50% =ED=8A=B9=EA=B0=80</span></a></td></tr><tr><t=
+d height=3D"8" colSpan=3D"3"></td></tr><tr><td width=3D"12" valign=3D"top">=
+<a rel=3D"noopener noreferrer" target=3D"_blank" style=3D"text-decoration:n=
+one;border:none;outline:none;display:block;font-size:0" href=3D"https://www=
+.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Ftripcom=
+.onelink.me%2F3361031008%3Fpid%3Dedm%26c%3Dmarketing%26af_sub1%3Dplatform%2=
+5253Demail%252526locale%25253Dko_kr%252526allianceid%25253D324048%252526sid=
+%25253D1520828%252526ouid%25253D60676.kr-edm-20230818-koreanair.2023-08-18_=
+9_0.20230818.ko_KR.%26af_web_dp%3Dhttps%253A%252F%252Fkr.trip.com%252Fm%252=
+Fdownapp%253Flocale%253Dko_kr%2526utm_medium%253Dinternal%2526utm_source%25=
+3Dmarketing%2526utm_campaign%253D0%2526utm_content%253Dplatform%25253Donlin=
+e%252526locale%25253Dko_kr%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-1=
+012910811-1692321487570.613%26ouid%3D60676.kr-edm-20230818-koreanair.2023-0=
+8-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWNr=
+IiwidGl0bGUiOiJhcHAtaW5zdGFsbC1pY29uIiwidHlwZSI6InJlYWN0LmNvbXBvbmVudCIsIm5=
+hbWUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtYXBwLWluc3RhbGwiLCJsYWJlbCI6Im=
+FwcC1pbnN0YWxsIiwiaWQiOiJzdHJ1X3JNWlFKSWljek5TRldjZCIsImZpbGVJZCI6ImZpbGVfW=
+jFUSERKZThCaXladUNvIiwiZm94cGFnZVZlcnNpb24iOjIsImZwVHJhY2VJZCI6ImM1ODYzZWQ2=
+LTFmYTktNDc2My05NTY5LTQ5NmFmOTljY2Q5NiIsInRlbXBsYXRlSWQiOiJjb250X3g5bHpmbU9=
+3ZmZOTjE0bCIsInRlbXBsYXRlVmVyc2lvbiI6OSwiZGF0YSI6eyJuYW1lIjoiYXBwLWluc3RhbG=
+wtaWNvbiJ9fQ%3D%3D"><img width=3D"12" height=3D"12" src=3D"http://ak-d.trip=
+cdn.com/images/0a133120008agjuhjAB38.png" alt=3D"" style=3D"display:block;v=
+ertical-align:middle;border:none;outline:none"/></a></td><td width=3D"6"></=
+td><td valign=3D"top" align=3D"left"><a rel=3D"noopener noreferrer" target=
+=3D"_blank" style=3D"text-decoration:none;border:none;outline:none;display:=
+block;font-size:0;text-align:left" href=3D"https://www.trip.com/forward/mid=
+dlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Ftripcom.onelink.me%2F3361031=
+008%3Fpid%3Dedm%26c%3Dmarketing%26af_sub1%3Dplatform%25253Demail%252526loca=
+le%25253Dko_kr%252526allianceid%25253D324048%252526sid%25253D1520828%252526=
+ouid%25253D60676.kr-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%2=
+6af_web_dp%3Dhttps%253A%252F%252Fkr.trip.com%252Fm%252Fdownapp%253Flocale%2=
+53Dko_kr%2526utm_medium%253Dinternal%2526utm_source%253Dmarketing%2526utm_c=
+ampaign%253D0%2526utm_content%253Dplatform%25253Donline%252526locale%25253D=
+ko_kr%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012910811-16923214875=
+70.613%26ouid%3D60676.kr-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko_=
+KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJhcHAta=
+W5zdGFsbC1zdWJ0aXRsZS0yIiwidHlwZSI6InJlYWN0LmNvbXBvbmVudCIsIm5hbWUiOiJAY3Ry=
+aXAvY2xvdWQtY29tcG9uZW50LW1haWwtYXBwLWluc3RhbGwiLCJsYWJlbCI6ImFwcC1pbnN0YWx=
+sIiwiaWQiOiJzdHJ1X3JNWlFKSWljek5TRldjZCIsImZpbGVJZCI6ImZpbGVfWjFUSERKZThCaX=
+ladUNvIiwiZm94cGFnZVZlcnNpb24iOjIsImZwVHJhY2VJZCI6IjUzMTAzNTMxLTNkMzMtNDFlN=
+S04ZWUyLWU1YzEwNWEzYWI1ZSIsInRlbXBsYXRlSWQiOiJjb250X3g5bHpmbU93ZmZOTjE0bCIs=
+InRlbXBsYXRlVmVyc2lvbiI6OSwiZGF0YSI6eyJuYW1lIjoiYXBwLWluc3RhbGwtc3VidGl0bGU=
+tMiJ9fQ%3D%3D"><span style=3D"display:block;font-family:BlinkMacSystemFont,=
+-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:=
+bold;line-height:1.4;color:#455873;text-align:left">=EC=98=88=EC=95=BD =EC=
+=8B=9C =ED=8A=B8=EB=A6=BD=EC=BD=94=EC=9D=B8 =EC=B6=94=EA=B0=80 =EC=A0=81=EB=
+=A6=BD</span></a></td></tr><tr><td height=3D"8" colSpan=3D"3"></td></tr><tr=
+><td width=3D"12" valign=3D"top"><a rel=3D"noopener noreferrer" target=3D"_=
+blank" style=3D"text-decoration:none;border:none;outline:none;display:block=
+;font-size:0" href=3D"https://www.trip.com/forward/middlepages/channel/edm?=
+targetUrl=3Dhttps%3A%2F%2Ftripcom.onelink.me%2F3361031008%3Fpid%3Dedm%26c%3=
+Dmarketing%26af_sub1%3Dplatform%25253Demail%252526locale%25253Dko_kr%252526=
+allianceid%25253D324048%252526sid%25253D1520828%252526ouid%25253D60676.kr-e=
+dm-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%26af_web_dp%3Dhttps%25=
+3A%252F%252Fkr.trip.com%252Fm%252Fdownapp%253Flocale%253Dko_kr%2526utm_medi=
+um%253Dinternal%2526utm_source%253Dmarketing%2526utm_campaign%253D0%2526utm=
+_content%253Dplatform%25253Donline%252526locale%25253Dko_kr%26allianceid%3D=
+324048%26edm_id%3DSIN-AWS-20621-1012910811-1692321487570.613%26ouid%3D60676=
+.kr-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&a=
+mp;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJhcHAtaW5zdGFsbC1pY29uIiwidH=
+lwZSI6InJlYWN0LmNvbXBvbmVudCIsIm5hbWUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1ha=
+WwtYXBwLWluc3RhbGwiLCJsYWJlbCI6ImFwcC1pbnN0YWxsIiwiaWQiOiJzdHJ1X3JNWlFKSWlj=
+ek5TRldjZCIsImZpbGVJZCI6ImZpbGVfWjFUSERKZThCaXladUNvIiwiZm94cGFnZVZlcnNpb24=
+iOjIsImZwVHJhY2VJZCI6IjE0ZjljMjViLTg5M2MtNGQxMy1hOWFkLWQwNGViNzA3ZDgyOCIsIn=
+RlbXBsYXRlSWQiOiJjb250X3g5bHpmbU93ZmZOTjE0bCIsInRlbXBsYXRlVmVyc2lvbiI6OSwiZ=
+GF0YSI6eyJuYW1lIjoiYXBwLWluc3RhbGwtaWNvbiJ9fQ%3D%3D"><img width=3D"12" heig=
+ht=3D"12" src=3D"http://ak-d.tripcdn.com/images/0a133120008agjuhjAB38.png" =
+alt=3D"" style=3D"display:block;vertical-align:middle;border:none;outline:n=
+one"/></a></td><td width=3D"6"></td><td valign=3D"top" align=3D"left"><a re=
+l=3D"noopener noreferrer" target=3D"_blank" style=3D"text-decoration:none;b=
+order:none;outline:none;display:block;font-size:0;text-align:left" href=3D"=
+https://www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2=
+F%2Ftripcom.onelink.me%2F3361031008%3Fpid%3Dedm%26c%3Dmarketing%26af_sub1%3=
+Dplatform%25253Demail%252526locale%25253Dko_kr%252526allianceid%25253D32404=
+8%252526sid%25253D1520828%252526ouid%25253D60676.kr-edm-20230818-koreanair.=
+2023-08-18_9_0.20230818.ko_KR.%26af_web_dp%3Dhttps%253A%252F%252Fkr.trip.co=
+m%252Fm%252Fdownapp%253Flocale%253Dko_kr%2526utm_medium%253Dinternal%2526ut=
+m_source%253Dmarketing%2526utm_campaign%253D0%2526utm_content%253Dplatform%=
+25253Donline%252526locale%25253Dko_kr%26allianceid%3D324048%26edm_id%3DSIN-=
+AWS-20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm-20230818-korea=
+nair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVud=
+CI6ImNsaWNrIiwidGl0bGUiOiJhcHAtaW5zdGFsbC1zdWJ0aXRsZS0zIiwidHlwZSI6InJlYWN0=
+LmNvbXBvbmVudCIsIm5hbWUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtYXBwLWluc3R=
+hbGwiLCJsYWJlbCI6ImFwcC1pbnN0YWxsIiwiaWQiOiJzdHJ1X3JNWlFKSWljek5TRldjZCIsIm=
+ZpbGVJZCI6ImZpbGVfWjFUSERKZThCaXladUNvIiwiZm94cGFnZVZlcnNpb24iOjIsImZwVHJhY=
+2VJZCI6IjBjMjMzZTRlLWY3OTctNGJhYS05ZTZjLTk0MGM4ZDAxM2E1MyIsInRlbXBsYXRlSWQi=
+OiJjb250X3g5bHpmbU93ZmZOTjE0bCIsInRlbXBsYXRlVmVyc2lvbiI6OSwiZGF0YSI6eyJuYW1=
+lIjoiYXBwLWluc3RhbGwtc3VidGl0bGUtMyJ9fQ%3D%3D"><span style=3D"display:block=
+;font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-s=
+erif;font-size:12px;font-weight:bold;line-height:1.4;color:#455873;text-ali=
+gn:left">=EC=98=88=EC=95=BD=EC=9D=84 =EB=8D=94 =EC=89=BD=EA=B2=8C, =EB=8B=
+=A8 =EB=AA=87 =EC=B4=88 =EB=A7=8C=EC=97=90!</span></a></td></tr></tbody></t=
+able></td></tr></tbody></table></td></tr></tbody></table><table class=3D"tr=
+ip-mail-fluid" align=3D"right" valign=3D"middle" height=3D"129" cellPadding=
+=3D"8" cellSpacing=3D"0" border=3D"0"><tbody><tr><td align=3D"center"><tabl=
+e class=3D"trip-mail-fluid" align=3D"right" cellPadding=3D"0" cellSpacing=
+=3D"0" border=3D"0"><tbody><tr><td align=3D"center" bgcolor=3D"#3264ff" sty=
+le=3D"background: #3264ff;border-radius: 2px;mso-padding-alt: 8px 10px;padd=
+ing: 0px 4px;"><a rel=3D"noopener noreferrer" target=3D"_blank" href=3D"htt=
+ps://www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2=
+Ftripcom.onelink.me%2F3361031008%3Fpid%3Dedm%26c%3Dmarketing%26af_sub1%3Dpl=
+atform%25253Demail%252526locale%25253Dko_kr%252526allianceid%25253D324048%2=
+52526sid%25253D1520828%252526ouid%25253D60676.kr-edm-20230818-koreanair.202=
+3-08-18_9_0.20230818.ko_KR.%26af_web_dp%3Dhttps%253A%252F%252Fkr.trip.com%2=
+52Fm%252Fdownapp%253Flocale%253Dko_kr%2526utm_medium%253Dinternal%2526utm_s=
+ource%253Dmarketing%2526utm_campaign%253D0%2526utm_content%253Dplatform%252=
+53Donline%252526locale%25253Dko_kr%26allianceid%3D324048%26edm_id%3DSIN-AWS=
+-20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm-20230818-koreanai=
+r.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&bizData=3DeyJldmVudCI6ImNs=
+aWNrIiwidGl0bGUiOiJhcHAtaW5zdGFsbC1idXR0b24iLCJ0eXBlIjoicmVhY3QuY29tcG9uZW5=
+0IiwibmFtZSI6IkBjdHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1hcHAtaW5zdGFsbCIsImxhYm=
+VsIjoiYXBwLWluc3RhbGwiLCJpZCI6InN0cnVfck1aUUpJaWN6TlNGV2NkIiwiZmlsZUlkIjoiZ=
+mlsZV9aMVRIREplOEJpeVp1Q28iLCJmb3hwYWdlVmVyc2lvbiI6MiwiZnBUcmFjZUlkIjoiZTI4=
+NzU2MDAtYjNhZS00NDZiLTk3NTEtMTY1ZDljOWFmY2M0IiwidGVtcGxhdGVJZCI6ImNvbnRfeDl=
+semZtT3dmZk5OMTRsIiwidGVtcGxhdGVWZXJzaW9uIjo5LCJkYXRhIjp7Im5hbWUiOiJhcHAtaW=
+5zdGFsbC1idXR0b24ifX0%3D" style=3D"font-family: BlinkMacSystemFont, -apple-=
+system, Roboto, Helvetica, Arial, sans-serif;font-size: 14px;color: #ffffff=
+;text-decoration: none;display: block;mso-padding-alt: 8px;padding: 8px 6px=
+;">=EB=8B=A4=EC=9A=B4=EB=A1=9C=EB=93=9C</a></td></tr></tbody></table></td><=
+/tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></t=
+d></tr></tbody></table><table class=3D"trip-mail-fluid" width=3D"100%" bord=
+er=3D"0" cellPadding=3D"0" cellSpacing=3D"0" align=3D"center"><tbody><tr><t=
+d bgcolor=3D"#ffffff" align=3D"center" style=3D"padding:20px 10px"><table w=
+idth=3D"100%" cellPadding=3D"0" cellSpacing=3D"0"><tbody><tr><td bgcolor=3D=
+"#ffffff" align=3D"center" style=3D"padding:0 10px 10px"><a rel=3D"noopener=
+ noreferrer" target=3D"_blank" title=3D"foot-share-facebook" href=3D"https:=
+//www.trip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fww=
+w.facebook.com%2Ftripcom.kr%3Fallianceid%3D324048%26edm_id%3DSIN-AWS-20621-=
+1012910811-1692321487570.613%26ouid%3D60676.kr-edm-20230818-koreanair.2023-=
+08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWN=
+rIiwidGl0bGUiOiJmb290ZXItc2hhcmUtZmFjZWJvb2staWNvbiIsInR5cGUiOiJyZWFjdC5jb2=
+1wb25lbnQiLCJuYW1lIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWZvb3RlciIsImxhY=
+mVsIjoiZm9vdGVyIiwiaWQiOiJzdHJ1XzlKbk1RdjVQcE1qNWg2dSIsImZpbGVJZCI6ImZpbGVf=
+WjFUSERKZThCaXladUNvIiwiZm94cGFnZVZlcnNpb24iOjIsImZwVHJhY2VJZCI6IjYxMmQ1Njh=
+mLWRkOTMtNGMxNS05N2QxLTgwZDEwNWE4MDUyZCIsInRlbXBsYXRlSWQiOiJjb250X3g5bHpmbU=
+93ZmZOTjE0bCIsInRlbXBsYXRlVmVyc2lvbiI6OSwiZGF0YSI6eyJuYW1lIjoiZm9vdGVyLXNoY=
+XJlLWZhY2Vib29rLWljb24ifX0%3D" style=3D"margin:0 3px"><img src=3D"http://we=
+bresource.english.c-ctrip.com/ares2/ibu/fe-mail/1.1.3/default/market/images=
+/share-facebook.png" style=3D"vertical-align:top" width=3D"40" height=3D"40=
+" border=3D"0" alt=3D""/></a><a rel=3D"noopener noreferrer" target=3D"_blan=
+k" title=3D"foot-share-instagram" href=3D"https://www.trip.com/forward/midd=
+lepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fwww.instagram.com%2Ftripcom.k=
+r%3Fallianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012910811-1692321487570.6=
+13%26ouid%3D60676.kr-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%=
+26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJmb290ZXItc=
+2hhcmUtaW5zdGFncmFtLWljb24iLCJ0eXBlIjoicmVhY3QuY29tcG9uZW50IiwibmFtZSI6IkBj=
+dHJpcC9jbG91ZC1jb21wb25lbnQtbWFpbC1mb290ZXIiLCJsYWJlbCI6ImZvb3RlciIsImlkIjo=
+ic3RydV85Sm5NUXY1UHBNajVoNnUiLCJmaWxlSWQiOiJmaWxlX1oxVEhESmU4Qml5WnVDbyIsIm=
+ZveHBhZ2VWZXJzaW9uIjoyLCJmcFRyYWNlSWQiOiJiMDk3MTI3YS00MjlmLTRmNTctYjQ1OS00Y=
+jc2ZGUyZjM0ZjEiLCJ0ZW1wbGF0ZUlkIjoiY29udF94OWx6Zm1Pd2ZmTk4xNGwiLCJ0ZW1wbGF0=
+ZVZlcnNpb24iOjksImRhdGEiOnsibmFtZSI6ImZvb3Rlci1zaGFyZS1pbnN0YWdyYW0taWNvbiJ=
+9fQ%3D%3D" style=3D"margin:0 3px"><img src=3D"http://webresource.english.c-=
+ctrip.com/ares2/ibu/fe-mail/1.1.3/default/market/images/share-instagram.png=
+" style=3D"vertical-align:top" width=3D"40" height=3D"40" border=3D"0" alt=
+=3D""/></a><a rel=3D"noopener noreferrer" target=3D"_blank" title=3D"foot-s=
+hare-naver-blog" href=3D"https://www.trip.com/forward/middlepages/channel/e=
+dm?targetUrl=3Dhttps%3A%2F%2Fblog.naver.com%2Fprologue%2FPrologueList.nhn%3=
+FblogId%3Dtrip_com%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-101291081=
+1-1692321487570.613%26ouid%3D60676.kr-edm-20230818-koreanair.2023-08-18_9_0=
+.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0=
+bGUiOiJmb290ZXItc2hhcmUtbmF2ZXItYmxvZy1pY29uIiwidHlwZSI6InJlYWN0LmNvbXBvbmV=
+udCIsIm5hbWUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtZm9vdGVyIiwibGFiZWwiOi=
+Jmb290ZXIiLCJpZCI6InN0cnVfOUpuTVF2NVBwTWo1aDZ1IiwiZmlsZUlkIjoiZmlsZV9aMVRIR=
+EplOEJpeVp1Q28iLCJmb3hwYWdlVmVyc2lvbiI6MiwiZnBUcmFjZUlkIjoiOGEwYzYzOTktZTIw=
+OS00OTE5LWEyOTItOThhZWZiZmRmYzJmIiwidGVtcGxhdGVJZCI6ImNvbnRfeDlsemZtT3dmZk5=
+OMTRsIiwidGVtcGxhdGVWZXJzaW9uIjo5LCJkYXRhIjp7Im5hbWUiOiJmb290ZXItc2hhcmUtbm=
+F2ZXItYmxvZy1pY29uIn19" style=3D"margin:0 3px"><img src=3D"http://webresour=
+ce.english.c-ctrip.com/ares2/ibu/fe-mail/1.1.3/default/market/images/share-=
+naver-blog.png" style=3D"vertical-align:top" width=3D"40" height=3D"40" bor=
+der=3D"0" alt=3D""/></a></td></tr><tr><td align=3D"center" style=3D"font-fa=
+mily:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;fon=
+t-weight:bold;color:#999;font-size:12px;padding-bottom:10px"><a rel=3D"noop=
+ener noreferrer" target=3D"_blank" title=3D"foot-about-us" style=3D"font-fa=
+mily:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;mar=
+gin:0 5px;color:#999999;text-decoration:none" href=3D"https://www.trip.com/=
+forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Fpag=
+es%2Fabout-us%2F%3Flocale%3Dko-kr%26allianceid%3D324048%26edm_id%3DSIN-AWS-=
+20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm-20230818-koreanair=
+.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6I=
+mNsaWNrIiwidGl0bGUiOiJmb290ZXItYWJvdXQtdXMtbGluayIsInR5cGUiOiJyZWFjdC5jb21w=
+b25lbnQiLCJuYW1lIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVudC1tYWlsLWZvb3RlciIsImxhYmV=
+sIjoiZm9vdGVyIiwiaWQiOiJzdHJ1XzlKbk1RdjVQcE1qNWg2dSIsImZpbGVJZCI6ImZpbGVfWj=
+FUSERKZThCaXladUNvIiwiZm94cGFnZVZlcnNpb24iOjIsImZwVHJhY2VJZCI6ImEzY2Q2OTNlL=
+WZhZmEtNDRmOS05ZTM3LTFlZDgwOTg0MWRhNSIsInRlbXBsYXRlSWQiOiJjb250X3g5bHpmbU93=
+ZmZOTjE0bCIsInRlbXBsYXRlVmVyc2lvbiI6OSwiZGF0YSI6eyJuYW1lIjoiZm9vdGVyLWFib3V=
+0LXVzLWxpbmsifX0%3D">=ED=9A=8C=EC=82=AC=EC=86=8C=EA=B0=9C</a>|<a rel=3D"noo=
+pener noreferrer" target=3D"_blank" title=3D"foot-privacy-policy" style=3D"=
+font-family:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-se=
+rif;margin:0 5px;color:#999999;text-decoration:none" href=3D"https://www.tr=
+ip.com/forward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fpages.trip=
+.com%2Fservice-guideline%2Fprivacy-policy-ko-kr.html%3Fallianceid%3D324048%=
+26edm_id%3DSIN-AWS-20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm=
+-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizD=
+ata=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJmb290ZXItcHJpdmFjeS1wb2xpY3ktbGlua=
+yIsInR5cGUiOiJyZWFjdC5jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlwL2Nsb3VkLWNvbXBvbmVu=
+dC1tYWlsLWZvb3RlciIsImxhYmVsIjoiZm9vdGVyIiwiaWQiOiJzdHJ1XzlKbk1RdjVQcE1qNWg=
+2dSIsImZpbGVJZCI6ImZpbGVfWjFUSERKZThCaXladUNvIiwiZm94cGFnZVZlcnNpb24iOjIsIm=
+ZwVHJhY2VJZCI6ImRiNDNmNDlkLTc2OWMtNDQ2ZS05MDQ4LTBhOGQ1M2E4OTkxYSIsInRlbXBsY=
+XRlSWQiOiJjb250X3g5bHpmbU93ZmZOTjE0bCIsInRlbXBsYXRlVmVyc2lvbiI6OSwiZGF0YSI6=
+eyJuYW1lIjoiZm9vdGVyLXByaXZhY3ktcG9saWN5LWxpbmsifX0%3D">=EA=B0=9C=EC=9D=B8=
+=EC=A0=95=EB=B3=B4 =EC=B2=98=EB=A6=AC=EB=B0=A9=EC=B9=A8</a>|<a rel=3D"noope=
+ner noreferrer" target=3D"_blank" title=3D"foot-service" style=3D"font-fami=
+ly:BlinkMacSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;margi=
+n:0 5px;color:#999999;text-decoration:none" href=3D"https://www.trip.com/fo=
+rward/middlepages/channel/edm?targetUrl=3Dhttps%3A%2F%2Fpages.trip.com%2Fse=
+rvice-guideline%2Fterms-ko-kr.html%3Fallianceid%3D324048%26edm_id%3DSIN-AWS=
+-20621-1012910811-1692321487570.613%26ouid%3D60676.kr-edm-20230818-koreanai=
+r.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&amp;bizData=3DeyJldmVudCI6=
+ImNsaWNrIiwidGl0bGUiOiJmb290ZXItc2VydmljZS1saW5rIiwidHlwZSI6InJlYWN0LmNvbXB=
+vbmVudCIsIm5hbWUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtZm9vdGVyIiwibGFiZW=
+wiOiJmb290ZXIiLCJpZCI6InN0cnVfOUpuTVF2NVBwTWo1aDZ1IiwiZmlsZUlkIjoiZmlsZV9aM=
+VRIREplOEJpeVp1Q28iLCJmb3hwYWdlVmVyc2lvbiI6MiwiZnBUcmFjZUlkIjoiN2EwZmViZTAt=
+ODkzZS00ODMyLTllZGYtYTJlYzlkMjhmMzFiIiwidGVtcGxhdGVJZCI6ImNvbnRfeDlsemZtT3d=
+mZk5OMTRsIiwidGVtcGxhdGVWZXJzaW9uIjo5LCJkYXRhIjp7Im5hbWUiOiJmb290ZXItc2Vydm=
+ljZS1saW5rIn19">=EC=9D=B4=EC=9A=A9=EC=95=BD=EA=B4=80</a></td></tr><tr><td a=
+lign=3D"center" style=3D"font-family:BlinkMacSystemFont,-apple-system,Robot=
+o,Helvetica,Arial,sans-serif;color:#999;font-size:12px;padding-bottom:6px;p=
+adding-left:10px;padding-right:10px;line-height:1.4">=ED=91=9C=EC=8B=9C=EB=
+=90=9C =EA=B0=80=EA=B2=A9, =ED=9A=8C=EC=9B=90=EB=93=B1=EA=B8=89, =ED=8A=B8=
+=EB=A6=BD=EC=BD=94=EC=9D=B8 =EA=B8=88=EC=95=A1 =EB=B0=8F =ED=8A=B8=EB=A6=BD=
+=EC=BD=94=EC=9D=B8 =EA=B5=90=ED=99=98=EC=9C=A8=EC=9D=80 =EA=B3=B5=EA=B3=A0 =
+=EC=8B=9C=EC=A0=90 =EA=B8=B0=EC=A4=80=EC=9D=B4=EB=A9=B0 =EC=98=88=EA=B3=A0 =
+=EC=97=86=EC=9D=B4 =EB=B3=80=EA=B2=BD=EB=90=A0 =EC=88=98 =EC=9E=88=EC=8A=B5=
+=EB=8B=88=EB=8B=A4. =EB=B3=B8 =EC=9D=B4=EB=A9=94=EC=9D=BC=EC=9D=98 =EB=AA=
+=A8=EB=93=A0 =EC=8B=9C=EA=B0=84=EC=9D=80 GMT+8 =EA=B8=B0=EC=A4=80=EC=9C=BC=
+=EB=A1=9C =ED=91=9C=EC=8B=9C=EB=90=A9=EB=8B=88=EB=8B=A4. =EB=A1=9C=EA=B7=B8=
+=EC=9D=B8 =ED=9B=84 "=EC=9D=B4=EB=A9=94=EC=9D=BC =EC=A0=84=EC=9A=A9 =EC=8B=
+=9C=ED=81=AC=EB=A6=BF=ED=8A=B9=EA=B0=80" =EC=9A=94=EA=B8=88=EC=9C=BC=EB=A1=
+=9C =EC=98=88=EC=95=BD=ED=95=98=EC=84=B8=EC=9A=94. =ED=8A=B8=EB=A6=BD=EB=8B=
+=B7=EC=BB=B4 =ED=94=84=EB=A1=9C=EB=AA=A8=EC=85=98 =EC=9D=B4=EB=A9=94=EC=9D=
+=BC=EC=9D=98 =EC=88=98=EC=8B=A0=EC=9D=84 =EC=9B=90=ED=95=98=EC=A7=80 =EC=95=
+=8A=EB=8A=94 =EA=B2=BD=EC=9A=B0, <a target=3D"_blank" style=3D"text-decorat=
+ion:underline;color:#666;" href=3D"https://www.trip.com/forward/middlepages=
+/channel/edm?targetUrl=3Dhttps%3A%2F%2Fkr.trip.com%2Fsubscribe%3Flocale%3Dk=
+o_kr%26allianceid%3D324048%26edm_id%3DSIN-AWS-20621-1012910811-169232148757=
+0.613%26ouid%3D60676.kr-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko_K=
+R.%26sid%3D1520828&bizData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJ1bnN1YnNjcm=
+liZS1zZXR0aW5ncyIsInR5cGUiOiJyZWFjdC5jb21wb25lbnQiLCJuYW1lIjoiQGN0cmlwL2Nsb=
+3VkLWNvbXBvbmVudC1tYWlsLWZvb3RlciIsImxhYmVsIjoiZm9vdGVyIiwiaWQiOiJzdHJ1XzlK=
+bk1RdjVQcE1qNWg2dSIsImZpbGVJZCI6ImZpbGVfWjFUSERKZThCaXladUNvIiwiZm94cGFnZVZ=
+lcnNpb24iOjIsImZwVHJhY2VJZCI6ImI4ZDU5N2RlLWVkYTAtNDJkZi04OGE5LWFiZDBmYWJhZW=
+JmMyIsInRlbXBsYXRlSWQiOiJjb250X3g5bHpmbU93ZmZOTjE0bCIsInRlbXBsYXRlVmVyc2lvb=
+iI6OSwiZGF0YSI6eyJuYW1lIjoidW5zdWJzY3JpYmUtc2V0dGluZ3MifX0%3D">=EC=95=8C=EB=
+=A6=BC =EC=84=A4=EC=A0=95=EC=9D=84 =EB=B3=80=EA=B2=BD</a>=ED=95=98=EA=B1=B0=
+=EB=82=98 <a target=3D"_blank" style=3D"text-decoration:underline;color:#66=
+6;" href=3D"https://www.trip.com/forward/middlepages/channel/edm?targetUrl=
+=3Dhttps%3A%2F%2Fkr.trip.com%2Fsubscribe%2Funsubscribe-category%3FaccessId%=
+3D60676%26category%3Dpromotions%26locale%3Dko_KR%26ouid%3D60676.kr-edm-2023=
+0818-koreanair.2023-08-18_9_0.20230818.ko_KR.%26requestId%3DSIN-AWS-20621-1=
+012910811-1692321487570.613%26schemeId%3D2%26token%3DeyJhbGciOiJIUzUxMiJ9.e=
+yJlbWFpbCI6ImFsZFk0Y2YyMThAbmF2ZXIuY29tIyJ9.UxuBvx5uu4ZtLeeINpu7QhzNGfpxkQf=
+Wmqj0ga2xwPAFyot0jwPIz0TOrECCLxH1q3MgaV5MkKQqz340Ad7gNQ%26%26allianceid%3D3=
+24048%26edm_id%3DSIN-AWS-20621-1012910811-1692321487570.613%26ouid%3D60676.=
+kr-edm-20230818-koreanair.2023-08-18_9_0.20230818.ko_KR.%26sid%3D1520828&bi=
+zData=3DeyJldmVudCI6ImNsaWNrIiwidGl0bGUiOiJ1bnN1YnNjcmliZS1saW5rIiwidHlwZSI=
+6InJlYWN0LmNvbXBvbmVudCIsIm5hbWUiOiJAY3RyaXAvY2xvdWQtY29tcG9uZW50LW1haWwtZm=
+9vdGVyIiwibGFiZWwiOiJmb290ZXIiLCJpZCI6InN0cnVfOUpuTVF2NVBwTWo1aDZ1IiwiZmlsZ=
+UlkIjoiZmlsZV9aMVRIREplOEJpeVp1Q28iLCJmb3hwYWdlVmVyc2lvbiI6MiwiZnBUcmFjZUlk=
+IjoiZWZjNDMyMmUtYWE5Mi00MTY1LWJmNDAtNDQ3Y2RkZTlmYjgxIiwidGVtcGxhdGVJZCI6ImN=
+vbnRfeDlsemZtT3dmZk5OMTRsIiwidGVtcGxhdGVWZXJzaW9uIjo5LCJkYXRhIjp7Im5hbWUiOi=
+J1bnN1YnNjcmliZS1saW5rIn19">=EC=9D=B4=EB=A9=94=EC=9D=BC =EC=88=98=EC=8B=A0=
+=EC=9D=84 =EA=B1=B0=EB=B6=80</a>=ED=95=98=EC=8B=9C=EA=B8=B0 =EB=B0=94=EB=9E=
+=8D=EB=8B=88=EB=8B=A4. =ED=95=B4=EB=8B=B9 =EC=9D=B4=EB=A9=94=EC=9D=BC=EC=9D=
+=80 =EC=9E=90=EB=8F=99 =EB=B0=9C=EC=86=A1=EC=9A=A9=EC=9D=B4=EB=AF=80=EB=A1=
+=9C =EB=B3=B8 =EC=9D=B4=EB=A9=94=EC=9D=BC =EC=A3=BC=EC=86=8C=EB=A1=9C=EB=8A=
+=94 =EB=8B=B5=EC=9E=A5=ED=95=98=EC=8B=A4 =EC=88=98 =EC=97=86=EC=8A=B5=EB=8B=
+=88=EB=8B=A4.</td></tr><tr><td align=3D"center" style=3D"font-family:BlinkM=
+acSystemFont,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:#999;fon=
+t-size:12px;padding-bottom:10px;padding-left:10px;padding-right:10px;line-h=
+eight:1.4">Copyright =C2=A9 1999-2023 Trip.com. All rights reserved</td></t=
+r></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td>=
+</tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></=
+body></html>

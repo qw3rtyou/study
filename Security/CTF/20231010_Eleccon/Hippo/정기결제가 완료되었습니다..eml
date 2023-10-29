@@ -1,0 +1,840 @@
+Delivered-To: user01@gmail.com
+Received: by 2002:a17:906:d28a:b0:99b:f49c:e7cb with SMTP id ay10csp692971ejb;
+        Wed, 9 Aug 2023 17:03:05 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlH/pRPvBJAFXrnr2Zx1I2kJOLZ7Z8xr0QA6D8sGLyFs3q7gxFJc+3lLMsLZ+i28zJ6oyP14
+X-Received: by 2002:a05:6870:f59f:b0:1bb:ec07:83f1 with SMTP id eh31-20020a056870f59f00b001bbec0783f1mr16770907oab.43.1691020985565;
+        Wed, 09 Aug 2023 17:03:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1691020985; cv=none;
+        d=google.com; s=arc-20160816;
+        b=vzHSpM3EqfWRbvPUlBBkNmnk2fDH7rRzjXyJPESHZfd8oA4xaGvb2HrVx1JkaZA3pi
+         LKUoQE/Udt0rz5o3/26ar6vLN9rgA6FfTvla0huBN4l8JOz4Qy+ZQ4TxuJQE5romxYd4
+         ctbxxCBYFHgiwansZL+bi6PV0myw8TPi6grHv1nZEuUkWI3WlfMa5oLaryadT+vyfEVn
+         wkCbXd9hwZCQjyvdV8KDR8By5Nx8EB9DPEUsOWDx2pUFqVgtG28/BQ0CoHHmCChZsxSU
+         rBsaNxdIJC3KCLBYd73nCT6MrgZ1bKGe9UEgwNLpBIFxw9wbNO+cMli8IXUF1ymqmady
+         sozQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:subject:message-id:to:from:date;
+        bh=odSNFJQiehk3F0N2rqK3cmmncy+XvXGh2QJVxx7UBvY=;
+        fh=k4kHBY3p5UPJO2tluous5IVjabLi04A8RHartBOedrs=;
+        b=Xgv6I05dfwy9iW8RiVxXOgxrGOtGssJgdkUMlHpaZl6AE4a2xogAwhXBFcc/yR2wsh
+         EA9XvcVnlpukxRH0W7kOh0RA7BGm7GBvaKR1KOcnu6qtywyWzjBjaZgekr7sDKsh7ZpV
+         N2ocz7a0GWQoAISlNDQPSJIP6LqWzs6rkiHK1xnQyGVE7kUGIVOlqwlKplDG25GS4Hjy
+         RJ2quzq9bhYs7SL7XkdNmIDXsXUpPu1gpira5Dg8kJq8mlskOrCICBKqMJTxn8ok8V6j
+         +saORGZ1tHMc+13Iw/Km6F82xMNy53Nl0M51YqEjI5zZP7ZdPvpkypQy5YtiIc4Hgzk2
+         LVXA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of noreply@kakaocorp.com designates 220.64.109.10 as permitted sender) smtp.mailfrom=noreply@kakaocorp.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kakaocorp.com
+Return-Path: <noreply@kakaocorp.com>
+Received: from dmail-prod-ay-sm1-worker18.mail.kakao.com (dmail-prod-ay-sm1-worker18.mail.kakao.com. [220.64.109.10])
+        by mx.google.com with ESMTPS id 99-20020a17090a09ec00b00262de4b0d87si1888408pjo.16.2023.08.02.17.03.04
+        for <user01@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 09 Aug 2023 17:03:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of noreply@kakaocorp.com designates 220.64.109.10 as permitted sender) client-ip=220.64.109.10;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of noreply@kakaocorp.com designates 220.64.109.10 as permitted sender) smtp.mailfrom=noreply@kakaocorp.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kakaocorp.com
+X-Hermes-Message-Id: r73932s501417179964
+X-Hermes-Message-Id: r73932s4n1040831981
+X-Kakaomail-MID: CvAkkAAAAAcAAAGJuLR6UQABadE=
+X-Hermes-Message-Id: r73932rFw232377370
+Received: from dmail-smail-kmh-normal-prod-7dd88f44fb-bxdw6 ([10.240.88.77]) by hermes of dmail-smail-global-prod-589957b4d5-rpxn2 (10.240.16.188) with SMTP id r73932s501417179964 for <user01@gmail.com>; Thu, 03 Aug 2023 09:03:02 +0900 (KST)
+Received: from dmail-kmh-normal-prod-5c589d4d85-cgnds ([10.240.63.92]) by hermes of dmail-smail-kmh-normal-prod-7dd88f44fb-bxdw6 (10.240.88.77) with SMTP id r73932s4n1040831981 for <user01@gmail.com>; Thu, 03 Aug 2023 09:03:02 +0900 (KST)
+Received: from membership-iris-prod-7f49f44dc7-7f2hs ([10.240.78.105]) by hermes of dmail-kmh-normal-prod-5c589d4d85-cgnds (10.240.36.144) with ESMTP id r73932rFw232377370 for <user01@gmail.com>; Thu, 03 Aug 2023 09:03:02 +0900 (KST)
+Date: Thu, 10 Aug 2023 09:03:02 +0900 (KST)
+From: =?UTF-8?B?7Lm07Lm07JikIE15IOq1rOuPhQ==?= <noreply@kakaocorp.com>
+To: user01@gmail.com
+Message-ID: <1435636857.636448.1691020982860@membership-iris-prod-7f49f44dc7-7f2hs>
+Subject: =?UTF-8?B?7KCV6riw6rKw7KCc6rCAIOyZhOujjOuQmOyXiOyKteuLiOuLpC4=?=
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_636446_1452780941.1691020982854"
+
+------=_Part_636446_1452780941.1691020982854
+Content-Type: multipart/related; 
+	boundary="----=_Part_636447_295244364.1691020982854"
+
+------=_Part_636447_295244364.1691020982854
+Content-Type: text/html;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"/>
+<meta name=3D"format-detection" content=3D"telephone=3Dno"/>
+<meta name=3D"viewport"
+      content=3D"user-scalable=3Dno, initial-scale=3D1.0, maximum-scale=3D1=
+.0, minimum-scale=3D1.0, width=3Ddevice-width"/>
+
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"7" border=3D"0" alig=
+n=3D"center" bgcolor=3D"#ffffff"
+       style=3D"border-collapse:collapse">
+  <tr>
+    <td>
+      <!--[if (gte mso 9)|(IE)]>
+      <table width=3D"600" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"=
+ align=3D"center" bgcolor=3D"#ffffff"
+             style=3D"max-width:600px;margin:0 auto">
+        <tbody>
+        <tr>
+          <td>
+      <![endif]-->
+      <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+" align=3D"center"
+             bgcolor=3D"#ffffff"
+             style=3D"max-width:600px;margin:0 auto">
+
+<tr>
+  <td height=3D"45" colspan=3D"3 " bgcolor=3D"#FEE500"></td>
+</tr>
+<tr>
+  <td width=3D"5" height=3D"25" bgcolor=3D"#FEE500"></td>
+  <td height=3D"25" colspan=3D"2" bgcolor=3D"#FEE500">
+    <img src=3D"https://t1.daumcdn.net/contents_img/img-contents/event/dm/2=
+01023_kakaome/logo.gif"
+         width=3D"94" height=3D"25" alt=3D"kakao" border=3D"0" style=3D"dis=
+play:block"/>
+  </td>
+</tr>
+<tr>
+  <td height=3D"45" colspan=3D"3" bgcolor=3D"#FEE500"></td>
+</tr>
+        <tr>
+          <td height=3D"40" colspan=3D"3"></td>
+        </tr>
+        <tr>
+          <td width=3D"5"></td>
+          <td style=3D"font-size:24px;line-height:32px;font-family:'Apple S=
+D Gothic Neo','=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95','Malgun Gothic','=EB=
+=8F=8B=EC=9B=80',Dotum,'=EA=B5=B4=EB=A6=BC',gulim,sans-serif;font-weight:bo=
+ld;color:#191919">
+            =EC=A0=95=EA=B8=B0=EA=B2=B0=EC=A0=9C=EA=B0=80 =EC=99=84=EB=A3=
+=8C=EB=90=98=EC=97=88=EC=8A=B5=EB=8B=88=EB=8B=A4.
+          </td>
+          <td width=3D"5"></td>
+        </tr>
+        <tr>
+          <td height=3D"11" colspan=3D"3"></td>
+        </tr>
+        <tr>
+          <td width=3D"5"></td>
+          <td style=3D"font-size:14px;line-height:22px;font-family:'Apple S=
+D Gothic Neo','=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95','Malgun Gothic','=EB=
+=8F=8B=EC=9B=80',Dotum,'=EA=B5=B4=EB=A6=BC',gulim,sans-serif;color:#7F7F7F"=
+>
+            =EC=A0=95=EA=B8=B0=EA=B2=B0=EC=A0=9C=EA=B0=80 =EC=99=84=EB=A3=
+=8C=EB=90=98=EC=97=88=EC=8A=B5=EB=8B=88=EB=8B=A4. =EC=9D=B4=EC=9A=A9=ED=95=
+=B4=EC=A3=BC=EC=85=94=EC=84=9C =EA=B0=90=EC=82=AC=ED=95=A9=EB=8B=88=EB=8B=
+=A4.
+          </td>
+          <td width=3D"5"></td>
+        </tr>
+        <tr>
+          <td height=3D"14" colspan=3D"3"></td>
+        </tr>
+        <tr>
+          <td width=3D"5"></td>
+          <td>
+            <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" borde=
+r=3D"0" align=3D"left"
+                   style=3D"line-height:20px;font-family:'Apple SD Gothic N=
+eo','=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95','Malgun Gothic','=EB=8F=8B=EC=9B=
+=80',Dotum,'=EA=B5=B4=EB=A6=BC',gulim,sans-serif;color:#191919">
+
+              <tr>
+                <td height=3D"15" colspan=3D"4"></td>
+              </tr>
+              <tr>
+                <td height=3D"15" colspan=3D"4" style=3D"font-size:14px;let=
+ter-spacing:0;color:#4C4C4C">=EA=B2=B0=EC=A0=9C
+                  =EB=82=B4=EC=97=AD
+                </td>
+              </tr>
+              <tr>
+                <td height=3D"7" colspan=3D"4"></td>
+              </tr>
+              <tr>
+                <td height=3D"1" colspan=3D"4"
+                    style=3D"border-bottom-width:1px;border-bottom-color:#e=
+ee;border-bottom-style:solid;"></td>
+              </tr>
+              <tr>
+                <td height=3D"20" colspan=3D"4"></td>
+              </tr>
+                      <tr>
+                        <td width=3D"5"></td>
+                        <td width=3D"100" valign=3D"top" style=3D"font-size=
+:14px;font-weight:normal">=EC=83=81=ED=92=88=EB=AA=85
+                        </td>
+                        <td width=3D"10"></td>
+                        <td valign=3D"top" colspan=3D"3"
+                            style=3D"font-size:14px;font-weight:bold;word-b=
+reak:break-all">=ED=86=A1=EC=84=9C=EB=9E=8D =ED=94=8C=EB=9F=AC=EC=8A=A4</td=
+>
+                      </tr>
+              <tr>
+                <td height=3D"16" colspan=3D"4"></td>
+              </tr>
+              <tr>
+                <td width=3D"5"></td>
+                <td width=3D"100" valign=3D"top" style=3D"font-size:14px;fo=
+nt-weight:normal">=EA=B2=B0=EC=A0=9C=EC=9D=BC</td>
+                <td width=3D"10"></td>
+                <td valign=3D"top" colspan=3D"3"
+                    style=3D"font-size:14px;font-weight:bold;word-break:bre=
+ak-all">2023. 8. 3</td>
+              </tr>
+              <tr>
+                <td height=3D"16" colspan=3D"4"></td>
+              </tr>
+              <tr>
+                <td width=3D"5"></td>
+                <td width=3D"100" valign=3D"top" style=3D"font-size:14px;fo=
+nt-weight:normal">=EA=B2=B0=EC=A0=9C=EA=B8=88=EC=95=A1</td>
+                <td width=3D"10"></td>
+                <td valign=3D"top" colspan=3D"3"
+                    style=3D"font-size:14px;font-weight:bold;word-break:bre=
+ak-all">
+                    2,500=EC=9B=90
+                </td>
+              </tr>
+              <tr>
+                <td height=3D"16" colspan=3D"4"></td>
+              </tr>
+              <tr>
+                <td width=3D"5"></td>
+                <td width=3D"100" valign=3D"top" style=3D"font-size:14px;fo=
+nt-weight:normal">=EA=B2=B0=EC=A0=9C=EC=88=98=EB=8B=A8</td>
+                <td width=3D"10"></td>
+                <td valign=3D"top" colspan=3D"3"
+                    style=3D"font-size:14px;font-weight:bold;word-break:bre=
+ak-all">App Store =EA=B2=B0=EC=A0=9C
+                </td>
+              </tr>
+              <tr>
+                <td height=3D"19" colspan=3D"4"></td>
+              </tr>
+              <tr>
+                <td height=3D"1" colspan=3D"4"
+                    style=3D"border-bottom-width:1px;border-bottom-color:#e=
+ee;border-bottom-style:solid;"></td>
+              </tr>
+            </table>
+          </td>
+          <td></td>
+        </tr>
+
+            <tr>
+              <td width=3D"5"></td>
+              <td>
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"
+       style=3D"line-height:20px;font-family:'Apple SD Gothic Neo','=EB=A7=
+=91=EC=9D=80=EA=B3=A0=EB=94=95','Malgun Gothic','=EB=8F=8B=EC=9B=80',Dotum,=
+'=EA=B5=B4=EB=A6=BC',gulim,sans-serif;color:#7F7F7F">
+  <tr>
+    <td height=3D"41" colspan=3D"3"></td>
+  </tr>
+  <tr>
+    <td colspan=3D"3" style=3D"font-size:14px;color:#EE2D04">=EC=83=81=ED=
+=92=88 =EC=95=88=EB=82=B4</td>
+  </tr>
+  <tr>
+    <td height=3D"13" colspan=3D"3"></td>
+  </tr>
+  <tr>
+    <td width=3D"2" valign=3D"top">
+      <img
+          src=3D"https://t1.daumcdn.net/contents_img/img-contents/event/dm/=
+201023_kakaome/ico_dot.gif"
+          width=3D"2" height=3D"20" style=3D"height:20px" alt=3D"">
+    </td>
+    <td width=3D"5"></td>
+    <td style=3D"font-size:14px;line-height:20px">
+      =EA=B2=B0=EC=A0=9C =EC=99=84=EB=A3=8C =ED=9B=84 '=EC=84=9C=EB=B9=84=
+=EC=8A=A4 =EC=8B=9C=EC=9E=91=ED=95=98=EA=B8=B0'=EB=A5=BC =ED=86=B5=ED=95=B4=
+ =EB=8D=B0=EC=9D=B4=ED=84=B0 =EB=B3=B4=EA=B4=80=EC=9D=84 =EC=8B=9C=EC=9E=91=
+=ED=95=B4=EC=95=BC =EC=84=9C=EB=B9=84=EC=8A=A4=EB=A5=BC =EC=9D=B4=EC=9A=A9=
+=ED=95=98=EC=8B=A4 =EC=88=98 =EC=9E=88=EC=8A=B5=EB=8B=88=EB=8B=A4.
+                  =EC=9D=B4=EC=A0=84=EC=97=90 '=EC=84=9C=EB=B9=84=EC=8A=A4 =
+=EC=8B=9C=EC=9E=91=ED=95=98=EA=B8=B0'=EB=A5=BC =EC=99=84=EB=A3=8C=ED=96=88=
+=EB=8B=A4=EB=A9=B4 =EA=B2=B0=EC=A0=9C =EC=99=84=EB=A3=8C =EC=8B=9C =EC=84=
+=9C=EB=B9=84=EC=8A=A4 =EC=9D=B4=EC=9A=A9=EC=9D=B4 =EB=B0=94=EB=A1=9C =EA=B0=
+=9C=EC=8B=9C=EB=90=98=EA=B3=A0 =EC=9E=90=EB=8F=99 =EB=B0=B1=EC=97=85=EC=9D=
+=B4 =EC=A7=84=ED=96=89=EB=90=A9=EB=8B=88=EB=8B=A4.
+    </td>
+  </tr>
+
+  <tr>
+    <td height=3D"12" colspan=3D"3"></td>
+  </tr>
+  <tr>
+    <td width=3D"2" valign=3D"top">
+      <img
+          src=3D"https://t1.daumcdn.net/contents_img/img-contents/event/dm/=
+201023_kakaome/ico_dot.gif"
+          width=3D"2" height=3D"20" style=3D"height:20px" alt=3D"">
+    </td>
+    <td width=3D"5"></td>
+    <td style=3D"font-size:14px;line-height:20px">
+          =EB=8C=80=ED=95=9C=EB=AF=BC=EA=B5=AD =EC=B9=B4=EC=B9=B4=EC=98=A4=
+=ED=86=A1 =EC=82=AC=EC=9A=A9=EC=9E=90=EA=B0=80 =EC=95=84=EB=8B=8C =EA=B2=BD=
+=EC=9A=B0=EC=97=90=EB=8A=94 =ED=86=A1=EC=84=9C=EB=9E=8D =ED=94=8C=EB=9F=AC=
+=EC=8A=A4=EB=A5=BC =EC=9D=B4=EC=9A=A9=ED=95=A0 =EC=88=98 =EC=97=86=EC=8A=B5=
+=EB=8B=88=EB=8B=A4.
+    </td>
+  </tr>
+
+  <tr>
+    <td height=3D"12" colspan=3D"3"></td>
+  </tr>
+  <tr>
+    <td width=3D"2" valign=3D"top">
+      <img
+          src=3D"https://t1.daumcdn.net/contents_img/img-contents/event/dm/=
+201023_kakaome/ico_dot.gif"
+          width=3D"2" height=3D"20" style=3D"height:20px" alt=3D"">
+    </td>
+    <td width=3D"5"></td>
+    <td style=3D"font-size:14px;line-height:20px">
+          =EC=98=A4=ED=94=88=EC=B1=84=ED=8C=85, =EB=B9=84=EB=B0=80=EC=B1=84=
+=ED=8C=85=EC=97=90=EC=84=9C =EC=A3=BC=EA=B3=A0 =EB=B0=9B=EC=9D=80 =EB=8D=B0=
+=EC=9D=B4=ED=84=B0=EB=8A=94 =EB=B3=B4=EA=B4=80=EB=90=98=EC=A7=80 =EC=95=8A=
+=EC=8A=B5=EB=8B=88=EB=8B=A4. =EC=B1=84=EB=84=90=EC=B1=84=ED=8C=85=EC=9D=80 =
+=EB=8C=80=ED=99=94=EB=A7=8C =EB=B3=B4=EA=B4=80=EB=90=A9=EB=8B=88=EB=8B=A4.
+    </td>
+  </tr>
+
+  <tr>
+    <td height=3D"12" colspan=3D"3"></td>
+  </tr>
+  <tr>
+    <td width=3D"2" valign=3D"top">
+      <img
+          src=3D"https://t1.daumcdn.net/contents_img/img-contents/event/dm/=
+201023_kakaome/ico_dot.gif"
+          width=3D"2" height=3D"20" style=3D"height:20px" alt=3D"">
+    </td>
+    <td width=3D"5"></td>
+    <td style=3D"font-size:14px;line-height:20px">=ED=86=A1=EC=84=9C=EB=9E=
+=8D =EA=B0=80=EC=9E=85 =EC=9D=B4=EC=A0=84 =EB=8D=B0=EC=9D=B4=ED=84=B0=EB=8A=
+=94 =EC=9E=90=EB=8F=99 =EB=B3=B4=EA=B4=80 =EB=8C=80=EC=83=81=EC=9D=B4 =EC=
+=95=84=EB=8B=88=EA=B8=B0 =EB=95=8C=EB=AC=B8=EC=97=90 =EA=B0=80=EC=9E=85 =ED=
+=9B=84 =EC=A7=81=EC=A0=91 =EC=97=85=EB=A1=9C=EB=93=9C=EB=A5=BC
+      =EC=A7=84=ED=96=89=ED=95=B4=EC=A3=BC=EC=84=B8=EC=9A=94.
+    </td>
+  </tr>
+
+  <tr>
+    <td height=3D"12" colspan=3D"3"></td>
+  </tr>
+  <tr>
+    <td width=3D"2" valign=3D"top">
+      <img
+          src=3D"https://t1.daumcdn.net/contents_img/img-contents/event/dm/=
+201023_kakaome/ico_dot.gif"
+          width=3D"2" height=3D"20" style=3D"height:20px" alt=3D"">
+    </td>
+    <td width=3D"5"></td>
+    <td style=3D"font-size:14px;line-height:20px">=ED=86=A1=EC=84=9C=EB=9E=
+=8D =ED=94=8C=EB=9F=AC=EC=8A=A4 =ED=95=B4=EC=A7=80 =ED=9B=84=EC=97=90=EB=8F=
+=84 30=EC=9D=BC=EC=9D=98 =EC=9C=A0=EC=98=88=EA=B8=B0=EA=B0=84 =EB=8F=99=EC=
+=95=88 =EB=B3=B4=EA=B4=80=EB=90=9C =EB=8D=B0=EC=9D=B4=ED=84=B0=EB=A5=BC =EC=
+=A1=B0=ED=9A=8C, =EC=A0=80=EC=9E=A5=ED=95=A0 =EC=88=98 =EC=9E=88=EC=8A=B5=
+=EB=8B=88=EB=8B=A4.
+      =EB=8B=A4=EB=A7=8C =ED=86=A1=EC=84=9C=EB=9E=8D =ED=94=8C=EB=9F=AC=EC=
+=8A=A4=EB=A5=BC '=EB=B0=94=EB=A1=9C =ED=95=B4=EC=A7=80'=ED=95=98=EA=B3=A0 =
+=EB=8D=B0=EC=9D=B4=ED=84=B0=EB=A5=BC =EC=A0=84=EB=B6=80 =EC=82=AD=EC=A0=9C=
+=ED=95=98=EB=8A=94 =EA=B2=BD=EC=9A=B0 =EB=B0=8F =EC=B9=B4=EC=B9=B4=EC=98=A4=
+=ED=86=A1=EC=9D=84 =ED=83=88=ED=87=B4=ED=95=98=EA=B1=B0=EB=82=98 My =EB=B9=
+=84=EB=B0=80=EB=B2=88=ED=98=B8, =ED=86=A1=EC=84=9C=EB=9E=8D =EB=B3=B4=EC=95=
+=88=EC=BD=94=EB=93=9C=EB=A5=BC =EB=AA=A8=EB=91=90 =EB=B6=84=EC=8B=A4=ED=95=
+=9C =EA=B2=BD=EC=9A=B0=EC=97=90=EB=8A=94 =EB=B3=B4=EA=B4=80=EB=90=9C =EB=8C=
+=80=ED=99=94 =EB=82=B4=EC=9A=A9=EC=9D=80
+      =EB=AA=A8=EB=91=90 =EC=82=AD=EC=A0=9C=EB=90=A9=EB=8B=88=EB=8B=A4.
+    </td>
+  </tr>
+  <tr>
+    <td height=3D"12" colspan=3D"3"></td>
+  </tr>
+</table>
+              </td>
+              <td width=3D"5"></td>
+            </tr>
+
+            <tr>
+              <td width=3D"5"></td>
+              <td>
+
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"
+       style=3D"line-height:20px;font-family:'Apple SD Gothic Neo','=EB=A7=
+=91=EC=9D=80=EA=B3=A0=EB=94=95','Malgun Gothic','=EB=8F=8B=EC=9B=80',Dotum,=
+'=EA=B5=B4=EB=A6=BC',gulim,sans-serif;color:#7F7F7F">
+  <tr>
+    <td height=3D"16" colspan=3D"3"></td>
+  </tr>
+  <tr>
+    <td colspan=3D"3" style=3D"font-size:14px;color:#EE2D04">=EA=B2=B0=EC=
+=A0=9C =EC=95=88=EB=82=B4</td>
+  </tr>
+  <tr>
+    <td height=3D"13" colspan=3D"3"></td>
+  </tr>
+
+      <tr>
+        <td width=3D"2" valign=3D"top">
+          <img
+              src=3D"https://t1.daumcdn.net/contents_img/img-contents/event=
+/dm/201023_kakaome/ico_dot.gif"
+              width=3D"2" height=3D"20" style=3D"height:20px" alt=3D"">
+        </td>
+        <td width=3D"5"></td>
+        <td style=3D"font-size:14px;line-height:20px">=EB=B6=80=EA=B0=80=EA=
+=B0=80=EC=B9=98=EC=84=B8 10%=EA=B0=80 =ED=8F=AC=ED=95=A8=EB=90=9C =EA=B0=80=
+=EA=B2=A9=EC=9E=85=EB=8B=88=EB=8B=A4.
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"12" colspan=3D"3"></td>
+      </tr>
+      <tr>
+        <td width=3D"2" valign=3D"top">
+          <img
+              src=3D"https://t1.daumcdn.net/contents_img/img-contents/event=
+/dm/201023_kakaome/ico_dot.gif"
+              width=3D"2" height=3D"20" style=3D"height:20px" alt=3D"">
+        </td>
+        <td width=3D"5"></td>
+        <td style=3D"font-size:14px;line-height:20px">=EB=A7=A4=EC=9B=94 =
+=EC=A0=95=ED=95=B4=EC=A7=84 =EC=A0=95=EA=B8=B0=EA=B2=B0=EC=A0=9C=EC=9D=BC=
+=EC=97=90 =EA=B2=B0=EC=A0=9C=EA=B0=80 =EB=B0=9C=EC=83=9D=ED=95=98=EB=A9=B0,=
+ =EC=9D=B8=EC=95=B1 =EA=B2=B0=EC=A0=9C=EC=9D=98 =EA=B2=BD=EC=9A=B0 =EC=95=
+=B1=EB=A7=88=EC=BC=93=EC=97=90=EC=84=9C =EC=A0=95=ED=95=9C =EB=82=A0=EC=A7=
+=9C=EC=97=90 =EC=A0=95=EA=B8=B0=EA=B2=B0=EC=A0=9C=EA=B0=80 =EC=9D=B4=EB=A3=
+=A8=EC=96=B4=EC=A7=88 =EC=88=98 =EC=9E=88=EC=8A=B5=EB=8B=88=EB=8B=A4.
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"12" colspan=3D"3"></td>
+      </tr>
+      <tr>
+        <td width=3D"2" valign=3D"top">
+          <img
+              src=3D"https://t1.daumcdn.net/contents_img/img-contents/event=
+/dm/201023_kakaome/ico_dot.gif"
+              width=3D"2" height=3D"20" style=3D"height:20px" alt=3D"">
+        </td>
+        <td width=3D"5"></td>
+        <td style=3D"font-size:14px;line-height:20px">=EB=AF=B8=EC=84=B1=EB=
+=85=84=EC=9E=90=EC=9D=B8 =ED=9A=8C=EC=9B=90=EC=9D=B4 =EB=B2=95=EC=A0=95=EB=
+=8C=80=EB=A6=AC=EC=9D=B8=EC=9D=98 =EB=8F=99=EC=9D=98=EC=97=86=EC=9D=B4 =EC=
+=83=81=ED=92=88=EC=9D=84 =EA=B5=AC=EB=A7=A4=ED=95=98=EB=8A=94 =EA=B2=BD=EC=
+=9A=B0 =EB=B3=B8=EC=9D=B8 =EB=98=90=EB=8A=94 =EB=B2=95=EC=A0=95=EB=8C=80=EB=
+=A6=AC=EC=9D=B8=EC=9D=B4 =EC=9D=B4=EB=A5=BC =EC=B7=A8=EC=86=8C=ED=95=A0 =EC=
+=88=98 =EC=9E=88=EC=8A=B5=EB=8B=88=EB=8B=A4.
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"12" colspan=3D"3"></td>
+      </tr>
+
+</table>
+              </td>
+              <td width=3D"5"></td>
+            </tr>
+
+            <tr>
+              <td width=3D"5"></td>
+              <td>
+
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"
+       style=3D"line-height:20px;font-family:'Apple SD Gothic Neo','=EB=A7=
+=91=EC=9D=80=EA=B3=A0=EB=94=95','Malgun Gothic','=EB=8F=8B=EC=9B=80',Dotum,=
+'=EA=B5=B4=EB=A6=BC',gulim,sans-serif;color:#7F7F7F">
+  <tr>
+    <td height=3D"16" colspan=3D"3"></td>
+  </tr>
+  <tr>
+    <td colspan=3D"3" style=3D"font-size:14px;color:#EE2D04">=ED=95=B4=EC=
+=A7=80 =EB=B0=8F =ED=99=98=EB=B6=88 =EC=95=88=EB=82=B4</td>
+  </tr>
+  <tr>
+    <td height=3D"13" colspan=3D"3"></td>
+  </tr>
+
+      <tr>
+        <td width=3D"2" valign=3D"top">
+          <img
+              src=3D"https://t1.daumcdn.net/contents_img/img-contents/event=
+/dm/201023_kakaome/ico_dot.gif"
+              width=3D"2" height=3D"20" style=3D"height:20px" alt=3D"">
+        </td>
+        <td width=3D"5"></td>
+        <td style=3D"font-size:14px;line-height:20px">=EA=B2=B0=EC=A0=9C =
+=ED=9B=84 =EA=B3=84=EC=95=BD=EB=82=B4=EC=9A=A9=EC=97=90 =EA=B4=80=ED=95=9C =
+=EC=84=9C=EB=A9=B4=EC=9D=84 =EA=B5=90=EB=B6=80=EB=B0=9B=EC=9D=80 =EB=82=A0(=
+=EC=9D=B4=ED=95=98 =E2=80=98=EA=B5=AC=EB=A7=A4=EC=9D=BC=E2=80=99)=EB=A1=9C=
+=EB=B6=80=ED=84=B0 7=EC=9D=BC =EC=9D=B4=EB=82=B4=EC=97=90 =EC=B2=AD=EC=95=
+=BD=EC=B2=A0=ED=9A=8C=ED=95=A0 =EC=88=98 =EC=9E=88=EC=8A=B5=EB=8B=88=EB=8B=
+=A4. =EB=8B=A8, =EA=B5=AC=EB=A7=A4=EC=9D=BC=EB=A1=9C=EB=B6=80=ED=84=B0 7=EC=
+=9D=BC =EC=9D=B4=EB=82=B4=EC=97=90 =EC=9A=A9=EC=97=AD =EB=98=90=EB=8A=94 =
+=E3=80=8C=EB=AC=B8=ED=99=94=EC=82=B0=EC=97=85=EC=A7=84=ED=9D=A5 =EA=B8=B0=
+=EB=B3=B8=EB=B2=95=E3=80=8D =EC=A0=9C2=EC=A1=B0=EC=A0=9C5=ED=98=B8=EC=9D=98=
+ =EB=94=94=EC=A7=80=ED=84=B8=EC=BD=98=ED=85=90=EC=B8=A0=EC=9D=98 =EC=A0=9C=
+=EA=B3=B5=EC=9D=B4 =EA=B0=9C=EC=8B=9C=EB=90=9C =EA=B2=BD=EC=9A=B0=EC=97=90=
+=EB=8A=94 =EC=B2=AD=EC=95=BD=EC=B2=A0=ED=9A=8C=EA=B0=80 =EC=A0=9C=ED=95=9C=
+=EB=90=A0 =EC=88=98 =EC=9E=88=EC=8A=B5=EB=8B=88=EB=8B=A4. (=EB=A7=A4=EC=9B=
+=94 =EA=B2=B0=EC=A0=9C=EC=9D=BC =EA=B8=B0=EC=A4=80 7=EC=9D=BC =EC=9D=B4=EB=
+=82=B4 =EC=9D=B4=EC=9A=A9=EB=82=B4=EC=97=AD=EC=9D=B4 =EC=97=86=EB=8A=94 =EA=
+=B2=BD=EC=9A=B0, =EC=B2=AD=EC=95=BD=EC=B2=A0=ED=9A=8C =EC=8B=A0=EC=B2=AD=EC=
+=9D=B4 =EA=B0=80=EB=8A=A5=ED=95=98=EB=A9=B0 =EC=A0=84=EC=95=A1 =ED=99=98=EB=
+=B6=88=EB=90=A9=EB=8B=88=EB=8B=A4. =EB=8B=A8, =EC=9D=B4=EC=9A=A9=EB=82=B4=
+=EC=97=AD=EC=9D=B4 =EC=9E=88=EC=9D=84 =EA=B2=BD=EC=9A=B0 =EA=B2=B0=EC=A0=9C=
+ =EA=B8=88=EC=95=A1=EC=97=90=EC=84=9C =EC=9D=B4=EC=9A=A9=EB=8C=80=EA=B8=88=
+=EC=9D=84 =EC=A0=9C=EC=99=B8=ED=95=9C =EA=B8=88=EC=95=A1=EC=9D=B4 =ED=99=98=
+=EB=B6=88=EB=90=A9=EB=8B=88=EB=8B=A4)
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"12" colspan=3D"3"></td>
+      </tr>
+      <tr>
+        <td width=3D"2" valign=3D"top">
+          <img
+              src=3D"https://t1.daumcdn.net/contents_img/img-contents/event=
+/dm/201023_kakaome/ico_dot.gif"
+              width=3D"2" height=3D"20" style=3D"height:20px" alt=3D"">
+        </td>
+        <td width=3D"5"></td>
+        <td style=3D"font-size:14px;line-height:20px">=EC=9C=84 =EC=B2=AD=
+=EC=95=BD=EC=B2=A0=ED=9A=8C=EC=99=80 =EB=B3=84=EA=B0=9C=EB=A1=9C =ED=9A=8C=
+=EC=9B=90=EC=9D=80 =EC=96=B8=EC=A0=9C=EB=93=A0 =EC=9D=B4=EC=9A=A9 =EA=B3=84=
+=EC=95=BD=EC=9D=84 =ED=95=B4=EC=A7=80=ED=95=A0 =EC=88=98 =EC=9E=88=EC=8A=B5=
+=EB=8B=88=EB=8B=A4. =EC=9D=B4 =EB=95=8C =ED=9A=8C=EC=82=AC=EB=8A=94 =ED=9A=
+=8C=EC=9B=90=EC=9D=B4 =EC=84=9C=EB=B9=84=EC=8A=A4 =EC=9D=B4=EC=9A=A9=EC=9C=
+=BC=EB=A1=9C=EB=B6=80=ED=84=B0 =EC=96=BB=EC=9D=80 =EC=9D=B4=EC=9D=B5=EC=97=
+=90 =ED=95=B4=EB=8B=B9=ED=95=98=EB=8A=94 =EA=B8=88=EC=95=A1=EC=9D=84 =EA=B3=
+=B5=EC=A0=9C=ED=95=98=EA=B3=A0 =ED=99=98=EB=B6=88=ED=95=A9=EB=8B=88=EB=8B=
+=A4. =EC=B2=AD=EC=95=BD=EC=B2=A0=ED=9A=8C =EB=B0=8F =EA=B3=84=EC=95=BD =ED=
+=95=B4=EC=A7=80=EB=8A=94 =EA=B5=AC=EB=8F=85 =ED=8E=98=EC=9D=B4=EC=A7=80=EC=
+=97=90=EC=84=9C =ED=95=A0 =EC=88=98 =EC=9E=88=EC=9C=BC=EB=A9=B0, =EC=B2=AD=
+=EC=95=BD=EC=B2=A0=ED=9A=8C=EC=9D=BC=EB=A1=9C=EB=B6=80=ED=84=B0 3 =EC=98=81=
+=EC=97=85=EC=9D=BC =EC=9D=B4=EB=82=B4=EC=97=90 =EC=A7=80=EA=B8=89=EB=B0=9B=
+=EC=9D=80 =EB=8C=80=EA=B8=88=EC=9D=98 =ED=99=98=EA=B8=89=EC=9D=84 =EC=A0=95=
+=EB=8B=B9=ED=95=9C =EC=82=AC=EC=9C=A0=EC=97=86=EC=9D=B4 =EC=A7=80=EC=97=B0=
+=ED=95=98=EB=8A=94 =EA=B2=BD=EC=9A=B0 =ED=9A=8C=EC=9B=90=EC=9D=80 =EC=A7=80=
+=EC=97=B0=EA=B8=B0=EA=B0=84=EC=97=90 =EB=8C=80=ED=95=98=EC=97=AC =EC=97=B01=
+5%(=EC=BD=98=ED=85=90=EC=B8=A0=EC=9D=98 =EA=B2=BD=EC=9A=B0=EC=97=90=EB=8A=
+=94 =EC=97=B0 20%)=EC=9D=98 =EC=A7=80=EC=97=B0 =EB=B0=B0=EC=83=81=EA=B8=88=
+=EC=9D=84 =ED=9A=8C=EC=82=AC=EC=97=90 =EC=B2=AD=EA=B5=AC=ED=95=A0 =EC=88=98=
+ =EC=9E=88=EC=8A=B5=EB=8B=88=EB=8B=A4. =EB=8B=A4=EB=A7=8C =EC=9D=B8=EC=95=
+=B1 =EA=B2=B0=EC=A0=9C=EB=8A=94 =EC=95=B1=EB=A7=88=EC=BC=93=EC=9D=98 =EC=A0=
+=95=EC=B1=85=EC=97=90 =EB=94=B0=EB=A5=B8 =EA=B2=B0=EC=A0=9C =EC=B7=A8=EC=86=
+=8C =EB=B0=8F =ED=99=98=EB=B6=88=EB=A7=8C =EA=B0=80=EB=8A=A5=ED=95=A0 =EC=
+=88=98 =EC=9E=88=EC=9C=BC=EB=AF=80=EB=A1=9C, =EC=9D=B4=EB=9F=AC=ED=95=9C =
+=EA=B2=BD=EC=9A=B0 =EB=8B=B9=ED=95=B4 =EC=95=B1=EB=A7=88=EC=BC=93 =EA=B3=A0=
+=EA=B0=9D=EC=84=BC=ED=84=B0=EB=A1=9C =EB=AC=B8=EC=9D=98=ED=95=98=EC=97=AC =
+=EC=A3=BC=EC=8B=9C=EA=B8=B0 =EB=B0=94=EB=9E=8D=EB=8B=88=EB=8B=A4.
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"12" colspan=3D"3"></td>
+      </tr>
+      <tr>
+        <td width=3D"2" valign=3D"top">
+          <img
+              src=3D"https://t1.daumcdn.net/contents_img/img-contents/event=
+/dm/201023_kakaome/ico_dot.gif"
+              width=3D"2" height=3D"20" style=3D"height:20px" alt=3D"">
+        </td>
+        <td width=3D"5"></td>
+        <td style=3D"font-size:14px;line-height:20px">=ED=9A=8C=EC=82=AC=EB=
+=8A=94 =ED=9A=8C=EC=9B=90=EC=9D=B4 =EC=9D=B4=EC=9A=A9=ED=95=9C =EC=95=B1=EB=
+=A7=88=EC=BC=93 =EA=B2=B0=EC=A0=9C=EC=97=90 =EB=8C=80=ED=95=98=EC=97=AC =ED=
+=95=B4=EB=8B=B9 =EC=95=B1=EB=A7=88=EC=BC=93=EC=97=90 =EB=8C=80=EA=B8=88=EC=
+=A7=80=EA=B8=89=EC=9D=98 =EC=A0=95=EC=A7=80=E2=88=99=EC=B7=A8=EC=86=8C =EC=
+=9A=94=EC=B2=AD =EB=93=B1 =EC=A0=84=EC=9E=90=EC=83=81=EA=B1=B0=EB=9E=98 =EB=
+=93=B1=EC=97=90=EC=84=9C=EC=9D=98 =EC=86=8C=EB=B9=84=EC=9E=90 =EB=B3=B4=ED=
+=98=B8=EC=97=90 =EA=B4=80=ED=95=9C =EB=B2=95=EB=A5=A0=EC=97=90 =EB=94=B0=EB=
+=A5=B8 =EA=B4=80=EB=A0=A8 =EC=A1=B0=EC=B9=98=EB=A5=BC =EC=9A=94=EC=B2=AD=ED=
+=95=A0 =EC=88=98 =EC=9E=88=EC=8A=B5=EB=8B=88=EB=8B=A4. =EB=8B=A4=EB=A7=8C, =
+=ED=95=B4=EB=8B=B9 =EC=95=B1=EB=A7=88=EC=BC=93=EC=9D=98 =EC=9C=84=EC=99=80 =
+=EA=B0=99=EC=9D=80 =ED=9A=8C=EC=82=AC=EC=9D=98 =EC=9A=94=EC=B2=AD=EC=97=90 =
+=EB=94=B0=EB=A5=B8 =EC=A1=B0=EC=B9=98=EC=97=90 =EB=8C=80=ED=95=98=EC=97=AC=
+=EB=8A=94 =ED=95=B4=EB=8B=B9 =EC=95=B1=EB=A7=88=EC=BC=93=EC=9D=98 =EC=A0=95=
+=EC=B1=85=EC=9D=84 =EC=B0=B8=EC=A1=B0=ED=95=98=EC=97=AC =EC=A3=BC=EC=8B=9C=
+=EA=B8=B0 =EB=B0=94=EB=9E=8D=EB=8B=88=EB=8B=A4.
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"12" colspan=3D"3"></td>
+      </tr>
+      <tr>
+        <td width=3D"2" valign=3D"top">
+          <img
+              src=3D"https://t1.daumcdn.net/contents_img/img-contents/event=
+/dm/201023_kakaome/ico_dot.gif"
+              width=3D"2" height=3D"20" style=3D"height:20px" alt=3D"">
+        </td>
+        <td width=3D"5"></td>
+        <td style=3D"font-size:14px;line-height:20px">=EA=B7=B8 =EC=99=B8 =
+=EC=B2=AD=EC=95=BD=EC=B2=A0=ED=9A=8C =EB=B0=8F =EA=B3=84=EC=95=BD =ED=95=B4=
+=EC=A7=80=EC=99=80 =ED=99=98=EB=B6=88 =EA=B4=80=EB=A0=A8 =EC=82=AC=ED=95=AD=
+=EC=9D=80 =EC=B9=B4=EC=B9=B4=EC=98=A4 =EC=9C=A0=EB=A3=8C=EC=84=9C=EB=B9=84=
+=EC=8A=A4 =EC=9D=B4=EC=9A=A9=EC=95=BD=EA=B4=80=EA=B3=BC =ED=86=A1=EC=84=9C=
+=EB=9E=8D =ED=94=8C=EB=9F=AC=EC=8A=A4 =EC=9D=B4=EC=9A=A9=EC=95=BD=EA=B4=80 =
+=EB=B0=8F =EC=BD=98=ED=85=90=EC=B8=A0=EC=82=B0=EC=97=85=EC=A7=84=ED=9D=A5=
+=EB=B2=95 =EB=93=B1 =EA=B4=80=EA=B3=84 =EB=B2=95=EB=A0=B9=EC=9D=98 =EA=B8=
+=B0=EC=A4=80=EC=97=90 =EB=94=B0=EB=A5=B4=EB=A9=B0, =ED=94=BC=ED=95=B4=EB=B3=
+=B4=EC=83=81 =EB=B0=8F =EB=B6=88=EB=A7=8C =EC=B2=98=EB=A6=AC =EB=93=B1 =ED=
+=95=84=EC=9A=94=ED=95=9C =EC=82=AC=ED=95=AD=EC=9D=80 [=EC=B9=B4=EC=B9=B4=EC=
+=98=A4 =EA=B3=A0=EA=B0=9D=EC=84=BC=ED=84=B0]=EB=A1=9C =EC=97=B0=EB=9D=BD =
+=EC=A3=BC=EC=8B=9C=EA=B8=B0 =EB=B0=94=EB=9E=8D=EB=8B=88=EB=8B=A4.
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"12" colspan=3D"3"></td>
+      </tr>
+
+</table>
+              </td>
+              <td width=3D"5"></td>
+            </tr>
+
+        <tr>
+          <td width=3D"5"></td>
+          <td>
+            <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" borde=
+r=3D"0"
+                   style=3D"line-height:22px;font-family:'Apple SD Gothic N=
+eo','=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95','Malgun Gothic','=EB=8F=8B=EC=9B=
+=80',Dotum,'=EA=B5=B4=EB=A6=BC',gulim,sans-serif;color:#7F7F7F">
+              <tr>
+                <td height=3D"16" colspan=3D"5"></td>
+              </tr>
+              <tr>
+                <td height=3D"15" colspan=3D"5" style=3D"font-size:14px;col=
+or:#191919">=EC=9D=B4=EC=9A=A9=EC=95=BD=EA=B4=80 =EC=95=88=EB=82=B4</td>
+              </tr>
+              <tr>
+                <td height=3D"8" colspan=3D"5"></td>
+              </tr>
+              <tr>
+                <td valign=3D"top" align=3D"left" style=3D"font-size:14px;f=
+ont-weight:normal">
+                  <a href=3D"https://billing-web.kakao.com/kbill/terms/serv=
+ice"
+                     style=3D"display:block;color:#7F7F7F;line-height:25px;=
+text-decoration:underline">=EC=B9=B4=EC=B9=B4=EC=98=A4
+                    =EC=9C=A0=EB=A3=8C=EC=84=9C=EB=B9=84=EC=8A=A4 =EC=9D=B4=
+=EC=9A=A9=EC=95=BD=EA=B4=80</a>
+                </td>
+              </tr>
+
+                      <tr>
+                        <td height=3D"7" colspan=3D"5"></td>
+                      </tr>
+                      <tr>
+                        <td valign=3D"top" align=3D"left" style=3D"font-siz=
+e:14px;font-weight:normal">
+                          <a href=3D"https://drive.kakao.com/policy/term"
+                             style=3D"display:block;color:#7F7F7F;line-heig=
+ht:25px;text-decoration:underline">=ED=86=A1=EC=84=9C=EB=9E=8D =ED=94=8C=EB=
+=9F=AC=EC=8A=A4
+                            =EC=9D=B4=EC=9A=A9=EC=95=BD=EA=B4=80</a>
+                        </td>
+                      </tr>
+              <tr>
+                <td height=3D"36" colspan=3D"5"></td>
+              </tr>
+            </table>
+          </td>
+          <td width=3D"5"></td>
+        </tr>
+
+        <tr>
+          <td width=3D"5" height=3D"43"></td>
+          <td height=3D"34">
+            <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" borde=
+r=3D"0"
+                   style=3D"line-height:22px;font-family:'Apple SD Gothic N=
+eo','=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95','Malgun Gothic','=EB=8F=8B=EC=9B=
+=80',Dotum,'=EA=B5=B4=EB=A6=BC',gulim,sans-serif;color:#1e1e1e">
+              <tr>
+                <td width=3D"280" height=3D"48" align=3D"left">
+                      <a href=3D"https://my.kakao.com/APPSTORE/product/DRIV=
+E001">
+                        <img src=3D"https://t1.daumcdn.net/contents_img/img=
+-contents/event/dm/201023_kakaome/btn_check_history.png" width=3D"280"
+                             height=3D"48" border=3D"0" alt=3D"=EA=B5=AC=EB=
+=8F=85 =EB=82=B4=EC=97=AD =ED=99=95=EC=9D=B8">
+                      </a>
+                </td>
+                <td height=3D"34"></td>
+              </tr>
+            </table>
+          </td>
+          <td width=3D"5" height=3D"34"></td>
+        </tr>
+
+        <tr>
+          <td height=3D"40" colspan=3D"3"></td>
+        </tr>
+        <tr>
+          <td width=3D5></td>
+          <td height=3D"1"
+              style=3D"border-bottom-width:1px;border-bottom-color:#eee;bor=
+der-bottom-style:solid;"></td>
+          <td width=3D5></td>
+        </tr>
+
+<tr>
+  <td height=3D"19" colspan=3D"3"></td>
+</tr>
+<tr>
+  <td width=3D"5"></td>
+  <td
+      style=3D"font-size:12px;line-height:18px;font-family:Apple SD Gothic =
+Neo,sans-serif,'=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95',Malgun Gothic,'=EB=8F=
+=8B=EC=9B=80',Dotum;color:#7F7F7F">
+    =EB=B3=B8 =EB=A9=94=EC=9D=BC=EC=9D=80 =EB=B0=9C=EC=8B=A0 =EC=A0=84=EC=
+=9A=A9=EC=9C=BC=EB=A1=9C =ED=9A=8C=EC=8B=A0=EC=9D=84 =ED=86=B5=ED=95=9C =EB=
+=AC=B8=EC=9D=98=EB=8A=94 =EC=B2=98=EB=A6=AC=EB=90=98=EC=A7=80 =EC=95=8A=EC=
+=8A=B5=EB=8B=88=EB=8B=A4.<br> =EA=B4=80=EB=A0=A8 =EB=AC=B8=EC=9D=98=EB=8A=
+=94 <a href=3D"https://cs.kakao.com/requests?service=3D178&amp;locale=3Dko"=
+ target=3D"_blank"
+                                                      style=3D"color:#7F7F7=
+F;text-decoration:underline">=EC=B9=B4=EC=B9=B4=EC=98=A4
+      =EA=B3=A0=EA=B0=9D=EC=84=BC=ED=84=B0</a>=EB=A5=BC
+    =EC=9D=B4=EC=9A=A9=ED=95=B4=EC=A3=BC=EC=8B=9C=EA=B8=B0 =EB=B0=94=EB=9E=
+=8D=EB=8B=88=EB=8B=A4.<br> <!-- 2022-01-25 =EB=AC=B8=EA=B5=AC =EC=B6=94=EA=
+=B0=80: =EB=A9=94=EC=9D=BC =EC=88=98=EC=8B=A0 =EA=B1=B0=EB=B6=80 -->
+  </td>
+  <td width=3D"5"></td>
+</tr>
+<tr>
+  <td width=3D"5"></td>
+  <td>
+    <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+      <tbody>
+      <tr>
+        <td height=3D"12"></td>
+      </tr>
+      <tr>
+        <!-- 2021-10-18 =ED=91=B8=ED=84=B0 =EB=A1=9C=EA=B3=A0 =EC=9D=B4=EB=
+=AF=B8=EC=A7=80 =EB=B3=80=EA=B2=BD -->
+        <td
+            style=3D"font-size:13px;line-height:20px;font-weight:bold;font-=
+family:Apple SD Gothic Neo,sans-serif,'=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95=
+',Malgun Gothic,'=EB=8F=8B=EC=9B=80',Dotum;color:#4C4C4C">
+          (=EC=A3=BC) =EC=B9=B4=EC=B9=B4=EC=98=A4
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"8"></td>
+      </tr>
+      <tr>
+        <td
+            style=3D"font-size:12px;line-height:18px;font-family:Apple SD G=
+othic Neo,sans-serif,'=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95',Malgun Gothic,'=
+=EB=8F=8B=EC=9B=80',Dotum;color:#7F7F7F">
+          =EB=8C=80=ED=91=9C <span
+              style=3D"display:inline-block;vertical-align:top;font-size: 1=
+0px;line-height: 17px;color: #B2B2B2;">:</span>
+          =ED=99=8D=EC=9D=80=ED=83=9D =EC=82=AC=EC=97=85=EC=9E=90=EB=93=B1=
+=EB=A1=9D=EB=B2=88=ED=98=B8<span
+              style=3D"display:inline-block;vertical-align:top;font-size: 1=
+0px;line-height: 17px;color: #B2B2B2;">:</span>
+          120-81-47521
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"2"></td>
+      </tr>
+      <tr>
+        <td
+            style=3D"font-size:13px;line-height:18px;font-family:Apple SD G=
+othic Neo,sans-serif,'=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95',Malgun Gothic,'=
+=EB=8F=8B=EC=9B=80',Dotum;color:#7F7F7F">
+          =ED=86=B5=EC=8B=A0=ED=8C=90=EB=A7=A4=EC=97=85=EC=8B=A0=EA=B3=A0=
+=EB=B2=88=ED=98=B8 <span
+              style=3D"display:inline-block;vertical-align:top;font-size: 1=
+0px;line-height: 17px;color: #B2B2B2;">:</span>
+          =EC=A0=9C2015-=EC=A0=9C=EC=A3=BC=EC=95=84=EB=9D=BC-0032=ED=98=B8
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"2"></td>
+      </tr>
+      <tr>
+        <td
+            style=3D"font-size:13px;line-height:18px;font-family:Apple SD G=
+othic Neo,sans-serif,'=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95',Malgun Gothic,'=
+=EB=8F=8B=EC=9B=80',Dotum;color:#7F7F7F">
+          =EC=A3=BC=EC=86=8C <span
+              style=3D"display:inline-block;vertical-align:top;font-size: 1=
+0px;line-height: 17px;color: #B2B2B2;">:</span>
+          =EC=A0=9C=EC=A3=BC=ED=8A=B9=EB=B3=84=EC=9E=90=EC=B9=98=EB=8F=84 =
+=EC=A0=9C=EC=A3=BC=EC=8B=9C =EC=B2=A8=EB=8B=A8=EB=A1=9C 242(=EC=98=81=ED=8F=
+=89=EB=8F=99)
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"2"></td>
+      </tr>
+      <tr>
+        <td
+            style=3D"font-size:13px;line-height:18px;font-family:Apple SD G=
+othic Neo,sans-serif,'=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95',Malgun Gothic,'=
+=EB=8F=8B=EC=9B=80',Dotum;color:#7F7F7F">
+          =ED=98=B8=EC=8A=A4=ED=8C=85=EC=A0=9C=EA=B3=B5=EC=9E=90 <span
+              style=3D"display:inline-block;vertical-align:top;font-size: 1=
+0px;line-height: 17px;color: #B2B2B2;">:</span>
+          (=EC=A3=BC) =EC=B9=B4=EC=B9=B4=EC=98=A4 =EA=B3=A0=EA=B0=9D=EC=84=
+=BC=ED=84=B0 <span
+              style=3D"display:inline-block;vertical-align:top;font-size: 1=
+0px;line-height: 17px;color: #B2B2B2;">:</span>
+          1544-3108(=EC=9C=A0=EB=A3=8C)
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"2"></td>
+      </tr>
+      <tr>
+        <td
+            style=3D"font-size:13px;line-height:18px;font-family:Apple SD G=
+othic Neo,sans-serif,'=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95',Malgun Gothic,'=
+=EB=8F=8B=EC=9B=80',Dotum;color:#7F7F7F">
+          =EB=A9=94=EC=9D=BC <span
+              style=3D"display:inline-block;vertical-align:top;font-size: 1=
+0px;line-height: 17px;color: #B2B2B2;">:</span>
+          help.notice@kakaocorp.com
+        </td>
+      </tr>
+      <tr>
+        <td height=3D"2"></td>
+      </tr>
+      </tbody>
+    </table>
+  </td>
+  <td width=3D"5"></td>
+</tr>
+<tr>
+  <td colspan=3D"3" height=3D"58"></td>
+</tr>
+<tr>
+  <td height=3D"5" colspan=3D"3"></td>
+</tr>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        <![endif]-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+------=_Part_636447_295244364.1691020982854--
+
+------=_Part_636446_1452780941.1691020982854--

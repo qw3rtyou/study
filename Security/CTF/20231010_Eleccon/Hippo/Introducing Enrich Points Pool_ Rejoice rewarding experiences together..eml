@@ -1,0 +1,1898 @@
+ARC-Seal: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730; t=1692200282;
+	cv=none; b=lSNHPjMgVDUllbV1wlC83I35NMasnWTA2ihHZwIc57+GD4kG752P5ZoBLcw7
+	 uXrLnm9eYHS/kEvDd/ScEJA8WPBLKNCi94mn3QwsL4+SPcuj3HF9L5to65BzEgKT107xrm
+	 vovrLigYGze3Vwe6TSxVXwvZw/4XwT6UPWmbt4zX4K9Z16xHKYChTdzvSZyooQLkBmcPMw
+	 IoL5ZgPT3aNTg2cZcmJHwJS9ffH2JaZ8AuIqTHZLoR8hMsTDb+gVhkK9QHoFNvvaBN4Zvg
+	 gm4/xvcTuh903stOBy4p9Pg2Ivf43xDsvV0VjaRjvewvfbP1jz3vK2wb9wDz9JpzU0LlrU
+	 3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; d=naver.com; s=arc-20180730;
+	t=1692200282; c=relaxed/relaxed;
+	bh=JAtKHllPdQao4HskH6ijlKnhw0JSgIYz0ShEfiuWLLk=;
+	h=dkim-signature:from:subject:date:to:message-id; b=rPLNhsHA1tlYnOWurlb
+	 xPv4a+SQuXK1CU/TRlM2AcP1sP2/PmyMXvivupP7heN0OYYPRKVu5ZfxNzJUCzKt0IFBU+
+	 G83PKbMHkfAVRTZO1V0G+GGyQo0lCpzNhTh0fQO2BR+ULlcu8ph0v3fbZNwWlSKbF46Gi3
+	 PinATU1JMOTdzVfJFoiZgaft/FRZ2fxR51ei8uCRaz902gVIHRAwwLG8sCDY0dCprF0xNv
+	 vSnNw21z1nFUE4iQ9bSIHjcqGrSNxg9YRVbLRrzenCxJqw8PcFUB+MKQVtADUxL5jn/6I3
+	 EEjvxxa1cXL39ID/mYEomVGx2wb08uOeUAcZKae0eYg==
+ARC-Authentication-Results: i=1; mx.naver.com; 
+  spf=pass (mx.naver.com: domain of malayair@email.malaysiaairlines.com designates 63.140.47.153 as permitted sender) smtp.mailfrom=malayair@email.malaysiaairlines.com;
+  dkim=pass header.i=@email.malaysiaairlines.com;
+  dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=malaysiaairlines.com
+Return-Path: <malayair@email.malaysiaairlines.com>
+Received-SPF: pass (mx.naver.com: domain of malayair@email.malaysiaairlines.com designates 63.140.47.153 as permitted sender)
+  client-ip=63.140.47.153; x-iptype=default;
+Authentication-Results: mx.naver.com;
+  spf=pass (mx.naver.com: domain of malayair@email.malaysiaairlines.com designates 63.140.47.153 as permitted sender) smtp.mailfrom=malayair@email.malaysiaairlines.com;
+  dkim=pass header.i=@email.malaysiaairlines.com;
+  dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=malaysiaairlines.com
+X-Naver-ESV: wZFn+6J4p63CbHmrKBwdbXFYKxEqaAgZjJ+Y
+X-Session-IP: 63.140.47.153
+Received: from r153.email.malaysiaairlines.com (r153.email.malaysiaairlines.com [63.140.47.153])
+  by crcvmail303.nm.naver.com with ESMTP id LenpgHPKTGS9Fu2VlqoTPQ
+  for <user01@naver.com>
+  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384);
+  Wed, 16 Aug 2023 15:38:02 -0000
+Return-Path: <malayair@email.malaysiaairlines.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=email.malaysiaairlines.com; s=neolane; t=1692200280;
+	bh=JAtKHllPdQao4HskH6ijlKnhw0JSgIYz0ShEfiuWLLk=;
+	h=From:Subject:Date:To:MIME-Version:Message-ID:List-Unsubscribe:
+	 Content-Type;
+	b=hoYopeOkgqidxLbysiY8tEDoIxoNsX2wthlH1L6uRfDfTzo5Lvsa5uHp4Zxz8dud8
+	 FJ5C6CZohxrlYjmrriez2Ri0qr1vmt3KUHEN+U0+STv2xm6Zo8/1fYfR20mWYKynrI
+	 mMoRPD1gf4GcieqsfetSn7hfxBx2Q0+l0wlUAM1k=
+X-MSFBL: twXuUfu6q9Dn0nj/84FR40YurbApUJZQ6cO8tWhVbe8=|eyJyIjoiYWxkYWxkMDI
+	xOEBuYXZlci5jb20iLCJyY3B0X21ldGEiOnsgImluIjogIm1hbGF5c2lfbWt0X3B
+	yb2QyIiwgInIiOiAiYWxkYWxkMDIxOEBuYXZlci5jb20iLCAibSI6ICItMTI2NDc
+	5NzAzMCIsICJkIjogIjU4MjM2MjI5MiIsICJpIjogIiIgfSwiYiI6ImF3c19tYWx
+	heXNpYWFpcmxpbmVzX3Byb2QyX2RlZmF1bHRfbW9tZW50dW0wNV9tdGEwMDFfNjM
+	uMTQwLjQ3LjE1MyIsImciOiJkZWZhdWx0XzI0ZjkxZGM1LTI1N2ItNGY1My05OTB
+	iLTgxZjZhYWRlMDBhMiJ9
+Received: from [10.84.255.134] ([10.84.255.134:55348] helo=r153.email.malaysiaairlines.com)
+	by momentum05.sin2.cpt.adobe.net (envelope-from <malayair@email.malaysiaairlines.com>)
+	(ecelerity 4.2.38.999 r(:)) with ESMTP
+	id C7/36-24964-85DECD46; Wed, 16 Aug 2023 08:38:00 -0700
+From: "Enrich by Malaysia Airlines" <no-reply@email.malaysiaairlines.com>
+Subject: Introducing Enrich Points Pool: Rejoice rewarding experiences together.
+Date: Wed, 16 Aug 2023 23:37:58 +0800
+To: <user01@naver.com>
+Reply-To: "Enrich by Malaysia Airlines" <no-reply@email.malaysiaairlines.com>
+MIME-Version: 1.0
+X-mailer: nlserver, Build 6.7.0
+Message-ID: <NM6B49CBA9A22B624B4malaysi_mkt_prod2@email.malaysiaairlines.com>
+List-Unsubscribe: <mailto:malayair@email.malaysiaairlines.com?subject=unsubscribe%3CNM6B49CBA9A22B624B4malaysi_mkt_prod2@email.malaysiaairlines.com%3E>
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+  <!--[if !mso]><!-->
+  <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+  <!--<![endif]-->
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+  <title></title>
+  <style type=3D"text/css">
+    body {
+      margin: 0 !important;    
+      padding: 0; 
+      background-color: #fafafa; 
+      font-family: arial
+    }
+
+    table {
+      border-spacing: 0;
+      font-family: arial;
+      color: #333
+    }
+
+    td {
+      padding: 0;
+      margin: 0
+    }
+
+    img {
+      border: 0
+    }
+
+    div[style*=3D"margin: 16px 0"] {
+      margin: 0 !important
+    }
+
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%
+    }
+
+    .webkit {
+      max-width: 600px;
+      margin: 0 auto
+    }
+
+    .webkit-second {
+      max-width: 550px;
+      margin: 0 auto
+    }
+
+    .outer {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 600px
+    }
+
+    .outer-second {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 550px
+    }
+
+    .two-column {
+      text-align: center;
+      font-size: 0
+    }
+
+    .two-column .column {
+      width: 100%;
+      max-width: 270px;
+      display: inline-block;
+      vertical-align: top
+    }
+
+    .contents {
+      width: 100%
+    }
+
+    .two-column .contents {
+      font-size: 14px;
+      text-align: left
+    }
+
+    .two-column .text {
+      padding-top: 10px
+    }
+
+    .three-column {
+      text-align: center;
+      font-size: 0;
+      padding-top: 10px;
+      padding-bottom: 30px
+    }
+
+    .three-column .column {
+      width: 100%;
+      max-width: 100px;
+      display: inline-block;
+      vertical-align: top
+    }
+
+    .three-column .contents {
+      font-size: 14px;
+      text-align: center
+    }
+
+    .three-column img {
+      width: 100%;
+      max-width: 180px;
+      height: auto
+    }
+
+    .three-column .text {
+      padding-top: 10px
+    }
+
+    table,
+    td {
+      overflow: hidden !important
+    }
+
+    .noPadLeft {
+      padding-left: 0 !important
+    }
+
+    .nopadTop {
+      padding-top: 5px !important
+    }
+
+    .paddRight {
+      padding-right: 25px !important
+    }
+
+    .paddRight10 {
+      padding-right: 10px !important
+    }
+
+    .paddLeft {
+      padding-left: 25px !important
+    }
+
+    .paddLeft15 {
+      padding-left: 15px !important
+    }
+
+    .paddLeft20 {
+      padding-left: 20px !important
+    }
+
+    .paddLeft10 {
+      padding-left: 10px !important
+    }
+
+    .paddTop35 {
+      padding-top: 35px !important
+    }
+
+    .paddTop {
+      padding-top: 20px !important
+    }
+
+    .paddTop10 {
+      padding-top: 10px !important
+    }
+
+    .paddBottom {
+      padding-bottom: 10px !important
+    }
+
+    @media only screen and (max-width:525px) {
+      .slogan-text {
+        font-size: 22px !important
+      }
+      .travel-img {
+        max-width: 100% !important
+      }
+      .hide {
+        max-height: 0 !important;
+        font-size: 0 !important;
+        display: none !important;
+        height: 0;
+        line-height: 0
+      }
+      body[yahoo] .hide {
+        max-height: 0 !important;
+        font-size: 0 !important;
+        display: none !important;
+        height: 0;
+        line-height: 0
+      }
+      body[yahoo] .hide img {
+        max-height: 0 !important;
+        font-size: 0 !important;
+        display: none !important;
+        height: 0;
+        line-height: 0
+      }
+      .mobile-padding {
+        padding-left: 20px !important;
+        padding-right: 20px !important
+      }
+      .mobile-padTopBottom {
+        padding-top: 15px !important;
+        padding-bottom: 15px !important
+      }
+      .mobile-padTop {
+        padding-top: 15px !important
+      }
+      .mobile-padTop25 {
+        padding-top: 25px !important
+      }
+      .mobPaddLeft15 {
+        padding-left: 15px !important
+      }
+      .mobPaddLeft25 {
+        padding-left: 25px !important
+      }
+      .mobMarLeft10 {
+        margin-left: 10px !important
+      }
+      .mobMarLeft25 {
+        margin-left: 25px !important
+      }
+      .mobMarTop15 {
+        margin-top: 15px !important
+      }
+      .mobile-nopadTopBottom {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important
+      }
+      .mobile-noPadLeft {
+        padding-left: 0 !important
+      }
+      .mobile-noPadRight {
+        padding-right: 0 !important
+      }
+      .mobile-padLeft10 {
+        padding-left: 10px !important
+      }
+      .mobile-padRight {
+        padding-right: 0 !important
+      }
+      .btnCenterAlign {
+        margin: 0 auto !important
+      }
+      .mob-marginZero {
+        margin: 0 !important
+      }
+      .mobPaddTop25 {
+        padding-top: 25px !important
+      }
+      .mobPaddTop10 {
+        padding-top: 10px !important
+      }
+      .mobMarBot10 {
+        margin-bottom: 10px !important
+      }
+      .mobile-maxwidth {
+        max-width: 93% !important
+      }
+      .mobile-promoimage {
+        padding-left: 0 !important;
+        padding-bottom: 0 !important
+      }
+      .mobile-promocontent {
+        padding-top: 0 !important
+      }
+      .mobile-smallTxt {
+        font-size: 10px !important
+      }
+      .mobile-banner {
+        width: 100%;
+        height: auto !important
+      }
+      .enrich-mobile-img {
+        max-width: 360px !important
+      }
+      .enrich-mobile-btn {
+        margin: 0 auto !important
+      }
+      .enrich-mobile-txt {
+        text-align: center !important
+      }
+      .enrich-mobile-width {
+        max-width: 100% !important;
+        width: 100% !important
+      }
+      .travel-time-txt {
+        text-align: center !important
+      }
+      .center-mobile {
+        padding: 0 !important
+      }
+      a[href^=3D"tel"] {
+        color: inherit;
+        text-decoration: none
+      }
+    }
+
+    @media screen yahoo {
+      * {
+        overflow: visible !important
+      }
+      .y-overflow-hidden {
+        overflow: hidden !important
+      }
+      .btnCenterAlign {
+        margin: 0 174px
+      }
+    }
+  </style>
+  <!--[if (gte mso 9)|(IE)]>
+<style type=3D"text/css">table{border-collapse:collapse}</style>
+<![endif]-->
+</head>
+
+<body yahoo=3D"fix">
+  <style type=3D"text/css">
+    body {
+      margin: 0 !important;
+      padding: 0;
+      background-color: #fafafa;
+      font-family: arial
+    }
+
+    table {
+      border-spacing: 0;
+      font-family: arial;
+      color: #333
+    }
+
+    td {
+      padding: 0;
+      margin: 0
+    }
+
+    img {
+      border: 0
+    }
+
+    div[style*=3D"margin: 16px 0"] {
+      margin: 0 !important
+    }
+
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%
+    }
+
+    .webkit {
+      max-width: 600px;
+      margin: 0 auto
+    }
+
+    .webkit-second {
+      max-width: 550px;
+      margin: 0 auto
+    }
+
+    .outer {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 600px
+    }
+
+    .outer-second {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 550px
+    }
+
+    .two-column {
+      text-align: center;
+      font-size: 0
+    }
+
+    .two-column .column {
+      width: 100%;
+      max-width: 270px;
+      display: inline-block;
+      vertical-align: top
+    }
+
+    .contents {
+      width: 100%
+    }
+
+    .two-column .contents {
+      font-size: 14px;
+      text-align: left
+    }
+
+    .two-column .text {
+      padding-top: 10px
+    }
+
+    .three-column {
+      text-align: center;
+      font-size: 0;
+      padding-top: 10px;
+      padding-bottom: 30px
+    }
+
+    .three-column .column {
+      width: 100%;
+      max-width: 100px;
+      display: inline-block;
+      vertical-align: top
+    }
+
+    .three-column .contents {
+      font-size: 14px;
+      text-align: center
+    }
+
+    .three-column img {
+      width: 100%;
+      max-width: 180px;
+      height: auto
+    }
+
+    .three-column .text {
+      padding-top: 10px
+    }
+
+    table,
+    td {
+      overflow: hidden !important
+    }
+
+    .noPadLeft {
+      padding-left: 0 !important
+    }
+
+    .nopadTop {
+      padding-top: 5px !important
+    }
+
+    .paddRight {
+      padding-right: 25px !important
+    }
+
+    .paddRight10 {
+      padding-right: 10px !important
+    }
+
+    .paddLeft {
+      padding-left: 25px !important
+    }
+
+    .paddLeft15 {
+      padding-left: 15px !important
+    }
+
+    .paddLeft20 {
+      padding-left: 20px !important
+    }
+
+    .paddLeft10 {
+      padding-left: 10px !important
+    }
+
+    .paddTop35 {
+      padding-top: 35px !important
+    }
+
+    .paddTop {
+      padding-top: 20px !important
+    }
+
+    .paddTop10 {
+      padding-top: 10px !important
+    }
+
+    .paddBottom {
+      padding-bottom: 10px !important
+    }
+
+    @media only screen and (max-width:525px) {
+      .slogan-text {
+        font-size: 22px !important
+      }
+      .travel-img {
+        max-width: 100% !important
+      }
+      .hide {
+        max-height: 0 !important;
+        font-size: 0 !important;
+        display: none !important;
+        height: 0;
+        line-height: 0
+      }
+      body[yahoo] .hide {
+        max-height: 0 !important;
+        font-size: 0 !important;
+        display: none !important;
+        height: 0;
+        line-height: 0
+      }
+      body[yahoo] .hide img {
+        max-height: 0 !important;
+        font-size: 0 !important;
+        display: none !important;
+        height: 0;
+        line-height: 0
+      }
+      .mobile-padding {
+        padding-left: 20px !important;
+        padding-right: 20px !important
+      }
+      .mobile-padTopBottom {
+        padding-top: 15px !important;
+        padding-bottom: 15px !important
+      }
+      .mobile-padTop {
+        padding-top: 15px !important
+      }
+      .mobile-padTop25 {
+        padding-top: 25px !important
+      }
+      .mobPaddLeft15 {
+        padding-left: 15px !important
+      }
+      .mobPaddLeft25 {
+        padding-left: 25px !important
+      }
+      .mobMarLeft10 {
+        margin-left: 10px !important
+      }
+      .mobMarLeft25 {
+        margin-left: 25px !important
+      }
+      .mobMarTop15 {
+        margin-top: 15px !important
+      }
+      .mobile-nopadTopBottom {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important
+      }
+      .mobile-noPadLeft {
+        padding-left: 0 !important
+      }
+      .mobile-noPadRight {
+        padding-right: 0 !important
+      }
+      .mobile-padLeft10 {
+        padding-left: 10px !important
+      }
+      .mobile-padRight {
+        padding-right: 0 !important
+      }
+      .btnCenterAlign {
+        margin: 0 auto !important
+      }
+      .mob-marginZero {
+        margin: 0 !important
+      }
+      .mobPaddTop25 {
+        padding-top: 25px !important
+      }
+      .mobPaddTop10 {
+        padding-top: 10px !important
+      }
+      .mobMarBot10 {
+        margin-bottom: 10px !important
+      }
+      .mobile-maxwidth {
+        max-width: 93% !important
+      }
+      .mobile-promoimage {
+        padding-left: 0 !important;
+        padding-bottom: 0 !important
+      }
+      .mobile-promocontent {
+        padding-top: 0 !important
+      }
+      .mobile-smallTxt {
+        font-size: 10px !important
+      }
+      .mobile-banner {
+        width: 100%;
+        height: auto !important
+      }
+      .enrich-mobile-img {
+        max-width: 360px !important
+      }
+      .enrich-mobile-btn {
+        margin: 0 auto !important
+      }
+      .enrich-mobile-txt {
+        text-align: center !important
+      }
+      .enrich-mobile-width {
+        max-width: 100% !important;
+        width: 100% !important
+      }
+      .travel-time-txt {
+        text-align: center !important
+      }
+      .center-mobile {
+        padding: 0 !important
+      }
+      a[href^=3D"tel"] {
+        color: inherit;
+        text-decoration: none
+      }
+    }
+
+    @media screen yahoo {
+      * {
+        overflow: visible !important
+      }
+      .y-overflow-hidden {
+        overflow: hidden !important
+      }
+      .btnCenterAlign {
+        margin: 0 174px
+      }
+    }
+  </style>
+  <center class=3D"wrapper" style=3D"background-color:#fafafa">
+    <div class=3D"webkit" style=3D"background-color:#fafafa">
+      <!--[if gte mso 15]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0">
+<tbody>
+<tr>
+<td>
+<![endif]-->
+      <table align=3D"center" class=3D"outer" style=3D"background-color:#fa=
+fafa;border-spacing:0;font-family:arial;color:#333">
+        <tbody>
+          <tr>
+            <td class=3D"one-column" style=3D"padding-top:20px">
+              <table width=3D"100%" style=3D"border-spacing:0;font-family:a=
+rial;color:#333">
+                <tbody>
+                  <tr>
+                    <td class=3D"inner contents testWinnie" style=3D"font-s=
+ize:11px;color:#797979;text-align:center;font-weight:normal;padding-bottom:=
+10px">
+                       Combine Enrich Points and redeem shared goals togeth=
+er.=E2=80=8B
+=E2=80=8B                                        <br> View in
+                        <a style=3D"TEXT-DECORATION: none; BORDER-BOTTOM-ST=
+YLE: none" href=3D"http://t.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,=
+22b624b4,17362822&cid=3DPDM539205&bid=3D-1264797030&p1=3D%40aXDfTfKXN8W43Wy=
+Ouwjx01M8fJ9OTrlqzYCoVI8ZPI4%3D" target=3D"_blank" _label=3D"Mirror Page" _=
+type=3D"mirrorPage"><span style=3D"COLOR: #00437d">browser</span>
+            </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--[if gte mso 15]>
+</td>
+</tr>
+</tbody>
+</table>
+<![endif]-->
+    </div>
+  </center>
+
+  
+
+  <!-- START - MAIN BANNER VISUAL-->
+  <center class=3D"wrapper" style=3D"background-color:#fafafa">
+    <div class=3D"webkit" style=3D"background-color:#fafafa">
+      <!--[if gte mso 15]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0">
+<tbody>
+<tr
+<td>
+<![endif]-->
+      <table align=3D"center" class=3D"outer" style=3D"background-color:#16=
+7fc3;border-spacing:0;font-family:arial;color:#333">
+        <tbody>
+          <tr>
+            <td class=3D"one-column" style=3D"padding:0;margin:0">
+              <table width=3D"100%" style=3D"border-spacing:0;font-family:a=
+rial;color:#333">
+                <tbody>
+                  <tr>
+                    <td class=3D"inner contents" style=3D"text-align:center=
+;border-spacing:0;padding:0;margin:0">
+                      <!--<a style=3D"text-decoration:none;border-bottom-st=
+yle:none;padding:0;margin:0" href=3D"https://www.malaysiaairlines.com/my/en=
+/enrich.html" target=3D"_blank"><img src=3D"https://t.email.malaysiaairline=
+s.com/res/malaysi_mkt_prod2/5699cfd7032fff867e6c477eb67930b124d57cb9dfcd5c4=
+60aaa8df804708a4a.jpg" style=3D"display:block;padding:0;margin:0" border=3D=
+"0" class=3D"mobile-banner" /></a>-->
+                      <!-- <a style=3D"text-decoration:none;display: block;=
+width: 100%;border-bottom-style:none;padding:0;margin:0" href=3D"https://ww=
+w.malaysiaairlines.com/my/en/enrich.html"
+                        target=3D"_blank"> -->
+                      <a style=3D"TEXT-DECORATION: none; BORDER-BOTTOM-STYL=
+E: none;" href=3D"http://t.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,2=
+2b624b4,17362823&cid=3DPDM539205&bid=3D-1264797030" target=3D"_blank"><img =
+src=3D"https://t.email.malaysiaairlines.com/res/malaysi_mkt_prod2/5699cfd70=
+32fff867e6c477eb67930b124d57cb9dfcd5c460aaa8df804708a4a.jpg" alt=3D"Enrich"=
+ style=3D"display:block;width: 100%;padding:0;margin:0"
+                        border=3D"0" class=3D"mobile-banner" />
+                        
+                        
+                       
+                        
+                      <!-- </a> --> 
+                    </td>
+            </td>
+            </tr>
+            </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--[if gte mso 15]>
+</td>
+</tr>
+</tbody>
+</table>
+<![endif]-->
+    </div>
+  </center>
+  <!-- END - MAIN BANNER VISUAL -->
+
+    
+<!-- START - HEADER TEXT 1 -->
+  <center class=3D"wrapper" style=3D"background-color:#fafafa">
+    <div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+      <!--[if gte mso 15]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0">
+<tbody>
+<tr>
+<td>
+<![endif]-->
+      <table align=3D"center" class=3D"outer" style=3D"background-color:#ff=
+ffff;border-spacing:0;font-family:arial;color:#333">
+        <tbody> 
+          <tr>
+            <td class=3D"one-column mobile-padTopBottom" style=3D"padding-t=
+op:20px;padding-bottom:0px">
+              <table width=3D"100%" style=3D"border-spacing:0;font-family:a=
+rial;color:#333">
+                <tbody>
+                   <tr>
+                    <td class=3D"inner contents" style=3D"font-size:24px;co=
+lor:#fff;text-align:justify;font-weight:bold;padding-left:20px;padding-righ=
+t:20px;">
+                      <h2 style=3D"margin: 0; font-family: sans-serif; font=
+-size: 20px; line-height: 125%; color: #28328c; font-weight: bold; width: 1=
+00%; max-width: 600px; text-align:center;height: auto; margin:auto; ">Hello=
+ Ms jieun <br> MH336625262</h2>
+                     
+       
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--[if gte mso 15]>
+</td>
+</tr>
+</tbody>
+</table>
+<![endif]-->
+    </div>
+  </center>
+  <!-- END - HEADER TEXT 1 -->
+    
+    
+    
+    <!-- START - LINE BREAK -->
+  <center class=3D"wrapper" style=3D"background-color:#fafafa">
+      <div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+        <!--[if gte mso 15]>
+  <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0">
+  <tbody>
+  <tr>
+  <td>
+  <![endif]-->
+        <table align=3D"center" class=3D"outer" style=3D"background-color:#=
+ffffff">
+          <tbody>
+            <!--[if gte mso 15]>
+  <tr>
+  <td height=3D"20">&nbsp;</td>
+  </tr>
+  <![endif]-->
+            <tr align=3D"center">
+              <td class=3D"one-column" align=3D"center">
+                <table align=3D"center">
+                  <tbody> 
+                    <tr>
+                      <td align=3D"center" class=3D"inner contents" style=
+=3D"border-bottom:solid 1px #005aaa;color:#fff;">
+                        ---------------------------------------------------=
+---------
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!--[if gte mso 15]>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  <![endif]-->
+      </div>
+    </center>
+    <!-- END - LINE BREAK -->
+    
+    
+
+ 
+<!-- START - MESSAGE -->
+<center class=3D"wrapper" style=3D"background-color:#fafafa">
+<div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+<!--[if gte mso 15]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0">
+<tbody>
+<tr>
+<td>
+<![endif]-->
+<table align=3D"center" class=3D"outer" style=3D"background-color:#ffffff">
+<tbody>
+<tr>
+<td class=3D"one-column" style=3D"padding-top:20px">
+<table width=3D"100%"> 
+<tbody>
+<tr>
+<td class=3D"inner contents" style=3D"font-size:14px;color:#333;text-align:=
+left;padding-left:18px;padding-right:18px">
+Unlock a world of shared adventures with <strong>Enrich Points Pool</strong=
+> =E2=80=93 The ultimate way to maximize your loyalty rewards!<br><br>
+Dreaming of embarking on incredible journeys with your loved ones=3F Combin=
+e the power of your points with family members or friends to supercharge yo=
+ur travel and lifestyle aspirations. Pooling points means bigger rewards, m=
+ore flights, and greater adventures, all within reach.<br><br>
+So set your goal and create your Pool today!
+ </td>
+</tr>
+    
+
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if gte mso 15]>
+</td>
+</tr>
+</tbody>
+</table>
+<![endif]-->
+</div> 
+</center>
+<!-- END - MESSAGE -->
+
+
+
+        
+
+<!--  START - TABLE OFFER 1-->
+  <center class=3D"wrapper" style=3D"background-color:#fafafa">
+    <div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+      <!--[if gte mso 15]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0">
+<tbody>
+<tr>
+<td>
+<![endif]-->
+      <table align=3D"center" class=3D"outer" style=3D"border-spacing:0;fon=
+t-family:arial;color:#ffffff; background-color:#ffffff">
+        <tbody>
+          <tr>
+            <td class=3D"one-column" style=3D"padding:0;margin:0">
+              <table width=3D"100%" style=3D"border-spacing:0;font-family:a=
+rial;color:#ffffff; padding-top:20px">
+                <tbody>
+                  
+                    
+                  <tr>
+                    <td class=3D"inner contents" style=3D"text-align:center=
+;border-spacing:0;padding:0;margin:0">
+                      <!--<a style=3D"text-decoration:none;border-bottom-st=
+yle:none;padding:0;margin:0" href=3D"https://enrich.malaysiaairlines.com/en=
+rich/enrich-points-pool.html" target=3D"_blank"><img src=3D"https://t.email=
+.malaysiaairlines.com/res/malaysi_mkt_prod2/e1508bf274a670ead52805f9191fec0=
+2e571090f9b3ce5ecfbe57f9ebf633337.jpg" style=3D"display:block;padding:0;mar=
+gin:0" border=3D"0" class=3D"mobile-banner" /></a>-->
+                      <!-- <a style=3D"text-decoration:none;display: block;=
+width: 100%;border-bottom-style:none;padding:0;margin:0" href=3D"https://en=
+rich.malaysiaairlines.com/enrich/enrich-points-pool.html"
+                        target=3D"_blank"> -->
+                      <A style=3D"TEXT-DECORATION: none; BORDER-BOTTOM-STYL=
+E: none;" href=3D"https://enrich.malaysiaairlines.com/enrich/enrich-points-=
+pool.html" target=3D_blank><img src=3D"https://t.email.malaysiaairlines.com=
+/res/malaysi_mkt_prod2/e1508bf274a670ead52805f9191fec02e571090f9b3ce5ecfbe5=
+7f9ebf633337.jpg" alt=3D"USP" style=3D"display:block;width: 100%;padding:0;=
+margin:0"
+                        border=3D"0" class=3D"mobile-banner" />
+                        
+                        
+                       
+                        
+                      <!-- </a> --> 
+                    </td>
+            </td>
+            </tr>
+                    
+                    
+                </tbody>
+              </table>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      </tr>
+      </tbody>
+      </table>
+      <!--[if gte mso 15]>
+</td>
+</tr>
+</tbody>
+</table>
+<![endif]-->
+    </div>
+  </center>
+  <!-- END - TABLE OFFER 1-->
+
+
+
+  
+  <!-- START - ENRICH BUTTON -->
+<center class=3D"wrapper" style=3D"background-color:#fafafa">
+<div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+<!--[if gte mso 15]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0">
+<tbody>
+<tr>
+<td>
+<![endif]-->
+<table align=3D"center" class=3D"outer" style=3D"background-color:#fff">
+<tbody>
+<!--[if gte mso 15]>
+<tr>
+<td height=3D"5">&nbsp;</td>
+</tr>
+<![endif]-->
+<tr>
+<td class=3D"one-column paddTop" style=3D"padding-top:10px;padding-bottom:2=
+0px;background-color:#fff">
+<table align=3D"center" width=3D"250" class=3D"btnCenterAlign" style=3D"bac=
+kground-color:#fff">
+<tbody><tr align=3D"center">
+<td align=3D"center" valign=3D"middle" style=3D"text-align:center;backgroun=
+d-color:#ed1c24;border-radius:50px;padding:14px 25px">
+<div style=3D"FONT-SIZE:14px;COLOR:#fff;font-weight:bold"><a style=3D"TEXT-=
+DECORATION:none;BORDER-BOTTOM-STYLE:none;color:#fff" href=3D"https://enrich=
+.malaysiaairlines.com/enrich/enrich-points-pool.html" target=3D"_blank">Nom=
+inate now</a></div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if gte mso 15]>
+</td>
+</tr>
+</tbody>
+</table>
+<![endif]-->
+</div>
+</center>
+<!-- END - ENRICH BUTTON --> 
+
+
+<!-- START - TC -->
+  <center class=3D"wrapper" style=3D"background-color:#fafafa">
+    <div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+      <!--[if gte mso 15]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0">
+<tbody>
+<tr>
+<td>
+<![endif]-->
+      <table align=3D"center" class=3D"outer" style=3D"background-color:#ff=
+ffff;border-spacing:0;font-family:arial;color:#333">
+        <tbody>
+          <tr>
+            <td class=3D"one-column mobile-padTopBottom" style=3D"padding-t=
+op:20px;padding-bottom:20px">
+              <table width=3D"100%" style=3D"border-spacing:0;font-family:a=
+rial;color:#333">
+                <tbody>
+                   <tr>
+                    <td class=3D"inner contents" style=3D"font-size:20px;co=
+lor:#fff;text-align:justify;font-weight:bold;padding-left:20px;padding-righ=
+t:20px">
+                     
+                
+                      <p style=3D"color: #333; margin:0; font-family:sans-s=
+erif;font-size:10px; line-height:125%; font-weight:300; width: 100%; max-wi=
+dth: 600px; height: auto; margin:auto;">
+
+<a href=3D"https://enrich.malaysiaairlines.com/content/dam/mas/enrich/tnc/T=
+NC_Enrich_Nominee_and_Enrich_Points_Pool.pdf" target=3D"_blank" style=3D"co=
+lor:#005aaa;text-decoration:none">T&amp;Cs apply</a>  <br><br>
+
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--[if gte mso 15]>
+</td>
+</tr>
+</tbody>
+</table>
+<![endif]-->
+    </div>
+  </center>
+  <!-- END - TC -->
+  
+  
+ <!-- START - CS1 -->
+        <center style=3D"background-color:#fafafa" class=3D"wrapper">
+    <div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+    <!--[if gte mso 15]>
+    <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0">
+    <tbody>
+    <tr>
+    <td>
+    <![endif]-->
+    <table align=3D"center" class=3D"outer" style=3D"background-color:#ffff=
+ff" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td style=3D"background-color:#ffffff">
+    <table align=3D"center" style=3D"background-color:#fff;margin:0 auto;ma=
+x-width:600px;width:100%" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody>
+    <tr>
+    <td class=3D"two-column" style=3D"text-align:left">
+    <!--[if (gte mso 9)|(IE)]>
+    <table width=3D"100%">
+    <tr>
+    <td width=3D"50%" valign=3D"top">
+    <![endif]-->
+    <div style=3D"display:inline-block;max-width:300px;vertical-align:top;w=
+idth:100%" class=3D"mobile-maxwidth">
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td class=3D"inner mobile-padRight" style=3D"text-align:center;padding:=
+0;margin:0">
+    <table class=3D"contents" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td>
+    <div class=3D"travel-img" style=3D"width:100%;max-width:265px;display:i=
+nline-block;vertical-align:top;text-align:center">
+    <table width=3D"100%" align=3D"center" style=3D"text-align:center" cell=
+padding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td style=3D"text-align:center" class=3D"inner">
+    <table class=3D"contents" style=3D"text-align:center!important" cellpad=
+ding=3D"0" cellspacing=3D"0">
+    <tbody>
+    <tr>
+    <td align=3D"center" style=3D"font-size:0;text-align:center">
+    <table width=3D"100%" align=3D"left" cellpadding=3D"0" cellspacing=3D"0=
+">
+    <tbody><tr>
+    <td class=3D"one-column paddTop nopadTop">
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"padd=
+ing-left:20px">
+    <tbody>
+    <!--[if gte mso 15]>
+    <tr>
+    <td height=3D"3">&nbsp;</td>
+    </tr>
+    <![endif]-->
+    <tr>
+    <td align=3D"center" class=3D"mobile-promoimage" style=3D"font-size:0;t=
+ext-align:center;padding-bottom:10px">
+    <a style=3D"TEXT-DECORATION:none;BORDER-BOTTOM-STYLE:none" href=3D"http=
+s://enrich.malaysiaairlines.com/enrich/promotions/redemption-fiesta-offers/=
+merdeka-sale.html" target=3D"_blank"><img class=3D"" border=3D"0" alt=3D"Me=
+rdeka Sale" style=3D"display:block;width:100%" src=3D"https://t.email.malay=
+siaairlines.com/res/malaysi_mkt_prod2/b1bb735700400f15a3c81f9e6ad0372494fdc=
+6292c9fd9edb95082599df0cb99.jpg" /></a>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </td>
+    </tr>
+    </tbody></table>
+    </div>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody></table>
+    </div>
+    <!--[if (gte mso 9)|(IE)]>
+    </td><td width=3D"50%" valign=3D"top">
+    <![endif]-->
+    <div style=3D"display:inline-block;max-width:300px;vertical-align:top;w=
+idth:100%;float:left" class=3D"enrich-mobile-width">
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td class=3D"inner mobile-promocontent" style=3D"text-align:center;padd=
+ing:0;margin:0">
+    <table class=3D"contents" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody>
+    <tr>
+    <td>
+    <div class=3D"travel-img" style=3D"width:100%;max-width:265px;display:i=
+nline-block;vertical-align:top;text-align:center">
+    <table width=3D"100%" align=3D"center" style=3D"text-align:center" cell=
+padding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td style=3D"text-align:center" class=3D"inner">
+    <table class=3D"contents" style=3D"text-align:center!important" cellpad=
+ding=3D"0" cellspacing=3D"0">
+    <tbody>
+    <tr>
+    <td align=3D"center" style=3D"font-size:0;text-align:center">
+    <table width=3D"100%" align=3D"left" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"padding-left:20px">
+    <tbody><tr>
+    <td class=3D"one-column paddTop10 paddBottom paddRight">
+    <!--[if (gte mso 9)|(IE)]>
+    <table width=3D"265">
+    <![endif]-->
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td class=3D"inner contents" style=3D"text-align:left;font-size:16px;co=
+lor:#333;font-weight:bold;width:100%;padding-top:10px;padding-bottom:10px">
+   ENJOY DISCOUNTS ON REDEMPTIONS WITH YOUR ENRICH POINTS.
+
+    </td>
+    </tr>
+    <tr>
+    <td class=3D"inner contents" style=3D"text-align:justify;font-size:13px=
+;color:#333;font-weight:normal;padding-bottom:10px;width:100%">
+   Get up to 50% off Enrich GiftCards & Lifestyle e-Vouchers, plus 1,000 Po=
+ints off <a href=3D"https://www.enrichhotels.com/" target=3D"_blank" style=
+=3D"color:#005aaa;text-decoration:none">enrichhotels.com.</a>
+ </td>
+    </tr>
+    </tbody></table>
+    <!--[if (gte mso 9)|(IE)]>
+    </table>
+    <![endif]-->
+    <table width=3D"60%">
+    <tbody><tr align=3D"center">
+    <td align=3D"center" valign=3D"middle" style=3D"text-align:center;backg=
+round-color:#ed1c24;border-radius:50px;padding:10px 20px 10px 20px" width=
+=3D"50%">
+    <div style=3D"FONT-SIZE:12px;COLOR:#fff;font-weight:bold"><a style=3D"T=
+EXT-DECORATION:none;BORDER-BOTTOM-STYLE:none;color:#fff" href=3D"https://en=
+rich.malaysiaairlines.com/enrich/promotions/redemption-fiesta-offers/merdek=
+a-sale.html" target=3D"_blank">Redeem now</a></div>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </td>
+    </tr>
+    </tbody></table>
+    </div>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody></table>
+    </div>
+    <!--[if (gte mso 9)|(IE)]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </td>
+    </tr>
+    </tbody></table>
+    </div>
+    </center>
+
+    <center class=3D"wrapper" style=3D"background-color:#fafafa">
+    <div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+    <!--[if gte mso 15]>
+    <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0">
+    <tbody>
+    <tr>
+    <td>
+    <![endif]-->
+    <table width=3D"100%" style=3D"background-color:#ffffff">
+    <tbody>
+    <tr align=3D"center">
+    <td class=3D"one-column" align=3D"center">
+    <table align=3D"center" width=3D"100%">
+    <tbody><tr>
+    <td align=3D"center" class=3D"inner contents" style=3D"border-bottom:so=
+lid 1px #ccc;color:#fff;font-size:5px">
+    ------------------------------------------------------------
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <!--[if gte mso 15]>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <![endif]-->
+    </div>
+    </center>
+<!-- END - CS1->
+
+ 
+    <!-- START - CS2 -->
+    <center style=3D"background-color:#fafafa" class=3D"wrapper">
+    <div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+    <!--[if gte mso 15]>
+    <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0">
+    <tbody>
+    <tr>
+    <td>
+    <![endif]-->
+    <table align=3D"center" class=3D"outer" style=3D"background-color:#ffff=
+ff" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td style=3D"background-color:#ffffff">
+    <table align=3D"center" style=3D"background-color:#fff;margin:0 auto;ma=
+x-width:600px;width:100%" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody>
+    <tr>
+    <td class=3D"two-column" style=3D"text-align:left">
+    <!--[if (gte mso 9)|(IE)]>
+    <table width=3D"100%">
+    <tr>
+    <td width=3D"50%" valign=3D"top">
+    <![endif]-->
+    <div style=3D"display:inline-block;max-width:300px;vertical-align:top;w=
+idth:100%" class=3D"mobile-maxwidth">
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td class=3D"inner mobile-padRight" style=3D"text-align:center;padding:=
+0;margin:0">
+    <table class=3D"contents" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td>
+    <div class=3D"travel-img" style=3D"width:100%;max-width:265px;display:i=
+nline-block;vertical-align:top;text-align:center">
+    <table width=3D"100%" align=3D"center" style=3D"text-align:center" cell=
+padding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td style=3D"text-align:center" class=3D"inner">
+    <table class=3D"contents" style=3D"text-align:center!important" cellpad=
+ding=3D"0" cellspacing=3D"0">
+    <tbody>
+    <tr>
+    <td align=3D"center" style=3D"font-size:0;text-align:center">
+    <table width=3D"100%" align=3D"left" cellpadding=3D"0" cellspacing=3D"0=
+">
+    <tbody><tr>
+    <td class=3D"one-column paddTop nopadTop">
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"padd=
+ing-left:20px">
+    <tbody>
+    <!--[if gte mso 15]>
+    <tr>
+    <td height=3D"3">&nbsp;</td>
+    </tr>
+    <![endif]-->
+    <tr>
+    <td align=3D"center" class=3D"mobile-promoimage" style=3D"font-size:0;t=
+ext-align:center;padding-bottom:10px">
+    <a style=3D"TEXT-DECORATION:none;BORDER-BOTTOM-STYLE:none" href=3D"http=
+s://www.enrichhotels.com/=3Futm_source=3Denrich&utm_medium=3Demail&utm_camp=
+aign=3DLEA-3X&utm_term=3D07-2023&utm_content=3Dcta=E2=80=8B" target=3D"_bla=
+nk"><img class=3D"" border=3D"0" alt=3D"Enrich Hotels" style=3D"display:blo=
+ck;width:100%" src=3D"https://t.email.malaysiaairlines.com/res/malaysi_mkt_=
+prod2/306599a2c51bcbf095c3afc9087d7fab2e85fbf0aea13fda9b8b591671da3019.jpg"=
+ /></a>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </td>
+    </tr>
+    </tbody></table>
+    </div>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody></table>
+    </div>
+    <!--[if (gte mso 9)|(IE)]>
+    </td><td width=3D"50%" valign=3D"top">
+    <![endif]-->
+    <div style=3D"display:inline-block;max-width:300px;vertical-align:top;w=
+idth:100%;float:left" class=3D"enrich-mobile-width">
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td class=3D"inner mobile-promocontent" style=3D"text-align:center;padd=
+ing:0;margin:0">
+    <table class=3D"contents" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody>
+    <tr>
+    <td>
+    <div class=3D"travel-img" style=3D"width:100%;max-width:265px;display:i=
+nline-block;vertical-align:top;text-align:center">
+    <table width=3D"100%" align=3D"center" style=3D"text-align:center" cell=
+padding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td style=3D"text-align:center" class=3D"inner">
+    <table class=3D"contents" style=3D"text-align:center!important" cellpad=
+ding=3D"0" cellspacing=3D"0">
+    <tbody>
+    <tr>
+    <td align=3D"center" style=3D"font-size:0;text-align:center">
+    <table width=3D"100%" align=3D"left" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"padding-left:20px">
+    <tbody><tr>
+    <td class=3D"one-column paddTop10 paddBottom paddRight">
+    <!--[if (gte mso 9)|(IE)]>
+    <table width=3D"265">
+    <![endif]-->
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody><tr>
+    <td class=3D"inner contents" style=3D"text-align:left;font-size:16px;co=
+lor:#333;font-weight:bold;width:100%;padding-top:10px;padding-bottom:10px">
+   EARN POINTS WHEN YOU STAY AT <a href=3D"www.enrichhotels.com" target=3D"=
+_blank" style=3D"color:#005aaa;text-decoration:none">ENRICHHOTELS.COM</a>
+
+    </td>
+    </tr>
+    <tr>
+    <td class=3D"inner contents" style=3D"text-align:justify;font-size:13px=
+;color:#333;font-weight:normal;padding-bottom:10px;width:100%">
+   Search for the perfect place and earn up to 15,000 Enrich Points or rede=
+em them for free stays. 
+        
+ </td>
+    </tr>
+    </tbody></table>
+    <!--[if (gte mso 9)|(IE)]>
+    </table>
+    <![endif]-->
+    <table width=3D"60%">
+    <tbody><tr align=3D"center">
+    <td align=3D"center" valign=3D"middle" style=3D"text-align:center;backg=
+round-color:#ed1c24;border-radius:50px;padding:10px 20px 10px 20px" width=
+=3D"50%">
+    <div style=3D"FONT-SIZE:12px;COLOR:#fff;font-weight:bold"><a style=3D"T=
+EXT-DECORATION:none;BORDER-BOTTOM-STYLE:none;color:#fff" href=3D"https://ww=
+w.enrichhotels.com/=3Futm_source=3Denrich&utm_medium=3Demail&utm_campaign=
+=3DLEA-3X&utm_term=3D07-2023&utm_content=3Dcta=E2=80=8B" target=3D"_blank">=
+Book now</a></div>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </td>
+    </tr>
+    </tbody></table>
+    </div>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody></table>
+    </div>
+    <!--[if (gte mso 9)|(IE)]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </td>
+    </tr>
+    </tbody></table>
+    </div>
+    </center>
+
+    <center class=3D"wrapper" style=3D"background-color:#fafafa">
+    <div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+    <!--[if gte mso 15]>
+    <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0">
+    <tbody>
+    <tr>
+    <td>
+    <![endif]-->
+    <table width=3D"100%" style=3D"background-color:#ffffff">
+    <tbody>
+    <tr align=3D"center">
+    <td class=3D"one-column" align=3D"center">
+    <table align=3D"center" width=3D"100%">
+    <tbody><tr>
+    <td align=3D"center" class=3D"inner contents" style=3D"border-bottom:so=
+lid 1px #ccc;color:#fff;font-size:5px">
+    ------------------------------------------------------------
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <!--[if gte mso 15]>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <![endif]-->
+    </div>
+    </center>
+    <!-- END - CS2-> 
+
+
+    
+
+    
+<!--  START - IG BANNER -->
+<center class=3D"wrapper" style=3D"background-color: #fafafa;">
+<div class=3D"webkit" style=3D"background-color: #fafafa;"><!-- [if gte mso=
+ 15]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0">
+<tbody>
+<tr>
+<td>
+<![endif]-->
+<table class=3D"outer" style=3D"background-color: #167fc3; border-spacing: =
+0; font-family: arial; color: #333;" align=3D"center">
+<tbody>
+<tr>
+<td class=3D"one-column" style=3D"padding: 0; margin: 0;">
+<table style=3D"border-spacing: 0; font-family: arial; color: #333;" width=
+=3D"100%">
+<tbody>
+<tr>
+<td class=3D"inner contents" style=3D"text-align: center; border-spacing: 0=
+; padding: 0; margin: 0;"><!--<a style=3D"text-decoration:none;border-botto=
+m-style:none;padding:0;margin:0" href=3D"https://www.instagram.com/enrichby=
+mh/" target=3D"_blank"><img src=3D"http://t.email.malaysiaairlines.com/res/=
+img/7B11DBFD319489FF42CD7C4C5ACB60A8.jpg
+" style=3D"display:block;padding:0;margin:0" border=3D"0" class=3D"mobile-b=
+anner" /></a>--> <!-- <a style=3D"text-decoration:none;display: block;width=
+: 100%;border-bottom-style:none;padding:0;margin:0" href=3D"https://www.ins=
+tagram.com/enrichbymh/"
+                        target=3D"_blank"> --> <a style=3D"text-decoration:=
+ none; border-bottom-style: none;" href=3D"http://t.email.malaysiaairlines.=
+com/r/=3Fid=3Dhb49cba9a,22b624b4,17362826" target=3D"_blank"><img class=3D"=
+mobile-banner" style=3D"display: block; width: 100%; padding: 0; margin: 0;=
+" src=3D"http://t.email.malaysiaairlines.com/res/img/7B11DBFD319489FF42CD7C=
+4C5ACB60A8.jpg
+" alt=3D"IG" border=3D"0" /> <!-- </a> --> </a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- [if gte mso 15]>
+</td>
+</tr>
+</tbody>
+</table>
+<![endif]--></div>
+</center><!-- END - IG BANNER -->
+ 
+    
+    
+    
+<!-- START - ENRICH -->
+<center class=3D"wrapper" style=3D"background-color:#fafafa">
+<div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+<!--[if gte mso 15]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0">
+<tbody>
+<tr>
+<td>
+<![endif]-->
+<table width=3D"100%" style=3D"background-color:#ffffff">
+<tbody>
+<tr align=3D"center">
+<td class=3D"one-column" align=3D"center">
+<table align=3D"center" width=3D"100%">
+<tbody><tr>
+<td align=3D"center">
+<img src=3D"http://t.email.malaysiaairlines.com/res/img/597DE8FEF4B5F334FE5=
+3D8CA0A41F48F.png" width=3D"120" />
+</td>
+</tr>
+<tr>
+<td align=3D"center" class=3D"mobile-smallTxt" style=3D"text-transform:uppe=
+rcase;font-size:12px;font-weight:bold">
+TRAVEL. LIFESTYLE. REWARDS.
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</center>
+<!-- END - ENRICH -->
+
+<!-- START - SOCIAL -->
+<center style=3D"background-color:#fafafa" class=3D"wrapper">
+<div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+<!--[if gte mso 15]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0">
+<tbody>
+<tr>
+<td>
+<![endif]-->
+<table align=3D"center" class=3D"outer" style=3D"background-color:#18286d">
+<tbody><tr>
+<td style=3D"background-color:#18286d">
+<table align=3D"center" style=3D"background-color:#18286d;margin:0 auto;max=
+-width:600px;width:100%" class=3D"">
+<tbody>
+<tr>
+<td class=3D"two-column" style=3D"text-align:left">
+<!--[if (gte mso 9)|(IE)]>
+<table width=3D"100%">
+<tr>
+<td width=3D"50%" valign=3D"top">
+<![endif]-->
+<div style=3D"display:inline-block;max-width:320px;vertical-align:top;width=
+:100%">
+<table width=3D"100%">
+<tbody><tr>
+<td class=3D"inner" style=3D"text-align:center;padding-bottom:10px;padding-=
+top:20px;padding-left:15px">
+<table class=3D"contents">
+<tbody><tr>
+<td align=3D"left" style=3D"font-size:13px;color:#fff;font-weight:bold;padd=
+ing-bottom:10px" colspan=3D"2">
+Book on the go on our mobile app
+</td>
+</tr>
+<tr>
+<td style=3D"width:130px">
+<a style=3D"TEXT-DECORATION:none;BORDER-BOTTOM-STYLE:none" href=3D"http://t=
+.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b624b4,17362827" target=
+=3D"_blank"><img src=3D"http://t.email.malaysiaairlines.com/res/img/83002E1=
+EEDB3AB2C875425DBD38D696D.png" style=3D"width:120px" alt=3D"Google Play" />=
+</A>
+</td>
+<td>
+<a style=3D"TEXT-DECORATION:none;BORDER-BOTTOM-STYLE:none" href=3D"http://t=
+.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b624b4,17362828" target=
+=3D"_blank"><img src=3D"http://t.email.malaysiaairlines.com/res/img/6FD1D83=
+211739EE270C77B53CE8CB6A0.png" style=3D"width:120px" alt=3D"App Store" /></=
+A>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+</td><td width=3D"50%" valign=3D"top">
+<![endif]-->
+<div style=3D"display:inline-block;max-width:260px;vertical-align:top;width=
+:100%">
+<table width=3D"100%">
+<tbody><tr>
+<td class=3D"inner paddTop" style=3D"text-align:center;padding-bottom:20px;=
+padding-top:0px;padding-left:15px;padding-right:15px">
+<table class=3D"contents">
+<tbody>
+<!--[if gte mso 15]>
+<tr>
+<td height=3D"20">&nbsp;</td>
+</tr>
+<![endif]-->
+<tr>
+<td align=3D"left" style=3D"font-size:13px;color:#fff;font-weight:bold;padd=
+ing:0 0 13px 0;margin:0" colspan=3D"5">
+Stay connected with us
+</td>
+</tr>
+<tr>
+<td style=3D"width:35px">
+<a style=3D"TEXT-DECORATION:none;BORDER-BOTTOM-STYLE:none" href=3D"http://t=
+.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b624b4,17362829" target=
+=3D"_blank"><img src=3D"http://t.email.malaysiaairlines.com/res/img/B358996=
+C428FA25F17E2E8B00B9ED0FD.jpg" alt=3D"Youtube" /></A>
+</td>
+<td style=3D"width:30px">
+<a style=3D"TEXT-DECORATION:none;BORDER-BOTTOM-STYLE:none" href=3D"http://t=
+.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b624b4,1736282a" target=
+=3D"_blank"><img src=3D"http://t.email.malaysiaairlines.com/res/img/B46046A=
+273375CA071C528043B830DD8.jpg" alt=3D"Facebook" /></A>
+</td>
+<td style=3D"width:30px">
+<a style=3D"TEXT-DECORATION:none;BORDER-BOTTOM-STYLE:none" href=3D"http://t=
+.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b624b4,1736282b" target=
+=3D"_blank"><img src=3D"http://t.email.malaysiaairlines.com/res/img/F6ED0A1=
+F756FAACCEE0A09A3B7FCDCCE.jpg" alt=3D"Instagram" /></A>
+</td>
+<td style=3D"width:30px">
+<a style=3D"TEXT-DECORATION:none;BORDER-BOTTOM-STYLE:none" href=3D"http://t=
+.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b624b4,1736282c" target=
+=3D"_blank"><img src=3D"http://t.email.malaysiaairlines.com/res/img/9551E21=
+D0380CCD6D18C59F6E64417DF.jpg" alt=3D"Twitter" /></A>
+</td>
+<td style=3D"width:30px">
+<a style=3D"TEXT-DECORATION:none;BORDER-BOTTOM-STYLE:none" href=3D"http://t=
+.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b624b4,1736282d" target=
+=3D"_blank"><img src=3D"http://t.email.malaysiaairlines.com/res/img/6E3FA08=
+A2153BC50F9594A900CC1FD4B.jpg" alt=3D"Weibo" /></A>
+</td>
+<td style=3D"width:35px">
+<a style=3D"TEXT-DECORATION:none;BORDER-BOTTOM-STYLE:none" href=3D"http://t=
+.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b624b4,1736282e" target=
+=3D"_blank"><img src=3D"http://t.email.malaysiaairlines.com/res/img/D0FBF69=
+11C053791AFD4356A17A1B797.jpg" alt=3D"Line" /></A>
+</td>
+<td style=3D"width:40px">
+<a style=3D"TEXT-DECORATION:none;BORDER-BOTTOM-STYLE:none" href=3D"http://t=
+.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b624b4,1736282f" target=
+=3D"_blank"><img src=3D"http://t.email.malaysiaairlines.com/res/img/2D0659D=
+9ED419D204EA5D168B7B0FF5B.jpg" alt=3D"Youku" /></A>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+</td>
+</tr>
+</table>
+<![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</div>
+</center>
+<!-- END - SOCIAL -->
+
+      <!-- START - FOOTER -->
+    <center class=3D"wrapper" style=3D"background-color:#fafafa">
+    <div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+    <!--[if gte mso 15]>
+    <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0">
+    <tbody>
+    <tr>
+    <td>
+    <![endif]-->
+    <table align=3D"center" class=3D"outer" style=3D"background-color:#ffff=
+ff">
+    <tbody>
+    <tr>
+    <td class=3D"one-column" style=3D"padding-bottom:20px;padding-top:20px"=
+>
+    <table width=3D"100%">
+    <tbody><tr>
+    <td class=3D"inner contents mobile-padding" style=3D"font-size:10px;col=
+or:#666;text-align:center">
+    <p class=3D"" style=3D"margin:0 auto;padding-bottom:20px;border-bottom:=
+1px solid #ccc">
+    This email is an automated notification, which is unable to receive rep=
+lies.
+    <br/><br/>
+    To manage your Enrich account, log into Enrich Online at <a href=3D"htt=
+p://t.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b624b4,17362830&cid=
+=3DPDM539205&bid=3D-1264797030" target=3D"_blank" style=3D"color:#005aaa;te=
+xt-decoration:none">enrich.malaysiaairlines.com</a>. <br/>
+    For any enquiries and current Enrich privileges, please visit <a href=
+=3D"http://t.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b624b4,173628=
+31&cid=3DPDM539205&bid=3D-1264797030" target=3D"_blank" style=3D"color:#005=
+aaa;text-decoration:none">malaysiaairlines.com</a>. <br/>
+    If you no longer wish to receive promotional emails, please click <a hr=
+ef=3D"http://t.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b624b4,1736=
+2832&cid=3DPDM539205&bid=3D-1264797030&p1=3D%40W3NHb8wV3YPCFXFMQgyWGQ%3D%3D=
+" _label=3D"Opt-out link" _type=3D"optout" target=3D"_blank" style=3D"color=
+:#005aaa;text-decoration:none">here</a> to unsubscribe.
+    </p>
+    </td>
+    </tr>
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <!--[if gte mso 15]>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <![endif]-->
+    </div>
+    <div class=3D"webkit" style=3D"background-color:#fff;mso-hide:all">
+    <!--[if gte mso 15]>
+    <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0">
+    <tbody>
+    <tr>
+    <td>
+    <![endif]-->
+    <table align=3D"center" class=3D"outer" style=3D"background-color:#fafa=
+fa">
+    <tbody>
+    <tr>
+    <td class=3D"one-column" style=3D"background-color:#fff">
+    <table width=3D"100%">
+    <tbody><tr>
+    <td class=3D"inner contents" style=3D"font-size:13px;color:#666;text-al=
+ign:center;padding-top:0;padding-bottom:20px;line-height:16px;padding-left:=
+40px;padding-right:40px">
+    &copy; 2023 Malaysia Airlines Berhad (201401040794)
+    </td>
+    </tr> 
+    </tbody></table>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <!--[if gte mso 15]>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <![endif]-->
+    </div>
+    </center> 
+    <!-- END - FOOTER --> 
+
+    </td></tr></tbody></table></div></center><img height=3D'0' width=3D'0' =
+alt=3D'' src=3D'http://t.email.malaysiaairlines.com/r/=3Fid=3Dhb49cba9a,22b=
+624b4,1'/></body></html>
+
