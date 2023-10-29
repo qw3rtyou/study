@@ -495,7 +495,7 @@ print(now_time)
 
 
 
-# 인터프리터 명시적 정하기
+# 인터프리터 명시적으로 정하기
 스크립트 파일의 첫 줄에 주석으로 작성되는 특별한 구문
 shebang이라고 함
 
@@ -508,10 +508,16 @@ $ chmod +x script.py
 $ ./script.py
 
 
+# 파일 입출력
+
+
+
 # deque
 
 
 # global
+
+
 
 
 # 오류
