@@ -8,20 +8,48 @@
         "type": "tabs",
         "children": [
           {
-            "id": "42f3c9d834e52a8e",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
-            }
-          },
-          {
             "id": "356b4be2fed7c650",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux.md",
+                "file": "SSTI.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3fbcdc87f07c6181",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Prototype Pollution.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a53a6d8bd1268892",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DOM Clobbering.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "21c9ed0b471b8edd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Session Manipulation.md",
                 "mode": "source",
                 "source": false
               }
@@ -94,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux.md",
+                "file": "Prototype Pollution.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Linux.md",
+                "file": "Prototype Pollution.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Linux.md"
+                "file": "Prototype Pollution.md"
               }
             }
           },
@@ -165,9 +193,26 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "356b4be2fed7c650",
+  "active": "3fbcdc87f07c6181",
   "lastOpenFiles": [
+    "SSTI.md",
+    "Prototype Pollution.md",
+    "CSRF.md",
+    "XSS.md",
+    "Session Manipulation.md",
+    "LogPoisoning.md",
+    "Web-Hacking.md",
+    "RFI.md",
+    "LFI.md",
+    "DOM Clobbering.md",
+    "Untitled 1.md",
+    "DOM Clobbering",
+    "SQLi.md",
+    "Web-Programming.md",
+    "CSS.md",
     "HTML.md",
+    "JS.md",
+    "Command-Injection.md",
     "Linux.md",
     "Docker.md",
     "package - shutile.md",
@@ -177,23 +222,6 @@
     "VSC.md",
     "dive.md",
     "nc.md",
-    "Vmware.md",
-    "Regular expression.md",
-    "Untitled",
-    "Web-Programming.md",
-    "React.md",
-    "PHP.md",
-    "JS.md",
-    "Pwnable.md",
-    "MordernJS.md",
-    "CSS-Layout.md",
-    "CSS.md",
-    "MarkDown.md",
-    "Intellij.md",
-    "Git.md",
-    "LogPoisoning.md",
-    "Web-Hacking.md",
-    "DBModeling.md",
     "Untitled 1.canvas",
     "관계설명2.png",
     "관계설명4.png",
