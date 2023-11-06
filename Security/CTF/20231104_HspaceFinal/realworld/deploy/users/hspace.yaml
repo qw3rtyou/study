@@ -1,0 +1,31 @@
+state: enabled
+email: hspace@hspace.com
+fullname: hspace
+title: hspace
+language: en
+content_editor: default
+twofa_enabled: false
+twofa_secret: Q4N44RDWPHVH2FBST67ATJZ6D2EJCXTX
+avatar: {  }
+hashed_password: $2y$10$uEJ2OtVahlvhvTXHMHkE/uN8MwZu1yCYIJaDHYpPrhu67JdxAVg2u # !DNc@3125*($2
+access:
+  site:
+    login: true
+  admin:
+    login: true
+    super: false
+    cache: false
+    configuration: false
+    pages:
+      create: true
+      read: true
+      update: true
+      delete: true
+      list: true
+    maintenance: false
+    statistics: false
+    plugins: false
+    themes: false
+    tools: false
+    users: false
+    flex-objects: false

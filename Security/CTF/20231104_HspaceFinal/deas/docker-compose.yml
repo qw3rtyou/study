@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  daes:
+    build: .
+    container_name: daes
+    restart: always
+    ports:
+      - "1014:1014"

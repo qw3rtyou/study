@@ -703,6 +703,35 @@ printList(intList); // 정수 리스트를 출력
 printList(stringList); // 문자열 리스트를 출력
 ```
 
+
+
+# 업캐스팅, 다운캐스팅
+모든 객체는 자기 타입을 알고 있다
+모든 객체는 object 의 인스턴스고, object에는 type이라는 필드가 있음
+type에서는 자신의 타입을 알고 있음
+
+Object
+Book
+Ebook
+
+`object o = new Ebook()`
+여기서 o는 위에서 1칸까지만 읽음
+
+`book b = new Ebook()`
+b는 위에서 2칸까지만 읽음
+
+
+
+# 
+
+
+
+
+
+
+
+
+
 # 질문 
 와일드카드 사용법 T랑 ? 랑 차이점 언제 사용하는
 

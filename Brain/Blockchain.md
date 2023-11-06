@@ -1373,34 +1373,248 @@ P2PKH 말고 다른 방식을 사용하는 tx도 있음
 
 
 
+# Advanced Transactions and Scripting
+
+## Multisignature
+M-of-N scheme
+n 명 중에 m명이 서명하면 인증 
+- Locking script
+`2 <Public Key A> <Public Key B> <Public Key C> 3 CHECKMULTISIG`
+
+- Unlocking script
+`<Signature B> <Signature C>`
+
+- Scripts together
+`<Signature B> <Signature C> 2 <Public key A> <Public Key B> <Public Key C> 3 CHECKMULTISIG`
+
+![[Pasted image 20231102141946.png]]
+
+- 장점
+standard script를 사용하면 n이 3명 까지만 재함됨
+P2SH 를 사용하면 최대 15명까지 들어남
+
+1명의 사용자가 의도적으로 3개의 서명을 만들어서
+분실, 도난의 위험을 줄임
+백업 키들도 다시 Multisignature로 관리하여 분실 방지
+
+- 예시
+2-of-2 : 2-factor authenication wallet
+2-of-3 : parents’ saving account for child
+2-of-3 : 에스크로(escrow) 서비스 - 중개자가 거래에 참여함(당근마켓?)
+
+
+## CHECKMULTISIG의 bug
+스택에서 M+N+2만큼 pop해야 함
+CHECKMULTISIG가 실제로 pop을 하나 더 하는 버그가 발견
+그런데 블록체인은 버그 픽스가 힘듬
+그래서 Unlocking script 앞에 쓰레기 값을 하나 더 붙이기로 함
+![[Pasted image 20231102143855.png]]
 
 
 
+## Pay-to-Script-Hash (P2SH)
+2012년 처음 소개
+긴 스크립트를 단순화하기 위해 만들어짐
+![[Pasted image 20231102144109.png]]
+키가 여러 개가 들어가면 수수료가 많이 발생하게 됨
+
+P2PKH에서 publickey 뿐만 아니라 스크립트에서도 인증하게 해주는 것이 P2SH
+길게 적어야 했던 스크립트 속 키들을 해시 처리 함
+먼저 공개키가 같은지 확인 후 
+따로 관리하는 Redeem Script로 확인
+Unlocking Script에서 redeem script를 제
+![[Pasted image 20231102144623.png]]
+
+기존의 publickey로 만든 address 대신 P2SH는 redeem script를 이용해 address를 이용해 만듬
+3으로 시작
+![[Pasted image 20231102150852.png]]
+
+- 장점
+보내는 사람 입장에서 주소에 따라 다른 
+스크립트가 짧음
+locking sciprt가 
+
+- 주의점
+호환 문제
+recursive를 막음
+스크립트가 오류가 있다면 그것을 고치기가 어려움(풀 수 없는 스크립트에 비트코인에 묶일 수 있음)
+
+
+## Data Recording Output (RETURN)
+
+금융뿐만 아니라 데이터 저장을 목적으로 블록체인이 사용하기 시작함
+return operator 뒤에 80바이트 데이터를 입력할 수 있음
+input, output이 없고, 수수료만 조금 있음
+
+- Proof of Existence
+계약서 같은 공증을 저장 
+저작권, 소유권 등을 증명
+[DOCPROOF](https://proofofexistence.com/)
 
 
 
+## Timelock
+바로 거래를 주는 게 아니라 일정 기간 후에 유효하게 만듬
+![[Pasted image 20231102152601.png]]
 
 
 
+## Transaction Locktime
+절대적 시각으로 locktime으로 함
+일반적인 tx는 locktime이 0임
+특정시간을 절대적 시각으로 설정할 수도 있지만
+블럭의 높이로도 절대적인 시각으로 설정할 수도 있음
+0 < nLocktime < 500 million : block height
+nLocktime >= 500 million : Unix Epoch timestamp (sec since Jan 1, 1970)
+
+![[Pasted image 20231102153135.png]]
+
+![[Pasted image 20231102152812.png]]
+
+- 문제점
+지금은 아직 블록체인에 올라간 상태가 아님
+중간에 똑같은 UTXO를 다시 다른 사람한테 보낼 수 있음
+double-spending 문제
+
+
+## Check Lock Time Verify (CLTV)
+soft fork upgrade?
+Dec 2015 (BIP-65)
+
+- CHECKLOCKTIMEVERIFY
+output에 들어가는 operator
+
+locking script에 CLTV opcode 를 추가하여 fullnode가 검증
+블록체인에 올라간 상태가 되기 때문에 검증이 가능
+nlocktime의 용도가 바
+
+![[Pasted image 20231102153802.png]]
+![[Pasted image 20231102153808.png]]
+
+
+## Relative Timelock
+상대적인 시각
+순서가 중요한 거래
+
+- Transaction-level
+Use nSequence (BIP-68)
+- Output-level
+Use CHECKSEQUENCEVERIFY opcode (BIP-112)
+
+
+## nSequence
+일반적으로 1로 채워서 사용
+맨 앞이 0이면 timelock이 걸리는 걸로 인지
+22번째는 어떤 방식으로 체크할 건지 
+input마다 시간설정가느
+tx는 모든 input이 지나야 유효
+double-spending문제가 있음
+
+![[Pasted image 20231102154611.png]]
 
 
 
+## CSV
+CHECKSEQUENCEVERIFY
+nSequencef랑 같이 사용하여 상대적 timelock을 구현
+UTXO’s locking script에 추가
+CLTV와 유사한 동작
+
+
+# lightning network
+비트코인의 성능이 높지 않음
+tps(tx per second) 가 매우 낮음
+체크카드는 1000tps가 나옴 비트코인은 3,4tps
+성능을 올리기 위해서 bitcoin network 위에 network 를 하나 더 올림
+소액 결제를 잘 묶어서 작은 tx로 만듬
+보증금 예치금 등의 개념이 들어감 
+이런 개념을 위해서 timelock이 필요해 
+
+![[Pasted image 20231102154946.png]]
 
 
 
+## Script with Flow Control
+분기문 역할
+nesting 가
+
+![[Pasted image 20231102160424.png]]
+
+
+## Guard Clause
+condition역할
+- VERIFY
+if와의 차이는 조건이 만족하지 않으면 죽음
+
+![[Pasted image 20231102160700.png]]
+
+
+## Flow Control 사용하기
+true가 1
+
+multisig도 구현할 수 있음
+![[Pasted image 20231102160746.png]]
+
+script B 실행
+![[Pasted image 20231102160751.png]]
+
+복잡한 스크립트 예시
+Multisig scheme with timelock 
+
+Mohammed, 2 partners Saeed & Zaira, company lawyer Abdul 
+3 partners make decisions based on a majority rule (2 must agree) 
+In case of key problem, lawyer can recover with 1 of 3 partners (after 30 days) 
+If all partners are unavailable, lawyer can manage directly (after 90 days)
+
+![[Pasted image 20231102161414.png]]
+![[Pasted image 20231102161525.png]]
+
+
+## Segregated Witness
+세그윗이라 부름
+Aug 2017 (BIP-141)
+scriptSig가 비워짐
+tx 밖으로 빼냄
+구조적인 변화가 필요
+
+![[Pasted image 20231102162056.png]]
 
 
 
+## Segwit이 필요한 이유
+tx전체에 대해서 전자 서명을 하게 됨
+전자서명 자체는 안전함 그러나 원래의 tx에서 1비트정도 바뀔 수 있음
+이러면 전체 tx를 해시해서 만들어진 txid를 바꿀 수 있음
+double-spending?
+이를 방지하기 위해 만들어진 tx를 따로 빼서 서명함
+
+- 그 외의 장점
+script versioning
+tx의 사이즈가 꽤 작아짐, 수수료 감소, 효율성, 성능
+
+- 주의점
+하나의 tx이긴 하지만 input마다 segwit이 따로 적용됨
+
+soft fork에 의해서 업그레이드 됨?
+
+fork란 블록체인을 업그레이드를 한 것을 말함
+- soft fork
+하위 호환성을 보장함
+- hard fork
+하위 호환성을 보장하진 않음
+
+업그레이드를 안한 기존의 노드들도 invalid하다고 판단하진 않음(soft fork)
+초기에 바로 적용한 것이 아닌 노드의 90프로가 업그레이드 될 때까지 기다림
+현재는 잘 적용
 
 
+## Pay-to-Witness-Public-Key-Hash (P2WPKH)
+P2PKH에서 segwit을 적용
+![[Pasted image 20231102163729.png]]
 
 
-
-
-
-
-
-
+## Pay-to-Witness-Script-Hash (P2WSH)
+![[Pasted image 20231102163923.png]]
 
 
 

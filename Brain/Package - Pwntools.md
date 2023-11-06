@@ -166,7 +166,7 @@ libc = ELF("파일 이름") - libc 파일도 ELF 파일이니 선택 가능.
 e.plt["함수명"] - 입력한 함수의 plt 주소를 가져옴
 e.got["함수명"] - 입력한 함수의 got 주소를 가져옴
 e.symbols["함수명"] - 입력한 함수의 함수 베이스 주소와의 offset을 가져옴
-list(libc.search("/bin/sh"))]0] - 선택한 파일에 /bin/sh 문자열이 어느 주소에 있는지 알려옴. 주로 libc에 많이 쓰임.
+list(libc.search("/bin/sh"))[0] - 선택한 파일에 /bin/sh 문자열이 어느 주소에 있는지 알려옴. 주로 libc에 많이 쓰임.
 ​
 
 # 쉘과 상호작용
@@ -244,3 +244,13 @@ print(code)
 ```sh
 $ python3 asm.pyb'jhH\xb8/bin///sPH\x89\xe7hri\x01\x01\x814$\x01\x01\x01\x011\xf6Vj\x08^H\x01\xe6VH\x89\xe61\xd2j;X\x0f\x05'
 ```
+
+
+# 각종 변환
+- 정수 -> 바이트
+p32
+- 바이트 -> 정수
+u32
+- 
+int(byte, 16)
+- 
