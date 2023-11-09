@@ -2,12 +2,11 @@
 # 유닉스 계열 공유 폴더 설정
 
 0. vmware 설정에서 공유폴더 설정
-1. `/etc/fstab` 최하단에 아래 스크립트 추가
+1. `vmware-hgfsclient`로 공유폴더 설정이 잘 되었는지 확인
+2. `sudo mkdir -p /mnt/shared` 로 마운트할 디렉토리 생성
+3. `sudo vmhgfs-fuse .host:/Shared /mnt/shared -o allow_other`로 공유폴더 마운
+4.  부팅 시마다 자동으로 마운트하고 싶다면 `.host:/Shared /mnt/shared fuse.vmhgfs-fuse allow_other,defaults 0 0`
 
-`vmhgfs-fuse /mnt/hgfs fuse defaults,allow_other 0 0`
-
-2. mkdir -p /mnt/hgfs
-3. 재부팅
 
 # 용량 늘리기
 0. vmware 설정에서 원하는 만큼 조정
