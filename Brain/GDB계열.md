@@ -54,7 +54,7 @@ gdb 상에서 프로그램이 실행
 
 	disas [function] :: 함수 부분의 disassemble 한 코드들을 보여준다.
 
-		disas main
+	disas main
 
 	disas [0xffffffa0] [0xffffffffa9] :: 주소 범위 사이의 어셈블리 코드를 보인다.
 
@@ -100,6 +100,9 @@ run (or r) 명령어로 실행 시키면
 
 	info locals :: 현재 eip가 가리키고 있는 위치의 지역변수를 모두 출력한다.
 	info variables :: 현재상태에서의 전역변수 리스트를 확인할 수 있다.
+	find /b &system, +999999999, "/bin/sh"
+	grep /bin/sh
+	
 	p [value] :: (point의 약자) 변수 하나의 값을 보여줌
 	변수 이름이 중복 될 때,
 	p  'file name.c'::[value] // 전역변수
@@ -114,7 +117,7 @@ run (or r) 명령어로 실행 시키면
 	p/c  // 문자형 출력 (크기가 4byte 이상인 변수는 처음 1바이트를 출력한다.)
 	p/f   // 부동 소수점 값 형식으로 출력
 	p/a  // 가장 가까운 심볼의 오프셋을 출력
-	     (p/a 0x0801295 를 입력하면, 0x0801295와 가장 가까운 어셈블리 명령어줄의 offset을 출력)
+		(p/a 0x0801295 를 입력하면, 0x0801295와 가장 가까운 어셈블리 명령어줄의 offset을 출력)
 	void* buf = "hello world";
 	(gdb) p (char *)buf // 형변환도 가능하다.
 
@@ -217,6 +220,33 @@ info signals 명령어로 보낼 수 있는 시그널의 종류들을 확인할 
 	 signal SIGKILL
 
 
+# catch
+특정 이벤트가 발생했을 때, 프로세스를 중지시킴
+
+```sh
+$ gdb -q ./canary
+pwndbg> catch syscall arch_prctl
+Catchpoint 1 (syscall 'arch_prctl' [158])
+pwndbg> run
+```
+
+
+
+# PLT, GOT
+```sh
+$ gdb ./got
+pwndbg> entry
+pwndbg> got
+GOT protection: Partial RELRO | GOT functions: 1
+[0x404018] puts@GLIBC_2.2.5 -> 0x401030 ◂— endbr64
+
+pwndbg> plt
+Section .plt 0x401020-0x401040:
+No symbols found in section .plt
+pwndbg>
+```
+
+
 # 파이썬과 함께 사용하기
 
 ### python argv
@@ -290,18 +320,3 @@ telescope은 pwndbg가 제공하는 강력한 메모리 덤프 기능
 pwndbg에서 제공하는 디스어셈블 명령어
 
 
-
-# 시나리오
-- [ ] 파일 import
-      file exploitme
-- [ ] 정적분석
-      `disas main`
-      `info func`
-- [ ] 동적분석
-      `b*main`
-      `r`
-      `ni si`
-      `x/100x 0xfffffff8`
-- [ ] exploit
-      [pwntool]
-- [ ] 

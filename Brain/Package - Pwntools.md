@@ -1,4 +1,4 @@
-# 주의할 점
+# ~~호환성~~
 ~~python3 커맨드를 사용하거나
 python3.6 혹은 2.7을 사용해야지만 pwn모듈 import가능~~
 
@@ -19,7 +19,7 @@ pwntools 모듈을 사용하려면 무조건 포함해줘야 하는 코드
 	from pwn import *
 
 ​
-디버깅할 때 좋다. 무슨 입력을 했고, 어떤 출력을 받았는지 잘 보여줌.
+디버깅할 때 좋음 무슨 입력을 했고, 어떤 출력을 받았는지 잘 보여줌
 
 	context.log_level = 'debug'
 
@@ -28,7 +28,7 @@ pwntools 모듈을 사용하려면 무조건 포함해줘야 하는 코드
 	remote("주소", 포트)
 	`p=remote("host3.dreamhack.games",12294)`
 
-nc 서버에 접속할 때 주로 쓰인다. 
+nc 서버에 접속할 때 주로 쓰임
 
 ```python
 r=remote("")
@@ -124,7 +124,7 @@ remote는 서버 접속이라면, process는 로컬 파일 접속
 	r = process("파일 이름")
 	gdb.attach(r)
 	
-옵션으로 gdb.attach(r, "실행될 명령어")를 쓰기도 한다. break 거는데 유용.
+옵션으로 gdb.attach(r, "실행될 명령어")를 쓰기도 한다. break 거는데 유용
 
 
 ### 데이터 주고받기
@@ -163,10 +163,11 @@ ELF 헤더에는 익스플로잇에 사용될 수 있는 각종 정보가 기록
 e = ELF("파일 이름") - ELF 파일 선택
 libc = ELF("파일 이름") - libc 파일도 ELF 파일이니 선택 가능.
 
-e.plt["함수명"] - 입력한 함수의 plt 주소를 가져옴
-e.got["함수명"] - 입력한 함수의 got 주소를 가져옴
-e.symbols["함수명"] - 입력한 함수의 함수 베이스 주소와의 offset을 가져옴
-list(libc.search("/bin/sh"))[0] - 선택한 파일에 /bin/sh 문자열이 어느 주소에 있는지 알려옴. 주로 libc에 많이 쓰임.
+`e.plt["함수명"]` - 입력한 함수의 plt 주소를 가져옴
+`e.got["함수명"]` - 입력한 함수의 got 주소를 가져옴
+`e.symbols["함수명"]` - 입력한 함수의 함수 베이스 주소와의 offset을 가져옴
+`list(libc.search("/bin/sh"))[0]` - 선택한 파일에 /bin/sh 문자열이 어느 주소에 있는지 알려옴. 주로 libc에 많이 쓰임.
+`next(e.search(b'/bin/sh'))`로도 사용
 ​
 
 # 쉘과 상호작용
@@ -246,11 +247,15 @@ $ python3 asm.pyb'jhH\xb8/bin///sPH\x89\xe7hri\x01\x01\x814$\x01\x01\x01\x011\xf
 ```
 
 
+# 바이트 순서 뒤집기
+1. `cnry=p64(u64(cnry), endian='big')`
+2. `cnry[::-1]`
+
+
 # 각종 변환
 - 정수 -> 바이트
 p32
 - 바이트 -> 정수
 u32
-- 
-int(byte, 16)
-- 
+- 바이트를 표현한 문자열 -> 바이트
+p32(int(byte, 16))

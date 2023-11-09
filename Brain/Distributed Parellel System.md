@@ -636,8 +636,45 @@ battery drainage - 배터리 누수?, 배터리가 없는 노드가 생기더라
 
 
 
+# Processes
+만들어진 architecture 에서 실질적인 프로그램이 돌아가는 가장 작은 단위
+
+## Thread Usage in Nondistributed Systems
+### 프로세스와 쓰레드
+- 프로세스
+Execution Unit
+실행단위
+=thread
+
+Address Domain
+주소영역(메모리공간)
+
+- 쓰레드
+여러 쓰레드는 같은 메모리를 공유할 수 있음
+쓰레드마다 private한 공간을 만들 수 있음
+
+### IPC(Inter-process Communication)
+- shared memory
+- Message Queue
+- pipe
+- signal
+shared memory를 제외하고 다른 프로세스와 직접적으로 연결할 수 없음
+하나의 cpu에는 동시에 1개의 프로세스만 접근할 수 있음
+시분할 방식으로 multitasking을 가능하게 만듬
+
+프로세스 끼리 메시지를 주고 받을 땐, 직접적인게 아니라 OS한테 요청함
+system call을 이용
+OS에서는 일반 프로세스가 이용할 수 있는 api를 제공
+운영체제도 일종의 프로세스, supervise mode
+user space에서 kernel space로 context switching
+context switching?
+context = process state
+
+cpu를 점유할 수 있는 프로세스를 바꿔주는 오버헤드
+context switching을 최소화 해야 함
 
 
+![[Pasted image 20231106152640.png]]
 
 
 

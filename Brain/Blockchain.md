@@ -1521,7 +1521,7 @@ UTXO’s locking script에 추가
 CLTV와 유사한 동작
 
 
-# lightning network
+## lightning network
 비트코인의 성능이 높지 않음
 tps(tx per second) 가 매우 낮음
 체크카드는 1000tps가 나옴 비트코인은 3,4tps
@@ -1615,6 +1615,293 @@ P2PKH에서 segwit을 적용
 
 ## Pay-to-Witness-Script-Hash (P2WSH)
 ![[Pasted image 20231102163923.png]]
+
+
+
+
+
+
+
+# The Bitcoin Network
+## Bitcoin Network
+P2P 네트워크를 이용
+No server, no centralized service, no network hierarchy
+Resilient, decentralized, and open
+
+torrent - 대규모 파일들 저장, file sharing
+
+## Node Types and Roles
+- Network routing
+All nodes
+Validate and propagate txs & blocks
+Discover and maintain connections to peers
+- Blockchain database
+Maintain a complete and up-to-date copy of the blockchain ledger
+- Mining
+Compete to create new blocks (Proof-of-Work)
+- Wallet
+Desktop bitcoin client / mobile lightweight wallet
+![[Pasted image 20231109141912.png]]
+![[Pasted image 20231109142119.png]]
+
+
+## Extended Bitcoin Network
+- Mining pool
+개인 채굴자들의 모음
+Ex) Stratum protocol
+
+![[Pasted image 20231109142924.png]]
+![[Pasted image 20231109143014.png]]
+
+
+## Bitcoin Relay Network
+Overlay network on bitcoin network
+miner들 때문에 생김
+신규블록을 빨리 받을수록 빨리 참여할 수 있으므로 채굴에 유리해짐
+Overlay network를 이용해 latency를 줄임
+Created in 2015
+Fast synchronization of blocks between miners
+Specialized nodes on Amazon Web Service infra
+전세계에 몇 개씩 있음
+
+- Fast Internet Bitcoin Relay Engine (FIBRE)
+위의 설명에서 UDP로 바뀜
+Replace original network in 2016
+Compact block optimization
+
+- Falcon
+
+
+## Network Discovery
+지역적 파편화를 방지하기 위해 램덤으로 노드를 찾음
+
+- DNS seeds
+신규 노드들에게 램덤한 노드들의 정보를 제공
+주기적으로 크롤링함
+전세계에 많이 있음
+Special DNS servers providing a list of IP address of bitcoin nodes
+Some seeds provide a static list of stable nodes
+Some seeds provide a random subset of nodes collected by crawling
+bitcoin core 안에 이미 DNS seeds의 주소가 있음
+
+- peer끼리 연결
+TCP connection
+port 8333
+Handshake with version message
+![[Pasted image 20231109144021.png]]
+
+- Address propagation
+handshake가 끝나면 주변 노드에게 연결된 노드의 정보를 전파
+
+- Address discovery
+요청하면 해당 노드 주변 노드의 정보를 가져옴
+
+90분정도 유지하다가 응답없으면 끊어졌다고 가정하고 다른 노드 찾음
+Dynamic network adjustment without any central control
+![[Pasted image 20231109144643.png]]
+
+
+## Full Node
+Only know genesis block embedded in the client SW
+Have to synchronize to construct a complete blockchain
+
+- A node checks version msgs
+(contain BestHeight) from its peers
+
+- Exchange getblocks msg
+Hash of top block on its local blockchain
+
+- The node having longer blockchain sends inv(inventory) msg
+Hashes of the first 500 blocks to share
+
+- The node missing these blocks issues getdata msgs
+Request the full block data with identifying the block using hash
+
+![[Pasted image 20231109150454.png]]
+
+
+
+## SPV Nodes
+전체 블록 노드가 있는 건 아님
+Download only block headers (no txs in each block) (~50MB) - 블럭의 메타데이터 같은 데이터
+P2P transacting → settled on the blockchain ledger through nodes
+Cannot construct full UTXO set
+
+![[Pasted image 20231109150939.png]]
+![[Pasted image 20231109150951.png]]
+
+![[Pasted image 20231109151500.png]]
+
+double spending 문제가 남아있어서 중요한 결제에서는 사용 지양
+
+아래의 방법으로 검증
+- Existence of a transaction in blockchain
+Link the tx and the block including it using Merkle proof
+Need block header & Merkle path
+
+- Check depth of tx
+Depth : how deep the tx is buried by blocks above it
+Confirmed as valid if depth >= 6
+
+![[Pasted image 20231109152202.png]]
+
+
+
+## Bloom Filter
+SPV node uses bloom filter to ask other peers for txs
+Matching a specific pattern without revealing which the node search for
+익명성 훼손 문제
+![[Pasted image 20231109152751.png]]
+
+N bit field
+M hash functions - Output is 1~N
+![[Pasted image 20231109153126.png]]
+![[Pasted image 20231109153455.png]]
+![[Pasted image 20231109153501.png]]
+![[Pasted image 20231109153539.png]]
+
+정확히 패턴에 일치하는 것 뿐만 아니라 비슷한 패턴도 보내게 됨
+
+
+# Blockchain
+
+## Blockchain Data Structure
+Ordered, back-linked list of blocks of transactions
+Blocks are stored in files
+Block metadata is stored in LevelDB
+
+![[Pasted image 20231109154302.png]]
+
+- fork
+A block has just one parent
+A block can have multiple children temporarily -> 이걸 fork라고 부름
+Different blocks are discovered simultaneously by different miners
+Eventually, only one child block becomes part of the blockchain
+![[Pasted image 20231109154649.png]]
+## Block Structure
+![[Pasted image 20231109160538.png]]
+
+
+## Block Header
+현재 블럭은 이전 블럭의 헤더 부분에 대한 해시값을 가지고 있
+![[Pasted image 20231109160631.png]]
+
+
+## Block Identifiers
+- Block hash (block header hash accurately)
+Hashing block header through SHA256 twice → 32 bytes
+블럭 안에 blockid가 없음 직접 돌려봐야 함
+Not included in the block structure
+Genesis block
+
+- Block height
+Block’s position in the blockchain
+Max block height : 814,331 on October 29,2023
+Genesis block - Block height 0
+Not a uniquely identify a block - 2 or more blocks might compete due to fork
+
+
+## Immutability
+불변, 변조X
+
+![[Pasted image 20231109161213.png]]
+
+
+## Genesis Block
+모든 노드가 동일함
+Statically encoded within SW - 하드코드로 박혀있음
+Cannot be altered
+Every node always knows it
+Secure root to build a trusted blockchain
+![[Pasted image 20231109161756.png]]
+
+
+## Linking Blocks
+![[Pasted image 20231109162248.png]]
+
+
+## Merkle Tree
+Binary hash tree
+Summarize and verify the integrity of large data set
+
+Summarize all txs in a block
+Merkle root : digital fingerprint of the entire tx set
+
+Used to verify whether a tx is included in a block
+Need only O(log N) hashing with N txs in a block
+
+![[Pasted image 20231109162419.png]]
+
+![[Pasted image 20231109162451.png]]
+
+![[Pasted image 20231109162644.png]]
+
+Proving a tx K is included in the block
+With merkle path of K + merkle root
+Merkle path of K = { HL , HIJ, HMNOP, HABCDEFGH }
+형제 노드랑 실제로 해시 돌려보면서 root값이랑 일치하는지 체크
+
+![[Pasted image 20231109162900.png]]
+
+
+
+![[Pasted image 20231109163354.png]]
+
+
+
+## Bitcoin’s Test Blockchains
+- Testnet
+Fully featured live P2P network
+Testnet coins are worthless
+Mining is easy
+
+테스트넷용 비트코인을 획득할 수 있음
+[획득 주소](http://tbtc.bitaps.com)
+
+- Regtest
+나 혼자 돌릴 수 있는 시스템
+Local blockchain for testing purpose
+Run as closed system
+Single node only, or add other nodes
+![[Pasted image 20231109163956.png]]
+
+- Development process
+Test your code locally on a regtest
+Switch to testnet for dynamic environment
+Deploy code on mainnet
+
+
+[설명 참고](https://developer.bitcoin.org/examples/testing.html)
+![[Pasted image 20231109164131.png]]
+![[Pasted image 20231109164139.png]]
+
+새 주소 생성
+![[Pasted image 20231109164244.png]]
+
+reward가 100블록 뒤에 오기 때문에 101블럭 mining
+![[Pasted image 20231109164251.png]]
+
+50 빗코 획득
+![[Pasted image 20231109164258.png]]
+
+다른 새 주소 생성
+![[Pasted image 20231109164438.png]]
+
+10 빗코 전송
+![[Pasted image 20231109164501.png]]
+
+아직 컨펌 안됨
+![[Pasted image 20231109164510.png]]
+
+컴펌 완료
+![[Pasted image 20231109164518.png]]
+
+
+
+
+
+
+
 
 
 
