@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card m-5">
+<div class="card-body">
+    <form method="POST" class="row g-3" action="/login">
+        <input class="form-control w-25 m-1 " type="text" placeholder="ID" name="id">
+        <input class="form-control w-25 m-1" type="password" placeholder="password" name="pw">
+        <div class="form-floating">
+    </div>
+        <input type="submit" class="btn btn-secondary" value="Submit">
+    </form>
+</div>
+</div>
+
+{% endblock content%}

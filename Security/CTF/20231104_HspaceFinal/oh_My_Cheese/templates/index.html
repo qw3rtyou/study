@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome! {% if session["id"] %}{{session["id"]}}{% endif %}</h2>
+{% endblock content%}

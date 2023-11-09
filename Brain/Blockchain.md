@@ -208,16 +208,16 @@ pool 에 들어온 transaction을 저장
 수수료도 모두 가짐
 그러나 리워드가 반감기를 가짐
 나중에는 새로운 발행에 대한 보상이 없어지지만 수수료 때문에 계속 채굴할 거라고 예상
-또 transaction에 수수료를 나한테 준다 + 새롭게 발행한 걸 나에게 준다는 내용을 가진
-transaction 추가해서 블록을 만듬
+또 모든 transaction에 수수료를 나한테 준다 + 새롭게 발행한 걸 나에게 준다는 내용을 가진
+transaction을 블럭 처음에 추가해서 블록을 만듬
 
 분산된 시스템에서 합의를 도출하기 어려움
-한명씩 뽑아서 돌아가면서 블록을 만들게 함
+초기에는  한 명씩 뽑아서 돌아가면서 블록을 만들게 함
 아무나 뽑히면 안되니까 작업을 열심히 한 사람을 뽑음 -> PoW(Proof-of-Work)
 
 ## Pow(합의 알고리즘)
-비트코인 채굴자가 참여하는 게임같은 거
-10분마다 초기화
+비트코인 채굴자가 참여하는 게임
+대략 10분마다 초기화
 풀기는 어렵지만 게임을 이겼는지 검증하기는 쉬움
 hash함수(SHA256)를 사용 - 단반향이기 때문에 위 게임에 적합
 
@@ -330,6 +330,14 @@ https://chainquery.com/bitcoin-cli/getrawtransaction
 
 ![[Pasted image 20231013123635.png]]
 
+
+## bitcoin-cli 명령어 모음
+- `getnewaddress`
+- `dumprivkey [address]`
+- `getblockchaininfo`
+- `getrawtransaction [txid]`
+- `getblock [height]`
+- `getblockhash [blockid]`
 
 
 # Key & Addresses
@@ -448,6 +456,7 @@ A set of elements with a binary operation `·`
 a^k (k는 정수)로 표현할 수 있는 모든 원소가 G에 속한다는 것을 의미
 a는 그룹 G를 생성하는 원소로, 이를 "생성자" 또는 "generator"라고 함
 모든 G의 원소는 a의 거듭제곱으로 나타낼 수 있음
+
 예를들어 {1,-1,i,-i}는  집합의 요소 i를 이용해서 모든 집합을 나타낼 수 있음
 이때 i를 generator라고 함
 
@@ -485,7 +494,7 @@ For each a in F, except 0, there is an element a-1 in F such that aa-1 = (a-1 )a
 유한체는 암호학에서 중요한 역할을 함
 예를 들면 진법 체계는 유한체임
 GF(2)면 이진법 체계
-추후에 설명할 타원 곡선은 소수체(GF(p))와 이진체(GF(2^m))을 주로 사용
+추후에 설명할 타원 곡선은 소수체(GF(p))와 이진체(GF(2^m))을 주로 사용(메인은 소수체)
 
 ## Galois Field (GF(p))
 Galois field
@@ -792,7 +801,7 @@ G = S256Point(
 
 ## 개인키 생성
 0~order n-1까지 램덤한 256비트 데이터
-적당한 시드에 대한 암호학적으로 안전한 임시램덤 숫자 Generator(CSPRNG)
+적당한 시드에 대한 암호학적으로 안전한 임시램덤 숫자 Generator(CSPRNG)를 사용하여 생성
 
 
 ## 공개키 생성
@@ -802,8 +811,13 @@ G에 생성된 개인키만큼 곱함
 공개키를 생성하긴 쉽지만 
 이산 대수 문제로 인해 공개키를 통해 개인키를 알아내긴 매우 힘듬
 
-이산 대수 문제란
-아래에서 p, g, (g^a) mod p, (g^b) mod p를 알고 있다고 해도, a나 b의 값을 계산하는 것은 어렵다는 점
+`K= k * G`
+해당 식을 계산하여 공개키를 생성함
+여기서 G와 K를 알더라도 k를 알아낼 수 없음
+
+이산 대수 문제란 아래에서 문제 제시된 문제처럼 
+p, g, (g^a) mod p, (g^b) mod p를 알고 있다고 해도, a나 b의 값을 계산하는 것은 어렵다는 문제
+
 ```
 1. Alice와 Bob이 사용할 소수 p와 기본 생성자 g를 공유합니다.
 2. Alice는 비밀 키 a를 선택하고, Bob은 비밀 키 b를 선택합니다.
@@ -855,7 +869,7 @@ base64에서 0, O, l, I, +, / 제거
 테스트넷에서는 0x6f를 사용해서 m또는 n으로 시작함
 중간에는 payload가 그대로 들어옴
 마지막에 checksum이 4byte 들어옴
-checksum은 Payload를 SHA256()를 두 번 인코딩한 후 앞 4byte임임
+checksum은 Payload를 SHA256()를 두 번 인코딩한 후 앞 4byte임
 비트코인에서는 사용자가 보는 대부분의 데이터가 이 인코딩으로 되어 있음
 간편하고, 읽기 쉽고, 에러를 감지하기 쉬움
 
@@ -908,8 +922,8 @@ y가 만약 y가 짝수라면 Prefix “02”, 홀수라면 Prefix “03” 을 
 1. 적절한 난수를 선정하고 Private Key(32byte)를 생성
 2. 타원곡선 위에 있는 Generator에 Private Key만큼 곱해서 Public Key 생성에 이용될 좌표 생성
 3. 해당 좌표를 compressed 방식으로 처리하여 Public key(33byte) 생성
-4. Public Key를 SHA256, RIPEMD160 해시함수로 더블인코딩하여 Public Key Hash 생성
-5. Base58Check 인코딩 방법에 따라 Version prefix를 Payload 앞에 붙이고 Checksum을 Payload뒤에 붙인 후 compressed됐음을 나타내기 위해 suffix(0x01)를 추가한 후 Base58Check 인코딩하여 WIF-compressed 주소 생성
+4. Public Key를 SHA256, RIPEMD160 해시함수로 더블인코딩하여 Public Key Hash(20byte) 생성
+5. Base58Check 인코딩 방법에 따라 Version prefix(0x80)를 Payload 앞에 붙이고 Checksum을 Payload뒤에 붙인 후 compressed됐음을 나타내기 위해 suffix(0x01)를 추가한 후 Base58Check 인코딩하여 WIF-compressed 주소 생성
 ```
 이 때 생성된 주소는 `K`나 `L`로 시작해야 함(일반적으로 메인넷은 k, 테스트넷은 L)
 
@@ -968,12 +982,12 @@ key pair를 램던으로 선정
 Original Bitcoin Core가 100개의 키를 미리 만들어 놓고 시작함
 백업, 관리, import하기 불리함
 주소 재사용 가능성이 생김
-비추
+`비추`
 
 ## Deterministic Wallet (Type-1)
-seed에 기반한 난수를 정하고, hash함수를 이용해 개인키 추출
+seed로로 난수를 정하고, hash함수를 이용해 개인키 추출
 시드로부터 모든 키를 복구할 수 있음
-생성시 백업을 만들 수 있음
+생성 시 백업을 만들 수 있음
 wallets 간에 migration이 자유로움
 하나를 잃으면 모두를 잃음
 
@@ -1072,9 +1086,10 @@ Parent Chain Code + Parent public key + index로
 주소를 특정할 수 있게 되고
 타원곡선의 연산을 이용해 해당 주소의 child public key를 얻을 수 있게 됨
 자식의 개인키는 부모의 개인키 + 해시값 왼쪽 256비트 이므로
-2. 해시값과 자식읜 개인키를 알고 있으므로 역산으로 부모의 개인키까지 알아낼 수 있음
+2. 해시값과 자식의의 개인키를 알고 있으므로 역산으로 부모의 개인키까지 알아낼 수 있음
 3. 같은 방식으로 HD Wallet에 있는 모든 주소를 알아낼 수 있음
 ```
+
 ![[Pasted image 20231020132232.png]]
 
 이러한 취약점을 해결하기 위해 Hardened Child Key Derivation을 이용함
@@ -1103,7 +1118,7 @@ m : private key, M : public key
 ![[Pasted image 20231020133112.png]]
 
 
-## HD Wallet Tree Structure
+### HD Wallet Tree Structure
 BIP-44
 Multi-account hierarchy for deterministic wallets
 Handle multiple coins, multiple accounts and addresses
@@ -1255,10 +1270,18 @@ OP_EQUAL : pop 2 items → push TRUE(1) if equal
 
 
 ## Pay-to-Public-Key-Hash(P2PKH)
-대부분 P2PKH 스크립트 이용
-public key hash(address)로 UTXO를 잠그고
-공개키를 제공한 다음 private key로 서명을 인증
-서명엔 ECDSA가 사용됨
+일반적으로 P2PKH 스크립트 이용, 가장 상용화 됨
+
+OUTPUT은 
+public key hash(address)로 UTXO를 잠금
+공개키 해시값(주소)으로 잠궈서 공개키를 공개하지 않음
+
+INPUT은
+ECDSA 알고리즘을 이용해 private key로 서명을 생성함
+TX 입력을 자신의 개인키로 서명하여 그 서명을 TX 입력 스크립트에 포함
+
+이러한 서명은 이전 UTXO의 소유자인 송신자가 이 트랜잭션을 생성했음을 증명
+내가 이 서명을 사용하겠다는 의사를 확인 + 소유자가 맞는지 확인
 
 ![[Pasted image 20231024175945.png]]
 
@@ -1272,7 +1295,19 @@ public key hash(address)로 UTXO를 잠그고
 
 
 
-## ECDSA
+## ECDSA(Elliptic Curve Digital Signature Algorithm)
+ECDSA는 비트코인 및 다른 암호화폐에서 트랜잭션 서명과 블록 생성에 사용되는 주요 알고리즘
+ECDSA를 통해 개인키로 트랜잭션 서명을 생성하고, 공개키를 사용하여 해당 서명을 검증
+
+개인키와 메시지의 해시를 사용하여 서명 값(n)을 계산
+`n=(g^k) mod p`
+여기에서 n은 서명 값, g는 곡선 위의 기본점 (base point), k는 개인키, 그리고 p는 소수 모듈러 (prime modulus)
+
+이때, 개인키의 모듈러 역원 k가 사용되며 이는 확장된 유클리드 알고리즘으로 구함
+계산된 모듈러 역원 k를 사용하여 서명 값 r 및 s를 생성
+이러한 서명 값은 ECDSA 서명의 일부이며, 메시지의 무결성을 검증하는 데 사용
+
+
 ![[Pasted image 20231024190205.png]]
 ![[Pasted image 20231024190228.png]]
 
@@ -1338,6 +1373,248 @@ P2PKH 말고 다른 방식을 사용하는 tx도 있음
 
 
 
+# Advanced Transactions and Scripting
+
+## Multisignature
+M-of-N scheme
+n 명 중에 m명이 서명하면 인증 
+- Locking script
+`2 <Public Key A> <Public Key B> <Public Key C> 3 CHECKMULTISIG`
+
+- Unlocking script
+`<Signature B> <Signature C>`
+
+- Scripts together
+`<Signature B> <Signature C> 2 <Public key A> <Public Key B> <Public Key C> 3 CHECKMULTISIG`
+
+![[Pasted image 20231102141946.png]]
+
+- 장점
+standard script를 사용하면 n이 3명 까지만 재함됨
+P2SH 를 사용하면 최대 15명까지 들어남
+
+1명의 사용자가 의도적으로 3개의 서명을 만들어서
+분실, 도난의 위험을 줄임
+백업 키들도 다시 Multisignature로 관리하여 분실 방지
+
+- 예시
+2-of-2 : 2-factor authenication wallet
+2-of-3 : parents’ saving account for child
+2-of-3 : 에스크로(escrow) 서비스 - 중개자가 거래에 참여함(당근마켓?)
+
+
+## CHECKMULTISIG의 bug
+스택에서 M+N+2만큼 pop해야 함
+CHECKMULTISIG가 실제로 pop을 하나 더 하는 버그가 발견
+그런데 블록체인은 버그 픽스가 힘듬
+그래서 Unlocking script 앞에 쓰레기 값을 하나 더 붙이기로 함
+![[Pasted image 20231102143855.png]]
+
+
+
+## Pay-to-Script-Hash (P2SH)
+2012년 처음 소개
+긴 스크립트를 단순화하기 위해 만들어짐
+![[Pasted image 20231102144109.png]]
+키가 여러 개가 들어가면 수수료가 많이 발생하게 됨
+
+P2PKH에서 publickey 뿐만 아니라 스크립트에서도 인증하게 해주는 것이 P2SH
+길게 적어야 했던 스크립트 속 키들을 해시 처리 함
+먼저 공개키가 같은지 확인 후 
+따로 관리하는 Redeem Script로 확인
+Unlocking Script에서 redeem script를 제
+![[Pasted image 20231102144623.png]]
+
+기존의 publickey로 만든 address 대신 P2SH는 redeem script를 이용해 address를 이용해 만듬
+3으로 시작
+![[Pasted image 20231102150852.png]]
+
+- 장점
+보내는 사람 입장에서 주소에 따라 다른 
+스크립트가 짧음
+locking sciprt가 
+
+- 주의점
+호환 문제
+recursive를 막음
+스크립트가 오류가 있다면 그것을 고치기가 어려움(풀 수 없는 스크립트에 비트코인에 묶일 수 있음)
+
+
+## Data Recording Output (RETURN)
+
+금융뿐만 아니라 데이터 저장을 목적으로 블록체인이 사용하기 시작함
+return operator 뒤에 80바이트 데이터를 입력할 수 있음
+input, output이 없고, 수수료만 조금 있음
+
+- Proof of Existence
+계약서 같은 공증을 저장 
+저작권, 소유권 등을 증명
+[DOCPROOF](https://proofofexistence.com/)
+
+
+
+## Timelock
+바로 거래를 주는 게 아니라 일정 기간 후에 유효하게 만듬
+![[Pasted image 20231102152601.png]]
+
+
+
+## Transaction Locktime
+절대적 시각으로 locktime으로 함
+일반적인 tx는 locktime이 0임
+특정시간을 절대적 시각으로 설정할 수도 있지만
+블럭의 높이로도 절대적인 시각으로 설정할 수도 있음
+0 < nLocktime < 500 million : block height
+nLocktime >= 500 million : Unix Epoch timestamp (sec since Jan 1, 1970)
+
+![[Pasted image 20231102153135.png]]
+
+![[Pasted image 20231102152812.png]]
+
+- 문제점
+지금은 아직 블록체인에 올라간 상태가 아님
+중간에 똑같은 UTXO를 다시 다른 사람한테 보낼 수 있음
+double-spending 문제
+
+
+## Check Lock Time Verify (CLTV)
+soft fork upgrade?
+Dec 2015 (BIP-65)
+
+- CHECKLOCKTIMEVERIFY
+output에 들어가는 operator
+
+locking script에 CLTV opcode 를 추가하여 fullnode가 검증
+블록체인에 올라간 상태가 되기 때문에 검증이 가능
+nlocktime의 용도가 바
+
+![[Pasted image 20231102153802.png]]
+![[Pasted image 20231102153808.png]]
+
+
+## Relative Timelock
+상대적인 시각
+순서가 중요한 거래
+
+- Transaction-level
+Use nSequence (BIP-68)
+- Output-level
+Use CHECKSEQUENCEVERIFY opcode (BIP-112)
+
+
+## nSequence
+일반적으로 1로 채워서 사용
+맨 앞이 0이면 timelock이 걸리는 걸로 인지
+22번째는 어떤 방식으로 체크할 건지 
+input마다 시간설정가느
+tx는 모든 input이 지나야 유효
+double-spending문제가 있음
+
+![[Pasted image 20231102154611.png]]
+
+
+
+## CSV
+CHECKSEQUENCEVERIFY
+nSequencef랑 같이 사용하여 상대적 timelock을 구현
+UTXO’s locking script에 추가
+CLTV와 유사한 동작
+
+
+## lightning network
+비트코인의 성능이 높지 않음
+tps(tx per second) 가 매우 낮음
+체크카드는 1000tps가 나옴 비트코인은 3,4tps
+성능을 올리기 위해서 bitcoin network 위에 network 를 하나 더 올림
+소액 결제를 잘 묶어서 작은 tx로 만듬
+보증금 예치금 등의 개념이 들어감 
+이런 개념을 위해서 timelock이 필요해 
+
+![[Pasted image 20231102154946.png]]
+
+
+
+## Script with Flow Control
+분기문 역할
+nesting 가
+
+![[Pasted image 20231102160424.png]]
+
+
+## Guard Clause
+condition역할
+- VERIFY
+if와의 차이는 조건이 만족하지 않으면 죽음
+
+![[Pasted image 20231102160700.png]]
+
+
+## Flow Control 사용하기
+true가 1
+
+multisig도 구현할 수 있음
+![[Pasted image 20231102160746.png]]
+
+script B 실행
+![[Pasted image 20231102160751.png]]
+
+복잡한 스크립트 예시
+Multisig scheme with timelock 
+
+Mohammed, 2 partners Saeed & Zaira, company lawyer Abdul 
+3 partners make decisions based on a majority rule (2 must agree) 
+In case of key problem, lawyer can recover with 1 of 3 partners (after 30 days) 
+If all partners are unavailable, lawyer can manage directly (after 90 days)
+
+![[Pasted image 20231102161414.png]]
+![[Pasted image 20231102161525.png]]
+
+
+## Segregated Witness
+세그윗이라 부름
+Aug 2017 (BIP-141)
+scriptSig가 비워짐
+tx 밖으로 빼냄
+구조적인 변화가 필요
+
+![[Pasted image 20231102162056.png]]
+
+
+
+## Segwit이 필요한 이유
+tx전체에 대해서 전자 서명을 하게 됨
+전자서명 자체는 안전함 그러나 원래의 tx에서 1비트정도 바뀔 수 있음
+이러면 전체 tx를 해시해서 만들어진 txid를 바꿀 수 있음
+double-spending?
+이를 방지하기 위해 만들어진 tx를 따로 빼서 서명함
+
+- 그 외의 장점
+script versioning
+tx의 사이즈가 꽤 작아짐, 수수료 감소, 효율성, 성능
+
+- 주의점
+하나의 tx이긴 하지만 input마다 segwit이 따로 적용됨
+
+soft fork에 의해서 업그레이드 됨?
+
+fork란 블록체인을 업그레이드를 한 것을 말함
+- soft fork
+하위 호환성을 보장함
+- hard fork
+하위 호환성을 보장하진 않음
+
+업그레이드를 안한 기존의 노드들도 invalid하다고 판단하진 않음(soft fork)
+초기에 바로 적용한 것이 아닌 노드의 90프로가 업그레이드 될 때까지 기다림
+현재는 잘 적용
+
+
+## Pay-to-Witness-Public-Key-Hash (P2WPKH)
+P2PKH에서 segwit을 적용
+![[Pasted image 20231102163729.png]]
+
+
+## Pay-to-Witness-Script-Hash (P2WSH)
+![[Pasted image 20231102163923.png]]
 
 
 
@@ -1345,20 +1622,279 @@ P2PKH 말고 다른 방식을 사용하는 tx도 있음
 
 
 
+# The Bitcoin Network
+## Bitcoin Network
+P2P 네트워크를 이용
+No server, no centralized service, no network hierarchy
+Resilient, decentralized, and open
+
+torrent - 대규모 파일들 저장, file sharing
+
+## Node Types and Roles
+- Network routing
+All nodes
+Validate and propagate txs & blocks
+Discover and maintain connections to peers
+- Blockchain database
+Maintain a complete and up-to-date copy of the blockchain ledger
+- Mining
+Compete to create new blocks (Proof-of-Work)
+- Wallet
+Desktop bitcoin client / mobile lightweight wallet
+![[Pasted image 20231109141912.png]]
+![[Pasted image 20231109142119.png]]
+
+
+## Extended Bitcoin Network
+- Mining pool
+개인 채굴자들의 모음
+Ex) Stratum protocol
+
+![[Pasted image 20231109142924.png]]
+![[Pasted image 20231109143014.png]]
+
+
+## Bitcoin Relay Network
+Overlay network on bitcoin network
+miner들 때문에 생김
+신규블록을 빨리 받을수록 빨리 참여할 수 있으므로 채굴에 유리해짐
+Overlay network를 이용해 latency를 줄임
+Created in 2015
+Fast synchronization of blocks between miners
+Specialized nodes on Amazon Web Service infra
+전세계에 몇 개씩 있음
+
+- Fast Internet Bitcoin Relay Engine (FIBRE)
+위의 설명에서 UDP로 바뀜
+Replace original network in 2016
+Compact block optimization
+
+- Falcon
+
+
+## Network Discovery
+지역적 파편화를 방지하기 위해 램덤으로 노드를 찾음
+
+- DNS seeds
+신규 노드들에게 램덤한 노드들의 정보를 제공
+주기적으로 크롤링함
+전세계에 많이 있음
+Special DNS servers providing a list of IP address of bitcoin nodes
+Some seeds provide a static list of stable nodes
+Some seeds provide a random subset of nodes collected by crawling
+bitcoin core 안에 이미 DNS seeds의 주소가 있음
+
+- peer끼리 연결
+TCP connection
+port 8333
+Handshake with version message
+![[Pasted image 20231109144021.png]]
+
+- Address propagation
+handshake가 끝나면 주변 노드에게 연결된 노드의 정보를 전파
+
+- Address discovery
+요청하면 해당 노드 주변 노드의 정보를 가져옴
+
+90분정도 유지하다가 응답없으면 끊어졌다고 가정하고 다른 노드 찾음
+Dynamic network adjustment without any central control
+![[Pasted image 20231109144643.png]]
+
+
+## Full Node
+Only know genesis block embedded in the client SW
+Have to synchronize to construct a complete blockchain
+
+- A node checks version msgs
+(contain BestHeight) from its peers
+
+- Exchange getblocks msg
+Hash of top block on its local blockchain
+
+- The node having longer blockchain sends inv(inventory) msg
+Hashes of the first 500 blocks to share
+
+- The node missing these blocks issues getdata msgs
+Request the full block data with identifying the block using hash
+
+![[Pasted image 20231109150454.png]]
 
 
 
+## SPV Nodes
+전체 블록 노드가 있는 건 아님
+Download only block headers (no txs in each block) (~50MB) - 블럭의 메타데이터 같은 데이터
+P2P transacting → settled on the blockchain ledger through nodes
+Cannot construct full UTXO set
+
+![[Pasted image 20231109150939.png]]
+![[Pasted image 20231109150951.png]]
+
+![[Pasted image 20231109151500.png]]
+
+double spending 문제가 남아있어서 중요한 결제에서는 사용 지양
+
+아래의 방법으로 검증
+- Existence of a transaction in blockchain
+Link the tx and the block including it using Merkle proof
+Need block header & Merkle path
+
+- Check depth of tx
+Depth : how deep the tx is buried by blocks above it
+Confirmed as valid if depth >= 6
+
+![[Pasted image 20231109152202.png]]
 
 
 
+## Bloom Filter
+SPV node uses bloom filter to ask other peers for txs
+Matching a specific pattern without revealing which the node search for
+익명성 훼손 문제
+![[Pasted image 20231109152751.png]]
+
+N bit field
+M hash functions - Output is 1~N
+![[Pasted image 20231109153126.png]]
+![[Pasted image 20231109153455.png]]
+![[Pasted image 20231109153501.png]]
+![[Pasted image 20231109153539.png]]
+
+정확히 패턴에 일치하는 것 뿐만 아니라 비슷한 패턴도 보내게 됨
+
+
+# Blockchain
+
+## Blockchain Data Structure
+Ordered, back-linked list of blocks of transactions
+Blocks are stored in files
+Block metadata is stored in LevelDB
+
+![[Pasted image 20231109154302.png]]
+
+- fork
+A block has just one parent
+A block can have multiple children temporarily -> 이걸 fork라고 부름
+Different blocks are discovered simultaneously by different miners
+Eventually, only one child block becomes part of the blockchain
+![[Pasted image 20231109154649.png]]
+## Block Structure
+![[Pasted image 20231109160538.png]]
+
+
+## Block Header
+현재 블럭은 이전 블럭의 헤더 부분에 대한 해시값을 가지고 있
+![[Pasted image 20231109160631.png]]
+
+
+## Block Identifiers
+- Block hash (block header hash accurately)
+Hashing block header through SHA256 twice → 32 bytes
+블럭 안에 blockid가 없음 직접 돌려봐야 함
+Not included in the block structure
+Genesis block
+
+- Block height
+Block’s position in the blockchain
+Max block height : 814,331 on October 29,2023
+Genesis block - Block height 0
+Not a uniquely identify a block - 2 or more blocks might compete due to fork
+
+
+## Immutability
+불변, 변조X
+
+![[Pasted image 20231109161213.png]]
+
+
+## Genesis Block
+모든 노드가 동일함
+Statically encoded within SW - 하드코드로 박혀있음
+Cannot be altered
+Every node always knows it
+Secure root to build a trusted blockchain
+![[Pasted image 20231109161756.png]]
+
+
+## Linking Blocks
+![[Pasted image 20231109162248.png]]
+
+
+## Merkle Tree
+Binary hash tree
+Summarize and verify the integrity of large data set
+
+Summarize all txs in a block
+Merkle root : digital fingerprint of the entire tx set
+
+Used to verify whether a tx is included in a block
+Need only O(log N) hashing with N txs in a block
+
+![[Pasted image 20231109162419.png]]
+
+![[Pasted image 20231109162451.png]]
+
+![[Pasted image 20231109162644.png]]
+
+Proving a tx K is included in the block
+With merkle path of K + merkle root
+Merkle path of K = { HL , HIJ, HMNOP, HABCDEFGH }
+형제 노드랑 실제로 해시 돌려보면서 root값이랑 일치하는지 체크
+
+![[Pasted image 20231109162900.png]]
 
 
 
+![[Pasted image 20231109163354.png]]
 
 
 
+## Bitcoin’s Test Blockchains
+- Testnet
+Fully featured live P2P network
+Testnet coins are worthless
+Mining is easy
+
+테스트넷용 비트코인을 획득할 수 있음
+[획득 주소](http://tbtc.bitaps.com)
+
+- Regtest
+나 혼자 돌릴 수 있는 시스템
+Local blockchain for testing purpose
+Run as closed system
+Single node only, or add other nodes
+![[Pasted image 20231109163956.png]]
+
+- Development process
+Test your code locally on a regtest
+Switch to testnet for dynamic environment
+Deploy code on mainnet
 
 
+[설명 참고](https://developer.bitcoin.org/examples/testing.html)
+![[Pasted image 20231109164131.png]]
+![[Pasted image 20231109164139.png]]
+
+새 주소 생성
+![[Pasted image 20231109164244.png]]
+
+reward가 100블록 뒤에 오기 때문에 101블럭 mining
+![[Pasted image 20231109164251.png]]
+
+50 빗코 획득
+![[Pasted image 20231109164258.png]]
+
+다른 새 주소 생성
+![[Pasted image 20231109164438.png]]
+
+10 빗코 전송
+![[Pasted image 20231109164501.png]]
+
+아직 컨펌 안됨
+![[Pasted image 20231109164510.png]]
+
+컴펌 완료
+![[Pasted image 20231109164518.png]]
 
 
 
@@ -1387,6 +1923,21 @@ P2PKH 말고 다른 방식을 사용하는 tx도 있음
     
 5. **가벼운 클라이언트**: 일반 사용자들은 풀노드 대신 가벼운 클라이언트를 사용할 수 있습니다. 가벼운 클라이언트는 블록체인 데이터의 일부만 다운로드하고 다른 노드에서 필요한 정보를 검색하여 전체 노드보다 적은 용량을 필요로 합니다.
 ```
+
+
+- 비트코인이 코인의 양을 제한하는 이유
+```
+1. **인플레이션 방지**: 비트코인은 고정된 공급량을 가지고 있기 때문에 새로운 비트코인이 무한정으로 생성되지 않습니다. 이는 통화의 가치를 안정화시키고 인플레이션을 방지하는 데 도움이 됩니다.
+    
+2. **희소성 제고**: 비트코인의 제한된 공급량은 희소성을 높입니다. 희소한 자원일수록 그 가치가 더 커질 가능성이 있으며, 비트코인은 이러한 희소성을 부각시키기 위해 설계되었습니다.
+    
+3. **신뢰 구축**: 비트코인의 공급량 제한은 사용자들에게 신뢰를 제공합니다. 중앙 은행 또는 정부의 개입이 없는 분산된 통화로서, 사용자들은 새로운 코인의 무제한 생성을 걱정하지 않고 신뢰할 수 있습니다.
+    
+4. **경제적 자극**: 비트코인은 채굴자들에게 블록 생성과 트랜잭션 처리를 위한 보상으로 비트코인을 제공합니다. 이러한 보상은 채굴자들에게 경제적 자극을 제공하며, 네트워크의 보안과 안정성을 유지하는 데 도움이 됩니다.
+    
+5. **결제 시스템 운영**: 제한된 공급량을 통해 비트코인은 결제 시스템으로 사용하기에 적합합니다. 공급량이 고정되어 있으면 사용자들은 코인의 가치가 빠르게 하락하지 않을 것으로 예측할 수 있으며, 이는 결제 시스템에서 안정성을 제공합니다.
+```
+
 
 - 신규 발행되는 코인이 없어지면 수수료만으로 mining을 해야하는데, 그러면 수요를 맞추려면 수수료가 올라가고 공급을 맞추게되면 광부들 메리트가 떨어지게 되는거 아닌지?
 `채굴자의 메리트가 저하되는 것은 채굴자의 관점에서는 사실일 수 있습니다. 그러나 이러한 변경은 암호화폐 생태계의 지속성과 보안을 확보하기 위한 조치입니다. 수수료가 채굴자에게 더 중요한 수익원으로 작용하면서, 높은 거래 수수료를 지불할 의향이 있는 사용자들에게 혜택을 주고, 채굴자들은 네트워크를 유지하고 보안을 강화하는 역할을 수행하게 됩니다.`
@@ -1454,8 +2005,14 @@ P2PKH 말고 다른 방식을 사용하는 tx도 있음
 결과적으로, 공개 키의 좌표는 항상 정수 값이며, 이러한 특성을 타원 곡선 암호학의 안전성과 보안성을 유지하는 데 사용됩니다.
 ```
 
+-   HD wallet에서 parent의 공개키를 이용해서 child의 공개키를 만들수도 있고, parant의 개인키를 이용해서 child의 개인키를 만든다음 다시 K=kG를 이용해서 child의 공개키를 만들수도 있는거야?
+```
+네, HD (Hierarchical Deterministic) 지갑에서는 부모 키로부터 자식 키를 파생시키는 두 가지 주요 방법이 있습니다. 이 두 가지 방법은 BIP32 및 BIP44와 같은 Bitcoin 개선 제안 (BIP)에서 정의되어 있습니다.
 
-
+1. **부모의 공개 키를 사용하여 자식의 공개 키 생성:** 이 방법은 주로 공개 키의 확장에서 사용됩니다. 부모의 공개 키와 자식의 인덱스를 사용하여 자식의 공개 키를 파생합니다. 이 방법은 보안적으로 안전하며, 부모 키의 노출로부터 자식 키의 노출을 방지합니다.
+    
+2. **부모의 개인 키를 사용하여 자식의 개인 키 생성 후 공개 키 파생:** 이 방법은 부모의 개인 키와 자식의 인덱스를 사용하여 자식의 개인 키를 먼저 파생하고, 그 개인 키를 사용하여 자식의 공개 키를 생성합니다. 이 방법은 부모의 개인 키를 노출시킬 수 있으므로 주의가 필요합니다.
+```
 
 
 

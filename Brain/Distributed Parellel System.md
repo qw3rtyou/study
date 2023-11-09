@@ -569,6 +569,112 @@ File Server 에서는 .torrent file을 가지고 있음
 
 
 
+## Interceptors
+Architectures vs Middleware
+- Middleware
+distribution transparency 제공 - data, processing, control
+사용자에게 하나의 이미지를 제공
+
+- CORBA
+Common Object Request Broker Arvhitecture
+OMG에 의해 표준화
+object based architecture style
+
+- TIB/Rengdezvous
+event based architecture style
+
+-  RMI
+A객체가 B객체dml M1 함수를 invoke 한다면 
+`objB.M1(...)`를 호출할 것임 
+이때 다른 객체가 다른 머신에서 invoke를 하는 것을
+RMI(Remote Method Invocation)이라고 함
+대부분 synchronize하고 input parameter, return, result를 가짐
+
+이 때, event based를 만드려면 Messaging을 구현해야 함
+이런거 다 구현하려면 Bulky, complex 해짐
+기존에 있는 메소드나 객체를 쓰면 느려져서 다시 만들어야 해서 어려움이 있음(환경의 차이)
+
+![[Pasted image 20231030145310.png]]
+
+오른쪽 만 보면 method invocation의 형태임
+실제로 함수를 호출하는 것이 아니라 Message만 보냄
+실제로 B 객체는 다른 머신에 있기 때문
+
+method invocation 에서 Adaption을 더하면
+
+예를들어, client 머신 A와 B1, B2, B3 이렇게 총 3개 있을 때,
+B 의 reference는 하나임
+B1,B2,B3는 B는 replicated object라고 가정, 각각의 상태는 동일해야 함
+A에서 B.do_somthing()을 호출하는 상황
+B.do_somthing()를 호출하면 B1, B2, B3의 상태를 모두 유지해야 하므로 3개 다 호출해야 함
+이 때 사용하는 기술이 Interceptor임
+여기서는 Request-level interceptor를 사용함
+여러 개의 인스턴스가 있다는 걸 인지하고 invoke를 3개 생성함
+
+또한
+IP 네트워크에서는 패킷의 크기 제한 때문에 메시지를 파편화함(message fragment)
+middleware에서 os로 send()를 할 때, send(B,"do_something",1st) 이런 식으로 순서를 보냄
+이때 사용하는 게 Message-level interceptor임
+
+위 예시는 예시일 뿐이며 다른 예시도 많다고 함
+
+
+## General Approaches to Adaptive Software
+- Adaptation 적응!
+
+- Application requirements
+각각의 어플리케이션마다 다양한 요구사항이 있을 수 있음
+하지만 similar, functionality 함
+general-purpose vs specialization
+범용성과 특수성 사이에서 적당한 선을 찾아서 middle ware를 고려해야 함
+
+- Environmental changes
+node mobility - 휴대폰 같은 노드의 움직임에도 적응을 해야 함 
+quality of service(QOS) of networks - 사용자의 기대 수준을 맞춰줘야함
+failing components - 노드의 일부가 망가지더라도 빈자리를 채워주고 QOS를 해줘야 함
+battery drainage - 배터리 누수?, 배터리가 없는 노드가 생기더라도 잘 작동해야 함(AD-Hoc Network, Sensor Network)
+
+
+
+# Processes
+만들어진 architecture 에서 실질적인 프로그램이 돌아가는 가장 작은 단위
+
+## Thread Usage in Nondistributed Systems
+### 프로세스와 쓰레드
+- 프로세스
+Execution Unit
+실행단위
+=thread
+
+Address Domain
+주소영역(메모리공간)
+
+- 쓰레드
+여러 쓰레드는 같은 메모리를 공유할 수 있음
+쓰레드마다 private한 공간을 만들 수 있음
+
+### IPC(Inter-process Communication)
+- shared memory
+- Message Queue
+- pipe
+- signal
+shared memory를 제외하고 다른 프로세스와 직접적으로 연결할 수 없음
+하나의 cpu에는 동시에 1개의 프로세스만 접근할 수 있음
+시분할 방식으로 multitasking을 가능하게 만듬
+
+프로세스 끼리 메시지를 주고 받을 땐, 직접적인게 아니라 OS한테 요청함
+system call을 이용
+OS에서는 일반 프로세스가 이용할 수 있는 api를 제공
+운영체제도 일종의 프로세스, supervise mode
+user space에서 kernel space로 context switching
+context switching?
+context = process state
+
+cpu를 점유할 수 있는 프로세스를 바꿔주는 오버헤드
+context switching을 최소화 해야 함
+
+
+![[Pasted image 20231106152640.png]]
 
 
 
@@ -619,17 +725,3 @@ File Server 에서는 .torrent file을 가지고 있음
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-###질문

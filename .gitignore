@@ -9,5 +9,5 @@ Algorithm/**/*.exe
 Algorithm/**/*.out
 .git_legacy/
 TipBox
-Brain/.obsidian
+Brain/.obsidian/*
 Brain/.trash

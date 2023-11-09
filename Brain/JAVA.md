@@ -14,6 +14,10 @@
 
 
 # 기본타입 vs 객체타입
+객체는 힙(heap) 메모리에 할당, 변수는 이 객체를 가리키는 참조(reference)를 가지게 됨
+기본 타입은 단순한 데이터 값을 직접 저장하며, 스택(stack) 메모리에 저장
+기본 타입 변수는 해당 값을 직접 저장하며, 변수 자체가 값을 나타냄
+참조(reference)를 사용하지 않음
 
 아래 8개 제외 전부 클래스의 인스턴스들임
 1. **정수 타입 (Integer Types)**:
@@ -698,6 +702,35 @@ List<String> stringList = Arrays.asList("apple", "banana", "cherry");
 printList(intList); // 정수 리스트를 출력
 printList(stringList); // 문자열 리스트를 출력
 ```
+
+
+
+# 업캐스팅, 다운캐스팅
+모든 객체는 자기 타입을 알고 있다
+모든 객체는 object 의 인스턴스고, object에는 type이라는 필드가 있음
+type에서는 자신의 타입을 알고 있음
+
+Object
+Book
+Ebook
+
+`object o = new Ebook()`
+여기서 o는 위에서 1칸까지만 읽음
+
+`book b = new Ebook()`
+b는 위에서 2칸까지만 읽음
+
+
+
+# 
+
+
+
+
+
+
+
+
 
 # 질문 
 와일드카드 사용법 T랑 ? 랑 차이점 언제 사용하는

@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  system-bankwallet:
+    build:
+      context: .
+      args:
+        IMAGE: ubuntu:20.04
+        USER: bankwallet
+        TIMEOUT: 60
+        EXEC: bankwallet
+        SERVICE: bankwallet
+        APT_OLD: 0
+    ports:
+      - "1004:1004"
+    restart: always

