@@ -6,6 +6,35 @@ GDB는 컴퓨터 프로그램을 실행하여, 사용자에게 실행 과정을
 중간에 임의로 수정, 심볼(함수,변수)들을 모니터링을 할 수 있도록 함
 
 
+# GDB 설치
+0. GDB
+```sh
+sudo apt-get install gdb
+```
+
+1. PEDA
+Python Exploit Development Assistance for GDB
+```sh
+git clone https://github.com/longld/peda.git ~/peda
+echo "source ~/peda/peda.py" >> ~/.gdbinit
+echo "DONE! Please restart your GDB."
+```
+
+2. pwndbg
+```sh
+git clone https://github.com/pwndbg/pwndbg
+cd pwndbg
+./setup.sh
+```
+
+3. GEF
+GDB Enhanced Features
+```sh
+git clone https://github.com/hugsy/gef.git
+echo source $(realpath gef.py) >> ~/.gdbinit
+```
+
+
 # 디버깅 정보를 담아 컴파일 하기
 
 	gcc -g source.c -o program

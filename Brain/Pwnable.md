@@ -5,11 +5,13 @@
 [[RAO]]
 [[OOB]]
 [[RTL]]
+[[ROP]]
+[[GOT Overwrite]]
 [[Memory Mitigation - Canary]]
 [[Memory Mitigation - NX]]
 [[Memory Mitigation - ASLR]]
-[[Memory Mitigation - PIE]]
 [[Memory Mitigation - RELRO]]
+[[Memory Mitigation - PIE]]
 
 # tty를 이용한 쉘 업그레이드
 `python3 -c 'import pty; pty.spawn("/bin/bash")'`
@@ -312,7 +314,7 @@ x86 아키텍처에서 사용되는 특별한 목적의 레지스터로, 메모�
 보호기법 확인
 
 
-#  링크
+# 링크
 링크(Link)는 많은 프로그래밍 언어에서 컴파일의 마지막 단계
 프로그램에서 어떤 라이브러리의 함수를 사용한다면, 호출된 함수와 실제 라이브러리의 함수가 링크 과정에서 연결
 
