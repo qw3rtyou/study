@@ -5,11 +5,13 @@
 [[RAO]]
 [[OOB]]
 [[RTL]]
+[[ROP]]
+[[GOT Overwrite]]
 [[Memory Mitigation - Canary]]
 [[Memory Mitigation - NX]]
 [[Memory Mitigation - ASLR]]
-[[Memory Mitigation - PIE]]
 [[Memory Mitigation - RELRO]]
+[[Memory Mitigation - PIE]]
 
 # tty를 이용한 쉘 업그레이드
 `python3 -c 'import pty; pty.spawn("/bin/bash")'`
