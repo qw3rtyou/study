@@ -274,9 +274,18 @@ $ python3 asm.pyb'jhH\xb8/bin///sPH\x89\xe7hri\x01\x01\x814$\x01\x01\x01\x011\xf
 
 
 # 각종 변환
+`p32`, `u32` 함수들이 유용하지만, 때로는 정확히 4, 8바이트 단위로 나눠진 바이트가 아니라 
+직접 바이트를 만들어야 할 때가 있음
 - 정수 -> 바이트
-p32
+`str([정수값]).encode()`
+
 - 바이트 -> 정수
-u32
-- 바이트를 표현한 문자열 -> 바이트
-p32(int(byte, 16))
+`int([바이트값].decode())`
+
+- `%p`로 출력된 주소 다시 패킹
+예를 들어 `0x7fffffff`이런 주소값이 나왔다면
+```python
+encoded_data=0x7fffffff
+encoded_data=encoded_data[2:]
+p32(int(encoded_data, 16))
+```

@@ -42,5 +42,35 @@
 |**:%s/문자열1/문자열2/g**|전체에서 문자열1을 모두 찾아 문자열2로 치환|
 
 
+# 창 관리
+- `:split` 또는 `:sp`: 수평 분할
+- `:vsplit` 또는 `:vsp`: 수직 분할
+- `Ctrl + w` 후 화살표 키: 창 간 이동
 
 
+
+
+# Neovim, CoC 설치
+- Neovim
+```sh
+sudo apt update
+sudo apt install neovim
+```
+
+```sh
+mkdir ~/.config/nvim
+touch ~/.config/nvim/init.vim
+```
+
+
+- CoC (Conquer of Completion)
+```sh
+curl -sL install-node.now.sh/lts | sudo bash
+```
+
+```sh
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+모두 설치 후 Neovim 실행하고, `:PlugInstall` 으로 플러그인 설
