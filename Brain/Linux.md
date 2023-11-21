@@ -1,16 +1,19 @@
 # 리다이렉션(>)
-cat은 일반적으로 cat 명령어 다음 입력한 내용을 모니터로
-출력해주는 기능을 한다. 그러나
+모니터에 나타나는 표준 출력 혹은 키보드로 입력하는 표준 입력을 다른 곳으로 변경하는 작업
+주로 어떤 명령어의 결과를 파일로 저장하거나, 다른 명령어의 입력으로 전달하는 형태로 리다이렉션 함
 
-	cat > tmp.txt
+cat은 일반적으로 cat 명령어 다음 입력한 내용을 모니터로
+출력해주는 기능을 함 그러나
+
+`cat > tmp.txt`
 
 이런 식으로 리다이렉션을 사용하면 입력한 내용을 tmp.txt로
-'방향을 바꿔' 출력한다.
+'방향을 바꿔' 출력함
 
-추가적으로 리다이렉션 을 두 번 사용하면 append 효과가 난다
+추가적으로 리다이렉션 을 두 번 사용하면 append 효과가 남
 
-	cat  >> tmp.txt
-	
+`cat  >> tmp.txt`
+
 &>/dev/null: 모든 출력을 /dev/null로 리다이렉션하여 출력을 무시
 
 
@@ -45,10 +48,6 @@ test1 test2 test3
 user@user-VirtualBox:~/new_dir$
 ```
 
-
-# 리다이렉션
-모니터에 나타나는 표준 출력 혹은 키보드로 입력하는 표준 입력을 다른 곳으로 변경하는 작업
-주로 어떤 명령어의 결과를 파일로 저장하거나, 다른 명령어의 입력으로 전달하는 형태로 리다이렉션 함
 
 ## 명령어 > 파일
 
@@ -167,13 +166,13 @@ drwxrwxr-x 2 user user 4096 12월 2 13:38 dir
 ### tar
 tar는 그냥 합치기만 그래서 오히려 용량이 늘어남 속도가 빠른편
 
-	tar cvf songs.tar *		압축
-	tar xvf songs.tar		해제
+`tar cvf songs.tar *`	압축
+`tar xvf songs.tar`		해제
 ### gzip
 실제로 압축하는 명령어
 
-	gzip 파일이름		선택된 파일을 압축
-	gzip -d 파일이름	선택된 파일을 해제
+`gzip 파일이름`		선택된 파일을 압축
+`gzip -d 파일이름`	선택된 파일을 해제
 ### 확장자	
 tar		
 tar 프로그램을 사용하여 압축된 파일,
@@ -237,7 +236,7 @@ tgz
 예를 들어 `/var/log`에는 다양한 로그 파일이 저장됨
 	
 
-# 리눅스에서 중요한 역할을 하는 것들
+# 주요 파일들
 
 /etc/passwd		사용자들에 대한 간단한 정보가 들어있음
 /etc/shadow		사용자들의 패스워드
@@ -250,19 +249,19 @@ tgz
 # 모니터링 명령어
 
 프로세스 확인
-	ps 		현재 실행중인 프로세스 목록
-	top		시스템 리소스 사용량 모니터링 + 실행 프로세스
-	htop 	top보다 더 많은 정보
-	pgrep [프로세스 이름]		특정 이름을 가진 프로세스의 PID 검색
+`ps `		현재 실행중인 프로세스 목록
+`top	`	시스템 리소스 사용량 모니터링 + 실행 프로세스
+`htop` 	top보다 더 많은 정보
+`pgrep [프로세스 이름]	`	특정 이름을 가진 프로세스의 PID 검색
 
 네트워크 확인
-	lsof -i :7000	해당 포트에 있는 서비스 확인
-	kill -9 5710	서비스 죽이기
-	netstat -ano	모든 포트에서 사용하는 프로세스 확인	
+`lsof -i :7000`	해당 포트에 있는 서비스 확인
+`kill -9 5710`	서비스 죽이기
+`netstat -ano`	모든 포트에서 사용하는 프로세스 확인	
 
 디스크 확인
-	df -h : 디스크 사용량을 확인
-	lsblk : 디스크 및 파티션 정보를 확인
+`df -h` : 디스크 사용량을 확인
+`lsblk` : 디스크 및 파티션 정보를 확인
 
 
 # nc
@@ -301,15 +300,16 @@ ssh 접속할 때는 원격 서버에 존재하는 계정으로 접속
 
 # scp
 파일 전송 명령어
-
-	scp -p 5022 Foo1@211.250.216.249:/root/rv-sh /root/
+`scp -p 5022 Foo1@211.250.216.249:/root/rv-sh /root/`
 
 # tty
 리눅스에선 사용자마다 임시 터미널을 받음 
 해당 터미널을 식별할 때 사용
 
-	qwertyou@DESKTOP-8HVF2JQ:~$ tty
-	/dev/pts/0
+```sh
+qwertyou@DESKTOP-8HVF2JQ:~$ tty
+/dev/pts/0
+```
 
 
 # /dev/sda
@@ -323,55 +323,74 @@ SCSI 디스크는 하드 디스크 또는 SSD와 같은 데이터 저장 장치
 # 설치 스크립트 모음
 한글 폰트
 
+
 chrome
 
-	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-	sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-	sudo apt update
-	sudo apt install google-chrome-stable
+```sh
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+sudo apt update
+sudo apt install google-chrome-stable
+```
 
 apm
 
-	sudo apt update & sudo apt upgrade -y
-	sudo apt install apache2 php php-mysql mysql-server -y
-	sudo service apache2 start
+```sh
+sudo apt update & sudo apt upgrade -y
+sudo apt install apache2 php php-mysql mysql-server -y
+sudo service apache2 start
+```
 
 docker
 
-	sudo apt update
-	sudo apt install apt-transport-https ca-certificates curl software-properties-common
-	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-	echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-	sudo apt install docker-ce
-	sudo systemctl start docker
-	sudo systemctl enable docker
-	sudo usermod -aG docker $USER
+```sh
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt install docker-ce
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+```
 
 docker-compose
 
-	sudo apt update
-	sudo apt install docker-compose
-	docker-compose --version
+```sh
+sudo apt update
+sudo apt install docker-compose
+docker-compose --version
+```
 
 네트워크툴
 
-	apt install net-tools
+```sh
+sudo apt install net-tools
+```
 
 vim
 
-	apt install vim
+```sh
+sudo apt install vim
+```
 
 ssh
 
-	sudo apt-get update
-	sudo apt-get install openssh-server
+```sh
+sudo apt-get update
+sudo apt-get install openssh-server
+```
 
 
 # Troubleshoot
 ### 공개키 오류
 
 키 다시 받기
-	wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add -
+```sh
+wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add -
+```
 
 키 추가하기
-	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5
+```sh
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5
+```

@@ -8,6 +8,36 @@ ROP는 이런 복잡한 제약 사항을 유연하게 해결할 수 있는 수�
 ROP 페이로드는 리턴 가젯으로 구성되는데, `ret` 단위로 여러 코드가 연쇄적으로 실행되는 모습에서 ROP chain이라고도 불림
 
 
+# x86, x64 페이로드 차이점
+x86 payload
+```python
+# write(1,read_got,4)
+payload+=p32(write_plt)
+payload+=p32(pop3gdgt)
+payload+=p32(1)
+payload+=p32(read_got)
+payload+=p32(4)
+```
+
+x64 payload
+```python
+# write(1, read_got, ...)
+payload+=p64(pop_rdi)
+payload+=p64(1)
+payload+=p64(pop_rsi_r15)
+payload+=p64(read_got)
+payload+=p64(0)
+payload+=p64(write_plt)
+```
+
+페이로드 순서가 다른 이유는 두 아키텍처가 함수 인자를 전달하는 방식의 차이 때문
+x86 아키텍처에서는 함수의 인자가 주로 스택을 통해 전달되지만
+x64 아키텍처에서는 함수의 인자가 주로 레지스터를 통해 전달하기 때문에
+x86에서는 먼저 함수를 사용하면서 스택에 있는 인자들을 사용한 다음 나중에 가젯을 통해 스택을 정리한 반면,
+x64에서는 먼저 인자를 설정한 다음, write의 파라미터로 사용함
+
+
+
 # ELF header로 라이브러리 속 함수 위치 찾기
 ```sh
 ┌──(foo1㉿main-server)-[~/Desktop/dh/rop]
@@ -35,3 +65,4 @@ ROP 페이로드는 리턴 가젯으로 구성되는데, `ret` 단위로 여�
 
 # 예제2
 [[Dreamhack - basic_rop_x86]]
+

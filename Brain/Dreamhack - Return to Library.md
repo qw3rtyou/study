@@ -168,7 +168,7 @@ $ ls
 [*] Got EOF while sending in interactive
 ```
 
-여기서 `[*] Process './rtl' stopped with exit code -11 (SIGSEGV) (pid 94758)` 이 문장은 segfault가 나왔다는 의미인데, [[Stack Alignment]]를 안 맞춰져서 그럼
+여기서 `[*] Process './rtl' stopped with exit code -11 (SIGSEGV) (pid 94758)` 이 문장은 segfault가 나왔다는 의미인데, Stack Alignment를 안 맞춰져서 그럼
 이를 해결하려면, 의미없는 가젯을 넣어줘야 하는데, 이를 위해 사용하는 것이 ret 가젯임
 ```sh
 ┌──(foo1㉿main-server)-[~/Desktop/Dreamhack/Return-to-Library]

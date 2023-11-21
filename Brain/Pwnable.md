@@ -3,15 +3,16 @@
 [[Shellcode]]
 [[SBO]]
 [[RAO]]
-[[OOB]]
 [[RTL]]
 [[ROP]]
 [[GOT Overwrite]]
+[[OOB]]
 [[Memory Mitigation - Canary]]
 [[Memory Mitigation - NX]]
 [[Memory Mitigation - ASLR]]
 [[Memory Mitigation - RELRO]]
 [[Memory Mitigation - PIE]]
+[[Memory Mitigation - CFI]]
 
 # tty를 이용한 쉘 업그레이드
 `python3 -c 'import pty; pty.spawn("/bin/bash")'`
@@ -250,6 +251,9 @@ ELF(Executable and Linkable Format)는 크게 헤더와 코드 그리고 기타 
 |MS ABI|MSVC|RCX, RDX, R8, R9|Caller|일반 함수, Windows Syscall|
 |System ABI|GCC|RDI, RSI, RDX, RCX, R8, R9, XMM0–7|Caller|일반 함수|
 
+여기서 스택 정리란,
+함수 호출 규약에서 "스택 정리"는 함수 호출이 완료된 후에 호출자(caller) 또는 피호출자(callee)에 의해 스택에서 매개변수들이 제거되는 과정을 의미
+
 
 
 # 코어파일 분석
@@ -421,7 +425,7 @@ Global Offset Table
 그래서 ELF는 GOT라는 테이블을 두고, resolve된 함수의 주소를 해당 테이블에 저장
 그리고 나중에 다시 해당 함수를 호출하면 저장된 주소를 꺼내서 사용
 
-컴파일 후 실행한 직후 `puts` 의 GOT 엔트리인 `0x404018` 에는 아직 `puts` 의 주소를 찾기 전이므로, 함수 주소 대신 .plt 섹션 어딘가의 주소인 `0x401030` 이 적혀있
+컴파일 후 실행한 직후 `puts` 의 GOT 엔트리인 `0x404018` 에는 아직 `puts` 의 주소를 찾기 전이므로, 함수 주소 대신 .plt 섹션 어딘가의 주소인 `0x401030` 이 적혀있음
 ```sh
 $ gdb ./got
 pwndbg> entry
@@ -501,6 +505,15 @@ pwndbg> si
 ```
 
 시스템 해커의 관점에서 보면 PLT에서 GOT를 참조하여 실행 흐름을 옮길 때, GOT의 값을 검증하지 않는다는 보안상의 약점이 있음
+
+
+
+
+# x64 stack alignment
+Ubuntu 18.04 버전 이상부터는 효율 문제 때문에 `do_system()`에 `movaps`라는 인스트럭션이 추가되었음
+이 인스트럭션 때문에 스택 정렬을 지키지 않으면 Segmentation Fault가 뜸
+Linux 64 [ABI](https://software.intel.com/sites/default/files/article/402129/mpx-linux64-abi.pdf)( Application binary interface )에 따르면 프로그램의 흐름( control )이 함수의 entry로 옮겨지는 시점에선 스택 포인터(rsp)+8이 항상 16의 배수여야 함
+
 
 
 # `python -c` 을 이용한 exploit
