@@ -44,3 +44,41 @@
 
 
 
+# 추천 플러그인
+
+`~/.vimrc`
+```sh
+" Basic Settings
+set nu
+syntax on
+set termguicolors
+let mapleader=","
+set smartindent
+set tabstop=3
+set shiftwidth=3
+set autoindent
+set cindent
+set ruler
+set rnu
+set showmatch
+set title
+
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+map <C-k> <C-w>k
+map <C-j> <C-w>j
+
+highlight ColorColumn ctermbg=gray
+set colorcolumn=80
+
+set encoding=UTF-8
+set noswapfile
+
+" auto ()
+inoremap ( ()<Left>
+inoremap ( ()<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+```

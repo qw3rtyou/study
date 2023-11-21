@@ -7,6 +7,7 @@
 [[ROP]]
 [[GOT Overwrite]]
 [[OOB]]
+[[FSB]]
 [[Memory Mitigation - Canary]]
 [[Memory Mitigation - NX]]
 [[Memory Mitigation - ASLR]]

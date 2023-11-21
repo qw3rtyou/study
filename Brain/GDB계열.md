@@ -297,6 +297,8 @@ pwndbg>
 telescope은 pwndbg가 제공하는 강력한 메모리 덤프 기능
 특정 주소의 메모리 값들을 보여주는 것에서 그치지 않고, 메모리가 참조하고 있는 주소를 재귀적으로 탐색하여 값을 보여줌
 
+`usage: telescope [-h] [address] [count]`
+
 	pwndbg> tele
 	00:0000│ rsp  0x7fffffffc228 —▸ 0x7ffff7a05b97 (__libc_start_main+231) ◂— mov    edi, eax
 	01:0008│      0x7fffffffc230 ◂— 0x1
