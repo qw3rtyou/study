@@ -8,6 +8,13 @@ RELRO는 쓰기 권한이 불필요한 데이터 세그먼트에 쓰기 권한�
 RELRO는 RELRO를 적용하는 범위에 따라 두 가지로 구분
 하나는 RELRO를 부분적으로 적용하는 Partial RELRO이고, 나머지는 가장 넓은 영역에 RELRO를 적용하는 Full RELRO임
 
+- Partail RELRO
+Partail RELRO는 `.init_array`와 `.fini_array`에 대한 쓰기 권한이 제거되어 두 영역을 덮어쓰는 공격을 수행하기 어려워지지만, `.got.plt` 영역에 대한 쓰기 권한이 존재하므로 **GOT overwrite** 공격을 활용할 수 있음
+
+- Full RELRO
+Full RELRO는 `.init_array`, `.fini_array` 뿐만 아니라 `.got` 영역에도 쓰기 권한이 제거됨 -> GOT Overwrite 불가능
+
+#  섹션 분석
 자신의 메모리 맵을 출력하는 바이너리 소스 코드
 ```c
 // Name: relro.c
@@ -28,6 +35,7 @@ int main() {
 }
 ```
 
+내가 분석하고 싶은 주소가 어떤 권한을 가지는지, 어떤 코드에서 온 것인지 한눈에 알 수 있음(nmap 사용하면 됨)
 ```sh
 $ ./prelro
 00400000-00401000 r--p 00000000 08:02 2886150                            /home/dreamhack/prelro
@@ -54,3 +62,7 @@ $ ./prelro
 7ffe555e2000-7ffe555e4000 r-xp 00000000 00:00 0                          [vdso]
 ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0 
 ```
+
+
+# Hook Overwrite
+[[Hook Overwrite]]

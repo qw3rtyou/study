@@ -11,12 +11,14 @@
 <table><colgroup><col style="width: 21.4%"><col style="width: 78.6%"></colgroup><tbody><tr><th><p><strong>x</strong></p></th><td data-highlight-colour="#ffffff"><p>현재 커서가 위치한 글자 삭제 (del)</p></td></tr><tr><th><p><strong>X</strong></p></th><td><p>현재 커서 앞 글자 삭제 (backspace)</p></td></tr><tr><th><p><strong>dd</strong></p></th><td><p>현재 커서가 위치한 행 삭제</p></td></tr><tr><th><p><strong>yy</strong></p></th><td><p>현재 커서가 위치한 행 복사</p></td></tr><tr><th><p><strong>p</strong></p></th><td><p>복사한 내용을 현재 행 이후에 붙여넣기</p></td></tr><tr><th><p><strong>P</strong></p></th><td><p>복사한 내용을 현재 행 이전에 붙여넣기</p></td></tr></tbody></table>
 
 - 문자열 찾기
+
 |   |   |
 |---|---|
 |**/문자열, enter**|현재 커서 이후로 문자열 찾기|
 |**n**|찾은 문자열 목록에서 다음 문자로 이동|
 
 - 되돌리기
+
 |   |   |
 |---|---|
 |**u**|이전 수정 사항 되돌리기|
@@ -32,6 +34,7 @@
 ## 명령모드
 
 - 명령 모드 명령어
+
 |   |   |
 |---|---|
 |**:w**|저장|
@@ -99,6 +102,98 @@ mkdir ~/.config/nvim
 touch ~/.config/nvim/init.vim
 ```
 
+`vim ~/.config/nvim/init.vim`
+```sh
+call plug#begin('~/.vim/plugged')
+
+Plug 'altercation/vim-colors-solarized'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'Raimondi/delimitMate'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'preservim/tagbar'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nanotech/jellybeans.vim'
+Plug 'sainnhe/everforest'
+
+
+call plug#end()
+"theme
+" if has('termguicolors')
+"  set termguicolors
+" endif
+" let g:everforest_better_performance = 1
+" set background=dark
+" let g:everforest_background = 'hard'
+" colorscheme everforest
+"gruvbox
+let g:gruvbox_contrast_dark="hard"
+set background=dark
+autocmd vimenter * ++nested colorscheme gruvbox
+
+"Airline
+let g:airline_theme='gruvbox'
+let g:airline#extensions#tabline#enabled = 1
+
+" coc
+"just says autocomplete with the first option if pop up menu is open.
+inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+
+" TS
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+	ensure_installed = { "c", "lua", "vim", "cpp" },
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "rust"},  -- list of language that will be disabled
+	 additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
+" delimitMate
+let delimitMate_expand_cr=1
+
+" The-Nerd-Tree
+autocmd BufEnter * lcd %:p:h
+autocmd VimEnter * if !argc() | NERDTree | endif
+nmap <leader>ne :NERDTreeToggle<cr>
+let NERDTreeShowLineNumbers=1
+let g:NERDTreeWinPos = "left"
+
+
+" Basic Settings
+set cursorline
+set nu
+syntax on
+set termguicolors
+let mapleader=","
+set smartindent
+set tabstop=3
+set shiftwidth=3
+set autoindent
+set cindent
+set ruler
+
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+map <C-k> <C-w>k
+map <C-j> <C-w>j
+
+highlight ColorColumn ctermbg=gray
+set colorcolumn=80
+
+set encoding=UTF-8
+
+augroup templates
+autocmd BufNewFile  [0-9]*.{c,cpp}	0r ~/.vim/skeleton.c
+augroup END
+```
 
 - CoC (Conquer of Completion)
 ```sh
@@ -111,3 +206,4 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ```
 
 모두 설치 후 Neovim 실행하고, `:PlugInstall` 으로 플러그인 설치
+

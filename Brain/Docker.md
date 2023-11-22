@@ -189,3 +189,17 @@ CMD ["app.py"]
 
 # 팁
 컨테이너 내부에서 `exit` 명령어 사용 시 컨테이너 종료
+
+
+# 실제 사용 스크립트
+
+```
+IMAGE_NAME=ubuntu1804 CONTAINER_NAME=my_container;
+docker build . -t $IMAGE_NAME;
+docker run -d -t --privileged --name=$CONTAINER_NAME $IMAGE_NAME;
+docker exec -it -u root $CONTAINER_NAME bash
+```
+
+docker build . -t fho;
+docker run -d -t --privileged --name=fho fho;
+docker exec -it -u root fho bash

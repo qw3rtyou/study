@@ -1,5 +1,9 @@
+# 공격 툴
 [[Package - Pwntools]]
 [[GDB계열]]
+[[one_gadget]]
+
+# 공격 기법
 [[Shellcode]]
 [[SBO]]
 [[RAO]]
@@ -8,6 +12,9 @@
 [[GOT Overwrite]]
 [[OOB]]
 [[FSB]]
+[[Hook Overwrite]]
+
+# 보호기법
 [[Memory Mitigation - Canary]]
 [[Memory Mitigation - NX]]
 [[Memory Mitigation - ASLR]]
@@ -528,3 +535,39 @@ Linux 64 [ABI](https://software.intel.com/sites/default/files/article/402129/mp
 ```
 
 
+
+
+# 함수, 변수 주소 찾기
+
+`system` 함수, `“/bin/sh”` 문자열은 libc 파일에 정의되어 있으므로, 주어진 libc 파일로부터 이들의 오프셋을 얻을 수 있음
+
+1. 리눅스 명령어 사용
+
+```sh
+$ readelf -s libc-2.27.so | grep " system@"
+  1403: 000000000004f550    45 FUNC    WEAK   DEFAULT   13 system@@GLIBC_2.2.5
+
+system 함수 오프셋 = 0x4f550
+```
+
+```sh
+$ strings -tx libc-2.27.so | grep "/bin/sh"
+ 1b3e1a /bin/sh
+
+"/bin/sh" 오프셋 = 0x1b3e1a
+```
+
+2. pwntools 사용
+```python
+libc = ELF('./libc-2.27.so')  
+libc.symbols["함수명"]
+next(libc.search(b'/bin/sh')
+```
+
+3. GDB 사용
+메모리 적재된 후의 값을 검색함
+```sh
+pwndbg> search /bin/sh
+Searching for value: '/bin/sh'
+libc.so.6       0x7ffff7dd8698 0x68732f6e69622f /* '/bin/sh' */
+```

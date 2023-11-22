@@ -14,7 +14,7 @@ python3 -m pip install --upgrade pwntools
 
 # 사용법
 
-pwntools 모듈을 사용하려면 무조건 포함해줘야 하는 코드
+pwntools 모듈을 임포트
 
 	from pwn import *
 
