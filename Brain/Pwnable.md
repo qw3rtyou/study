@@ -13,6 +13,12 @@
 [[OOB]]
 [[FSB]]
 [[Hook Overwrite]]
+[[NOP sled]]
+
+
+# 리눅스 공격 요소 & 기법
+[[환경 변수]]
+
 
 # 보호기법
 [[Memory Mitigation - Canary]]

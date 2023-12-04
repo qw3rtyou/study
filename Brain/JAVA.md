@@ -730,12 +730,251 @@ cmd
 
 
 
+# Object
+심볼 주소를 다룰 수 없게 만듬
+해시코드가 객체의 고유한 키값
+
+-  상속 메소드
+protected Object clone() throws CloneNotSupportedException
+이 객체의 복사를 생성하여 리텀함
+
+public boolean equals(Object obj)
+주어진 다른 객체 obj가 이것과 같은지 여부를 돌려줌
+
+public final Class getClass()
+이 객체의 런타임 클래스를 돌려줌
+
+public int hashCode()
+객체의 해시코드 값을 반환
+
+public String toString()
+객체의 문자열 표현을 반환
+
+## clone()
+깊은 복사 안함
+Cloneable implements
+CloneNotSupportedException 구현
+
+깊은 복사하고 싶으면 각 클래스가 구현해야 함
+
+```java
+class ShoppingCart implements Cloneable {
+	String userName;
+	ArrayList cartItems = new ArrayList<>();
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		ShoppingCart cloned = (ShoppingCart)super.clone();
+		cloned.cartItems = new ArrayList();
+		cloned.cartItem.addAll(this.cartItems);
+		return cloned;
+	}
+}
+```
+
+
+## equals()
+새로 만든 객체에 대해 같다를 정의하고 싶을 때 사용
+해시코드가 같으면 같다고 인식
+
+```java
+public class Book {
+	public boolean equals(Object obj) {
+		if (!obj instanceof Book)
+			return false;
+		Book b = (Book) obj;
+		return ISBN.equals(b.getISBN());
+	}
+}
+```
+
+- contentEquals
+`char[]`이나 `StringBuilder` 등 스트링과 비슷한 역할을 하는 다른 클래스 문자열 내용이 동일하면 같다고 취급
+
+
+## getClass()
+클래스는 스스로 자기가 무엇인지 알고 있음
+클래스 타입을 리턴(Class 클래스)
+이름, 패키지, 접근자 등
+
+동적으로 객체 생성 가능
+Ob의 타입으로 객체를 생성
+Object ob2 = ob.getClass().getDeclaredConstructor().newInstance();
+Try … catch로 묶어주어야 함 – checked 예외 발생
+
+
+## hashCode()
+객체를 고유한 숫자로 나타내는 값
+vm이 주소에 해당하는 해시코드를 알고 있음
+해시코드가 같으면 같은 객체
+컬렉션의 contains 메소드는 hashCode()로 비교함
+equals()를 오버라이드한 경우 hashCode()를 변경하는 것이 좋음
+
+
+## toString()
+default - `getClass().getName() + '@' + Integer.toHexString(hashCode())`
+새로 만드는 클래스에서는 toString() 메소드를 항상 오버라이드해야 함
 
 
 
+# final
+필드, 메소드, 클래스에서 사용
+처음 한 번은 초기화 가능
+
+- 필드
+필드의 값이 바뀌지 않음을 뜻함
+
+- 메소드
+메소드 final이면 오버라이드 불가
+생성자에서 호출하는 함수는 final이어야 함 (권장사항)
+
+- 클래스
+상속불가
+Immutable 클래스의 경우 final로 선언
+동작이 바뀌지 못하게 하는 목적
+
+
+# Number 상속 클래스
+기본 타입이 없으면, 오버헤드가 너무 많이 나옴
+성능을 높이기위해 기본 타입, 클래스 타입 두 가지를 모두 지원
+그 두 가지 사이의 호환성을 위해 Number 상속 클래스를 사용
+그 이외의 기능은 없음(계산, 비교 등은 못함)
+
+기본타입이 허용되지 않는 경우 -> ArrayList에 넣을 때
+라이브러리를 사용하기 위해 Object를 상속한 객체여야 되는 경우
+![[Pasted image 20231124095408.png]]
+
+여기에 Boolean, char 이렇게 총 8개의 기본 타입이 있음
+
+- 반싱, 언박싱
+오토박싱이란 자바 컴파일러가 기본 타입 값을 그에 대응하는객체 래퍼 클래스로 자동 변환하는 것
+변환이 반대 방향이 되면 언박싱
+`Character ch = 'a';` -> 박싱
+
+계산이 필요하면 언박싱
+객체를 필요로 하면 박싱이 자동으로 일어남
+
+
+# 스트링
+```java
+public static boolean isNumeric(String input) {
+	try {
+		Double.parseDouble(input);
+		return true;
+	} catch (NumberFormatException e) {
+		return false;
+	}
+}
+```
+
+- 불변성
+지정에서 그냥 참조만 가져가도 됨
+객체를 자유롭게 공유할 수 있음
+나도 모르게 다른 참조에 의해 내 객체의 값이 바뀌는 일은 없음
+변경 연산은 계속 새로운 객체를 생성함
++, replace, substring 등 연산은 계속 쓰레기를 만들어냄
+-> StringBuilder 사용하면 됨
+
+
+# enum
+
+
+# 람다
+자바는 함수 전달을 할 수 없음(모든 건 객체)
+따라서 함수 전달을하려면 무명 클래스를 사용해야 함
+
+아래와 같이 무명클래스를 사용하여 구현할 수 있는데 다소 거추장스러움
+```java
+Collections.sort(mylisy, Comparator<MyClass>() {
+	@Override
+	public void compare(MyClass ob1, MyClass ob2) {
+	
+	}
+}
+```
+
+아래와 같이 람다를 사용하면 가독성이 향상됨
+```java
+Collections.sort(mylisy, (x, y) -> x.id – y.id);
+```
+
+
+람다식은 인터페이스를 구현한 객체
+간단한 코드의 부분을 전달하는 방법
+함수를 만들지 않고 (이름을 붙이지 않고) 코드 부분을 전달 또는 이용
+한 번만 쓰일 함수 (Anonymous function): 객체생성 효과
+
+다음과 같이 생략할 수 있음
+```java
+(int a) -> { System.out.println(a) }
+(a) -> { System.out.println(a) } 
+a -> System.out.println(a)
+```
+
+매개 변수가 없는 경우 생략 불가
+```java
+( ) -> { 실행문; ... }
+```
+
+리턴문 하나만 있는 경우
+```java
+x -> { return x*x; }
+```
+
+가장 간단한 형태
+```java
+x -> x*x
+```
+
+- 함수형 인터페이스
+인터페이스가 함수 하나만 들고 있어야 람다 사용가능
+이러한 함수를 함수형 인터페이스라고 함
+함수 전달을 목표로 하는 인터페이스로 쓰임
+`@FunctionalInterface`라는 어노테이션이 붙음
+
+인터페이스가 쓰이는 자리에 람다 객체 전달 가능
+무명클래스 생성한 것과 같은 효과
+
+- 적합한 상황
+함수형 인터페이스와 같이 사용
+함수 코드가 1-2줄 정도로 짧음
+간단한 수식을 반환하는 경우 등에 적합
+부수효과가 있는 경우 바람직하지 않음 - 지역변수 매개변수 이외의 것을 건드림(read-only는 OK)
+
+- 장점
+코드가 간결해져 개발자의 의도가 명확히 드러나므로 가독성이향상
+분산 병렬을 하기 위함 - >일반적으로 다중 cpu를 활용하는 형태로 구현되어 병렬 처리에 유리
+따라서 부수효과(외부에 영향을 주는 로직)은 이러한 장점을 살지지 못하게 됨
+
+- 단점
+디버깅 시 함수 호출 스택 추적이 다소 어려움
+지나치게 남발하면 코드가 이해하기 어렵고 지저분해짐
+람다를 사용하여 만든 무명함수는 재사용이 불가능함
+재귀 호출을 사용할 수 없음
+반복 회수가 많은 경우 람다식이 조금 느릴 수 있음 (함수를 컴파일한 것보다 느릴 수 있음)
+
+- 람다에 쓰이는 변수
+스트림 요소 : 람다 내의 지역변수
+람다 내의 지역변수는 Final 또는 effectively final 이어야 함
 
 
 
+# 스트림
+
+
+
+- 9
+제네릭 선언방법
+타입파라미터
+타입파라미터 제약조건
+매니저 팩토리 매니저블 상요법
+컬랙션에서 매니저 사용
+
+- 10
+제네릭 기본클래스들
+기본 클래스 계층 구조
+5개정도 크랠스에 대해서 settext이런거만 알면된다고..
+contentpanel
+listener 
 
 
 # 질문 

