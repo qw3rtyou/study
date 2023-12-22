@@ -594,7 +594,7 @@ RMI(Remote Method Invocation)이라고 함
 이런거 다 구현하려면 Bulky, complex 해짐
 기존에 있는 메소드나 객체를 쓰면 느려져서 다시 만들어야 해서 어려움이 있음(환경의 차이)
 
-![[Pasted image 20231030145310.png]]
+![[Pasted image 20231030145310.png| 400]]
 
 오른쪽 만 보면 method invocation의 형태임
 실제로 함수를 호출하는 것이 아니라 Message만 보냄
@@ -654,6 +654,11 @@ Address Domain
 쓰레드마다 private한 공간을 만들 수 있음
 
 ### IPC(Inter-process Communication)
+다른 머신에 있는 프로세스 사이에서
+message-passing
+하부 네트워크에서 제공된 low level message-passing
+
+
 - shared memory
 - Message Queue
 - pipe
@@ -676,52 +681,123 @@ context switching을 최소화 해야 함
 
 ![[Pasted image 20231106152640.png]]
 
+## 주로 사용하는 통신 방식
+- RPC(Remote Procedure Call)
+rmi?
+shared-memory-based programming
+
+- Message기반 communication
+MO Middleware(MOM)
+- Data streaming(멀티미디어)
+
+
+
+
+## The Role of Virtualization in Distributed Systems
+![[Pasted image 20231204144844.png]]
+- Interface A - 일종의 systemcall
+- 사용자들은 일반적으로 인터페이스가 바뀌지 않기를 원함
+
+## Architectures of Virtual Machines
+![[Pasted image 20231204150011.png]]
+- 4가지 단계를 기준으로 가상화 할 수 있음
+
+### process virtual machine
+![[Pasted image 20231204150726.png]]
+- runtime system 가상화
+- JVM이 해당 모델을 가지고 있음
+- JVM이 3개 나오는게 가상화임
+- DBMS도 runtime system
+
+### virtual machine monitor
+![[Pasted image 20231204151132.png]]
+- 운영체제가 여러 개임
+- instructino level에서 가상화
+- vmware가 이런 역할
+- 클라우드 컴퓨팅에서 많이 사용됨
+
+
+## Networked User Interfaces
+일반적으로 어플리케이션은 다른 네트워크를 사용
+다른 종류의 어플리케이션이 통신하게 만들 때 사용
+
+
+![[Pasted image 20231204151735.png | 400]]
+만약에 플랫폼 독립적으로 구현하려면 미들웨어 단위의 프로토콜을 사용하면 됨
+![[Pasted image 20231204151914.png | 400]]
+
+
+
+## Client-Side Software for Distribution Transparency
+![[Pasted image 20231204154303.png|400]]
+transparency를 줄여서 client에서 정보를 더 제공하여 트레픽을 줄임
+
+
+## General Design Issues
+
+
+
+- 리눅스에서
+- 프로세스 생성 : fork()  
+- 새로운 프로세스 코드 실행 : exec()
+
+client가 알고있는 ip, port가 다를 수 있음
+well-known port는 서버가 실행될 때 선점함
+
+서버에 요청이 오고 나서 다른 서비스를 위해 해당 포트를 선점하고 있는 서비스를 소멸시킴
+그 이전에 서버에 신호가 오면 해당 포트로 온다는 보장을 못함 
+kill() 프로세스를 시킴
+이 상태면 다른 포트로 바뀌었는지 클라이언트는 모름
+
+머신이 바뀌었는지 모든 클라이언트한테 알려줘야 함
+시간이 지남에 따라 port가 바뀔 수 있음을 
+
+- Deamon 
+![[Pasted image 20231204155147.png|400]]
+client는 deamon process의 포트번호를 알고 있음(well-known 이기 때문)
+먼저 client가 daemon한테 포트 번호를 물어봄
+이전에 server가 deamon에게 포트번호를 알려줬다는 전제 때문에 server주소를 알 수 있음
+서버가 미리 켜져있어야 함
+
+- Super-server
+![[Pasted image 20231204161643.png|400]]
+super-server가 well-known port를 가지고 있음
+client는 Super-server의 ip와 port를 알고 있음
+client가 service A를 띄워줘 or port번호 알려줘 이런 식의 요청을 함
+super-server는 서비스 A를 생성, port 정보를 넘겨줌
+요청이 올 때마다 프로세스를 생성 시켜야 함 -> 시간이 꽤 걸릴 수 있음
+이건 포트에 대해서만 해결 할 수 있음
+
+- Directory server
+![[Pasted image 20231204162339.png|400]]
+directory server를 통해 ip를 얻음
+directory server는  sercer machine에게 service A에 대한 식별자를 제공 받음 
+directory server는 well-known port, ip 이기 때문에 client가 접근할 수 있음
+
+
+## Server Clusters
+![[Pasted image 20231204162747.png|600]]
+
+
+
+## Reasons for Migrating Code
+![[Pasted image 20231204163243.png|400]]
+
+- Mobile Code
+메모리상에 있는 text(code)영역에 있는 코드가 다른 머신으로 이동함, 이런 코드
+
+- Mobile Agent
+code영역 뿐만아니라 data 영억까지 이동함 state까지 이동
+
+client가 데이터가 많고, server 측이 코드를 가지고 있는 경우,
+데이터를 보내는 트레픽이 코드를 보내는 것보다 큰 데이터를 가지기 때문에, server측이 코드를 보냄
+이 때 보내는 코드를 Mobile Code라고 함
 
 
 
 
 
 
+4장
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# rpc

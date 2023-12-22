@@ -1,4 +1,4 @@
-# hspace - Mic_Ceck
+# hspace - Mic_Check
 
 ### 문제 코드
 ```python
@@ -36,7 +36,7 @@ end가 오기전까지 입력받고
 =내장 함수와 클래스를 사용하지 못하게 하는 것
 ### 문제풀이(한별님 풀이)
 subclass list 가져옴
-	().__class__.__bases__[0].__subclasses__()
+`().__class__.__bases__[0].__subclasses__()`
 
 문자열 길이에 제한이 있어,
 `<class '_frozen_importlib.BuiltinImporter'>`과 load_module을 이용해 

