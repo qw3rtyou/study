@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #292e42;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  input,
+  button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  button {
+    background-color: #6c5ce7;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  img {
+    max-width: 300px;
+    margin-top: 10px;
+  }
+  
