@@ -1,6 +1,6 @@
 [[Python Package]]
 [[virtualenv]]
-[[OOP - Python]]
+[[Python - OOP]]
 [[Algorithm - Python]]
 
 # print()

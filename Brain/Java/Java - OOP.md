@@ -1,4 +1,4 @@
-[[OOP - Python]]
+[[Python - OOP]]
 # SOLID
 -  단일 책임 원칙 (Single Responsibility Principle, SRP)
 클래스는 단 하나의 책임을 가져야 하며, 
