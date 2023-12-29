@@ -4,8 +4,8 @@ import subprocess
 import discord
 from discord.ext import commands
 
-ID = "ID"
-TOKEN = "TOKEN"
+ID = "1187418985755590757"
+TOKEN = "MTE4NzQxODk4NTc1NTU5MDc1Nw.GKscCJ.TjFVzLMu4CR3wz_jBvsSHMqZNkPlfpN0EwD41I"
 
 FILTERED = [
     "config",
