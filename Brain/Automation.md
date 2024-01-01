@@ -1,2 +1,0 @@
-[[RPA]]
-[[WebAutomation]]

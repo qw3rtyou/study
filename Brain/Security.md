@@ -1,7 +1,0 @@
-[[Web-Hacking]]
-[[Reversing]]
-[[Pwnable]]
-[[Crypto]]
-[[Forensic]]
-[[Misc]]
-[[Security-Tool]]

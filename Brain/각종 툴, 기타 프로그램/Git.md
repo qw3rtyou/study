@@ -1,0 +1,119 @@
+# 주요 명령어
+```bash
+git init	레포지토리 생성
+git config user.name '이름'
+git config user.email '이메일'
+git status			git 현재 상태 출력
+git add	대상  	staging area에 올리기
+git reset 대상 	staging area에서 제거	working derectory에 남아있음
+git help add	매뉴얼확인1
+man git-add		매뉴얼확인2
+git push
+git pull
+git clone 프로젝트 github주소 	프로젝트를 토컬로 가져오기
+git log
+git log --pretty==oneline	전체적으로 커밋상황을  확인하기
+git show 		특정 커밋 확인
+git commit --amend 		최신 커밋 수정
+git config alias.history 'log --pretty=oneline' 	git history 설정
+git diff 이전커밋아이디 이후커밋아이디 		커밋간 차이 비교
+git reset --[hard,mixed,soft] 커밋아이디	특정 커밋으로 head,staging area,working derectory의 내용 변경
+git reset --hard HEAD^		바로 이전 커밋으로 변경
+git reset --hard HEAD~2		2번째로 이전인 커밋으로 변경
+git tag 태그이름 커밋아이디 		태그하고싶은 커밋에 태그달기
+git tag 		태그 조회
+git show 태그이름 			연결된 커밋 확인
+git branch 브랜치이름		브랜치 생성
+git checkout 브랜치이름			브랜치로 변경
+git branch 		모든 브랜치 조희
+git branch -d 브랜치이름			브랜치 삭제
+git checkout -b 브랜치이름		브랜치 생성후 이동
+git merge 대상브랜치 			현재 브랜치에 대상브랜치를 merge
+git merge --abort		merge 취소(이전상태로 돌아감)
+git remote rm origin		리모트 origin 제거
+git fetch 			git pull이랑 비슷하지만 바로 머지하지 않음
+git config --global core.editor vim		기본 커밋 텍스트에디터를 vim으로 전환
+git blame 대상파일			대상 파일을 언제 커밋했는지 확인함
+git show 커밋아이디			작성자가 누군지 확인함
+git revert 커밋아이디		remote에 올라간 커밋을 취소
+git revert 커밋아이디..커밋아이디 		여러 커밋을 취소
+git reset 이전커밋아이디		특점 커밋으로 초기화 이전커밋으로 돌아간다고 사라지는 건 아님
+git reflog			이제까지 head가 가리켰던 것들을 로그로 확인
+git config alias.visual 'log --pretty=oneline --all --graph' 		git visual 설정
+git rebase --continue		merge했다는 정보보다 깔끔한 상태가 중요하다면 사용
+git stash 				working directory에 있는 임시 작업내용을 저장
+git stash list			저장된 임시작업 내용(stack) 확인
+git stash apply			가장 최근 스택 적용(최근 임시 작업 내용 복구+다른 브랜치에 적용 가능)
+git stash apply 특정아이디		특정 스택 적용
+git stash drop			가장 최근 스택 삭제
+git stash drop 특정아이디		특정 스택 삭제
+git stash pop 			스택 적용 후 삭제
+git cherry-pick 특정아이디		원하는 작업이 있는 커밋의 내용만 가져옴
+```
+
+
+# git_init
+```bash
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+git remote add origin 레포지토리주소		리모트 레포지토리를 origin이라는
+이름으로 등록
+git push -u origin master(main)		로컬 레포지토리에있는 master 브랜치의 내용을 
+origin이라는 리모트 레포지토리로 추적+연결+전송	 tracking connection
+git config --global core.editor vim		기본 커밋 텍스트에디터를 vim으로 전환
+```
+
+# head란? / checkout과 reset의 차이점
+head는 브랜치를 가리키는 포인터
+git checkout 브랜치아이디 	head가 커밋을 직접적으로 가리킬 수도 있고
+브랜치를 직접 가리키게 만들수도 있음->head 자체가 움직임
+git reset 브랜치아이디 		head가 가리키던 브랜치를 다른 커밋으로
+커밋을 직접 가리키면 detached head
+
+# 3-way merge / fast-forward
+서로 다른 브랜치에서 merge하면 3-way merge 같으면 fast-forward
+
+# 이전 여러 커밋을 하나의 커밋으로 만들고 싶다면?
+하나로 만들고 싶은 시작과 끝으로 기준 git reset --mixed/soft로 working directory는 
+살리고 커밋 이동 그 후 커밋하면 이전꺼 다 날라감
+
+# pull push 할 때는 브랜치 단위로만 가능
+원래 브랜치 단위로 날라가는게 맞음
+굳이 하고 싶다면 git push --all하면 됨
+
+
+# git study repo 자동화 스크립트
+```bash
+mkdir study
+cd study
+git init
+git config --global user.email "chjw1346@gmail.com"
+git config --global user.name "foo1"
+git config --global core.editor vim
+git config alias.visual 'log --pretty=oneline --all --graph'
+git add .
+git remote add origin https://github.com/[레포지토리이름]
+git pull origin main --allow-unrelated-histories
+git push -u origin main
+```
+
+https://github.com/qwerty-tommy/study
+
+
+# troubleshooter
+
+- merge 중 충돌 해결하는 방법
+conflict 발생 시 발생부분 수정하고 add .->commit 해주면 됨
+
+- push가 안됨
+push가 안되면 일단 pull하고 충돌 해결
+
+- 신규 프로젝트 push, pull 불가(fatal: refusing to merge unrelated histories)
+커밋했는지 확인
+너무 생뚱맞아서 merge하기 싫다고 하는거임
+git pull origin main --allow-unrelated-histories
+
+- gitignore 작동을 안함
+git rm -r --cached .
+git add .
+git commit -m "fixed untracked files"
