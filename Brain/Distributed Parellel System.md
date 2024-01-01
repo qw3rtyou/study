@@ -104,7 +104,7 @@ Failure - 고장난 것을 숨기기
 
 #### Potential Bottleneck(병목현상)의 원인
 Centralized service - 하나의 머신만 사용
-Centralized data - db같은 자원이 하나의 머신에만 있음 -> 일관성문제 등 여러문제가 있어서 고민을 조금해야함
+Centralized data - db같은 자원이 하나의 머신에만 있음 -> 일관성문제 등 여러 문제가 있어서 고민을 조금해야함
 Centralized algorithms - 
 완전한 라우팅 테이블을 가지고 있을 때, 훨씬 더 빠르게 전달할 수 있음
 그런데 네트워크가 커지면 하나의 머신이 모든 라우팅 테이블을 가질 수가 없음 
@@ -389,7 +389,7 @@ Overlay Network 는 Logical Network 임
 즉, 기존 IP망이랑 다름
 logical node
 logical channel link
-![![/#^Table]]
+
 
 # P2P System의 분류
 Genuine service cost 는 둘 다 비슷함
@@ -403,7 +403,7 @@ searching cost가 Unstructured보다 적게 듬
 임의의 노드가 데이터를 가지고 있는 노드를 forwarding 함  
 node management cost가 있음
 
-![[Pasted image 20231016154432.png]]
+![[Pasted image 20231016154432.png|400]]
 
 위와 같은 원형 구조를 Chord라고 함
 0~15 는 address space

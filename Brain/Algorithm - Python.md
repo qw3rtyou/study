@@ -18,18 +18,24 @@ sys.stdin.readline()
 
 # 소수 최적화(에라토스테네스의 체 알고리즘)
 k 이전까지의 소수 모두 구하기
+```python
 sieve=[True]*(k+1)
+```
 
 ### 에라토스테네스의 체 알고리즘 적용
+```python
 for i in range(2, int(k**.5)+1):
     if sieve[i]:
         for j in range(i+i, k+1, i):
             sieve[j]=False
+```
 
 ### k 이상의 첫 번째 소수 반환
+```python
 for i in range(k, len(sieve)):
     if sieve[i]:
         return i
+```
 
 
 # map(),split()
@@ -50,14 +56,14 @@ a,b=map(int,input().split())
 	func는 일반함수 타입함수 람다함수 모두 사용가능
 
 
-# 재귀제한하기
+# 재귀 깊이 ㄴ제한하기
 
 ```python
 sys.setrecursionlimit(10**8)
 ```
 
 
-# 2차원배열생성
+# 2차원 배열 생성
 
 ```python
 b[["init" for _ in range(n)] for i in range(m)]
@@ -70,7 +76,7 @@ b=[["init"]*n]*m
 dict에서 사용하는 메소드 items()은 defaultdict에서도 사용가능하다.
 그냥 dict을 사용하여 접근하는 것과 dict.items()을 사용해 접근하는 것에는
 분명한 차이가 있다
-일반 dict로 key,value를 접근하고 싶다면 별도의 함수를 사용해야한다
+일반 dict로 key,value를 접근하고 싶다면 별도의 함수를 사용해야 한다
 
 ```python
 Dictionary1 = { 'A': 'Geeks', 'B': 4, 'C': 'Geeks' }
@@ -87,25 +93,27 @@ Dictionary1.items()
 
 
 # 파이썬 내장함수 시간복잡도
-Operation			Average Case	Amortized Worst Case
-Copy				O(n)			O(n)
-Append[1]			O(1)			O(1)
-Pop last			O(1)			O(1)
-Pop intermediate[2]	O(n)			O(n)
-Insert				O(n)			O(n)
-Get Item			O(1)			O(1)
-Set Item			O(1)			O(1)
-Delete Item			O(n)			O(n)
-Iteration			O(n)			O(n)
-Get Slice			O(k)			O(k)
-Del Slice			O(n)			O(n)
-Set Slice			O(k+n)			O(k+n)
-Extend[1]			O(k)			O(k)
-Sort				O(n log n)		O(n log n)
-Multiply			O(nk)			O(nk)
-x in s				O(n)	
-min(s), max(s)		O(n)	
-Get Length			O(1)			O(1)
+
+|Operation|Average Case|Amortized Worst Case|
+|---|---|---|
+|Copy|O(n)|O(n)|
+|Append[1]|O(1)|O(1)|
+|Pop last|O(1)|O(1)|
+|Pop intermediate[2]|O(n)|O(n)|
+|Insert|O(n)|O(n)|
+|Get Item|O(1)|O(1)|
+|Set Item|O(1)|O(1)|
+|Delete Item|O(n)|O(n)|
+|Iteration|O(n)|O(n)|
+|Get Slice|O(k)|O(k)|
+|Del Slice|O(n)|O(n)|
+|Set Slice|O(k+n)|O(k+n)|
+|Extend[1]|O(k)|O(k)|
+|Sort|O(n log n)|O(n log n)|
+|Multiply|O(nk)|O(nk)|
+|x in s|O(n)|-|
+|min(s), max(s)|O(n)|-|
+|Get Length|O(1)|O(1)|
 
 
 

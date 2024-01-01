@@ -92,7 +92,7 @@ git config --global user.name "foo1"
 git config --global core.editor vim
 git config alias.visual 'log --pretty=oneline --all --graph'
 git add .
-git remote add origin https://github.com/qwerty-tommy/[레포지토리이름]
+git remote add origin https://github.com/[레포지토리이름]
 git pull origin main --allow-unrelated-histories
 git push -u origin main
 ```

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <h3>도형 서식 폼 만들기</h3>
+    <hr />
+
+    <form>
+      <fieldset>
+        <legend>도형 서식 입력</legend>
+        선종류
+        <select name="china" size="3">
+          <option value="1">짜장면</option>
+          <option value="2" selected>짬뽕</option>
+          <option value="3">탕수육</option>
+        </select>
+        <br />
+        선두께
+        <input type="text" value="" />
+        선색
+        <input
+          type="color"
+          value="#00BFFF"
+          onchange="document.body.style.color=this.value"
+        />
+        <br />
+        투명도(0~100) :
+        <input type="range" min="0" max="100" list="transparancy" />
+        <datalist id="temperatures">
+          <option value="10" label="Low"></option>
+          <option value="50" label="Medium"></option>
+          <option value="100" label="High"></option>
+        </datalist>
+      </fieldset>
+    </form>
+  </body>
+</html>

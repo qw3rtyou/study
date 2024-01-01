@@ -1387,7 +1387,7 @@ n 명 중에 m명이 서명하면 인증
 - Scripts together
 `<Signature B> <Signature C> 2 <Public key A> <Public Key B> <Public Key C> 3 CHECKMULTISIG`
 
-![[Pasted image 20231102141946.png]]
+![[Pasted image 20231102141946.png|300]]
 
 - 장점
 standard script를 사용하면 n이 3명 까지만 재함됨
@@ -1422,21 +1422,24 @@ P2PKH에서 publickey 뿐만 아니라 스크립트에서도 인증하게 해주
 길게 적어야 했던 스크립트 속 키들을 해시 처리 함
 먼저 공개키가 같은지 확인 후 
 따로 관리하는 Redeem Script로 확인
-Unlocking Script에서 redeem script를 제
-![[Pasted image 20231102144623.png]]
+Unlocking Script에서 redeem script를 제공
+
+![[Pasted image 20231102144623.png|600]]
 
 기존의 publickey로 만든 address 대신 P2SH는 redeem script를 이용해 address를 이용해 만듬
 3으로 시작
-![[Pasted image 20231102150852.png]]
+![[Pasted image 20231102150852.png|600]]
 
 - 장점
-보내는 사람 입장에서 주소에 따라 다른 
 스크립트가 짧음
-locking sciprt가 
+스크립트가 아닌 주소만 있으면 됨
+스크립트를 주는 사람이 만듬
+스크립트 자체가 블록체인에 기록되진 않음
+받는 사람에게 비용을 대신 부가할 수 있
 
 - 주의점
 호환 문제
-recursive를 막음
+recursive를 막음 - edeem script 자체가 다른 P2SH 스크립트의 해시를 포함해서는 안 된다는 것
 스크립트가 오류가 있다면 그것을 고치기가 어려움(풀 수 없는 스크립트에 비트코인에 묶일 수 있음)
 
 
@@ -1455,21 +1458,22 @@ input, output이 없고, 수수료만 조금 있음
 
 ## Timelock
 바로 거래를 주는 게 아니라 일정 기간 후에 유효하게 만듬
-![[Pasted image 20231102152601.png]]
+![[Pasted image 20231102152601.png|400]]
 
 
 
 ## Transaction Locktime
+tx가 유효해지는 가장 빠른시간을 정의함
 절대적 시각으로 locktime으로 함
-일반적인 tx는 locktime이 0임
+일반적인 tx는 locktime이 0임 - 바로 전
 특정시간을 절대적 시각으로 설정할 수도 있지만
 블럭의 높이로도 절대적인 시각으로 설정할 수도 있음
 0 < nLocktime < 500 million : block height
 nLocktime >= 500 million : Unix Epoch timestamp (sec since Jan 1, 1970)
 
-![[Pasted image 20231102153135.png]]
+![[Pasted image 20231102153135.png|600]]
 
-![[Pasted image 20231102152812.png]]
+![[Pasted image 20231102152812.png|500]]
 
 - 문제점
 지금은 아직 블록체인에 올라간 상태가 아님
@@ -1506,7 +1510,7 @@ Use CHECKSEQUENCEVERIFY opcode (BIP-112)
 일반적으로 1로 채워서 사용
 맨 앞이 0이면 timelock이 걸리는 걸로 인지
 22번째는 어떤 방식으로 체크할 건지 
-input마다 시간설정가느
+input마다 시간설정가능
 tx는 모든 input이 지나야 유효
 double-spending문제가 있음
 
@@ -1516,9 +1520,13 @@ double-spending문제가 있음
 
 ## CSV
 CHECKSEQUENCEVERIFY
-nSequencef랑 같이 사용하여 상대적 timelock을 구현
+nSequence랑 같이 사용하여 상대적 timelock을 구현
 UTXO’s locking script에 추가
 CLTV와 유사한 동작
+
+```gpt
+단순히 `nSequence`만 사용하는 경우, 거래가 네트워크에 의해 언제 유효한지만을 정의할 수 있으며, 이는 거래의 스크립트 내에서 직접적인 조건으로 사용되지 않습니다. `CHECKSEQUENCEVERIFY`는 스크립트 수준에서 nSequence 조건을 강제하는 기능을 추가함으로써, 거래의 유효성을 더 세밀하게 제어할 수 있도록 합니다.
+```
 
 
 ## lightning network
@@ -1922,7 +1930,7 @@ Secure bitcoin system & enable consensus w/o central authority
 전파가 완료되어야 confirm - 블록에 기록됨
 confirm이 되어야 비트코인 네트워크에 있는 노드들이 합의된 것 - 사용가능
 
-비트코인 보상이 반감기를 가지는 이유는 반감기를 가지기 때문
+비트코인 보상이 반감기를 가지는 이유는 인플레이션 막기 위해
 
 
 ## Decentralized Consensus
@@ -1951,10 +1959,10 @@ Independent selection of the main chain
 ## Aggregating Txs into Blocks
 transaction pool - 검증된 tx
 candidate block - Mining node aggregates these txs 
-coinbase는 miner가 직접 만
+coinbase는 miner가 직접 만듬
 ![[Pasted image 20231123074510.png]]
 
-P2SH를 구현할 때 2가지 방식이 나왔었는데 그 때 투표를 위한 결정이 지금까지 남은게 `/P2SH/`라고 
+P2SH를 구현할 때 2가지 방식이 나왔었는데 그 때 투표를 위한 결정이 지금까지 남은게 `/P2SH/`라고 함
 ![[Pasted image 20231123075129.png]]
 
 
@@ -2127,7 +2135,7 @@ Hard fork is risky
 ## Soft Fork
 서로 호환이 됨
 실제로 Fork가 나오진 않음
-천천히 따라오게 만
+천천히 따라오게 만듦
 
 - Soft Fork
 Soft fork with redefining NOP opcodes
@@ -2274,6 +2282,95 @@ Consistency + Atomicity + Integrity
 - Payment channels
 라이트닝 네트워크?
 Quorum of control + Timelock + No double spend + Non-expiration + Neutrality + Authorization
+
+
+
+# Payment Channels and State Channels
+비트코인은 tps(초당 tx수)가  3~7 정도됨, 너무 낮음
+둘 사이의 거래를 위한 채널을 생성 초기 거래 상태와 끝난 후의 상태만을 블록체인에 작성
+Virtual channel like TCP stream
+성능 향상이 목적
+
+
+
+## State Channel
+- funding tx
+보증금 정리?
+
+- commitment tx
+실제 거래 내역이 담겨있음
+비트코인 네트워크에는 들어가 있지 않음
+최근 데이터가 이전 데이터를 무효화 하게 만들어야 함 - 추후 설명
+
+- settlement tx
+청산, 정산의 개념 내포
+최종적인 결과 state가 나옴
+블록에 기록 - 채널 종료
+
+![[Pasted image 20231207141753.png| 300]]
+
+중간에 연결이 끊어졌을때를 대비해 가장 최근 데이터를 비트코인에 올릴 수 있음
+단, 가장 더 최근 데이터가 있으면 덮어씌여짐 
+
+
+## Simple Payment Channel
+단방향 지불 용도 채널
+
+- Fabian
+서비스 제공자
+비디오 제공 시간 만큼 비트코인을 받음
+0.01 mBTC per sec = 36 mBTC per 1 hour
+- Emma
+서비스 이용자
+비트코인 제공자
+
+![[Pasted image 20231207142849.png|300]]
+
+### funding tx
+- tx가 많을 예정이므로 채널 생성
+- 1시간 분량의 36mBTC을 보증금의 형태로 미리 받음
+- 2-of-2 multisig address를 사용
+- 각각의 키가 있고, 새로운 주소가 생김, 두 명이 올바른 서명을 해야 만들 수 있음
+- 둘 다 합의해야 사용할 수 있음
+- 이 funding tx를 비트코인에 기록 - 채널 생성 완료
+
+### commit tx
+- 돈의 일부를 지불하고 남은 돈 돌려받는다는 tx를 만들고 서명
+- Fadian도 서명
+- 두번째에도 똑같이 
+
+
+### settlement tx
+- 사용한 만큼 지불하고 나머지 보증금을 환급하는 tx 생성성
+
+![[Pasted image 20231207143554.png|300]]
+
+
+
+### 악의적 사용자에 대한 대책
+
+- nLocktime 사용
+환불을 위한 refund tx를 만듬 - 1달 후 회수
+채널의 유효기간 refund tx의 nLocktime
+tx마다 시간 줄여서 나중 tx가 더 높은 우선순위를 가지게 만듬
+채널에서 사용할 수 잇는 블럭에 수가 많아야 4000개정도 밖에 안되서 제한이 많음
+![[Pasted image 20231207150800.png|500]]
+
+
+
+
+## Asymmetric Revocable Commitments
+철회 가능한 tx
+양방향 거래
+나쁜짓하면 손해보게 만드는 구조..?
+
+
+
+
+
+
+
+
 
 
 # GPT 질문
