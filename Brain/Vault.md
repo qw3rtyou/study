@@ -7,10 +7,3 @@ _sort:
   asc: false
   group: false
 ---
-[[Web-Hacking]]
-[[Reversing]]
-[[Pwnable]]
-[[Crypto]]
-[[Forensic]]
-[[Misc]]
-[[Security-Tool]]

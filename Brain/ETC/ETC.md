@@ -6,11 +6,5 @@ _sort:
   field: rank
   asc: false
   group: false
+sticker: lucide//trash
 ---
-[[Web-Hacking]]
-[[Reversing]]
-[[Pwnable]]
-[[Crypto]]
-[[Forensic]]
-[[Misc]]
-[[Security-Tool]]
