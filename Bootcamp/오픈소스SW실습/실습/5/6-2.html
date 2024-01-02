@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>2</title>
+  </head>
+  <body>
+    <script>
+      function pr(letter, num) {
+        if (num === 0) {
+          return;
+        }
+        document.write(letter);
+        pr(letter, num - 1);
+      }
+    </script>
+    <script>
+      pr("%", 5);
+    </script>
+  </body>
+</html>
