@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <h3>난수 10 개 생성</h3>
+    <hr />
+    <script>
+      function sort() {}
+
+      let plots = [61, 42, 37, 67, 12, 52, 48, 4, 63, 20];
+
+      plots.forEach((element) => {
+        document.write(element + " ");
+      });
+      document.write("<br>");
+      plots = plots.sort().reverse();
+      document.write("<hr>");
+      document.write("제일 큰 수는 " + plots[0]);
+      document.write("<hr>");
+      plots.forEach((element) => {
+        document.write(element + " ");
+      });
+    </script>
+  </body>
+</html>

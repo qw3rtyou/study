@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>문자열 배열 다루기</title>
+  </head>
+  <body>
+    <h3>문자열 배열 다루기</h3>
+    <hr />
+    <script>
+      let names = new Array("gildong", "sunsin", "sejong", "sujong");
+      document.write("이름 : ");
+
+      let length = names[0].length;
+      let long_name = names[0];
+      names.forEach((element) => {
+        if (element.length > length) {
+          length = element.length;
+          long_name = element;
+        }
+        document.write(element + " ");
+      });
+      document.write("<br>");
+      document.write("가장 긴 이름 : " + long_name);
+      document.write("<br>");
+      document.write("가장 먼저 나오는 이름 : " + names[0]);
+      document.write("<br>");
+
+      names.sort().forEach((element) => {
+        document.write(element + " ");
+      });
+    </script>
+  </body>
+</html>
