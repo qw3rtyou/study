@@ -1,3 +1,6 @@
+---
+sticker: lucide//grab
+---
 [[Java - OOP]]
 [[Swing]]
 
