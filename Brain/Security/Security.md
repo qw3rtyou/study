@@ -6,7 +6,7 @@ _sort:
   field: rank
   asc: false
   group: false
-sticker: lucide//alert-triangle
+sticker: lucide//shield-alert
 ---
 [[Web-Hacking]]
 [[Reversing]]

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>사과 홈페이지</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>사과!</h1>
+    <hr />
+
+    <h2>사과에 대하여</h2>
+    <p>
+      사과는 전 세계에서 널리 사랑받는 과일 중 하나입니다. 사과는 다양한
+      영양소를 함유하고 있어 건강에 좋습니다.
+    </p>
+    <img src="apple.jpg" alt="사과 이미지" />
+
+    <h2>사과의 건강 이점</h2>
+    <ul>
+      <li>높은 식이섬유 함량</li>
+      <li>다양한 비타민과 미네랄</li>
+      <li>항산화 물질 풍부</li>
+    </ul>
+
+    <h2>맛있는 사과 레시피</h2>
+    <form action="/submit_form" method="post">
+      <label for="email">이메일:</label><br />
+      <input type="email" id="email" name="email" required /><br />
+      <label for="message">당신의 좋아하는 사과 레시피를 공유해주세요:</label
+      ><br />
+      <textarea id="message" name="message" rows="4" cols="50"></textarea><br />
+      <input type="submit" value="제출" />
+    </form>
+
+    <p><a href="banana.html">바나나</a>에 대하여</p>
+  </body>
+</html>
