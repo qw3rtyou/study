@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>바나나 홈페이지</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>바나나!</h1>
+    <hr />
+
+    <h2>바나나에 대하여</h2>
+    <p>
+      바나나는 전 세계에서 가장 인기 있는 과일 중 하나입니다. 바나나는 건강에
+      보호적인 영향을 미칠 수 있는 필수 영양소를 함유하고 있습니다.
+    </p>
+    <img src="banana.jpg" alt="바나나 이미지" />
+
+    <h2>바나나의 건강 이점</h2>
+    <ul>
+      <li>높은 섬유질 함량</li>
+      <li>심장 건강</li>
+      <li>소화 촉진</li>
+    </ul>
+
+    <h2>맛있는 바나나 레시피</h2>
+    <form action="/submit_form" method="post">
+      <label for="email">이메일:</label><br />
+      <input type="email" id="email" name="email" required /><br />
+      <label for="message">당신의 좋아하는 바나나 레시피를 공유해주세요:</label
+      ><br />
+      <textarea id="message" name="message" rows="4" cols="50"></textarea><br />
+      <input type="submit" value="제출" />
+    </form>
+
+    <p><a href="apple.html">사과</a>에 대하여</p>
+  </body>
+</html>
