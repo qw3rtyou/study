@@ -1,3 +1,6 @@
+---
+sticker: lucide//file
+---
 # 객체
 중괄호 안에 property-name, property-value을 적어주면 됨
 ```js

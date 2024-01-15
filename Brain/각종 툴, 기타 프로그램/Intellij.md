@@ -1,18 +1,23 @@
 # Shortcut
-ctrl+p	파라미터 옵션,타입 확인
-ctrl+shift+enter	자동완성함
-ctrl+space	자동완성 추천 목록 보여줌
-alt+insert	자동 generate(getter, setter, 생성자 등등을 자동 생성)
-alt+enter	Quick Fix(리펙토링, 오류수정,코드수정 등등..)
-shift+f6	이미 사용된 변수나 함수의 이름을 다같이 변경할 수 있음
-ctrl+alt+v 	단순 변수로된 문장을 적당한 변수에 넣어줌
-ctrl+alt+shift+t 	리펙토링 관련 단축키
-ctrl+alt+m 	로직 함수로 분리
-ctrl+shift+t 	테스트 클래스 자동 생성
-shift+f10 		이전 실행조건으로 그대로 실행
-ctrl+shift+t 	선택한 클래스 태스트 패키지에 태스트 코드 생성
-
-soutv+tab	System.out.println("result = " + result);
+| 단축키 | 기능 |
+| ---- | ---- |
+| ctrl+p | 파라미터 옵션, 타입 확인 |
+| ctrl+shift+enter or ctrl+shift+l | 자동완성 기능 |
+| ctrl+space | 자동완성 추천 목록 보여줌 |
+| alt+insert | 자동 generate(getter, setter, 생성자 등등을 자동 생성) |
+| alt+enter | Quick Fix(리펙토링, 오류수정,코드수정 등등..) |
+| shift+f6 | 이미 사용된 변수나 함수의 이름을 다같이 변경할 수 있음 |
+| ctrl+alt+v | 단순 변수로된 문장을 적당한 변수에 넣어줌 |
+| ctrl+alt+shift+t | 리펙토링 관련 단축키 |
+| ctrl+alt+m | 로직 함수로 분리 |
+| ctrl+shift+t | 테스트 클래스 자동 생성 |
+| shift+f10 | 이전 실행조건으로 그대로 실행 |
+| ctrl+shift+t | 선택한 클래스 테스트 패키지에 테스트 코드 생성 |
+| sout+tab | System.out.println(); |
+| soutv+tab | System.out.println("result = " + result); |
+| ctrl+alt+o | 자동 import |
+| ctrl+alt+l | 자동 포멧 |
+|  |  |
 
 
 # Static Import
