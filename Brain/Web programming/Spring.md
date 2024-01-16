@@ -158,7 +158,182 @@
 ---
 # 의존 자동 주입
 - 스프링이 자동으로 의존하는 bean 객체를 주입해주는 기능
-- @Autowired 나 @Resource 사용
+- 결론적으로 주로 @Autowired 나 @Resource 사용
+
+### 방법
+1. context파일에 아래 두 줄 추가
+
+![[Pasted image 20240116122506.png|400]]
+
+
+2. `<context:annotation-config/>`
+3. 기존에 사용하던 `<constructor-arg>` 제거
+
+- `<context:annotation-config/>`에 의해서 `<constructor-arg ref="contactDao" />` 없이도 생성자에 ContactDao가 자동으로 주입 됨
+
+### 생성자가 여러 개인 경우
+- 동일한 생성자가 여러 개 있을 경우 기본적으로 default 생성자를 사용하게 됨
+- 이를 위해 ContactDao를 필요로 하는 곳에 @Autowired 애너테이션을 명시하면 됨
+![[Pasted image 20240116123024.png|400]]
+- @Autowired 애너테이션을 사용하면 객체가 생성될 때 데이터 타입을 검색해서 알맞은 객체를 주입함 
+- 즉, ContactRegisterService 객체가 생성될 때 필요한 ContactDao 객체를 데이터 타입으로 검색해서 알맞은 객체를 자동으로 주입함 
+
+- @Autowired를 메서드에 적용할 수도 있음
+- üsetter 메서드를 이용할 때도 기본적으로 객체가 생성되고 setter 메서드를 이용해서 의존 객체가 주입됨
+
+![[Pasted image 20240116123256.png|300]]
+
+
+# @Resource와 @Autowired의 차이점
+![[Pasted image 20240116123403.png|450]]
+
+
+### 다수의 빈 객체 중 의존 대상 객체 선택 방법
+- 동일한 타입의 의존 객체가 2개 이상인 경우에는 어떤 의존 객체를 자동 주입해야 하는지 판단할 수가 없기 때문
+
+- 해결방법 - `@Qualifier` 추가
+![[Pasted image 20240116123626.png|400]]
+
+
+# required 속성
+- 빈을 생성하지 않고 @Autowired를 사용한 경우 오류를 회피할 수 있음
+- @Aurowired에 required 속성을 false로 지정하면 의존 객체 자동 주입이 필수가 아닌 필요에 따라서만 주입됨
+- 의존 대상 객체를 못 찾아서 발생하는 에러를 피할 수 있음
+
+![[Pasted image 20240116123931.png|200]]
+
+
+---
+# XML 파일의 기능을 Java 파일로 변경하기
+### @Configuration
+- XML을 이용하지 않고 애너테이션을 이용한 스프링 설정 파일을 만들기 위해 사용하는 애너테이션
+
+![[Pasted image 20240116124218.png|400]]
+
+
+### @Bean
+- 빈 객체를 생성하기 위한 애너테이션
+
+![[Pasted image 20240116124439.png|250]]
+
+- 메서드 이름은 빈 객체의 id이고 반환되는 데이터 타입은 빈 객체의 타입명
+
+![[Pasted image 20240116124729.png|300]]
+
+- 객체가 생성되는 시점에 인자로 의존 객체 주입
+
+![[Pasted image 20240116125120.png|400]]
+
+- setter 메서드를 이용한 주입
+
+![[Pasted image 20240116125438.png|400]]
+
+![[Pasted image 20240116125549.png|400]]
+
+
+
+# 스프링 컨테이너 초기화
+- 설정파일이 기존 XML 파일(applicationContext.xml)에서 애너테이션을 이용한 Java 파일(MemberConfig.java)로 변경됨
+
+![[Pasted image 20240116130022.png]]
+
+
+- 스프링 설정 파일을 분리했다면, 컨테이너를 초기화하는 코드 수정하기
+
+![[Pasted image 20240116132019.png]]
+
+
+
+# 외부 스프링 설정파일 사용
+- `<import>` 태그를 이용한 외부 스프링 설정 파일 사용
+
+![[Pasted image 20240116132313.png]]
+
+- `@Import` - 스프링 설정 파일을 제작할 때 다른 Java 파일을 임포트하기 위한 애너테이션
+
+![[Pasted image 20240116132327.png]]
+
+![[Pasted image 20240116132356.png]]
+
+- 설정 클래스 파일 경로 수정
+![[Pasted image 20240116132412.png]]
+
+
+
+---
+# XML 설정파일들
+
+### pom.xml
+- 프로젝트 이름, 자바 버전, 스프링 버전, 스프링 mvc프레임워크와 관련 라이브러리, servlet 관련 라이브러리 등등
+- 빌드 설정
+
+
+### web.xml
+- 웹 서비스의 전반적인 설정을 함
+- DispatcherServlet 객체를 서블릿으로 등록해주는 코드도 web.xml에 있음
+- 스프링 설정 파일(servlet-context.xml)을 설정함
+![[Pasted image 20240116132830.png|400]]
+
+
+### servlet-context.xml
+- 스프링 설정의 역할을 담당함
+- 스프링 빈 객체를 생성하고 관리하는 과정을 살펴
+
+
+
+---
+# `<annotation-driven>`
+- @Controller 애너테이션이 명시된 클래스를 컨트롤러 객체로 이용할 수 있음
+
+
+---
+# DAO
+
+
+
+# Service
+
+
+# Controller
+- 클라이언트의 요청을 실제로 처리하는 객체
+- 컨트롤러 객체는 클라이언트의 요청을 받아서 사용자의 요청에 부합하는 메서드를 실행함
+- 해당 메서드는 Service와 DAO 등을 이용해서 사용자의 요청에 대한 작업을 진행함
+- 메서드의 작업이 완료되면 뷰 정보를 반환하고, 반환된 정보를 이용해서 JSP 파일이 실행됨
+
+![[Pasted image 20240116133921.png|450]]
+
+
+
+# View
+- jsp반환
+
+
+
+---
+# 주요 객체들 역할
+![[Pasted image 20240116133337.png]]
+
+
+---
+# 클라이언트 요청을 서버에서 처리하기
+
+
+### @RequestParam
+- 사용자가 입력한 정보를 컨트롤러에서 하나씩 받을 수 있음
+- 데이터 타입은 스프링이 자동으로 형 변환을 함
+![[Pasted image 20240116134807.png]]
+
+
+### VO 객체
+- Value Object
+- 스프링에서는 데이터 이름을 이용해서 클라이언트에서 전송된 데이터를 VO 객체의 멤버 필드에 자동으로 할당함
+- 멤버 필드에 해당하는 setter 메서드를 반드시 명시해야 함
+- 스프링은 MemberVo에서 사용자가 입력한 데이터의 이름과 동일한 멤버 필드를 찾고, 이에 해당하는 setter 메서드를 이용해서 멤버 필드에 데이터를 할당함
+- DTO와 VO는 엄밀히 말하자면 다른 개념이지 이를 구분하지 않고 사용하는 경우도 많음
+
+![[Pasted image 20240116134948.png|450]]
+
+
 
 
 
@@ -195,11 +370,22 @@
 ---
 # Model
 - Controller에서 View에 필요한 데이터 전달을 위해 Model 사용
+- 클래스컨트롤러는 Model을 이용해서 뷰에 데이터를 전달할 수 있음
+
+
+# ModelAndView 클래스
+- 이름에서도 알 수 있듯이 뷰와 데이터를 동시에 설정해서 전달
+- Model과 ModelAndView 둘 중에 어떤 것을 사용해도 상관없음
 
 
 ---
 # JDBC Programming
 - DB에 연결하는 각 jsp에서 각자 작업을 하게 되면, 코드가 중복되고, 수정/보수가 어려워짐
+
+
+# JdbcTemplate
+- JdbcTemplate을 이용하면 ‘SQL 쿼리 작성 및 실행’ 작업에 집중할 수 있는 장점이 있음
+- 스프링에서는 JdbcTemplate 클래스를 제공함
 
 
 # DAO Pattern
@@ -210,6 +396,10 @@
 ![[Pasted image 20240116065139.png]]
 
 
+___
+# 롬복
+- 자동으로 getter, setter 메소드를 만듬
+
 ---
 # 어노테이션 모음
 
@@ -217,7 +407,7 @@
 - autowired를 사용하지 않으면 스프링 입장에서 의존객체를 가져오는게 아닌 그냥 디폴트 생성자를 사용하게 됨
 - 이를 막기 위해 의도적으로 스프링이 의존객체를 찾아와서 주입하게 만드는 역할을 함
 - 즉, 자동 빈 주입
-- 어노테이션 사용하기 위해 <context:annotation-config/> 추가 해야함
+- 어노테이션 사용하기 위해 `<context:annotation-config/>` 추가 해야함
 
 
 ### `@Resource`
@@ -259,6 +449,14 @@
 
 ### `@RequestMapping, @GetMapping, PostMapping`
 - Controller에서 특정 요청 URL 매핑
+
+
+### `@Configuration
+- XML을 이용하지 않고 애너테이션을 이용한 스프링 설정 파일을 만들기 위해 사용하는 애너테이션
+
+
+### `@Bean`
+- 빈 객체를 생성하기 위한 애너테이션
 
 
 ---
