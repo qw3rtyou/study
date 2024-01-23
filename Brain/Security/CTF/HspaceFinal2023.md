@@ -232,6 +232,7 @@ t.start()
 
 ![[Pasted image 20231106135549.png]]
 
+---
 # bankwallet(judoking)
 ## 문제 코드
 ```c

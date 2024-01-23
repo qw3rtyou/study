@@ -271,6 +271,20 @@ tgz
 `lsblk` : 디스크 및 파티션 정보를 확인
 
 
+# 특정 포트 프로세스 종료
+```sh
+sudo netstat -tuln | grep 8000
+sudo lsof -i :8000
+sudo kill -9 <PID>
+```
+
+
+# 내 공인 IP 알아내기
+```sh
+curl ifconfig.me
+```
+
+
 # nc
 `nc hostname(ip) port`
 

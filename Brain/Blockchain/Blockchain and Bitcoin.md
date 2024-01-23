@@ -1,3 +1,7 @@
+---
+sticker: lucide//file
+_links: []
+---
 # About Bitcoin
 ## TMI
 08년 Satoshi Nakamoto
@@ -507,7 +511,7 @@ Coummutative ring
 덧셈과 곱셈에 대한 교환 법칙이 성립
 어떤 원소 a의 곱셈에 대한 역원을 가지려면, a와 p가 서로소 여야 함
 만약 p가 소수이면, 유한체 Zp 내에서 0이 아닌 모든 정수는 p와 서로소
-이때 GF(p)에서 곱셈에 대한 역원을 찾으려면 [[Extended Euclidean algorithm]]을 사용해야 함
+이때 GF(p)에서 곱셈에 대한 역원을 찾으려면 [[Euclidean Algorithm]]을 사용해야 함
 
 
 

@@ -1,3 +1,6 @@
+---
+sticker: lucide//codesandbox
+---
 # 비트 연산 중 조심할 것
 16*j와 j << 4 는 기본적으로 비슷한 연산이다.
 

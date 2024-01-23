@@ -38,16 +38,20 @@
 
 
 # 시간초과 ------------ Round2
+# kadane 알고리즘 적용
 
 n = int(input())
-series = list(map(int, input().split()))
+data = list(map(int, input().split()))
+max_subsum = data.copy()
+
 
 def seq_sum():
-    int sum=0
+    for i in range(1, n):
+        if data[i] < data[i] + max_subsum[i - 1]:
+            max_subsum[i] = max_subsum[i - 1] + data[i]
 
-    for i in range(n):
-        sum+=series[i]
-        
 
 if __name__ == "__main__":
-    print(seq_sum())
+    seq_sum()
+    # print(max_subsum)
+    print(max(max_subsum))

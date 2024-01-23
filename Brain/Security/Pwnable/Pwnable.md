@@ -1,3 +1,6 @@
+---
+sticker: lucide//codepen
+---
 # 공격 툴
 [[Package - Pwntools]]
 [[GDB계열]]
