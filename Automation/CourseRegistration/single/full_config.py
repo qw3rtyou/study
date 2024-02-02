@@ -21,8 +21,8 @@ subject_code_GE = ["AS287", "AS916"]
 subject_code_MAJ = ["85511", "0A551"]
 
 # Authenticate info - 사용자 세션 생성을 위해 입력(수강신청 사이트 계정정보)
-user_id = "202015015"
-user_pw = "hammer1346"
+user_id = "로그인 아이디 입력"
+user_pw = "로그인 패스워드 입력"
 
 # Course wishlist - 듣고 싶은 강의 리스트 입력
 wishlist = [
