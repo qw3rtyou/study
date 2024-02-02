@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <title>로그아웃</title>
+  <head>
+    <script language="javascript">
+      function logOut() {
+        try {
+          var arrPop = parent.coreData.arrPop;
+          for (i = 0; i < arrPop.length; i++) {
+            if (arrPop[i] && !arrPop[i].closed) {
+              arrPop[i].close();
+            }
+          }
+        } catch (err) {}
+
+        var url = location.protocol + "//sugang.kyonggi.ac.kr:80/";
+        if (window.opener) {
+          top.location.href = url;
+          window.close();
+        } else {
+          top.location.target = "_self";
+          top.location.href = url;
+        }
+      }
+    </script>
+  </head>
+  <body bgcolor="#ffffff" onLoad="logOut()">
+    <form name="form"></form>
+  </body>
+</html>
