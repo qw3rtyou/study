@@ -21,8 +21,10 @@ subject_code_GE = ["AS287", "AS916"]
 subject_code_MAJ = ["85511", "0A551"]
 
 # Authenticate info - 사용자 세션 생성을 위해 입력(수강신청 사이트 계정정보)
-user_id = "로그인 아이디 입력"
-user_pw = "로그인 패스워드 입력"
+with open("../data/login.env", "r") as file:
+    env_contents = file.read()
+    user_id = env_contents.split(",")[0] or "여기에 로그인 아이디 입력"
+    user_pw = env_contents.split(",")[1] or "여기에 로그인 패스워드 입력"
 
 # Course wishlist - 듣고 싶은 강의 리스트 입력
 wishlist = [
@@ -86,7 +88,7 @@ def get_json2df(url):
 
     # log_table(df, code)  # 전체 테이블
     log_table(selected_df, code)  # 간소화된 테이블
-    all_course_dataframes.append(selected_df)
+    all_course_dataframes.append(df)
 
 
 def log_table(df, keyword):
@@ -166,6 +168,23 @@ def register_course(session, course_code, course_name):
     return f"{course_name}({course_code}){response.text}"
 
 
+def delete_course(session, course_code, course_name):
+    course_code = str(course_code).zfill(4)
+
+    # 수강신청에 필요한 데이터 설정
+    data = {
+        "params": f"A1000@{course_code}",
+    }
+
+    # 수강신청 URL
+    url = "http://sugang.kyonggi.ac.kr/basket?attribute=basketMode&lang=ko&fake=1707167764289&mode=delete&fake=1707168129485"
+
+    # 수강신청 요청 보내기
+    response = session.post(url, data=data, headers=headers)
+    # 과목 이름과 과목 코드를 결과와 함께 출력
+    return f"{course_name}({course_code}){response.text}"
+
+
 if __name__ == "__main__":
     # Requests 설정
     domain = "http://sugang.kyonggi.ac.kr"
@@ -182,7 +201,8 @@ if __name__ == "__main__":
         print("2. 전체 과목 데이터 가져오기")
         print("3. 시간표 결정")
         print("4. 소망가방신청")
-        print("5. 수강신청")
+        print("5. 소망가방초기화")
+        print("6. 수강신청")
         print("0. 종료")
 
         select = int(input("입력 : "))
@@ -239,6 +259,9 @@ if __name__ == "__main__":
             while True:
                 for i, combo in enumerate(prioritized_combinations[cur : cur + 10]):
                     free_days = calculate_free_days(combo)
+                    if "월" in free_days:
+                        continue
+
                     print(
                         f"우선순위 조합 {i+cur+1} (공강 요일: {', '.join(free_days if free_days else ['없음'])}):"
                     )
@@ -306,6 +329,43 @@ if __name__ == "__main__":
             hr()
 
         elif select == 5:
+            # JSESSIONID 읽기
+            with open("JSESSIONID", "r") as file:
+                jsessionid = file.read().strip()
+
+            # 세션 설정 및 쿠키 업데이트
+            session = requests.Session()
+            cookies = {"JSESSIONID": jsessionid}
+            session.cookies.update(cookies)
+
+            # HTTP 요청 헤더 설정
+            headers = {
+                "Accept": "*/*",
+                "X-Requested-With": "XMLHttpRequest",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "Origin": "http://sugang.kyonggi.ac.kr",
+                "Referer": "http://sugang.kyonggi.ac.kr/core?attribute=coreMain_ko&fake=Tue%20Feb%2006%2006:15:53%20KST%202024",
+                "Accept-Encoding": "gzip, deflate",
+                "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+            }
+
+            # target_schedule.csv 파일 읽기
+            try:
+                schedule_df = pd.read_csv("target_data.csv")
+            except:
+                print("먼저 삭제할 시간표를 결정해주세요!")
+
+            # 각 과목에 대해 삭제 진행
+            for _, row in schedule_df.iterrows():
+                course_code = row["gwamok_no"]
+                course_name = row["gwamok_kname"]
+                response_text = delete_course(session, course_code, course_name)
+                print(f"{response_text}\n")
+
+            hr()
+
+        elif select == 6:
             print("제작중..")
             hr()
 
