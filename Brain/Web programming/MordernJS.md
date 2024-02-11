@@ -100,6 +100,26 @@ hoisting(선언하기도 전에 사용가능함), 중복선언가능, scope가 �
 
 
 
+### 클로저
+closure
+함수 내부에서 선언된 내부 함수가 외부 함수의 변수에 접근할 수 있도록 하는 기능
+데이터 은닉, 메모리 효율성, 동적 함수 생성 등 다양한 고급 기법을 구현하는데 사용
+
+```javascript
+function createCounter() {
+    let count = 0;
+    return function() {
+        return ++count;
+    };
+}
+
+let counter = createCounter();
+```
+`counter` 변수에 `createCounter` 함수를 호출한 결과를 할당하면, `counter` 변수는 `count` 변수에 접근할 수 있는 함수를 참조하게 됨
+이렇게 하면 `counter` 함수를 호출할 때마다 `count` 변수의 값이 증가하지만, `count` 변수 자체는 외부에서 직접 접근할 수 없게 됨
+
+
+
 # 함수 다루기
 ### 함수를 만드는 방법
 함수 선언이 있고, 변수에 할당하는 방법(함수 표현식)이 있다.

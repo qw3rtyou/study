@@ -16,6 +16,12 @@ ssh ubuntu@13.230.131.70 -i C:\Users\hamme.ssh\knockOn_main_server.pem
 
 #sandbox account 
 ssh sandbox@13.230.131.70 pw : knockOn!!
+
+ssh ubuntu@ssh.knock-on.org
+rladusdnrk tkqwlfgkf ghltk!
+
+ssh jeongwon@ssh.knock-on.org
+(괜찮나요)
 ```
 
 

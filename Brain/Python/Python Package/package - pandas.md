@@ -784,3 +784,14 @@ freq       55
 Name: brand, dtype: object
 ```
 
+
+
+
+# Tip
+- 사용하다보면 생략된 데이터까지 한눈에 보고 싶은 경우가 생
+```python
+pd.set_option("display.max_rows", None)  # 모든 행 표시
+pd.set_option("display.max_columns", None)  # 모든 열 표시
+pd.set_option("display.width", None)  # 셀 너비 제한 없애기
+pd.set_option("display.max_colwidth", None)  # 열 내용 전체 표시
+```
