@@ -1,3 +1,40 @@
+# Call Stack
+- 함수 호출 순서대로 쌓임
+- 리턴하면 빠짐
+
+![[Pasted image 20240319102153.png|200]]
+![[Pasted image 20240319102134.png|200]]
+
+![[Pasted image 20240319102233.png|500]]
+
+
+# 이벤트 루프(Event Loop)
+- 이벤트 발생(click, timeout, ...) 시 호출할 콜백 함수 관리
+![[Pasted image 20240319102302.png|500]]
+
+![[Pasted image 20240319102333.png|400]]
+
+
+
+# 템플릿 문자열
+- `${변수} ` ← 사용하여 문자열에 변수 넣음
+- 이전에는 + 연산으로 문자열 생성
+```js
+const a = 1;
+const b = 2;
+const s = a + " + " + b + " = " + (a + b);
+console.log(s);
+```
+
+```js
+const a = 1;
+const b = 2;
+const s = `${a} + ${b} = ${a + b}`;
+console.log(s);
+```
+
+
+
 # 모던JS 동작 원리
 ES2016 이후의 JS문법
 
@@ -91,10 +128,13 @@ console.log(example1, example2, example3); // I love Python
 
 
 ### 변수와 스코프
-변수 선언 키워드가 var에서 let,const 로 바뀜
+- 변수 선언 키워드가 var에서 let,const 로 바뀜
 
-var의 문제는 3가지 정도가 있는데,
-hoisting(선언하기도 전에 사용가능함), 중복선언가능, scope가 대표적이다.
+- var의 문제는 3가지
+	- hoisting(선언하기도 전에 사용가능함)
+	- 중복선언가능
+	- scope(함수 스코프)
+
 참고로 let은 scope를 코드블럭({})으로 구분하기 때문에
 지역변수를 만들기 편하다.
 
@@ -348,7 +388,9 @@ const getTwice = (number) => {
 
 함수 실제 구현부가 return 만 있을 때, 중괄호를 생략하고, return을 없앨 수 있고,
 
-`const getTwice = (number) => number * 2;`
+```js
+const getTwice = (number) => number * 2;
+```
 
 파라미터가 하나인 경우에 파라미터를 감싸는 소괄호를 생략할 수 있다.
 
@@ -731,4 +773,144 @@ try {
 
 
 
-# 자바스크립트의 유용한 내부 기능
+# 프로미스 (Promise)
+
+### Promise
+- 비동기 연산이 종료된 이후에 결과 값과 실패 사유를 처리하기 위한 처리기를 연결
+
+- 프로미스 상태
+	- 대기 (pending) : 이행하지도, 거부하지도 않은 초기 상태
+	- 이행 (fulfilled) : 연산이 성공적으로 완료됨
+	- 거부 (rejected) : 연산이 실패함
+
+![[Pasted image 20240319133520.png|600]]
+
+
+```js
+let condition = true;
+new Promise((resolve, reject) => {
+    if (condition) {
+        resolve('성공');
+    }
+    else {
+        reject('실패');
+    }
+})
+    .then((message) => {
+        console.log('성공 시 호출');
+    })
+    .catch((error) => {
+        console.log('실패 시 호출');
+    })
+    .finally(() => {
+        console.log('무조건 호출');
+    });
+```
+
+### Promise Chaining
+- 비동기 작업을 순차적으로 처리
+- then는 프로미스 반환
+
+```js
+new Promise((resolve, reject) => {
+    resolve(1);
+})
+    .then((result) => {
+        console.log(result);
+        return result * 2;
+    })
+    .then((result) => {
+        console.log(result);
+        return result * 2;
+    })
+    .then((result) => {
+        console.log(result);
+        return result * 2;
+    });
+```
+
+
+### 정적 메소드
+- Promise.resolve(성공결과값) : 바로 resolve하는 프로미스
+- Promise.reject(실패결과값) : 바로 reject하는 프로미스
+- Promise.all(프로미스배열) : 여러 개의 프로미스를 동시에 실행
+	- 하나라도 실패하면 catch로 감
+	- allSettled로 성공/실패 추려낼 수 있음
+
+```js
+const p1 = Promise.resolve('성공1');
+const p2 = Promise.resolve('성공2');
+const p3 = Promise.resolve('성공3');
+Promise.all([p1, p2, p3])
+    .then((result) => {
+        console.log(result);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+//[ '성공1', '성공2', '성공3' ]
+```
+
+```js
+const p1 = Promise.resolve('성공1');
+const p2 = Promise.reject('실패2');
+const p3 = Promise.resolve('성공3');
+Promise.allSettled([p1, p2, p3])
+    .then((result) => {
+        for (r of result) {
+            console.log(r);
+        }
+        // console.log(result);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+/*
+{ status: 'fulfilled', value: '성공1' }
+{ status: 'rejected', reason: '실패2' }
+{ status: 'fulfilled', value: '성공3' }
+*/
+```
+
+
+### async/await
+- Promise를 간단하게 동작하게 함
+- async
+	- 비동기 함수를 정의
+	- 암시적으로 Promise를 이용하여 결과 반환
+
+```js
+// 두 함수는 같은 역할
+async function foo() { return 1; }
+function foo() { return Promise.resolve(1); }
+```
+
+- await
+	- async 함수를 일시 중지시키고 전달 된 Promise의 해결을 기다린 후 async 함수 계속 실행
+	- async 함수 내부에서만 사용 가능
+
+```js
+// 두 함수는 같은 역할
+async function foo() { await 1; }
+function foo() { return Promise.resolve(1).then(() => undefined); }
+```
+
+- 오류처리는 try ... catch 사용
+```js
+function f() {
+    return new Promise((resolve, reject) => {
+        reject("Error!");
+    });
+}
+async function af1() {
+    try {
+        const r = await f();
+        console.log(r);
+    }
+    catch (error) {
+        console.error(error);
+    }
+    return 2;
+}
+af1();
+```

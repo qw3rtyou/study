@@ -1,5 +1,5 @@
 ---
-sticker: lucide//file
+sticker: emoji//1fa99
 _links: []
 ---
 # About Bitcoin

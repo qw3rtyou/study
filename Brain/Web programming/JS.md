@@ -18,6 +18,38 @@ property-name은 문자열이더라도, 따음표를 생략할 수 있음
 다만 띄어쓰기가 있다면 생략하면 안됨
 
 
+### 생략가능 부분(ES6 이후)
+- 함수 표현식의 :function 생략 가능
+- 키와 값이 같은 경우 키 만으로 축약 가능
+
+```js
+const sayNode = function() {
+	console.log('Node');
+}
+const obj = {
+	sayJS: function() {
+		console.log('JS');
+	},
+	sayNode: sayNode
+}
+obj.sayNode();
+obj.sayJS();
+```
+
+```js
+const sayNode = function() {
+	console.log('Node');
+}
+const obj = {
+	sayJS() {
+		console.log('JS');
+	},
+	sayNode
+}
+obj.sayNode();
+obj.sayJS();
+```
+
 ### property 접근
 점 표기법
 무난하게 property에 접근할 때 사용하는 방법
