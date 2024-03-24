@@ -1,3 +1,6 @@
+---
+sticker: lucide//text-selection
+---
 
 # 사용법
 

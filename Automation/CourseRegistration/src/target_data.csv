@@ -1,8 +1,8 @@
-﻿sigan,gwamok_kname,prof_name,gwamok_no,haknyun
-월 6 7 8,정보보호개론,김희열,1248,3
-화 6 7 8,운영체제,이병대,1244,3
-목 6 7 8,소프트웨어공학,조민택,1242,3
-금 6 7 8,컴퓨터공학기초캡스톤디자인,나관상,1238,3
-목 1 2 3,특허와기술개발,박찬정,479, 
-금 1 2 3,공학윤리,&nbsp;,483, 
-화 1 2 3,웹프로그래밍,정경용,1223,2
+﻿haksu_cd,sigan,gwamok_kname,hakjum,prof_name,params,over_flag,isu_name,abeek,gwamok_no,haknyun,rowid,gyoyuk_gwajung_gb,jojik_gb
+DD808,월 6 7 8,정보보호개론,3,김희열,01@1248@00000,<span style=color:red>초과</span>,전선,Y,1248,3,18,1,A1000
+DD724,목 1 2 3,운영체제,3,이병대,01@1243@00000,<span style=color:red>초과</span>,전선,Y,1243,3,15,1,A1000
+DD316,수 6 7 8,소프트웨어공학,3,권기현,01@1241@00000,<span style=color:red>초과</span>,전선,Y,1241,3,14,1,A1000
+DD845,금 6 7 8,컴퓨터공학기초캡스톤디자인,3,나관상,01@1238@00000,<span style=color:red>초과</span>,전필,Y,1238,3,11,1,A1000
+AS287,목 6 7 8,특허와기술개발,3,박찬정,01@0480@00000,<span style=color:red>초과</span>,과학,Y,480, ,5,1,A1000
+AS916,금 1 2 3,공학윤리,3,&nbsp;,01@0483@00000,<span style=color:red>초과</span>,과학,Y,483, ,3,1,A1000
+DD725,수 1 2 3,웹프로그래밍,3,정경용,01@1221@00000,<span style=color:red>초과</span>,학선,,1221,2,11,1,A1000

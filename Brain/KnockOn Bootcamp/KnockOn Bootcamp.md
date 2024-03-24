@@ -11,17 +11,25 @@ sticker: emoji//1f955
 
 # 접속 정보
 ```sh
+김연우가 삽질할 회사!
 #admin account 
 ssh ubuntu@13.230.131.70 -i C:\Users\hamme.ssh\knockOn_main_server.pem
 
 #sandbox account 
-ssh sandbox@13.230.131.70 pw : knockOn!!
+ssh sandbox@ssh.knock-on.org pw : knockOn!!
 
 ssh ubuntu@ssh.knock-on.org
 rladusdnrk tkqwlfgkf ghltk!
 
 ssh jeongwon@ssh.knock-on.org
-(괜찮나요)
+(ham13)
+
+녹온 워드프레스
+user HpSt3!GH+73r
+
+실습 서버 도메인
+http://ssh.knock-on.org:10000/
+
 ```
 
 
