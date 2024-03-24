@@ -1,5 +1,6 @@
 ---
 sticker: emoji//1f310
+_links: []
 ---
 ```
 1. Injection

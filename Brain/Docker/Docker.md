@@ -26,7 +26,16 @@ Dockerfile -> 이미지
 `docker images`
 
 ### 이미지 삭제
+- 기본 형태
 `docker rmi [옵션] [이미지명|ID]`
+`-f` 옵션으로 강제로 삭제할 수 있음(사용 중이면 삭제 안됨)
+
+- 이름이 `<none>`인 경우 이를 dangling 이미지라고 하고, 이를 삭제하기 위한 명령어
+`docker image prune
+
+- 특정 `<none>`이미지 삭제
+`docker rmi <이미지 ID>`
+
  
 ### 이미지 다운
 레지스트리(Docker Hub)에 존재하는 도커 이미지를 다운
@@ -52,6 +61,7 @@ Dockerfile -> 이미지
 `-it` 옵션으로 컨테이너에서 bash 셸을 사용할 수 있음
 `-i (--interactive)`는 표준 입력을 활성화하여 사용자가 명령어를 입력할 수 있도록 하고, 
 `-t (--tty)`는 가상 터미널(tty)을 사용할 수 있도록 함
+`-d` 백그라운드 실행
 
 `docker run -it [이미지명|ID] [명령어]`
 `docker run -it my-image:1 /bin/bash`

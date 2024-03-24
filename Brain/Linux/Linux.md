@@ -329,6 +329,20 @@ SCSI 디스크는 하드 디스크 또는 SSD와 같은 데이터 저장 장치
 `/dev/sda3`는 `/dev/sda` 디스크의 세 번째 파티션
 
 
+# 머신이름 변경
+```sh
+sudo hostnamectl set-hostname [name]
+```
+
+
+
+# 특정 유저 권한 공유
+- 정확히 말하면 홈디렉토리 공유 방법임
+```sh
+sudo setfacl -m u:jeongwon:rwx /home/test2
+```
+
+
 
 # 설치 스크립트 모음
 한글 폰트
