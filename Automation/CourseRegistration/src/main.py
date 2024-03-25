@@ -22,9 +22,9 @@ subject_code_MAJ = ["85511", "0A551"]
 
 # Authenticate info - 사용자 세션 생성을 위해 입력(수강신청 사이트 계정정보)
 with open("../data/login.env", "r") as file:
-    env_contents = file.read()
-    user_id = env_contents.split(",")[0] or "여기에 로그인 아이디 입력"
-    user_pw = env_contents.split(",")[1] or "여기에 로그인 패스워드 입력"
+    env_contents = file.read().split(",")
+    user_id = env_contents[0] or "여기에 로그인 아이디 입력"
+    user_pw = env_contents[1] or "여기에 로그인 패스워드 입력"
 
 # Course wishlist - 듣고 싶은 강의 리스트 입력
 wishlist = [
@@ -150,17 +150,23 @@ def save_to_csv(combo, filename):
     combo_df.to_csv(filename, index=False, encoding="utf-8-sig")
 
 
-def register_course(session, course_code, course_name):
+def register_course(session, course_code, course_name, mode):
     course_code = str(course_code).zfill(4)
 
     # 수강신청에 필요한 데이터 설정
-    data = {
-        "params": f"01@{course_code}@00000@1",
-        "retake_yn": "N",
-    }
+    if mode == "sugangMode":
+        data = {
+            "params": f"01@{course_code}@00000",
+            "retake_yn": "N",
+        }
+    else:
+        data = {
+            "params": f"01@{course_code}@00000@1",
+            "retake_yn": "N",
+        }
 
     # 수강신청 URL
-    url = "http://sugang.kyonggi.ac.kr/basket?attribute=basketMode&lang=ko&fake=1706825973529&mode=insert&fake=1706825993117"
+    url = f"http://sugang.kyonggi.ac.kr/{mode}?attribute={mode}Mode&lang=ko&fake=1706825973529&mode=insert&fake=1706825993117"
 
     # 수강신청 요청 보내기
     response = session.post(url, data=data, headers=headers)
@@ -259,8 +265,6 @@ if __name__ == "__main__":
             while True:
                 for i, combo in enumerate(prioritized_combinations[cur : cur + 10]):
                     free_days = calculate_free_days(combo)
-                    if "월" in free_days:
-                        continue
 
                     print(
                         f"우선순위 조합 {i+cur+1} (공강 요일: {', '.join(free_days if free_days else ['없음'])}):"
@@ -315,15 +319,20 @@ if __name__ == "__main__":
 
             # target_schedule.csv 파일 읽기
             try:
-                schedule_df = pd.read_csv("target_data.csv")
+                schedule_df = pd.read_csv("custom_data.csv")
             except:
-                print("먼저 수강신청할 시간표를 결정해주세요!")
+                try:
+                    schedule_df = pd.read_csv("target_data.csv")
+                except:
+                    print("먼저 수강신청할 시간표를 결정해주세요!")
 
             # 각 과목에 대해 수강신청 진행
             for _, row in schedule_df.iterrows():
                 course_code = row["gwamok_no"]
                 course_name = row["gwamok_kname"]
-                response_text = register_course(session, course_code, course_name)
+                response_text = register_course(
+                    session, course_code, course_name, "basket"
+                )
                 print(f"{response_text}\n")
 
             hr()
@@ -352,9 +361,12 @@ if __name__ == "__main__":
 
             # target_schedule.csv 파일 읽기
             try:
-                schedule_df = pd.read_csv("target_data.csv")
+                schedule_df = pd.read_csv("custom_data.csv")
             except:
-                print("먼저 삭제할 시간표를 결정해주세요!")
+                try:
+                    schedule_df = pd.read_csv("target_data.csv")
+                except:
+                    print("먼저 수강신청할 시간표를 결정해주세요!")
 
             # 각 과목에 대해 삭제 진행
             for _, row in schedule_df.iterrows():
@@ -366,7 +378,45 @@ if __name__ == "__main__":
             hr()
 
         elif select == 6:
-            print("제작중..")
+            # JSESSIONID 읽기
+            with open("JSESSIONID", "r") as file:
+                jsessionid = file.read().strip()
+
+            # 세션 설정 및 쿠키 업데이트
+            session = requests.Session()
+            cookies = {"JSESSIONID": jsessionid}
+            session.cookies.update(cookies)
+
+            # HTTP 요청 헤더 설정
+            headers = {
+                "Accept": "*/*",
+                "X-Requested-With": "XMLHttpRequest",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "Origin": "http://sugang.kyonggi.ac.kr",
+                "Referer": "http://sugang.kyonggi.ac.kr/core?attribute=coreMain_ko&fake=Wed%20Feb%2014%2010:26:25%20KST%202024",
+                "Accept-Encoding": "gzip, deflate",
+                "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+            }
+
+            # 수강신청 대상 csv 파일 읽기
+            try:
+                schedule_df = pd.read_csv("custom_data.csv")
+            except:
+                try:
+                    schedule_df = pd.read_csv("target_data.csv")
+                except:
+                    print("먼저 수강신청할 시간표를 결정해주세요!")
+
+            # 각 과목에 대해 수강신청 진행
+            for _, row in schedule_df.iterrows():
+                course_code = row["gwamok_no"]
+                course_name = row["gwamok_kname"]
+                response_text = register_course(
+                    session, course_code, course_name, "sugang"
+                )
+                print(f"{response_text}\n")
+
             hr()
 
         elif select == 0:

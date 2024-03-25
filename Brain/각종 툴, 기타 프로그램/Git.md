@@ -1,3 +1,6 @@
+---
+sticker: lucide//folder-git-2
+---
 # 주요 명령어
 ```bash
 git init	레포지토리 생성

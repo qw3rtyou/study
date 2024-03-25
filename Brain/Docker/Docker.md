@@ -46,7 +46,7 @@ Dockerfile -> 이미지
 ### 이미지 분석
 `docker history [IMAGE_ID]`
 
-이 이상으로 분석하려면 [[dive]]을 이용하는 게 좋다.
+이 이상으로 분석하려면 [[dive]]을 이용하는 게 좋
 
 
 ### 컨테이너 생성 및 실행	
@@ -97,6 +97,13 @@ root로 실행
 ### 컨테이너 및 이미지 정보 출력
 `docker inspect [옵션] [이미지 혹은 컨테이너명|ID]`
 
+
+### 리소스 정리
+- 캐시, 디스크 등등 안쓰는 리소스 정리
+`docker system prune -a -f` 
+
+- 안쓰는 이미지 정
+`docker rmi $(docker images -q) -f`
 
 # Dockerfile
 도커 이미지를 빌드하기 위해서는 Dockerfile이 필요
@@ -201,8 +208,18 @@ CMD ["app.py"]
 
 
 # 팁
-컨테이너 내부에서 `exit` 명령어 사용 시 컨테이너 종료
+- 컨테이너 내부에서 `exit` 명령어 사용 시 컨테이너 종료
 
+- docker 내부 파일 수정
+```sh
+#!/bin/sh
+docker run -t -i --rm=true sandbox sh -c "echo 'readme test' > /home/guest/README && /bin/bash"
+```
+
+- 어플리케이션 로깅 확인(docker-compose)
+```
+docker-compose logs app
+```
 
 # 실제 사용 스크립트
 
@@ -213,6 +230,8 @@ docker run -d -t --privileged --name=$CONTAINER_NAME $IMAGE_NAME;
 docker exec -it -u root $CONTAINER_NAME bash
 ```
 
+```
 docker build . -t fho;
 docker run -d -t --privileged --name=fho fho;
 docker exec -it -u root fho bash
+```
