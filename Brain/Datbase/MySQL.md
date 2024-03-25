@@ -1104,3 +1104,17 @@ DBMS 상에서 실제로 특정 컬럼을 Foreign Key로 설정해서 두 테이
 
 
 # information_schema / mysql / performance_schema / sys
+
+
+
+# MySQL 실시간 로그 확인
+- linux
+- [참고](https://ruungji.tistory.com/entry/Linux-MySQL-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EC%BF%BC%EB%A6%AC-%EB%A1%9C%EA%B7%B8-%EB%B3%B4%EA%B8%B0)
+```
+SET GLOBAL general_log = 'ON';
+SET GLOBAL general_log_file='/var/lib/mysql/localhost.log';
+```
+
+```sh
+tail -f /var/lib/mysql/localhost.log
+```
