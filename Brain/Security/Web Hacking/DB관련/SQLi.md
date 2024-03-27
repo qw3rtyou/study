@@ -2200,6 +2200,12 @@ selector 안에서 operator를 사용할 수 있는데, 연산자가 이에 포�
 
 
 
+# idb파일
+- 간혹 문제를 풀다보면 파일에 있는 데이터를 읽을 수 있는 경우가 생기는데 이를 이용해 db파일을 탈취할 수 있음
+- 그 파일을 .ibd파일이라고 
+- .ibd파일은`/var/lib/mysql/{database_name}/{c}.idb` 이런 경로로 존재
+
+
 
 
 # Tip

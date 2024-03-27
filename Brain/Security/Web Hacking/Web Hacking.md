@@ -39,3 +39,17 @@ _links: []
     4. serialize / deserialize
 7. Open redirect
 ```
+
+[[Command-Injection]]
+[[CSRF]]
+[[LogPoisoning]]
+[[PathTraversal]]
+[[RCE]]
+[[RFI]]
+[[LFI]]
+[[RPO(RPC)]]
+[[SQLi]]
+[[SSTI]]
+[[XSS]]
+[[Session Manipulation]]
+[[DOM Clobbering]]
