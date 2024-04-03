@@ -30,6 +30,10 @@ user HpSt3!GH+73r
 실습 서버 도메인
 http://ssh.knock-on.org:10000/
 
+
+scp -r C:\Users\User\Downloads/"Switching Command" jeongwon@ssh.knock-on.org:~/kknock_weekly/week1
+
+
 ```
 
 

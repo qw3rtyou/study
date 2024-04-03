@@ -1,7 +1,7 @@
 ---
 sticker: lucide//folder-git-2
 ---
-# 주요 명령어
+==# 주요 명령어
 ```bash
 git init	레포지토리 생성
 git config user.name '이름'
@@ -30,7 +30,7 @@ git branch 브랜치이름		브랜치 생성
 git checkout 브랜치이름			브랜치로 변경
 git branch 		모든 브랜치 조희
 git branch -d 브랜치이름			브랜치 삭제
-git checkout -b 브랜치이름		브랜치 생성후 이동
+git checkout -m 브랜치이름		브랜치 생성후 이동
 git merge 대상브랜치 			현재 브랜치에 대상브랜치를 merge
 git merge --abort		merge 취소(이전상태로 돌아감)
 git remote rm origin		리모트 origin 제거
