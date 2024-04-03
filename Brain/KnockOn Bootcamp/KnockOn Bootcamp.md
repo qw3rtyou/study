@@ -24,17 +24,40 @@ rladusdnrk tkqwlfgkf ghltk!
 ssh jeongwon@ssh.knock-on.org
 (ham13)
 
-녹온 워드프레스
+녹온 홈페이지 워드프레스
 user HpSt3!GH+73r
 
 실습 서버 도메인
 http://ssh.knock-on.org:10000/
 
-
 scp -r C:\Users\User\Downloads/"Switching Command" jeongwon@ssh.knock-on.org:~/kknock_weekly/week1
 
+=======
+서버 접속 방법(#)
+.pem 파일 .ssh파일로 옮긴 후  
+
+cmd
+ssh ubuntu@ssh.knock-on.org -i "C:\Users\hamme\.ssh\knockon.pem"
+
+.pem 파일 ~로 옮긴 후
+wsl
+ssh ubuntu@ssh.knock-on.org -i ~/knockon.pem
+
+서버 접속 방법(~)
+wsl
+ssh ubuntu@ssh.knock-on.org -i ~/.ssh/
+
+scp -i ~/knockon.pem ubuntu@ssh.knock-on.org:/home/foo1/.ssh/id_rsa ~/.ssh/
 
 ```
+
+- 도커 관련
+```
+sudo usermod -aG docker username
+groups username
+
+```
+
 
 
 
