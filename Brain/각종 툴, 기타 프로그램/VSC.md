@@ -1,3 +1,6 @@
+---
+sticker: lucide//pen-tool
+---
 
 # Extenction
 [[MARP]]

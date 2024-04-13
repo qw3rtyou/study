@@ -1,6 +1,10 @@
 ---
 sticker: lucide//folder-git-2
 ---
+# Git
+- 분산 버전 관리 소프프트웨어
+
+---
 # 주요 명령어
 ```bash
 git init	레포지토리 생성
@@ -54,7 +58,7 @@ git stash pop 			스택 적용 후 삭제
 git cherry-pick 특정아이디		원하는 작업이 있는 커밋의 내용만 가져옴
 ```
 
-
+---
 # git_init
 ```bash
 git config --global user.email "you@example.com"
@@ -66,6 +70,7 @@ origin이라는 리모트 레포지토리로 추적+연결+전송	 tracking conn
 git config --global core.editor vim		기본 커밋 텍스트에디터를 vim으로 전환
 ```
 
+---
 # head란? / checkout과 reset의 차이점
 head는 브랜치를 가리키는 포인터
 git checkout 브랜치아이디 	head가 커밋을 직접적으로 가리킬 수도 있고
@@ -73,18 +78,22 @@ git checkout 브랜치아이디 	head가 커밋을 직접적으로 가리킬 수
 git reset 브랜치아이디 		head가 가리키던 브랜치를 다른 커밋으로
 커밋을 직접 가리키면 detached head
 
+---
 # 3-way merge / fast-forward
 서로 다른 브랜치에서 merge하면 3-way merge 같으면 fast-forward
 
+---
 # 이전 여러 커밋을 하나의 커밋으로 만들고 싶다면?
 하나로 만들고 싶은 시작과 끝으로 기준 git reset --mixed/soft로 working directory는 
 살리고 커밋 이동 그 후 커밋하면 이전꺼 다 날라감
 
+---
 # pull push 할 때는 브랜치 단위로만 가능
 원래 브랜치 단위로 날라가는게 맞음
 굳이 하고 싶다면 git push --all하면 됨
 
 
+---
 # git study repo 자동화 스크립트
 ```bash
 mkdir study
@@ -102,7 +111,13 @@ git push -u origin main
 
 https://github.com/qwerty-tommy/study
 
+---
+# remote origin 변경
+```git
+git remote set-url knockon https://github.com/Knock-On/Bootcamp_Web
+```
 
+---
 # troubleshooter
 
 - merge 중 충돌 해결하는 방법

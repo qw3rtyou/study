@@ -1,5 +1,11 @@
-Docker 이미지를 자세히 분석하게 만들어주는 툴
-https://github.com/wagoodman/dive
+---
+sticker: emoji//1f42c
+---
+# Dive
+- Docker 이미지를 자세히 분석하게 만들어주는 툴
+- https://github.com/wagoodman/dive
+
+---
 # 설치
 일반 계정으로 설치가 잘 안 됨
 ```sh

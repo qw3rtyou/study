@@ -1,2 +1,0 @@
-[[MARP]]
-[[Advanced Table]]

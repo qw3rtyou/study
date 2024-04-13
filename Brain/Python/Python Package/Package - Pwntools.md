@@ -1,7 +1,12 @@
+# Pwntools
+- 쉘코드 생성, 바이너리 분석 등등 다양한 기능을 탑재한 라이브러리
+- pwnable에 용이함
+
+---
 # ~~호환성~~
 ~~python3 커맨드를 사용하거나
 python3.6 혹은 2.7을 사용해야지만 pwn모듈 import가능~~
-
+요즘은 이런 이슈 없는듯
 
 # 설치
 ```sh
@@ -11,22 +16,24 @@ python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade pwntools
 ```
 
-
+---
 # 사용법
 
 pwntools 모듈을 임포트
 
-	from pwn import *
+`from pwn import *`
 
 ​
 디버깅할 때 좋음 무슨 입력을 했고, 어떤 출력을 받았는지 잘 보여줌
 
-	context.log_level = 'debug'
+`context.log_level = 'debug'`
 
 ### remote
 
-	remote("주소", 포트)
-	`p=remote("host3.dreamhack.games",12294)`
+```
+remote("주소", 포트)
+p=remote("host3.dreamhack.games",12294)
+```
 
 nc 서버에 접속할 때 주로 쓰임
 
@@ -117,12 +124,14 @@ remote는 이렇게 되어있다.
 ### process
 remote는 서버 접속이라면, process는 로컬 파일 접속
 
-	process("파일 이름")
+`process("파일 이름")`
 
 또한 이것과 연계해서
 
-	r = process("파일 이름")
-	gdb.attach(r)
+```
+r = process("파일 이름")
+gdb.attach(r)
+```
 	
 옵션으로 gdb.attach(r, "실행될 명령어")를 쓰기도 한다. break 거는데 유용
 
@@ -222,7 +231,7 @@ context.arch = "i386" # x86 아키텍처
 context.arch = "arm" # arm 아키텍처
 ```
 
-
+---
 # shellcraft
 자주 사용되는 쉘코드를 이용할 수 있음
 매우 편리한 기능이지만 정적으로 생성된 셸 코드는 셸 코드가 실행될 때의 메모리 상태를 반영하지 못함
@@ -249,6 +258,7 @@ yscall
 ```
 
 
+---
 # 어셈블하기
 아키텍처를 미리 설정해야 함 
 
@@ -268,11 +278,12 @@ $ python3 asm.pyb'jhH\xb8/bin///sPH\x89\xe7hri\x01\x01\x814$\x01\x01\x01\x011\xf
 ```
 
 
+---
 # 바이트 순서 뒤집기
 1. `cnry=p64(u64(cnry), endian='big')`
 2. `cnry[::-1]`
 
-
+---
 # 각종 변환
 `p32`, `u32` 함수들이 유용하지만, 때로는 정확히 4, 8바이트 단위로 나눠진 바이트가 아니라 
 직접 바이트를 만들어야 할 때가 있음

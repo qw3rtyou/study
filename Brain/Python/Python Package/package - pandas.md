@@ -1,5 +1,8 @@
+# Pandas
+2차원의 자료를 다루기 위함
 numpy를 이용해 만듬
 
+---
 # Series
 Series는 1차원 array를 다루는 pandas 라이브러리의 고유 자료형
 numpy array랑 pandas Series랑 비슷한 기능을 한다고 생각하면 됨

@@ -1,3 +1,6 @@
+---
+sticker: lucide//folder-cog
+---
 # URL 인코딩
 
 

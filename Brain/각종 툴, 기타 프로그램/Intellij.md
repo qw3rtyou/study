@@ -1,3 +1,9 @@
+---
+sticker: lucide//pen-tool
+---
+# Intellij
+- brain t
+
 # Shortcut
 | 단축키 | 기능 |
 | ---- | ---- |

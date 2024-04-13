@@ -1,5 +1,5 @@
 [[WebCrawling]]
 [[WebScraping]]
-[[package - Request]]
+[[package - Requests]]
 [[package - BeautifulSoup]]
 [[package - Selenium]]

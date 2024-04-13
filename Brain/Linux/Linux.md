@@ -8,6 +8,7 @@ cat /etc/*release
 uname -m
 ```
 
+---
 # 리다이렉션(>)
 모니터에 나타나는 표준 출력 혹은 키보드로 입력하는 표준 입력을 다른 곳으로 변경하는 작업
 주로 어떤 명령어의 결과를 파일로 저장하거나, 다른 명령어의 입력으로 전달하는 형태로 리다이렉션 함
@@ -26,7 +27,7 @@ cat은 일반적으로 cat 명령어 다음 입력한 내용을 모니터로
 
 &>/dev/null: 모든 출력을 /dev/null로 리다이렉션하여 출력을 무시
 
-
+---
 # 와일드카드
 와일드카드(wildcards)는 리눅스에서 임의의 다른 문자를 나타낼 수 있는 특수 문자
 ## `?`
@@ -117,7 +118,7 @@ user@user-VirtualBox:~/new_dir$
 ```
 
 
-
+---
 # 특수 권한
 setuid 
 일반 사용자가 파일을 실행하면 파일 소유자 권한으로 실행됨
@@ -167,7 +168,7 @@ drwxrwxr-x 2 user user 4096 12월 2 13:38 dir
 ```
 
 
-
+---
 # 압축
 보통 songs.tar.gz 이런 식으로 되어있는데
 먼저 gzip을 풀어서 songs.tar로 만드고
@@ -197,6 +198,8 @@ tar 프로그램을 사용하여 파일을 합친 후, 또 다시 gzip 을 사�
 tgz
 위의 tar.gz 을 합쳐서 tgz라는 확장자로 만듬
 
+
+---
 # 주요 리눅스 디렉토리 구조	
 
 ## `/bin`
@@ -246,6 +249,7 @@ tgz
 예를 들어 `/var/log`에는 다양한 로그 파일이 저장됨
 	
 
+---
 # 주요 파일들
 
 /etc/passwd		사용자들에 대한 간단한 정보가 들어있음
@@ -256,6 +260,7 @@ tgz
 ~/public_html	각 사용자의 홈페이지 파일, 보통 해킹 후 수정함
 
 
+---
 # 모니터링 명령어
 
 프로세스 확인
@@ -274,6 +279,7 @@ tgz
 `lsblk` : 디스크 및 파티션 정보를 확인
 
 
+---
 # nc
 `nc hostname(ip) port`
 
@@ -289,6 +295,7 @@ Cross-Origin-Opener-Policy-Report-Only: same-origin-allow-popups; report-to="gws
 ```
 
 
+---
 # ssh
 SSH (Secure Shell, Secure Socket Shell) 원격 서버(컴퓨터)에 연결할 수 있도록 해 주는 암호화된 네트워크 프로토콜
 
@@ -306,12 +313,13 @@ ssh 접속할 때는 원격 서버에 존재하는 계정으로 접속
 공개 키-개인 키 쌍은 `ssh-keygen` 명령으로 생성할 수 있음
 
 
-
-
+---
 # scp
 파일 전송 명령어
 `scp -p 5022 Foo1@211.250.216.249:/root/rv-sh /root/`
 
+
+---
 # tty
 리눅스에선 사용자마다 임시 터미널을 받음 
 해당 터미널을 식별할 때 사용
@@ -321,21 +329,21 @@ qwertyou@DESKTOP-8HVF2JQ:~$ tty
 /dev/pts/0
 ```
 
-
+---
 # /dev/sda
 리눅스 시스템에서 첫 번째 SCSI(Small Computer System Interface) 디스크
 SCSI 디스크는 하드 디스크 또는 SSD와 같은 데이터 저장 장치
 `/dev/sdb`, `/dev/sdc` 등의 이름은 두 번째, 세 번째 SCSI 디스크를 나타냄
 `/dev/sda3`는 `/dev/sda` 디스크의 세 번째 파티션
 
-
+---
 # 머신이름 변경
 ```sh
 sudo hostnamectl set-hostname [name]
 ```
 
 
-
+---
 # 특정 유저 권한 공유
 - 정확히 말하면 홈디렉토리 공유 방법임
 ```sh
@@ -343,7 +351,7 @@ sudo setfacl -m u:jeongwon:rwx /home/test2
 ```
 
 
-
+---
 # 설치 스크립트 모음
 한글 폰트
 
@@ -406,6 +414,7 @@ sudo apt-get install openssh-server
 ```
 
 
+---
 # Troubleshoot
 ### 공개키 오류
 
@@ -419,8 +428,8 @@ wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key |
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5
 ```
 
-
-# 리눅스랑 놀기
+---
+# 리눅스에서 놀기
 * 설치 패키지 명령어
 ```sh
 apt-get install sl     

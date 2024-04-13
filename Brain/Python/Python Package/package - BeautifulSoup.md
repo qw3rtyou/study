@@ -1,7 +1,8 @@
-
+# BeautifulSoup
 [[CSS Selector]]
 request로 얻은 데이터에서 필요한 정보만 산출하는 라이브러리
 
+---
 # 원하는 태그 선택하기
 
 soup.select는 해당 되는 태그가 하나라도 리스트를 반환한다.

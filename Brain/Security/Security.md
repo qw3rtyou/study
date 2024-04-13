@@ -6,7 +6,7 @@ _sort:
   field: rank
   asc: false
   group: false
-sticker: lucide//shield-alert
+sticker: emoji//1f6e1-fe0f
 ---
 [[Web-Hacking]]
 [[Reversing]]
