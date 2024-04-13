@@ -106,7 +106,7 @@ root로 실행
 
 ### 리소스 정리
 - 캐시, 디스크 등등 안쓰는 리소스 정리
-`docker system prune -a -f` 
+ 
 
 - 안쓰는 이미지 정리
 `docker rmi $(docker images -q) -f`
@@ -124,7 +124,6 @@ root로 실행
 #!/bin/sh
 docker run -t -i --rm=true sandbox sh -c "echo 'readme test' > /home/guest/README && /bin/bash"
 ```
-
 
 ---
 # 실제 사용 스크립트

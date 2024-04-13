@@ -30,6 +30,9 @@ user HpSt3!GH+73r
 실습 서버 도메인
 http://ssh.knock-on.org:10000/
 
+scp -r C:\Users\User\Downloads/"Switching Command" jeongwon@ssh.knock-on.org:~/kknock_weekly/week1
+
+=======
 서버 접속 방법(#)
 .pem 파일 .ssh파일로 옮긴 후  
 
@@ -44,7 +47,7 @@ ssh ubuntu@ssh.knock-on.org -i ~/knockon.pem
 wsl
 ssh ubuntu@ssh.knock-on.org -i ~/.ssh/
 
-scp -i ~/knockon.pem ubuntu@ssh.knock-on.org:/home/foo1/.ssh/id_rsa ~/.ssh/
+scp -i "C:\Users\User\.ssh\knockon.pem" ubuntu@ssh.knock-on.org:/tmp/knockon_foo1.pem "C:\Users\User\.ssh\knockon_foo1.pem"
 
 ```
 
