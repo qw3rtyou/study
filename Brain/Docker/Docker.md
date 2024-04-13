@@ -221,6 +221,10 @@ docker run -t -i --rm=true sandbox sh -c "echo 'readme test' > /home/guest/READM
 docker-compose logs app
 ```
 
+```
+docker-compose logs -f app
+```
+
 # 실제 사용 스크립트
 
 ```

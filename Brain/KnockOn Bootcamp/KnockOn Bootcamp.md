@@ -47,7 +47,7 @@ ssh ubuntu@ssh.knock-on.org -i ~/knockon.pem
 wsl
 ssh ubuntu@ssh.knock-on.org -i ~/.ssh/
 
-scp -i ~/knockon.pem ubuntu@ssh.knock-on.org:/home/foo1/.ssh/id_rsa ~/.ssh/
+scp -i "C:\Users\User\.ssh\knockon.pem" ubuntu@ssh.knock-on.org:/tmp/knockon_foo1.pem "C:\Users\User\.ssh\knockon_foo1.pem"
 
 ```
 
