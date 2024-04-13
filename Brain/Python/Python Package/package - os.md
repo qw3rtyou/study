@@ -1,3 +1,4 @@
+# OS
 운영체제에서 제공되는 여러 기능을 파이썬에서 수행하게 해줌
 
 ```python
@@ -7,6 +8,7 @@ import os
 print(os.name)
 ```
 
+---
 # 파일 용량 접근
 
 ```python

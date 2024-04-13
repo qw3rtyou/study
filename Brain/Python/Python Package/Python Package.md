@@ -2,10 +2,10 @@
 sticker: emoji//1f1f5-1f1fe
 ---
 [[package - BeautifulSoup]]
-[[package - Request]]
+[[package - Requests]]
 [[package - Selenium]]
 [[package - zipfile]]
 [[package - os]]
-[[package - shutile]]
+[[package - shutil]]
 [[package - numpy]]
 [[package - pandas]]

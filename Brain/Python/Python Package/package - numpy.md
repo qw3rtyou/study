@@ -1,3 +1,4 @@
+# Numpy
 numerical python의 준말
 숫자와 관련된 파이썬 도구
 numpy 배열은 일반적인 list와 유사하지만 ds를 다루는데 적합한 자료형임
@@ -23,7 +24,7 @@ array2.size
 ```
 
 
-
+---
 # numpy array를 만드는 다양한 방법
 numpy 모듈의 array 메소드에 파라미터로 리스트를 넘겨주면 됨
 
@@ -57,6 +58,7 @@ array8 = numpy.arange(2, 7)    #[2 3 4 5 6]
 array9 = numpy.arange(3, 17, 3)    #[ 3  6  9 12 15]
 ```
 
+---
 # numpy 인덱싱/슬라이싱
 
 ```python
@@ -81,6 +83,7 @@ arr[:5]        2,3,5,7,5
 arr[1:4:2]        3,7
 ```
 
+---
 # numpy 기본연산
 
 ```python
@@ -94,6 +97,7 @@ array1*2        #[0,2,4,6,8,10,12,14,16,18]
 array1*array2    #[10, 12, 14, 16, 18, 20, 22, 24, 26, 28]
 ```
 
+---
 # numpy 불린연산
 numpy array에는 불린 값도 넣어 둘 수 있고 연산도 할 수 있다.
 
@@ -116,6 +120,7 @@ array1[filter]        #인덱스가 적힌 값 출력
 >>array([ 5,  7, 11, 13, 17, 19, 23, 29, 31])
 ```
 
+---
 # numpy 라이브러리의 기본적인 통계 기능
 array1.max()    최대값
 array1.min()    최소값
@@ -124,7 +129,8 @@ np.median(array2)    중앙값
 array1.std()    표준편차
 array1.var()    분산
 
-# tip
+---
+# Tip
 #### 자주 발생하는 오류
 'Series' objects are mutable, thus they cannot be hashed
 ->인덱싱 할 때 Dataframe에 .loc 붙였는지 확인

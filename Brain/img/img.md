@@ -6,5 +6,5 @@ _sort:
   field: rank
   asc: false
   group: false
-sticker: lucide//image-minus
+sticker: emoji//1f5bc-fe0f
 ---

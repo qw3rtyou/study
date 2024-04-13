@@ -13,6 +13,7 @@ sticker: emoji//1f1f5-1f1fe
 [[Python - OOP]]
 [[Algorithm - Python]]
 
+---
 # print()
 1. 형식지정자 이용
 (1) 소수점 표현
@@ -30,7 +31,7 @@ sticker: emoji//1f1f5-1f1fe
 
 	print("줄바꿈은 싫어!", end='')
 
-
+---
 # 다차원 리스트 정렬
 1. 기본적인 정렬
 
@@ -62,7 +63,7 @@ list=sorted(list,key=cmp_to_key(cmp))
 이러면 내림차순인데 -연산자가 안되는 자료형이면 불가능
 
 
-
+---
 # defualtdict
 주어지는 키가 없다면 오류를 일으키는 기존 딕셔너리와는 달리 자동으로 생성하고
 지정한 비어있는 자료형을 바로 할당한다.
@@ -76,7 +77,7 @@ for i in range(n):
 	graph[e].append(s)
 ```
 
-
+---
 # lambda 함수
 런타임 중 사용하다 버리는 익명함수
 리턴문x
@@ -94,7 +95,7 @@ for i in range(n):
 	reduce()
 
 
-
+---
 # iterator,iterable,generator
 ### 요약
 기본자료형들은 iterable를 상속받고 있다
@@ -233,7 +234,7 @@ print(n**2 for n in range(1,11))
 ```
 어떤 함수의 유일한 인자라면 expression의 ()를 생략해도 된다.
 	
-
+---
 
 # 객체 분석하기
 1. dir(object)
@@ -245,6 +246,7 @@ mro()는 상속의 구조를 확인할 수 있다
 
 3. object.\_\_class\_\_()
 
+---
 # 파이썬에서의 언더스코어(\_)
 1. 인터프리터에서 사용
 파이썬에서 마지막에 실행된 결과값이 _라는 변수에 저장됨
@@ -306,7 +308,7 @@ _ClassName__method로 맹글링
 7. 국제화(i18n)/지역화(l10n) 함수로 사용되는 경우
 음.. 잘모르겠다.. 패스..
 
-
+---
 
 # ternary expression
 간단한 if문을 한줄로 표현가능
@@ -325,6 +327,7 @@ print(squares)               # [1, 4, 9, 16, 25, 36]
 
 ```
 
+---
 # zfill
 문자열을 최소 몇 자리 이상을 가진 문자열로 변환시켜줌
 이때 만약 모자란 부분은 왼쪽에 “0”을 채워줌
@@ -344,6 +347,7 @@ print("abc".zfill(8))
 00000abc
 ```
 
+---
 
 # 모듈
 모듈(module)이란 변수, 함수, 클래스 등을 모아놓은 파일
@@ -367,6 +371,7 @@ as 는 조사가 아닌 aliasing의 준말임
 	from matpolotlib.pyplot as plt
 
 
+---
 
 # randint, uniform
 모두 random 모듈에 있다.
@@ -381,7 +386,7 @@ as 는 조사가 아닌 aliasing의 준말임
 		# 0 <= N <= 1을 만족하는 랜덤한 소수(난수) N을 리턴
 ```
 
-
+---
 # 가변타입 불변타입
 - 인스턴스의 속성 변경 가능, 변경 불가 차이
 
@@ -401,13 +406,13 @@ data = list(map(int, input().split()))
 max_subsum = data.copy()
 ```
 
-
+---
 # 문자열이 숫자인지 문자인지 판별하기
 string.isdigit()은 string이 숫자인지를 불린으로 리턴하는 함수
 유니코드는 true 음수는 false를 리턴한다.
 
 
-
+---
 # 문자열 메소드
 STRING.strip()
     문자열 양쪽 공백 제거
@@ -457,7 +462,7 @@ isdigit()
 	모두 숫자로 이뤄져 있는지 불린 형식으로 리턴
 
 
-
+---
 # datetime 모듈
 파이썬에서 날짜와 시간 데이터를 다룰 때는 datetime 모듈을 많이 사용
 datetime 객체 자체로 날짜와 시간을 더하고 빼는 등의 연산 가능
@@ -516,7 +521,7 @@ print(now_time)
 	%X	시간을 출력, 현재 시간대 기준	'11:44:22'
 
 
-
+---
 # 인터프리터 명시적으로 정하기
 스크립트 파일의 첫 줄에 주석으로 작성되는 특별한 구문
 shebang이라고 함
@@ -529,14 +534,14 @@ shebang이라고 함
 $ chmod +x script.py
 $ ./script.py
 
-
+---
 # 파일 입출력
 
 
-
+---
 # deque
 
-
+---
 # global
 파이썬에서는 기본적으로 함수 내부에서 선언된 변수는 지역 변수(local variable)로 취급되며 해당 함수 내에서만 사용할 수 있음
 반대로 함수 외부에서 선언된 변수는 전역 변수(global variable)로 취급되며 프로그램 어디서든 사용할 수 있음
@@ -546,8 +551,8 @@ $ ./script.py
 
 한 가지 더 생각해볼 것은, 이는 **변경**할 때 문제가 생기는 것이기 때문에  단순 참조는 `global`을 필요로 하지 않음
 
-
-# 오류
+---
+# 한글 인코딩 이슈
 
 코드 내에 한글이 있다면 인코딩 오류남
 ```python

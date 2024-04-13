@@ -1,0 +1,103 @@
+---
+sticker: emoji//1f433
+---
+# Dockerfile
+도커 이미지를 빌드하기 위해서는 Dockerfile이 필요
+**Dockerfile**은 이미지를 생성하는데 필요한 명령어를 포함하여 모든 설정이 정의된 파일
+운영체제와 버전, 환경 변수, 파일 시스템, 사용자 등을 정의
+
+```Dockerfile
+# 주석
+명령어 인자 
+# ---예시---
+FROM ubuntu:18.04
+```
+
+Dockerfile은 `FROM` 명령어로 시작
+이후에는 순서대로 명령어를 실행
+
+
+## FROM
+생성할 이미지의 기반이 되는 base 이미지를 지정함
+보통 사용할 운영체제의 공식 이미지를 Dockerhub에서 가져옴
+
+`FROM 이미지:태그`
+`FROM ubuntu:18.04`
+
+## ENV
+Dockerfile 내에서 사용하는 환경 변수를 지정
+파일 내에서 변수는 `$변수명` 혹은 `${변수명}` 형태로 표현
+
+`ENV 변수명 값` or `ENV 변수명=값`
+`ENV PYTHON_VERSION 3.11.2` → `.../python/$PYTHON_VERSION/...`
+
+## RUN
+이미지를 빌드할 때 실행할 명령어를 작성함
+필요한 패키지를 설치하거나, 파일 권한 설정 등의 작업을 수행
+
+`RUN 명령어` or `RUN ["명령어", "인자1", "인자2"]`
+`RUN apt-get update`
+`RUN ["/bin/bash", "-c", "echo hello"]`
+
+## COPY
+src 파일이나 디렉토리를 이미지 파일 시스템의 dst로 복사
+
+`COPY src dst`
+`COPY . /app`
+
+## ADD
+src 파일이나 디렉토리, URL을 이미지 파일 시스템의 dst로 복사
+
+`ADD src dst`
+`ADD . /app`
+
+## WORKDIR
+Dockerfile 내의 명령을 수행할 작업 디렉토리를 지정
+리눅스의 `cd` 명령어와 유사
+
+`WORKDIR 디렉토리
+`WORKDIR /home/user`
+
+## USER
+
+명령을 수행할 사용자 혹은 그룹을 지정
+
+`USER 사용자명|UID` or `USER [사용자명|UID]:[그룹명|GID]`
+`USER $username`
+
+## EXPOSE
+컨테이너가 실행 중일 때 들어오는 네트워크 트래픽을 리슨할 포트와 프로토콜을 지정
+사용할 수 있는 프로토콜은 TCP와 UDP이며, 기본적으로 TCP가 지정
+
+`EXPOSE 포트` or `EXPOSE 포트/프로토콜`
+`EXPOSE 80/tcp`
+
+
+## ENTRYPOINT
+
+`ENTRYPOINT 명령어` or `ENTRYPOINT ["명령어", "인자1", "인자2"]`
+
+컨테이너가 실행될 때 수행할 명령어를 지정합니다.
+
+`ENTRYPOINT ["echo", "hello"]`
+
+## CMD
+컨테이너가 실행될 때 수행할 명령어를 지정하거나, `ENTRYPOINT` 명령어에 인자를 전달
+
+`CMD 명령어` or `CMD ["명령어", "인자1", "인자2"]` or `CMD ["인자1", "인자2"]`
+`CMD ["echo", "hello"]`
+
+Dockerfile 내에 `CMD` 명령이 여러 개 존재하면 마지막 `CMD`를 사용
+`docker run`의 인자를 작성하면 `CMD` 명령어는 무시
+`ENTRYPOINT`가 있는 경우, `docker run`의 인자가 `ENTRYPOINT`의 인자로 들어감
+
+
+Dockerfile이 아래와 같은 경우
+
+```Dockerfile
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+```
+
+`docker run [이미지]`로 컨테이너를 실행하면 `python app.py`를 실행
+`docker run [이미지] test.py`로 컨테이너를 실행하면 `python test.py`를 실행

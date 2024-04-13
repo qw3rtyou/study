@@ -1,10 +1,10 @@
 ---
-sticker: emoji//1f1f2-1f1e9
 _filters: []
 _contexts: []
 _links: []
 _sort:
-  field: name
-  asc: true
+  field: rank
+  asc: false
   group: false
+sticker: emoji//2754
 ---

@@ -1,7 +1,14 @@
+---
+sticker: lucide//settings
+---
+# virtualenv
+- 하나의 머신 혹은 환경에서 여러가지 다른 파이썬 버전, 패키지를 종속할 수 있게 만들어주는 프로그램
+---
 # 현재 설정된 파이썬 버전
 global 3.9
 Security/Pwnable/pwnable_env 3.6
 
+---
 # pip 커맨드
 `pip install --upgrade pip	pip` 최신버전 업그레이드
 `pip install some_package`	패키지 다운

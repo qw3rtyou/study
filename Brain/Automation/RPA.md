@@ -1,3 +1,3 @@
 [[package - os]]
-[[package - shutile]]
+[[package - shutil]]
 [[package - zipfile]]
