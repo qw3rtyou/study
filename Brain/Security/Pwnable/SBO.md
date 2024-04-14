@@ -1,2 +1,4 @@
 # 배경
-Stack Buffer Overflow 
+- Stack Buffer Overflow 
+- 스택 용량을 초과하여 데이터를 쓸 때 발생하는 보안 취약점을 이용한 공격
+- [[RAO]], [[RTL]], [[ROP]] 등등 다양한 스택 공격이 있을 수 있음

