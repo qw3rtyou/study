@@ -106,7 +106,7 @@ root로 실행
 
 ### 리소스 정리
 - 캐시, 디스크 등등 안쓰는 리소스 정리
- 
+ `docker system prune`
 
 - 안쓰는 이미지 정리
 `docker rmi $(docker images -q) -f`
