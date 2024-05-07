@@ -12,8 +12,6 @@ sticker: emoji//1f955
 # 접속 정보
 ```sh
 김연우가 삽질할 회사!
-#admin account 
-ssh ubuntu@13.230.131.70 -i C:\Users\hamme.ssh\knockOn_main_server.pem
 
 #sandbox account 
 ssh sandbox@ssh.knock-on.org pw : knockOn!!
@@ -25,30 +23,15 @@ ssh jeongwon@ssh.knock-on.org
 (ham13)
 
 녹온 홈페이지 워드프레스
+https://www.knock-on.org/
 user HpSt3!GH+73r
 
 실습 서버 도메인
 http://ssh.knock-on.org:10000/
 
-scp -r C:\Users\User\Downloads/"Switching Command" jeongwon@ssh.knock-on.org:~/kknock_weekly/week1
-
-=======
-서버 접속 방법(#)
-.pem 파일 .ssh파일로 옮긴 후  
-
-cmd
-ssh ubuntu@ssh.knock-on.org -i "C:\Users\hamme\.ssh\knockon.pem"
-
-.pem 파일 ~로 옮긴 후
-wsl
-ssh ubuntu@ssh.knock-on.org -i ~/knockon.pem
-
-서버 접속 방법(~)
-wsl
-ssh ubuntu@ssh.knock-on.org -i ~/.ssh/
-
-scp -i "C:\Users\User\.ssh\knockon.pem" ubuntu@ssh.knock-on.org:/tmp/knockon_foo1.pem "C:\Users\User\.ssh\knockon_foo1.pem"
-
+씨탭 서버 도메인
+http://war.knock-on.org/login
+KnockOn Hacker07!
 ```
 
 - 도커 관련

@@ -118,6 +118,20 @@ git remote set-url knockon https://github.com/Knock-On/Bootcamp_Web
 ```
 
 ---
+# Github에 올라간 커밋 삭제하기
+```
+User@DESKTOP-7B0UB35 MINGW64 ~/Desktop/moive/project-9- (TC-4)
+$ git reset --hard b91af73e
+HEAD is now at b91af73 Spring 초기 세팅, DB연동, 로그인, 회원가입 구현
+
+User@DESKTOP-7B0UB35 MINGW64 ~/Desktop/moive/project-9- (TC-4)
+$ git push -f origin Sprint-1
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/amsul73/project-9-
+ + dedb382...b91af73 Sprint-1 -> Sprint-1 (forced update)
+```
+
+---
 # troubleshooter
 
 - merge 중 충돌 해결하는 방법
