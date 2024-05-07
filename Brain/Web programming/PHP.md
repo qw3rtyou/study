@@ -59,3 +59,20 @@ zip파일의 압축을 풀고 해당파일을 실행(웹쉘 응용)
 ```
 ?page_num=zip://file.zip#web_shell.php
 ```
+
+
+# Destucturing? Python 처럼 Swap 가능
+- swap 관련 구현체 보다가 알게된건데, 파이썬처럼 `[$ret[$i], $ret[$p]] = [$ret[$p], $ret[$i]];` 이렇게 사용할 수 있음
+``` php
+function draw($n, $k) {
+    $ret = range(1, $n);
+    for ($i = 0; $i < $n - 1; $i++) {
+        $p = rand($i, $n - 1);
+        [$ret[$i], $ret[$p]] = [$ret[$p], $ret[$i]];
+    }
+    $ret = array_slice($ret, 0, $k);
+    sort($ret);
+    return $ret;
+}
+```
+
