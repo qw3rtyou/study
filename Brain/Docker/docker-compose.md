@@ -61,6 +61,16 @@ services:
 
 ```
 
+- dockerifle만 있는 경우
+```
+version: "3.8"
+services:
+  app:
+    build: .
+    ports:
+      - "8888:80"
+```
+
 - `volumes` 섹션은 컨테이너와 호스트 사이, 또는 여러 컨테이너 간에 영구적으로 저장하고 공유하기 위해 사용됨
 
 ---

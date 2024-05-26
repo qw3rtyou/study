@@ -138,6 +138,7 @@ document.getElementById
 ```
 
 
+즉 결론적으로 `location.href`를 바꾸는 부분과 window 객체를 사용중이면 js코드를 실행시키는 동작이 가능함
 
 
 ---
