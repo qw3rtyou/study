@@ -1,5 +1,5 @@
 ---
-sticker: lucide//router
+sticker: emoji//1f1ee-1f1f4
 ---
 ```sh
 dd

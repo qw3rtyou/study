@@ -10,6 +10,3 @@ sticker: lucide//folder-cog
 # SHA
 
 
-
-# PHP Filter Chain
-
