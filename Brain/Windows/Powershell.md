@@ -1,3 +1,6 @@
+---
+sticker: lucide//power
+---
 # Powershell
 - Microsoft가 개발한 강력한 명령줄 쉘 및 스크립팅 언어
 - 주로 Windows 환경에서 사용
