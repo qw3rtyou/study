@@ -9,41 +9,6 @@ _sort:
 sticker: emoji//1f955
 ---
 
-# 접속 정보
-```sh
-김연우가 삽질할 회사!
-
-#sandbox account 
-ssh sandbox@ssh.knock-on.org pw : knockOn!!
-
-ssh ubuntu@ssh.knock-on.org
-rladusdnrk tkqwlfgkf ghltk!
-
-ssh jeongwon@ssh.knock-on.org
-(ham13)
-
-녹온 홈페이지 워드프레스
-https://www.knock-on.org/
-user HpSt3!GH+73r
-
-실습 서버 도메인
-http://ssh.knock-on.org:10000/
-
-씨탭 서버 도메인
-http://war.knock-on.org/login
-KnockOn Hacker07!
-```
-
-- 도커 관련
-```
-sudo usermod -aG docker username
-groups username
-
-```
-
-
-
-
 # 자료 제작
 [[Linux - 시험 만들기]]
 [[C - 배열 자료 만들기]]
